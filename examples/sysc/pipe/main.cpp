@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2004 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -76,12 +76,12 @@ int sc_main(int ac, char *av[])
   display D("display");             //instance of `display' module
   D(powr, clk);                     //Positional port binding 
 
-  sc_initialize();                  //Initialize simulation
+  sc_start(0);                  //Initialize simulation
   for(int i = 0; i < 50; i++){
       clk.write(1);
-      sc_cycle( 10 NS );
+      sc_start( 10 NS );
       clk.write(0);
-      sc_cycle( 10 NS );
+      sc_start( 10 NS );
   }
 
   return 0;

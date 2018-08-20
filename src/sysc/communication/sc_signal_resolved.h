@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,27 +37,27 @@
 #define SC_SIGNAL_RESOLVED_H
 
 
-#include "systemc/communication/sc_signal.h"
+#include "sysc/communication/sc_signal.h"
 
-using sc_dt::sc_logic_value_t;
+namespace sc_core {
 
 class sc_process_b;
 
-extern const sc_logic_value_t sc_logic_resolution_tbl[4][4];
+extern const sc_dt::sc_logic_value_t sc_logic_resolution_tbl[4][4];
 
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_logic_resolve
 //
-//  Resolution function for sc_logic.
+//  Resolution function for sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
 
 class sc_logic_resolve
 {
 public:
 
-    // resolves sc_logic values and returns the resolved value
-    static void resolve( sc_logic&, const sc_pvector<sc_logic*>& );
+    // resolves sc_dt::sc_logic values and returns the resolved value
+    static void resolve(sc_dt::sc_logic&, const sc_pvector<sc_dt::sc_logic*>&);
 };
 
 
@@ -68,15 +68,15 @@ public:
 // ----------------------------------------------------------------------------
 
 class sc_signal_resolved
-: public sc_signal<sc_logic>
+: public sc_signal<sc_dt::sc_logic>
 {
 public:
 
     // typedefs
 
-    typedef sc_signal_resolved  this_type;
-    typedef sc_signal<sc_logic> base_type;
-    typedef sc_logic            data_type;
+    typedef sc_signal_resolved         this_type;
+    typedef sc_signal<sc_dt::sc_logic> base_type;
+    typedef sc_dt::sc_logic            data_type;
 
 public:
 
@@ -113,11 +113,8 @@ public:
     this_type& operator = ( const this_type& a )
         { write( a.read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_signal_resolved"; }
 
 protected:
 
@@ -134,6 +131,7 @@ private:
     sc_signal_resolved( const this_type& );
 };
 
+} // namespace sc_core
 
 #endif
 

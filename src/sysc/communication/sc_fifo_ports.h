@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,9 +37,10 @@
 #define SC_FIFO_PORTS_H
 
 
-#include "systemc/communication/sc_port.h"
-#include "systemc/communication/sc_fifo_ifs.h"
+#include "sysc/communication/sc_port.h"
+#include "sysc/communication/sc_fifo_ifs.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_fifo_in<T>
@@ -144,11 +145,8 @@ public:
 	    *this, &in_if_type::data_written_event );
     }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_fifo_in"; }
 
 private:
 
@@ -159,10 +157,6 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <class T>
-const char* const sc_fifo_in<T>::kind_string = "sc_fifo_in";
-
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_fifo_out<T>
@@ -264,11 +258,8 @@ public:
 	    *this, &out_if_type::data_read_event );
     }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_fifo_out"; }
 
 private:
 
@@ -280,9 +271,7 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-template <class T>
-const char* const sc_fifo_out<T>::kind_string = "sc_fifo_out";
-
+} // namespace sc_core
 
 #endif
 

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,7 @@
 #define SC_FIX_H
 
 
-#include "systemc/datatypes/fx/sc_fxnum.h"
+#include "sysc/datatypes/fx/sc_fxnum.h"
 
 
 namespace sc_dt
@@ -1042,8 +1042,8 @@ operator op ( const tp1& a, const tp2& b )                                    \
     b.observer_read();                                                        \
     int iwl_a = a.iwl();                                                      \
     int iwl_b = b.iwl();                                                      \
-    int iwl_c = sc_max( iwl_a, iwl_b );                                       \
-    int fwl_c = sc_max( a.wl() - iwl_a, b.wl() - iwl_b );                     \
+    int iwl_c = sc_max( iwl_a, iwl_b );                              \
+    int fwl_c = sc_max( a.wl() - iwl_a, b.wl() - iwl_b );            \
     sc_fix c( iwl_c + fwl_c, iwl_c );                                         \
     for( int i = -fwl_c; i < iwl_c; ++ i )                                    \
 	c.set_bit( i, a.get_bit( i ) op2 b.get_bit( i ) );                    \
@@ -1754,8 +1754,8 @@ operator op ( const tp1& a, const tp2& b )                                    \
     b.observer_read();                                                        \
     int iwl_a = a.iwl();                                                      \
     int iwl_b = b.iwl();                                                      \
-    int iwl_c = sc_max( iwl_a, iwl_b );                                       \
-    int fwl_c = sc_max( a.wl() - iwl_a, b.wl() - iwl_b );                     \
+    int iwl_c = sc_max( iwl_a, iwl_b );                              \
+    int fwl_c = sc_max( a.wl() - iwl_a, b.wl() - iwl_b );            \
     sc_fix_fast c( iwl_c + fwl_c, iwl_c );                                    \
     for( int i = -fwl_c; i < iwl_c; ++ i )                                    \
 	c.set_bit( i, a.get_bit( i ) op2 b.get_bit( i ) );                    \

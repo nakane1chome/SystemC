@@ -11,14 +11,16 @@
  * purpose.
  */
 
-#ifndef QT_H
-#define QT_H
+#ifndef QUICKTHREADS_QT_H
+#define QUICKTHREADS_QT_H
+
+#if !defined(SC_USE_PTHREADS)
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <systemc/qt/qtmd.h>
+#include <sysc/qt/qtmd.h>
 
 
 /* A QuickThreads thread is represented by it's current stack pointer.
@@ -32,24 +34,24 @@ typedef struct qt_t {
 
 
 /* Alignment is guaranteed to be a power of two. */
-#ifndef QT_STKALIGN
+#ifndef QUICKTHREADS_STKALIGN
   #error "Need to know the machine-dependent stack alignment."
 #endif
 
-#define QT_STKROUNDUP(bytes) \
-  (((bytes)+QT_STKALIGN) & ~(QT_STKALIGN-1))
+#define QUICKTHREADS_STKROUNDUP(bytes) \
+  (((bytes)+QUICKTHREADS_STKALIGN) & ~(QUICKTHREADS_STKALIGN-1))
 
 
 /* Find ``top'' of the stack, space on the stack. */
-#ifndef QT_SP
-#ifdef QT_GROW_DOWN
-#define QT_SP(sto, size)	((qt_t *)(&((char *)(sto))[(size)]))
+#ifndef QUICKTHREADS_SP
+#ifdef QUICKTHREADS_GROW_DOWN
+#define QUICKTHREADS_SP(sto, size)	((qt_t *)(&((char *)(sto))[(size)]))
 #endif
-#ifdef QT_GROW_UP
-#define QT_SP(sto, size)	((qt_t *)(sto))
+#ifdef QUICKTHREADS_GROW_UP
+#define QUICKTHREADS_SP(sto, size)	((qt_t *)(sto))
 #endif
-#if !defined(QT_SP)
-  #error "QT_H: Stack must grow up or down!"
+#if !defined(QUICKTHREADS_SP)
+  #error "QUICKTHREADS_QT_H: Stack must grow up or down!"
 #endif
 #endif
 
@@ -72,38 +74,38 @@ typedef void (qt_cleanup_t)(void *pt, void *vuserf_return);
 
 
 /* Internal helper for putting stuff on stack. */
-#ifndef QT_SPUT
-#define QT_SPUT(top, at, val)	\
+#ifndef QUICKTHREADS_SPUT
+#define QUICKTHREADS_SPUT(top, at, val)	\
     (((qt_word_t *)(top))[(at)] = (qt_word_t)(val))
 #endif
 
 
 /* Push arguments for the non-varargs case. */
-#ifndef QT_ARGS
+#ifndef QUICKTHREADS_ARGS
 
-#ifndef QT_ARGS_MD
-#define QT_ARGS_MD (0)
+#ifndef QUICKTHREADS_ARGS_MD
+#define QUICKTHREADS_ARGS_MD (0)
 #endif
 
-#ifndef QT_STKBASE
+#ifndef QUICKTHREADS_STKBASE
   #error "Need to know the machine-dependent stack allocation."
 #endif
 
 /* All things are put on the stack relative to the final value of
    the stack pointer. */
-#ifdef QT_GROW_DOWN
-#define QT_ADJ(sp)	(((char *)sp) - QT_STKBASE)
+#ifdef QUICKTHREADS_GROW_DOWN
+#define QUICKTHREADS_ADJ(sp)	(((char *)sp) - QUICKTHREADS_STKBASE)
 #else
-#define QT_ADJ(sp)	(((char *)sp) + QT_STKBASE)
+#define QUICKTHREADS_ADJ(sp)	(((char *)sp) + QUICKTHREADS_STKBASE)
 #endif
 
-#define QT_ARGS(sp, pu, pt, userf, only) \
-    (QT_ARGS_MD (QT_ADJ(sp)), \
-     QT_SPUT (QT_ADJ(sp), QT_ONLY_INDEX, only), \
-     QT_SPUT (QT_ADJ(sp), QT_USER_INDEX, userf), \
-     QT_SPUT (QT_ADJ(sp), QT_ARGT_INDEX, pt), \
-     QT_SPUT (QT_ADJ(sp), QT_ARGU_INDEX, pu), \
-     ((qt_t *)QT_ADJ(sp)))
+#define QUICKTHREADS_ARGS(sp, pu, pt, userf, only) \
+    (QUICKTHREADS_ARGS_MD (QUICKTHREADS_ADJ(sp)), \
+     QUICKTHREADS_SPUT (QUICKTHREADS_ADJ(sp), QUICKTHREADS_ONLY_INDEX, only), \
+     QUICKTHREADS_SPUT (QUICKTHREADS_ADJ(sp), QUICKTHREADS_USER_INDEX, userf), \
+     QUICKTHREADS_SPUT (QUICKTHREADS_ADJ(sp), QUICKTHREADS_ARGT_INDEX, pt), \
+     QUICKTHREADS_SPUT (QUICKTHREADS_ADJ(sp), QUICKTHREADS_ARGU_INDEX, pu), \
+     ((qt_t *)QUICKTHREADS_ADJ(sp)))
 
 #endif
 
@@ -113,38 +115,38 @@ typedef void (qt_cleanup_t)(void *pt, void *vuserf_return);
    and we need to loop to copy nbytes of stuff on to the stack.
    But that's probably OK, it's not terribly cheap, anyway. */
 
-#ifdef QT_VARGS_DEFAULT
-#ifndef QT_VARGS_MD0
-#define QT_VARGS_MD0(sp, vasize)	(sp)
+#ifdef QUICKTHREADS_VARGS_DEFAULT
+#ifndef QUICKTHREADS_VARGS_MD0
+#define QUICKTHREADS_VARGS_MD0(sp, vasize)	(sp)
 #endif
-#ifndef QT_VARGS_MD1
-#define QT_VARGS_MD1(sp)	do { ; } while (0)
+#ifndef QUICKTHREADS_VARGS_MD1
+#define QUICKTHREADS_VARGS_MD1(sp)	do { ; } while (0)
 #endif
 
-#ifndef QT_VSTKBASE
+#ifndef QUICKTHREADS_VSTKBASE
   #error "Need base stack size for varargs functions."
 #endif
 
 /* Sometimes the stack pointer needs to munged a bit when storing
    the list of arguments. */
-#ifndef QT_VARGS_ADJUST
-#define QT_VARGS_ADJUST(sp)	(sp)
+#ifndef QUICKTHREADS_VARGS_ADJUST
+#define QUICKTHREADS_VARGS_ADJUST(sp)	(sp)
 #endif
 
 /* All things are put on the stack relative to the final value of
    the stack pointer. */
-#ifdef QT_GROW_DOWN
-#define QT_VADJ(sp)	(((char *)sp) - QT_VSTKBASE)
+#ifdef QUICKTHREADS_GROW_DOWN
+#define QUICKTHREADS_VADJ(sp)	(((char *)sp) - QUICKTHREADS_VSTKBASE)
 #else
-#define QT_VADJ(sp)	(((char *)sp) + QT_VSTKBASE)
+#define QUICKTHREADS_VADJ(sp)	(((char *)sp) + QUICKTHREADS_VSTKBASE)
 #endif
 
 extern qt_t *qt_vargs (qt_t *sp, int nbytes, void *vargs,
 		       void *pt, qt_startup_t *startup,
 		       qt_vuserf_t *vuserf, qt_cleanup_t *cleanup);
 
-#ifndef QT_VARGS
-#define QT_VARGS(sp, nbytes, vargs, pt, startup, vuserf, cleanup) \
+#ifndef QUICKTHREADS_VARGS
+#define QUICKTHREADS_VARGS(sp, nbytes, vargs, pt, startup, vuserf, cleanup) \
       (qt_vargs (sp, nbytes, vargs, pt, startup, vuserf, cleanup))
 #endif
 
@@ -159,26 +161,26 @@ typedef void *(qt_block_t)(qt_helper_t *helper, void *a0, void *a1,
 
 /* Rearrange the parameters so that things passed to the helper
    function are already in the right argument registers. */
-#ifndef QT_ABORT
+#ifndef QUICKTHREADS_ABORT
 extern void *qt_abort (qt_helper_t *h, void *a0, void *a1, qt_t *newthread);
 /* The following does, technically, `return' a value, but the
    user had better not rely on it, since the function never
    returns. */ 
-#define QT_ABORT(h, a0, a1, newthread) \
+#define QUICKTHREADS_ABORT(h, a0, a1, newthread) \
     do { qt_abort (h, a0, a1, newthread); } while (0)
 #endif
 
-#ifndef QT_BLOCK
+#ifndef QUICKTHREADS_BLOCK
 extern void *qt_block (qt_helper_t *h, void *a0, void *a1,
 		       qt_t *newthread);
-#define QT_BLOCK(h, a0, a1, newthread) \
+#define QUICKTHREADS_BLOCK(h, a0, a1, newthread) \
     (qt_block (h, a0, a1, newthread))
 #endif
 
-#ifndef QT_BLOCKI
+#ifndef QUICKTHREADS_BLOCKI
 extern void *qt_blocki (qt_helper_t *h, void *a0, void *a1,
 			qt_t *newthread);
-#define QT_BLOCKI(h, a0, a1, newthread) \
+#define QUICKTHREADS_BLOCKI(h, a0, a1, newthread) \
     (qt_blocki (h, a0, a1, newthread))
 #endif
 
@@ -186,4 +188,5 @@ extern void *qt_blocki (qt_helper_t *h, void *a0, void *a1,
 }		/* Match `extern "C" {' at top. */
 #endif
 
-#endif /* ndef QT_H */
+#endif // !defined(SC_USE_PTHREADS)
+#endif /* ndef QUICKTHREADS_H */

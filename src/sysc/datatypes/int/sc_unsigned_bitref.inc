@@ -1,7 +1,7 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
@@ -40,23 +40,23 @@
 //  Proxy class for sc_unsigned bit selection (r-value only).
 // ----------------------------------------------------------------------------
 
-// implicit conversion to bool
+// implicit conversion to uint64
 
-sc_unsigned_bitref_r::operator bool () const
+sc_unsigned_bitref_r::operator uint64 () const
 {
-    return m_obj.test( m_index );
+    return m_obj_p->test( m_index );
 }
 
 bool
 sc_unsigned_bitref_r::operator ! () const
 {
-    return ( ! m_obj.test( m_index ) );
+    return ( ! m_obj_p->test( m_index ) );
 }
 
 bool
 sc_unsigned_bitref_r::operator ~ () const
 {
-    return ( ! m_obj.test( m_index ) );
+    return ( ! m_obj_p->test( m_index ) );
 }
 
 
@@ -68,60 +68,88 @@ sc_unsigned_bitref_r::operator ~ () const
 
 // assignment operators
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator = ( const sc_unsigned_bitref_r& b )
 {
-    m_obj.set( m_index, (bool) b );
+    m_obj_p->set( m_index, (bool) b );
     return *this;
 }
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator = ( const sc_unsigned_bitref& b )
 {
-    m_obj.set( m_index, (bool) b );
+    m_obj_p->set( m_index, (bool) b );
     return *this;
 }
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator = ( bool b )
 {
-    m_obj.set( m_index, b );
+    m_obj_p->set( m_index, b );
     return *this;
 }
 
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator &= ( bool b )
 {
     if( ! b ) {
-	m_obj.clear( m_index );
+	m_obj_p->clear( m_index );
     }
     return *this;
 }
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator |= ( bool b )
 {
     if( b ) {
-	m_obj.set( m_index );
+	m_obj_p->set( m_index );
     }
     return *this;
 }
 
-sc_unsigned_bitref&
+const sc_unsigned_bitref&
 sc_unsigned_bitref::operator ^= ( bool b )
 {
     if( b ) {
-	m_obj.invert( m_index );
+	m_obj_p->invert( m_index );
     }
     return *this;
 }
 
+// #### OPTIMIZE
+void sc_unsigned_bitref::concat_set(int64 src, int low_i)
+{
+	bool value = 1 & ((low_i < 64) ? (src >> low_i) : (src >> 63));
+    m_obj_p->set(low_i, value);
+}
+
+void sc_unsigned_bitref::concat_set(const sc_signed& src, int low_i)
+{
+    if ( low_i < src.length() )
+        m_obj_p->set(low_i, src.test(low_i));
+    else
+        m_obj_p->set(low_i, src<0);
+}
+
+void sc_unsigned_bitref::concat_set(const sc_unsigned& src, int low_i)
+{       
+    if ( low_i < src.nbits )
+        m_obj_p->set(low_i, src.test(low_i));
+    else
+        m_obj_p->set(low_i, 0);
+}
+
+void sc_unsigned_bitref::concat_set(uint64 src, int low_i)
+{
+	bool value = ((low_i < 64) ? (src >> low_i)&1 : 0);
+    m_obj_p->set(low_i, value);
+}
 
 // other methods
 
 void
-sc_unsigned_bitref::scan( istream& is )
+sc_unsigned_bitref::scan( ::std::istream& is )
 {
     bool b;
     is >> b;

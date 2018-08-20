@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,17 +34,18 @@
  *****************************************************************************/
 
 
-#include "systemc/communication/sc_signal_ports.h"
+#include "sysc/communication/sc_signal_ports.h"
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
+#include "sysc/datatypes/bit/sc_lv_base.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_in<bool>
 //
 //  Specialization of sc_in<T> for type bool.
 // ----------------------------------------------------------------------------
-
-const char* const sc_in<bool>::kind_string = "sc_in";
-
 
 // called when elaboration is done
 
@@ -61,11 +62,11 @@ sc_in<bool>::end_of_elaboration()
     }
 }
 
-
 // called by sc_trace
 
 void
-sc_in<bool>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
+sc_in<bool>::add_trace(sc_trace_file* tf_, 
+	const std::string& name_) const
 {
     if( tf_ != 0 ) {
 	if( m_traces == 0 ) {
@@ -120,13 +121,10 @@ sc_in<bool>::vbind( sc_port_base& parent_ )
 //  Specialization of sc_in<T> for type sc_logic.
 // ----------------------------------------------------------------------------
 
-const char* const sc_in<sc_logic>::kind_string = "sc_in";
-
-
 // called when elaboration is done
 
 void
-sc_in<sc_logic>::end_of_elaboration()
+sc_in<sc_dt::sc_logic>::end_of_elaboration()
 {
     if( m_traces != 0 ) {
 	for( int i = 0; i < m_traces->size(); ++ i ) {
@@ -142,7 +140,8 @@ sc_in<sc_logic>::end_of_elaboration()
 // called by sc_trace
 
 void
-sc_in<sc_logic>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
+sc_in<sc_dt::sc_logic>::add_trace( sc_trace_file* tf_, 
+    const std::string& name_ ) const
 {
     if( tf_ != 0 ) {
 	if( m_traces == 0 ) {
@@ -153,7 +152,7 @@ sc_in<sc_logic>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
 }
 
 void
-sc_in<sc_logic>::remove_traces() const
+sc_in<sc_dt::sc_logic>::remove_traces() const
 {
     if( m_traces != 0 ) {
 	for( int i = m_traces->size() - 1; i >= 0; -- i ) {
@@ -168,13 +167,13 @@ sc_in<sc_logic>::remove_traces() const
 // called by pbind (for internal use only)
 
 int
-sc_in<sc_logic>::vbind( sc_interface& interface_ )
+sc_in<sc_dt::sc_logic>::vbind( sc_interface& interface_ )
 {
     return sc_port_b<if_type>::vbind( interface_ );
 }
 
 int
-sc_in<sc_logic>::vbind( sc_port_base& parent_ )
+sc_in<sc_dt::sc_logic>::vbind( sc_port_base& parent_ )
 {
     in_port_type* in_parent = DCAST<in_port_type*>( &parent_ );
     if( in_parent != 0 ) {
@@ -196,9 +195,6 @@ sc_in<sc_logic>::vbind( sc_port_base& parent_ )
 //
 //  Specialization of sc_inout<T> for type bool.
 // ----------------------------------------------------------------------------
-
-const char* const sc_inout<bool>::kind_string = "sc_inout";
-
 
 // destructor
 
@@ -248,11 +244,11 @@ sc_inout<bool>::end_of_elaboration()
     }
 }
 
-
 // called by sc_trace
 
 void
-sc_inout<bool>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
+sc_inout<bool>::add_trace( sc_trace_file* tf_, 
+    const std::string& name_ ) const
 {
     if( tf_ != 0 ) {
 	if( m_traces == 0 ) {
@@ -276,17 +272,14 @@ sc_inout<bool>::remove_traces() const
 
 
 // ----------------------------------------------------------------------------
-//  CLASS : sc_inout<sc_logic>
+//  CLASS : sc_inout<sc_dt::sc_logic>
 //
-//  Specialization of sc_inout<T> for type sc_logic.
+//  Specialization of sc_inout<T> for type sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
-
-const char* const sc_inout<sc_logic>::kind_string = "sc_inout";
-
 
 // destructor
 
-sc_inout<sc_logic>::~sc_inout()
+sc_inout<sc_dt::sc_logic>::~sc_inout()
 {
     if( m_init_val != 0 ) {
 	delete m_init_val;
@@ -298,7 +291,7 @@ sc_inout<sc_logic>::~sc_inout()
 // set initial value (can also be called when port is not bound yet)
 
 void
-sc_inout<sc_logic>::initialize( const data_type& value_ )
+sc_inout<sc_dt::sc_logic>::initialize( const data_type& value_ )
 {
     inout_if_type* iface = DCAST<inout_if_type*>( get_interface() );
     if( iface != 0 ) {
@@ -315,7 +308,7 @@ sc_inout<sc_logic>::initialize( const data_type& value_ )
 // called when elaboration is done
 
 void
-sc_inout<sc_logic>::end_of_elaboration()
+sc_inout<sc_dt::sc_logic>::end_of_elaboration()
 {
     if( m_init_val != 0 ) {
 	write( *m_init_val );
@@ -336,8 +329,8 @@ sc_inout<sc_logic>::end_of_elaboration()
 // called by sc_trace
 
 void
-sc_inout<sc_logic>::add_trace( sc_trace_file* tf_,
-			       const sc_string& name_ ) const
+sc_inout<sc_dt::sc_logic>::add_trace( sc_trace_file* tf_,
+			       const std::string& name_ ) const
 {
     if( tf_ != 0 ) {
 	if( m_traces == 0 ) {
@@ -348,7 +341,7 @@ sc_inout<sc_logic>::add_trace( sc_trace_file* tf_,
 }
 
 void
-sc_inout<sc_logic>::remove_traces() const
+sc_inout<sc_dt::sc_logic>::remove_traces() const
 {
     if( m_traces != 0 ) {
 	for( int i = m_traces->size() - 1; i >= 0; -- i ) {
@@ -359,5 +352,6 @@ sc_inout<sc_logic>::remove_traces() const
     }
 }
 
+} // namespace sc_core
 
 // Taf!

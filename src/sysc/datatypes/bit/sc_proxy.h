@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -45,17 +45,17 @@
 #define SC_PROXY_H
 
 
-#include "systemc/kernel/sc_cmnhdr.h"
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/datatypes/int/sc_signed.h"
-#include "systemc/datatypes/int/sc_unsigned.h"
-#include "systemc/datatypes/int/sc_int_base.h"
-#include "systemc/datatypes/int/sc_uint_base.h"
-#include "systemc/utils/sc_string.h"
-#include "systemc/datatypes/bit/sc_bit.h"
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_logic.h"
-#include "systemc/kernel/sc_macros.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
+#include "sysc/datatypes/int/sc_int_base.h"
+#include "sysc/datatypes/int/sc_uint_base.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/datatypes/bit/sc_bit.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_logic.h"
+#include "sysc/kernel/sc_macros.h"
 
 
 namespace sc_dt
@@ -102,8 +102,8 @@ assign_v_( sc_proxy<X>& px, const T& a );
 
 // other functions; forward declarations
 
-const sc_string convert_to_bin( const char* s );
-const sc_string convert_to_fmt( const sc_string& s, sc_numrep numrep, bool );
+const std::string convert_to_bin( const char* s );
+const std::string convert_to_fmt( const std::string& s, sc_numrep numrep, bool );
 
 
 // ----------------------------------------------------------------------------
@@ -114,7 +114,7 @@ const sc_string convert_to_fmt( const sc_string& s, sc_numrep numrep, bool );
 // ----------------------------------------------------------------------------
 
 template <class X>
-class sc_proxy
+class sc_proxy // #### : public sc_value_base
 {
 public:
 
@@ -398,24 +398,27 @@ public:
 
     // explicit conversions to character string
 
-    const sc_string to_string() const;
-    const sc_string to_string( sc_numrep ) const;
-    const sc_string to_string( sc_numrep, bool ) const;
+    const std::string to_string() const;
+    const std::string to_string( sc_numrep ) const;
+    const std::string to_string( sc_numrep, bool ) const;
 
 
     // explicit conversions
 
-    int to_int() const
+    inline int64 to_int64() const
 	{ return to_anything_signed(); }
+    inline uint64 to_uint64() const;
+    int to_int() const
+	{ return (int)to_anything_signed(); }
 
     unsigned int to_uint() const
-	{ return to_anything_unsigned(); }
+	{ return (unsigned int)to_anything_unsigned(); }
 
     long to_long() const
-	{ return to_anything_signed(); }
+	{ return (long)to_anything_signed(); }
 
     unsigned long to_ulong() const
-	{ return to_anything_unsigned(); }
+	{ return (unsigned long)to_anything_unsigned(); }
 
 #ifdef SC_DT_DEPRECATED
 
@@ -430,10 +433,17 @@ public:
 
     // other methods
 
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
+    void print( ::std::ostream& os = ::std::cout ) const
+	{ 
+	    // the test below will force printing in binary if decimal is 
+	    // specified.
+	    if ( sc_io_base(os, SC_DEC) == SC_DEC )
+	        os << to_string();
+	    else
+	        os << to_string(sc_io_base(os,SC_BIN),sc_io_show_base(os)); 
+	}
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
 protected:
 
@@ -441,7 +451,7 @@ protected:
     void check_wbounds( int n ) const; // check if word n accessible
 
     unsigned long to_anything_unsigned() const;
-    long to_anything_signed() const;
+    int64 to_anything_signed() const;
 };
 
 
@@ -694,14 +704,14 @@ X&
 sc_proxy<X>::assign_( const char* a )
 {
     X& x = back_cast();
-    sc_string s = convert_to_bin( a );
+    std::string s = convert_to_bin( a );
     int len = x.length();
     int s_len = s.length() - 1;
     int min_len = sc_min( len, s_len );
     int i = 0;
     for( ; i < min_len; ++ i ) {
 	char c = s[s_len - i - 1];
-	x.set_bit( i, sc_logic::char_to_logic[c] );
+	x.set_bit( i, sc_logic::char_to_logic[(unsigned int)c] );
     }
     // if formatted, fill the rest with sign(s), otherwise fill with zeros
     sc_logic_value_t fill = (s[s_len] == 'F' ? sc_logic_value_t( s[0] - '0' )
@@ -909,7 +919,7 @@ sc_proxy<X>::operator <<= ( int n )
 	sprintf( msg,
 		 "left shift operation is only allowed with positive "
 		 "shift values, shift value = %d", n );
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
     }
     if( n >= x.length() ) {
 	extend_sign_w_( x, 0, false );
@@ -965,7 +975,7 @@ sc_proxy<X>::operator >>= ( int n )
 	sprintf( msg,
 		 "right shift operation is only allowed with positive "
 		 "shift values, shift value = %d", n );
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
     }
     if( n >= x.length() ) {
 	extend_sign_w_( x, 0, false );
@@ -1149,22 +1159,21 @@ DEFN_REL_OP_T(int64)
 
 template <class X>
 inline
-const sc_string
+const std::string
 sc_proxy<X>::to_string() const
 {
     const X& x = back_cast();
     int len = x.length();
-    sc_string s( len + 1 );
+    std::string s; // ( len + 1 );
     for( int i = 0; i < len; ++ i ) {
-	s[i] = sc_logic::logic_to_char[x.get_bit( len - i - 1 )];
+	s += sc_logic::logic_to_char[x.get_bit( len - i - 1 )];
     }
-    s[len] = 0;
     return s;
 }
 
 template <class X>
 inline
-const sc_string
+const std::string
 sc_proxy<X>::to_string( sc_numrep numrep ) const
 {
     return convert_to_fmt( to_string(), numrep, true );
@@ -1172,7 +1181,7 @@ sc_proxy<X>::to_string( sc_numrep numrep ) const
 
 template <class X>
 inline
-const sc_string
+const std::string
 sc_proxy<X>::to_string( sc_numrep numrep, bool w_prefix ) const
 {
     return convert_to_fmt( to_string(), numrep, w_prefix );
@@ -1184,9 +1193,9 @@ sc_proxy<X>::to_string( sc_numrep numrep, bool w_prefix ) const
 template <class X>
 inline
 void
-sc_proxy<X>::scan( istream& is )
+sc_proxy<X>::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     back_cast() = s.c_str();
 }
@@ -1198,7 +1207,7 @@ void
 sc_proxy<X>::check_bounds( int n ) const  // check if bit n accessible
 {
     if( n < 0 || n >= back_cast().length() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -1208,7 +1217,7 @@ void
 sc_proxy<X>::check_wbounds( int n ) const  // check if word n accessible
 {
     if( n < 0 || n >= back_cast().size() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -1223,7 +1232,7 @@ sc_proxy<X>::to_anything_unsigned() const
     const X& x = back_cast();
     int len = x.length();
     if( x.get_cword( 0 ) != UL_ZERO ) {
-	SC_REPORT_WARNING( SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
+	SC_REPORT_WARNING( sc_core::SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
     }
     unsigned long w = x.get_word( 0 );
     if( len >= UL_SIZE ) {
@@ -1234,7 +1243,39 @@ sc_proxy<X>::to_anything_unsigned() const
 
 template <class X>
 inline
-long
+uint64 
+sc_proxy<X>::to_uint64() const
+{
+    // words 1 and 0 returned.
+    // can't convert logic values other than 0 and 1
+    const X& x = back_cast();
+    int len = x.length();
+    if( x.get_cword( 0 ) != UL_ZERO ) {
+	SC_REPORT_WARNING( sc_core::SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
+    }
+    uint64 w = x.get_word( 0 );
+    if( len > UL_SIZE ) 
+    {
+	if( x.get_cword( 1 ) != UL_ZERO ) {
+	    SC_REPORT_WARNING( sc_core::SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
+	}
+	uint64 w1 = x.get_word( 1 );
+        w = w | (w1 << UL_SIZE);	
+	return w;
+    }
+    else if( len == UL_SIZE ) 
+    {
+	return w;
+    }
+    else
+    {
+	return ( w & (~UL_ZERO >> (UL_SIZE - len)) );
+    }
+}
+
+template <class X>
+inline
+int64
 sc_proxy<X>::to_anything_signed() const
 {
     // only 0 word is returned
@@ -1242,17 +1283,18 @@ sc_proxy<X>::to_anything_signed() const
     const X& x = back_cast();
     int len = x.length();
     if( x.get_cword( 0 ) != UL_ZERO ) {
-	SC_REPORT_WARNING( SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
+	SC_REPORT_WARNING( sc_core::SC_ID_VECTOR_CONTAINS_LOGIC_VALUE_, 0 );
     }
-    unsigned long w = x.get_word( 0 );
-    if( len >= UL_SIZE ) {
-	return (long) w;
+    int64 w = x.get_word( 0 );
+    uint64 zero = 0;
+    if( len >= 64 ) {
+	return (uint64) w;
     }
     sc_logic_value_t sgn = x.get_bit( len - 1 );
     if( sgn == 0 ) {
-	return ( w & (~UL_ZERO >> (UL_SIZE - len)) );
+	return ( w & (~zero >> (64 - len)) );
     } else {
-	return ( w | (~UL_ZERO << len) );
+	return ( w | (~zero << len) );
     }
 }
 
@@ -1314,8 +1356,8 @@ xnor_reduce( const sc_proxy<X>& a )
 
 template <class X>
 inline
-ostream&
-operator << ( ostream& os, const sc_proxy<X>& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_proxy<X>& a )
 {
     a.print( os );
     return os;
@@ -1323,8 +1365,8 @@ operator << ( ostream& os, const sc_proxy<X>& a )
 
 template <class X>
 inline
-istream&
-operator >> ( istream& is, sc_proxy<X>& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_proxy<X>& a )
 {
     a.scan( is );
     return is;

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -30,6 +30,11 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems 20 May 2003
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: Changes for dynamic processes.
+
       Name, Affiliation, Date:
   Description of Modification:
 
@@ -38,14 +43,14 @@
 #ifndef SC_PROCESS_INT_H
 #define SC_PROCESS_INT_H
 
+#include "sysc/kernel/sc_cor.h"
+#include "sysc/kernel/sc_except.h"
+#include "sysc/kernel/sc_lambda.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_process_b.h"
+#include "sysc/utils/sc_list.h"
 
-#include "systemc/kernel/sc_cor.h"
-#include "systemc/kernel/sc_except.h"
-#include "systemc/kernel/sc_lambda.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_process_b.h"
-#include "systemc/utils/sc_list.h"
-
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_process_b
@@ -75,17 +80,9 @@ sc_process_b::do_initialize( bool do_initialize_ )
 
 inline
 bool
-sc_process_b::trigger_static()
+sc_process_b::is_runnable()
 {
-    return ( ! m_is_runnable && m_trigger_type == STATIC );
-}
-
-
-inline
-void
-sc_process_b::is_runnable( bool runnable_ )
-{
-    m_is_runnable = runnable_;
+    return m_runnable_p != 0;
 }
 
 
@@ -94,10 +91,18 @@ void
 sc_process_b::execute()
 {
 #ifndef SC_USE_MEMBER_FUNC_PTR
-    (*entry_fn)( module );
+    entry_fn->invoke( host );
 #else
-    (module->*entry_fn)(); 
+    (host->*entry_fn)(); 
 #endif
+}
+
+
+inline
+bool
+sc_process_b::trigger_static()
+{
+    return ( !is_runnable() && m_trigger_type == STATIC );
 }
 
 
@@ -120,8 +125,10 @@ class sc_method_process
 {
     friend class sc_event;
     friend class sc_module;
+    friend class sc_process_host;
     friend class sc_process_table;
     friend class sc_simcontext;
+    friend class sc_runnable;
 
     friend void next_trigger( sc_simcontext* );
     friend void next_trigger( const sc_event&,
@@ -141,16 +148,14 @@ class sc_method_process
 
 public:
 
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_method_process"; }
 
 protected:
 
     sc_method_process( const char*   nm,
 		       SC_ENTRY_FUNC fn,
-		       sc_module*    mod );
+		       sc_process_host*    host );
     virtual ~sc_method_process();
 
     void clear_trigger();
@@ -164,6 +169,12 @@ protected:
     void next_trigger( const sc_time&, sc_event_and_list& );
 
     bool trigger_dynamic( sc_event* );
+
+    void set_next_exist( sc_method_handle next_p );
+    sc_method_handle next_exist();
+    void set_next_runnable( sc_method_handle next_p );
+    sc_method_handle next_runnable();
+
 };
 
 
@@ -247,6 +258,31 @@ sc_method_process::next_trigger( const sc_time& t, sc_event_and_list& el )
     m_trigger_type = AND_LIST_TIMEOUT;
 }
 
+inline
+void sc_method_process::set_next_exist(sc_method_handle next_p)
+{
+    m_exist_p = next_p;
+}
+
+inline
+sc_method_handle sc_method_process::next_exist()
+{
+    return (sc_method_handle)m_exist_p;
+}
+
+
+inline
+void sc_method_process::set_next_runnable(sc_method_handle next_p)
+{
+    m_runnable_p = next_p;
+}
+
+inline
+sc_method_handle sc_method_process::next_runnable()
+{
+    return (sc_method_handle)m_runnable_p;
+}
+
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_thread_process
@@ -261,6 +297,7 @@ class sc_thread_process
     friend class sc_module;
     friend class sc_process_table;
     friend class sc_simcontext;
+    friend class sc_runnable;
 
     friend void wait( const sc_event&,
 		      sc_simcontext* );
@@ -279,26 +316,29 @@ class sc_thread_process
 
 public:
 
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_thread_process"; }
+
+public:
+
+    void add_monitor( sc_process_monitor* monitor_p );
+    void remove_monitor( sc_process_monitor* monitor_p);
+    void signal_monitors( int type = 0 );
 
 protected:
 
+    friend void sc_thread_cor_fn( void* );
+    friend void sc_cthread_cor_fn( void* );
+
     sc_thread_process( const char*   nm,
 		       SC_ENTRY_FUNC fn,
-		       sc_module*    mod,
-		       bool          is_cthread_ = false );
-    virtual ~sc_thread_process();
+		       sc_process_host*    host);
 
-    bool is_cthread() const;
+    virtual ~sc_thread_process();
 
     void set_stack_size( size_t size );
 
     virtual void prepare_for_simulation();
-
-    friend void sc_thread_cor_fn( void* );
 
     virtual bool ready_to_run();
 
@@ -314,12 +354,16 @@ protected:
 
     friend void sc_set_stack_size( sc_thread_handle, size_t );
 
-protected:
+    void set_next_exist( sc_thread_handle next_p );
+    sc_thread_handle next_exist();
+    void set_next_runnable( sc_thread_handle next_p );
+    sc_thread_handle next_runnable();
 
-    bool    m_is_cthread;
+protected:
 
     size_t  m_stack_size;
     sc_cor* m_cor;         // the thread's coroutine
+    sc_pvector<sc_process_monitor*> m_monitor_q; // thread monitors.
 };
 
 
@@ -334,14 +378,6 @@ sc_switch_thread( sc_simcontext* simc )
 
 
 // ----------------------------------------------------------------------------
-
-
-inline
-bool
-sc_thread_process::is_cthread() const
-{
-    return m_is_cthread;
-}
 
 
 inline
@@ -429,6 +465,53 @@ sc_thread_process::wait( const sc_time& t, sc_event_and_list& el )
     sc_switch_thread( simcontext() );
 }
 
+inline
+void sc_thread_process::add_monitor(sc_process_monitor* monitor_p)
+{
+    m_monitor_q.push_back(monitor_p);
+}
+
+
+inline
+void sc_thread_process::remove_monitor(sc_process_monitor* monitor_p)
+{
+    int mon_n = m_monitor_q.size();
+
+    for ( int mon_i = 0; mon_i < mon_n; mon_i++ )
+    {
+	if  ( m_monitor_q[mon_i] == monitor_p )
+        {
+            m_monitor_q[mon_i] = m_monitor_q[mon_n-1];
+            m_monitor_q.decr_count();
+        }
+    }
+}
+
+inline
+void sc_thread_process::set_next_exist(sc_thread_handle next_p)
+{
+    m_exist_p = next_p;
+}
+
+inline
+sc_thread_handle sc_thread_process::next_exist()
+{
+    return (sc_thread_handle)m_exist_p;
+}
+
+inline
+void sc_thread_process::set_next_runnable(sc_thread_handle next_p)
+{
+    m_runnable_p = next_p;
+}
+
+inline
+sc_thread_handle sc_thread_process::next_runnable()
+{
+    return (sc_thread_handle)m_runnable_p;
+}
+
+
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_cthread_process
@@ -477,25 +560,30 @@ class sc_cthread_process
     friend void __watching_first( sc_cthread_handle );
     friend void __sanitycheck_watchlists( sc_cthread_handle );
 
+    void set_next_exist( sc_cthread_handle next_p );
+    sc_cthread_handle next_exist();
+
 public:
 
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_cthread_process"; }
+
+protected:
+    friend void sc_cthread_cor_fn( void* );
+    virtual ~sc_cthread_process();
 
 private:
 
     sc_cthread_process( const char*   nm,
 			SC_ENTRY_FUNC fn,
-			sc_module*    mod );
-    ~sc_cthread_process();
+			sc_process_host*    host );
+     
+    virtual bool is_cthread() const;
 
     virtual void prepare_for_simulation();
 
     virtual bool ready_to_run();
 
-    friend void sc_cthread_cor_fn( void* );
 
     bool eval_watchlist();
     bool eval_watchlist_curr_level();
@@ -526,6 +614,18 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+inline
+void sc_cthread_process::set_next_exist(sc_cthread_handle next_p)
+{
+    m_exist_p = next_p;
+}
+
+inline
+sc_cthread_handle sc_cthread_process::next_exist()
+{
+    return (sc_cthread_handle)m_exist_p;
+}
+
 
 inline
 void
@@ -546,7 +646,9 @@ sc_cthread_process::wait_clock( int n  )
     sc_switch_thread( simcontext() );
     m_wait_state = UNKNOWN;
     if( m_exception_level == 0 ) {
+
 	throw sc_user();
+
     } else if( m_exception_level > 0 ) {
 	throw m_exception_level;
     }
@@ -561,7 +663,9 @@ sc_cthread_process::wait_lambda( const sc_lambda_ptr& lambda )
     sc_switch_thread( simcontext() );
     m_wait_state = UNKNOWN;
     if( m_exception_level == 0 ) {
+
 	throw sc_user();
+
     } else if( m_exception_level > 0 ) {
 	throw m_exception_level;
     }
@@ -605,6 +709,7 @@ sc_cthread_process::__watch_level() const
     return m_watch_level;
 }
 
+} // namespace sc_core
 
 #endif
 

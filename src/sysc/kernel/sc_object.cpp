@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,29 +28,41 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: if module name hierarchy is empty, sc_object 
+                               ctor assumes the currently executing process 
+                               as the parent object to support dynamic process
+                               creation similar to other sc_objects
+
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems
+                               5 September 2003
+  Description of Modification: - Made creation of attributes structure
+                                 conditional on its being used. This eliminates
+                                 100 bytes of storage for each normal sc_object.
 
  *****************************************************************************/
 
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <assert.h>
 #include <ctype.h>
 
-#include "systemc/kernel/sc_externs.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_object.h"
-#include "systemc/kernel/sc_object_manager.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/utils/sc_hash.h"
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/utils/sc_list.h"
-#include "systemc/utils/sc_mempool.h"
-#include "systemc/utils/sc_vector.h"
+#include "sysc/kernel/sc_externs.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/kernel/sc_object_manager.h"
+#include "sysc/kernel/sc_process_b.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/utils/sc_hash.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_list.h"
+#include "sysc/utils/sc_mempool.h"
+#include "sysc/utils/sc_vector.h"
 
+namespace sc_core {
 
 typedef int (*STRCMP)(const void*, const void*);
 
@@ -76,36 +88,16 @@ sc_object::basename() const
 }
 
 void
-sc_object::print() const
-{
-    print(cout);
-}
-
-void
-sc_object::print(ostream& os) const
+sc_object::print(::std::ostream& os) const
 {
     os << name();
 }
 
 void
-sc_object::dump() const
-{
-    dump(cout);
-}
-
-void
-sc_object::dump(ostream& os) const
+sc_object::dump(::std::ostream& os) const
 {
     os << "name = " << name() << "\n";
     os << "kind = " << kind() << "\n";
-}
-
-const char* sc_object::kind_string = "sc_object";
-
-const char*
-sc_object::kind() const
-{
-    return kind_string;
 }
 
 static int sc_object_num = 0;
@@ -118,65 +110,113 @@ sc_object_newname(char* name)
     return name;
 }
 
-void
-sc_object::sc_object_init(const char* nm)
-{
-    /* Make the current simcontext the simcontext for this object */
-    m_simc = sc_get_curr_simcontext();
-    sc_object_manager* object_manager = m_simc->get_object_manager();
-    sc_object* parent = object_manager->hierarchy_curr();
-    char namebuf[16];
-    const char* newname;
-    bool put_in_table;
+void 
+sc_object::sc_object_init(const char* nm) 
+{ 
+    bool        clash;                  // True if path name exists in obj table
+    const char* leafname_p;             // Leaf name (this object) 
+    char        pathname[BUFSIZ];       // Path name 
+    char        pathname_orig[BUFSIZ];  // Original path name which may clash 
+    const char* parentname_p;           // Parent path name 
+    bool        put_in_table;           // True if should put in object table 
+ 
+    /* Make the current simcontext the simcontext for this object */ 
 
-    if (nm && nm[0]) {
-        newname = nm;
-        put_in_table = true;
-    }
-    else {
-        newname = sc_object_newname(namebuf);
-        put_in_table = false;
-    }
+    // SET UP POINTERS TO OBJECT MANAGER, PARENT, AND SIMULATION CONTEXT: 
 
-    /* Note here we pull a little trick -- use the
-       first byte to store information about whether
-       to put the object in the object table in the
-       object manager */
-    if (parent) {
-        int pn_len = strlen(parent->name());
-	m_ptr = new char[pn_len + strlen( newname ) + 3];
-	m_name = m_ptr + 1;
-        strcpy(m_name, parent->name());
-        m_name[pn_len] = SC_HIERARCHY_CHAR;
-        m_name[pn_len + 1] = '\0';
-    } else {
-	m_ptr = new char[strlen( newname ) + 3];
-	m_name = m_ptr + 1;
-        m_name[0] = '\0';
-    }
-    m_name[-1] = put_in_table;
-    strcat(m_name, newname);
+    m_simc = sc_get_curr_simcontext(); 
+    m_attr_cltn_p = 0; 
+    sc_object_manager* object_manager = m_simc->get_object_manager(); 
+    sc_object*         parent_p = object_manager->hierarchy_curr(); 
+    if (!parent_p) { 
+      sc_process_b* curr_proc = m_simc->get_curr_proc_info()->process_handle; 
+      if (curr_proc) { 
+        parent_p = (sc_object*)curr_proc; 
+      } 
+    } 
+    m_parent = parent_p; 
 
-    if (put_in_table) {
-        if (object_manager->find_object(m_name)) {
-	    SC_REPORT_WARNING( SC_ID_OBJECT_EXISTS_,
-                sc_string::to_string("%s. Latter"
-	        " declaration will be ignored", m_name).c_str());
-	} else {
-            /* should check for the uniqueness of the name */
-            object_manager->insert_object(m_name, this);
-        }
 
-	sc_module* curr_module = m_simc->hierarchy_curr();
-	if( curr_module != 0 ) {
-	    curr_module->add_child_object( this );
-	} else {
-	    m_simc->add_child_object( this );
-	}
-    }
-}
+    // CONSTRUCT PATHNAME TO OBJECT BEING CREATED: 
+    // 
+    // If there is not a leaf name generate one. 
 
-sc_object::sc_object()
+    parentname_p = parent_p ? parent_p->name() : ""; 
+    if (nm && nm[0] ) 
+    { 
+        leafname_p = nm; 
+        put_in_table = true; 
+    } 
+    else 
+    { 
+        leafname_p = sc_object_newname(pathname_orig); 
+        put_in_table = false; 
+    } 
+    if (parent_p) { 
+        sprintf(pathname, "%s%c%s", parentname_p, 
+                SC_HIERARCHY_CHAR, leafname_p 
+        ); 
+    } else { 
+        strcpy(pathname, leafname_p); 
+    } 
+
+    // SAVE the original path name 
+    // 
+    strcpy(pathname_orig, pathname); 
+
+    // MAKE SURE THE OBJECT NAME IS UNIQUE 
+    // 
+    // If not use unique name generator to make it unique. 
+
+    clash = false; 
+    while (object_manager->find_object(pathname)) { 
+        clash = true; 
+        leafname_p = sc_gen_unique_name(leafname_p); 
+        if (parent_p) { 
+            sprintf(pathname, "%s%c%s", parentname_p, 
+                    SC_HIERARCHY_CHAR, leafname_p 
+            ); 
+        } else { 
+            strcpy(pathname, leafname_p); 
+        } 
+    } 
+    if (clash) { 
+	std::string message = pathname_orig;
+	message += ". Latter declaration will be renamed to ";
+	message += pathname;
+        SC_REPORT_WARNING( SC_ID_OBJECT_EXISTS_, message.c_str());
+    } 
+
+
+    // MOVE OBJECT NAME TO PERMANENT STORAGE 
+    // 
+    // Note here we pull a little trick -- use the first byte to store 
+    // information about whether to put the object in the object table in the 
+    // object manager 
+
+    char* ptr = new char[strlen( pathname ) + 2]; 
+    ptr[0] = put_in_table; 
+    m_name = ptr + 1; 
+    strcpy(m_name, pathname); 
+
+    if (put_in_table) { 
+        object_manager->insert_object(m_name, this); 
+        sc_module* curr_module = m_simc->hierarchy_curr(); 
+        if( curr_module != 0 ) { 
+            curr_module->add_child_object( this ); 
+        } else { 
+            sc_process_b* curr_proc = 
+                m_simc->get_curr_proc_info()->process_handle; 
+            if (curr_proc) { 
+                curr_proc->add_child_object( this ); 
+            } else { 
+                m_simc->add_child_object( this ); 
+            } 
+        } 
+    } 
+} 
+
+sc_object::sc_object() : m_parent(0)
 {
     sc_object_init(0);
 }
@@ -187,7 +227,7 @@ object_name_illegal_char(char ch)
     return (ch == SC_HIERARCHY_CHAR) || isspace(ch);
 }
 
-sc_object::sc_object(const char* nm)
+sc_object::sc_object(const char* nm) : m_parent(0)
 {
     int namebuf_alloc = 0;
     char* namebuf = 0;
@@ -212,9 +252,12 @@ sc_object::sc_object(const char* nm)
         *q = '\0';
         p = namebuf;
         if (has_illegal_char)
-          SC_REPORT_WARNING( SC_ID_ILLEGAL_CHARACTERS_,
-			     sc_string::to_string("%s substituted by %s",
-						  nm,namebuf).c_str());
+	{
+	    std::string message = nm;
+	    message += " substituted by ";
+	    message += namebuf;
+            SC_REPORT_WARNING( SC_ID_ILLEGAL_CHARACTERS_, message.c_str());
+	}
     }
     sc_object_init(p);
     sc_mempool::release( namebuf, namebuf_alloc );
@@ -226,14 +269,20 @@ sc_object::~sc_object()
         sc_object_manager* object_manager = m_simc->get_object_manager();
         object_manager->remove_object(m_name);
 
-	sc_module* curr_module = m_simc->hierarchy_curr();
-	if( curr_module != 0 ) {
-	    curr_module->remove_child_object( this );
-	} else {
-	    m_simc->remove_child_object( this );
-	}
+        sc_module* parent_mod = DCAST<sc_module*>(m_parent);
+        if (parent_mod) {
+            parent_mod->remove_child_object( this );
+        } else {
+            sc_process_b* parent_proc = DCAST<sc_process_b*>(m_parent);
+            if (parent_proc) {
+                parent_proc->remove_child_object( this );
+            } else {
+                m_simc->remove_child_object( this );
+            }
+        }
     }
-    delete [] m_ptr;
+    delete [] (m_name-1);
+    if ( m_attr_cltn_p ) delete m_attr_cltn_p;
 }
 
 void
@@ -248,31 +297,37 @@ sc_object::trace( sc_trace_file * /* unused */) const
 bool
 sc_object::add_attribute( sc_attr_base& attribute_ )
 {
-    return ( m_attr_cltn.push_back( &attribute_ ) );
+    if ( !m_attr_cltn_p ) m_attr_cltn_p = new sc_attr_cltn;
+    return ( m_attr_cltn_p->push_back( &attribute_ ) );
 }
 
 
 // get attribute by name
 
 sc_attr_base*
-sc_object::get_attribute( const sc_string& name_ )
+sc_object::get_attribute( const std::string& name_ )
 {
-    return ( m_attr_cltn[name_] );
+    if ( !m_attr_cltn_p ) m_attr_cltn_p = new sc_attr_cltn;
+    return ( (*m_attr_cltn_p)[name_] );
 }
 
 const sc_attr_base*
-sc_object::get_attribute( const sc_string& name_ ) const
+sc_object::get_attribute( const std::string& name_ ) const
 {
-    return ( m_attr_cltn[name_] );
+    if ( !m_attr_cltn_p ) m_attr_cltn_p = new sc_attr_cltn;
+    return ( (*m_attr_cltn_p)[name_] );
 }
 
 
 // remove attribute by name
 
 sc_attr_base*
-sc_object::remove_attribute( const sc_string& name_ )
+sc_object::remove_attribute( const std::string& name_ )
 {
-    return ( m_attr_cltn.remove( name_ ) );
+    if ( m_attr_cltn_p )
+	return ( m_attr_cltn_p->remove( name_ ) );
+    else
+	return 0;
 }
 
 
@@ -281,7 +336,8 @@ sc_object::remove_attribute( const sc_string& name_ )
 void
 sc_object::remove_all_attributes()
 {
-    m_attr_cltn.remove_all();
+    if ( m_attr_cltn_p )
+	m_attr_cltn_p->remove_all();
 }
 
 
@@ -290,7 +346,10 @@ sc_object::remove_all_attributes()
 int
 sc_object::num_attributes() const
 {
-    return ( m_attr_cltn.size() );
+    if ( m_attr_cltn_p )
+	return ( m_attr_cltn_p->size() );
+    else
+	return 0;
 }
 
 
@@ -299,11 +358,15 @@ sc_object::num_attributes() const
 sc_attr_cltn&
 sc_object::attr_cltn()
 {
-    return m_attr_cltn;
+    if ( !m_attr_cltn_p ) m_attr_cltn_p = new sc_attr_cltn;
+    return *m_attr_cltn_p;
 }
 
 const sc_attr_cltn&
 sc_object::attr_cltn() const
 {
-    return m_attr_cltn;
+    if ( !m_attr_cltn_p ) m_attr_cltn_p = new sc_attr_cltn;
+    return *m_attr_cltn_p;
 }
+
+} // namespace sc_core

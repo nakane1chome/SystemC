@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,6 +28,11 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems 20 May 2003
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: Changes for dynamic processes.
+
       Name, Affiliation, Date:
   Description of Modification:
 
@@ -35,14 +40,30 @@
 
 
 #include <assert.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <cstddef>
 
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/kernel/sc_simcontext_int.h"
-#include "systemc/utils/sc_exception.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_simcontext_int.h"
+#include "sysc/kernel/sc_name_gen.h"
 
+namespace sc_core {
+
+static sc_thread_handle dead_thread_h = 0;  // Last deleted thread.
+// ----------------------------------------------------------------------------
+//  CLASS : sc_process_monitor
+//
+//  Monitoring mechanism for SC_THREAD and SC_CTHREAD instances.
+// ----------------------------------------------------------------------------
+
+void sc_process_monitor::signal( sc_thread_handle thread_p, int type )
+{
+}
+
+#if !defined(SC_USE_MEMBER_FUNC_PTR)
+    sc_process_call_base sc_process_defunct;
+#endif
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_process_b
@@ -50,28 +71,83 @@
 //  Process base class.
 // ----------------------------------------------------------------------------
 
-const char* const sc_process_b::kind_string = "sc_process_b";
+sc_process_b* sc_process_b::m_last_created_p = 0;
 
 
 sc_process_b::sc_process_b( const char*   nm,
 			    SC_ENTRY_FUNC fn,
-			    sc_module*    mod )
+			    sc_process_host*    host )
 : sc_object( nm ),
   entry_fn( fn ),
-  module( mod ),
+  host( host ),
   proc_id( simcontext()->next_proc_id() ),
   m_do_initialize( true ),
-  m_is_runnable( false ),
-  m_trigger_type( STATIC ),
   m_event( 0 ),
-  m_event_list( 0 ),
   m_event_count( 0 ),
-  m_timed_out( false )
-{}
+  m_event_list( 0 ),
+  m_exist_p( 0 ),
+  m_last_report(0),
+  m_name_gen_p(0),
+  m_runnable_p( 0 ),
+  m_timed_out( false ),
+  m_trigger_type( STATIC )
+{
+    m_last_created_p = this;
+}
+
+// This is the object instance destructor for this class. If we still have
+// a live thread we remove it from event's static callback queues.
 
 sc_process_b::~sc_process_b()
-{}
+{
+    if ( entry_fn != SC_DEFUNCT_PROCESS_FUNCTION )
+    {
+#       if !defined(SC_USE_MEMBER_FUNC_PTR)
+            delete entry_fn;
+#       endif
+    }
+    // redirect my children as children of the simcontext
+    int size = m_child_objects.size();
+    for(int i = 0; i < size; i++) {
+      sc_object* obj =  m_child_objects[i];
+      obj->m_parent = NULL;
+    }
+    if ( m_name_gen_p ) delete m_name_gen_p;
+	if ( m_last_report ) delete m_last_report;
+}
 
+sc_process_b*
+sc_process_b::get_last_created_process()
+{
+    return m_last_created_p;
+}
+
+const ::std::vector<sc_object*>&
+sc_process_b::get_child_objects() const
+{
+    return m_child_objects;
+}
+
+void
+sc_process_b::add_child_object( sc_object* object_ )
+{
+    // no check if object_ is already in the set
+    m_child_objects.push_back( object_ );
+}
+
+void
+sc_process_b::remove_child_object( sc_object* object_ )
+{
+    int size = m_child_objects.size();
+    for( int i = 0; i < size; ++ i ) {
+        if( object_ == m_child_objects[i] ) {
+            m_child_objects[i] = m_child_objects[size - 1];
+            m_child_objects.decr_count();
+            return;
+        }
+    }
+    // no check if object_ is really in the set
+}
 
 void
 sc_process_b::add_static_event( const sc_event& e )
@@ -96,6 +172,20 @@ sc_process_b::add_static_event( const sc_event& e )
     }
     assert( false );
 }
+
+const char* sc_process_b::gen_unique_name( const char* basename_, 
+    bool preserve_first )
+{
+    if ( ! m_name_gen_p ) m_name_gen_p = new sc_name_gen;
+    return m_name_gen_p->gen_unique_name( basename_, preserve_first );
+}
+	
+
+bool sc_process_b::is_cthread() const
+{
+    return false;
+}
+
 
 void
 sc_process_b::remove_static_events()
@@ -127,18 +217,28 @@ sc_process_b::remove_static_events()
 //  Process class for SC_METHODs.
 // ----------------------------------------------------------------------------
 
-const char* const sc_method_process::kind_string = "sc_method_process";
-
-
 sc_method_process::sc_method_process( const char*   nm,
 				      SC_ENTRY_FUNC fn,
-				      sc_module*    mod )
-: sc_process_b( nm, fn, mod )
+				      sc_process_host*    host )
+: sc_process_b( nm, fn, host )
 {}
+
+
+// This is the object instance destructor for this class. We delete the
+// thread stack, and remove this instance from any dynamic event notifications.
+// The sc_process_b destructor will take care of removing this object instance
+// from static event notifications.
 
 sc_method_process::~sc_method_process()
-{}
-
+{
+    if ( m_event ) m_event->remove_dynamic( this );
+    if ( m_event_list ) 
+    {
+	m_event_list->remove_dynamic( this, 0 );
+	m_event_list->auto_delete();
+    }
+    remove_static_events();
+}
 
 void
 sc_method_process::clear_trigger()
@@ -202,7 +302,7 @@ sc_method_process::clear_trigger()
 bool
 sc_method_process::trigger_dynamic( sc_event* e )
 {
-    if( m_is_runnable ) {
+    if( is_runnable() ) {
 	return false;
     }
     m_timed_out = false;
@@ -292,22 +392,23 @@ sc_method_process::trigger_dynamic( sc_event* e )
 //  Process class for SC_THREADs.
 // ----------------------------------------------------------------------------
 
-const char* const sc_thread_process::kind_string = "sc_thread_process";
-
-
 sc_thread_process::sc_thread_process( const char*   nm,
                                       SC_ENTRY_FUNC fn,
-                                      sc_module*    mod,
-				      bool          is_cthread_ )
-: sc_process_b( nm, fn, mod ),
-  m_is_cthread( is_cthread_ ),
+                                      sc_process_host*    host )
+: sc_process_b( nm, fn, host ),
   m_stack_size( SC_DEFAULT_STACK_SIZE ),
   m_cor( 0 )
 {
-    if( m_is_cthread ) {
+    if( is_cthread() ) {
 	do_initialize( false );
     }
 }
+
+
+// This is the object instance destructor for this class. We delete the
+// thread stack, and remove this instance from any dynamic event notifications.
+// The sc_process_b destructor will take care of removing this object instance
+// from static event notifications.
 
 sc_thread_process::~sc_thread_process()
 {
@@ -315,8 +416,16 @@ sc_thread_process::~sc_thread_process()
 	m_cor->stack_protect( false );
 	delete m_cor;
     }
+    if ( m_event ) m_event->remove_dynamic( this );
+    if ( m_event_list ) 
+    {
+	m_event_list->remove_dynamic( this, 0 );
+	m_event_list->auto_delete();
+    }
+    if ( entry_fn != SC_DEFUNCT_PROCESS_FUNCTION ) {
+        remove_static_events();
+    }
 }
-
 
 void
 sc_thread_process::set_stack_size( size_t size )
@@ -337,17 +446,33 @@ sc_thread_process::prepare_for_simulation()
 void
 sc_thread_cor_fn( void* arg )
 {
+    int mon_n;
     sc_thread_handle thread_h = RCAST<sc_thread_handle>( arg );
 
     try {
 	thread_h->execute();
     }
-    catch( const sc_exception& ex ) {
-	cout << "\n" << ex.what() << endl;
+    catch( const sc_report& ex ) {
+	std::cout << "\n" << ex.what() << std::endl;
 	thread_h->simcontext()->set_error();
     }
 
     // if control reaches this point, then the process has gone to heaven
+    // delete any previous one that is waiting and put our thread in its
+    // place.
+
+    if (dead_thread_h) delete dead_thread_h;
+    dead_thread_h = thread_h;
+
+    // If there are monitors watching this thread call their signal method.
+    mon_n = thread_h->m_monitor_q.size();
+    if ( mon_n )
+    {
+    	for ( int mon_i = 0; mon_i < mon_n; mon_i++ )
+	    thread_h->m_monitor_q[mon_i]->signal(
+		thread_h, sc_process_monitor::spm_exit);
+    }
+
     thread_h->remove_static_events();
     thread_h->entry_fn = SC_DEFUNCT_PROCESS_FUNCTION;  // mark defunct
 
@@ -356,11 +481,19 @@ sc_thread_cor_fn( void* arg )
     simc->cor_pkg()->abort( simc->next_cor() );
 }
 
+void sc_thread_process::signal_monitors(int type)
+{
+    int mon_n;	// # of monitors present.
+
+    mon_n = m_monitor_q.size();
+    for ( int mon_i = 0; mon_i < mon_n; mon_i++ )
+	m_monitor_q[mon_i]->signal(this, type);
+}
 
 bool
 sc_thread_process::trigger_dynamic( sc_event* e )
 {
-    if( m_is_runnable ) {
+    if( is_runnable() ) {
 	return false;
     }
     m_timed_out = false;
@@ -456,13 +589,10 @@ sc_set_stack_size( sc_thread_handle thread_h, size_t size )
 //  Process class for SC_CTHREADs.
 // ----------------------------------------------------------------------------
 
-const char* const sc_cthread_process::kind_string = "sc_cthread_process";
-
-
 sc_cthread_process::sc_cthread_process( const char*   nm,
 					SC_ENTRY_FUNC fn,
-					sc_module*    mod )
-: sc_thread_process( nm, fn, mod, true ),
+					sc_process_host*    host )
+: sc_thread_process( nm, fn, host ),
   m_wait_state( UNKNOWN ),
   m_wait_cycles( 0 ),
   m_exception_level( -1 ),
@@ -470,7 +600,7 @@ sc_cthread_process::sc_cthread_process( const char*   nm,
 {
     __reset_watching();
     for( int i = 0; i < SC_MAX_WATCH_LEVEL; ++ i ) {
-        m_watchlists[i] = new sc_plist<sc_lambda_ptr*>;
+        m_watchlists.push_back(new sc_plist<sc_lambda_ptr*>);
     }
 }
 
@@ -484,6 +614,12 @@ sc_cthread_process::~sc_cthread_process()
         }
         delete m_watchlists[i];
     }
+}
+
+
+bool sc_cthread_process::is_cthread() const
+{
+    return true;
 }
 
 
@@ -524,8 +660,10 @@ void
 sc_cthread_cor_fn( void* arg )
 {
     sc_cthread_handle cthread_h = RCAST<sc_cthread_handle>( arg );
+    int mon_n;
 
     while( true ) {
+
         try {
             cthread_h->execute();
         }
@@ -534,16 +672,30 @@ sc_cthread_cor_fn( void* arg )
 	    continue;
         }
         catch( sc_halt ) {
-            cout << "Terminating process " << cthread_h->name() << endl;
+            ::std::cout << "Terminating process " 
+		      << cthread_h->name() << ::std::endl;
         }
-	catch( const sc_exception& ex ) {
-	    cout << "\n" << ex.what() << endl;
+	catch( const sc_report& ex ) {
+	    ::std::cout << "\n" << ex.what() << ::std::endl;
 	    cthread_h->simcontext()->set_error();
 	}
+
 	break;
     }
 
     // if control reaches this point, then the process has gone to heaven
+    if ( dead_thread_h ) delete dead_thread_h;
+    dead_thread_h = (sc_thread_handle)cthread_h;
+
+    mon_n = cthread_h->m_monitor_q.size();
+    if ( mon_n )
+    {
+    	for ( int mon_i = 0; mon_i < mon_n; mon_i++ )
+	{
+	    cthread_h->m_monitor_q[mon_i]->signal(cthread_h, 
+		sc_process_monitor::spm_exit);
+	}
+    }
     cthread_h->remove_static_events();
     cthread_h->entry_fn = SC_DEFUNCT_PROCESS_FUNCTION;  // mark defunct
 
@@ -606,5 +758,6 @@ sc_cthread_process::eval_watchlist_curr_level()
     return false;
 }
 
+} // namespace sc_core
 
 // Taf!

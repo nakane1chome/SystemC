@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,13 +34,33 @@
 
 ******************************************************************************/
 
+/* 
+$Log: sc_wait.h,v $
+Revision 1.6  2004/10/13 18:13:22  acg
+sc_ver.h - updated version number. sc_wait.h remove inclusion of
+sysc/kernel/sc_event.h because it is not necessary.
+
+Revision 1.5  2004/09/27 20:49:10  acg
+Andy Goodrich, Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments appear in the
+     checkout source.
+
+*/
+
 #ifndef SC_WAIT_H
 #define SC_WAIT_H
 
 
-#include "systemc/kernel/sc_event.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core {
+
+class sc_event;
+class sc_event_and_list;
+class sc_event_or_list;
+class sc_simcontext;
+
+extern sc_simcontext* sc_get_curr_simcontext();
 
 // static sensitivity for SC_THREADs and SC_CTHREADs
 
@@ -76,7 +96,7 @@ void
 wait( double v, sc_time_unit tu,
       sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::wait( sc_time( v, tu, simc ), simc );
+    wait( sc_time( v, tu, simc ), simc );
 }
 
 extern
@@ -91,7 +111,7 @@ wait( double v, sc_time_unit tu,
       const sc_event& e,
       sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::wait( sc_time( v, tu, simc ), e, simc );
+    wait( sc_time( v, tu, simc ), e, simc );
 }
 
 extern
@@ -106,7 +126,7 @@ wait( double v, sc_time_unit tu,
       sc_event_or_list& el,
       sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::wait( sc_time( v, tu, simc ), el, simc );
+    wait( sc_time( v, tu, simc ), el, simc );
 }
 
 extern
@@ -121,7 +141,7 @@ wait( double v, sc_time_unit tu,
       sc_event_and_list& el,
       sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::wait( sc_time( v, tu, simc ), el, simc );
+    wait( sc_time( v, tu, simc ), el, simc );
 }
 
 
@@ -159,7 +179,7 @@ void
 next_trigger( double v, sc_time_unit tu,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::next_trigger( sc_time( v, tu, simc ), simc );
+    next_trigger( sc_time( v, tu, simc ), simc );
 }
 
 extern
@@ -174,7 +194,7 @@ next_trigger( double v, sc_time_unit tu,
 	      const sc_event& e,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::next_trigger( sc_time( v, tu, simc ), e, simc );
+    next_trigger( sc_time( v, tu, simc ), e, simc );
 }
 
 extern
@@ -189,7 +209,7 @@ next_trigger( double v, sc_time_unit tu,
 	      sc_event_or_list& el,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::next_trigger( sc_time( v, tu, simc ), el, simc );
+    next_trigger( sc_time( v, tu, simc ), el, simc );
 }
 
 extern
@@ -204,7 +224,7 @@ next_trigger( double v, sc_time_unit tu,
 	      sc_event_and_list& el,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
 {
-    ::next_trigger( sc_time( v, tu, simc ), el, simc );
+    next_trigger( sc_time( v, tu, simc ), el, simc );
 }
 
 
@@ -214,7 +234,6 @@ extern
 bool
 timed_out( sc_simcontext* = sc_get_curr_simcontext() );
 
-
 // misc.
 
 extern
@@ -223,6 +242,7 @@ sc_set_location( const char*,
 		 int,
 		 sc_simcontext* = sc_get_curr_simcontext() );
 
+} // namespace sc_core
 
 #endif
 

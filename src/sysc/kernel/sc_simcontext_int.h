@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -39,6 +39,11 @@
 #ifndef SC_SIMCONTEXT_INT_H
 #define SC_SIMCONTEXT_INT_H
 
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_runnable.h"
+#include "sysc/kernel/sc_runnable_int.h"
+
+namespace sc_core {
 
 inline
 void
@@ -72,16 +77,28 @@ inline
 void
 sc_simcontext::push_runnable_method( sc_method_handle method_h )
 {
-    method_h->is_runnable( true );
-    m_runnable->push_method( method_h );
+	m_runnable->push_back_method( method_h );
+}
+
+inline
+void
+sc_simcontext::push_runnable_method_front( sc_method_handle method_h )
+{
+	m_runnable->push_front_method( method_h );
 }
 
 inline
 void
 sc_simcontext::push_runnable_thread( sc_thread_handle thread_h )
 {
-    thread_h->is_runnable( true );
-    m_runnable->push_thread( thread_h );
+	m_runnable->push_back_thread( thread_h );
+}
+
+inline
+void
+sc_simcontext::push_runnable_thread_front( sc_thread_handle thread_h )
+{
+	m_runnable->push_front_thread( thread_h );
 }
 
 
@@ -94,7 +111,6 @@ sc_simcontext::pop_runnable_method()
 	reset_curr_proc();
 	return 0;
     }
-    method_h->is_runnable( false );
     set_curr_proc( method_h );
     return method_h;
 }
@@ -108,10 +124,24 @@ sc_simcontext::pop_runnable_thread()
 	reset_curr_proc();
 	return 0;
     }
-    thread_h->is_runnable( false );
     set_curr_proc( thread_h );
     return thread_h;
 }
+
+inline
+void
+sc_simcontext::remove_runnable_method( sc_method_handle method_h )
+{
+    m_runnable->remove_method( method_h );
+}
+
+inline
+void
+sc_simcontext::remove_runnable_thread( sc_thread_handle thread_h )
+{
+    m_runnable->remove_thread( thread_h );
+}
+
 
 
 // ----------------------------------------------------------------------------
@@ -123,5 +153,6 @@ extern void watching_before_simulation( const sc_lambda_ptr&,
 extern void watching_during_simulation( const sc_lambda_ptr&,
 					sc_simcontext* );
 
+} // namespace sc_core
 
 #endif

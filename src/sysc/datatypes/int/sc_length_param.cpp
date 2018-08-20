@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,7 +34,7 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/int/sc_length_param.h"
+#include "sysc/datatypes/int/sc_length_param.h"
 
 
 namespace sc_dt
@@ -46,10 +46,10 @@ namespace sc_dt
 //  Length parameter type.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 sc_length_param::to_string() const
 {
-    sc_string s;
+    std::string s;
 
     char buf[BUFSIZ];
 
@@ -63,18 +63,18 @@ sc_length_param::to_string() const
 
 
 void
-sc_length_param::print( ostream& os ) const
+sc_length_param::print( ::std::ostream& os ) const
 {
     os << to_string();
 }
 
 void
-sc_length_param::dump( ostream& os ) const
+sc_length_param::dump( ::std::ostream& os ) const
 {
-    os << "sc_length_param" << endl;
-    os << "(" << endl;
-    os << "len = " << m_len << endl;
-    os << ")" << endl;
+    os << "sc_length_param" << ::std::endl;
+    os << "(" << ::std::endl;
+    os << "len = " << m_len << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 } // namespace sc_dt

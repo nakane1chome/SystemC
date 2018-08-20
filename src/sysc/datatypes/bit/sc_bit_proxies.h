@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,8 +37,8 @@
 #define SC_BIT_PROXIES_H
 
 
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_proxy.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_proxy.h"
 
 
 namespace sc_dt
@@ -133,7 +133,7 @@ public:
 
     // other methods
 
-    void print( ostream& os = cout ) const
+    void print( ::std::ostream& os = ::std::cout ) const
 	{ os << to_char(); }
 
 protected:
@@ -567,7 +567,7 @@ public:
 
     // other methods
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
 private:
 
@@ -621,8 +621,8 @@ concat( sc_bitref<T1>, sc_proxy<T2>& );
 
 
 template <class T>
-istream&
-operator >> ( istream&, sc_bitref<T> );
+::std::istream&
+operator >> ( ::std::istream&, sc_bitref<T> );
 
 
 // ----------------------------------------------------------------------------
@@ -1040,7 +1040,7 @@ public:
 
     // other methods
 
-    void scan( istream& = cin );
+    void scan( ::std::istream& = ::std::cin );
 
 private:
 
@@ -1095,8 +1095,8 @@ concat( sc_subref<T1>, sc_proxy<T2>& );
 
 template <class T>
 inline
-istream&
-operator >> ( istream&, sc_subref<T> );
+::std::istream&
+operator >> ( ::std::istream&, sc_subref<T> );
 
 
 // ----------------------------------------------------------------------------
@@ -1517,7 +1517,7 @@ public:
 
     // other methods
 
-    void scan( istream& = cin );
+    void scan( ::std::istream& = ::std::cin );
 
 private:
 
@@ -1572,8 +1572,8 @@ concat( sc_concref<T1,T2>, sc_proxy<T3>& );
 
 template <class T1, class T2>
 inline
-istream&
-operator >> ( istream&, sc_concref<T1,T2> );
+::std::istream&
+operator >> ( ::std::istream&, sc_concref<T1,T2> );
 
 
 // ----------------------------------------------------------------------------
@@ -1949,7 +1949,7 @@ sc_bitref_r<T>::get_bit( int n ) const
     if( n == 0 ) {
 	return m_obj.get_bit( m_index );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_ , 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_ , 0 );
         // never reached
 	return Log_0;
     }
@@ -1964,7 +1964,7 @@ sc_bitref_r<T>::get_word( int n ) const
     if( n == 0 ) {
 	return ( get_bit( n ) & UL_ONE );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
 	// never reached
 	return 0;
     }
@@ -1978,7 +1978,7 @@ sc_bitref_r<T>::get_cword( int n ) const
     if( n == 0 ) {
 	return ( get_bit( n ) & UL_TWO );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
 	// never reached
 	return 0;
     }
@@ -2225,6 +2225,7 @@ sc_bitref<X>&
 sc_bitref<X>::operator = ( const sc_bitref_r<X>& a )
 {
     this->m_obj.set_bit( this->m_index, a.value() );
+	return *this;
 }
 
 template <class X>
@@ -2335,7 +2336,7 @@ sc_bitref<X>::set_bit( int n, sc_logic_value_t value )
     if( n == 0 ) {
 	this->m_obj.set_bit( this->m_index, value );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -2348,7 +2349,7 @@ sc_bitref<X>::set_word( int n, unsigned long w )
     if( n == 0 ) {
 	this->m_obj.set_word( this->m_index, w );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -2360,7 +2361,7 @@ sc_bitref<X>::set_cword( int n, unsigned long w )
     if( n == 0 ) {
 	this->m_obj.set_cword( this->m_index, w );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -2370,7 +2371,7 @@ sc_bitref<X>::set_cword( int n, unsigned long w )
 template <class X>
 inline
 void
-sc_bitref<X>::scan( istream& is )
+sc_bitref<X>::scan( ::std::istream& is )
 {
     char c;
     is >> c;
@@ -2456,8 +2457,8 @@ concat( sc_bitref<T1> a, sc_proxy<T2>& b )
 
 template <class X>
 inline
-istream&
-operator >> ( istream& is, sc_bitref<X> a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_bitref<X> a )
 {
     a.scan( is );
     return is;
@@ -2477,7 +2478,7 @@ sc_subref_r<X>::check_bounds()
 {
     int len = m_obj.length();
     if( m_hi < 0 || m_hi >= len || m_lo < 0 || m_lo >= len ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
     if( reversed() ) {
 	m_len = m_lo - m_hi + 1;
@@ -2876,9 +2877,9 @@ concat( sc_subref_r<T1> a, sc_proxy<T2>& b )
 template <class T>
 inline
 void
-sc_subref<T>::scan( istream& is )
+sc_subref<T>::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
@@ -2962,8 +2963,8 @@ concat( sc_subref<T1> a, sc_proxy<T2>& b )
 
 template <class X>
 inline
-istream&
-operator >> ( istream& is, sc_subref<X> a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_subref<X> a )
 {
     a.scan( is );
     return is;
@@ -3010,7 +3011,7 @@ sc_concref_r<X,Y>::get_bit( int n ) const
     } else if( n < r_len + m_left.length() ) {
 	return m_left.get_bit( n - r_len );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
 	// never reached
 	return Log_0;
     }
@@ -3027,7 +3028,7 @@ sc_concref_r<X,Y>::set_bit( int n, sc_logic_value_t v )
     } else if( n < r_len + m_left.length() ) {
 	m_left.set_bit( n - r_len, v );
     } else {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
 }
 
@@ -3038,7 +3039,7 @@ unsigned long
 sc_concref_r<X,Y>::get_word( int i ) const
 {
     if( i < 0 || i >= size() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
     // 0 <= i < size()
     Y& r = m_right;
@@ -3061,7 +3062,10 @@ sc_concref_r<X,Y>::get_word( int i ) const
 	return ( (r.get_word( i ) & rl_mask) | (l.get_word( 0 ) << shift) );
     }
     // border < i < size() && shift != 0
-    return ( (l.get_word( j - 1 ) >> nshift) | (l.get_word( j ) << shift) );
+    if ( j < l.size() )
+	return ( (l.get_word( j - 1 ) >> nshift) | (l.get_word( j ) << shift) );
+    else
+	return (l.get_word( j - 1 ) >> nshift);
 }
 
 template <class X, class Y>
@@ -3070,7 +3074,7 @@ void
 sc_concref_r<X,Y>::set_word( int i, unsigned long w )
 {
     if( i < 0 || i >= size() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
     // 0 <= i < size()
     Y& r = m_right;
@@ -3110,7 +3114,7 @@ unsigned long
 sc_concref_r<X,Y>::get_cword( int i ) const
 {
     if( i < 0 || i >= size() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
     // 0 <= i < size()
     Y& r = m_right;
@@ -3133,7 +3137,10 @@ sc_concref_r<X,Y>::get_cword( int i ) const
 	return ( (r.get_cword( i ) & rl_mask) | (l.get_cword( 0 ) << shift) );
     }
     // border < i < size() && shift != 0
-    return ( (l.get_cword( j - 1 ) >> nshift) | (l.get_cword( j ) << shift) );
+    if ( j < l.size() )
+	return ( (l.get_cword(j - 1) >> nshift) | (l.get_cword(j) << shift) );
+    else
+	return (l.get_cword( j - 1 ) >> nshift);
 }
 
 template <class X, class Y>
@@ -3142,7 +3149,7 @@ void
 sc_concref_r<X,Y>::set_cword( int i, unsigned long w )
 {
     if( i < 0 || i >= size() ) {
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, 0 );
     }
     // 0 <= i < size()
     Y& r = m_right;
@@ -3413,9 +3420,9 @@ concat( sc_concref_r<T1,T2> a, sc_proxy<T3>& b )
 template <class T1, class T2>
 inline
 void
-sc_concref<T1,T2>::scan( istream& is )
+sc_concref<T1,T2>::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
@@ -3499,8 +3506,8 @@ concat( sc_concref<T1,T2> a, sc_proxy<T3>& b )
 
 template <class X, class Y>
 inline
-istream&
-operator >> ( istream& is, sc_concref<X,Y> a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_concref<X,Y> a )
 {
     a.scan( is );
     return is;

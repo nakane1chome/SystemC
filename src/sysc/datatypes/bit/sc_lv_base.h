@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -30,6 +30,9 @@
 
       Name, Affiliation, Date:
   Description of Modification:
+	Andy Goodrich, Forte Design Systems
+	  Fixed bug in clean_tail for sizes that are modulo 32, which caused
+	  zeroing of values.
 
  *****************************************************************************/
 
@@ -37,10 +40,10 @@
 #define SC_LV_BASE_H
 
 
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_bv_base.h"
-#include "systemc/datatypes/bit/sc_logic.h"
-#include "systemc/datatypes/int/sc_length_param.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_bv_base.h"
+#include "sysc/datatypes/bit/sc_logic.h"
+#include "sysc/datatypes/int/sc_length_param.h"
 
 
 namespace sc_dt
@@ -64,7 +67,7 @@ class sc_lv_base
 
     void init( int length_, const sc_logic& init_value = SC_LOGIC_X );
 
-    void assign_from_string( const sc_string& );
+    void assign_from_string( const std::string& );
 
 public:
 
@@ -229,6 +232,7 @@ public:
 
     void set_word( int wi, unsigned long w )
 	{ m_data[wi] = w; }
+	 
 
     unsigned long get_cword( int wi ) const
 	{ return m_ctrl[wi]; }
@@ -311,8 +315,11 @@ sc_lv_base::clean_tail()
     int wi = m_size - 1;
     int bi = m_len % UL_SIZE;
     unsigned long mask = ~UL_ZERO >> (UL_SIZE - bi);
-    m_data[wi] &= mask;
-    m_ctrl[wi] &= mask;
+	if ( mask )
+	{
+		m_data[wi] &= mask;
+		m_ctrl[wi] &= mask;
+	}
 }
 
 
@@ -650,7 +657,8 @@ inline
 const sc_lv_base
 sc_proxy<X>::operator << ( int n ) const
 {
-    sc_lv_base a( back_cast() );
+    sc_lv_base a( back_cast().length()+n );
+	a = back_cast();
     return ( a <<= n );
 }
 
@@ -680,7 +688,7 @@ sc_proxy<X>::lrotate( int n )
 	sprintf( msg,
 		 "left rotate operation is only allowed with positive "
 		 "rotate values, rotate value = %d", n );
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
     }
     int len = x.length();
     n %= len;
@@ -719,7 +727,7 @@ sc_proxy<X>::rrotate( int n )
 	sprintf( msg,
 		 "right rotate operation is only allowed with positive "
 		 "rotate values, rotate value = %d", n );
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
     }
     int len = x.length();
     n %= len;

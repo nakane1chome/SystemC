@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,10 +37,10 @@
 #define SC_BV_BASE_H
 
 
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_bit_proxies.h"
-#include "systemc/datatypes/bit/sc_proxy.h"
-#include "systemc/datatypes/int/sc_length_param.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_bit_proxies.h"
+#include "sysc/datatypes/bit/sc_proxy.h"
+#include "sysc/datatypes/int/sc_length_param.h"
 
 
 namespace sc_dt
@@ -64,7 +64,7 @@ class sc_bv_base
 
     void init( int length_, bool init_value = false );
 
-    void assign_from_string( const sc_string& );
+    void assign_from_string( const std::string& );
   
 public:
 
@@ -302,7 +302,7 @@ void
 sc_bv_base::set_cword( int i, unsigned long w )
 {
     if( w ) {
-	SC_REPORT_WARNING( SC_ID_SC_BV_CANNOT_CONTAIN_X_AND_Z_, 0 );
+	SC_REPORT_WARNING( sc_core::SC_ID_SC_BV_CANNOT_CONTAIN_X_AND_Z_, 0 );
     }
 }
 
@@ -313,7 +313,7 @@ sc_bv_base::clean_tail()
 {
     int wi = m_size - 1;
     int bi = m_len % UL_SIZE;
-    m_data[wi] &= ~UL_ZERO >> (UL_SIZE - bi);
+	if ( bi != 0 ) m_data[wi] &= ~UL_ZERO >> (UL_SIZE - bi);
 }
 
 } // namespace sc_dt

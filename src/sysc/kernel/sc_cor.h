@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,8 +37,10 @@
 #define SC_COR_H
 
 
-#include <assert.h>
-#include <stdlib.h>
+#include <cassert>
+#include <cstdlib>
+
+namespace sc_core {
 
 class sc_simcontext;
 
@@ -99,7 +101,13 @@ public:
     virtual ~sc_cor_pkg() {}
 
     // create a new coroutine
-    virtual sc_cor* create( size_t stack_size, sc_cor_fn* fn, void* arg ) = 0;
+#if( defined(_MSC_VER) && _MSC_VER < 1300 )
+   virtual sc_cor* create(
+	    size_t stack_size, sc_cor_fn* fn, void* arg ) = 0;
+#else
+   virtual sc_cor* create(
+	    std::size_t stack_size, sc_cor_fn* fn, void* arg ) = 0;
+#endif // ( defined(_MSC_VER) && _MSC_VER < 1300 )
 
     // yield to the next coroutine
     virtual void yield( sc_cor* next_cor ) = 0;
@@ -126,6 +134,7 @@ private:
     sc_cor_pkg& operator = ( const sc_cor_pkg& );
 };
 
+} // namespace sc_core
 
 #endif
 

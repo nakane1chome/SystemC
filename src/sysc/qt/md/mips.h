@@ -11,12 +11,12 @@
  * purpose.
  */
 
-#ifndef QT_MIPS_H
-#define QT_MIPS_H
+#ifndef QUICKTHREADS_MIPS_H
+#define QUICKTHREADS_MIPS_H
 
 typedef unsigned long qt_word_t;
 
-#define QT_GROW_DOWN
+#define QUICKTHREADS_GROW_DOWN
 
 /* Stack layout on the mips:
 
@@ -76,7 +76,7 @@ typedef unsigned long qt_word_t;
 
 
 /* Stack must be doubleword aligned. */
-#define QT_STKALIGN	(8)	/* Doubleword aligned. */
+#define QUICKTHREADS_STKALIGN	(8)	/* Doubleword aligned. */
 
 /* How much space is allocated to hold all the crud for
    initialization: $16-$23, $30, $31.  Just do an integer restore,
@@ -84,16 +84,16 @@ typedef unsigned long qt_word_t;
    argument save area for the helper function that will be called for
    the old thread, just before the new thread starts to run. */
 
-#define QT_STKBASE	(14 * 4)
-#define QT_VSTKBASE	QT_STKBASE
+#define QUICKTHREADS_STKBASE	(14 * 4)
+#define QUICKTHREADS_VSTKBASE	QUICKTHREADS_STKBASE
 
 
 /* Offsets of various registers. */
-#define QT_31	(9+4)
-#define QT_19	(3+4)
-#define QT_18	(2+4)
-#define QT_17	(1+4)
-#define QT_16	(0+4)
+#define QUICKTHREADS_31	(9+4)
+#define QUICKTHREADS_19	(3+4)
+#define QUICKTHREADS_18	(2+4)
+#define QUICKTHREADS_17	(1+4)
+#define QUICKTHREADS_16	(0+4)
 
 
 /* When a never-before-run thread is restored, the return pc points
@@ -109,26 +109,26 @@ typedef unsigned long qt_word_t;
    of arguments, the 4 preallocated words are simply wasted. */
 
 extern void qt_start(void);
-#define QT_ARGS_MD(sp)	(QT_SPUT (sp, QT_31, qt_start))
+#define QUICKTHREADS_ARGS_MD(sp)	(QUICKTHREADS_SPUT (sp, QUICKTHREADS_31, qt_start))
 
-#define QT_VARGS_MD0(sp, vabytes) \
-  ((qt_t *)(((char *)(sp)) - 4*4 - QT_STKROUNDUP(vabytes)))
+#define QUICKTHREADS_VARGS_MD0(sp, vabytes) \
+  ((qt_t *)(((char *)(sp)) - 4*4 - QUICKTHREADS_STKROUNDUP(vabytes)))
 
 extern void qt_vstart(void);
-#define QT_VARGS_MD1(sp)	(QT_SPUT (sp, QT_31, qt_vstart))
+#define QUICKTHREADS_VARGS_MD1(sp)	(QUICKTHREADS_SPUT (sp, QUICKTHREADS_31, qt_vstart))
 
-#define QT_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS_DEFAULT
 
 
 /* The *index* (positive offset) of where to put each value. */
-#define QT_ONLY_INDEX	(QT_19)
-#define QT_USER_INDEX	(QT_18)
-#define QT_ARGT_INDEX	(QT_17)
-#define QT_ARGU_INDEX	(QT_16)
+#define QUICKTHREADS_ONLY_INDEX	(QUICKTHREADS_19)
+#define QUICKTHREADS_USER_INDEX	(QUICKTHREADS_18)
+#define QUICKTHREADS_ARGT_INDEX	(QUICKTHREADS_17)
+#define QUICKTHREADS_ARGU_INDEX	(QUICKTHREADS_16)
 
-#define QT_VCLEANUP_INDEX	(QT_16)
-#define QT_VUSERF_INDEX		(QT_19)
-#define QT_VSTARTUP_INDEX	(QT_18)
-#define QT_VARGT_INDEX		(QT_17)
+#define QUICKTHREADS_VCLEANUP_INDEX	(QUICKTHREADS_16)
+#define QUICKTHREADS_VUSERF_INDEX		(QUICKTHREADS_19)
+#define QUICKTHREADS_VSTARTUP_INDEX	(QUICKTHREADS_18)
+#define QUICKTHREADS_VARGT_INDEX		(QUICKTHREADS_17)
 
-#endif /* ndef QT_MIPS_H */
+#endif /* ndef QUICKTHREADS_MIPS_H */

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,8 +38,9 @@
 #define SC_BUFFER_H
 
 
-#include "systemc/communication/sc_signal.h"
+#include "sysc/communication/sc_signal.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_buffer<T>
@@ -88,11 +89,8 @@ public:
     sc_buffer<T>& operator = ( const this_type& a )
 	{ write( a.read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_buffer"; }
 
 protected:
 
@@ -106,10 +104,6 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <class T>
-const char* const sc_buffer<T>::kind_string = "sc_buffer";
-
 
 // write the new value
 
@@ -136,6 +130,7 @@ sc_buffer<T>::update()
     this->m_delta = this->simcontext()->delta_count();
 }
 
+} // namespace sc_core
 
 #endif
 

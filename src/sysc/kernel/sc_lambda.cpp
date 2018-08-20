@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,11 +35,12 @@
 
 #include <stdio.h>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_lambda.h"
-#include "systemc/communication/sc_port.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_lambda.h"
+#include "sysc/communication/sc_port.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_lambda
@@ -51,7 +52,7 @@
 //  of the expression tree.
 //
 //  The user should not create a lambda object explicitly; rather, he writes
-//  an expression involving a signal of type sc_logic or int, and a smart
+//  an expression involving a signal of type sc_dt::sc_logic or int, and a smart
 //  pointer sc_lambda_ptr object will be automatically created.
 //
 // ----------------------------------------------------------------------------
@@ -82,7 +83,7 @@ sc_lambda::eval() const
 
     switch( rator_ty ) {
 
-    /* relational operators for sc_logic type */
+    /* relational operators for sc_dt::sc_logic type */
     case SC_LAMBDA_SUL_EQ:
         return ( op1->sc_logic_read() == op2->sc_logic_read() );
     case SC_LAMBDA_SUL_NE:
@@ -123,9 +124,9 @@ sc_lambda::eval() const
         return true;
 
     default:
-        SC_REPORT_WARNING( SC_ID_NO_BOOL_RETURNED_,
-			   sc_string::to_string( "sc_lambda::eval(): %lx",
-						 int(rator_ty) ).c_str() );
+	char message[128];
+	sprintf(message, "sc_lambda::eval(): %x", int(rator_ty));
+        SC_REPORT_WARNING( SC_ID_NO_BOOL_RETURNED_, message);
         return false;
     }
 }
@@ -181,17 +182,17 @@ sc_lambda::int_eval() const
         return ( op1->int_read() ^ op2->int_read() );
        
     default:
-        SC_REPORT_WARNING( SC_ID_NO_INT_RETURNED_,
-			   sc_string::to_string( "sc_lambda::int_eval(): %lx",
-						 int( rator_ty ) ).c_str() );
+	char message[128];
+	sprintf(message, "sc_lambda::int_eval(): %x", int(rator_ty));
+        SC_REPORT_WARNING( SC_ID_NO_INT_RETURNED_, message);
         return 0;
     }
 }
 
 
-// evalutes the expression as a sc_logic
+// evalutes the expression as a sc_dt::sc_logic
 
-sc_logic
+sc_dt::sc_logic
 sc_lambda::sc_logic_eval() const
 {
     switch( rator_ty ) {
@@ -206,10 +207,10 @@ sc_lambda::sc_logic_eval() const
         return ( op1->sc_logic_read() ^ op2->sc_logic_read() );
 
     default:
-        SC_REPORT_WARNING( SC_ID_NO_SC_LOGIC_RETURNED_,
-			   sc_string::to_string( "sc_lambda::sc_logic_eval(): %lx",
-						 int( rator_ty ) ).c_str() );
-        return sc_logic();
+	char message[128];
+	sprintf(message, "sc_lambda::sc_logic_eval(): %x", int(rator_ty));
+        SC_REPORT_WARNING( SC_ID_NO_SC_LOGIC_RETURNED_, message);
+        return sc_dt::sc_logic();
     }
 }
 
@@ -263,7 +264,7 @@ sc_lambda_rand::~sc_lambda_rand()
   	if (SC_LAMBDA_RAND_LAMBDA == rand_ty) {
 	        ((sc_lambda_ptr*) lamb_space)->~sc_lambda_ptr();
 	} else if (SC_LAMBDA_RAND_SUL == rand_ty) {
-	        ((sc_logic*) ch_space)->~sc_logic();
+	        ((sc_dt::sc_logic*) ch_space)->~sc_logic();
 	}
 #endif
     switch( rand_ty ) {
@@ -273,7 +274,11 @@ sc_lambda_rand::~sc_lambda_rand()
         break;
     }
     case SC_LAMBDA_RAND_SUL:{
-        ((sc_logic*) ch_space)->~sc_logic();
+	// We use an alias location here because aCC does not like the
+	// cast in the destructor invocation (i.e., the style used in
+	// the case above). ACG
+	sc_dt::sc_logic* alias_p = (sc_dt::sc_logic*)ch_space;
+        alias_p->~sc_logic();
 	break;
     }
     default:
@@ -297,20 +302,20 @@ sc_lambda_rand::int_read() const
         return (*((sc_lambda_ptr*) lamb_space))->int_eval();
 
     default:
-        cout << "sc_lambda_rand::int_read(): operand "
+        ::std::cout << "sc_lambda_rand::int_read(): operand "
              << sc_lambda_rand_names[rand_ty]
-             << "is not integer." << endl;
+             << "is not integer." << ::std::endl;
         return 0;
     }
 }
 
-sc_logic
+sc_dt::sc_logic
 sc_lambda_rand::sc_logic_read() const
 {
     switch (rand_ty) {
 
     case SC_LAMBDA_RAND_SUL:
-        return *((sc_logic*) ch_space);
+        return *((sc_dt::sc_logic*) ch_space);
 
     case SC_LAMBDA_RAND_SIGNAL_SUL:
         return sul_sig->read();
@@ -319,10 +324,11 @@ sc_lambda_rand::sc_logic_read() const
         return (*((sc_lambda_ptr*) lamb_space))->sc_logic_eval();
 
     default:
-        SC_REPORT_WARNING( SC_ID_OPERAND_NOT_SC_LOGIC_,
-          sc_string::to_string("sc_lambda::sc_logic_read(): %s",
-          sc_lambda_rand_names[rand_ty]).c_str());
-        return sc_logic();
+	char message[128];
+	sprintf(message, "sc_lambda::bool_read(): %s", 
+			sc_lambda_rand_names[rand_ty]);
+        SC_REPORT_WARNING( SC_ID_OPERAND_NOT_SC_LOGIC_, message );
+        return sc_dt::sc_logic();
     }
 }
 
@@ -342,9 +348,10 @@ sc_lambda_rand::bool_read() const
         return (*((sc_lambda_ptr*) lamb_space))->eval();
 
     default:
-        SC_REPORT_WARNING( SC_ID_OPERAND_NOT_BOOL_,
-          sc_string::to_string("sc_lambda::bool_read(): %s",
-          sc_lambda_rand_names[rand_ty]).c_str());
+	char message[128];
+	sprintf(message, "sc_lambda::bool_read(): %s", 
+			sc_lambda_rand_names[rand_ty]);
+        SC_REPORT_WARNING( SC_ID_OPERAND_NOT_BOOL_, message);
         return false;
     }
 }
@@ -367,3 +374,5 @@ sc_lambda_rand::replace_ports(  void (*replace_fn)( sc_port_registry*,
         break;
     }
 }
+
+} // namespace sc_core

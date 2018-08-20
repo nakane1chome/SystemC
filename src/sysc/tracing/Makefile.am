@@ -1,11 +1,11 @@
 ## ****************************************************************************
 ##
 ##  The following code is derived, directly or indirectly, from the SystemC
-##  source code Copyright (c) 1996-2002 by all Contributors.
+##  source code Copyright (c) 1996-2005 by all Contributors.
 ##  All Rights reserved.
 ##
 ##  The contents of this file are subject to the restrictions and limitations
-##  set forth in the SystemC Open Source License Version 2.3 (the "License");
+##  set forth in the SystemC Open Source License Version 2.4 (the "License");
 ##  You may not use this file except in compliance with such restrictions and
 ##  limitations. You may obtain instructions on how to receive a copy of the
 ##  License at http://www.systemc.org/. Software distributed by Contributors
@@ -15,7 +15,7 @@
 ##
 ## ****************************************************************************
 ##
-##  src/systemc/tracing/Makefile.am --
+##  src/sysc/tracing/Makefile.am --
 ##  Process this file with automake to produce a Makefile.in file.
 ##
 ##  Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
@@ -35,7 +35,6 @@ include $(top_srcdir)/config/Make-rules
 noinst_LIBRARIES = libtracing.a
 
 H_FILES = \
-	sc_isdb_trace.h \
 	sc_trace.h \
 	sc_vcd_trace.h \
 	sc_wif_trace.h
@@ -43,7 +42,6 @@ H_FILES = \
 noinst_HEADERS = $(H_FILES)
 
 CXX_FILES = \
-	sc_isdb_trace.cpp \
 	sc_trace.cpp \
 	sc_vcd_trace.cpp \
 	sc_wif_trace.cpp
@@ -52,7 +50,7 @@ NO_CXX_FILES =
 
 libtracing_a_SOURCES = $(H_FILES) $(CXX_FILES)
 
-INCLUDE_DIR = $(prefix)/include/systemc/tracing
+INCLUDE_DIR = $(prefix)/include/sysc/tracing
 
 install-data-local:
 	@$(NORMAL_INSTALL)

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,7 +36,7 @@
 
 #include <math.h>
 
-#include "systemc/datatypes/fx/sc_fxnum.h"
+#include "sysc/datatypes/fx/sc_fxnum.h"
 
 
 namespace sc_dt
@@ -64,13 +64,13 @@ sc_fxnum_bitref::set( bool high )
 // print or dump content
 
 void
-sc_fxnum_bitref::print( ostream& os ) const
+sc_fxnum_bitref::print( ::std::ostream& os ) const
 {
     os << get();
 }
 
 void
-sc_fxnum_bitref::scan( istream& is )
+sc_fxnum_bitref::scan( ::std::istream& is )
 {
     bool b;
     is >> b;
@@ -78,14 +78,14 @@ sc_fxnum_bitref::scan( istream& is )
 }
 
 void
-sc_fxnum_bitref::dump( ostream& os ) const
+sc_fxnum_bitref::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum_bitref" << endl;
-    os << "(" << endl;
+    os << "sc_fxnum_bitref" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "num = ";
     m_num.dump( os );
-    os << "idx = " << m_idx << endl;
-    os << ")" << endl;
+    os << "idx = " << m_idx << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -111,13 +111,13 @@ sc_fxnum_fast_bitref::set( bool high )
 // print or dump content
 
 void
-sc_fxnum_fast_bitref::print( ostream& os ) const
+sc_fxnum_fast_bitref::print( ::std::ostream& os ) const
 {
     os << get();
 }
 
 void
-sc_fxnum_fast_bitref::scan( istream& is )
+sc_fxnum_fast_bitref::scan( ::std::istream& is )
 {
     bool b;
     is >> b;
@@ -125,14 +125,14 @@ sc_fxnum_fast_bitref::scan( istream& is )
 }
 
 void
-sc_fxnum_fast_bitref::dump( ostream& os ) const
+sc_fxnum_fast_bitref::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum_fast_bitref" << endl;
-    os << "(" << endl;
+    os << "sc_fxnum_fast_bitref" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "num = ";
     m_num.dump( os );
-    os << "idx = " << m_idx << endl;
-    os << ")" << endl;
+    os << "idx = " << m_idx << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -159,29 +159,29 @@ sc_fxnum_subref::set()
 // print or dump content
 
 void
-sc_fxnum_subref::print( ostream& os ) const
+sc_fxnum_subref::print( ::std::ostream& os ) const
 {
     get();
     m_bv.print( os );
 }
 
 void
-sc_fxnum_subref::scan( istream& is )
+sc_fxnum_subref::scan( ::std::istream& is )
 {
     m_bv.scan( is );
     set();
 }
 
 void
-sc_fxnum_subref::dump( ostream& os ) const
+sc_fxnum_subref::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum_subref" << endl;
-    os << "(" << endl;
+    os << "sc_fxnum_subref" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "num  = ";
     m_num.dump( os );
-    os << "from = " << m_from << endl;
-    os << "to   = " << m_to << endl;
-    os << ")" << endl;
+    os << "from = " << m_from << ::std::endl;
+    os << "to   = " << m_to << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -208,29 +208,29 @@ sc_fxnum_fast_subref::set()
 // print or dump content
 
 void
-sc_fxnum_fast_subref::print( ostream& os ) const
+sc_fxnum_fast_subref::print( ::std::ostream& os ) const
 {
     get();
     m_bv.print( os );
 }
 
 void
-sc_fxnum_fast_subref::scan( istream& is )
+sc_fxnum_fast_subref::scan( ::std::istream& is )
 {
     m_bv.scan( is );
     set();
 }
 
 void
-sc_fxnum_fast_subref::dump( ostream& os ) const
+sc_fxnum_fast_subref::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum_fast_subref" << endl;
-    os << "(" << endl;
+    os << "sc_fxnum_fast_subref" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "num  = ";
     m_num.dump( os );
-    os << "from = " << m_from << endl;
-    os << "to   = " << m_to << endl;
-    os << ")" << endl;
+    os << "from = " << m_from << ::std::endl;
+    os << "to   = " << m_to << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -242,104 +242,104 @@ sc_fxnum_fast_subref::dump( ostream& os ) const
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_fxnum::to_string() const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_string( sc_numrep numrep ) const
 {
-    return sc_string( m_rep->to_string( numrep, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( numrep, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    return sc_string( m_rep->to_string( numrep, (w_prefix ? 1 : 0),
+    return std::string( m_rep->to_string( numrep, (w_prefix ? 1 : 0),
 					SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_string( sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, fmt, &m_params ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, fmt, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_string( sc_numrep numrep, sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( numrep, -1, fmt, &m_params ) );
+    return std::string( m_rep->to_string( numrep, -1, fmt, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_string( sc_numrep numrep, bool w_prefix, sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( numrep, (w_prefix ? 1 : 0),
+    return std::string( m_rep->to_string( numrep, (w_prefix ? 1 : 0),
 					fmt, &m_params ) );
 }
 
 
-const sc_string
+const std::string
 sc_fxnum::to_dec() const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_bin() const
 {
-    return sc_string( m_rep->to_string( SC_BIN, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( SC_BIN, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_oct() const
 {
-    return sc_string( m_rep->to_string( SC_OCT, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( SC_OCT, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum::to_hex() const
 {
-    return sc_string( m_rep->to_string( SC_HEX, -1, SC_F, &m_params ) );
+    return std::string( m_rep->to_string( SC_HEX, -1, SC_F, &m_params ) );
 }
 
 
 // print or dump content
 
 void
-sc_fxnum::print( ostream& os ) const
+sc_fxnum::print( ::std::ostream& os ) const
 {
     os << m_rep->to_string( SC_DEC, -1, SC_F, &m_params );
 }
 
 void
-sc_fxnum::scan( istream& is )
+sc_fxnum::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
 
 void
-sc_fxnum::dump( ostream& os ) const
+sc_fxnum::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum" << endl;
-    os << "(" << endl;
+    os << "sc_fxnum" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "rep      = ";
     m_rep->dump( os );
     os << "params   = ";
     m_params.dump( os );
-    os << "q_flag   = " << m_q_flag << endl;
-    os << "o_flag   = " << m_o_flag << endl;
+    os << "q_flag   = " << m_q_flag << ::std::endl;
+    os << "o_flag   = " << m_o_flag << ::std::endl;
     // TO BE COMPLETED
     // os << "observer = ";
     // if( m_observer != 0 )
     //     m_observer->dump( os );
     // else
-    //     os << "0" << endl;
-    os << ")" << endl;
+    //     os << "0" << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -537,7 +537,7 @@ overflow( double& c, const scfx_params& params, bool& o_flag )
             case SC_WRAP_SM:			// sign magnitude wrap-around
 	    {
 		SC_ERROR_IF_( params.enc() == SC_US_,
-			      SC_ID_WRAP_SM_NOT_DEFINED_ );
+			      sc_core::SC_ID_WRAP_SM_NOT_DEFINED_ );
 	
 		int n_bits = params.n_bits();
 
@@ -603,7 +603,7 @@ void
 sc_fxnum_fast::cast()
 {
     scfx_ieee_double id( m_val );
-    SC_ERROR_IF_( id.is_nan() || id.is_inf(), SC_ID_INVALID_FX_VALUE_ );
+    SC_ERROR_IF_( id.is_nan() || id.is_inf(), sc_core::SC_ID_INVALID_FX_VALUE_);
 
     if( m_params.cast_switch() == SC_ON )
     {
@@ -652,103 +652,103 @@ to_string( const scfx_ieee_double&,
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string( sc_numrep numrep ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, numrep, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
+    return std::string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
 					SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string( sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, fmt, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, fmt, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string( sc_numrep numrep, sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, -1, fmt, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, numrep, -1, fmt, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_string( sc_numrep numrep, bool w_prefix, sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
+    return std::string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
 					fmt, &m_params ) );
 }
 
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_dec() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_bin() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_BIN, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_BIN, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_oct() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_OCT, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_OCT, -1, SC_F, &m_params ) );
 }
 
-const sc_string
+const std::string
 sc_fxnum_fast::to_hex() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_HEX, -1, SC_F, &m_params ) );
+    return std::string( sc_dt::to_string( m_val, SC_HEX, -1, SC_F, &m_params ) );
 }
 
 
 // print or dump content
 
 void
-sc_fxnum_fast::print( ostream& os ) const
+sc_fxnum_fast::print( ::std::ostream& os ) const
 {
     os << sc_dt::to_string( m_val, SC_DEC, -1, SC_F, &m_params );
 }
 
 void
-sc_fxnum_fast::scan( istream& is )
+sc_fxnum_fast::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
 
 void
-sc_fxnum_fast::dump( ostream& os ) const
+sc_fxnum_fast::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxnum_fast" << endl;
-    os << "(" << endl;
-    os << "val      = " << m_val << endl;
+    os << "sc_fxnum_fast" << ::std::endl;
+    os << "(" << ::std::endl;
+    os << "val      = " << m_val << ::std::endl;
     os << "params   = ";
     m_params.dump( os );
-    os << "q_flag   = " << m_q_flag << endl;
-    os << "o_flag   = " << m_o_flag << endl;
+    os << "q_flag   = " << m_q_flag << ::std::endl;
+    os << "o_flag   = " << m_o_flag << ::std::endl;
     // TO BE COMPLETED
     // os << "observer = ";
     // if( m_observer != 0 )
     //     m_observer->dump( os );
     // else
-    //     os << "0" << endl;
-    os << ")" << endl;
+    //     os << "0" << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 

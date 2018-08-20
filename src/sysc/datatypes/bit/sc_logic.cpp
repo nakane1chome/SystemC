@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,9 +35,9 @@
  *****************************************************************************/
 
 
-#include "systemc/utils/sc_string.h"
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_logic.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_logic.h"
 
 
 namespace sc_dt
@@ -56,7 +56,7 @@ sc_logic::invalid_value( sc_logic_value_t v )
 {
     char msg[BUFSIZ];
     sprintf( msg, "sc_logic( %d )", v );
-    SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+    SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
 }
 
 void
@@ -64,7 +64,7 @@ sc_logic::invalid_value( char c )
 {
     char msg[BUFSIZ];
     sprintf( msg, "sc_logic( '%c' )", c );
-    SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+    SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
 }
 
 void
@@ -72,7 +72,7 @@ sc_logic::invalid_value( int i )
 {
     char msg[BUFSIZ];
     sprintf( msg, "sc_logic( %d )", i );
-    SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+    SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
 }
 
 
@@ -80,9 +80,9 @@ void
 sc_logic::invalid_01() const
 {
     if( (int) m_val == Log_Z ) {
-	SC_REPORT_WARNING( SC_ID_LOGIC_Z_TO_BOOL_, 0 );
+	SC_REPORT_WARNING( sc_core::SC_ID_LOGIC_Z_TO_BOOL_, 0 );
     } else {
-	SC_REPORT_WARNING( SC_ID_LOGIC_X_TO_BOOL_, 0 );
+	SC_REPORT_WARNING( sc_core::SC_ID_LOGIC_X_TO_BOOL_, 0 );
     }
 }
 
@@ -142,7 +142,7 @@ const sc_logic_value_t sc_logic::not_table[4] =
 // other methods
 
 void
-sc_logic::scan( istream& is )
+sc_logic::scan( ::std::istream& is )
 {
     char c;
     is >> c;

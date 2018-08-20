@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,12 +36,14 @@
 
 #include <assert.h>
 
-#include "systemc/kernel/sc_cmnhdr.h"
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/utils/sc_list.h"
-#include "systemc/utils/sc_mempool.h"
-#include "systemc/utils/sc_utils_ids.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_list.h"
+#include "sysc/utils/sc_mempool.h"
+#include "sysc/utils/sc_report.h"
+#include "sysc/utils/sc_utils_ids.h"
 
+namespace sc_core {
 
 class sc_plist_elem {
     friend class sc_plist_base_iter;
@@ -329,3 +331,5 @@ sc_plist_base_iter::set_handle( sc_plist_elem* h )
 {
     ptr = h;
 }
+
+} // namespace sc_core

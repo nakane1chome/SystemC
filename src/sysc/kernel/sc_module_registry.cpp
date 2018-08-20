@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -29,17 +29,20 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: phase callbacks
 
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_module_registry.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_module_registry.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_module_registry
@@ -99,6 +102,15 @@ sc_module_registry::sc_module_registry( sc_simcontext& simc_ )
 sc_module_registry::~sc_module_registry()
 {}
 
+// called when construction is done
+
+void
+sc_module_registry::construction_done()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_module_vec[i]->construction_done();
+    }
+}
 
 // called when elaboration is done
 
@@ -111,5 +123,25 @@ sc_module_registry::elaboration_done()
     }
 }
 
+// called before simulation begins
 
+void
+sc_module_registry::start_simulation()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_module_vec[i]->start_simulation();
+    }
+}
+
+// called after simulation ends
+
+void
+sc_module_registry::simulation_done()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_module_vec[i]->simulation_done();
+    }
+}
+
+} // namespace sc_core
 // Taf!

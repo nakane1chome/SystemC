@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,12 +38,12 @@
 #define SC_LOGIC_H
 
 
-#include <stdio.h>
+#include <cstdio>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_macros.h"
-#include "systemc/utils/sc_mempool.h"
-#include "systemc/datatypes/bit/sc_bit.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_macros.h"
+#include "sysc/utils/sc_mempool.h"
+#include "sysc/datatypes/bit/sc_bit.h"
 
 
 namespace sc_dt
@@ -99,9 +99,19 @@ private:
 
     static sc_logic_value_t to_value( char c )
 	{
-	    sc_logic_value_t v = char_to_logic[c];
-	    if( v < Log_0 || v > Log_X ) {
-		invalid_value( c );
+	    sc_logic_value_t v;
+	    unsigned int index = (int)c;
+	    if ( index > 127 )
+	    {
+	        invalid_value(c);
+		v = Log_X;
+	    }
+	    else
+	    {
+		v = char_to_logic[index];
+		if( v < Log_0 || v > Log_X ) {
+		    invalid_value( c );
+		}
 	    }
 	    return v;
 	}
@@ -414,10 +424,10 @@ public:
 
     // other methods
 
-    void print( ostream& os = cout ) const
+    void print( ::std::ostream& os = ::std::cout ) const
 	{ os << to_char(); }
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
 
     // memory (de)allocation
@@ -426,16 +436,16 @@ public:
 	{ return p; }
 
     static void* operator new( size_t sz )
-	{ return sc_mempool::allocate( sz ); }
+	{ return sc_core::sc_mempool::allocate( sz ); }
 
     static void operator delete( void* p, size_t sz )
-	{ sc_mempool::release( p, sz ); }
+	{ sc_core::sc_mempool::release( p, sz ); }
 
     static void* operator new [] ( size_t sz )
-	{ return sc_mempool::allocate( sz ); }
+	{ return sc_core::sc_mempool::allocate( sz ); }
 
     static void operator delete [] ( void* p, size_t sz )
-	{ sc_mempool::release( p, sz ); }
+	{ sc_core::sc_mempool::release( p, sz ); }
 
 private:
 
@@ -452,16 +462,16 @@ private:
 // ----------------------------------------------------------------------------
 
 inline
-ostream&
-operator << ( ostream& os, const sc_logic& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_logic& a )
 {
     a.print( os );
     return os;
 }
 
 inline
-istream&
-operator >> ( istream& is, sc_logic& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_logic& a )
 {
     a.scan( is );
     return is;

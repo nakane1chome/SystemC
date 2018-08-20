@@ -1,11 +1,11 @@
 ## ****************************************************************************
 ##
 ##  The following code is derived, directly or indirectly, from the SystemC
-##  source code Copyright (c) 1996-2002 by all Contributors.
+##  source code Copyright (c) 1996-2005 by all Contributors.
 ##  All Rights reserved.
 ##
 ##  The contents of this file are subject to the restrictions and limitations
-##  set forth in the SystemC Open Source License Version 2.3 (the "License");
+##  set forth in the SystemC Open Source License Version 2.4 (the "License");
 ##  You may not use this file except in compliance with such restrictions and
 ##  limitations. You may obtain instructions on how to receive a copy of the
 ##  License at http://www.systemc.org/. Software distributed by Contributors
@@ -15,7 +15,7 @@
 ##
 ## ****************************************************************************
 ##
-##  src/systemc/datatypes/int/Makefile.am --
+##  src/sysc/datatypes/int/Makefile.am --
 ##  Process this file with automake to produce a Makefile.in file.
 ##
 ##  Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
@@ -56,7 +56,6 @@ CXX_FILES = \
 	sc_int32_mask.cpp \
         sc_int64_io.cpp \
 	sc_int64_mask.cpp \
-	sc_int_ids.cpp \
 	sc_length_param.cpp \
 	sc_nbdefs.cpp \
 	sc_nbexterns.cpp \
@@ -67,7 +66,7 @@ CXX_FILES = \
 
 libint_a_SOURCES = $(H_FILES) $(CXX_FILES) 
 
-INCLUDE_DIR = $(prefix)/include/systemc/datatypes/int
+INCLUDE_DIR = $(prefix)/include/sysc/datatypes/int
 
 install-data-local:
 	@$(NORMAL_INSTALL)

@@ -11,8 +11,8 @@
  * purpose.
  */
 
-#ifndef QT_SPARC_H
-#define QT_SPARC_H
+#ifndef QUICKTHREADS_SPARC_H
+#define QUICKTHREADS_SPARC_H
 
 typedef unsigned long qt_word_t;
 
@@ -77,41 +77,41 @@ extern void qt_vstart (void);
 
 
 /* Hold 17 saved registers + 1 word for alignment. */
-#define QT_STKBASE	(18 * 4)
-#define QT_VSTKBASE	QT_STKBASE
+#define QUICKTHREADS_STKBASE	(18 * 4)
+#define QUICKTHREADS_VSTKBASE	QUICKTHREADS_STKBASE
 
 
 /* Stack must be doubleword aligned. */
-#define QT_STKALIGN	(8)	/* Doubleword aligned. */
+#define QUICKTHREADS_STKALIGN	(8)	/* Doubleword aligned. */
 
-#define QT_ONLY_INDEX	(QT_I5)
-#define QT_USER_INDEX	(QT_I4)
-#define QT_ARGT_INDEX	(QT_I2)
-#define QT_ARGU_INDEX	(QT_I1)
+#define QUICKTHREADS_ONLY_INDEX	(QUICKTHREADS_I5)
+#define QUICKTHREADS_USER_INDEX	(QUICKTHREADS_I4)
+#define QUICKTHREADS_ARGT_INDEX	(QUICKTHREADS_I2)
+#define QUICKTHREADS_ARGU_INDEX	(QUICKTHREADS_I1)
 
-#define QT_VSTARTUP_INDEX	(QT_I5)
-#define QT_VUSERF_INDEX		(QT_I4)
-#define QT_VCLEANUP_INDEX	(QT_I3)
-#define QT_VARGT_INDEX		(QT_I2)
+#define QUICKTHREADS_VSTARTUP_INDEX	(QUICKTHREADS_I5)
+#define QUICKTHREADS_VUSERF_INDEX		(QUICKTHREADS_I4)
+#define QUICKTHREADS_VCLEANUP_INDEX	(QUICKTHREADS_I3)
+#define QUICKTHREADS_VARGT_INDEX		(QUICKTHREADS_I2)
 
-#define QT_O7	(16)
-#define QT_I6	(14)
-#define QT_I5	(13)
-#define QT_I4	(12)
-#define QT_I3	(11)
-#define QT_I2	(10)
-#define QT_I1	( 9)
+#define QUICKTHREADS_O7	(16)
+#define QUICKTHREADS_I6	(14)
+#define QUICKTHREADS_I5	(13)
+#define QUICKTHREADS_I4	(12)
+#define QUICKTHREADS_I3	(11)
+#define QUICKTHREADS_I2	(10)
+#define QUICKTHREADS_I1	( 9)
 
 
 /* The thread will ``return'' to the `qt_start' routine to get things
-   going.  The normal return sequence takes us to QT_O7+8, so we
+   going.  The normal return sequence takes us to QUICKTHREADS_O7+8, so we
    pre-subtract 8.  The frame pointer chain is 0-terminated to prevent
    the trap handler from chasing off in to random memory when flushing
    stack windows. */
 
-#define QT_ARGS_MD(top) \
-    (QT_SPUT ((top), QT_O7, ((void *)(((int)qt_start)-8))), \
-     QT_SPUT ((top), QT_I6, 0))
+#define QUICKTHREADS_ARGS_MD(top) \
+    (QUICKTHREADS_SPUT ((top), QUICKTHREADS_O7, ((void *)(((int)qt_start)-8))), \
+     QUICKTHREADS_SPUT ((top), QUICKTHREADS_I6, 0))
 
 
 /* The varargs startup routine always reads 6 words of arguments
@@ -121,20 +121,20 @@ extern void qt_vstart (void);
    off the top of the stack.  To prevent errors, we always allocate 8
    words.  The space is often just wasted. */
 
-#define QT_VARGS_MD0(sp, vabytes) \
-  ((qt_t *)(((char *)(sp)) - 8*4 - QT_STKROUNDUP(vabytes)))
+#define QUICKTHREADS_VARGS_MD0(sp, vabytes) \
+  ((qt_t *)(((char *)(sp)) - 8*4 - QUICKTHREADS_STKROUNDUP(vabytes)))
 
-#define QT_VARGS_MD1(sp) \
-  (QT_SPUT (sp, QT_O7, ((void *)(((int)qt_vstart)-8))))
+#define QUICKTHREADS_VARGS_MD1(sp) \
+  (QUICKTHREADS_SPUT (sp, QUICKTHREADS_O7, ((void *)(((int)qt_vstart)-8))))
 
 /* The SPARC has wierdo calling conventions which stores a hidden
    parameter for returning aggregate values, so the rest of the
    parameters are shoved up the stack by one place. */
-#define QT_VARGS_ADJUST(sp)	(((char *)sp)+4)
+#define QUICKTHREADS_VARGS_ADJUST(sp)	(((char *)sp)+4)
 
-#define QT_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS_DEFAULT
 
 
-#define QT_GROW_DOWN
+#define QUICKTHREADS_GROW_DOWN
 
-#endif /* ndef QT_SPARC_H */
+#endif /* ndef QUICKTHREADS_SPARC_H */

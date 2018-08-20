@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,22 +28,41 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte,
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: phase callbacks
     
  *****************************************************************************/
+
+/* 
+$Log: sc_port.h,v $
+Revision 1.8  2005/04/03 22:52:51  acg
+Namespace changes.
+
+Revision 1.7  2005/03/21 22:31:32  acg
+Changes to sc_core namespace.
+
+Revision 1.6  2004/09/27 21:02:54  acg
+Andy Goodrich - Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments will appear in
+     checked out source.
+
+*/
 
 #ifndef SC_PORT_H
 #define SC_PORT_H
 
 
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_interface.h"
-#include "systemc/kernel/sc_event.h"
-#include "systemc/kernel/sc_object.h"
-#include "systemc/kernel/sc_process.h"
-#include "systemc/utils/sc_vector.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_interface.h"
+#include "sysc/kernel/sc_event.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/kernel/sc_process.h"
+#include "sysc/utils/sc_vector.h"
 #include <typeinfo>
+
+namespace sc_core {
 
 class sc_event_finder;
 class sc_lambda_rand;
@@ -84,11 +103,8 @@ public:
     virtual       sc_interface* get_interface()       = 0;
     virtual const sc_interface* get_interface() const = 0;
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_port_base"; }
 
 protected:
 
@@ -113,11 +129,20 @@ protected:
     virtual void add_interface( sc_interface* ) = 0;
     virtual const char* if_typename() const = 0;
 
+    // called by construction_done (does nothing by default)
+    virtual void before_end_of_elaboration();
+
     // called by elaboration_done (does nothing)
     virtual void end_of_elaboration();
 
+    // called by start_simulation (does nothing by default)
+    virtual void start_of_simulation();
+
+    // called by simulation_done (does nothing by default)
+    virtual void end_of_simulation();
+
     // error reporting
-    void report_error( int id, const char* add_msg = 0 ) const;
+    void report_error( const char* id, const char* add_msg = 0) const;
 
 private:
 
@@ -133,9 +158,18 @@ private:
     int first_parent();
     void insert_parent( int );
 
+    // called when construction is done
+    void construction_done();
+
     // called when elaboration is done
     void complete_binding();
     void elaboration_done();
+
+    // called before simulation starts
+    void start_simulation();
+
+    // called after simulation ends
+    void simulation_done();
 
 private:
 
@@ -179,8 +213,17 @@ private:
     // destructor
     ~sc_port_registry();
 
+    // called when construction is done
+    void construction_done();
+
     // called when elaboration is done
     void elaboration_done();
+
+    // called before simulation starts
+    void start_simulation();
+
+    // called after simulation ends
+    void simulation_done();
 
     void resolve_lambdas();
     void delete_unresolved_lambdas();
@@ -251,8 +294,12 @@ public:
 
 
     // allow to call methods provided by interface at index
-    IF* operator [] ( int index_ );
-    const IF* operator [] ( int index_ ) const;
+    inline const IF* get_interface( int iface_i ) const;
+    inline IF* get_interface( int iface_i );
+    IF* operator [] ( int index_ )
+        { return get_interface( index_ ); }
+    const IF* operator [] ( int index_ ) const
+        { return get_interface( index_ ); }
 
 
     // get the first interface without checking for nil
@@ -363,11 +410,8 @@ public:
     virtual ~sc_port()
 	{}
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_port"; }
 
 private:
 
@@ -411,13 +455,20 @@ sc_port_b<IF>::operator -> () const
 
 
 // allow to call methods provided by interface at index
+//
+// note that we special-case index of zero, since the method may be
+// called before binding has occurred, and we need to return a zero
+// in that case not an error.
 
 template <class IF>
 inline
 IF*
-sc_port_b<IF>::operator [] ( int index_ )
+sc_port_b<IF>::get_interface( int index_ )
 {
-    if( index_ < 0 || index_ >= size() ) {
+    if ( index_ == 0 ) {
+    	return m_interface;
+    }
+    else if( index_ < 0 || index_ >= size() ) {
 	report_error( SC_ID_GET_IF_, "index out of range" );
     }
     return m_interface_vec[index_];
@@ -426,9 +477,12 @@ sc_port_b<IF>::operator [] ( int index_ )
 template <class IF>
 inline
 const IF*
-sc_port_b<IF>::operator [] ( int index_ ) const
+sc_port_b<IF>::get_interface( int index_ ) const
 {
-    if( index_ < 0 || index_ >= size() ) {
+    if ( index_ == 0 ) {
+    	return m_interface;
+    }
+    else if( index_ < 0 || index_ >= size() ) {
 	report_error( SC_ID_GET_IF_, "index out of range" );
     }
     return m_interface_vec[index_];
@@ -473,7 +527,7 @@ inline
 void
 sc_port_b<IF>::add_interface( sc_interface* interface_ )
 {
-    IF* iface = dynamic_cast<IF*>( interface_ );
+    IF* iface = DCAST<IF*>( interface_ );
     assert( iface != 0 );
     m_interface_vec.push_back( iface );
 
@@ -497,9 +551,7 @@ sc_port_b<IF>::if_typename() const
 //  to this port. N <= 0 means no maximum.
 // ----------------------------------------------------------------------------
 
-template <class IF, int N>
-const char* const sc_port<IF,N>::kind_string = "sc_port";
-
+} // namespace sc_core
 
 #endif
 

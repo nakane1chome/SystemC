@@ -1,11 +1,11 @@
 ## ****************************************************************************
 ##
 ##  The following code is derived, directly or indirectly, from the SystemC
-##  source code Copyright (c) 1996-2002 by all Contributors.
+##  source code Copyright (c) 1996-2005 by all Contributors.
 ##  All Rights reserved.
 ##
 ##  The contents of this file are subject to the restrictions and limitations
-##  set forth in the SystemC Open Source License Version 2.3 (the "License");
+##  set forth in the SystemC Open Source License Version 2.4 (the "License");
 ##  You may not use this file except in compliance with such restrictions and
 ##  limitations. You may obtain instructions on how to receive a copy of the
 ##  License at http://www.systemc.org/. Software distributed by Contributors
@@ -15,7 +15,7 @@
 ##
 ## ****************************************************************************
 ##
-##  src/systemc/utils/Makefile.am --
+##  src/sysc/utils/Makefile.am --
 ##  Process this file with automake to produce a Makefile.in file.
 ##
 ##  Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
@@ -35,25 +35,24 @@ include $(top_srcdir)/config/Make-rules
 noinst_LIBRARIES = libutils.a
 
 H_FILES = \
-	sc_exception.h \
 	sc_hash.h \
 	sc_iostream.h \
 	sc_list.h \
 	sc_mempool.h \
 	sc_pq.h \
 	sc_report.h \
+	sc_report_handler.h \
 	sc_string.h \
+	sc_temporary.h \
 	sc_utils_ids.h \
-	sc_vector.h
+	sc_vector.h 
 
 NO_H_FILES = \
-	sc_report_handler.h \
 	sc_stop_here.h
 
 noinst_HEADERS = $(H_FILES)
 
 CXX_FILES = \
-	sc_exception.cpp \
 	sc_hash.cpp \
 	sc_list.cpp \
 	sc_mempool.cpp \
@@ -62,14 +61,13 @@ CXX_FILES = \
 	sc_report_handler.cpp \
 	sc_stop_here.cpp \
 	sc_string.cpp \
-	sc_utils_ids.cpp \
-	sc_vector.cpp
+	sc_utils_ids.cpp 
 
 NO_CXX_FILES =
 
 libutils_a_SOURCES = $(H_FILES) $(CXX_FILES)
 
-INCLUDE_DIR = $(prefix)/include/systemc/utils
+INCLUDE_DIR = $(prefix)/include/sysc/utils
 
 CXXCOMPILE_DEBUG = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(EXTRA_CXXFLAGS) $(DEBUG_CXXFLAGS)
 

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,39 +34,35 @@
  *****************************************************************************/
 
 
-#include "systemc/communication/sc_signal_resolved.h"
+#include "sysc/communication/sc_signal_resolved.h"
 
-using sc_dt::Log_0;
-using sc_dt::Log_1;
-using sc_dt::Log_Z;
-using sc_dt::Log_X;
-
+namespace sc_core {
 
 // Note that we assume that two drivers driving the resolved signal to a 1 or
 // 0 is O.K. This might not be true for all technologies, but is certainly
 // true for CMOS, the predominant technology in use today.
 
-const sc_logic_value_t
+const sc_dt::sc_logic_value_t
 sc_logic_resolution_tbl[4][4] =
 {   //    0      1      Z      X
-    { Log_0, Log_X, Log_0, Log_X }, // 0
-    { Log_X, Log_1, Log_1, Log_X }, // 1
-    { Log_0, Log_1, Log_Z, Log_X }, // Z
-    { Log_X, Log_X, Log_X, Log_X }  // X
+    { sc_dt::Log_0, sc_dt::Log_X, sc_dt::Log_0, sc_dt::Log_X }, // 0
+    { sc_dt::Log_X, sc_dt::Log_1, sc_dt::Log_1, sc_dt::Log_X }, // 1
+    { sc_dt::Log_0, sc_dt::Log_1, sc_dt::Log_Z, sc_dt::Log_X }, // Z
+    { sc_dt::Log_X, sc_dt::Log_X, sc_dt::Log_X, sc_dt::Log_X }  // X
 };
 
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_logic_resolve
 //
-//  Resolution function for sc_logic.
+//  Resolution function for sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
 
-// resolves sc_logic values and returns the resolved value
+// resolves sc_dt::sc_logic values and returns the resolved value
 
 void
-sc_logic_resolve::resolve( sc_logic& result_,
-			   const sc_pvector<sc_logic*>& values_ )
+sc_logic_resolve::resolve( sc_dt::sc_logic& result_,
+			   const sc_pvector<sc_dt::sc_logic*>& values_ )
 {
     int sz = values_.size();
 
@@ -90,9 +86,6 @@ sc_logic_resolve::resolve( sc_logic& result_,
 //
 //  The resolved signal class.
 // ----------------------------------------------------------------------------
-
-const char* const sc_signal_resolved::kind_string = "sc_signal_resolved";
-
 
 // destructor
 
@@ -144,5 +137,7 @@ sc_signal_resolved::update()
     base_type::update();
 }
 
+
+} // namespace sc_core
 
 // Taf!

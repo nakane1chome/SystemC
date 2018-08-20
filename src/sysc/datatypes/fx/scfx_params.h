@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,9 +37,9 @@
 #define SCFX_PARAMS_H
 
 
-#include "systemc/datatypes/fx/sc_fx_ids.h"
-#include "systemc/datatypes/fx/sc_fxcast_switch.h"
-#include "systemc/datatypes/fx/sc_fxtype_params.h"
+#include "sysc/datatypes/fx/sc_fx_ids.h"
+#include "sysc/datatypes/fx/sc_fxcast_switch.h"
+#include "sysc/datatypes/fx/sc_fxtype_params.h"
 
 
 namespace sc_dt
@@ -86,7 +86,7 @@ public:
 
     // dump content
 
-    void dump( ostream& ) const;
+    void dump( ::std::ostream& ) const;
 
 private:
 
@@ -111,7 +111,7 @@ scfx_params::scfx_params( const sc_fxtype_params& type_params_,
 {
     if( m_enc == SC_US_ && m_type_params.o_mode() == SC_WRAP_SM )
     {
-	SC_REPORT_ERROR( SC_ID_INVALID_O_MODE_,
+	SC_REPORT_ERROR( sc_core::SC_ID_INVALID_O_MODE_,
 			 "SC_WRAP_SM not defined for unsigned numbers" );
     }
 
@@ -191,16 +191,16 @@ scfx_params::n_bits() const
 
 inline
 void
-scfx_params::dump( ostream& os ) const
+scfx_params::dump( ::std::ostream& os ) const
 {
-    os << "scfx_params" << endl;
-    os << "(" << endl;
+    os << "scfx_params" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "type_params = ";
     m_type_params.dump( os );
-    os << "enc         = " << m_enc << endl;
+    os << "enc         = " << m_enc << ::std::endl;
     os << "cast_switch = ";
     m_cast_switch.dump( os );
-    os << ")" << endl;
+    os << ")" << ::std::endl;
 }
 
 } // namespace sc_dt

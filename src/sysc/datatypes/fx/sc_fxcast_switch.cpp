@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,7 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/fx/sc_fxcast_switch.h"
+#include "sysc/datatypes/fx/sc_fxcast_switch.h"
 
 
 namespace sc_dt
@@ -49,7 +49,7 @@ namespace sc_dt
 //  Fixed-point cast switch class.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 sc_fxcast_switch::to_string() const
 {
     return sc_dt::to_string( m_sw );
@@ -57,18 +57,18 @@ sc_fxcast_switch::to_string() const
 
 
 void
-sc_fxcast_switch::print( ostream& os ) const
+sc_fxcast_switch::print( ::std::ostream& os ) const
 {
     os << sc_dt::to_string( m_sw );
 }
 
 void
-sc_fxcast_switch::dump( ostream& os ) const
+sc_fxcast_switch::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxcast_switch" << endl;
-    os << "(" << endl;
-    os << "sw = " << sc_dt::to_string( m_sw ) << endl;
-    os << ")" << endl;
+    os << "sc_fxcast_switch" << ::std::endl;
+    os << "(" << ::std::endl;
+    os << "sw = " << sc_dt::to_string( m_sw ) << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 } // namespace sc_dt

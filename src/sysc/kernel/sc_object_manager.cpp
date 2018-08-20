@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,20 +35,21 @@
 
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <assert.h>
 #include <ctype.h>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_object.h"
-#include "systemc/utils/sc_hash.h"
-#include "systemc/utils/sc_list.h"
-#include "systemc/utils/sc_vector.h"
-#include "systemc/utils/sc_mempool.h"
-#include "systemc/kernel/sc_object_manager.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_module_name.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/utils/sc_hash.h"
+#include "sysc/utils/sc_list.h"
+#include "sysc/utils/sc_vector.h"
+#include "sysc/utils/sc_mempool.h"
+#include "sysc/kernel/sc_object_manager.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_module_name.h"
 
+namespace sc_core {
 
 int
 strcmp_void(const void* a, const void* b)
@@ -198,3 +199,5 @@ sc_object_manager::remove_object(const char* name)
     m_object_table->remove(name);
     m_ordered_object_vector_dirty = true;
 }
+
+} // namespace sc_core

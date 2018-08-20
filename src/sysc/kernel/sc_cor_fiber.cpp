@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,9 +36,18 @@
 
 #ifdef WIN32
 
-#include "systemc/kernel/sc_cor_fiber.h"
-#include "systemc/kernel/sc_simcontext.h"
 
+#include "sysc/kernel/sc_cor_fiber.h"
+#include "sysc/kernel/sc_simcontext.h"
+
+#if( defined(_MSC_VER) && _MSC_VER >= 1300 )
+
+using std::size_t;
+
+#endif
+
+
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  File static variables.
@@ -60,6 +69,10 @@ static sc_cor_fiber main_cor;
 sc_cor_fiber::~sc_cor_fiber()
 {
     if( m_fiber != 0 ) {
+#     ifdef WIN32
+      PVOID cur_fiber = GetCurrentFiber();
+      if (m_fiber != cur_fiber)
+#     endif
 	DeleteFiber( m_fiber );
     }
 }
@@ -140,7 +153,8 @@ sc_cor_pkg_fiber::get_main()
     return &main_cor;
 }
 
-#endif
+} // namespace sc_core
 
+#endif
 
 // Taf!

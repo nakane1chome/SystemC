@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,7 +35,7 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/fx/scfx_pow10.h"
+#include "sysc/datatypes/fx/scfx_pow10.h"
 
 
 namespace sc_dt
@@ -80,7 +80,7 @@ scfx_pow10::operator() ( int i )
 	    {
 	        if( ( 1 << bit ) & i )
 		{
-		    scfx_rep* tmp = mult__scfx_rep( result, *pos( bit ) );
+		    scfx_rep* tmp = mult_scfx_rep( result, *pos( bit ) );
 		    result = *tmp;
 		    delete tmp;
 		}
@@ -99,7 +99,7 @@ scfx_pow10::operator() ( int i )
 	    {
 	        if( ( 1 << bit ) & i )
 		{
-		    scfx_rep* tmp = mult__scfx_rep( result, *neg( bit ) );
+		    scfx_rep* tmp = mult_scfx_rep( result, *neg( bit ) );
 		    result = *tmp;
 		    delete tmp;
 		}

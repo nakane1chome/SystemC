@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,13 +35,13 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/fx/scfx_rep.h"
+#include "sysc/datatypes/fx/scfx_rep.h"
 
-#include "systemc/datatypes/fx/scfx_ieee.h"
-#include "systemc/datatypes/fx/scfx_pow10.h"
-#include "systemc/datatypes/fx/scfx_utils.h"
+#include "sysc/datatypes/fx/scfx_ieee.h"
+#include "sysc/datatypes/fx/scfx_pow10.h"
+#include "sysc/datatypes/fx/scfx_utils.h"
 
-#include "systemc/datatypes/bit/sc_bv_base.h"
+#include "sysc/datatypes/bit/sc_bv_base.h"
 
 #include <ctype.h>
 #include <math.h>
@@ -601,6 +601,7 @@ scfx_rep::from_string( const char* s, int cte_wl )
 	}
         case 10:
 	{
+	    unsigned long carry, temp;
 	    int length = int_digits + frac_digits;
 	    resize_to( sc_max( min_mant, n_word( 4 * length ) ) );
 
@@ -614,7 +615,14 @@ scfx_rep::from_string( const char* s, int cte_wl )
 		    case '9': case '8': case '7': case '6': case '5':
 		    case '4': case '3': case '2': case '1': case '0':
 		        multiply_by_ten();
-			m_mant[0] += *s - '0';
+			carry = *s - '0';
+			for ( int i = 0; carry && i < m_mant.size(); i++ )
+			{
+			    temp = m_mant[i];
+                            temp += carry;			    
+			    carry = temp < m_mant[i];
+			    m_mant[i] = temp;
+			}
 		    case '.':
 			break;
 		    default:
@@ -631,7 +639,7 @@ scfx_rep::from_string( const char* s, int cte_wl )
 	    {
 		scfx_rep frac_num = pow10_fx( denominator );
 		scfx_rep* temp_num =
-		    div__scfx_rep( const_cast<const scfx_rep&>( *this ),
+		    div_scfx_rep( const_cast<const scfx_rep&>( *this ),
 				   frac_num, cte_wl );
 		*this = *temp_num;
 		delete temp_num;
@@ -1003,7 +1011,7 @@ print_other( scfx_string& s, const scfx_rep& a, sc_numrep numrep, int w_prefix,
 	if( b.is_neg() )
 	{
 	    s += '-';
-	    b = *neg__scfx_rep( a );
+	    b = *neg_scfx_rep( a );
 	}
 	switch( numrep )
 	{
@@ -1168,7 +1176,7 @@ scfx_rep::to_string( sc_numrep numrep, int w_prefix,
 	       numrep == SC_OCT_US ||
 	       numrep == SC_HEX_US ) )
         s += "negative";
-    else if( numrep == SC_DEC )
+    else if( numrep == SC_DEC || numrep == SC_NOBASE )
         sc_dt::print_dec( s, *this, w_prefix, fmt );
     else
         sc_dt::print_other( s, *this, numrep, w_prefix, fmt, params );
@@ -1238,7 +1246,7 @@ sub_mants( int size, scfx_mant& result,
 
 
 scfx_rep*
-add__scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int max_wl )
+add_scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int max_wl )
 {
     scfx_rep& result = *new scfx_rep;
 
@@ -1367,7 +1375,7 @@ sub_with_index(       scfx_mant& a, int a_msw, int a_lsw,
 
 
 scfx_rep*
-sub__scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int max_wl )
+sub_scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int max_wl )
 {
     scfx_rep& result = *new scfx_rep;
 
@@ -1557,7 +1565,7 @@ multiply( scfx_rep& result, const scfx_rep& lhs, const scfx_rep& rhs,
 // ----------------------------------------------------------------------------
 
 scfx_rep*
-div__scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int div_wl )
+div_scfx_rep( const scfx_rep& lhs, const scfx_rep& rhs, int div_wl )
 {
     scfx_rep& result = *new scfx_rep;
 
@@ -1803,13 +1811,13 @@ compare_abs( const scfx_rep& a, const scfx_rep& b )
 
 
 // ----------------------------------------------------------------------------
-//  FRIEND FUNCTION : cmp__scfx_rep
+//  FRIEND FUNCTION : cmp_scfx_rep
 //
 //  Compares the values of two scfx_reps, including the special cases.
 // ----------------------------------------------------------------------------
 
 int
-cmp__scfx_rep( const scfx_rep& a, const scfx_rep& b )
+cmp_scfx_rep( const scfx_rep& a, const scfx_rep& b )
 {
     // handle special cases
 
@@ -2097,7 +2105,7 @@ scfx_rep::overflow( const scfx_params& params, bool& o_flag )
             case SC_WRAP_SM:			// sign magnitude wrap-around
 	    {
 		SC_ERROR_IF_( enc == SC_US_,
-			      SC_ID_WRAP_SM_NOT_DEFINED_ );
+			      sc_core::SC_ID_WRAP_SM_NOT_DEFINED_ );
 
 		int n_bits = params.n_bits();
 
@@ -2704,7 +2712,7 @@ scfx_rep::set_slice( int i, int j, const scfx_params& params,
 // ----------------------------------------------------------------------------
 
 void
-scfx_rep::print( ostream& os ) const
+scfx_rep::print( ::std::ostream& os ) const
 {
     os << to_string( SC_DEC, -1, SC_E );
 }
@@ -2715,21 +2723,21 @@ scfx_rep::print( ostream& os ) const
 // ----------------------------------------------------------------------------
 
 void
-scfx_rep::dump( ostream& os ) const
+scfx_rep::dump( ::std::ostream& os ) const
 {
-    os << "scfx_rep" << endl;
-    os << "(" << endl;
+    os << "scfx_rep" << ::std::endl;
+    os << "(" << ::std::endl;
 
-    os << "mant  =" << endl;
+    os << "mant  =" << ::std::endl;
     for( int i = size() - 1; i >= 0; i -- )
     {
 	char buf[BUFSIZ];
 	sprintf( buf, " %d: %10u (%8x)", i, (int) m_mant[i], (int) m_mant[i] );
-	os << buf << endl;
+	os << buf << ::std::endl;
     }
 
-    os << "wp    = " << m_wp << endl;
-    os << "sign  = " << m_sign << endl;
+    os << "wp    = " << m_wp << ::std::endl;
+    os << "sign  = " << m_sign << ::std::endl;
 
     os << "state = ";
     switch( m_state )
@@ -2746,12 +2754,12 @@ scfx_rep::dump( ostream& os ) const
         default:
 	    os << "unknown";
     }
-    os << endl;
+    os << ::std::endl;
 
-    os << "msw   = " << m_msw << endl;
-    os << "lsw   = " << m_lsw << endl;
+    os << "msw   = " << m_msw << ::std::endl;
+    os << "lsw   = " << m_lsw << ::std::endl;
 
-    os << ")" << endl;
+    os << ")" << ::std::endl;
 }
 
 

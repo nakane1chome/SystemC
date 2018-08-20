@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -33,17 +33,17 @@
 
  *****************************************************************************/
 
-
 #include <assert.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/utils/sc_string.h"
-#include "systemc/utils/sc_utils_ids.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/utils/sc_utils_ids.h"
 
+namespace sc_dt {
 
 inline int
 sc_roundup( int n, int m )
@@ -58,35 +58,35 @@ sc_roundup( int n, int m )
 //  Enumeration of number representations for character string conversion.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_numrep numrep )
 {
     switch( numrep )
     {
         case SC_DEC:
-	    return sc_string( "SC_DEC" );
+	    return std::string( "SC_DEC" );
         case SC_BIN:
-	    return sc_string( "SC_BIN" );
+	    return std::string( "SC_BIN" );
         case SC_BIN_US:
-	    return sc_string( "SC_BIN_US" );
+	    return std::string( "SC_BIN_US" );
         case SC_BIN_SM:
-	    return sc_string( "SC_BIN_SM" );
+	    return std::string( "SC_BIN_SM" );
         case SC_OCT:
-	    return sc_string( "SC_OCT" );
+	    return std::string( "SC_OCT" );
         case SC_OCT_US:
-	    return sc_string( "SC_OCT_US" );
+	    return std::string( "SC_OCT_US" );
         case SC_OCT_SM:
-	    return sc_string( "SC_OCT_SM" );
+	    return std::string( "SC_OCT_SM" );
         case SC_HEX:
-	    return sc_string( "SC_HEX" );
+	    return std::string( "SC_HEX" );
         case SC_HEX_US:
-	    return sc_string( "SC_HEX_US" );
+	    return std::string( "SC_HEX_US" );
         case SC_HEX_SM:
-	    return sc_string( "SC_HEX_SM" );
+	    return std::string( "SC_HEX_SM" );
         case SC_CSD:
-	    return sc_string( "SC_CSD" );
+	    return std::string( "SC_CSD" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 
@@ -99,10 +99,10 @@ to_string( sc_numrep numrep )
 
 class sc_string_rep
 {
-    friend class sc_string;
-    friend ostream& operator<<( ostream&, const sc_string& );
-    friend istream& operator>>( istream&, sc_string& );
-    friend sc_string operator+( const char*, const sc_string& );
+    friend class sc_string_old;
+    friend ::std::ostream& operator<<( ::std::ostream&, const sc_string_old& );
+    friend ::std::istream& operator>>( ::std::istream&, sc_string_old& );
+    friend sc_string_old operator+( const char*, const sc_string_old& );
 
     sc_string_rep( int size = 16 )
     {
@@ -178,35 +178,35 @@ sc_string_rep::set_string( const char* s )
 
 
 // ----------------------------------------------------------------------------
-//  CLASS : sc_string
+//  CLASS : sc_string_old
 //
 //  String class (yet another).
 // ----------------------------------------------------------------------------
 
 // constructors
 
-sc_string::sc_string( int size )
+sc_string_old::sc_string_old( int size )
 {
     rep = new sc_string_rep( size );
 }
 
-sc_string::sc_string( const char* s )
+sc_string_old::sc_string_old( const char* s )
 {
     rep = new sc_string_rep( s );
 }
 
-sc_string::sc_string( const char* s, int n )
+sc_string_old::sc_string_old( const char* s, int n )
 {
     rep = new sc_string_rep( s, n );
 }
 
-sc_string::sc_string( const sc_string& s )
+sc_string_old::sc_string_old( const sc_string_old& s )
 {
     rep = s.rep;
     rep->ref_count ++;
 }
 
-sc_string::sc_string( sc_string_rep* r )
+sc_string_old::sc_string_old( sc_string_rep* r )
 {
     rep = r;
 }
@@ -214,7 +214,7 @@ sc_string::sc_string( sc_string_rep* r )
 
 // destructor
 
-sc_string::~sc_string()
+sc_string_old::~sc_string_old()
 {
     if( -- (rep->ref_count) == 0 ) {
         delete rep;
@@ -223,53 +223,53 @@ sc_string::~sc_string()
 
 
 int
-sc_string::length() const
+sc_string_old::length() const
 {
     return strlen(rep->str);
 }
 
-sc_string
-sc_string::operator+( const char* s ) const
+sc_string_old
+sc_string_old::operator+( const char* s ) const
 {
     int len = length();
     sc_string_rep* r = new sc_string_rep( len + strlen(s) + 1 );
     strcpy( r->str, rep->str );
     strcpy( r->str + len, s );
-    return sc_string(r);
+    return sc_string_old(r);
 }
 
-sc_string sc_string::operator+(char c) const
+sc_string_old sc_string_old::operator+(char c) const
 {
     int len = length();
     sc_string_rep* r = new sc_string_rep( len + 2 );
     strcpy( r->str, rep->str );
     r->str[len] = c;
     r->str[len+1] = 00;
-    return sc_string(r);
+    return sc_string_old(r);
 }
 
-sc_string
-operator+( const char* s, const sc_string& t )
+sc_string_old
+operator+( const char* s, const sc_string_old& t )
 {
     int len = strlen(s);
     sc_string_rep* r = new sc_string_rep( len + t.length() + 1 );
     strcpy( r->str, s );
     strcpy( r->str + len, t );
-    return sc_string(r);
+    return sc_string_old(r);
 }
 
-sc_string
-sc_string::operator+( const sc_string& s ) const
+sc_string_old
+sc_string_old::operator+( const sc_string_old& s ) const
 {
     int len = length();
     sc_string_rep* r = new sc_string_rep( len + s.length() + 1 );
     strcpy( r->str, rep->str );
     strcpy( r->str + len, s.rep->str );
-    return sc_string(r);
+    return sc_string_old(r);
 }
 
-sc_string&
-sc_string::operator=( const char* s )
+sc_string_old&
+sc_string_old::operator=( const char* s )
 {
     if (rep->ref_count > 1) {
         --rep->ref_count;
@@ -281,8 +281,8 @@ sc_string::operator=( const char* s )
     return *this;
 }
 
-sc_string&
-sc_string::operator=( const sc_string& s )
+sc_string_old&
+sc_string_old::operator=( const sc_string_old& s )
 {
     if (&s == this)
         return *this;
@@ -293,8 +293,8 @@ sc_string::operator=( const sc_string& s )
     return *this;
 }
 
-sc_string&
-sc_string::operator+=( const char* s )
+sc_string_old&
+sc_string_old::operator+=( const char* s )
 {
     int oldlen = length();
     int slen   = strlen(s);
@@ -312,7 +312,7 @@ sc_string::operator+=( const char* s )
     return *this;
 }
 
-sc_string& sc_string::operator+=(char c)
+sc_string_old& sc_string_old::operator+=(char c)
 {
     int oldlen = length();
     if (rep->ref_count > 1) {
@@ -331,52 +331,52 @@ sc_string& sc_string::operator+=(char c)
     return *this;
 }
 
-sc_string&
-sc_string::operator+=( const sc_string& s )
+sc_string_old&
+sc_string_old::operator+=( const sc_string_old& s )
 {
     return this->operator+=( s.rep->str );
 }
 
 int
-sc_string::cmp( const char* s ) const
+sc_string_old::cmp( const char* s ) const
 {
     return strcmp( rep->str, s );
 }
 
 int
-sc_string::cmp( const sc_string& s ) const
+sc_string_old::cmp( const sc_string_old& s ) const
 {
     return strcmp( rep->str, s.rep->str );
 }
 
-const char* sc_string::c_str() const
+const char* sc_string_old::c_str() const
 {
   return rep->str;
 }
 
 // get substring
-sc_string sc_string::substr(int first,int last) const
+sc_string_old sc_string_old::substr(int first,int last) const
 {
   if(first<0 || last<0 || first>last || first>=length() || last>=length())
     return "";
-  return sc_string(rep->str+first, last-first+1);
+  return sc_string_old(rep->str+first, last-first+1);
 }
 
 
-sc_string sc_string::make_str(long n) // convert integer to string
+sc_string_old sc_string_old::make_str(long n) // convert integer to string
 {
   char buf[32];
   ::sprintf(buf,"%ld",n);
-  return sc_string(buf);
+  return sc_string_old(buf);
 }
 
 
 #define DEFINE_RELOP(op) \
-bool sc_string::operator op( const char* s ) const \
+bool sc_string_old::operator op( const char* s ) const \
 {						\
     return strcmp( rep->str, s ) op 0;		\
 }						\
-bool sc_string::operator op( const sc_string& s ) const \
+bool sc_string_old::operator op( const sc_string_old& s ) const \
 {						\
     return strcmp( rep->str, s.rep->str ) op 0;	\
 }
@@ -388,24 +388,28 @@ DEFINE_RELOP(<=)
 DEFINE_RELOP(>)
 DEFINE_RELOP(>=)
 
-sc_string::operator const char*() const
+sc_string_old::operator const char*() const
 {
     return rep->str;
 }
 
 char
-sc_string::operator[]( int i ) const
+sc_string_old::operator[]( int i ) const
 {
     return rep->str[i];
 }
 
-char& sc_string::operator[]( int i )
+char& sc_string_old::operator[]( int i )
 {
+    if (rep->ref_count > 1) {
+        rep->ref_count--;
+        rep = new sc_string_rep(rep->str);
+    }
     return rep->str[i];
 }
 
 void
-sc_string::set( int i, char c )
+sc_string_old::set( int i, char c )
 {
     if (rep->ref_count > 1) {
         rep->ref_count--;
@@ -414,11 +418,11 @@ sc_string::set( int i, char c )
     rep->str[i] = c;
 }
 
-sc_string sc_string::to_string(const char* format, ...)
+sc_string_old sc_string_old::to_string(const char* format, ...)
 {
    va_list argptr;
    int cnt;
-   sc_string result;
+   sc_string_old result;
    char buffer[1024]; // static string buffer
    buffer[1023]=000;
 
@@ -451,7 +455,7 @@ sc_string sc_string::to_string(const char* format, ...)
      if(cnt>=buf_size)
      {
        // string is longer the the maximum buffer size (max_size)
-       SC_REPORT_WARNING( SC_ID_STRING_TOO_LONG_, "truncated" );
+       SC_REPORT_WARNING( sc_core::SC_ID_STRING_TOO_LONG_, "truncated" );
        buf[buf_size-1] = 000;
      }
      result = buf;
@@ -467,7 +471,7 @@ sc_string sc_string::to_string(const char* format, ...)
    }
    catch(...)
    {
-     SC_REPORT_WARNING( SC_ID_STRING_TOO_LONG_,
+     SC_REPORT_WARNING( sc_core::SC_ID_STRING_TOO_LONG_,
 			"program may become unstable" );
    }
    buffer[1023]=000; // in case it's longer
@@ -479,19 +483,19 @@ sc_string sc_string::to_string(const char* format, ...)
 }
 
 void
-sc_string::print( ostream& os ) const
+sc_string_old::print( ::std::ostream& os ) const
 {
     os << rep->str;
 }
 
-void sc_string::test(int position)const
+void sc_string_old::test(int position)const
 {
 	if(position<0 || position>=length())
-		SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, "sc_string::test" );
+		SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, "sc_string_old::test" );
 }
 
 // TODO: conveniece formatting functions for common types
-//       e.g. sc_string("a=%d, s is %s").fmt(1).fmt("string")
+//       e.g. sc_string_old("a=%d, s is %s").fmt(1).fmt("string")
 //       should produce a=1, s is string
 //       it should be safe: if less arguments specified
 //       it should print %specifier; extra arguments should be ignored
@@ -500,7 +504,7 @@ void sc_string::test(int position)const
 //
 
 unsigned
-sc_string::fmt_length()const
+sc_string_old::fmt_length()const
 {
     unsigned result=0;
     if((*this)[0]!='%')
@@ -527,14 +531,14 @@ sc_string::fmt_length()const
     return result;
 }
 
-sc_string&
-sc_string::fmt(const sc_string& s)
+sc_string_old&
+sc_string_old::fmt(const sc_string_old& s)
 {
     return fmt(s.c_str());
 }
 
 int
-sc_string::pos( const sc_string& sub_string ) const
+sc_string_old::pos( const sc_string_old& sub_string ) const
 {
     int sub_len = sub_string.length();
     if( sub_len == 0 ) {
@@ -555,8 +559,8 @@ sc_string::pos( const sc_string& sub_string ) const
     }
 }
 
-sc_string&
-sc_string::remove(unsigned index, unsigned length)
+sc_string_old&
+sc_string_old::remove(unsigned index, unsigned length)
 {
     test((int)index);
     if(length!=0)
@@ -564,23 +568,23 @@ sc_string::remove(unsigned index, unsigned length)
     return *this;
 }
 
-sc_string&
-sc_string::insert(const sc_string& sub_string, unsigned index)
+sc_string_old&
+sc_string_old::insert(const sc_string_old& sub_string, unsigned index)
 {
     if(index>(unsigned)length())   
-	SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, "sc_string::insert" );
+	SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, "sc_string_old::insert" );
     return (*this) = substr(0,index-1)+sub_string+substr(index,length()-1);
 }
 
 bool
-sc_string::is_delimiter(const sc_string& str, unsigned index)const
+sc_string_old::is_delimiter(const sc_string_old& str, unsigned index)const
 {
     test((int)index);
     return str.contains(rep->str[index]);
 }
 
 bool
-sc_string::contains(char c)const
+sc_string_old::contains(char c)const
 {
     int len = length();
     int i=0;
@@ -590,30 +594,30 @@ sc_string::contains(char c)const
     return found;
 }
 
-sc_string
-sc_string::uppercase()const
+sc_string_old
+sc_string_old::uppercase()const
 {
     int len = length();
-    sc_string temp(*this);
+    sc_string_old temp(*this);
     for(int i=0; i<len; i++)
     {
 	char c = temp.rep->str[i];
 	if(c>='a' && c<='z')
-	    temp.rep->str[i] = static_cast<char>( c-20 );
+	    temp.rep->str[i] = static_cast<char>( c-32 );
     }
     return temp;
 }
 
-sc_string
-sc_string::lowercase()const
+sc_string_old
+sc_string_old::lowercase()const
 {
     int len = length();
-    sc_string temp(*this);
+    sc_string_old temp(*this);
     for(int i=0; i<len; i++)
     {
 	char c = temp.rep->str[i];
 	if(c>='A' && c<='Z')
-	    temp.rep->str[i] = static_cast<char>( c+20 );
+	    temp.rep->str[i] = static_cast<char>( c+32 );
     }
     return temp;
 }
@@ -621,8 +625,8 @@ sc_string::lowercase()const
 
 // ----------------------------------------------------------------------------
 
-istream&
-operator >> ( istream& is, sc_string& s )
+::std::istream&
+operator >> ( ::std::istream& is, sc_string_old& s )
 {
     if( s.rep->ref_count > 1 ) {
         -- s.rep->ref_count;
@@ -639,6 +643,7 @@ operator >> ( istream& is, sc_string& s )
 
     for( ; is.good() && ! isspace( c ); is.get( c ) ) {
         if( i > s.rep->alloc - 2 ) {
+	    s.rep->str[i] = '\0';
             s.rep->resize( (int) (s.rep->alloc * 1.5) );
             p = s.rep->str + i;
         }
@@ -649,3 +654,4 @@ operator >> ( istream& is, sc_string& s )
 
     return is;
 }
+ } // namespace sc_dt

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -47,9 +47,10 @@
 #ifndef SC_TRACE_H
 #define SC_TRACE_H
 
-#include <stdio.h>
+#include <cstdio>
 
-#include "systemc/utils/sc_string.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/utils/sc_string.h"
 
 // Some forward declarations
 namespace sc_dt
@@ -67,18 +68,8 @@ namespace sc_dt
     class sc_fxnum;
     class sc_fxnum_fast;
 }
-using sc_dt::sc_bit;
-using sc_dt::sc_logic;
-using sc_dt::sc_bv_base;
-using sc_dt::sc_lv_base;
-using sc_dt::sc_signed;
-using sc_dt::sc_unsigned;
-using sc_dt::sc_int_base;
-using sc_dt::sc_uint_base;
-using sc_dt::sc_fxval;
-using sc_dt::sc_fxval_fast;
-using sc_dt::sc_fxnum;
-using sc_dt::sc_fxnum_fast;
+
+namespace sc_core {
 
 class sc_logic_resolve;
 class sc_time;
@@ -102,17 +93,17 @@ public:
 
 #define DECL_TRACE_METHOD_A(tp)                                               \
     virtual void trace( const tp& object,                                     \
-			const sc_string& name ) = 0;
+			const std::string& name ) = 0;
 
 #define DECL_TRACE_METHOD_B(tp)                                               \
     virtual void trace( const tp& object,                                     \
-			const sc_string& name,                                \
+			const std::string& name,                                     \
 			int width ) = 0;
 
 
     DECL_TRACE_METHOD_A( bool )
-    DECL_TRACE_METHOD_A( sc_bit )
-    DECL_TRACE_METHOD_A( sc_logic )
+    DECL_TRACE_METHOD_A( sc_dt::sc_bit )
+    DECL_TRACE_METHOD_A( sc_dt::sc_logic )
 
     DECL_TRACE_METHOD_B( unsigned char )
     DECL_TRACE_METHOD_B( unsigned short )
@@ -122,21 +113,23 @@ public:
     DECL_TRACE_METHOD_B( short )
     DECL_TRACE_METHOD_B( int )
     DECL_TRACE_METHOD_B( long )
+    DECL_TRACE_METHOD_B( sc_dt::int64 )
+    DECL_TRACE_METHOD_B( sc_dt::uint64 )
 
     DECL_TRACE_METHOD_A( float )
     DECL_TRACE_METHOD_A( double )
-    DECL_TRACE_METHOD_A( sc_int_base )
-    DECL_TRACE_METHOD_A( sc_uint_base )
-    DECL_TRACE_METHOD_A( sc_signed )
-    DECL_TRACE_METHOD_A( sc_unsigned )
+    DECL_TRACE_METHOD_A( sc_dt::sc_int_base )
+    DECL_TRACE_METHOD_A( sc_dt::sc_uint_base )
+    DECL_TRACE_METHOD_A( sc_dt::sc_signed )
+    DECL_TRACE_METHOD_A( sc_dt::sc_unsigned )
 
-    DECL_TRACE_METHOD_A( sc_fxval )
-    DECL_TRACE_METHOD_A( sc_fxval_fast )
-    DECL_TRACE_METHOD_A( sc_fxnum )
-    DECL_TRACE_METHOD_A( sc_fxnum_fast )
+    DECL_TRACE_METHOD_A( sc_dt::sc_fxval )
+    DECL_TRACE_METHOD_A( sc_dt::sc_fxval_fast )
+    DECL_TRACE_METHOD_A( sc_dt::sc_fxnum )
+    DECL_TRACE_METHOD_A( sc_dt::sc_fxnum_fast )
 
-    DECL_TRACE_METHOD_A( sc_bv_base )
-    DECL_TRACE_METHOD_A( sc_lv_base )
+    DECL_TRACE_METHOD_A( sc_dt::sc_bv_base )
+    DECL_TRACE_METHOD_A( sc_dt::sc_lv_base )
 
 
 #undef DECL_TRACE_METHOD_A
@@ -146,11 +139,11 @@ public:
     // literals in the trace file. Enum literals is a null terminated array
     // of null terminated char* literal strings.
     virtual void trace( const unsigned int& object,
-			const sc_string& name,
+			const std::string& name,
 			const char** enum_literals ) = 0;
 
     // Output a comment to the trace file
-    virtual void write_comment( const sc_string& comment ) = 0;
+    virtual void write_comment( const std::string& comment ) = 0;
 
     // Set the amount of space before next column
     // (For most formats this does nothing)
@@ -176,33 +169,33 @@ protected:
 // be traced is passed as a reference and the other where a pointer to the
 // tracing object is passed.
 
-#define DECL_TRACE_FUNC_REF_A(tp)                                             \
-void                                                                          \
-sc_trace( sc_trace_file* tf,                                                  \
-	  const tp& object,                                                   \
-	  const sc_string& name );
+#define DECL_TRACE_FUNC_REF_A(tp)     \
+void                                  \
+sc_trace( sc_trace_file* tf,          \
+	  const tp& object,               \
+	  const std::string& name );
 
-#define DECL_TRACE_FUNC_PTR_A(tp)                                             \
-void                                                                          \
-sc_trace( sc_trace_file* tf,                                                  \
-	  const tp* object,                                                   \
-	  const sc_string& name );                                            \
+#define DECL_TRACE_FUNC_PTR_A(tp)     \
+void                                  \
+sc_trace( sc_trace_file* tf,          \
+	  const tp* object,               \
+	  const std::string& name );        \
 
-#define DECL_TRACE_FUNC_A(tp)                                                 \
-DECL_TRACE_FUNC_REF_A(tp)                                                     \
+#define DECL_TRACE_FUNC_A(tp)         \
+DECL_TRACE_FUNC_REF_A(tp)             \
 DECL_TRACE_FUNC_PTR_A(tp)
 
 
-DECL_TRACE_FUNC_A( sc_bit )
-DECL_TRACE_FUNC_A( sc_logic )
+DECL_TRACE_FUNC_A( sc_dt::sc_bit )
+DECL_TRACE_FUNC_A( sc_dt::sc_logic )
 
-DECL_TRACE_FUNC_A( sc_int_base )
-DECL_TRACE_FUNC_A( sc_uint_base )
-DECL_TRACE_FUNC_A( sc_signed )
-DECL_TRACE_FUNC_A( sc_unsigned )
+DECL_TRACE_FUNC_A( sc_dt::sc_int_base )
+DECL_TRACE_FUNC_A( sc_dt::sc_uint_base )
+DECL_TRACE_FUNC_A( sc_dt::sc_signed )
+DECL_TRACE_FUNC_A( sc_dt::sc_unsigned )
 
-DECL_TRACE_FUNC_REF_A( sc_bv_base )
-DECL_TRACE_FUNC_REF_A( sc_lv_base )
+DECL_TRACE_FUNC_REF_A( sc_dt::sc_bv_base )
+DECL_TRACE_FUNC_REF_A( sc_dt::sc_lv_base )
 
 
 #undef DECL_TRACE_FUNC_REF_A
@@ -215,7 +208,7 @@ DECL_TRACE_FUNC_REF_A( sc_lv_base )
 #define DEFN_TRACE_FUNC_REF_A(tp)                                             \
 inline                                                                        \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name )        \
+sc_trace( sc_trace_file* tf, const tp& object, const std::string& name ) \
 {                                                                             \
     if( tf ) {                                                                \
 	tf->trace( object, name );                                            \
@@ -225,7 +218,7 @@ sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name )        \
 #define DEFN_TRACE_FUNC_PTR_A(tp)                                             \
 inline                                                                        \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp* object, const sc_string& name )        \
+sc_trace( sc_trace_file* tf, const tp* object, const std::string& name ) \
 {                                                                             \
     if( tf ) {                                                                \
 	tf->trace( *object, name );                                           \
@@ -240,7 +233,7 @@ DEFN_TRACE_FUNC_PTR_A(tp)
 #define DEFN_TRACE_FUNC_REF_B(tp)                                             \
 inline                                                                        \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name,         \
+sc_trace( sc_trace_file* tf, const tp& object, const std::string& name,  \
           int width = 8 * sizeof( tp ) )                                      \
 {                                                                             \
     if( tf ) {                                                                \
@@ -251,7 +244,7 @@ sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name,         \
 #define DEFN_TRACE_FUNC_PTR_B(tp)                                             \
 inline                                                                        \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp* object, const sc_string& name,         \
+sc_trace( sc_trace_file* tf, const tp* object, const std::string& name,  \
           int width = 8 * sizeof( tp ) )                                      \
 {                                                                             \
     if( tf ) {                                                                \
@@ -277,6 +270,8 @@ DEFN_TRACE_FUNC_B( char )
 DEFN_TRACE_FUNC_B( short )
 DEFN_TRACE_FUNC_B( int )
 DEFN_TRACE_FUNC_B( long )
+DEFN_TRACE_FUNC_B( sc_dt::int64 )
+DEFN_TRACE_FUNC_B( sc_dt::uint64 )
 
 
 #undef DEFN_TRACE_FUNC_REF_A
@@ -293,7 +288,7 @@ inline
 void
 sc_trace( sc_trace_file* tf,
 	  const sc_signal_in_if<T>& object,
-	  const sc_string& name )
+	  const std::string& name )
 {
     sc_trace( tf, object.get_data_ref(), name );
 }
@@ -313,22 +308,22 @@ sc_trace( sc_trace_file* tf,
 
 void sc_trace( sc_trace_file* tf,
 	       const sc_signal_in_if<char>& object,
-	       const sc_string& name,
+	       const std::string& name,
 	       int width );
 
 void sc_trace( sc_trace_file* tf,
 	       const sc_signal_in_if<short>& object,
-	       const sc_string& name,
+	       const std::string& name,
 	       int width );
 
 void sc_trace( sc_trace_file* tf,
 	       const sc_signal_in_if<int>& object,
-	       const sc_string& name,
+	       const std::string& name,
 	       int width );
 
 void sc_trace( sc_trace_file* tf,
 	       const sc_signal_in_if<long>& object,
-	       const sc_string& name,
+	       const std::string& name,
 	       int width );
 
 
@@ -344,7 +339,7 @@ void sc_trace( sc_trace_file* tf,
 void
 sc_trace( sc_trace_file* tf,
 	  const unsigned int& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  const char** enum_literals );
 
 
@@ -352,7 +347,7 @@ sc_trace( sc_trace_file* tf,
 
 extern void sc_trace( sc_trace_file* tf,
 		      const void* object,
-		      const sc_string& name );
+		      const std::string& name );
 
 
 // Turn on/off delta cycle tracing on trace file `tf'.
@@ -370,7 +365,7 @@ sc_trace_delta_cycles( sc_trace_file* tf, bool on = true )
 
 inline
 void
-sc_write_comment( sc_trace_file* tf, const sc_string& comment )
+sc_write_comment( sc_trace_file* tf, const std::string& comment )
 {
     if( tf ) tf->write_comment( comment );
 }
@@ -392,5 +387,6 @@ extern void double_to_special_int64( double in,
 				     unsigned* high,
 				     unsigned* low );
 
+} // namespace sc_core
 
 #endif

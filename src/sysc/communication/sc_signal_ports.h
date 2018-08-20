@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -43,14 +43,13 @@
 #define SC_SIGNAL_PORTS_H
 
 
-#include "systemc/communication/sc_event_finder.h"
-#include "systemc/communication/sc_port.h"
-#include "systemc/communication/sc_signal_ifs.h"
-#include "systemc/datatypes/bit/sc_logic.h"
-#include "systemc/tracing/sc_trace.h"
+#include "sysc/communication/sc_event_finder.h"
+#include "sysc/communication/sc_port.h"
+#include "sysc/communication/sc_signal_ifs.h"
+#include "sysc/datatypes/bit/sc_logic.h"
+#include "sysc/tracing/sc_trace.h"
 
-using sc_dt::sc_logic;
-
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  STRUCT : sc_trace_params
@@ -61,10 +60,10 @@ using sc_dt::sc_logic;
 
 struct sc_trace_params
 {
-    sc_trace_file* tf;
-    sc_string      name;
+    sc_trace_file*        tf;
+    std::string      name;
 
-    sc_trace_params( sc_trace_file* tf_, const sc_string& name_ )
+    sc_trace_params( sc_trace_file* tf_, const std::string& name_ )
 	: tf( tf_ ), name( name_ )
 	{}
 };
@@ -220,15 +219,12 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_in"; }
 
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -257,11 +253,13 @@ private:
 #endif
 };
 
+template<typename T>
+::std::ostream& operator << ( ::std::ostream& os, const sc_in<T>& a )
+{
+    return os << a->read();
+}
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <class T>
-const char* const sc_in<T>::kind_string = "sc_in";
 
 
 // called when elaboration is done
@@ -287,7 +285,7 @@ sc_in<T>::end_of_elaboration()
 template <class T>
 inline
 void
-sc_in<T>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
+sc_in<T>::add_trace( sc_trace_file* tf_, const std::string& name_ ) const
 {
     if( tf_ != 0 ) {
 	if( m_traces == 0 ) {
@@ -350,7 +348,7 @@ sc_in<T>::vbind( sc_port_base& parent_ )
 
 template <>
 class sc_in<bool>
-: public sc_port<sc_signal_in_if<bool>,1>
+: public sc_port<sc_signal_in_if<bool>,1> 
 {
 public:
 
@@ -406,6 +404,12 @@ public:
     sc_in( this_type& parent_ )
 	: base_type( parent_ ), m_traces( 0 )
 	{}
+
+#if defined(TESTING)
+    sc_in( const this_type& parent_ )
+	: base_type( *(in_if_type*)parent_.get_interface() ) , m_traces( 0 )
+	{}
+#endif 
 
     sc_in( const char* name_, this_type& parent_ )
 	: base_type( name_, parent_ ), m_traces( 0 )
@@ -514,7 +518,6 @@ public:
     // delayed evaluation
     const sc_signal_bool_deval& delayed() const;
 
-
     // (other) event finder method(s)
 
     sc_event_finder& value_changed() const
@@ -530,15 +533,12 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_in"; }
 
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -555,7 +555,10 @@ protected:
 private:
 
     // disabled
+#if defined(TESTING)
+#else
     sc_in( const this_type& );
+#endif 
     this_type& operator = ( const this_type& );
 
 #ifdef __GNUC__
@@ -588,20 +591,20 @@ sc_in<bool>::delayed() const
 
 
 // ----------------------------------------------------------------------------
-//  CLASS : sc_in<sc_logic>
+//  CLASS : sc_in<sc_dt::sc_logic>
 //
-//  Specialization of sc_in<T> for type sc_logic.
+//  Specialization of sc_in<T> for type sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
 
 template <>
-class sc_in<sc_logic>
-: public sc_port<sc_signal_in_if<sc_logic>,1>
+class sc_in<sc_dt::sc_logic>
+: public sc_port<sc_signal_in_if<sc_dt::sc_logic>,1>
 {
 public:
 
     // typedefs
 
-    typedef sc_logic                      data_type;
+    typedef sc_dt::sc_logic               data_type;
 
     typedef sc_signal_in_if<data_type>    if_type;
     typedef sc_port<if_type,1>            base_type;
@@ -775,15 +778,12 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_in"; }
 
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -819,7 +819,7 @@ private:
 
 inline
 const sc_signal_logic_deval&
-sc_in<sc_logic>::delayed() const
+sc_in<sc_dt::sc_logic>::delayed() const
 {
     const in_if_type* iface = DCAST<const in_if_type*>( get_interface() );
     if( iface != 0 ) {
@@ -930,8 +930,8 @@ public:
 
     // write the new value
 
-    this_type& write( const data_type& value_ )
-	{ (*this)->write( value_ ); return *this; }
+    void write( const data_type& value_ )
+	{ (*this)->write( value_ ); }
 
     this_type& operator = ( const data_type& value_ )
 	{ (*this)->write( value_ ); return *this; }
@@ -972,11 +972,8 @@ public:
 	    *this, &in_if_type::value_changed_event );
     }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_inout"; }
 
 protected:
 
@@ -985,7 +982,7 @@ protected:
 public:
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -1007,11 +1004,13 @@ private:
 #endif
 };
 
+template<typename T>
+::std::ostream& operator << ( ::std::ostream& os, const sc_inout<T>& a )
+{
+    return os << a->read();
+}
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <class T>
-const char* const sc_inout<T>::kind_string = "sc_inout";
 
 
 // destructor
@@ -1074,13 +1073,13 @@ sc_inout<T>::end_of_elaboration()
 template <class T>
 inline
 void
-sc_inout<T>::add_trace( sc_trace_file* tf_, const sc_string& name_ ) const
+sc_inout<T>::add_trace( sc_trace_file* tf_, const std::string& name_) const
 {
     if( tf_ != 0 ) {
-	if( m_traces == 0 ) {
-	    m_traces = new sc_trace_params_vec;
-	}
-	m_traces->push_back( new sc_trace_params( tf_, name_ ) );
+	    if( m_traces == 0 ) {
+	        m_traces = new sc_trace_params_vec;
+	    }
+	    m_traces->push_back( new sc_trace_params( tf_, name_ ) );
     }
 }
 
@@ -1090,11 +1089,11 @@ void
 sc_inout<T>::remove_traces() const
 {
     if( m_traces != 0 ) {
-	for( int i = m_traces->size() - 1; i >= 0; -- i ) {
-	    delete (*m_traces)[i];
-	}
-	delete m_traces;
-	m_traces = 0;
+		for( int i = m_traces->size() - 1; i >= 0; -- i ) {
+	        delete (*m_traces)[i];
+		}
+		delete m_traces;
+		m_traces = 0;
     }
 }
 
@@ -1235,11 +1234,10 @@ public:
     // delayed evaluation
     const sc_signal_bool_deval& delayed() const;
 
-
     // write the new value
 
-    this_type& write( const data_type& value_ )
-	{ (*this)->write( value_ ); return *this; }
+    void write( const data_type& value_ )
+	{ (*this)->write( value_ ); }
 
     this_type& operator = ( const data_type& value_ )
 	{ (*this)->write( value_ ); return *this; }
@@ -1280,11 +1278,8 @@ public:
 	    *this, &in_if_type::value_changed_event );
     }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_inout"; }
 
 protected:
 
@@ -1293,7 +1288,7 @@ protected:
 public:
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -1336,20 +1331,20 @@ sc_inout<bool>::delayed() const
 
 
 // ----------------------------------------------------------------------------
-//  CLASS : sc_inout<sc_logic>
+//  CLASS : sc_inout<sc_dt::sc_logic>
 //
-//  Specialization of sc_inout<T> for type sc_logic.
+//  Specialization of sc_inout<T> for type sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
 
 template <>
-class sc_inout<sc_logic>
-: public sc_port<sc_signal_inout_if<sc_logic>,1>
+class sc_inout<sc_dt::sc_logic>
+: public sc_port<sc_signal_inout_if<sc_dt::sc_logic>,1>
 {
 public:
 
     // typedefs
 
-    typedef sc_logic                      data_type;
+    typedef sc_dt::sc_logic               data_type;
 
     typedef sc_signal_inout_if<data_type> if_type;
     typedef sc_port<if_type,1>            base_type;
@@ -1474,8 +1469,8 @@ public:
 
     // write the new value
 
-    this_type& write( const data_type& value_ )
-	{ (*this)->write( value_ ); return *this; }
+    void write( const data_type& value_ )
+	{ (*this)->write( value_ ); }
 
     this_type& operator = ( const data_type& value_ )
 	{ (*this)->write( value_ ); return *this; }
@@ -1516,11 +1511,8 @@ public:
 	    *this, &in_if_type::value_changed_event );
     }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_inout"; }
 
 protected:
 
@@ -1529,7 +1521,7 @@ protected:
 public:
 
     // called by sc_trace
-    void add_trace( sc_trace_file*, const sc_string& ) const;
+    void add_trace( sc_trace_file*, const std::string& ) const;
 
 protected:
 
@@ -1558,7 +1550,7 @@ private:
 
 inline
 const sc_signal_logic_deval&
-sc_inout<sc_logic>::delayed() const
+sc_inout<sc_dt::sc_logic>::delayed() const
 {
     const in_if_type* iface = DCAST<const in_if_type*>( get_interface() );
     if( iface != 0 ) {
@@ -1658,11 +1650,8 @@ public:
     this_type& operator = ( const this_type& port_ )
 	{ (*this)->write( port_->read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_out"; }
 
 private:
 
@@ -1673,9 +1662,6 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-template <class T>
-const char* const sc_out<T>::kind_string = "sc_out";
-
 
 // ----------------------------------------------------------------------------
 //  FUNCTION : sc_trace
@@ -1684,59 +1670,39 @@ const char* const sc_out<T>::kind_string = "sc_out";
 template <class T>
 inline
 void
-sc_trace( sc_trace_file* tf, const sc_in<T>& port, const sc_string& name )
+sc_trace(sc_trace_file* tf, const sc_in<T>& port, const std::string& name)
 {
-    port.add_trace( tf, name );
-}
+    const sc_signal_in_if<T>* iface = 0;
+    if (sc_get_curr_simcontext()->elaboration_done() )
+    {
+	iface = DCAST<const sc_signal_in_if<T>*>( port.get_interface() );
+    }
 
-template <>
-inline
-void
-sc_trace<bool>( sc_trace_file* tf,
-                const sc_in<bool>& port,
-                const sc_string& name )
-{
-    port.add_trace( tf, name );
-}
-
-template <>
-inline
-void
-sc_trace<sc_logic>( sc_trace_file* tf,
-                    const sc_in<sc_logic>& port,
-                    const sc_string& name )
-{
-    port.add_trace( tf, name );
+    if ( iface )
+	sc_trace( tf, iface->get_data_ref(), name );
+    else
+	port.add_trace( tf, name );
 }
 
 template <class T>
 inline
 void
-sc_trace( sc_trace_file* tf, const sc_inout<T>& port, const sc_string& name )
+sc_trace( sc_trace_file* tf, const sc_inout<T>& port, 
+    const std::string& name )
 {
-    port.add_trace( tf, name );
+    const sc_signal_in_if<T>* iface = 0;
+    if (sc_get_curr_simcontext()->elaboration_done() )
+    {
+	iface =DCAST<const sc_signal_in_if<T>*>( port.get_interface() );
+    }
+
+    if ( iface )
+	sc_trace( tf, iface->get_data_ref(), name );
+    else
+	port.add_trace( tf, name );
 }
 
-template <>
-inline
-void
-sc_trace<bool>( sc_trace_file* tf,
-                const sc_inout<bool>& port,
-                const sc_string& name )
-{
-    port.add_trace( tf, name );
-}
-
-template <>
-inline
-void
-sc_trace<sc_logic>( sc_trace_file* tf,
-                    const sc_inout<sc_logic>& port,
-                    const sc_string& name )
-{
-    port.add_trace( tf, name );
-}
-
+} // namespace sc_core
 
 #endif
 

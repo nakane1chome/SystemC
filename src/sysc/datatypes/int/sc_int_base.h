@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -52,24 +52,29 @@
 #ifndef SC_INT_BASE_H
 #define SC_INT_BASE_H
 
-
-#include "systemc/datatypes/int/sc_int_ids.h"
-#include "systemc/datatypes/int/sc_length_param.h"
-#include "systemc/datatypes/int/sc_nbdefs.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/datatypes/misc/sc_value_base.h"
+#include "sysc/datatypes/int/sc_int_ids.h"
+#include "sysc/datatypes/int/sc_length_param.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/datatypes/int/sc_uint_base.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_temporary.h"
 
 
 namespace sc_dt
 {
 
+class sc_concatref;
+
 // classes defined in this module
-template <class T1, class T2> class sc_int_concref_r;
-template <class T1, class T2> class sc_int_concref;
 class sc_int_bitref_r;
 class sc_int_bitref;
 class sc_int_subref_r;
 class sc_int_subref;
 class sc_int_base;
+class sc_signed_subref_r;
+class sc_unsigned_subref_r;
 
 // forward class declarations
 class sc_bv_base;
@@ -85,448 +90,13 @@ class sc_fxnum_fast;
 extern const uint_type mask_int[SC_INTWIDTH][SC_INTWIDTH];
 
 
-// to avoid code bloat in sc_int_concref<T1,T2>
-
-extern
-void
-sc_int_concref_invalid_length( int length );
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_int_concref_r<T1,T2>
-//
-//  Proxy class for sc_int concatenation (r-value only).
-// ----------------------------------------------------------------------------
-
-template <class T1, class T2>
-class sc_int_concref_r
-{
-    // support methods
-
-    void check_length() const
-	{ if( m_len > SC_INTWIDTH ) sc_int_concref_invalid_length( m_len ); }
-
-public:
-
-    // constructor
-
-    sc_int_concref_r( const T1& left_, const T2& right_, int delete_ = 0 )
-        : m_left( CCAST<T1&>( left_ ) ), m_right( CCAST<T2&>( right_ ) ),
-	  m_delete( delete_ ), m_refs( *new int( 1 ) )
-        { m_len = m_left.length() + m_right.length(); check_length(); }
-
-
-    // copy constructor
-
-    sc_int_concref_r( const sc_int_concref_r<T1,T2>& a )
-        : m_left( a.m_left ), m_right( a.m_right ), m_len( a.m_len ),
-          m_delete( a.m_delete ), m_refs( a.m_refs )
-	{ ++ m_refs; }
-
-
-    // destructor
-
-    ~sc_int_concref_r();
-
-
-    // cloning
-
-    sc_int_concref_r<T1,T2>* clone() const
-        { return new sc_int_concref_r<T1,T2>( *this ); }
-
-
-    // capacity
-
-    int length() const
-	{ return m_len; }
-
-#ifdef SC_DT_DEPRECATED
-    int bitwidth() const
-        { return length(); }
-#endif
-
-
-    // reduce methods
-
-    bool and_reduce() const;
-
-    bool nand_reduce() const
-	{ return ( ! and_reduce() ); }
-
-    bool or_reduce() const;
-
-    bool nor_reduce() const
-	{ return ( ! or_reduce() ); }
-
-    bool xor_reduce() const;
-
-    bool xnor_reduce() const
-	{ return ( ! xor_reduce() ); }
-
-
-    // implicit conversion to int_type
-
-    operator int_type() const;
-
-
-    // explicit conversions
-
-    int_type value() const
-	{ return operator int_type(); }
-
-
-    int           to_int() const;
-    unsigned int  to_uint() const;
-    long          to_long() const;
-    unsigned long to_ulong() const;
-    int64         to_int64() const;
-    uint64        to_uint64() const;
-    double        to_double() const;
-
-
-    // explicit conversion to character string
-
-    const sc_string to_string( sc_numrep numrep = SC_DEC ) const;
-    const sc_string to_string( sc_numrep numrep, bool w_prefix ) const;
-
-
-    // other methods
-
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
-
-protected:
-
-    T1&          m_left;
-    T2&          m_right;
-    int          m_len;
-    mutable int  m_delete;
-    mutable int& m_refs;
-
-private:
-
-    // disabled
-    sc_int_concref_r();
-    sc_int_concref_r<T1,T2>& operator = ( const sc_int_concref_r<T1,T2>& );
-};
-
-
-// r-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref_r<T1,T2>, sc_int_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref_r<T1,T2>, sc_int_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref_r<T1,T2>, sc_int_subref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2>, const sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( bool, sc_int_concref_r<T1,T2> );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref_r<T1,T2>, sc_int_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref_r<T1,T2>, sc_int_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref_r<T1,T2>, sc_int_subref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2>, const sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( bool, sc_int_concref_r<T1,T2> );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref_r<T1,T2>, sc_int_concref<T3,T4> );
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref<T1,T2>, sc_int_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref_r<T1,T2>, sc_int_bitref );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref<T1,T2>, sc_int_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref_r<T1,T2>, sc_int_subref );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref<T1,T2>, sc_int_subref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2>, sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2>, const sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( bool, sc_int_concref<T1,T2> );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref_r<T1,T2>, sc_int_concref<T3,T4> );
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref<T1,T2>, sc_int_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref_r<T1,T2>, sc_int_bitref );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref<T1,T2>, sc_int_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref_r<T1,T2>, sc_int_subref );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref<T1,T2>, sc_int_subref_r );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2>, sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2>, const sc_int_base& );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( bool, sc_int_concref<T1,T2> );
-
-#endif
-
-
-template <class T1, class T2>
-inline
-ostream&
-operator << ( ostream&, const sc_int_concref_r<T1,T2>& );
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_int_concref<T1,T2>
-//
-//  Proxy class for sc_int concatenation (r-value and l-value).
-// ----------------------------------------------------------------------------
-
-template <class T1, class T2>
-class sc_int_concref
-    : public sc_int_concref_r<T1,T2>
-{
-public:
-
-    // constructor
-
-    sc_int_concref( T1& left_, T2& right_, int delete_ = 0 )
-	: sc_int_concref_r<T1,T2>( left_, right_, delete_ )
-	{}
-
-
-    // copy constructor
-
-    sc_int_concref( const sc_int_concref<T1,T2>& a )
-	: sc_int_concref_r<T1,T2>( a )
-	{}
-
-
-    // cloning
-
-    sc_int_concref<T1,T2>* clone() const
-        { return new sc_int_concref<T1,T2>( *this ); }
-
-
-    // assignment operators
-
-    sc_int_concref<T1,T2>& operator = ( int_type v );
-
-    template <class T3, class T4>
-    sc_int_concref<T1,T2>& operator = ( const sc_int_concref_r<T3,T4>& a )
-        { return operator = ( a.operator int_type() ); }
-
-    template <class T3, class T4>
-    sc_int_concref<T1,T2>& operator = ( const sc_int_concref<T3,T4>& a )
-        { return operator = ( a.operator int_type() ); }
-
-    sc_int_concref<T1,T2>& operator = ( const sc_int_base& a );
-    sc_int_concref<T1,T2>& operator = ( const sc_int_subref_r& a );
-    sc_int_concref<T1,T2>& operator = ( const char* a );
-
-    sc_int_concref<T1,T2>& operator = ( unsigned long a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( long a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( unsigned int a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( int a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( uint64 a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( double a )
-	{ return operator = ( (int_type) a ); }
-
-    sc_int_concref<T1,T2>& operator = ( const sc_signed& );
-    sc_int_concref<T1,T2>& operator = ( const sc_unsigned& );
-    sc_int_concref<T1,T2>& operator = ( const sc_bv_base& );
-    sc_int_concref<T1,T2>& operator = ( const sc_lv_base& );
-
-
-    // other methods
-
-    void scan( istream& is = cin );
-
-private:
-
-    // disabled
-    sc_int_concref();
-};
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >
-operator , ( sc_int_concref<T1,T2>, sc_int_concref<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>
-operator , ( sc_int_concref<T1,T2>, sc_int_bitref );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>
-operator , ( sc_int_concref<T1,T2>, sc_int_subref );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2>, sc_int_base& );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >
-concat( sc_int_concref<T1,T2>, sc_int_concref<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>
-concat( sc_int_concref<T1,T2>, sc_int_bitref );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>
-concat( sc_int_concref<T1,T2>, sc_int_subref );
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2>, sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-istream&
-operator >> ( istream&, sc_int_concref<T1,T2>& );
-
-
 // ----------------------------------------------------------------------------
 //  CLASS : sc_int_bitref_r
 //
 //  Proxy class for sc_int bit selection (r-value only).
 // ----------------------------------------------------------------------------
 
-class sc_int_bitref_r
+class sc_int_bitref_r : public sc_value_base
 {
     friend class sc_int_base;
 
@@ -534,24 +104,29 @@ protected:
 
     // constructor
   
-    sc_int_bitref_r( const sc_int_base& obj_, int index_ )
-        : m_obj( CCAST<sc_int_base&>( obj_ ) ), m_index( index_ )
+    sc_int_bitref_r()
         {}
+
+    // initializer for sc_core::sc_vpool:
+
+    void initialize( const sc_int_base* obj_p, int index_ )
+    {
+	m_obj_p = (sc_int_base*)obj_p;
+	m_index = index_;
+    }
 
 public:
 
     // copy constructor
-
-    sc_int_bitref_r( const sc_int_bitref_r& a )
-        : m_obj( a.m_obj ), m_index( a.m_index )
+  
+    sc_int_bitref_r( const sc_int_bitref_r& a ) : 
+        m_index(a.m_index), m_obj_p(a.m_obj_p)
         {}
 
+    // destructor
 
-    // cloning
-
-    sc_int_bitref_r* clone() const
-        { return new sc_int_bitref_r( *this ); }
-
+    virtual ~sc_int_bitref_r() 
+	{}
 
     // capacity
 
@@ -563,188 +138,77 @@ public:
 	{ return length(); }
 #endif
 
+    // concatenation support
 
-    // implicit conversion to bool
+    virtual int concat_length( bool *xz_present_p ) const
+	{ if (xz_present_p) *xz_present_p = false; return 1; }
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const
+        { 
+	    int bit_mask = 1 << (low_i % BITS_PER_DIGIT);
+	    int word_i = low_i / BITS_PER_DIGIT;
 
-    operator bool () const;
+	    dst_p[word_i] &= ~bit_mask;
+	    return false;
+	}
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const
+        { 
+	    bool non_zero;
+	    int bit_mask = 1 << (low_i % BITS_PER_DIGIT);
+	    int word_i = low_i / BITS_PER_DIGIT;
+
+	    if ( operator uint64() )
+	    {
+		dst_p[word_i] |= bit_mask;
+		non_zero = true;
+	    }
+	    else
+	    {
+		dst_p[word_i] &= ~bit_mask;
+		non_zero = false;
+	    }
+	    return non_zero;
+	}
+    virtual uint64 concat_get_uint64() const
+	{ return operator uint64(); }
+
+
+
+
+    // implicit conversions
+
+    operator uint64 () const;
     bool operator ! () const;
     bool operator ~ () const;
 
 
     // explicit conversions
 
-    bool value() const
-	{ return operator bool(); }
+    uint64 value() const
+	{ return operator uint64(); }
 
     bool to_bool() const
-	{ return operator bool(); }
+	{ return operator uint64(); }
 
 
     // other methods
 
-    void print( ostream& os = cout ) const
+    void print( ::std::ostream& os = ::std::cout ) const
 	{ os << to_bool(); }
 
 protected:
-
-    sc_int_base& m_obj;
     int          m_index;
+    sc_int_base* m_obj_p;
 
 private:
 
     // disabled
-    sc_int_bitref_r();
     sc_int_bitref_r& operator = ( const sc_int_bitref_r& );
 };
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
 inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref_r, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref_r, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref_r, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( bool, sc_int_bitref_r );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref_r, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref_r, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref_r, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( bool, sc_int_bitref_r );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref_r, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref_r, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref_r, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( bool, sc_int_bitref );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref_r, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref_r, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref_r, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( bool, sc_int_bitref );
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_int_bitref_r& );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_int_bitref_r& );
 
 
 // ----------------------------------------------------------------------------
@@ -757,28 +221,21 @@ class sc_int_bitref
     : public sc_int_bitref_r
 {
     friend class sc_int_base;
+    friend class sc_core::sc_vpool<sc_int_bitref>;
 
 
     // constructor
   
-    sc_int_bitref( sc_int_base& obj_, int index_ )
-	: sc_int_bitref_r( obj_, index_ )
-        {}
+    sc_int_bitref()
+      {}
+
 
 public:
 
     // copy constructor
-
-    sc_int_bitref( const sc_int_bitref& a )
-	: sc_int_bitref_r( a )
-        {}
-
-
-    // cloning
-
-    sc_int_bitref* clone() const
-        { return new sc_int_bitref( *this ); }
-
+  
+    sc_int_bitref( const sc_int_bitref& a ) : sc_int_bitref_r( a )
+      {}
 
     // assignment operators
 
@@ -790,59 +247,28 @@ public:
     sc_int_bitref& operator |= ( bool b );
     sc_int_bitref& operator ^= ( bool b );
 
+	// concatenation methods
+
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
+
 
     // other methods
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
-private:
+public:
+    static sc_core::sc_vpool<sc_int_bitref> m_pool;
 
-    // disabled
-    sc_int_bitref();
 };
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >
-operator , ( sc_int_bitref, sc_int_concref<T1,T2> );
 
 inline
-sc_int_concref<sc_int_bitref,sc_int_bitref>
-operator , ( sc_int_bitref, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_subref>
-operator , ( sc_int_bitref, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_base>
-operator , ( sc_int_bitref, sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >
-concat( sc_int_bitref, sc_int_concref<T1,T2> );
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_bitref>
-concat( sc_int_bitref, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_subref>
-concat( sc_int_bitref, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_base>
-concat( sc_int_bitref, sc_int_base& );
-
-
-inline
-istream&
-operator >> ( istream&, sc_int_bitref& );
+::std::istream&
+operator >> ( ::std::istream&, sc_int_bitref& );
 
 
 // ----------------------------------------------------------------------------
@@ -851,33 +277,40 @@ operator >> ( istream&, sc_int_bitref& );
 //  Proxy class for sc_int part selection (r-value only).
 // ----------------------------------------------------------------------------
 
-class sc_int_subref_r
+class sc_int_subref_r : public sc_value_base
 {
     friend class sc_int_base;
+    friend class sc_int_signal;
+    friend class sc_int_subref;
 
 protected:
 
     // constructor
-
-    sc_int_subref_r( const sc_int_base& obj_, int left_, int right_ )
-        : m_obj( CCAST<sc_int_base&>( obj_ ) ),
-	  m_left( left_ ), m_right( right_ )
+  
+    sc_int_subref_r()
         {}
+
+    // initializer for sc_core::sc_vpool:
+
+    void initialize( const sc_int_base* obj_p, int left_i, int right_i )
+    {
+	m_obj_p = (sc_int_base*)obj_p;
+	m_left = left_i;
+	m_right = right_i;
+    }
+
   
 public:
-
     // copy constructor
 
-    sc_int_subref_r( const sc_int_subref_r& a )
-        : m_obj( a.m_obj ), m_left( a.m_left ), m_right( a.m_right )
+    sc_int_subref_r( const sc_int_subref_r& a ) : 
+        m_left( a.m_left ), m_obj_p( a.m_obj_p ), m_right( a.m_right )
         {}
 
+    // destructor
 
-    // cloning
-
-    sc_int_subref_r* clone() const
-        { return new sc_int_subref_r( *this ); }
-
+    virtual ~sc_int_subref_r() 
+	{}
 
     // capacity
 
@@ -889,6 +322,21 @@ public:
 	{ return length(); }
 #endif
 
+    // concatenation support
+
+    virtual int concat_length(bool* xz_present_p) const
+	{ if ( xz_present_p ) *xz_present_p = false; return length(); }
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const;
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const;
+    virtual uint64 concat_get_uint64() const
+    {
+	int    len = length();
+	uint64 val = operator uint_type();
+	if ( len < 64 )
+	    return (uint64)(val & ~((uint_type)-1 << len));
+	else
+	    return (uint64)val;
+    }
 
     // reduce methods
 
@@ -908,15 +356,15 @@ public:
 	{ return ( ! xor_reduce() ); }
 
 
-    // implicit conversion to int_type
+    // implicit conversion to uint_type
 
-    operator int_type () const;
+    operator uint_type () const;
 
 
     // explicit conversions
 
-    int_type value() const
-	{ return operator int_type(); }
+    uint_type value() const
+	{ return operator uint_type(); }
 
 
     int           to_int() const;
@@ -930,176 +378,30 @@ public:
 
     // explicit conversion to character string
 
-    const sc_string to_string( sc_numrep numrep = SC_DEC ) const;
-    const sc_string to_string( sc_numrep numrep, bool w_prefix ) const;
+    const std::string to_string( sc_numrep numrep = SC_DEC ) const;
+    const std::string to_string( sc_numrep numrep, bool w_prefix ) const;
 
 
     // other methods
 
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
+    void print( ::std::ostream& os = ::std::cout ) const
+	{ os << to_string(sc_io_base(os,SC_DEC),sc_io_show_base(os)); }
 
 protected:
 
-    sc_int_base& m_obj;
     int          m_left;
+    sc_int_base* m_obj_p;
     int          m_right;
 
 private:
-
-    // disabled
-    sc_int_subref_r();
-    sc_int_subref_r& operator = ( const sc_int_subref_r& );
+    const sc_int_subref_r& operator = ( const sc_int_subref_r& );
 };
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref_r, sc_int_concref_r<T1,T2> );
 
 inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref_r, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref_r, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( bool, sc_int_subref_r );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref_r, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref_r, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref_r, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( bool, sc_int_subref_r );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref_r, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref_r, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref_r, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( bool, sc_int_subref );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref_r, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref_r, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref_r, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( bool, sc_int_subref );
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_int_subref_r& );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_int_subref_r& );
 
 
 // ----------------------------------------------------------------------------
@@ -1112,28 +414,21 @@ class sc_int_subref
     : public sc_int_subref_r
 {
     friend class sc_int_base;
+    friend class sc_core::sc_vpool<sc_int_subref>;
 
+
+protected:
 
     // constructor
-
-    sc_int_subref( sc_int_base& obj_, int left_, int right_ )
-	: sc_int_subref_r( obj_, left_, right_ )
+    sc_int_subref()
         {}
   
 public:
 
     // copy constructor
 
-    sc_int_subref( const sc_int_subref& a )
-	: sc_int_subref_r( a )
+    sc_int_subref( const sc_int_subref& a ) : sc_int_subref_r( a )
         {}
-
-
-    // cloning
-
-    sc_int_subref* clone() const
-        { return new sc_int_subref( *this ); }
-
 
     // assignment operators
 
@@ -1141,14 +436,14 @@ public:
     sc_int_subref& operator = ( const sc_int_base& a );
 
     sc_int_subref& operator = ( const sc_int_subref_r& a )
-	{ return operator = ( a.operator int_type() ); }
+	{ return operator = ( a.operator uint_type() ); }
 
     sc_int_subref& operator = ( const sc_int_subref& a )
-	{ return operator = ( a.operator int_type() ); }
+	{ return operator = ( a.operator uint_type() ); }
 
-    template <class T1, class T2>
-    sc_int_subref& operator = ( const sc_int_concref_r<T1,T2>& a )
-        { return operator = ( a.operator int_type() ); }
+    template< class T >
+    sc_int_subref& operator = ( const sc_generic_base<T>& a )
+        { return operator = ( a->to_int64() ); }
 
     sc_int_subref& operator = ( const char* a );
 
@@ -1175,59 +470,27 @@ public:
     sc_int_subref& operator = ( const sc_bv_base& );
     sc_int_subref& operator = ( const sc_lv_base& );
 
+	// concatenation methods
+
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
 
     // other methods
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
-private:
+public:
+    static sc_core::sc_vpool<sc_int_subref> m_pool;
 
-    // disabled
-    sc_int_subref();
 };
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >
-operator , ( sc_int_subref, sc_int_concref<T1,T2> );
 
 inline
-sc_int_concref<sc_int_subref,sc_int_bitref>
-operator , ( sc_int_subref, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_subref,sc_int_subref>
-operator , ( sc_int_subref, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_subref,sc_int_base>
-operator , ( sc_int_subref, sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >
-concat( sc_int_subref, sc_int_concref<T1,T2> );
-
-inline
-sc_int_concref<sc_int_subref,sc_int_bitref>
-concat( sc_int_subref, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_subref,sc_int_subref>
-concat( sc_int_subref, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_subref,sc_int_base>
-concat( sc_int_subref, sc_int_base& );
-
-
-inline
-istream&
-operator >> ( istream&, sc_int_subref& );
+::std::istream&
+operator >> ( ::std::istream&, sc_int_subref& );
 
 
 // ----------------------------------------------------------------------------
@@ -1236,7 +499,7 @@ operator >> ( istream&, sc_int_subref& );
 //  Base class for sc_int.
 // ----------------------------------------------------------------------------
 
-class sc_int_base
+class sc_int_base : public sc_value_base
 {
     friend class sc_int_bitref_r;
     friend class sc_int_bitref;
@@ -1289,20 +552,26 @@ public:
         : m_val( a ), m_len( a.length() ), m_ulen( SC_INTWIDTH - m_len )
         { extend_sign(); }
 
-    template <class T1, class T2> 
-    explicit sc_int_base( const sc_int_concref_r<T1,T2>& a )
-        : m_val( a ), m_len( a.length() ), m_ulen( SC_INTWIDTH - m_len )
-        { extend_sign(); }
+    template< class T >
+    explicit sc_int_base( const sc_generic_base<T>& a ) :
+        m_val( a->to_int64() ), m_len( a->length() ),
+	m_ulen( SC_INTWIDTH - m_len )
+	{ check_length(); extend_sign(); }
 
     explicit sc_int_base( const sc_signed& a );
     explicit sc_int_base( const sc_unsigned& a );
+    explicit sc_int_base( const sc_bv_base& v );
+    explicit sc_int_base( const sc_lv_base& v );
+    explicit sc_int_base( const sc_uint_subref_r& v );
+    explicit sc_int_base( const sc_signed_subref_r& v );
+    explicit sc_int_base( const sc_unsigned_subref_r& v );
+
 
 
     // destructor
 
-    ~sc_int_base()
+    virtual ~sc_int_base()
 	{}
-
 
     // assignment operators
 
@@ -1315,9 +584,9 @@ public:
     sc_int_base& operator = ( const sc_int_subref_r& a )
         { m_val = a; extend_sign(); return *this; }
 
-    template <class T1, class T2>
-    sc_int_base& operator = ( const sc_int_concref_r<T1,T2>& a )
-        { m_val = a; extend_sign(); return *this; }
+    template<class T>
+    sc_int_base& operator = ( const sc_generic_base<T>& a )
+        { m_val = a->to_int64(); extend_sign(); return *this; }
 
     sc_int_base& operator = ( const sc_signed& a );
     sc_int_base& operator = ( const sc_unsigned& a );
@@ -1428,20 +697,20 @@ public:
 
     // bit selection
 
-    sc_int_bitref   operator [] ( int i );
-    sc_int_bitref_r operator [] ( int i ) const;
+    sc_int_bitref&         operator [] ( int i );
+    const sc_int_bitref_r& operator [] ( int i ) const;
 
-    sc_int_bitref   bit( int i );
-    sc_int_bitref_r bit( int i ) const;
+    sc_int_bitref&         bit( int i );
+    const sc_int_bitref_r& bit( int i ) const;
 
 
     // part selection
 
-    sc_int_subref   operator () ( int left, int right );
-    sc_int_subref_r operator () ( int left, int right ) const;
+    sc_int_subref&         operator () ( int left, int right );
+    const sc_int_subref_r& operator () ( int left, int right ) const;
 
-    sc_int_subref   range( int left, int right );
-    sc_int_subref_r range( int left, int right ) const;
+    sc_int_subref&         range( int left, int right );
+    const sc_int_subref_r& range( int left, int right ) const;
 
 
     // bit access, without bounds checking or sign extension
@@ -1465,6 +734,24 @@ public:
     int bitwidth() const
 	{ return length(); }
 #endif
+
+    // concatenation support
+
+    virtual int concat_length(bool* xz_present_p) const
+	{ if ( xz_present_p ) *xz_present_p = false; return length(); }
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const;
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const;
+    virtual uint64 concat_get_uint64() const
+	{ 
+	    if ( m_len < 64 )
+		return (uint64)(m_val & ~((uint_type)-1 << m_len));
+	    else
+		return (uint64)m_val;
+	}
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
 
 
     // reduce methods
@@ -1530,16 +817,16 @@ public:
 
     // explicit conversion to character string
 
-    const sc_string to_string( sc_numrep numrep = SC_DEC ) const;
-    const sc_string to_string( sc_numrep numrep, bool w_prefix ) const;
+    const std::string to_string( sc_numrep numrep = SC_DEC ) const;
+    const std::string to_string( sc_numrep numrep, bool w_prefix ) const;
 
 
     // other methods
 
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
+    void print( ::std::ostream& os = ::std::cout ) const
+	{ os << to_string(sc_io_base(os,SC_DEC),sc_io_show_base(os)); }
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
 protected:
 
@@ -1549,911 +836,15 @@ protected:
 };
 
 
-// r-value concatenation operators and functions
 
-template <class T1, class T2>
 inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( const sc_int_base&, sc_int_concref_r<T1,T2> );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_int_base& );
 
 inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( const sc_int_base&, sc_int_bitref_r );
+::std::istream&
+operator >> ( ::std::istream&, sc_int_base& );
 
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( const sc_int_base&, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base&, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base&, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( bool, const sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( const sc_int_base&, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( const sc_int_base&, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( const sc_int_base&, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base&, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base&, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( bool, const sc_int_base& );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( const sc_int_base&, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_base&, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( const sc_int_base&, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( sc_int_base&, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( const sc_int_base&, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( sc_int_base&, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base&, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( sc_int_base&, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( sc_int_base&, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( bool, sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( const sc_int_base&, sc_int_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( sc_int_base&, sc_int_concref_r<T1,T2> );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( const sc_int_base&, sc_int_bitref );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( sc_int_base&, sc_int_bitref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( const sc_int_base&, sc_int_subref );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( sc_int_base&, sc_int_subref_r );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base&, sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( sc_int_base&, const sc_int_base& );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( sc_int_base&, bool );
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( bool, sc_int_base& );
-
-#endif
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >
-operator , ( sc_int_base&, sc_int_concref<T1,T2> );
-
-inline
-sc_int_concref<sc_int_base,sc_int_bitref>
-operator , ( sc_int_base&, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_base,sc_int_subref>
-operator , ( sc_int_base&, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_base,sc_int_base>
-operator , ( sc_int_base&, sc_int_base& );
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >
-concat( sc_int_base&, sc_int_concref<T1,T2> );
-
-inline
-sc_int_concref<sc_int_base,sc_int_bitref>
-concat( sc_int_base&, sc_int_bitref );
-
-inline
-sc_int_concref<sc_int_base,sc_int_subref>
-concat( sc_int_base&, sc_int_subref );
-
-inline
-sc_int_concref<sc_int_base,sc_int_base>
-concat( sc_int_base&, sc_int_base& );
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_int_base& );
-
-inline
-istream&
-operator >> ( istream&, sc_int_base& );
-
-
-// IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_int_concref_r<T1,T2>
-//
-//  Proxy class for sc_int concatenation (r-value only).
-// ----------------------------------------------------------------------------
-
-// destructor
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<T1,T2>::~sc_int_concref_r()
-{
-    if( -- m_refs == 0 ) {
-	delete &m_refs;
-	if( m_delete == 0 ) {
-	    return;
-	}
-	if( m_delete & 1 ) {
-	    delete &m_left;
-	}
-	if( m_delete & 2 ) {
-	    delete &m_right;
-	}
-    }
-}
-
-
-// reduce methods
-
-template <class T1, class T2>
-inline
-bool
-sc_int_concref_r<T1,T2>::and_reduce() const
-{
-    sc_int_base a( *this );
-    return a.and_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-sc_int_concref_r<T1,T2>::or_reduce() const
-{
-    sc_int_base a( *this );
-    return a.or_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-sc_int_concref_r<T1,T2>::xor_reduce() const
-{
-    sc_int_base a( *this );
-    return a.xor_reduce();
-}
-
-
-// implicit conversion to int_type
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<T1,T2>::operator int_type() const
-{
-    int_type mask = ( ~UINT_ZERO >> (SC_INTWIDTH - m_right.length()) );
-    int_type high = ((int_type) m_left << m_right.length()) & (~mask);
-    int_type low  = m_right & mask;
-    int_type tmp = high | low;
-    int ulen = SC_INTWIDTH - m_len;
-    return ( tmp << ulen >> ulen );
-}
-
-
-// explicit conversions
-
-template <class T1, class T2>
-inline
-int
-sc_int_concref_r<T1,T2>::to_int() const
-{
-    sc_int_base a( *this );
-    return a.to_int();
-}
-
-template <class T1, class T2>
-inline
-unsigned int
-sc_int_concref_r<T1,T2>::to_uint() const
-{
-    sc_int_base a( *this );
-    return a.to_uint();
-}
-
-template <class T1, class T2>
-inline
-long
-sc_int_concref_r<T1,T2>::to_long() const
-{
-    sc_int_base a( *this );
-    return a.to_long();
-}
-
-template <class T1, class T2>
-inline
-unsigned long
-sc_int_concref_r<T1,T2>::to_ulong() const
-{
-    sc_int_base a( *this );
-    return a.to_ulong();
-}
-
-template <class T1, class T2>
-inline
-int64
-sc_int_concref_r<T1,T2>::to_int64() const
-{
-    sc_int_base a( *this );
-    return a.to_int64();
-}
-
-template <class T1, class T2>
-inline
-uint64
-sc_int_concref_r<T1,T2>::to_uint64() const
-{
-    sc_int_base a( *this );
-    return a.to_uint64();
-}
-
-template <class T1, class T2>
-inline
-double
-sc_int_concref_r<T1,T2>::to_double() const
-{
-    sc_int_base a( *this );
-    return a.to_double();
-}
-
-
-// explicit conversion to character string
-
-template <class T1, class T2>
-inline
-const sc_string
-sc_int_concref_r<T1,T2>::to_string( sc_numrep numrep ) const
-{
-    sc_int_base a( *this );
-    return a.to_string( numrep );
-}
-
-template <class T1, class T2>
-inline
-const sc_string
-sc_int_concref_r<T1,T2>::to_string( sc_numrep numrep, bool w_prefix ) const
-{
-    sc_int_base a( *this );
-    return a.to_string( numrep, w_prefix );
-}
-
-
-// functional notation for the reduce methods
-
-template <class T1, class T2>
-inline
-bool
-and_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.and_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-nand_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.nand_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-or_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.or_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-nor_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.nor_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-xor_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.xor_reduce();
-}
-
-template <class T1, class T2>
-inline
-bool
-xnor_reduce( const sc_int_concref_r<T1,T2>& a )
-{
-    return a.xnor_reduce();
-}
-
-
-// r-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_concref_r<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2> a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2> a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( bool a, sc_int_concref_r<T1,T2> b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref_r<T1,T2> a, sc_int_concref_r<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref_r<T1,T2> a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref_r<T1,T2> a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2> a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2> a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( bool a, sc_int_concref_r<T1,T2> b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_concref<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-operator , ( sc_int_concref<T1,T2> a, sc_int_concref_r<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-operator , ( sc_int_concref<T1,T2> a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-operator , ( sc_int_concref<T1,T2> a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref_r<T1,T2> a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2> a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2> a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( bool a, sc_int_concref<T1,T2> b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref_r<T1,T2> a, sc_int_concref<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_concref_r<T3,T4> >
-concat( sc_int_concref<T1,T2> a, sc_int_concref_r<T3,T4> b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,
-	sc_int_concref_r<T3,T4> >( *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref_r<T1,T2> a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>
-concat( sc_int_concref<T1,T2> a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref_r<T1,T2> a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>
-concat( sc_int_concref<T1,T2> a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref_r<T1,T2> a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2> a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2> a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_concref_r<T1,T2>,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( bool a, sc_int_concref<T1,T2> b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-template <class T1, class T2>
-inline
-ostream&
-operator << ( ostream& os, const sc_int_concref_r<T1,T2>& a )
-{
-    a.print( os );
-    return os;
-}
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_int_concref<T1,T2>
-//
-//  Proxy class for sc_int concatenation (r-value and l-value).
-// ----------------------------------------------------------------------------
-
-// assignment operators
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( int_type v )
-{
-    int_type mask = ( ~UINT_ZERO >> (SC_INTWIDTH - this->m_right.length()) );
-    this->m_right = v & mask;
-    this->m_left = (v & ~mask) >> this->m_right.length();
-    return *this;
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_int_base& a )
-{
-    return operator = ( a.operator int_type() );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_int_subref_r& a )
-{
-    return operator = ( a.operator int_type() );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const char* a )
-{
-    sc_int_base aa( this->length() );
-    return ( *this = aa = a );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_signed& a )
-{
-    sc_int_base aa( this->length() );
-    return ( *this = aa = a );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_unsigned& a )
-{
-    sc_int_base aa( this->length() );
-    return ( *this = aa = a );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_bv_base& a )
-{
-    sc_int_base aa( this->length() );
-    return ( *this = aa = a );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<T1,T2>&
-sc_int_concref<T1,T2>::operator = ( const sc_lv_base& a )
-{
-    sc_int_base aa( this->length() );
-    return ( *this = aa = a );
-}
-
-
-// other methods
-
-template <class T1, class T2>
-inline
-void
-sc_int_concref<T1,T2>::scan( istream& is )
-{
-    sc_string s;
-    is >> s;
-    *this = s.c_str();
-}
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >
-operator , ( sc_int_concref<T1,T2> a, sc_int_concref<T3,T4> b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>
-operator , ( sc_int_concref<T1,T2> a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>
-operator , ( sc_int_concref<T1,T2> a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>
-operator , ( sc_int_concref<T1,T2> a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >
-concat( sc_int_concref<T1,T2> a, sc_int_concref<T3,T4> b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_concref<T3,T4> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>
-concat( sc_int_concref<T1,T2> a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>
-concat( sc_int_concref<T1,T2> a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>
-concat( sc_int_concref<T1,T2> a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_concref<T1,T2>,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-istream&
-operator >> ( istream& is, sc_int_concref<T1,T2>& a )
-{
-    a.scan( is );
-    return is;
-}
 
 
 // ----------------------------------------------------------------------------
@@ -2462,320 +853,33 @@ operator >> ( istream& is, sc_int_concref<T1,T2>& a )
 //  Proxy class for sc_int bit selection (r-value only).
 // ----------------------------------------------------------------------------
 
-// implicit conversion to bool
+// implicit conversion to uint64
 
 inline
-sc_int_bitref_r::operator bool () const
+sc_int_bitref_r::operator uint64 () const
 {
-    return m_obj.test( m_index );
+    return m_obj_p->test( m_index );
 }
 
 inline
 bool
 sc_int_bitref_r::operator ! () const
 {
-    return ! m_obj.test( m_index );
+    return ! m_obj_p->test( m_index );
 }
 
 inline
 bool
 sc_int_bitref_r::operator ~ () const
 {
-    return ! m_obj.test( m_index );
+    return ! m_obj_p->test( m_index );
 }
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref_r a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
 
 inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref_r a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref_r a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( bool a, sc_int_bitref_r b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref_r a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref_r a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref_r a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( bool a, sc_int_bitref_r b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref_r a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_bitref a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref_r a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-operator , ( sc_int_bitref a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref_r a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-operator , ( sc_int_bitref a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref_r a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-operator , ( sc_int_bitref a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( bool a, sc_int_bitref b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref_r a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_bitref a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref_r a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>
-concat( sc_int_bitref a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref_r a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>
-concat( sc_int_bitref a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref_r a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_bitref_r,sc_int_base>
-concat( sc_int_bitref a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_bitref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( bool a, sc_int_bitref b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_int_bitref_r& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_int_bitref_r& a )
 {
     a.print( os );
     return os;
@@ -2794,8 +898,8 @@ inline
 sc_int_bitref& 
 sc_int_bitref::operator = ( const sc_int_bitref_r& b )
 {
-    m_obj.set( m_index, (bool) b );
-    m_obj.extend_sign();
+    m_obj_p->set( m_index, (bool) b );
+    m_obj_p->extend_sign();
     return *this;
 }
 
@@ -2803,8 +907,8 @@ inline
 sc_int_bitref& 
 sc_int_bitref::operator = ( const sc_int_bitref& b )
 {
-    m_obj.set( m_index, (bool) b );
-    m_obj.extend_sign();
+    m_obj_p->set( m_index, (bool) b );
+    m_obj_p->extend_sign();
     return *this;
 }
 
@@ -2812,8 +916,8 @@ inline
 sc_int_bitref& 
 sc_int_bitref::operator = ( bool b )
 {
-    m_obj.set( m_index, b );
-    m_obj.extend_sign();
+    m_obj_p->set( m_index, b );
+    m_obj_p->extend_sign();
     return *this;
 }
 
@@ -2823,8 +927,8 @@ sc_int_bitref&
 sc_int_bitref::operator &= ( bool b )
 {
     if( ! b ) {
-	m_obj.set( m_index, b );
-	m_obj.extend_sign();
+	m_obj_p->set( m_index, b );
+	m_obj_p->extend_sign();
     }
     return *this;
 }
@@ -2834,8 +938,8 @@ sc_int_bitref&
 sc_int_bitref::operator |= ( bool b )
 {
     if( b ) {
-	m_obj.set( m_index, b );
-	m_obj.extend_sign();
+	m_obj_p->set( m_index, b );
+	m_obj_p->extend_sign();
     }
     return *this;
 }
@@ -2845,86 +949,17 @@ sc_int_bitref&
 sc_int_bitref::operator ^= ( bool b )
 {
     if( b ) {
-	m_obj.m_val ^= (UINT_ONE << m_index);
-	m_obj.extend_sign();
+	m_obj_p->m_val ^= (UINT_ONE << m_index);
+	m_obj_p->extend_sign();
     }
     return *this;
 }
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >
-operator , ( sc_int_bitref a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
 
 inline
-sc_int_concref<sc_int_bitref,sc_int_bitref>
-operator , ( sc_int_bitref a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_subref>
-operator , ( sc_int_bitref a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_base>
-operator , ( sc_int_bitref a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >
-concat( sc_int_bitref a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_bitref>
-concat( sc_int_bitref a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_subref>
-concat( sc_int_bitref a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_bitref,sc_int_base>
-concat( sc_int_bitref a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_bitref,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-inline
-istream&
-operator >> ( istream& is, sc_int_bitref& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_int_bitref& a )
 {
     a.scan( is );
     return is;
@@ -2940,9 +975,9 @@ operator >> ( istream& is, sc_int_bitref& a )
 // implicit conversion to int_type
 
 inline
-sc_int_subref_r::operator int_type() const 
+sc_int_subref_r::operator uint_type() const 
 {
-    int_type val = m_obj.m_val;
+    uint_type /*int_type*/ val = m_obj_p->m_val;
     int uleft = SC_INTWIDTH - (m_left + 1);
     int uright = uleft + m_right;
     return ( val << uleft >> uright );
@@ -2982,74 +1017,76 @@ inline
 int
 sc_int_subref_r::to_int() const
 {
-    sc_int_base a( *this );
-    return a.to_int();
+	int result = static_cast<int>(operator uint_type());
+	return result;
 }
 
 inline
 unsigned int
 sc_int_subref_r::to_uint() const
 {
-    sc_int_base a( *this );
-    return a.to_uint();
+	unsigned int result = static_cast<unsigned int>(operator uint_type());
+	return result;
 }
 
 inline
 long
 sc_int_subref_r::to_long() const
 {
-    sc_int_base a( *this );
-    return a.to_long();
+	long result = static_cast<long>(operator uint_type());
+	return result;
 }
 
 inline
 unsigned long
 sc_int_subref_r::to_ulong() const
 {
-    sc_int_base a( *this );
-    return a.to_ulong();
+	unsigned long result = static_cast<unsigned long>(operator uint_type());
+	return result;
 }
 
 inline
 int64
 sc_int_subref_r::to_int64() const
 {
-    sc_int_base a( *this );
-    return a.to_int64();
+	int64 result = operator uint_type();
+	return result;
 }
 
 inline
 uint64
 sc_int_subref_r::to_uint64() const
 {
-    sc_int_base a( *this );
-    return a.to_uint64();
+	uint64 result = operator uint_type();
+	return result;
 }
 
 inline
 double
 sc_int_subref_r::to_double() const
 {
-    sc_int_base a( *this );
-    return a.to_double();
+	double result = static_cast<double>(operator uint_type());
+	return result;
 }
 
 
 // explicit conversion to character string
 
 inline
-const sc_string
+const std::string
 sc_int_subref_r::to_string( sc_numrep numrep ) const
 {
-    sc_int_base a( *this );
+	sc_uint_base a(length());
+    a = operator uint_type();
     return a.to_string( numrep );
 }
 
 inline
-const sc_string
+const std::string
 sc_int_subref_r::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    sc_int_base a( *this );
+	sc_uint_base a(length());
+    a = operator uint_type();
     return a.to_string( numrep, w_prefix );
 }
 
@@ -3099,297 +1136,10 @@ xnor_reduce( const sc_int_subref_r& a )
 }
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref_r a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
 
 inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref_r a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref_r a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( bool a, sc_int_subref_r b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref_r a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref_r a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref_r a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( bool a, sc_int_subref_r b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref_r a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_subref a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref_r a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-operator , ( sc_int_subref a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref_r a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-operator , ( sc_int_subref a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref_r a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-operator , ( sc_int_subref a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( bool a, sc_int_subref b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref_r a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >
-concat( sc_int_subref a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref_r a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>
-concat( sc_int_subref a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref_r a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>
-concat( sc_int_subref a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref_r a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_int_concref_r<sc_int_subref_r,sc_int_base>
-concat( sc_int_subref a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_subref_r,sc_int_base>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( bool a, sc_int_subref b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_int_subref_r& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_int_subref_r& a )
 {
     a.print( os );
     return os;
@@ -3420,79 +1170,10 @@ sc_int_subref::operator = ( const char* a )
 }
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >
-operator , ( sc_int_subref a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
 
 inline
-sc_int_concref<sc_int_subref,sc_int_bitref>
-operator , ( sc_int_subref a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_subref,sc_int_subref>
-operator , ( sc_int_subref a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_subref,sc_int_base>
-operator , ( sc_int_subref a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >
-concat( sc_int_subref a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_subref,sc_int_bitref>
-concat( sc_int_subref a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_subref,sc_int_subref>
-concat( sc_int_subref a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_int_concref<sc_int_subref,sc_int_base>
-concat( sc_int_subref a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_subref,sc_int_base>(
-	*a.clone(), b, 1 );
-}
-
-
-inline
-istream&
-operator >> ( istream& is, sc_int_subref& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_int_subref& a )
 {
     a.scan( is );
     return is;
@@ -3508,72 +1189,88 @@ operator >> ( istream& is, sc_int_subref& a )
 // bit selection
 
 inline
-sc_int_bitref
+sc_int_bitref&
 sc_int_base::operator [] ( int i )
 {
     check_index( i );
-    return sc_int_bitref( *this, i ); 
+    sc_int_bitref* result_p = sc_int_bitref::m_pool.allocate();
+    result_p->initialize(this, i);
+    return *result_p;
 }
 
 inline
-sc_int_bitref_r
+const sc_int_bitref_r&
 sc_int_base::operator [] ( int i ) const
 {
     check_index( i );
-    return sc_int_bitref_r( *this, i );
+    sc_int_bitref* result_p = sc_int_bitref::m_pool.allocate();
+    result_p->initialize(this, i);
+    return *result_p;
 }
 
 
 inline
-sc_int_bitref
+sc_int_bitref&
 sc_int_base::bit( int i )
 {
     check_index( i );
-    return sc_int_bitref( *this, i );
+    sc_int_bitref* result_p = sc_int_bitref::m_pool.allocate();
+    result_p->initialize(this, i);
+    return *result_p;
 }
 
 inline
-sc_int_bitref_r
+const sc_int_bitref_r&
 sc_int_base::bit( int i ) const
 {
     check_index( i );
-    return sc_int_bitref_r( *this, i );
+    sc_int_bitref* result_p = sc_int_bitref::m_pool.allocate();
+    result_p->initialize(this, i);
+    return *result_p;
 }
 
 
 // part selection
 
 inline
-sc_int_subref
+sc_int_subref&
 sc_int_base::operator () ( int left, int right )
 {
     check_range( left, right );
-    return sc_int_subref( *this, left, right );
+    sc_int_subref* result_p = sc_int_subref::m_pool.allocate();
+    result_p->initialize(this, left, right);
+    return *result_p;
 }
 
 inline
-sc_int_subref_r
+const sc_int_subref_r&
 sc_int_base::operator () ( int left, int right ) const
 {
     check_range( left, right );
-    return sc_int_subref_r( *this, left, right );
+    sc_int_subref* result_p = sc_int_subref::m_pool.allocate();
+    result_p->initialize(this, left, right);
+    return *result_p;
 }
 
 
 inline
-sc_int_subref
+sc_int_subref&
 sc_int_base::range( int left, int right )
 {
     check_range( left, right );
-    return sc_int_subref( *this, left, right );
+    sc_int_subref* result_p = sc_int_subref::m_pool.allocate();
+    result_p->initialize(this, left, right);
+    return *result_p;
 }
 
 inline
-sc_int_subref_r
+const sc_int_subref_r&
 sc_int_base::range( int left, int right ) const
 {
     check_range( left, right );
-    return sc_int_subref_r( *this, left, right );
+    sc_int_subref* result_p = sc_int_subref::m_pool.allocate();
+    result_p->initialize(this, left, right);
+    return *result_p;
 }
 
 
@@ -3622,375 +1319,18 @@ xnor_reduce( const sc_int_base& a )
 }
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( const sc_int_base& a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
 
 inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( const sc_int_base& a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( const sc_int_base& a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base& a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base& a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, bb, 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( bool a, const sc_int_base& b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	aa, b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( const sc_int_base& a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( const sc_int_base& a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( const sc_int_base& a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base& a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base& a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, bb, 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( bool a, const sc_int_base& b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	aa, b, 1 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( const sc_int_base& a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-operator , ( sc_int_base& a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( const sc_int_base& a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-operator , ( sc_int_base& a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( const sc_int_base& a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-operator , ( sc_int_base& a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( const sc_int_base& a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( sc_int_base& a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( sc_int_base& a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, bb, 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-operator , ( bool a, sc_int_base& b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	aa, b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( const sc_int_base& a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-template <class T1, class T2>
-inline
-sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >
-concat( sc_int_base& a, sc_int_concref_r<T1,T2> b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( const sc_int_base& a, sc_int_bitref b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_bitref_r>
-concat( sc_int_base& a, sc_int_bitref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( const sc_int_base& a, sc_int_subref b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_subref_r>
-concat( sc_int_base& a, sc_int_subref_r b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( const sc_int_base& a, sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( sc_int_base& a, const sc_int_base& b )
-{
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( sc_int_base& a, bool b )
-{
-    sc_int_base& bb = *new sc_int_base( 1 );
-    bb = (b ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	a, bb, 2 );
-}
-
-inline
-sc_int_concref_r<sc_int_base,sc_int_base>
-concat( bool a, sc_int_base& b )
-{
-    sc_int_base& aa = *new sc_int_base( 1 );
-    aa = (a ? -1 : 0);
-    return sc_int_concref_r<sc_int_base,sc_int_base>(
-	aa, b, 1 );
-}
-
-#endif
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >
-operator , ( sc_int_base& a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_bitref>
-operator , ( sc_int_base& a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_base,sc_int_bitref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_subref>
-operator , ( sc_int_base& a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_base,sc_int_subref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_base>
-operator , ( sc_int_base& a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-
-template <class T1, class T2>
-inline
-sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >
-concat( sc_int_base& a, sc_int_concref<T1,T2> b )
-{
-    return sc_int_concref<sc_int_base,sc_int_concref<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_bitref>
-concat( sc_int_base& a, sc_int_bitref b )
-{
-    return sc_int_concref<sc_int_base,sc_int_bitref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_subref>
-concat( sc_int_base& a, sc_int_subref b )
-{
-    return sc_int_concref<sc_int_base,sc_int_subref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_int_concref<sc_int_base,sc_int_base>
-concat( sc_int_base& a, sc_int_base& b )
-{
-    return sc_int_concref<sc_int_base,sc_int_base>(
-	a, b );
-}
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_int_base& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_int_base& a )
 {
     a.print( os );
     return os;
 }
 
 inline
-istream&
-operator >> ( istream& is, sc_int_base& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_int_base& a )
 {
     a.scan( is );
     return is;

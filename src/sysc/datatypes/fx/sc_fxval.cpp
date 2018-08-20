@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,7 +38,7 @@
 #include <math.h>
 #include <float.h>
 
-#include "systemc/datatypes/fx/sc_fxval.h"
+#include "sysc/datatypes/fx/sc_fxval.h"
 
 
 namespace sc_dt
@@ -52,99 +52,99 @@ namespace sc_dt
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_fxval::to_string() const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, SC_E ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_string( sc_numrep numrep ) const
 {
-    return sc_string( m_rep->to_string( numrep, -1, SC_E ) );
+    return std::string( m_rep->to_string( numrep, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    return sc_string( m_rep->to_string( numrep, (w_prefix ? 1 : 0), SC_E ) );
+    return std::string( m_rep->to_string( numrep, (w_prefix ? 1 : 0), SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_string( sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, fmt ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, fmt ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_string( sc_numrep numrep, sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( numrep, -1, fmt ) );
+    return std::string( m_rep->to_string( numrep, -1, fmt ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_string( sc_numrep numrep, bool w_prefix, sc_fmt fmt ) const
 {
-    return sc_string( m_rep->to_string( numrep, (w_prefix ? 1 : 0), fmt ) );
+    return std::string( m_rep->to_string( numrep, (w_prefix ? 1 : 0), fmt ) );
 }
 
 
-const sc_string
+const std::string
 sc_fxval::to_dec() const
 {
-    return sc_string( m_rep->to_string( SC_DEC, -1, SC_E ) );
+    return std::string( m_rep->to_string( SC_DEC, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_bin() const
 {
-    return sc_string( m_rep->to_string( SC_BIN, -1, SC_E ) );
+    return std::string( m_rep->to_string( SC_BIN, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_oct() const
 {
-    return sc_string( m_rep->to_string( SC_OCT, -1, SC_E ) );
+    return std::string( m_rep->to_string( SC_OCT, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval::to_hex() const
 {
-    return sc_string( m_rep->to_string( SC_HEX, -1, SC_E ) );
+    return std::string( m_rep->to_string( SC_HEX, -1, SC_E ) );
 }
 
 
 // print or dump content
 
 void
-sc_fxval::print( ostream& os ) const
+sc_fxval::print( ::std::ostream& os ) const
 {
     m_rep->print( os );
 }
 
 void
-sc_fxval::scan( istream& is )
+sc_fxval::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
 
 void
-sc_fxval::dump( ostream& os ) const
+sc_fxval::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxval" << endl;
-    os << "(" << endl;
+    os << "sc_fxval" << ::std::endl;
+    os << "(" << ::std::endl;
     os << "rep = ";
     m_rep->dump( os );
     // TO BE COMPLETED
-    // os << "r_flag   = " << m_r_flag << endl;
+    // os << "r_flag   = " << m_r_flag << ::std::endl;
     // os << "observer = ";
     // if( m_observer != 0 )
     //     m_observer->dump( os );
     // else
-    //     os << "0" << endl;
-    os << ")" << endl;
+    //     os << "0" << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 
@@ -494,100 +494,100 @@ to_string( const scfx_ieee_double& id, sc_numrep numrep, int w_prefix,
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string( sc_numrep numrep ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, numrep, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
+    return std::string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
 					SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string( sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, fmt ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, fmt ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string( sc_numrep numrep, sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, -1, fmt ) );
+    return std::string( sc_dt::to_string( m_val, numrep, -1, fmt ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_string( sc_numrep numrep, bool w_prefix, sc_fmt fmt ) const
 {
-    return sc_string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
+    return std::string( sc_dt::to_string( m_val, numrep, (w_prefix ? 1 : 0),
 					fmt ) );
 }
 
 
-const sc_string
+const std::string
 sc_fxval_fast::to_dec() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_DEC, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, SC_DEC, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_bin() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_BIN, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, SC_BIN, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_oct() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_OCT, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, SC_OCT, -1, SC_E ) );
 }
 
-const sc_string
+const std::string
 sc_fxval_fast::to_hex() const
 {
-    return sc_string( sc_dt::to_string( m_val, SC_HEX, -1, SC_E ) );
+    return std::string( sc_dt::to_string( m_val, SC_HEX, -1, SC_E ) );
 }
 
 
 // print or dump content
 
 void
-sc_fxval_fast::print( ostream& os ) const
+sc_fxval_fast::print( ::std::ostream& os ) const
 {
     os << sc_dt::to_string( m_val, SC_DEC, -1, SC_E );
 }
 
 void
-sc_fxval_fast::scan( istream& is )
+sc_fxval_fast::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }
 
 void
-sc_fxval_fast::dump( ostream& os ) const
+sc_fxval_fast::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxval_fast" << endl;
-    os << "(" << endl;
-    os << "val = " << m_val << endl;
+    os << "sc_fxval_fast" << ::std::endl;
+    os << "(" << ::std::endl;
+    os << "val = " << m_val << ::std::endl;
     // TO BE COMPLETED
-    // os << "r_flag   = " << m_r_flag << endl;
+    // os << "r_flag   = " << m_r_flag << ::std::endl;
     // os << "observer = ";
     // if( m_observer != 0 )
     //     m_observer->dump( os );
     // else
-    //     os << "0" << endl;
-    os << ")" << endl;
+    //     os << "0" << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 

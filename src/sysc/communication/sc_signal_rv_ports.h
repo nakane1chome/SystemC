@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,15 +37,14 @@
 #define SC_SIGNAL_RV_PORTS_H
 
 
-#include <stdio.h>
+#include <cstdio>
 
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_signal_ports.h"
-#include "systemc/communication/sc_signal_rv.h"
-#include "systemc/datatypes/bit/sc_lv.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_signal_ports.h"
+#include "sysc/communication/sc_signal_rv.h"
+#include "sysc/datatypes/bit/sc_lv.h"
 
-using sc_dt::sc_lv;
-
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_in_rv<W>
@@ -55,13 +54,13 @@ using sc_dt::sc_lv;
 
 template <int W>
 class sc_in_rv
-    : public sc_in<sc_lv<W> >
+    : public sc_in<sc_dt::sc_lv<W> >
 {
 public:
 
     // typedefs
 
-    typedef sc_lv<W>                            data_type;
+    typedef sc_dt::sc_lv<W>                     data_type;
 
     typedef sc_in_rv<W>                         this_type;
     typedef sc_in<data_type>                    base_type;
@@ -127,11 +126,8 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_in_rv"; }
 
 private:
 
@@ -142,9 +138,6 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <int W>
-const char* const sc_in_rv<W>::kind_string = "sc_in_rv";
 
 
 // called when elaboration is done
@@ -171,13 +164,13 @@ sc_in_rv<W>::end_of_elaboration()
 
 template <int W>
 class sc_inout_rv
-    : public sc_inout<sc_lv<W> >
+    : public sc_inout<sc_dt::sc_lv<W> >
 {
 public:
 
     // typedefs
 
-    typedef sc_lv<W>                            data_type;
+    typedef sc_dt::sc_lv<W>                     data_type;
 
     typedef sc_inout_rv<W>                      this_type;
     typedef sc_inout<data_type>                 base_type;
@@ -254,11 +247,8 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_inout_rv"; }
 
 private:
 
@@ -268,9 +258,6 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <int W>
-const char* const sc_inout_rv<W>::kind_string = "sc_inout_rv";
 
 
 // called when elaboration is done
@@ -377,11 +364,8 @@ public:
     this_type& operator = ( const this_type& port_ )
 	{ (*this)->write( port_->read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_out_rv"; }
 
 private:
 
@@ -392,9 +376,7 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-template <int W>
-const char* const sc_out_rv<W>::kind_string = "sc_out_rv";
-
+} // namespace sc_core
 
 #endif
 

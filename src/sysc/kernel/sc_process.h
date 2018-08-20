@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  The contents of this file are subject to the restrictions and limitations    
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -18,7 +18,7 @@
 /*****************************************************************************
 
   sc_process.h -- Declarations for process classes. Requires
-                  stdlib.h -- We need size_t.
+                  cstdlib -- We need size_t.
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 
@@ -29,46 +29,123 @@
     MODIFICATION LOG - modifiers, enter your name, affiliation, date and
     changes you are making here.
 
-        Name, Affiliation, Date:
-    Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems 20 May 2003
+  Description of Modification: Changes to support dynamic processes.
+
 
  *****************************************************************************/
 
 #ifndef SC_PROCESS_H
 #define SC_PROCESS_H
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_constants.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_constants.h"
 
-/*
- *  Define this macro if we want to use member function pointers to implement
- *  process dispatch. Otherwise, we'll use a hack that involves calling a 
- *  nonmember auxiliary function (see sc_module.h for the implementation,
- *  defined inside the user's constructor) which in turn invokes the member
- *  function. The relative performances of these alternatives are to a large
- *  extent machine- and compiler- dependent; it's not clear a priori which is
- *  superior.
- */
-#if !defined(_MSC_VER)
-#define SC_USE_MEMBER_FUNC_PTR
-#endif
+namespace sc_core {
 
-class sc_module;
+// -----------------------------------------------------------------------------
+// PROCESS HANDLES AND BASE CLASS FORWARD REFERENCE:
+// -----------------------------------------------------------------------------
 
-#ifndef SC_USE_MEMBER_FUNC_PTR
-typedef void (*SC_ENTRY_FUNC)(sc_module*);
-#define SC_DEFUNCT_PROCESS_FUNCTION &sc_defunct_process_function
-#else
-typedef void (sc_module::*SC_ENTRY_FUNC)();
-#define SC_DEFUNCT_PROCESS_FUNCTION &sc_module::defunct
-#endif
-
-class sc_process_b; /* base class for all kinds of processes */
 typedef class sc_cthread_process* sc_cthread_handle;
 typedef class sc_method_process*  sc_method_handle;
 typedef class sc_thread_process*  sc_thread_handle;
 
+class sc_process_b;     // Base class for all kinds of processes.
+class sc_process_host;  // Base class for objects which have processes.
+
+
+// -----------------------------------------------------------------------------
+// PROCESS INVOCATION METHOD OR FUNCTION:
+//
+//  Define SC_USE_MEMBER_FUNC_PTR if we want to use member function pointers 
+//  to implement process dispatch. Otherwise, we'll use a hack that involves 
+//  creating a templated invocation object which will invoke the member
+//  function. This should not be necessary, but some compilers (e.g., VC++)
+//  do not allow the conversion from `void (callback_tag::*)()' to 
+//  `void (sc_process_host::*)()'. This is supposed to be OK as long as the 
+//  dynamic type is correct.  C++ Standard 5.4 "Explicit type conversion", 
+//  clause 7: a pointer to member of derived class type may be explicitly 
+//  converted to a pointer to member of an unambiguous non-virtual base class 
+//  type. 
+// -----------------------------------------------------------------------------
+
+#if defined(_MSC_VER)
+#if ( _MSC_VER > 1200 )
+#   define SC_USE_MEMBER_FUNC_PTR
+#endif
+#else
+#   define SC_USE_MEMBER_FUNC_PTR
+#endif
+
+
+// COMPILER DOES SUPPORT CAST TO void (sc_process_host::*)() from (T::*)():
+
+#if defined(SC_USE_MEMBER_FUNC_PTR)
+
+    typedef void (sc_process_host::*SC_ENTRY_FUNC)();
+#   define SC_DEFUNCT_PROCESS_FUNCTION &::sc_core::sc_process_host::defunct
+#   define SC_DECL_HELPER_STRUCT(callback_tag, func) /*EMPTY*/
+#   define SC_MAKE_FUNC_PTR(callback_tag, func) \
+        (void (::sc_core::sc_process_host::*)())(&callback_tag::func)
+        // static_cast<SC_ENTRY_FUNC>(&callback_tag::func)
+
+
+// COMPILER NOT DOES SUPPORT CAST TO void (sc_process_host::*)() from (T::*)():
+
+#else // !defined(SC_USE_MEMBER_FUNC_PTR)
+	class sc_process_call_base {
+	  public:
+		inline sc_process_call_base()
+		{
+		}
+
+		virtual ~sc_process_call_base()
+		{
+		}
+
+		virtual void invoke(sc_process_host* host_p)
+		{
+		}
+	};
+	extern sc_process_call_base sc_process_defunct;
+
+	template<class T>
+	class sc_process_call : public sc_process_call_base {
+	  public:
+		sc_process_call( void (T::*method_p)() ) :
+			sc_process_call_base()
+		{
+			 m_method_p = method_p;
+		}
+
+		virtual ~sc_process_call()
+		{
+		}
+
+		virtual void invoke(sc_process_host* host_p)
+		{
+			(((T*)host_p)->*m_method_p)();
+		}
+
+	  protected:
+		void (T::*m_method_p)();  // Method implementing the process.
+	};
+
+    typedef sc_process_call_base* SC_ENTRY_FUNC;
+#   define SC_DEFUNCT_PROCESS_FUNCTION &::sc_core::sc_process_defunct       
+#   define SC_DECL_HELPER_STRUCT(callback_tag, func) /*EMPTY*/
+#   define SC_MAKE_FUNC_PTR(callback_tag, func) \
+        (::sc_core::SC_ENTRY_FUNC) (new \
+        ::sc_core::sc_process_call<callback_tag>(&callback_tag::func))
+
+#endif // !defined(SC_USE_MEMBER_FUNC_PTR)
+
+
 extern void sc_set_stack_size( sc_thread_handle, size_t );
 
+} // namespace sc_core
 
-#endif
+#endif // SC_PROCESS_H
+
+

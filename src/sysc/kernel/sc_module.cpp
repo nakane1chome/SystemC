@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,8 +36,19 @@
                                - Implementation of the function test_module_prm.
                                - Implementation of set_stack_size().
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems 20 May 2003
+  Description of Modification: Inherit from sc_process_host
+
+      Name, Affiliation, Date: Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: dont_initialize() uses 
+                               sc_get_last_created_process_handle() instead of
+                               sc_get_curr_process_handle()
+
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems 25 Mar 2003
+  Description of Modification: Fixed bug in SC_NEW, see comments on 
+                               ~sc_module_dynalloc_list below.
+
 
  *****************************************************************************/
 
@@ -46,22 +57,25 @@
 #include <math.h>
 #include <stdio.h>
 
-#include "systemc/kernel/sc_event.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_macros_int.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_module_registry.h"
-#include "systemc/kernel/sc_name_gen.h"
-#include "systemc/kernel/sc_object_manager.h"
-#include "systemc/kernel/sc_process.h"
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/kernel/sc_simcontext_int.h"
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_interface.h"
-#include "systemc/communication/sc_port.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_event.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_macros_int.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_module_registry.h"
+#include "sysc/kernel/sc_name_gen.h"
+#include "sysc/kernel/sc_object_manager.h"
+#include "sysc/kernel/sc_process.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_simcontext_int.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_interface.h"
+#include "sysc/communication/sc_port.h"
+#include "sysc/communication/sc_signal.h"
+#include "sysc/communication/sc_signal_ports.h"
+#include "sysc/utils/sc_iostream.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_module_dynalloc_list
@@ -88,11 +102,16 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+// Note we clear the m_parent field for the module being deleted. This because
+// we process the list front to back so the parent has already been deleted, 
+// and we don't want ~sc_object() to try to access the parent which may 
+// contain garbage.
 
 sc_module_dynalloc_list::~sc_module_dynalloc_list()
 {
     sc_plist<sc_module*>::iterator it( m_list );
     while( ! it.empty() ) {
+        (*it)->m_parent = 0;
         delete *it;
         it ++;
     }
@@ -142,9 +161,6 @@ const sc_bind_proxy SC_BIND_PROXY_NIL;
 //  Base class for all structural entities.
 // ----------------------------------------------------------------------------
 
-const char* const sc_module::kind_string = "sc_module";
-
-
 void
 sc_module::sc_module_init()
 {
@@ -157,7 +173,7 @@ sc_module::sc_module_init()
 }
 
 sc_module::sc_module( const char* nm )
-: sc_object(nm),
+: sc_process_host(nm),
   sensitive(this),
   sensitive_pos(this),
   sensitive_neg(this)
@@ -186,10 +202,10 @@ sc_module::sc_module( const char* nm )
  */
 
 sc_module::sc_module()
-: sc_object(::sc_get_curr_simcontext()
-            ->get_object_manager()
-            ->top_of_module_name_stack()
-            ->operator const char*()),
+: sc_process_host(::sc_core::sc_get_curr_simcontext()
+                  ->get_object_manager()
+                  ->top_of_module_name_stack()
+                  ->operator const char*()),
   sensitive(this),
   sensitive_pos(this),
   sensitive_neg(this)
@@ -205,10 +221,10 @@ sc_module::sc_module()
 }
 
 sc_module::sc_module( const sc_module_name& )
-: sc_object(::sc_get_curr_simcontext()
-            ->get_object_manager()
-            ->top_of_module_name_stack()
-            ->operator const char*()),
+: sc_process_host(::sc_core::sc_get_curr_simcontext()
+                  ->get_object_manager()
+                  ->top_of_module_name_stack()
+                  ->operator const char*()),
   sensitive(this),
   sensitive_pos(this),
   sensitive_neg(this)
@@ -226,8 +242,8 @@ sc_module::sc_module( const sc_module_name& )
     sc_module_init();
 }
 
-sc_module::sc_module( const sc_string& s )
-: sc_object( s.c_str() ),
+sc_module::sc_module( const std::string& s )
+: sc_process_host( s.c_str() ),
   sensitive(this),
   sensitive_pos(this),
   sensitive_neg(this)
@@ -243,7 +259,7 @@ sc_module::~sc_module()
 }
 
 
-const sc_pvector<sc_object*>&
+const ::std::vector<sc_object*>&
 sc_module::get_child_objects() const
 {
     return m_child_objects;
@@ -279,6 +295,9 @@ sc_module::end_module()
                 was not called for a previous module. */
 	(void) simcontext()->hierarchy_pop();
 	simcontext()->reset_curr_proc(); 
+	sensitive.reset();
+	sensitive_pos.reset();
+	sensitive_neg.reset();
 	m_end_module_called = true;
     }
 }
@@ -289,31 +308,49 @@ sc_module::end_module()
 void
 sc_module::dont_initialize()
 {
-    sc_curr_proc_handle cpi = simcontext()->get_curr_proc_info();
-    switch( cpi->kind ) {
-    case SC_METHOD_PROC_: {
-	RCAST<sc_method_handle>( cpi->process_handle )->do_initialize( false );
-	break;
-    }
-    case SC_THREAD_PROC_: {
-	RCAST<sc_thread_handle>( cpi->process_handle )->do_initialize( false );
-	break;
-    }
-    default:
-	SC_REPORT_WARNING( SC_ID_DONT_INITIALIZE_, 0 );
-	break;
+    sc_process_b* last_proc = sc_get_last_created_process_handle();
+    if (!last_proc) return; 
+    if (last_proc->is_cthread()) {
+        SC_REPORT_WARNING( SC_ID_DONT_INITIALIZE_, 0 );
+    } else {
+	last_proc->do_initialize( false );
     }
 }
 
+// set SC_CTHREAD reset sensitivity
+
+void
+sc_module::reset_signal_is( const sc_in<bool>& port, bool level )
+{
+	watching( port.delayed() == level );
+}
+
+void
+sc_module::reset_signal_is( const sc_signal<bool>& sig, bool level )
+{
+	watching( sig.delayed() == level );
+}
 
 // to generate unique names for objects in an MT-Safe way
 
 const char*
-sc_module::gen_unique_name( const char* basename_ )
+sc_module::gen_unique_name( const char* basename_, bool preserve_first )
 {
-    return m_name_gen->gen_unique_name( basename_ );
+    return m_name_gen->gen_unique_name( basename_, preserve_first );
 }
 
+
+// called by construction_done 
+
+void
+sc_module::before_end_of_elaboration()
+{}
+
+void
+sc_module::construction_done()
+{
+    before_end_of_elaboration();
+}
 
 // called by elaboration_done (does nothing by default)
 
@@ -337,22 +374,48 @@ sc_module::elaboration_done( bool& error_ )
     end_of_elaboration();
 }
 
+// called by start_simulation (does nothing by default)
+
+void
+sc_module::start_of_simulation()
+{}
+
+void
+sc_module::start_simulation()
+{
+    start_of_simulation();
+}
+
+// called by simulation_done (does nothing by default)
+
+void
+sc_module::end_of_simulation()
+{}
+
+void
+sc_module::simulation_done()
+{
+    end_of_simulation();
+}
 
 void
 sc_module::set_stack_size( size_t size )
 {
-    sc_curr_proc_handle cpi = simcontext()->get_curr_proc_info();
+    sc_process_b*    proc_p;    // Current process.
+    sc_thread_handle thread_h;  // Current process as thread.
 
-    switch( cpi->kind ) {
-    case SC_THREAD_PROC_:
-    case SC_CTHREAD_PROC_: {
-	sc_thread_handle thread_h = (sc_thread_handle) cpi->process_handle;
+    proc_p = (simcontext()->is_running()) ?
+	sc_get_curr_process_handle() :
+	sc_get_last_created_process_handle();
+
+    thread_h = DCAST<sc_thread_handle>(proc_p);
+    if ( thread_h ) 
+    {
 	thread_h->set_stack_size( size );
-	break;
     }
-    default:
+    else
+    {
 	SC_REPORT_WARNING( SC_ID_SET_STACK_SIZE_, 0 );
-	break;
     }
 }
 
@@ -579,5 +642,6 @@ sc_module::operator () ( const sc_bind_proxy& p001,
     TRY_BIND( p064 );
 }
 
+} // namespace sc_core
 
 // Taf!

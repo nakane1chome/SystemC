@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,16 +38,17 @@
 #define SC_NBUTILS_H
 
 
-#if !defined(_MSC_VER) && !defined(i386) && !defined(__hpux) && !defined( __BORLANDC__ )
+#if !defined(__ppc__) && !defined(_MSC_VER) && !defined(i386) && !defined(__hpux) && !defined( __BORLANDC__ )
 #include <ieeefp.h>
 #else
-#include <math.h>
+#include <cmath>
 #endif
 
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/int/sc_int_ids.h"
-#include "systemc/datatypes/int/sc_nbdefs.h"
-#include "systemc/utils/sc_report.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/int/sc_int_ids.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/utils/sc_report.h"
 
 
 namespace sc_dt
@@ -58,20 +59,22 @@ void
 is_valid_base(sc_numrep base)
 {
   switch (base) {
-  case SC_NOBASE: case SC_BIN: case SC_OCT: case SC_DEC: case SC_HEX: 
-    break;
-  case SC_BIN_US: case SC_BIN_SM: 
-  case SC_OCT_US: case SC_OCT_SM:
-  case SC_HEX_US: case SC_HEX_SM:
-      SC_REPORT_ERROR( SC_ID_NOT_IMPLEMENTED_,
+    case SC_NOBASE: case SC_BIN: 
+    case SC_OCT: case SC_DEC: 
+    case SC_HEX: 
+        break;
+    case SC_BIN_US: case SC_BIN_SM: 
+    case SC_OCT_US: case SC_OCT_SM:
+    case SC_HEX_US: case SC_HEX_SM:
+      SC_REPORT_ERROR( sc_core::SC_ID_NOT_IMPLEMENTED_,
 		       "is_valid_base( sc_numrep base ) : "
 		       "base ending in _US and _SM is not supported yet" );
-  default:
+    default:
       char msg[BUFSIZ];
       sprintf( msg, "is_valid_base( sc_numrep base ) : "
 	       "base = %s is not valid",
 	       to_string( base ).c_str() );
-      SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+      SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
   }
 }
 
@@ -79,6 +82,20 @@ is_valid_base(sc_numrep base)
 extern
 small_type 
 fsm_move(char c, small_type &b, small_type &s, small_type &state);
+
+// Parse a character string into its equivalent binary bits.
+extern
+void parse_binary_bits( 
+    const char* src_p, int dst_n, unsigned long* data_p, unsigned long* ctrl_p=0
+);
+
+
+// Parse a character string into its equivalent hexadecimal bits.
+extern
+void parse_hex_bits( 
+    const char* src_p, int dst_n, unsigned long* data_p, unsigned long* ctrl_p=0
+);
+
 
 // Find the base and sign of a number in v.
 extern 
@@ -595,7 +612,7 @@ test_bound(int nb)
       sprintf( msg, "test_bound( int nb ) : "
 	       "nb = %d > SC_MAX_NBITS = %d is not valid",
 	       nb, SC_MAX_NBITS );
-      SC_REPORT_ERROR( SC_ID_OUT_OF_BOUNDS_, msg );
+      SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
   }
 }
 
@@ -607,7 +624,7 @@ void
 div_by_zero(Type s)
 {
   if (s == 0) {
-      SC_REPORT_ERROR( SC_ID_OPERATION_FAILED_,
+      SC_REPORT_ERROR( sc_core::SC_ID_OPERATION_FAILED_,
 		       "div_by_zero<Type>( Type ) : division by zero" );
   }
 }
@@ -935,7 +952,7 @@ is_bad_double(double v)
 #else
   if (! finite(v)) {
 #endif
-      SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_,
+      SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_,
 		       "is_bad_double( double v ) : "
 		       "v is not finite - NaN or Inf" );
   }

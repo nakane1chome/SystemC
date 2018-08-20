@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,13 +34,23 @@
 
  *****************************************************************************/
 
+/* 
+$Log: sc_wait.cpp,v $
+Revision 1.5  2004/09/27 20:49:10  acg
+Andy Goodrich, Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments appear in the
+     checkout source.
 
-#include "systemc/kernel/sc_except.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_simcontext_int.h"
-#include "systemc/kernel/sc_wait.h"
+*/
 
+
+#include "sysc/kernel/sc_except.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_simcontext_int.h"
+#include "sysc/kernel/sc_wait.h"
+
+namespace sc_core {
 
 // static sensitivity for SC_THREADs and SC_CTHREADs
 
@@ -341,6 +351,7 @@ timed_out( sc_simcontext* simc )
 }
 
 
+
 // misc.
 
 void
@@ -352,5 +363,6 @@ sc_set_location( const char* file, int lineno, sc_simcontext* simc )
     handle->lineno = lineno;
 }
 
+} // namespace sc_core
 
 // Taf!

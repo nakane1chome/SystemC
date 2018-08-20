@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,11 +37,10 @@
 #define SC_SIGNAL_RESOLVED_PORTS_H
 
 
-#include "systemc/communication/sc_signal_ports.h"
-#include "systemc/datatypes/bit/sc_logic.h"
+#include "sysc/communication/sc_signal_ports.h"
+#include "sysc/datatypes/bit/sc_logic.h"
 
-using sc_dt::sc_logic;
-
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_in_resolved
@@ -50,13 +49,13 @@ using sc_dt::sc_logic;
 // ----------------------------------------------------------------------------
 
 class sc_in_resolved
-    : public sc_in<sc_logic>
+    : public sc_in<sc_dt::sc_logic>
 {
 public:
 
     // typedefs
 
-    typedef sc_logic                   data_type;
+    typedef sc_dt::sc_logic            data_type;
 
     typedef sc_in_resolved             this_type;
     typedef sc_in<data_type>           base_type;
@@ -122,11 +121,8 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_in_resolved"; }
 
 private:
 
@@ -143,13 +139,13 @@ private:
 // ----------------------------------------------------------------------------
 
 class sc_inout_resolved
-    : public sc_inout<sc_logic>
+    : public sc_inout<sc_dt::sc_logic>
 {
 public:
 
     // typedefs
 
-    typedef sc_logic                   data_type;
+    typedef sc_dt::sc_logic            data_type;
 
     typedef sc_inout_resolved          this_type;
     typedef sc_inout<data_type>        base_type;
@@ -226,11 +222,8 @@ public:
 
     virtual void end_of_elaboration();
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_inout_resolved"; }
 
 private:
 
@@ -326,11 +319,8 @@ public:
     this_type& operator = ( const this_type& port_ )
 	{ (*this)->write( port_->read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_out_resolved"; }
 
 private:
 
@@ -338,6 +328,7 @@ private:
     sc_out_resolved( const this_type& );
 };
 
+} // namespace sc_core
 
 #endif
 

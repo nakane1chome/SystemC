@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -52,7 +52,7 @@
 #define L_DECL2SPEC(op, ty1, ty2, code)                                       \
     friend inline sc_lambda_ptr operator op( ty1, ty2 );
 
-#include "systemc/kernel/sc_lambda_exps.h"
+#include "sysc/kernel/sc_lambda_exps.h"
 
 #undef L_DECL1
 #undef L_DECL1SPEC

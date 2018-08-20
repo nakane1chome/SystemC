@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -40,29 +40,34 @@
       Name, Affiliation, Date: Gene Bushuyev, Synopsys, Inc.
   Description of Modification: - Change implementation for VC6.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Godorich, Forte
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: inherit from sc_process_host as a part of
+                               implementing dynamic processes
 
  *****************************************************************************/
 
 #ifndef SC_MODULE_H
 #define SC_MODULE_H
 
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_lambda.h"
+#include "sysc/kernel/sc_module_name.h"
+#include "sysc/kernel/sc_process.h"
+#include "sysc/kernel/sc_sensitive.h"
+#include "sysc/kernel/sc_time.h"
+#include "sysc/kernel/sc_wait.h"
+#include "sysc/kernel/sc_wait_cthread.h"
+#include "sysc/kernel/sc_process_host.h"
+#include "sysc/utils/sc_list.h"
+#include "sysc/utils/sc_string.h"
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_lambda.h"
-#include "systemc/kernel/sc_module_name.h"
-#include "systemc/kernel/sc_object.h"
-#include "systemc/kernel/sc_process.h"
-#include "systemc/kernel/sc_sensitive.h"
-#include "systemc/kernel/sc_time.h"
-#include "systemc/kernel/sc_wait.h"
-#include "systemc/kernel/sc_wait_cthread.h"
-#include "systemc/utils/sc_list.h"
-#include "systemc/utils/sc_string.h"
+namespace sc_core {
 
 class sc_name_gen;
-
+template<class T> class sc_in;
+template<class T> class sc_signal;
 
 // ----------------------------------------------------------------------------
 //  STRUCT : sc_bind_proxy
@@ -92,7 +97,7 @@ extern const sc_bind_proxy SC_BIND_PROXY_NIL;
 // ----------------------------------------------------------------------------
 
 class sc_module
-: public sc_object
+: public sc_process_host
 {
     friend class sc_module_name;
     friend class sc_module_registry;
@@ -106,25 +111,38 @@ public:
 	{ return simcontext(); }
 
     // to generate unique names for objects in an MT-Safe way
-    const char* gen_unique_name( const char* basename_ );
-
-    static const char* const kind_string;
+    const char* gen_unique_name( const char* basename_, bool preserve_first );
 
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_module"; }
 
 protected:
+  
+    // called by construction_done 
+    virtual void before_end_of_elaboration();
+
+    void construction_done();
 
     // called by elaboration_done (does nothing by default)
     virtual void end_of_elaboration();
 
     void elaboration_done( bool& );
 
+    // called by start_simulation (does nothing by default)
+    virtual void start_of_simulation();
+
+    void start_simulation();
+
+    // called by simulation_done (does nothing by default)
+    virtual void end_of_simulation();
+
+    void simulation_done();
+
     void sc_module_init();
 
     // constructor
     sc_module( const char* nm );
-    sc_module( const sc_string& nm );
+    sc_module( const std::string& nm );
     sc_module( const sc_module_name& nm ); /* for those used to old style */
     sc_module();
 
@@ -146,7 +164,7 @@ public:
 
     // operator() is declared at the end of the class.
 
-    const sc_pvector<sc_object*>& get_child_objects() const;
+    const ::std::vector<sc_object*>& get_child_objects() const;
 
 protected:
 
@@ -160,128 +178,136 @@ protected:
     // to prevent initialization for SC_METHODs and SC_THREADs
     void dont_initialize();
 
+    // set reset sensitivity for SC_CTHREADs
+    void reset_signal_is( const sc_in<bool>& port, bool level );
+    void reset_signal_is( const sc_signal<bool>& sig, bool level );
 
     // static sensitivity for SC_THREADs and SC_CTHREADs
 
     void wait()
-        { ::wait( simcontext() ); }
+        { ::sc_core::wait( simcontext() ); }
 
 
     // dynamic sensitivity for SC_THREADs and SC_CTHREADs
 
     void wait( const sc_event& e )
-        { ::wait( e, simcontext() ); }
+        { ::sc_core::wait( e, simcontext() ); }
 
     void wait( sc_event_or_list& el )
-	{ ::wait( el, simcontext() ); }
+	{ ::sc_core::wait( el, simcontext() ); }
 
     void wait( sc_event_and_list& el )
-	{ ::wait( el, simcontext() ); }
+	{ ::sc_core::wait( el, simcontext() ); }
 
     void wait( const sc_time& t )
-        { ::wait( t, simcontext() ); }
+        { ::sc_core::wait( t, simcontext() ); }
 
     void wait( double v, sc_time_unit tu )
-        { ::wait( sc_time( v, tu, simcontext() ), simcontext() ); }
+        { ::sc_core::wait( sc_time( v, tu, simcontext() ), simcontext() ); }
 
     void wait( const sc_time& t, const sc_event& e )
-        { ::wait( t, e, simcontext() ); }
+        { ::sc_core::wait( t, e, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, const sc_event& e )
-        { ::wait( sc_time( v, tu, simcontext() ), e, simcontext() ); }
+        { ::sc_core::wait( 
+		sc_time( v, tu, simcontext() ), e, simcontext() ); }
 
     void wait( const sc_time& t, sc_event_or_list& el )
-        { ::wait( t, el, simcontext() ); }
+        { ::sc_core::wait( t, el, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, sc_event_or_list& el )
-        { ::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { ::sc_core::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
     void wait( const sc_time& t, sc_event_and_list& el )
-        { ::wait( t, el, simcontext() ); }
+        { ::sc_core::wait( t, el, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, sc_event_and_list& el )
-        { ::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { ::sc_core::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
 
     // static sensitivity for SC_METHODs
 
     void next_trigger()
-	{ ::next_trigger( simcontext() ); }
+	{ ::sc_core::next_trigger( simcontext() ); }
 
 
     // dynamic sensitivty for SC_METHODs
 
     void next_trigger( const sc_event& e )
-        { ::next_trigger( e, simcontext() ); }
+        { ::sc_core::next_trigger( e, simcontext() ); }
 
     void next_trigger( sc_event_or_list& el )
-        { ::next_trigger( el, simcontext() ); }
+        { ::sc_core::next_trigger( el, simcontext() ); }
 
     void next_trigger( sc_event_and_list& el )
-        { ::next_trigger( el, simcontext() ); }
+        { ::sc_core::next_trigger( el, simcontext() ); }
 
     void next_trigger( const sc_time& t )
-        { ::next_trigger( t, simcontext() ); }
+        { ::sc_core::next_trigger( t, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), simcontext() ); }
+        { ::sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), simcontext() ); }
 
     void next_trigger( const sc_time& t, const sc_event& e )
-        { ::next_trigger( t, e, simcontext() ); }
+        { ::sc_core::next_trigger( t, e, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, const sc_event& e )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), e, simcontext() ); }
+        { ::sc_core::next_trigger( 
+		sc_time( v, tu, simcontext() ), e, simcontext() ); }
 
     void next_trigger( const sc_time& t, sc_event_or_list& el )
-        { ::next_trigger( t, el, simcontext() ); }
+        { ::sc_core::next_trigger( t, el, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, sc_event_or_list& el )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { ::sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
     void next_trigger( const sc_time& t, sc_event_and_list& el )
-        { ::next_trigger( t, el, simcontext() ); }
+        { ::sc_core::next_trigger( t, el, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, sc_event_and_list& el )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { ::sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
 
     // for SC_METHODs and SC_THREADs and SC_CTHREADs
 
     bool timed_out()
-	{ return ::timed_out( simcontext() ); }
+	{ return ::sc_core::timed_out( simcontext() ); }
 
 
     // for SC_CTHREADs
 
     void halt()
-        { ::halt( simcontext() ); }
+        { ::sc_core::halt( simcontext() ); }
 
     void wait( int n )
-        { ::wait( n, simcontext() ); }
+        { ::sc_core::wait( n, simcontext() ); }
 
     void wait_until( const sc_lambda_ptr& l )
-        { ::wait_until( l, simcontext() ); }
+        { ::sc_core::wait_until( l, simcontext() ); }
 
     void wait_until( const sc_signal_bool_deval& s )
-        { ::wait_until( s, simcontext() ); }
+        { ::sc_core::wait_until( s, simcontext() ); }
 
     void at_posedge( const sc_signal_in_if<bool>& s )
-	{ ::at_posedge( s, simcontext() ); }
+	{ ::sc_core::at_posedge( s, simcontext() ); }
 
-    void at_posedge( const sc_signal_in_if<sc_logic>& s )
-	{ ::at_posedge( s, simcontext() ); }
+    void at_posedge( const sc_signal_in_if<sc_dt::sc_logic>& s )
+	{ ::sc_core::at_posedge( s, simcontext() ); }
 
     void at_negedge( const sc_signal_in_if<bool>& s )
-	{ ::at_negedge( s, simcontext() ); }
+	{ ::sc_core::at_negedge( s, simcontext() ); }
 
-    void at_negedge( const sc_signal_in_if<sc_logic>& s )
-	{ ::at_negedge( s, simcontext() ); }
+    void at_negedge( const sc_signal_in_if<sc_dt::sc_logic>& s )
+	{ ::sc_core::at_negedge( s, simcontext() ); }
 
     void watching( const sc_lambda_ptr& l )
-        { ::watching( l, simcontext() ); }
+        { ::sc_core::watching( l, simcontext() ); }
 
     void watching( const sc_signal_bool_deval& s )
-        { ::watching( s, simcontext() ); }
+        { ::sc_core::watching( s, simcontext() ); }
 
 
     // These are protected so that user derived classes can refer to them.
@@ -293,6 +319,9 @@ protected:
     void set_stack_size( size_t );
 
     int append_port( sc_port_base* );
+
+private:
+    sc_module( const sc_module& );
 
 private:
 
@@ -372,176 +401,56 @@ public:
 		       const sc_bind_proxy& p062 = SC_BIND_PROXY_NIL,
 		       const sc_bind_proxy& p063 = SC_BIND_PROXY_NIL,
 		       const sc_bind_proxy& p064 = SC_BIND_PROXY_NIL );
-};
 
+};
 
 extern sc_module* sc_module_dynalloc(sc_module*);
-#define SC_NEW(x)  sc_module_dynalloc(new x);
+#define SC_NEW(x)  ::sc_core::sc_module_dynalloc(new x);
 
 
-// this must be undefined for VC6 because it messes up stack when
-// member functions casts are performed
-#ifndef SC_USE_MEMBER_FUNC_PTR
-
-#ifndef SC_USER_DEFINED_MAX_NUMBER_OF_PROCESSES
-// the value below defines max number of processes per module
-#define SC_VC6_MAX_NUMBER_OF_PROCESSES 10
-#endif
-
-// the following code is designed to circumvent the following VC6 bugs:
-// 1) violation of 9.8/1 about type names lookup
-// 2) the linkage of the local class static f-n is made external
-// 3) lack of partial specialization
-// 4) member functions casts screw up the stack
-// this helper class has two sets of pointers: one for member functions
-// and the other for static functions. For each member function a static
-// function is created that performs conversion and calls member function.
-
-template<class T>
-struct sc_vc6_process_helper_class
-{
-	int counter;
-	
-    // array of member functions
-    typedef void (T::*mf_type)();
-	mf_type mfa[SC_VC6_MAX_NUMBER_OF_PROCESSES];
-    typedef void (*sf_type)(sc_module* b);
-	// array of static member functions
-	sf_type sfa[SC_VC6_MAX_NUMBER_OF_PROCESSES];
-	// VC6 lacks partial specialization support
-	// using explicit specialization instead
-    template<int W>
-	struct process_helper
-	{
-		static void smf(sc_module* b)
-		{ (static_cast<T*>(b)->*(static_cast<T*>(b)->sc_vc6_process_helper.mfa)[W-1])();}
-		// recursively generate other functions
-		process_helper<W-1> hlp;
-		process_helper(sf_type* sfa_):hlp(sfa_)
-		{ sfa_[W-1] = smf; }
-	};
-	template<>
-	struct process_helper<0>
-	{
-		process_helper<0>(sf_type* sfa){};
-	};
-    process_helper<SC_VC6_MAX_NUMBER_OF_PROCESSES> helper;
-	sc_vc6_process_helper_class():helper(sfa){counter = -1;}
-    sc_vc6_process_helper_class& operator = (const sc_vc6_process_helper_class&);
-	sc_vc6_process_helper_class& operator = (mf_type f) 
-	{
-	  counter++;
-	  if(counter>=SC_VC6_MAX_NUMBER_OF_PROCESSES)
-		 SC_REPORT_ERROR( SC_ID_VC6_MAX_PROCESSES_EXCEEDED_,
-		       sc_string::to_string("%d( max %d)\n"
-		       "you can increase this number. For example, to set it to 20 do this\n"
-		       "before including ""systemc.h"" in your code include these two lines:\n"
-                       "#define SC_USER_DEFINED_MAX_NUMBER_OF_PROCESSES\n"
-		       "#define SC_VC6_MAX_NUMBER_OF_PROCESSES 20\n",
-                       counter+1, SC_VC6_MAX_NUMBER_OF_PROCESSES).c_str());
-	  mfa[counter]=f;
-	  return *this;
-	}
-	operator sf_type () 
-	{
-		if(counter<0)
-                  SC_REPORT_ERROR( SC_ID_VC6_PROCESS_HELPER_,
-				   "Reading before initialization.");
-		return sfa[counter];
-	}
-};
-   
-
-#define SC_DECL_HELPER_STRUCT(module_tag, func) \
-    sc_vc6_process_helper = &module_tag::func
-
-#define SC_MAKE_FUNC_PTR(module_tag, func) sc_vc6_process_helper
-#else
-#define SC_DECL_HELPER_STRUCT(module_tag, func) /*EMPTY*/
-
-/* Converting `void (module_tag::*)()' to `void (sc_module::*)()' is OK as
-   long as the dynamic type is correct.  C++ Standard 5.4 "Explicit type
-   conversion", clause 7: a pointer to member of derived class type may be
-   explicitly converted to a pointer to member of an unambiguous non-virtual
-   base class type. */
-#define SC_MAKE_FUNC_PTR(module_tag, func) \
-    static_cast<SC_ENTRY_FUNC>(&module_tag::func)
-#endif
-
-
-// To further simplify the syntax, consider the following.
+// -----------------------------------------------------------------------------
+// SOME MACROS TO SIMPLIFY SYNTAX:
+// -----------------------------------------------------------------------------
 
 #define SC_MODULE(user_module_name)                                           \
-    struct user_module_name : sc_module
-
-#ifdef SC_USE_MEMBER_FUNC_PTR
+    struct user_module_name : ::sc_core::sc_module
 
 #define SC_CTOR(user_module_name)                                             \
     typedef user_module_name SC_CURRENT_USER_MODULE;                          \
-    user_module_name( sc_module_name )
+    user_module_name( ::sc_core::sc_module_name )
 
 // the SC_HAS_PROCESS macro call must be followed by a ;
 #define SC_HAS_PROCESS(user_module_name)                                      \
     typedef user_module_name SC_CURRENT_USER_MODULE
 
-#else
 
-#define SC_CTOR(user_module_name)                                             \
-    typedef user_module_name SC_CURRENT_USER_MODULE;                          \
-    sc_vc6_process_helper_class<user_module_name> sc_vc6_process_helper;      \
-    user_module_name( sc_module_name )
-
-// the SC_HAS_PROCESS macro call must be followed by a ;
-#define SC_HAS_PROCESS(user_module_name)                                      \
-    typedef user_module_name SC_CURRENT_USER_MODULE;                          \
-    sc_vc6_process_helper_class<user_module_name> sc_vc6_process_helper
-
-#endif
-
-
-#define declare_thread_process(handle, name, module_tag, func)                \
-    sc_thread_handle handle;                                                  \
-    {                                                                         \
-        SC_DECL_HELPER_STRUCT( module_tag, func );                            \
-        handle = simcontext()->register_thread_process( name,                 \
-                     SC_MAKE_FUNC_PTR( module_tag, func ), this );            \
-        sc_module::sensitive << handle;                                       \
-        sc_module::sensitive_pos << handle;                                   \
-        sc_module::sensitive_neg << handle;                                   \
+#define declare_method_process(handle, name, host_tag, func)        \
+    {		                                                    \
+        ::sc_core::sc_method_process* handle =                      \
+		simcontext()->register_method_process( name,        \
+                     SC_MAKE_FUNC_PTR( host_tag, func ), this );    \
+        sensitive << handle;                  \
+        sensitive_pos << handle;              \
+        sensitive_neg << handle;              \
     }
 
-#define declare_method_process(handle, name, module_tag, func)                \
-    sc_method_handle handle;                                                  \
-    {                                                                         \
-        SC_DECL_HELPER_STRUCT( module_tag, func );                            \
-        handle = simcontext()->register_method_process( name,                 \
-                     SC_MAKE_FUNC_PTR( module_tag, func ), this );            \
-        sc_module::sensitive << handle;                                       \
-        sc_module::sensitive_pos << handle;                                   \
-        sc_module::sensitive_neg << handle;                                   \
+#define declare_thread_process(handle, name, host_tag, func)        \
+    {                                                               \
+        ::sc_core::sc_thread_process* handle =                      \
+	    simcontext()->register_thread_process( name,            \
+	    SC_MAKE_FUNC_PTR( host_tag, func ), this );             \
+        sensitive << handle;                  \
+        sensitive_pos << handle;              \
+        sensitive_neg << handle;              \
     }
 
-#define declare_cthread_process(handle, name, module_tag, func, edge)         \
-    sc_cthread_handle handle;                                                 \
-    {                                                                         \
-        SC_DECL_HELPER_STRUCT( module_tag, func );                            \
-        handle = simcontext()->register_cthread_process( name,                \
-                     SC_MAKE_FUNC_PTR( module_tag, func ), this );            \
-        sc_module::sensitive.operator() ( handle, edge );                     \
+#define declare_cthread_process(handle, name, host_tag, func, edge) \
+    {                                                               \
+        ::sc_core::sc_cthread_process* handle =                     \
+	    simcontext()->register_cthread_process(name,            \
+	    SC_MAKE_FUNC_PTR( host_tag, func ), this );             \
+        sensitive.operator() ( handle, edge );\
     }
-
-
-#define SC_THREAD(func)                                                       \
-    declare_thread_process( func ## _handle,                                  \
-                            #func,                                            \
-                            SC_CURRENT_USER_MODULE,                           \
-                            func )
-
-#define SC_METHOD(func)                                                       \
-    declare_method_process( func ## _handle,                                  \
-                            #func,                                            \
-                            SC_CURRENT_USER_MODULE,                           \
-                            func )
 
 #define SC_CTHREAD(func, edge)                                                \
     declare_cthread_process( func ## _handle,                                 \
@@ -549,6 +458,19 @@ struct sc_vc6_process_helper_class
                              SC_CURRENT_USER_MODULE,                          \
                              func,                                            \
                              edge )
+
+#define SC_METHOD(func)                                                       \
+    declare_method_process( func ## _handle,                                  \
+                            #func,                                            \
+                            SC_CURRENT_USER_MODULE,                           \
+                            func )
+
+#define SC_THREAD(func)                                                       \
+    declare_thread_process( func ## _handle,                                  \
+                            #func,                                            \
+                            SC_CURRENT_USER_MODULE,                           \
+                            func )
+
 
 
 // ----------------------------------------------------------------------------
@@ -558,5 +480,6 @@ struct sc_vc6_process_helper_class
 typedef sc_module sc_channel;
 typedef sc_module sc_behavior;
 
+} // namespace sc_core
 
 #endif

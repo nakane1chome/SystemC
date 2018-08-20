@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,18 +28,21 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte,
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: phase callbacks
     
  *****************************************************************************/
 
 #ifndef SC_PRIM_CHANNEL_H
 #define SC_PRIM_CHANNEL_H
 
-#include "systemc/kernel/sc_object.h"
-#include "systemc/kernel/sc_wait.h"
-#include "systemc/utils/sc_vector.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/kernel/sc_wait.h"
+#include "sysc/utils/sc_vector.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_prim_channel
@@ -53,11 +56,15 @@ class sc_prim_channel
     friend class sc_prim_channel_registry;
 
 public:
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_prim_channel"; }
+
+    inline bool update_requested() 
+	{ return m_update_requested; }
+
+    // request the update method (to be executed during the update phase)
+    void request_update();
+
 
 protected:
 
@@ -68,14 +75,20 @@ protected:
     // destructor
     virtual ~sc_prim_channel();
 
-    // request the update method (to be executed during the update phase)
-    void request_update();
-
     // the update method (does nothing by default)
     virtual void update();
 
+    // called by construction_done (does nothing by default)
+    virtual void before_end_of_elaboration();
+
     // called by elaboration_done (does nothing by default)
     virtual void end_of_elaboration();
+
+    // called by start_simulation (does nothing by default)
+    virtual void start_of_simulation();
+
+    // called by simulation_done (does nothing by default)
+    virtual void end_of_simulation();
 
 protected:
 
@@ -85,99 +98,111 @@ protected:
     // static sensitivity for SC_THREADs and SC_CTHREADs
 
     void wait()
-        { ::wait( simcontext() ); }
+        { sc_core::wait( simcontext() ); }
 
 
     // dynamic sensitivity for SC_THREADs and SC_CTHREADs
 
     void wait( const sc_event& e )
-        { ::wait( e, simcontext() ); }
+        { sc_core::wait( e, simcontext() ); }
 
     void wait( sc_event_or_list& el )
-	{ ::wait( el, simcontext() ); }
+	{ sc_core::wait( el, simcontext() ); }
 
     void wait( sc_event_and_list& el )
-	{ ::wait( el, simcontext() ); }
+	{ sc_core::wait( el, simcontext() ); }
 
     void wait( const sc_time& t )
-        { ::wait( t, simcontext() ); }
+        { sc_core::wait( t, simcontext() ); }
 
     void wait( double v, sc_time_unit tu )
-        { ::wait( sc_time( v, tu, simcontext() ), simcontext() ); }
+        { sc_core::wait( sc_time( v, tu, simcontext() ), simcontext() ); }
 
     void wait( const sc_time& t, const sc_event& e )
-        { ::wait( t, e, simcontext() ); }
+        { sc_core::wait( t, e, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, const sc_event& e )
-        { ::wait( sc_time( v, tu, simcontext() ), e, simcontext() ); }
+        { sc_core::wait( sc_time( v, tu, simcontext() ), e, simcontext() ); }
 
     void wait( const sc_time& t, sc_event_or_list& el )
-        { ::wait( t, el, simcontext() ); }
+        { sc_core::wait( t, el, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, sc_event_or_list& el )
-        { ::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { sc_core::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
     void wait( const sc_time& t, sc_event_and_list& el )
-        { ::wait( t, el, simcontext() ); }
+        { sc_core::wait( t, el, simcontext() ); }
 
     void wait( double v, sc_time_unit tu, sc_event_and_list& el )
-        { ::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { sc_core::wait( sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
 
     // static sensitivity for SC_METHODs
 
     void next_trigger()
-	{ ::next_trigger( simcontext() ); }
+	{ sc_core::next_trigger( simcontext() ); }
 
 
     // dynamic sensitivity for SC_METHODs
 
     void next_trigger( const sc_event& e )
-        { ::next_trigger( e, simcontext() ); }
+        { sc_core::next_trigger( e, simcontext() ); }
 
     void next_trigger( sc_event_or_list& el )
-        { ::next_trigger( el, simcontext() ); }
+        { sc_core::next_trigger( el, simcontext() ); }
 
     void next_trigger( sc_event_and_list& el )
-        { ::next_trigger( el, simcontext() ); }
+        { sc_core::next_trigger( el, simcontext() ); }
 
     void next_trigger( const sc_time& t )
-        { ::next_trigger( t, simcontext() ); }
+        { sc_core::next_trigger( t, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), simcontext() ); }
+        {sc_core::next_trigger( sc_time( v, tu, simcontext() ), simcontext() );}
 
     void next_trigger( const sc_time& t, const sc_event& e )
-        { ::next_trigger( t, e, simcontext() ); }
+        { sc_core::next_trigger( t, e, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, const sc_event& e )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), e, simcontext() ); }
+        { sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), e, simcontext() ); }
 
     void next_trigger( const sc_time& t, sc_event_or_list& el )
-        { ::next_trigger( t, el, simcontext() ); }
+        { sc_core::next_trigger( t, el, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, sc_event_or_list& el )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
     void next_trigger( const sc_time& t, sc_event_and_list& el )
-        { ::next_trigger( t, el, simcontext() ); }
+        { sc_core::next_trigger( t, el, simcontext() ); }
 
     void next_trigger( double v, sc_time_unit tu, sc_event_and_list& el )
-        { ::next_trigger( sc_time( v, tu, simcontext() ), el, simcontext() ); }
+        { sc_core::next_trigger( 
+	    sc_time( v, tu, simcontext() ), el, simcontext() ); }
 
 
     // for SC_METHODs and SC_THREADs and SC_CTHREADs
 
     bool timed_out()
-	{ return ::timed_out( simcontext() ); }
+	{ return sc_core::timed_out( simcontext() ); }
 
 private:
 
     // called during the update phase of a delta cycle (if requested)
     void perform_update();
 
+    // called when construction is done
+    void construction_done();
+
     // called when elaboration is done
     void elaboration_done();
+
+    // called before simulation starts
+    void start_simulation();
+
+    // called after simulation ends
+    void simulation_done();
 
     // disabled
     sc_prim_channel( const sc_prim_channel& );
@@ -223,8 +248,17 @@ private:
     // called during the update phase of a delta cycle
     void perform_update();
 
+    // called when construction is done
+    void construction_done();
+
     // called when elaboration is done
     void elaboration_done();
+
+    // called before simulation starts
+    void start_simulation();
+
+    // called after simulation ends
+    void simulation_done();
 
     // disabled
     sc_prim_channel_registry();
@@ -301,6 +335,7 @@ sc_prim_channel_registry::perform_update()
     m_update_last = -1;
 }
 
+} // namespace sc_core
 
 #endif
 

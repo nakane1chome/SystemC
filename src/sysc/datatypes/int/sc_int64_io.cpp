@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,11 +34,11 @@
  *****************************************************************************/
 
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/datatypes/int/sc_unsigned.h"
-#include "systemc/datatypes/int/sc_signed.h"
-#include "systemc/datatypes/int/sc_int_base.h"
-#include "systemc/datatypes/int/sc_uint_base.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_int_base.h"
+#include "sysc/datatypes/int/sc_uint_base.h"
 
 
 #if defined( _MSC_VER )
@@ -47,7 +47,7 @@ namespace sc_dt
 {
 
 static void
-write_uint64(ostream& os, uint64 val, int sign)
+write_uint64(::std::ostream& os, uint64 val, int sign)
 {
     const int WRITE_BUF_SIZE = 10 + sizeof(uint64)*3;
     char buf[WRITE_BUF_SIZE];
@@ -57,22 +57,22 @@ write_uint64(ostream& os, uint64 val, int sign)
     int show_pos = 0;
     fmtflags flags = os.flags();
 
-    if ((flags & ios::basefield) == ios::oct) {
+    if ((flags & ::std::ios::basefield) == ::std::ios::oct) {
         do {
             *--buf_ptr = (char)((val & 7) + '0');
             val = val >> 3;
         } while (val != 0);
-        if ((flags & ios::showbase) && (*buf_ptr != '0'))
+        if ((flags & ::std::ios::showbase) && (*buf_ptr != '0'))
             *--buf_ptr = '0';
-    } else if ((flags & ios::basefield) == ios::hex) {
-        const char* xdigs = (flags & ios::uppercase) ? 
+    } else if ((flags & ::std::ios::basefield) == ::std::ios::hex) {
+        const char* xdigs = (flags & ::std::ios::uppercase) ? 
             "0123456789ABCDEF0X" : 
             "0123456789abcdef0x";
         do {
             *--buf_ptr = xdigs[val & 15];
             val = val >> 4;
         } while (val != 0);
-        if ((flags & ios::showbase)) {
+        if ((flags & ::std::ios::showbase)) {
             show_base = xdigs + 16;
             show_base_len = 2;
         }
@@ -86,7 +86,7 @@ write_uint64(ostream& os, uint64 val, int sign)
             *--buf_ptr = (ival % 10) + '0';
             ival /= 10;
         } while (ival != 0);
-        if (sign > 0 && (flags & ios::showpos))
+        if (sign > 0 && (flags & ::std::ios::showpos))
             show_pos = 1;
     }
 
@@ -98,12 +98,12 @@ write_uint64(ostream& os, uint64 val, int sign)
     len += show_base_len;
 
     int padding = len > w ? 0 : w - len;
-    fmtflags pad_kind = flags & ios::adjustfield;
+    fmtflags pad_kind = flags & ::std::ios::adjustfield;
     char fill_char = os.fill();
 
     if (padding > 0 &&
-        ios::left != pad_kind &&
-        ios::internal != pad_kind) {
+        ::std::ios::left != pad_kind &&
+        ::std::ios::internal != pad_kind) {
         for (int i = padding - 1; i >= 0; --i) {
             if (! os.put(fill_char))
                 goto fail;
@@ -117,7 +117,7 @@ write_uint64(ostream& os, uint64 val, int sign)
         if (! os.write(show_base, show_base_len))
             goto fail;
     }
-    if ((fmtflags)ios::internal == pad_kind && padding > 0) {
+    if ((fmtflags)::std::ios::internal == pad_kind && padding > 0) {
         for (int i = padding - 1; i >= 0; --i) {
             if (! os.put(fill_char))
                 goto fail;
@@ -125,7 +125,7 @@ write_uint64(ostream& os, uint64 val, int sign)
     }
     if (! os.write(buf_ptr, buf_len))
         goto fail;
-    if ((fmtflags)ios::left == pad_kind && padding > 0) {
+    if ((fmtflags)::std::ios::left == pad_kind && padding > 0) {
         for (int i = padding - 1; i >= 0; --i) {
             if (! os.put(fill_char))
                 goto fail;
@@ -134,17 +134,17 @@ write_uint64(ostream& os, uint64 val, int sign)
     os.osfx();
     return;
 fail:
-    //os.set(ios::badbit);
+    //os.set(::std::ios::badbit);
     os.osfx();
 }
 
-ostream&
-operator << ( ostream& os, int64 n )
+::std::ostream&
+operator << ( ::std::ostream& os, int64 n )
 {
     if (os.opfx()) {
         int sign = 1;
         uint64 abs_n = (uint64) n;
-        if (n < 0 && (os.flags() & (ios::oct|ios::hex)) == 0) {
+        if (n < 0 && (os.flags() & (::std::ios::oct|::std::ios::hex)) == 0) {
             abs_n = -1*((uint64) n);
             sign = -1;
         }
@@ -153,8 +153,8 @@ operator << ( ostream& os, int64 n )
     return os;
 }
 
-ostream&
-operator << ( ostream& os, uint64 n )
+::std::ostream&
+operator << ( ::std::ostream& os, uint64 n )
 {
     if (os.opfx()) {
         sc_dt::write_uint64(os, n, 0);

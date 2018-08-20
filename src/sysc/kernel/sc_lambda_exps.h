@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -42,6 +42,7 @@
   more easily maintained, as well as amount of typing is reduced.
 
  *****************************************************************************/
+
 
 #ifdef L_DECL1
 
@@ -89,20 +90,20 @@ L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_lambda_ptr&,
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_signal_logic_deval&,
                                const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_signal_logic_deval&,
-                               const sc_logic&,              s1, s2 )
-L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_logic&,
+                               const sc_dt::sc_logic&,       s1, s2 )
+L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_dt::sc_logic&,
                                const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_signal_logic_deval&,
                                char,                         s1,
-                                                             sc_logic( s2 ) )
+                                                        sc_dt::sc_logic( s2 ) )
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, char,
-                               const sc_signal_logic_deval&, sc_logic(s1),
+                              const sc_signal_logic_deval&, sc_dt::sc_logic(s1),
                                                              s2 )
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, const sc_lambda_ptr&,
                                char,                         s1,
-                                                             sc_logic( s2 ) )
+                                              sc_dt::sc_logic( s2 ) )
 L_DECL2( ==, SC_LAMBDA_SUL_EQ, char,
-                               const sc_lambda_ptr&,         sc_logic( s1 ),
+                               const sc_lambda_ptr&,      sc_dt::sc_logic( s1 ),
                                                              s2 )
 
 
@@ -152,20 +153,20 @@ L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_lambda_ptr&,
 L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_signal_logic_deval&,
                                const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_signal_logic_deval&,
-                               const sc_logic&,              s1, s2 )
-L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_logic&,
+                               const sc_dt::sc_logic&,       s1, s2 )
+L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_dt::sc_logic&,
                                const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_signal_logic_deval&,
                                char,                         s1,
-                                                             sc_logic( s2 ) )
+                                                         sc_dt::sc_logic( s2 ) )
 L_DECL2( !=, SC_LAMBDA_SUL_NE, char,
-                               const sc_signal_logic_deval&, sc_logic( s1 ),
+                            const sc_signal_logic_deval&, sc_dt::sc_logic( s1 ),
                                                              s2 )
 L_DECL2( !=, SC_LAMBDA_SUL_NE, const sc_lambda_ptr&,
                                char,                         s1,
-                                                             sc_logic( s2 ) )
+                                                sc_dt::sc_logic( s2 ) )
 L_DECL2( !=, SC_LAMBDA_SUL_NE, char,
-                               const sc_lambda_ptr&,         sc_logic( s1 ),
+                               const sc_lambda_ptr&,  sc_dt::sc_logic( s1 ),
                                                              s2 )
 
 
@@ -194,14 +195,14 @@ L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_lambda_ptr&,
 L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_signal_logic_deval&,
                                   const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_signal_logic_deval&,
-                                  const sc_logic&,              s1, s2 )
+                                  const sc_dt::sc_logic&,       s1, s2 )
 L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_signal_logic_deval&,
                                   char,                         s1,
-                                                                sc_logic(s2) )
-L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_logic&,
+                                                         sc_dt::sc_logic(s2) )
+L_DECL2( &, SC_LAMBDA_SUL_BITAND, const sc_dt::sc_logic&,
                                   const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( &, SC_LAMBDA_SUL_BITAND, char,
-                                  const sc_signal_logic_deval&, sc_logic(s1),
+                             const sc_signal_logic_deval&, sc_dt::sc_logic(s1),
                                                                 s2 )
 
 
@@ -230,14 +231,14 @@ L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_lambda_ptr&,
 L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_signal_logic_deval&,
                                  const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_signal_logic_deval&,
-                                 const sc_logic&,              s1, s2 )
+                                 const sc_dt::sc_logic&,       s1, s2 )
 L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_signal_logic_deval&,
                                  char,                         s1,
-                                                               sc_logic(s2) )
-L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_logic&,
+                                                         sc_dt::sc_logic(s2) )
+L_DECL2( |, SC_LAMBDA_SUL_BITOR, const sc_dt::sc_logic&,
                                  const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( |, SC_LAMBDA_SUL_BITOR, char,
-                                 const sc_signal_logic_deval&, sc_logic(s1),
+                             const sc_signal_logic_deval&, sc_dt::sc_logic(s1),
                                                                s2 )
 
 
@@ -283,14 +284,14 @@ L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_lambda_ptr&,
 L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_signal_logic_deval&,
                                   const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_signal_logic_deval&,
-                                  const sc_logic&,              s1, s2 )
+                                  const sc_dt::sc_logic&,       s1, s2 )
 L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_signal_logic_deval&,
                                   char,                         s1,
-                                                                sc_logic(s2) )
-L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_logic&,
+                                                          sc_dt::sc_logic(s2) )
+L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, const sc_dt::sc_logic&,
                                   const sc_signal_logic_deval&, s1, s2 )
 L_DECL2( ^, SC_LAMBDA_SUL_BITXOR, char,
-                                  const sc_signal_logic_deval&, sc_logic(s1),
+                              const sc_signal_logic_deval&, sc_dt::sc_logic(s1),
                                                                 s2 )
 
 

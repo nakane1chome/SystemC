@@ -1,11 +1,14 @@
+#ifndef SC_REPORT_H
+#define SC_REPORT_H 1
+
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -17,9 +20,14 @@
 
 /*****************************************************************************
 
-  sc_report.h - 
+  sc_report.h -- Run-time logging and reporting facilities
 
-  Original Author: Martin Janssen, Synopsys, Inc.
+  Interface design by SystemC Verification Working Group.
+  Implementation by Alex Riesen, Synopsys Inc.
+  Original implementation by Martin Janssen, Synopsys Inc.
+  Reference implementation by Cadence Design Systems, Inc., 2002-09-23:
+  Norris Ip, Dean Shea, John Rose, Jasvinder Singh, William Paulsen,
+  John Pierce, Rachida Kebichi, Ted Elkind, David Bailey.
 
  *****************************************************************************/
 
@@ -28,104 +36,144 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Alex Riesen, Synopsys Inc., Jan 28, 2003
+  Description of Modification: Implementation for SytemC 2.1
 
  *****************************************************************************/
 
-#ifndef SC_REPORT_H
-#define SC_REPORT_H
+#include <exception>
+#include <string>
 
-
-// classes defined in this module
-class sc_report;
-class sc_report_handler_base;
-
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  ENUM : sc_severity
 //
-//  Enumeration of report severities.
+//  Enumeration of possible exception severity levels
 // ----------------------------------------------------------------------------
 
-enum sc_severity
-{
-    SC_INFO = 0,
-    SC_WARNING,
-    SC_ERROR,
-    SC_FATAL
+enum sc_severity {
+    SC_INFO = 0,        // informative only
+    SC_WARNING, // indicates potentially incorrect condition
+    SC_ERROR,   // indicates a definite problem
+    SC_FATAL,   // indicates a problem from which we cannot recover
+    SC_MAX_SEVERITY
 };
 
+typedef unsigned sc_actions;
+
+// ----------------------------------------------------------------------------
+//  ENUM : 
+//
+//  Enumeration of actions on an exception (implementation specific)
+// ----------------------------------------------------------------------------
+
+enum {
+    SC_UNSPECIFIED  = 0x0000, // look for lower-priority rule
+    SC_DO_NOTHING   = 0x0001, // take no action (ignore if other bits set)
+    SC_THROW        = 0x0002, // throw an exception
+    SC_LOG          = 0x0004, // add report to report log
+    SC_DISPLAY      = 0x0008, // display report to screen
+    SC_CACHE_REPORT = 0x0010, // save report to cache
+    SC_INTERRUPT    = 0x0020, // call sc_interrupt_here(...)
+    SC_STOP         = 0x0040, // call sc_stop()
+    SC_ABORT        = 0x0080  // call abort()
+};
+
+class sc_object;
+class sc_time;
+struct sc_msg_def;
+class sc_report;
+const std::string sc_report_compose_message( const sc_report& );
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_report
 //
-//  Report class.
+//  Exception reporting
 // ----------------------------------------------------------------------------
 
-class sc_report
+class sc_report : public std::exception
 {
 public:
 
-    static void register_id( int id, const char* msg );
-    static const char* get_message( int id );
-    static bool is_suppressed( int id );
+    sc_report();
 
-    static void report( sc_severity severity,
-			int         id,
-			const char* add_msg,
-			const char* file,
-			int         line );
+    sc_report(const sc_report&);
 
-    static void suppress_id( int id, bool ); // only for info or warning
-    static void suppress_infos( bool );
-    static void suppress_warnings( bool );
-    static void make_warnings_errors( bool );
+    sc_report & operator=(const sc_report&);
 
-private:
+    virtual ~sc_report() throw();
 
-    sc_report() {}
-};
+    const char * get_msg_type() const;
 
+    const char * get_msg() const
+	{ return msg; }
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_report_handler_base
-//
-//  Report handler pure virtual base class.
-// ----------------------------------------------------------------------------
+    sc_severity get_severity() const
+	{ return severity; }
 
-class sc_report_handler_base
-{
-    friend class sc_report;
+    const char * get_file_name() const
+	{ return file; }
 
-protected:
+    int get_line_number() const
+	{ return line; }
 
-    sc_report_handler_base();
-    virtual ~sc_report_handler_base();
+    const sc_time & get_time() const
+	{ return *timestamp; }
 
-    virtual void report( sc_severity severity,
-			 int         id,
-			 const char* add_msg,
-			 const char* file,
-			 int         line ) = 0;
+    const char* get_process_name() const;
 
-    void suppress_infos( bool );
-    void suppress_warnings( bool );
-    void make_warnings_errors( bool );
+    bool valid () const
+        {
+	    return process != 0;
+	}
 
-    void install_();
-    void deinstall_();
+    virtual const char* what() const throw()
+        { 
+	    return m_what;
+	}
 
 protected:
 
-    bool m_suppress_infos;
-    bool m_suppress_warnings;
-    bool m_make_warnings_errors;
+    friend class sc_report_handler;
 
-private:
 
-    sc_report_handler_base* m_old_handler;
+    sc_report(sc_severity,
+	      const sc_msg_def*,
+	      const char* msg,
+	      const char* file,
+	      int line);
+
+
+
+    sc_severity        severity;
+    const sc_msg_def*  md;
+    char*              msg;
+    char*              file;
+    int                line;
+    sc_time*           timestamp;
+    sc_object*         process;
+    char*              m_what;
+
+public:  // backward compatibility with 2.0+
+
+    static const char* get_message(int id);
+    static bool is_suppressed(int id);
+    static void make_warnings_errors(bool);
+    static void register_id(int id, const char* msg);
+    static void suppress_id(int id, bool); // only for info or warning
+    static void suppress_infos(bool);
+    static void suppress_warnings(bool);
+
+    int get_id() const;
 };
+typedef std::exception sc_exception;
+
+#define SC_DEFAULT_INFO_ACTIONS (SC_LOG | SC_DISPLAY)
+#define SC_DEFAULT_WARNING_ACTIONS (SC_LOG | SC_DISPLAY)
+#define SC_DEFAULT_ERROR_ACTIONS (SC_LOG | SC_CACHE_REPORT | SC_THROW)
+#define SC_DEFAULT_FATAL_ACTIONS \
+(SC_LOG | SC_DISPLAY | SC_CACHE_REPORT | SC_ABORT)
 
 
 // ----------------------------------------------------------------------------
@@ -134,48 +182,21 @@ private:
 //  Use these macros to report an info, warning, error, or fatal.
 // ----------------------------------------------------------------------------
 
-#define SC_REPORT_INFO(id,msg)                                                \
-    sc_report::report( SC_INFO, id, msg, __FILE__, __LINE__ )
+#define SC_REPORT_INFO(id,msg) \
+    sc_core::sc_report_handler::report( \
+	    sc_core::SC_INFO, id, msg, __FILE__, __LINE__ )
 
-#define SC_REPORT_WARNING(id,msg)                                             \
-    sc_report::report( SC_WARNING, id, msg, __FILE__, __LINE__ )
+#define SC_REPORT_WARNING(id,msg) \
+    sc_core::sc_report_handler::report(\
+	    sc_core::SC_WARNING, id, msg, __FILE__, __LINE__)
 
-#define SC_REPORT_ERROR(id,msg)                                               \
-    sc_report::report( SC_ERROR, id, msg, __FILE__, __LINE__ )
+#define SC_REPORT_ERROR(id,msg) \
+    sc_core::sc_report_handler::report( \
+	    sc_core::SC_ERROR, id, msg, __FILE__, __LINE__ )
 
-#define SC_REPORT_FATAL(id,msg)                                               \
-    sc_report::report( SC_FATAL, id, msg, __FILE__, __LINE__ )
-
-
-// ----------------------------------------------------------------------------
-//  Allocation of report ids:
-//
-//    0-99     general
-//    100-199  communication
-//    200-299  datatypes/bit
-//    300-399  datatypes/fx
-//    400-499  datatypes/int
-//    500-599  kernel
-//    600-699  qt
-//    700-799  tracing
-//    800-899  utils
-//    900-999  reserved
-//    1000-    libraries, user code, etc.
-// ----------------------------------------------------------------------------
-
-// ----------------------------------------------------------------------------
-//  Report ids (general).
-//
-//  Report ids in the range of 0-99.
-// ----------------------------------------------------------------------------
-
-extern const int SC_ID_UNKNOWN_ERROR_;
-extern const int SC_ID_WITHOUT_MESSAGE_;
-extern const int SC_ID_NOT_IMPLEMENTED_;
-extern const int SC_ID_INTERNAL_ERROR_;
-extern const int SC_ID_ASSERTION_FAILED_;
-extern const int SC_ID_OUT_OF_BOUNDS_;
-
+#define SC_REPORT_FATAL(id,msg) \
+    sc_core::sc_report_handler::report( \
+	    sc_core::SC_FATAL, id, msg, __FILE__, __LINE__ )
 
 // ----------------------------------------------------------------------------
 //  MACRO : sc_assert(expr)
@@ -196,7 +217,18 @@ extern const int SC_ID_OUT_OF_BOUNDS_;
 
 #endif
 
+extern const char SC_ID_UNKNOWN_ERROR_[];
+extern const char SC_ID_WITHOUT_MESSAGE_[];
+extern const char SC_ID_NOT_IMPLEMENTED_[];
+extern const char SC_ID_INTERNAL_ERROR_[];
+extern const char SC_ID_ASSERTION_FAILED_[];
+extern const char SC_ID_OUT_OF_BOUNDS_[];
 
-#endif
+// backward compatibility with 2.0+
+extern const char SC_ID_REGISTER_ID_FAILED_[];
 
-// Taf!
+} // namespace sc_core
+
+#include "sysc/utils/sc_report_handler.h"
+
+#endif // SC_REPORT_H

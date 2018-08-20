@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,13 +38,13 @@
 #define SC_NBDEFS_H
 
 
-#include "systemc/kernel/sc_cmnhdr.h"
+#include "sysc/kernel/sc_cmnhdr.h"
 
-#include <limits.h>
+#include <climits>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_constants.h"   // For SC_MAX_NBITS
-#include "systemc/utils/sc_string.h"      // For sc_numrep
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_constants.h"   // For SC_MAX_NBITS
+#include "sysc/utils/sc_string.h"      // For sc_numrep
 
 
 #if defined( __SUNPRO_CC ) || defined( _MSC_VER ) || 1
@@ -116,18 +116,19 @@ extern const int MAX_NDIGITS;
 // Support for the long long type. This type is not in the standard
 // but is usually supported by compilers.
 #ifndef WIN32
-typedef long long          int64;
-typedef unsigned long long uint64;
-extern const uint64        UINT64_ZERO;
-extern const uint64        UINT64_ONE;
-extern const uint64        UINT64_32ONES;
+    typedef long long          int64;
+    typedef unsigned long long uint64;
+    extern const uint64        UINT64_ZERO;
+    extern const uint64        UINT64_ONE;
+    extern const uint64        UINT64_32ONES;
 #else
-typedef __int64            int64;
-typedef unsigned __int64   uint64;
-extern const uint64        UINT64_ZERO;
-extern const uint64        UINT64_ONE;
-extern const uint64        UINT64_32ONES;
+    typedef __int64            int64;
+    typedef unsigned __int64   uint64;
+    extern const uint64        UINT64_ZERO;
+    extern const uint64        UINT64_ONE;
+    extern const uint64        UINT64_32ONES;
 #endif
+
 
 // Bits per ...
 // will be deleted in the future. Use numeric_limits instead
@@ -154,7 +155,7 @@ extern const uint64        UINT64_32ONES;
 #if defined( WIN32 ) || defined( __SUNPRO_CC ) || defined( __HP_aCC )
 typedef unsigned long fmtflags;
 #else
-typedef ios::fmtflags fmtflags;
+typedef ::std::ios::fmtflags fmtflags;
 #endif
 
 extern const small_type NB_DEFAULT_BASE ;
@@ -182,32 +183,32 @@ extern const unsigned int UINT_ONE;
 #endif
 
 
-#if defined( _MSC_VER )
-// VC++6 bug
-ostream& operator << ( ostream&, int64 );
-ostream& operator << ( ostream&, uint64 );
+#if defined(_MSC_VER) && ( _MSC_VER < 1300 )
+    // VC++6 bug
+    ::std::ostream& operator << ( ::std::ostream&, int64 );
+    ::std::ostream& operator << ( ::std::ostream&, uint64 );
 #endif
 
 } // namespace sc_dt
 
 
-#if defined( _MSC_VER )
+#if defined(_MSC_VER) && ( _MSC_VER < 1300 )
 
-inline
-ostream&
-operator << ( ostream& os, sc_dt::int64 a )
-{
-    sc_dt::operator << ( os, a );
-    return os;
-}
+    inline
+    ::std::ostream&
+    operator << ( ::std::ostream& os, sc_dt::int64 a )
+    {
+	sc_dt::operator << ( os, a );
+	return os;
+    }
 
-inline
-ostream&
-operator << ( ostream& os, sc_dt::uint64 a )
-{
-    sc_dt::operator << ( os, a );
-    return os;
-}
+    inline
+    ::std::ostream&
+    operator << ( ::std::ostream& os, sc_dt::uint64 a )
+    {
+	sc_dt::operator << ( os, a );
+	return os;
+    }
 
 #endif
 

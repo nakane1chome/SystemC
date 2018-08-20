@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,11 +38,11 @@
 #define SCFX_REP_H
 
 
-#include <limits.h>
+#include <climits>
 
-#include "systemc/datatypes/fx/scfx_mant.h"
-#include "systemc/datatypes/fx/scfx_params.h"
-#include "systemc/datatypes/fx/scfx_string.h"
+#include "sysc/datatypes/fx/scfx_mant.h"
+#include "sysc/datatypes/fx/scfx_params.h"
+#include "sysc/datatypes/fx/scfx_string.h"
 
 
 namespace sc_dt
@@ -151,22 +151,22 @@ public:
     friend void multiply( scfx_rep&, const scfx_rep&, const scfx_rep&,
 			  int = SC_DEFAULT_MAX_WL_ );
 
-    friend scfx_rep*  neg__scfx_rep( const scfx_rep& );
-    friend scfx_rep* mult__scfx_rep( const scfx_rep&, const scfx_rep&,
+    friend scfx_rep*  neg_scfx_rep( const scfx_rep& );
+    friend scfx_rep* mult_scfx_rep( const scfx_rep&, const scfx_rep&,
 				     int = SC_DEFAULT_MAX_WL_ );
-    friend scfx_rep*  div__scfx_rep( const scfx_rep&, const scfx_rep&,
+    friend scfx_rep*  div_scfx_rep( const scfx_rep&, const scfx_rep&,
 				     int = SC_DEFAULT_DIV_WL_ );
-    friend scfx_rep*  add__scfx_rep( const scfx_rep&, const scfx_rep&,
+    friend scfx_rep*  add_scfx_rep( const scfx_rep&, const scfx_rep&,
 				     int = SC_DEFAULT_MAX_WL_ );
-    friend scfx_rep*  sub__scfx_rep( const scfx_rep&, const scfx_rep&,
+    friend scfx_rep*  sub_scfx_rep( const scfx_rep&, const scfx_rep&,
 				     int = SC_DEFAULT_MAX_WL_ );
-    friend scfx_rep*  lsh__scfx_rep( const scfx_rep&, int );
-    friend scfx_rep*  rsh__scfx_rep( const scfx_rep&, int );
+    friend scfx_rep*  lsh_scfx_rep( const scfx_rep&, int );
+    friend scfx_rep*  rsh_scfx_rep( const scfx_rep&, int );
 
     void lshift( int );
     void rshift( int );
 
-    friend int        cmp__scfx_rep( const scfx_rep&, const scfx_rep& );
+    friend int        cmp_scfx_rep( const scfx_rep&, const scfx_rep& );
 
     void cast( const scfx_params&, bool&, bool& );
 
@@ -187,15 +187,15 @@ public:
     bool get_slice( int, int, const scfx_params&, sc_bv_base& ) const;
     bool set_slice( int, int, const scfx_params&, const sc_bv_base& );
 
-    void print( ostream& ) const;
-    void dump( ostream& ) const;
+    void print( ::std::ostream& ) const;
+    void dump( ::std::ostream& ) const;
 
     void get_type( int&, int&, sc_enc& ) const;
 
-    friend scfx_rep* quantization__scfx_rep( const scfx_rep&,
+    friend scfx_rep* quantization_scfx_rep( const scfx_rep&,
 					     const scfx_params&,
 					     bool& );
-    friend scfx_rep*     overflow__scfx_rep( const scfx_rep&,
+    friend scfx_rep*     overflow_scfx_rep( const scfx_rep&,
 					     const scfx_params&,
 					     bool& );
 
@@ -332,7 +332,7 @@ scfx_rep::operator = ( const scfx_rep& f )
 
 inline
 scfx_rep*
-neg__scfx_rep( const scfx_rep& a )
+neg_scfx_rep( const scfx_rep& a )
 {
     scfx_rep& c = *new scfx_rep( a );
     c.m_sign = - c.m_sign;
@@ -341,7 +341,7 @@ neg__scfx_rep( const scfx_rep& a )
 
 inline
 scfx_rep*
-mult__scfx_rep( const scfx_rep& a, const scfx_rep& b, int max_wl )
+mult_scfx_rep( const scfx_rep& a, const scfx_rep& b, int max_wl )
 {
     scfx_rep& c = *new scfx_rep;
     sc_dt::multiply( c, a, b, max_wl );
@@ -350,7 +350,7 @@ mult__scfx_rep( const scfx_rep& a, const scfx_rep& b, int max_wl )
 
 inline
 scfx_rep*
-lsh__scfx_rep( const scfx_rep& a, int b )
+lsh_scfx_rep( const scfx_rep& a, int b )
 {
     scfx_rep& c = *new scfx_rep( a );
     c.lshift( b );
@@ -359,7 +359,7 @@ lsh__scfx_rep( const scfx_rep& a, int b )
 
 inline
 scfx_rep*
-rsh__scfx_rep( const scfx_rep& a, int b )
+rsh_scfx_rep( const scfx_rep& a, int b )
 {
     scfx_rep& c = *new scfx_rep( a );
     c.rshift( b );
@@ -419,7 +419,7 @@ scfx_rep::is_normal() const
 
 inline
 scfx_rep*
-quantization__scfx_rep( const scfx_rep& a,
+quantization_scfx_rep( const scfx_rep& a,
 			const scfx_params& params,
 			bool& q_flag )
 {
@@ -430,7 +430,7 @@ quantization__scfx_rep( const scfx_rep& a,
 
 inline
 scfx_rep*
-overflow__scfx_rep( const scfx_rep& a,
+overflow_scfx_rep( const scfx_rep& a,
 		    const scfx_params& params,
 		    bool& o_flag )
 {

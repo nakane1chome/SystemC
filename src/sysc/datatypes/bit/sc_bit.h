@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,8 @@
 #define SC_BIT_H
 
 
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/utils/sc_iostream.h"
 
 
 namespace sc_dt
@@ -89,6 +90,10 @@ public:
 	: m_val( false )
 	{}
 
+    explicit sc_bit( uint64 a )
+	: m_val( a )
+	{}
+
     explicit sc_bit( bool a )
 	: m_val( a )
 	{}
@@ -124,6 +129,18 @@ public:
 
     sc_bit& operator = ( const sc_bit& b )
 	{ m_val = b.m_val; return *this; }
+
+    sc_bit& operator = ( int64 b )
+	{ return ( *this = sc_bit( (int)b ) ); }
+
+    sc_bit& operator = ( uint64 b )
+	{ return ( *this = sc_bit( (int)b ) ); }
+
+    sc_bit& operator = ( long b )
+	{ return ( *this = sc_bit( (int)b ) ); }
+
+    sc_bit& operator = ( unsigned long b )
+	{ return ( *this = sc_bit( (int)b ) ); }
 
     sc_bit& operator = ( int b )
 	{ return ( *this = sc_bit( b ) ); }
@@ -537,10 +554,10 @@ public:
 
     // other methods
 
-    void print( ostream& os = cout ) const
+    void print( ::std::ostream& os = ::std::cout ) const
 	{ os << to_bool(); }
 
-    void scan( istream& = cin );
+    void scan( ::std::istream& = ::std::cin );
 
 private:
 
@@ -551,16 +568,16 @@ private:
 // ----------------------------------------------------------------------------
 
 inline
-ostream&
-operator << ( ostream& os, const sc_bit& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_bit& a )
 {
     a.print( os );
     return os;
 }
 
 inline
-istream&
-operator >> ( istream& is, sc_bit& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_bit& a )
 {
     a.scan( is );
     return is;

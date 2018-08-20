@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,10 +37,12 @@
 #define SC_COR_QT_H
 
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(SC_USE_PTHREADS)
 
-#include "systemc/kernel/sc_cor.h"
-#include "systemc/qt/qt.h"
+#include "sysc/kernel/sc_cor.h"
+#include "sysc/qt/qt.h"
+
+namespace sc_core {
 
 class sc_cor_pkg_qt;
 
@@ -70,7 +72,7 @@ public:
 
 public:
 
-    size_t         m_stack_size;  // stack size
+    std::size_t    m_stack_size;  // stack size
     void*          m_stack;       // stack
     qt_t*          m_sp;          // stack pointer
 
@@ -102,7 +104,7 @@ public:
     virtual ~sc_cor_pkg_qt();
 
     // create a new coroutine
-    virtual sc_cor* create( size_t stack_size, sc_cor_fn* fn, void* arg );
+    virtual sc_cor* create( std::size_t stack_size, sc_cor_fn* fn, void* arg );
 
     // yield to the next coroutine
     virtual void yield( sc_cor* next_cor );
@@ -124,6 +126,8 @@ private:
     sc_cor_pkg_qt( const sc_cor_pkg_qt& );
     sc_cor_pkg_qt& operator = ( const sc_cor_pkg_qt& );
 };
+
+} // namespace sc_core
 
 #endif
 

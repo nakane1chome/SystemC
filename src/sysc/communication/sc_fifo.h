@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,15 +37,16 @@
 #define SC_FIFO_H
 
 
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_prim_channel.h"
-#include "systemc/communication/sc_fifo_ifs.h"
-#include "systemc/kernel/sc_event.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/utils/sc_string.h"
-#include "systemc/tracing/sc_trace.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_prim_channel.h"
+#include "sysc/communication/sc_fifo_ifs.h"
+#include "sysc/kernel/sc_event.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/tracing/sc_trace.h"
 #include <typeinfo>
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_fifo<T>
@@ -135,14 +136,11 @@ public:
     void trace( sc_trace_file* tf ) const;
 
 
-    virtual void print( ostream& ) const;
-    virtual void dump( ostream& ) const;
-
-
-    static const char* const kind_string;
+    virtual void print( ::std::ostream& = ::std::cout ) const;
+    virtual void dump( ::std::ostream& = ::std::cout ) const;
 
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_fifo"; }
 
 protected:
 
@@ -185,16 +183,12 @@ private:
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 template <class T>
-const char* const sc_fifo<T>::kind_string = "sc_fifo";
-
-
-template <class T>
 inline
 void
 sc_fifo<T>::register_port( sc_port_base& port_,
 			    const char* if_typename_ )
 {
-    sc_string nm( if_typename_ );
+    std::string nm( if_typename_ );
     if( nm == typeid( sc_fifo_in_if<T> ).name() ) {
 	// only one reader can be connected
 	if( m_reader != 0 ) {
@@ -219,7 +213,7 @@ void
 sc_fifo<T>::read( T& val_ )
 {
     while( num_available() == 0 ) {
-	wait( m_data_written_event );
+	sc_core::wait( m_data_written_event );
     }
     m_num_read ++;
     buf_read( val_ );
@@ -261,7 +255,7 @@ void
 sc_fifo<T>::write( const T& val_ )
 {
     while( num_free() == 0 ) {
-	wait( m_data_read_event );
+	sc_core::wait( m_data_read_event );
     }
     m_num_written ++;
     buf_write( val_ );
@@ -292,10 +286,10 @@ sc_fifo<T>::trace( sc_trace_file* tf ) const
 {
 #ifdef DEBUG_SYSTEMC
     char buf[32];
-    sc_string nm = name();
+    std::string nm = name();
     for( int i = 0; i < m_size; ++ i ) {
 	sprintf( buf, "_%d", i );
-	::sc_trace( tf, m_buf[i], nm + buf );
+	sc_trace( tf, m_buf[i], nm + buf );
     }
 #endif
 }
@@ -304,12 +298,12 @@ sc_fifo<T>::trace( sc_trace_file* tf ) const
 template <class T>
 inline
 void
-sc_fifo<T>::print( ostream& os ) const
+sc_fifo<T>::print( ::std::ostream& os ) const
 {
     if( m_free != m_size ) {
         int i = m_ri;
         do {
-            os << m_buf[i] << endl;
+            os << m_buf[i] << ::std::endl;
             i = ( i + 1 ) % m_size;
         } while( i != m_wi );
     }
@@ -318,14 +312,14 @@ sc_fifo<T>::print( ostream& os ) const
 template <class T>
 inline
 void
-sc_fifo<T>::dump( ostream& os ) const
+sc_fifo<T>::dump( ::std::ostream& os ) const
 {
-    os << "name = " << name() << endl;
+    os << "name = " << name() << ::std::endl;
     if( m_free != m_size ) {
         int i = m_ri;
         int j = 0;
         do {
-	    os << "value[" << i << "] = " << m_buf[i] << endl;
+	    os << "value[" << i << "] = " << m_buf[i] << ::std::endl;
 	    i = ( i + 1 ) % m_size;
 	    j ++;
         } while( i != m_wi );
@@ -418,13 +412,14 @@ sc_fifo<T>::buf_read( T& val_ )
 
 template <class T>
 inline
-ostream&
-operator << ( ostream& os, const sc_fifo<T>& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_fifo<T>& a )
 {
     a.print( os );
     return os;
 }
 
+} // namespace sc_core
 
 #endif
 

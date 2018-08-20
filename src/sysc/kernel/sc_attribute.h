@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,9 +36,10 @@
 #ifndef SC_ATTRIBUTE_H
 #define SC_ATTRIBUTE_H
 
-#include "systemc/utils/sc_string.h"
-#include "systemc/utils/sc_vector.h"
+#include "sysc/utils/sc_string.h"
+#include "sysc/utils/sc_vector.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_attr_base
@@ -51,18 +52,18 @@ class sc_attr_base
 public:
 
     // constructors
-    sc_attr_base( const sc_string& name_ );
+    sc_attr_base( const std::string& name_ );
     sc_attr_base( const sc_attr_base& );
 
     // destructor (does nothing)
     virtual ~sc_attr_base();
 
     // get the name
-    const sc_string& name() const;
+    const std::string& name() const;
 
 private:
 
-    sc_string m_name;
+    std::string m_name;
 
 private:
 
@@ -102,12 +103,12 @@ public:
 
     // get attribute by name.
     // returns pointer to attribute, or 0 if name does not exist.
-          sc_attr_base* operator [] ( const sc_string& name_ );
-    const sc_attr_base* operator [] ( const sc_string& name_ ) const;
+          sc_attr_base* operator [] ( const std::string& name_ );
+    const sc_attr_base* operator [] ( const std::string& name_ ) const;
 
     // remove attribute by name.
     // returns pointer to attribute, or 0 if name does not exist.
-    sc_attr_base* remove( const sc_string& name_ );
+    sc_attr_base* remove( const std::string& name_ );
 
     // remove all attributes
     void remove_all();
@@ -154,11 +155,11 @@ public:
 
     // constructors
 
-    sc_attribute( const sc_string& name_ )
+    sc_attribute( const std::string& name_ )
         : sc_attr_base( name_ ), value()
         {}
 
-    sc_attribute( const sc_string& name_, const T& value_ )
+    sc_attribute( const std::string& name_, const T& value_ )
         : sc_attr_base( name_ ), value( value_ )
         {}
 
@@ -184,7 +185,9 @@ private:
     sc_attribute<T>& operator = ( const sc_attribute<T>& );
 };
 
+} // namespace sc_core
 
 #endif
+
 
 // Taf!

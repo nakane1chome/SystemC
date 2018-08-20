@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -44,28 +44,384 @@
 #include <ctype.h>
 #include <math.h>
 
-#include "systemc/kernel/sc_cmnhdr.h"
-#include "systemc/kernel/sc_macros.h"
-#include "systemc/datatypes/int/sc_signed.h"
-#include "systemc/datatypes/int/sc_unsigned.h"
-#include "systemc/datatypes/int/sc_int_base.h"
-#include "systemc/datatypes/int/sc_uint_base.h"
-#include "systemc/datatypes/int/sc_int_ids.h"
-#include "systemc/datatypes/bit/sc_bv_base.h"
-#include "systemc/datatypes/bit/sc_lv_base.h"
-#include "systemc/datatypes/fx/sc_fix.h"
-#include "systemc/datatypes/fx/scfx_other_defs.h"
-#include "systemc/utils/sc_exception.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+#include "sysc/kernel/sc_macros.h"
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
+#include "sysc/datatypes/int/sc_int_base.h"
+#include "sysc/datatypes/int/sc_uint_base.h"
+#include "sysc/datatypes/int/sc_int_ids.h"
+#include "sysc/datatypes/bit/sc_bv_base.h"
+#include "sysc/datatypes/bit/sc_lv_base.h"
+#include "sysc/datatypes/misc/sc_concatref.h"
+#include "sysc/datatypes/fx/sc_fix.h"
+#include "sysc/datatypes/fx/scfx_other_defs.h"
 
 
 namespace sc_dt
 {
 
+// Pool of temporary instances:
+
+sc_core::sc_vpool<sc_signed_bitref> sc_signed_bitref::m_pool(9);
+sc_core::sc_vpool<sc_signed_subref> sc_signed_subref::m_pool(9);
+
+// -----------------------------------------------------------------------------
+// SECTION: Public members - Invalid selections.
+// -----------------------------------------------------------------------------
+
+void
+sc_signed::invalid_index( int i ) const
+{
+    char msg[BUFSIZ];
+    sprintf( msg,
+         "sc_bigint bit selection: index = %d violates "
+         "0 <= index <= %d", i, nbits - 1 );
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+}
+
+void
+sc_signed::invalid_range( int l, int r ) const
+{
+    char msg[BUFSIZ];
+    sprintf( msg,
+         "sc_bigint part selection: left = %d, right = %d \n"
+         "  violates either (0 <= left <= %d) or (0 <= right <= %d)",
+         l, r, nbits-1, nbits-1 );
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+}
+
+
+// ----------------------------------------------------------------------------
+
 // ----------------------------------------------------------------------------
 //  SECTION: Public members.
 // ----------------------------------------------------------------------------
 
-// The public members are included from sc_nbcommon.cpp.
+// Most public members are included from sc_nbcommon.inc. However, some 
+// concatenation support appears here to optimize between the signed and
+// unsigned cases.
+
+// Insert this object's value at the specified place in a vector of biguint
+// style values.
+
+bool sc_signed::concat_get_ctrl( unsigned long* dst_p, int low_i ) const
+{
+    int           dst_i;        // Index to next word to set in dst_p.
+    int           end_i;        // Index of high order word to set.
+    int           left_shift;   // Amount to shift value left.
+    unsigned long mask;         // Mask for partial word sets.
+
+
+    // CALCULATE METRICS FOR DATA MOVEMENT:
+
+    dst_i = low_i / BITS_PER_DIGIT;
+    end_i = (low_i + nbits - 1) / BITS_PER_DIGIT;               
+    left_shift = low_i % BITS_PER_DIGIT;
+
+
+    // ALL DATA TO BE MOVED IS IN A SINGLE WORD:
+
+    mask = ~(-1 << left_shift);    
+    dst_p[dst_i] = ( dst_p[dst_i] & ~mask );         
+    dst_i++;
+
+    for ( ; dst_i <= end_i; dst_i++ ) dst_p[dst_i] = 0;    
+
+    return false; 
+}
+
+bool sc_signed::concat_get_data( unsigned long* dst_p, int low_i ) const
+{
+    unsigned long carry;        // Carry bit for complements.
+    int           dst_i;        // Index to next word to set in dst_p.
+    int           end_i;        // Index of high order word to set.
+    int           high_i;       // Index w/in word of high order bit.
+    int           left_shift;   // Amount to shift value left.
+    unsigned long left_word;    // High word component for set.
+    unsigned long mask;         // Mask for partial word sets.
+    bool          result;	// True if inserted non-zero data.
+    int           right_shift;  // Amount to shift value right.
+    unsigned long right_word;   // Low word component for set.
+    int           src_i;        // Index to next word to get from digit.
+
+
+
+    // CALCULATE METRICS FOR DATA MOVEMENT:
+
+    dst_i = low_i / BITS_PER_DIGIT;
+    high_i = low_i + nbits - 1;
+    end_i = high_i / BITS_PER_DIGIT;
+    left_shift = low_i % BITS_PER_DIGIT;
+
+    switch ( sgn )
+    {
+      // POSITIVE SOURCE VALUE:
+
+      case SC_POS:
+
+	result = true;
+
+        // ALL DATA TO BE MOVED IS IN A SINGLE WORD:
+
+        if ( dst_i == end_i )
+        {
+            mask = ~(-1 << nbits) << left_shift;
+            dst_p[dst_i] = ( dst_p[dst_i] & ~mask ) | 
+                ((digit[0] << left_shift) & mask);
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, BUT IS WORD ALIGNED:
+
+        else if ( left_shift == 0 )
+        {
+            carry = 1;
+            for ( src_i = 0; dst_i < end_i; dst_i++, src_i++ )
+            {
+                dst_p[dst_i] = digit[src_i];
+            }
+            high_i = high_i % BITS_PER_DIGIT;
+            mask = ~(-2 << high_i) & DIGIT_MASK;
+            dst_p[dst_i] = digit[src_i] & mask;
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, AND NOT WORD ALIGNED:
+
+        else
+        {
+            high_i = high_i % BITS_PER_DIGIT;
+            right_shift = BITS_PER_DIGIT - left_shift;
+            mask = ~(-1 << left_shift);
+            right_word = digit[0];
+            dst_p[dst_i] = (dst_p[dst_i] & mask) | 
+                ((right_word << left_shift) & DIGIT_MASK);
+            for ( src_i = 1, dst_i++; dst_i < end_i; dst_i++, src_i++ )
+            {
+                left_word = digit[src_i];
+                dst_p[dst_i] = ((left_word << left_shift)&DIGIT_MASK) |
+                    (right_word >> right_shift);
+                right_word = left_word;
+            }
+            left_word = digit[src_i];
+            mask = ~(-2 << high_i) & DIGIT_MASK;
+            dst_p[dst_i] = ((left_word << left_shift) |
+                (right_word >> right_shift)) & mask;
+        }
+        break;
+
+
+      // SOURCE VALUE IS NEGATIVE:
+
+      case SC_NEG:
+
+        // ALL DATA TO BE MOVED IS IN A SINGLE WORD:
+
+	result = true;
+        if ( dst_i == end_i )
+        {
+            mask = ~(-1 << nbits) << left_shift;
+            right_word = ~digit[0] + 1;
+            dst_p[dst_i] = ( dst_p[dst_i] & ~mask ) | 
+                ((right_word << left_shift) & mask);
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, BUT IS WORD ALIGNED:
+
+        else if ( left_shift == 0 )
+        {
+            carry = 1;
+            for ( src_i = 0; dst_i < end_i; dst_i++, src_i++ )
+            {
+                right_word = ~digit[src_i] + carry;
+                dst_p[dst_i] = right_word &  DIGIT_MASK;
+                carry = right_word >> BITS_PER_DIGIT;
+            }
+            high_i = high_i % BITS_PER_DIGIT;
+            mask = ~(-2 << high_i) & DIGIT_MASK;
+            right_word = ~digit[src_i] + carry;
+            dst_p[dst_i] = right_word & mask;
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, AND NOT WORD ALIGNED:
+
+        else
+        {
+            high_i = high_i % BITS_PER_DIGIT;
+            right_shift = BITS_PER_DIGIT - left_shift;
+            mask = ~(-1 << left_shift);
+            carry = 1;
+            right_word = ~digit[0] + carry;
+            dst_p[dst_i] = (dst_p[dst_i] & mask) | 
+                ((right_word << left_shift) & DIGIT_MASK);
+            for ( src_i = 1, dst_i++; dst_i < end_i; dst_i++, src_i++ )
+            {
+                carry = right_word >> BITS_PER_DIGIT;
+                left_word = ~digit[src_i] + carry;
+                dst_p[dst_i] = ((left_word << left_shift)&DIGIT_MASK) |
+                    (right_word >> right_shift);
+                carry = left_word >> BITS_PER_DIGIT;
+                right_word = left_word & DIGIT_MASK;
+            }
+            left_word = ~digit[src_i] + carry;
+            mask = ~(-2 << high_i) & DIGIT_MASK;
+            dst_p[dst_i] = ((left_word << left_shift) |
+                (right_word >> right_shift)) & mask;
+        }
+		break;
+
+
+      // VALUE IS ZERO:
+
+      default:
+	result = false;
+
+
+        // ALL DATA TO BE MOVED IS IN A SINGLE WORD:
+
+        if ( dst_i == end_i )
+        {
+            mask = ~(-1 << nbits) << left_shift;
+            dst_p[dst_i] = dst_p[dst_i] & ~mask;
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, BUT IS WORD ALIGNED:
+
+        else if ( left_shift == 0 )
+        {
+            carry = 1;
+            for ( src_i = 0; dst_i < end_i; dst_i++, src_i++ )
+            {
+                dst_p[dst_i] = 0;
+            }
+            high_i = high_i % BITS_PER_DIGIT;
+            mask = ~(-2 << high_i) & DIGIT_MASK;
+            dst_p[dst_i] = 0; // #### digit[src_i] & mask;
+        }
+
+
+        // DATA IS IN MORE THAN ONE WORD, AND NOT WORD ALIGNED:
+
+        else
+        {
+            high_i = high_i % BITS_PER_DIGIT;
+            right_shift = BITS_PER_DIGIT - left_shift;
+            mask = ~(-1 << left_shift);
+            dst_p[dst_i] = (dst_p[dst_i] & mask);
+            for ( dst_i++; dst_i <= end_i; dst_i++ )
+            {
+                dst_p[dst_i] = 0;
+            }
+        }
+	break;
+    }
+    return result;
+}
+
+// Return this object instance's bits as a uint64 without sign extension.
+
+uint64 sc_signed::concat_get_uint64() const
+{
+    uint64        result;
+
+    switch ( sgn )
+    {
+      case SC_POS:
+	result = 0;
+	if ( ndigits > 2 )
+	    result = digit[2];
+	if ( ndigits > 1 )
+	    result = (result << BITS_PER_DIGIT) | digit[1];
+	result = (result << BITS_PER_DIGIT) | digit[0];
+	break;
+      case SC_NEG:
+	result = 0;
+	if ( ndigits > 2 )
+	    result = digit[2];
+	if ( ndigits > 1 )
+	    result = (result << BITS_PER_DIGIT) | digit[1];
+	result = (result << BITS_PER_DIGIT) | digit[0];
+	result = -result;
+	if ( nbits < 64 ) 
+	{
+	    uint64 mask = ~0;
+	    result = result & ~(mask << nbits);
+	}
+	break;
+      default:
+	result = 0;
+	break;
+    }
+    return result;
+}
+
+// #### OPTIMIZE
+void sc_signed::concat_set(int64 src, int low_i)  
+{    
+    *this = (low_i < 64) ? src >> low_i : src >> 63;
+}
+
+void sc_signed::concat_set(const sc_signed& src, int low_i)
+{
+    if ( low_i < src.length() )
+        *this = src >> low_i;
+    else
+        *this = (src<0) ? (int_type)-1 : 0;
+}       
+
+void sc_signed::concat_set(const sc_unsigned& src, int low_i)
+{
+    if ( low_i < src.length() )
+        *this = src >> low_i;
+    else
+        *this = 0;
+}
+
+void sc_signed::concat_set(uint64 src, int low_i)
+{
+    *this = (low_i < 64) ? src >> low_i : 0;
+}
+
+// ----------------------------------------------------------------------------
+//  SECTION: Public members - Reduction methods.   
+// ----------------------------------------------------------------------------
+
+bool sc_signed::and_reduce() const 
+{
+    int i;    // Digit examining.
+
+    for ( i = 0; i < ndigits-1; i++ )  
+        if ( (digit[i] & DIGIT_MASK) != DIGIT_MASK ) return false;
+    if ( (digit[i] & ~(-1 << (nbits % BITS_PER_DIGIT))) == 
+        (unsigned long)~(-1 << (nbits % BITS_PER_DIGIT)) ) 
+		return true;
+
+    return false;
+}
+
+bool sc_signed::or_reduce() const 
+{
+// #### use sgn?
+    for ( int i = 0; i < ndigits; i++ )
+        if ( digit[i] ) return true;
+    return false;
+}
+
+bool sc_signed::xor_reduce() const 
+{
+    int i;   // Digit examining.
+    int odd; // Flag for odd number of digits.
+
+    odd = 0;
+    for ( i = 0; i < nbits; i++ )    
+        if ( test(i) ) odd = ~odd;
+    return odd ? true : false;
+}
+
 
 
 // ----------------------------------------------------------------------------
@@ -74,31 +430,31 @@ namespace sc_dt
 
 // assignment operators
 
-sc_signed&
+const sc_signed&
 sc_signed::operator = ( const char* a )
 {
     if( a == 0 ) {
-	SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_,
-			 "character string is zero" );
-    }
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is zero" );
+    } 
     if( *a == 0 ) {
-	SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_,
-			 "character string is empty" );
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is empty" );
     }
     try {
-	int len = length();
-	sc_fix aa( a, len, len, SC_TRN, SC_WRAP, 0, SC_ON );
-	return this->operator = ( aa );
-    } catch( sc_exception ) {
-	char msg[BUFSIZ];
-	sprintf( msg, "character string '%s' is not valid", a );
-	SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
-	// never reached
-	return *this;
+        int len = length();
+        sc_fix aa( a, len, len, SC_TRN, SC_WRAP, 0, SC_ON );
+        return this->operator = ( aa );
+    } catch( sc_core::sc_report ) {
+        char msg[BUFSIZ];
+        sprintf( msg, "character string '%s' is not valid", a );
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
+        // never reached
     }
+    return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator=(int64 v)
 {
   sgn = get_sign(v);
@@ -113,7 +469,7 @@ sc_signed::operator=(int64 v)
   return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator=(uint64 v)
 {
   sgn = get_sign(v);
@@ -127,7 +483,7 @@ sc_signed::operator=(uint64 v)
   return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator=(long v)
 {
   sgn = get_sign(v);
@@ -142,7 +498,7 @@ sc_signed::operator=(long v)
   return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator=(unsigned long v)
 {
   sgn = get_sign(v);
@@ -156,7 +512,7 @@ sc_signed::operator=(unsigned long v)
   return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator=(double v)
 {
   is_bad_double(v);
@@ -183,7 +539,7 @@ sc_signed::operator=(double v)
 
 // ----------------------------------------------------------------------------
 
-sc_signed&
+const sc_signed&
 sc_signed::operator = ( const sc_bv_base& v )
 {
     int minlen = sc_min( nbits, v.length() );
@@ -198,7 +554,7 @@ sc_signed::operator = ( const sc_bv_base& v )
     return *this;
 }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator = ( const sc_lv_base& v )
 {
     int minlen = sc_min( nbits, v.length() );
@@ -216,7 +572,7 @@ sc_signed::operator = ( const sc_lv_base& v )
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_signed::to_string( sc_numrep numrep ) const
 {
     int len = length();
@@ -224,7 +580,7 @@ sc_signed::to_string( sc_numrep numrep ) const
     return aa.to_string( numrep );
 }
 
-const sc_string
+const std::string
 sc_signed::to_string( sc_numrep numrep, bool w_prefix ) const
 {
     int len = length();
@@ -237,7 +593,7 @@ sc_signed::to_string( sc_numrep numrep, bool w_prefix ) const
 //  SECTION: Interfacing with sc_int_base
 // ----------------------------------------------------------------------------
 
-sc_signed&
+const sc_signed&
 sc_signed::operator = (const sc_int_base& v)
 { return operator=((int64) v); }
 
@@ -258,7 +614,7 @@ sc_signed
 operator + (const sc_int_base& u, const sc_signed& v) 
 { return operator+((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator += (const sc_int_base& v)
 { return operator+=((int64) v); }
 
@@ -279,7 +635,7 @@ sc_signed
 operator - (const sc_int_base& u, const sc_signed& v) 
 { return operator-((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator -= (const sc_int_base& v)
 { return operator-=((int64) v); }
 
@@ -300,7 +656,7 @@ sc_signed
 operator * (const sc_int_base& u, const sc_signed& v) 
 { return operator*((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator *= (const sc_int_base& v)
 { return operator*=((int64) v); }
 
@@ -321,7 +677,7 @@ sc_signed
 operator / (const sc_int_base& u, const sc_signed& v) 
 { return operator/((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator /= (const sc_int_base& v)
 { return operator/=((int64) v); }
 
@@ -342,7 +698,7 @@ sc_signed
 operator % (const sc_int_base& u, const sc_signed& v) 
 { return operator%((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator %= (const sc_int_base& v)
 { return operator%=((int64) v); }
 
@@ -363,7 +719,7 @@ sc_signed
 operator & (const sc_int_base& u, const sc_signed& v) 
 { return operator&((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator &= (const sc_int_base& v)
 { return operator&=((int64) v); }
 
@@ -384,7 +740,7 @@ sc_signed
 operator | (const sc_int_base& u, const sc_signed& v) 
 { return operator|((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator |= (const sc_int_base& v)
 { return operator|=((int64) v); }
 
@@ -405,7 +761,7 @@ sc_signed
 operator ^ (const sc_int_base& u, const sc_signed& v) 
 { return operator^((int64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator ^= (const sc_int_base& v)
 { return operator^=((int64) v); }
 
@@ -414,7 +770,7 @@ sc_signed
 operator << (const sc_signed& u, const sc_int_base& v)
 { return operator<<(u, (int64) v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator <<= (const sc_int_base& v)
 { return operator<<=((int64) v); }
 
@@ -423,7 +779,7 @@ sc_signed
 operator >> (const sc_signed&    u, const sc_int_base&  v)
 { return operator>>(u, (int64) v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator >>= (const sc_int_base&  v)
 { return operator>>=((int64) v); }
 
@@ -486,7 +842,7 @@ operator >= (const sc_int_base& u, const sc_signed& v)
 //  SECTION: Interfacing with sc_uint_base
 // ----------------------------------------------------------------------------
 
-sc_signed&
+const sc_signed&
 sc_signed::operator = (const sc_uint_base& v)
 { return operator=((uint64) v); }
 
@@ -499,7 +855,7 @@ sc_signed
 operator + (const sc_uint_base& u, const sc_signed& v) 
 { return operator+((uint64) u, v); }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator += (const sc_uint_base& v)
 { return operator+=((uint64) v); }
 
@@ -520,7 +876,7 @@ sc_signed
 operator - (const sc_uint_base& u, const sc_signed& v) 
 { return operator-((uint64) u, v); }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator -= (const sc_uint_base& v)
 { return operator-=((uint64) v); }
 
@@ -533,7 +889,7 @@ sc_signed
 operator * (const sc_uint_base& u, const sc_signed& v) 
 { return operator*((uint64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator *= (const sc_uint_base& v)
 { return operator*=((uint64) v); }
 
@@ -546,7 +902,7 @@ sc_signed
 operator / (const sc_uint_base& u, const sc_signed& v) 
 { return operator/((uint64) u, v); }
 
-sc_signed&
+const sc_signed&
 sc_signed::operator /= (const sc_uint_base& v)
 { return operator/=((uint64) v); }
 
@@ -559,7 +915,7 @@ sc_signed
 operator % (const sc_uint_base& u, const sc_signed& v) 
 { return operator%((uint64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator %= (const sc_uint_base& v)
 { return operator%=((uint64) v); }
 
@@ -572,7 +928,7 @@ sc_signed
 operator & (const sc_uint_base& u, const sc_signed& v) 
 { return operator&((uint64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator &= (const sc_uint_base& v)
 { return operator&=((uint64) v); }
 
@@ -585,7 +941,7 @@ sc_signed
 operator | (const sc_uint_base& u, const sc_signed& v) 
 { return operator|((uint64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator |= (const sc_uint_base& v)
 { return operator|=((uint64) v); }
 
@@ -598,7 +954,7 @@ sc_signed
 operator ^ (const sc_uint_base& u, const sc_signed& v) 
 { return operator^((uint64) u, v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator ^= (const sc_uint_base& v)
 { return operator^=((uint64) v); }
 
@@ -607,7 +963,7 @@ sc_signed
 operator << (const sc_signed& u, const sc_uint_base& v)
 { return operator<<(u, (uint64) v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator <<= (const sc_uint_base& v)
 { return operator<<=((uint64) v); }
 
@@ -616,7 +972,7 @@ sc_signed
 operator >> (const sc_signed&    u, const sc_uint_base&  v)
 { return operator>>(u, (uint64) v); }
 
-sc_signed& 
+const sc_signed& 
 sc_signed::operator >>= (const sc_uint_base&  v)
 { return operator>>=((uint64) v); }
 

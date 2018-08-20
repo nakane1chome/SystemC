@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,8 +34,8 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_lv_base.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_lv_base.h"
 
 
 namespace sc_dt
@@ -59,7 +59,7 @@ sc_lv_base::init( int length_, const sc_logic& init_value )
 {
     // check the length
     if( length_ <= 0 ) {
-	SC_REPORT_ERROR( SC_ID_ZERO_LENGTH_, 0 );
+	SC_REPORT_ERROR( sc_core::SC_ID_ZERO_LENGTH_, 0 );
     }
     // allocate memory for the data and control words
     m_len = length_;
@@ -79,7 +79,7 @@ sc_lv_base::init( int length_, const sc_logic& init_value )
 
 
 void
-sc_lv_base::assign_from_string( const sc_string& s )
+sc_lv_base::assign_from_string( const std::string& s )
 {
     // s must have been converted to bin
     int len = m_len;
@@ -88,7 +88,7 @@ sc_lv_base::assign_from_string( const sc_string& s )
     int i = 0;
     for( ; i < min_len; ++ i ) {
 	char c = s[s_len - i - 1];
-	set_bit( i, sc_logic::char_to_logic[c] );
+	set_bit( i, sc_logic::char_to_logic[(unsigned int)c] );
     }
     // if formatted, fill the rest with sign(s), otherwise fill with zeros
     sc_logic_value_t fill = (s[s_len] == 'F' ? sc_logic_value_t( s[0] - '0' )
@@ -104,7 +104,7 @@ sc_lv_base::assign_from_string( const sc_string& s )
 sc_lv_base::sc_lv_base( const char* a )
     : m_len( 0 ), m_size( 0 ), m_data( 0 ), m_ctrl( 0 )
 {
-    sc_string s = convert_to_bin( a );
+    std::string s = convert_to_bin( a );
     init( s.length() - 1 );
     assign_from_string( s );
 }

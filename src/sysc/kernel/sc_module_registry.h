@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -29,8 +29,10 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: phase callbacks
 
  *****************************************************************************/
 
@@ -38,7 +40,9 @@
 #define SC_MODULE_REGISTRY_H
 
 
-#include "systemc/utils/sc_vector.h"
+#include "sysc/utils/sc_vector.h"
+
+namespace sc_core {
 
 class sc_module;
 class sc_simcontext;
@@ -71,8 +75,18 @@ private:
     // destructor
     ~sc_module_registry();
 
+    // called when construction is done
+    void construction_done();
+
     // called when elaboration is done
     void elaboration_done();
+
+    // called before simulation begins
+    void start_simulation();
+
+    // called after simulation ends
+    void simulation_done();
+
 
 private:
 
@@ -87,6 +101,7 @@ private:
     sc_module_registry& operator = ( const sc_module_registry& );
 };
 
+} // namespace sc_core
 
 #endif
 

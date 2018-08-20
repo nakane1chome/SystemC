@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,7 +34,7 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/fx/sc_fxtype_params.h"
+#include "sysc/datatypes/fx/sc_fxtype_params.h"
 
 
 namespace sc_dt
@@ -46,10 +46,10 @@ namespace sc_dt
 //  Fixed-point type parameters class.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 sc_fxtype_params::to_string() const
 {
-    sc_string s;
+    std::string s;
 
     char buf[BUFSIZ];
 
@@ -73,22 +73,22 @@ sc_fxtype_params::to_string() const
 
 
 void
-sc_fxtype_params::print( ostream& os ) const
+sc_fxtype_params::print( ::std::ostream& os ) const
 {
     os << to_string();
 }
 
 void
-sc_fxtype_params::dump( ostream& os ) const
+sc_fxtype_params::dump( ::std::ostream& os ) const
 {
-    os << "sc_fxtype_params" << endl;
-    os << "(" << endl;
-    os << "wl     = " << m_wl << endl;
-    os << "iwl    = " << m_iwl << endl;
-    os << "q_mode = " << m_q_mode << endl;
-    os << "o_mode = " << m_o_mode << endl;
-    os << "n_bits = " << m_n_bits << endl;
-    os << ")" << endl;
+    os << "sc_fxtype_params" << ::std::endl;
+    os << "(" << ::std::endl;
+    os << "wl     = " << m_wl << ::std::endl;
+    os << "iwl    = " << m_iwl << ::std::endl;
+    os << "q_mode = " << m_q_mode << ::std::endl;
+    os << "o_mode = " << m_o_mode << ::std::endl;
+    os << "n_bits = " << m_n_bits << ::std::endl;
+    os << ")" << ::std::endl;
 }
 
 } // namespace sc_dt

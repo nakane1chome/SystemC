@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,9 +34,9 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/bit/sc_bit.h"
-#include "systemc/datatypes/bit/sc_bit_ids.h"
-#include "systemc/datatypes/bit/sc_logic.h"
+#include "sysc/datatypes/bit/sc_bit.h"
+#include "sysc/datatypes/bit/sc_bit_ids.h"
+#include "sysc/datatypes/bit/sc_logic.h"
 
 #include <stdio.h>
 
@@ -58,7 +58,7 @@ sc_bit::invalid_value( char c )
 {
     char msg[BUFSIZ];
     sprintf( msg, "sc_bit( '%c' )", c );
-    SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+    SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
 }
 
 void
@@ -66,7 +66,7 @@ sc_bit::invalid_value( int i )
 {
     char msg[BUFSIZ];
     sprintf( msg, "sc_bit( %d )", i );
-    SC_REPORT_ERROR( SC_ID_VALUE_NOT_VALID_, msg );
+    SC_REPORT_ERROR( sc_core::SC_ID_VALUE_NOT_VALID_, msg );
 }
 
 
@@ -89,7 +89,7 @@ sc_bit::operator = ( const sc_logic& b )  // non-VSIA
 // other methods
 
 void
-sc_bit::scan( istream& is )
+sc_bit::scan( ::std::istream& is )
 {
     bool b;
     is >> b;

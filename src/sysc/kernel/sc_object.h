@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,8 +28,11 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte Design Systems
+                               5 September 2003
+  Description of Modification: - Made creation of attributes structure      
+                                 conditional on its being used. This eliminates
+                                 100 bytes of storage for each normal sc_object.
 
  *****************************************************************************/
 
@@ -37,8 +40,10 @@
 #define SC_OBJECT_H
 
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/kernel/sc_attribute.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_attribute.h"
+
+namespace sc_core {
 
 class sc_trace_file;
 class sc_simcontext;
@@ -50,9 +55,11 @@ class sc_simcontext;
 //  Abstract base class of all SystemC `simulation' objects.
 // ----------------------------------------------------------------------------
 
-class sc_object
+class sc_object 
 {
     friend class sc_object_manager;
+	friend class sc_module_dynalloc_list;
+	friend class sc_process_b;
 
 public:
 
@@ -60,17 +67,14 @@ public:
         { return m_name; }
     const char* basename() const;
 
-    void print() const;
-    virtual void print(ostream& os) const;
+    virtual void print(::std::ostream& os=::std::cout ) const;
 
     // dump() is more detailed than print()
-    void dump() const;
-    virtual void dump(ostream& os) const;
+    virtual void dump(::std::ostream& os=::std::cout ) const;
 
     virtual void trace( sc_trace_file* tf ) const;
 
-    static const char* kind_string;
-    virtual const char* kind() const;
+    virtual const char* kind() const { return "sc_object"; }
 
     sc_simcontext* simcontext() const
         { return m_simc; }
@@ -79,11 +83,11 @@ public:
     bool add_attribute( sc_attr_base& );
 
     // get attribute by name
-          sc_attr_base* get_attribute( const sc_string& name_ );
-    const sc_attr_base* get_attribute( const sc_string& name_ ) const;
+          sc_attr_base* get_attribute( const std::string& name_ );
+    const sc_attr_base* get_attribute( const std::string& name_ ) const;
 
     // remove attribute by name
-    sc_attr_base* remove_attribute( const sc_string& name_ );
+    sc_attr_base* remove_attribute( const std::string& name_ );
 
     // remove all attributes
     void remove_all_attributes();
@@ -94,6 +98,8 @@ public:
     // get the attribute collection
           sc_attr_cltn& attr_cltn();
     const sc_attr_cltn& attr_cltn() const;
+
+    sc_object* get_parent() const { return m_parent; }
 
 protected:
 
@@ -108,10 +114,10 @@ private:
 private:
 
     /* Each simulation object is associated with a simulation context */ 
-    sc_simcontext* m_simc;
-    char*          m_ptr;
-    char*          m_name;
-    sc_attr_cltn   m_attr_cltn;
+    sc_simcontext*         m_simc;
+    char*                  m_name;
+    mutable sc_attr_cltn*  m_attr_cltn_p;
+    sc_object*             m_parent;
 };
 
 
@@ -120,5 +126,6 @@ private:
 extern const char SC_HIERARCHY_CHAR;
 extern bool sc_enable_name_checking;
 
+} // namespace sc_core
 
-#endif
+#endif // SC_OBJECT_H

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -72,11 +72,15 @@
 #define SC_UNSIGNED_H
 
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/datatypes/int/sc_length_param.h"
-#include "systemc/datatypes/int/sc_nbdefs.h"
-#include "systemc/datatypes/int/sc_nbutils.h"
-#include "systemc/datatypes/int/sc_nbexterns.h"
+#include "sysc/kernel/sc_object.h"
+#include "sysc/datatypes/misc/sc_value_base.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_temporary.h"
+#include "sysc/datatypes/int/sc_length_param.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/datatypes/int/sc_nbutils.h"
+#include "sysc/datatypes/int/sc_nbexterns.h"
+#include "sysc/utils/sc_temporary.h"
 
 
 namespace sc_dt
@@ -87,10 +91,7 @@ class sc_unsigned_bitref_r;
 class sc_unsigned_bitref;
 class sc_unsigned_subref_r;
 class sc_unsigned_subref;
-template <class T1, class T2>
-    class sc_unsigned_concref_r; // NOT YET IMPLEMENTED
-template <class T1, class T2>
-    class sc_unsigned_concref;   // NOT YET IMPLEMENTED
+class sc_concatref; 
 class sc_unsigned;
 
 // forward class declarations
@@ -98,19 +99,14 @@ class sc_bv_base;
 class sc_lv_base;
 class sc_int_base;
 class sc_uint_base;
+class sc_int_subref_r;
+class sc_uint_subref_r;
 class sc_signed;
 class sc_signed_subref_r;
-template <class T1, class T2>
-    class sc_signed_concref_r; // NOT YET IMPLEMENTED
 class sc_fxval;
 class sc_fxval_fast;
 class sc_fxnum;
 class sc_fxnum_fast;
-
-
-#define NOT_YET_IMPLEMENTED                                                   \
-    SC_REPORT_ERROR( SC_ID_NOT_IMPLEMENTED_,                                  \
-                     "sc_unsigned/sc_biguint concatenation" )
 
 
 // ----------------------------------------------------------------------------
@@ -119,32 +115,35 @@ class sc_fxnum_fast;
 //  Proxy class for sc_unsigned bit selection (r-value only).
 // ----------------------------------------------------------------------------
 
-class sc_unsigned_bitref_r
+class sc_unsigned_bitref_r : public sc_value_base
 {
     friend class sc_unsigned;
 
 protected:
 
-    // constructor
+    // construction and initialization:
 
-    sc_unsigned_bitref_r( const sc_unsigned& obj_, int index_ )
-	: m_obj( CCAST<sc_unsigned&>( obj_ ) ), m_index( index_ )
-	{}
+    sc_unsigned_bitref_r()
+        {}
+
+    void initialize( const sc_unsigned* obj_p, int index_ )
+        {
+	    m_obj_p = CCAST<sc_unsigned*>( obj_p );
+	    m_index = index_;
+	}
 
 public:
+
+    // destructor
+
+    virtual ~sc_unsigned_bitref_r()
+	{}
 
     // copy constructor
 
     sc_unsigned_bitref_r( const sc_unsigned_bitref_r& a )
-	: m_obj( a.m_obj ), m_index( a.m_index )
+	: m_index( a.m_index ), m_obj_p( a.m_obj_p )
 	{}
-
-
-    // cloning
-
-    sc_unsigned_bitref_r* clone() const
-	{ return new sc_unsigned_bitref_r( *this ); }
-
 
     // capacity
 
@@ -154,185 +153,72 @@ public:
 
     // implicit conversion to bool
 
-    operator bool () const;
+    operator uint64 () const;
     bool operator ! () const;
     bool operator ~ () const;
 
 
     // explicit conversions
 
-    bool value() const
-	{ return operator bool(); }
+    uint64 value() const
+	{ return operator uint64(); }
 
     bool to_bool() const
-	{ return operator bool(); }
+	{ return operator uint64(); }
 
+
+    // concatenation support
+
+    virtual int concat_length(bool* xz_present_p) const
+        { if ( xz_present_p ) *xz_present_p = false; return 1; }
+    virtual uint64 concat_get_uint64() const 
+        { return (uint64)operator uint64(); }
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const 
+        {
+            int  bit_mask = 1 << (low_i % BITS_PER_DIGIT);  
+            int  word_i = low_i / BITS_PER_DIGIT;
+	    dst_p[word_i] &= ~bit_mask;
+	    return false;
+        }
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const 
+        {
+            int  bit_mask = 1 << (low_i % BITS_PER_DIGIT);  
+	    bool result;	// True if non-zero.
+            int  word_i = low_i / BITS_PER_DIGIT;
+            if ( operator uint64() )
+	    {
+                dst_p[word_i] |= bit_mask;
+		result = true;
+	    }
+            else
+	    {
+                dst_p[word_i] &= ~bit_mask;
+		result = false;
+	    }
+	    return result;
+        }
 
     // other methods
 
-    void print( ostream& os = cout ) const
+    void print( ::std::ostream& os = ::std::cout ) const
 	{ os << to_bool(); }
 
 protected:
 
-    sc_unsigned& m_obj;
     int          m_index;
+    sc_unsigned* m_obj_p;
 
 private:
 
     // disabled
-    sc_unsigned_bitref_r();
-    sc_unsigned_bitref_r& operator = ( const sc_unsigned_bitref_r& );
+    const sc_unsigned_bitref_r& operator = ( const sc_unsigned_bitref_r& );
 };
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref_r, sc_unsigned_concref_r<T1,T2> );
 
 inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref_r, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref_r, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( bool, sc_unsigned_bitref_r );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref_r, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref_r, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref_r, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( bool, sc_unsigned_bitref_r );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref_r, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref_r, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref_r, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( bool, sc_unsigned_bitref );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref_r, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref_r, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref_r, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( bool, sc_unsigned_bitref );
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_unsigned_bitref_r& );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_unsigned_bitref_r& );
 
 
 // ----------------------------------------------------------------------------
@@ -345,15 +231,15 @@ class sc_unsigned_bitref
     : public sc_unsigned_bitref_r
 {
     friend class sc_unsigned;
+    friend class sc_core::sc_vpool<sc_unsigned_bitref>;
 
 
-    // constructor
+protected: // construction 
 
-    sc_unsigned_bitref( sc_unsigned& obj_, int index_ )
-	: sc_unsigned_bitref_r( obj_, index_ )
-	{}
+    sc_unsigned_bitref()
+        {}
 
-public:
+public: 
 
     // copy constructor
 
@@ -362,75 +248,37 @@ public:
 	{}
 
 
-    // cloning
-
-    sc_unsigned_bitref* clone() const
-	{ return new sc_unsigned_bitref( *this ); }
-
-
     // assignment operators
 
-    sc_unsigned_bitref& operator = ( const sc_unsigned_bitref_r& );
-    sc_unsigned_bitref& operator = ( const sc_unsigned_bitref& );
-    sc_unsigned_bitref& operator = ( bool );
+    const sc_unsigned_bitref& operator = ( const sc_unsigned_bitref_r& );
+    const sc_unsigned_bitref& operator = ( const sc_unsigned_bitref& );
+    const sc_unsigned_bitref& operator = ( bool );
 
-    sc_unsigned_bitref& operator &= ( bool );
-    sc_unsigned_bitref& operator |= ( bool );
-    sc_unsigned_bitref& operator ^= ( bool );
+    const sc_unsigned_bitref& operator &= ( bool );
+    const sc_unsigned_bitref& operator |= ( bool );
+    const sc_unsigned_bitref& operator ^= ( bool );
+
+    // concatenation methods
+
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
 
 
     // other methods
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
-private:
-
-    // disabled
-    sc_unsigned_bitref();
+protected:
+    static sc_core::sc_vpool<sc_unsigned_bitref> m_pool;
 };
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned_bitref, sc_unsigned_concref<T1,T2> );
 
 inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>
-operator , ( sc_unsigned_bitref, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>
-operator , ( sc_unsigned_bitref, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>
-operator , ( sc_unsigned_bitref, sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned_bitref, sc_unsigned_concref<T1,T2> );
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>
-concat( sc_unsigned_bitref, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>
-concat( sc_unsigned_bitref, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>
-concat( sc_unsigned_bitref, sc_unsigned& );
-
-
-inline
-istream&
-operator >> ( istream&, sc_unsigned_bitref& );
+::std::istream&
+operator >> ( ::std::istream&, sc_unsigned_bitref& );
 
 
 // ----------------------------------------------------------------------------
@@ -439,38 +287,45 @@ operator >> ( istream&, sc_unsigned_bitref& );
 //  Proxy class for sc_unsigned part selection (r-value only).
 // ----------------------------------------------------------------------------
 
-class sc_unsigned_subref_r
+class sc_unsigned_subref_r : public sc_value_base
 {
+    friend class sc_signed;
     friend class sc_unsigned;
+    friend class sc_unsigned_signal;
 
 protected:
 
     // constructor
 
-    sc_unsigned_subref_r( const sc_unsigned& obj_, int left_, int right_ )
-	: m_obj( CCAST<sc_unsigned&>( obj_ ) ),
-	  m_left( left_ ), m_right( right_ )
+    sc_unsigned_subref_r()
 	{}
+
+    void initialize( const sc_unsigned* obj_p, int left_, int right_ )
+	{
+	    m_obj_p = CCAST<sc_unsigned*>( obj_p );
+	    m_left = left_;
+	    m_right = right_;
+	}
   
 public:
+
+    // destructor
+
+    virtual ~sc_unsigned_subref_r()
+	{}
+
 
     // copy constructor
 
     sc_unsigned_subref_r( const sc_unsigned_subref_r& a )
-	: m_obj( a.m_obj ), m_left( a.m_left ), m_right( a.m_right )
+	: m_left( a.m_left ), m_obj_p( a.m_obj_p ), m_right( a.m_right )
 	{}
-
-
-    // cloning
-
-    sc_unsigned_subref_r* clone() const
-	{ return new sc_unsigned_subref_r( *this ); }
 
 
     // capacity
 
     int length() const
-        { return ( m_left - m_right + 1 ); }
+	{ return m_left >= m_right ? (m_left-m_right+1) : (m_right-m_left+1 ); }
 
 
     // implicit conversion to sc_unsigned
@@ -491,176 +346,52 @@ public:
 
     // explicit conversion to character string
 
-    const sc_string to_string( sc_numrep numrep = SC_DEC ) const;
-    const sc_string to_string( sc_numrep numrep, bool w_prefix ) const;
+    const std::string to_string( sc_numrep numrep = SC_DEC ) const;
+    const std::string to_string( sc_numrep numrep, bool w_prefix ) const;
 
+
+    // concatenation support
+
+    virtual int concat_length(bool* xz_present_p) const
+	{ 
+	    if ( xz_present_p ) *xz_present_p = false; 
+	    return m_left - m_right + 1; 
+	}
+    virtual uint64 concat_get_uint64() const;
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const;
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const;
+
+    // reduce methods
+
+    bool and_reduce() const;
+    bool nand_reduce() const;
+    bool or_reduce() const;
+    bool nor_reduce() const;
+    bool xor_reduce() const ;
+    bool xnor_reduce() const;
 
     // other methods
 
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
+    void print( ::std::ostream& os = ::std::cout ) const
+	{ os << to_string(sc_io_base(os,SC_DEC),sc_io_show_base(os)); }
 
 protected:
 
-    sc_unsigned& m_obj;
-    int          m_left;
-    int          m_right;
+    int          m_left;   // Left-most bit in this part selection.
+    sc_unsigned* m_obj_p;  // Target of this part selection. 
+    int          m_right;  // Right-most bit in this part selection.
 
 private:
 
     // disabled
-    sc_unsigned_subref_r();
-    sc_unsigned_subref_r& operator = ( const sc_unsigned_subref_r& );
+    const sc_unsigned_subref_r& operator = ( const sc_unsigned_subref_r& );
 };
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref_r, sc_unsigned_concref_r<T1,T2> );
 
 inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref_r, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref_r, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( bool, sc_unsigned_subref_r );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref_r, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref_r, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref_r, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( bool, sc_unsigned_subref_r );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref_r, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref_r, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref_r, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( bool, sc_unsigned_subref );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref_r, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref_r, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref_r, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( bool, sc_unsigned_subref );
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_unsigned_subref_r& );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_unsigned_subref_r& );
 
 
 // ----------------------------------------------------------------------------
@@ -673,12 +404,13 @@ class sc_unsigned_subref
     : public sc_unsigned_subref_r
 {
     friend class sc_unsigned;
+    friend class sc_core::sc_vpool<sc_unsigned_subref>;
 
 
     // constructor
 
-    sc_unsigned_subref( sc_unsigned& obj_, int left_, int right_ )
-	: sc_unsigned_subref_r( obj_, left_, right_ )
+protected:
+    sc_unsigned_subref()
 	{}
   
 public:
@@ -689,463 +421,53 @@ public:
 	: sc_unsigned_subref_r( a )
 	{}
 
-
-    // cloning
-
-    sc_unsigned_subref* clone() const
-	{ return new sc_unsigned_subref( *this ); }
-
-
     // assignment operators
 
-    sc_unsigned_subref& operator = ( const sc_unsigned_subref_r& a );
-    sc_unsigned_subref& operator = ( const sc_unsigned_subref& a );
-    sc_unsigned_subref& operator = ( const sc_unsigned& a );
+    const sc_unsigned_subref& operator = ( const sc_unsigned_subref_r& a );
+    const sc_unsigned_subref& operator = ( const sc_unsigned_subref& a );
+    const sc_unsigned_subref& operator = ( const sc_unsigned& a );
 
-    template <class T1, class T2>
-    sc_unsigned_subref& operator = ( const sc_unsigned_concref_r<T1,T2>& a )
-	{ NOT_YET_IMPLEMENTED; return *this; }
+    template<class T>
+    const sc_unsigned_subref& operator = ( const sc_generic_base<T>& a );
+    const sc_unsigned_subref& operator = ( const sc_signed_subref_r& a );
+    const sc_unsigned_subref& operator = ( const sc_signed& a );
 
-    sc_unsigned_subref& operator = ( const sc_signed_subref_r& a );
-    sc_unsigned_subref& operator = ( const sc_signed& a );
+    const sc_unsigned_subref& operator = ( const char* a );
+    const sc_unsigned_subref& operator = ( unsigned long a );
+    const sc_unsigned_subref& operator = ( long a );
 
-    template <class T1, class T2>
-    sc_unsigned_subref& operator = ( const sc_signed_concref_r<T1,T2>& a )
-	{ NOT_YET_IMPLEMENTED; return *this; }
-
-    sc_unsigned_subref& operator = ( const char* a );
-    sc_unsigned_subref& operator = ( unsigned long a );
-    sc_unsigned_subref& operator = ( long a );
-
-    sc_unsigned_subref& operator = ( unsigned int a )
+    const sc_unsigned_subref& operator = ( unsigned int a )
 	{ return operator = ( (unsigned long) a ); }
 
-    sc_unsigned_subref& operator = ( int a )
+    const sc_unsigned_subref& operator = ( int a )
 	{ return operator = ( (long) a ); }
 
-    sc_unsigned_subref& operator = ( uint64 a );
-    sc_unsigned_subref& operator = ( int64 a );
-    sc_unsigned_subref& operator = ( double a );  
-    sc_unsigned_subref& operator = ( const sc_int_base& a );
-    sc_unsigned_subref& operator = ( const sc_uint_base& a );
+    const sc_unsigned_subref& operator = ( uint64 a );
+    const sc_unsigned_subref& operator = ( int64 a );
+    const sc_unsigned_subref& operator = ( double a );  
+    const sc_unsigned_subref& operator = ( const sc_int_base& a );
+    const sc_unsigned_subref& operator = ( const sc_uint_base& a );
 
+    // concatenation methods
 
-    // other methods
-
-    void scan( istream& is = cin );
-
-private:
-
-    // disabled
-    sc_unsigned_subref();
-};
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned_subref, sc_unsigned_concref<T1,T2> );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>
-operator , ( sc_unsigned_subref, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>
-operator , ( sc_unsigned_subref, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>
-operator , ( sc_unsigned_subref, sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned_subref, sc_unsigned_concref<T1,T2> );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>
-concat( sc_unsigned_subref, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>
-concat( sc_unsigned_subref, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>
-concat( sc_unsigned_subref, sc_unsigned& );
-
-
-inline
-istream&
-operator >> ( istream&, sc_unsigned_subref& );
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_unsigned_concref_r<T1,T2>
-//
-//  Proxy class for sc_unsigned concatenation (r-value only).
-//  NOT YET IMPLEMENTED
-// ----------------------------------------------------------------------------
-
-template <class T1, class T2>
-class sc_unsigned_concref_r
-{
-public:
-
-    // constructor
-
-    sc_unsigned_concref_r( const T1& left_, const T2& right_, int delete_ = 0 )
-	: m_left( CCAST<T1&>( left_ ) ), m_right( CCAST<T2&>( right_ ) ),
-	  m_delete( delete_ ), m_refs( *new int( 1 ) )
-	{ m_len = m_left.length() + m_right.length(); NOT_YET_IMPLEMENTED; }
-
-
-    // copy constructor
-
-    sc_unsigned_concref_r( const sc_unsigned_concref_r<T1,T2>& a )
-	: m_left( a.m_left ), m_right( a.m_right ), m_len( a.m_len ),
-	  m_delete( a.m_delete ), m_refs( a.m_refs )
-	{ ++ m_refs; NOT_YET_IMPLEMENTED; }
-
-
-    // destructor
-
-    ~sc_unsigned_concref_r();
-
-
-    // cloning
-
-    sc_unsigned_concref_r<T1,T2>* clone() const
-	{ return new sc_unsigned_concref_r<T1,T2>( *this ); }
-
-
-    // capacity
-
-    int length() const
-	{ return m_len; }
-
-
-    // implicit conversion to sc_unsigned
-
-    // NOT YET IMPLEMENTED
-
-
-    // explicit conversions
-
-    // NOT YET IMPLEMENTED
-
-
-    // explicit conversion to character string
-
-    // NOT YET IMPLEMENTED
-
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
 
     // other methods
 
-    void print( ostream& os = cout ) const
-	{ NOT_YET_IMPLEMENTED; }
+    void scan( ::std::istream& is = ::std::cin );
 
 protected:
-
-    T1&          m_left;
-    T2&          m_right;
-    int          m_len;
-    mutable int  m_delete;
-    mutable int& m_refs;
-
-private:
-
-    // disabled
-    sc_unsigned_concref_r();
-    sc_unsigned_concref_r<T1,T2>& operator = (
-	const sc_unsigned_concref_r<T1,T2>& );
+    static sc_core::sc_vpool<sc_unsigned_subref> m_pool;
 };
 
 
-// r-value concatenation operators and functions
 
-template <class T1, class T2, class T3, class T4>
 inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_subref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2>, const sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( bool, sc_unsigned_concref_r<T1,T2> );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_subref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2>, const sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( bool, sc_unsigned_concref_r<T1,T2> );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_concref<T3,T4> );
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_bitref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned_subref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_subref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2>, sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2>, const sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( bool, sc_unsigned_concref<T1,T2> );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_concref<T3,T4> );
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_concref_r<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_bitref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_bitref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned_subref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_subref_r );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2>, sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2>, const sc_unsigned& );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2>, bool );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( bool, sc_unsigned_concref<T1,T2> );
-
-#endif
-
-
-template <class T1, class T2>
-inline
-ostream&
-operator << ( ostream&, const sc_unsigned_concref_r<T1,T2>& );
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_unsigned_concref<T1,T2>
-//
-//  Proxy class for sc_unsigned concatenation (r-value and l-value).
-//  NOT YET IMPLEMENTED
-// ----------------------------------------------------------------------------
-
-template <class T1, class T2>
-class sc_unsigned_concref
-    : public sc_unsigned_concref_r<T1,T2>
-{
-public:
-
-    // constructor
-
-    sc_unsigned_concref( T1& left_, T2& right_, int delete_ = 0 )
-	: sc_unsigned_concref_r<T1,T2>( left_, right_, delete_ )
-	{}
-
-
-    // copy constructor
-
-    sc_unsigned_concref( const sc_unsigned_concref<T1,T2>& a )
-	: sc_unsigned_concref_r<T1,T2>( a )
-	{}
-
-
-    // cloning
-
-    sc_unsigned_concref<T1,T2>* clone() const
-	{ return new sc_unsigned_concref<T1,T2>( *this ); }
-
-
-    // assignment operators
-
-    // NOT YET IMPLEMENTED
-
-
-    // other methods
-
-    void scan( istream& is = cin )
-	{ NOT_YET_IMPLEMENTED; }
-
-private:
-
-    // disabled
-    sc_unsigned_concref();
-};
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_concref<T3,T4> >
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_concref<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_bitref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned_subref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2>, sc_unsigned& );
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_concref<T3,T4> >
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_concref<T3,T4> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_bitref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned_subref );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2>, sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-istream&
-operator >> ( istream&, sc_unsigned_concref<T1,T2>& );
+::std::istream&
+operator >> ( ::std::istream&, sc_unsigned_subref& );
 
 
 // ----------------------------------------------------------------------------
@@ -1154,14 +476,16 @@ operator >> ( istream&, sc_unsigned_concref<T1,T2>& );
 //  Arbitrary precision unsigned number.
 // ----------------------------------------------------------------------------
 
-class sc_unsigned
+class sc_unsigned : public sc_value_base
 {
+    friend class sc_concatref;
     friend class sc_unsigned_bitref_r;
     friend class sc_unsigned_bitref;
     friend class sc_unsigned_subref_r;
     friend class sc_unsigned_subref;
     friend class sc_signed;
     friend class sc_signed_subref;
+    friend class sc_signed_subref_r;
 
   // Needed for types using sc_unsigned.
   typedef bool elemtype;
@@ -1173,83 +497,131 @@ public:
     explicit sc_unsigned( int nb = sc_length_param().len() );
     sc_unsigned( const sc_unsigned& v );
     sc_unsigned( const sc_signed&   v );
+	template<class T>
+    explicit sc_unsigned( const sc_generic_base<T>& v );
+    explicit sc_unsigned( const sc_bv_base& v );
+    explicit sc_unsigned( const sc_lv_base& v );
+    explicit sc_unsigned( const sc_int_subref_r& v );
+    explicit sc_unsigned( const sc_uint_subref_r& v );
+    explicit sc_unsigned( const sc_signed_subref_r& v );
+    explicit sc_unsigned( const sc_unsigned_subref_r& v );
+
 
 
     // assignment operators
 
-    sc_unsigned& operator = (const sc_unsigned&        v);
-    sc_unsigned& operator = (const sc_unsigned_subref_r& a );
+    const sc_unsigned& operator = (const sc_unsigned&        v);
+    const sc_unsigned& operator = (const sc_unsigned_subref_r& a );
 
-    template <class T1, class T2>
-    sc_unsigned& operator = ( const sc_unsigned_concref_r<T1,T2>& a )
-	{ NOT_YET_IMPLEMENTED; return *this; }
+    template<class T>
+    const sc_unsigned& operator = ( const sc_generic_base<T>& a )
+        { a->to_sc_unsigned(*this); return *this; }
 
-    sc_unsigned& operator = (const sc_signed&          v);
-    sc_unsigned& operator = (const sc_signed_subref_r& a );
+    const sc_unsigned& operator = (const sc_signed&          v);
+    const sc_unsigned& operator = (const sc_signed_subref_r& a );
 
-    template <class T1, class T2>
-    sc_unsigned& operator = ( const sc_signed_concref_r<T1,T2>& a )
-	{ NOT_YET_IMPLEMENTED; return *this; }
+    const sc_unsigned& operator = ( const char*               v);
+    const sc_unsigned& operator = ( int64                     v);
+    const sc_unsigned& operator = ( uint64                    v);
+    const sc_unsigned& operator = ( long                      v);
+    const sc_unsigned& operator = ( unsigned long             v);
 
-    sc_unsigned& operator = ( const char*               v);
-    sc_unsigned& operator = ( int64                     v);
-    sc_unsigned& operator = ( uint64                    v);
-    sc_unsigned& operator = ( long                      v);
-    sc_unsigned& operator = ( unsigned long             v);
-
-    sc_unsigned& operator = ( int                       v) 
+    const sc_unsigned& operator = ( int                       v) 
 	{ return operator=((long) v); }
 
-    sc_unsigned& operator = ( unsigned int              v) 
+    const sc_unsigned& operator = ( unsigned int              v) 
 	{ return operator=((unsigned long) v); }
 
-    sc_unsigned& operator = ( double                    v);
-    sc_unsigned& operator = ( const sc_int_base&        v);
-    sc_unsigned& operator = ( const sc_uint_base&       v);
+    const sc_unsigned& operator = ( double                    v);
+    const sc_unsigned& operator = ( const sc_int_base&        v);
+    const sc_unsigned& operator = ( const sc_uint_base&       v);
 
-    sc_unsigned& operator = ( const sc_bv_base& );
-    sc_unsigned& operator = ( const sc_lv_base& );
+    const sc_unsigned& operator = ( const sc_bv_base& );
+    const sc_unsigned& operator = ( const sc_lv_base& );
 
 #ifdef SC_INCLUDE_FX
-    sc_unsigned& operator = ( const sc_fxval& );
-    sc_unsigned& operator = ( const sc_fxval_fast& );
-    sc_unsigned& operator = ( const sc_fxnum& );
-    sc_unsigned& operator = ( const sc_fxnum_fast& );
+    const sc_unsigned& operator = ( const sc_fxval& );
+    const sc_unsigned& operator = ( const sc_fxval_fast& );
+    const sc_unsigned& operator = ( const sc_fxnum& );
+    const sc_unsigned& operator = ( const sc_fxnum_fast& );
 #endif
 
 
     // destructor
 
-    ~sc_unsigned()
+    virtual ~sc_unsigned()
 	{
-#ifndef SC_MAX_NBITS
-	    delete [] digit;
-#endif
+#           ifndef SC_MAX_NBITS
+	        delete [] digit;
+#           endif
 	}
 
+    // Concatenation support:
 
-  // Increment operators.
-  sc_unsigned& operator ++ ();
-  const sc_unsigned operator ++ (int);
+	unsigned long* get_raw() const { return digit; }
+    virtual int concat_length(bool* xz_present_p) const
+       { if ( xz_present_p ) *xz_present_p = false; return nbits-1; }
+    virtual bool concat_get_ctrl( unsigned long* dst_p, int low_i ) const;
+    virtual bool concat_get_data( unsigned long* dst_p, int low_i ) const;
+    virtual uint64 concat_get_uint64() const;
+    virtual void concat_set(int64 src, int low_i);
+    virtual void concat_set(const sc_signed& src, int low_i);
+    virtual void concat_set(const sc_unsigned& src, int low_i);
+    virtual void concat_set(uint64 src, int low_i);
 
-  // Decrement operators.
-  sc_unsigned& operator -- ();
-  const sc_unsigned operator -- (int);
+    // Increment operators.
+
+    sc_unsigned& operator ++ ();
+    const sc_unsigned operator ++ (int);
+
+    // Decrement operators.
+
+    sc_unsigned& operator -- ();
+    const sc_unsigned operator -- (int);
 
 
     // bit selection
 
-    sc_unsigned_bitref operator [] ( int i )
-	{ return sc_unsigned_bitref( *this, i ); }
+    inline void check_index( int i ) const
+        { /*if ( (i < 0) || (i >= nbits-1) ) invalid_index(i);*/ }
 
-    sc_unsigned_bitref_r operator [] ( int i ) const
-	{ return sc_unsigned_bitref_r( *this, i ); }
+    void invalid_index( int i ) const;
 
-    sc_unsigned_bitref bit( int i )
-	{ return sc_unsigned_bitref( *this, i ); }
+    sc_unsigned_bitref& operator [] ( int i )
+        {
+            check_index(i);
+            sc_unsigned_bitref* result_p = 
+	    	sc_unsigned_bitref::m_pool.allocate();
+            result_p->initialize( this, i );
+            return *result_p;
+        }
 
-    sc_unsigned_bitref_r bit( int i ) const
-	{ return sc_unsigned_bitref_r( *this, i ); }
+    const sc_unsigned_bitref_r& operator [] ( int i ) const
+        {
+            check_index(i);
+            sc_unsigned_bitref* result_p = 
+	        sc_unsigned_bitref::m_pool.allocate();
+            result_p->initialize( this, i );
+            return *result_p;
+        }
+
+    sc_unsigned_bitref& bit( int i )
+        {
+            check_index(i);
+            sc_unsigned_bitref* result_p = 
+	        sc_unsigned_bitref::m_pool.allocate();
+            result_p->initialize( this, i );
+            return *result_p;
+        }
+
+    const sc_unsigned_bitref_r& bit( int i ) const
+        {
+            check_index(i);
+            sc_unsigned_bitref* result_p = 
+	        sc_unsigned_bitref::m_pool.allocate();
+            result_p->initialize( this, i );
+            return *result_p;
+        }
 
 
     // part selection
@@ -1261,18 +633,57 @@ public:
     // operator (i, i) returns an unsigned number that corresponds to the
     // bit operator [i], so these two forms are not the same.
 
-    sc_unsigned_subref range( int i, int j )
-	{ return sc_unsigned_subref( *this, i, j ); }
+    inline void check_range( int l, int r ) const
+        {
+#if 0
+            if ( l < r )
+            {
+                if ( (l < 0) || (r >= nbits-1) ) invalid_range(l,r);
+            }
+            else
+            {
+                if ( (r < 0) || (l >= nbits-1) ) invalid_range(l,r);
+            }
+#endif // 0
+        }
 
-    sc_unsigned_subref_r range( int i, int j ) const
-	{ return sc_unsigned_subref_r( *this, i, j ); }
+    void invalid_range( int l, int r ) const;
 
-    sc_unsigned_subref operator () ( int i, int j ) 
-	{ return sc_unsigned_subref( *this, i, j ); }
+    sc_unsigned_subref& range( int i, int j )
+        {
+            check_range(i,j);
+            sc_unsigned_subref* result_p = 
+	        sc_unsigned_subref::m_pool.allocate();
+            result_p->initialize( this, i, j );
+            return *result_p;
+        }
 
-    sc_unsigned_subref_r operator () ( int i, int j ) const
-	{ return sc_unsigned_subref_r( *this, i, j ); }
+    const sc_unsigned_subref_r& range( int i, int j ) const
+        {
+            check_range(i,j);
+            sc_unsigned_subref* result_p = 
+	        sc_unsigned_subref::m_pool.allocate();
+            result_p->initialize( this, i, j );
+            return *result_p;
+        }
 
+    sc_unsigned_subref& operator () ( int i, int j )
+        {
+            check_range(i,j);
+            sc_unsigned_subref* result_p = 
+	        sc_unsigned_subref::m_pool.allocate();
+            result_p->initialize( this, i, j );
+            return *result_p;
+        }
+
+    const sc_unsigned_subref_r& operator () ( int i, int j ) const
+        {
+            check_range(i,j);
+            sc_unsigned_subref* result_p = 
+	        sc_unsigned_subref::m_pool.allocate();
+            result_p->initialize( this, i, j );
+            return *result_p;
+        }
 
     // explicit conversions
 
@@ -1294,24 +705,41 @@ public:
 
     // explicit conversion to character string
 
-    const sc_string to_string( sc_numrep numrep = SC_DEC ) const;
-    const sc_string to_string( sc_numrep numrep, bool w_prefix ) const;
-
+    const std::string to_string( sc_numrep numrep = SC_DEC ) const;
+    const std::string to_string( sc_numrep numrep, bool w_prefix ) const;
 
     // Print functions. dump prints the internals of the class.
 
-    void print( ostream& os = cout ) const
-	{ os << to_string(); }
+    void print( ::std::ostream& os = ::std::cout ) const
+	{ os << to_string(sc_io_base(os,SC_DEC),sc_io_show_base(os)); }
 
-    void scan( istream& is = cin );
+    void scan( ::std::istream& is = ::std::cin );
 
-    void dump( ostream& os = cout ) const;
+    void dump( ::std::ostream& os = ::std::cout ) const;
 
 
   // Functions to find various properties.    
   int  length() const { return nbits - 1; }  // Bit width.
   bool iszero() const;                       // Is the number zero?
   bool sign() const { return 0; }            // Sign.
+
+    // reduce methods
+
+    bool and_reduce() const;
+
+    bool nand_reduce() const
+        { return ( ! and_reduce() ); }
+
+    bool or_reduce() const;
+
+    bool nor_reduce() const
+        { return ( ! or_reduce() ); }
+
+    bool xor_reduce() const;
+
+    bool xnor_reduce() const  
+        { return ( ! xor_reduce() ); }
+
 
   // Functions to access individual bits.  
   bool test(int i) const;      // Is the ith bit 0 or 1?
@@ -1382,23 +810,23 @@ public:
   friend sc_unsigned operator + (unsigned int        u, const sc_unsigned&  v)  
     { return operator+((unsigned long) u,  v); } 
 
-  sc_unsigned& operator += (const sc_signed&    v); 
-  sc_unsigned& operator += (const sc_unsigned&  v); 
-  sc_unsigned& operator += (int64               v); 
-  sc_unsigned& operator += (uint64              v); 
-  sc_unsigned& operator += (long                v); 
-  sc_unsigned& operator += (unsigned long       v); 
-  sc_unsigned& operator += (int                 v) 
+  const sc_unsigned& operator += (const sc_signed&    v); 
+  const sc_unsigned& operator += (const sc_unsigned&  v); 
+  const sc_unsigned& operator += (int64               v); 
+  const sc_unsigned& operator += (uint64              v); 
+  const sc_unsigned& operator += (long                v); 
+  const sc_unsigned& operator += (unsigned long       v); 
+  const sc_unsigned& operator += (int                 v) 
     { return operator+=((long) v); }
-  sc_unsigned& operator += (unsigned int        v) 
+  const sc_unsigned& operator += (unsigned int        v) 
     { return operator+=((unsigned long) v); }
 
   friend sc_unsigned operator + (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator + (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator + (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator + (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator += (const sc_int_base&  v);
-  sc_unsigned& operator += (const sc_uint_base& v);
+  const sc_unsigned& operator += (const sc_int_base&  v);
+  const sc_unsigned& operator += (const sc_uint_base& v);
 
   // SUBtraction operators:
    
@@ -1420,23 +848,23 @@ public:
   friend   sc_signed operator - (int                 u, const sc_unsigned&  v);
   friend   sc_signed operator - (unsigned int        u, const sc_unsigned&  v); 
 
-  sc_unsigned& operator -= (const sc_signed&    v); 
-  sc_unsigned& operator -= (const sc_unsigned&  v); 
-  sc_unsigned& operator -= (int64               v); 
-  sc_unsigned& operator -= (uint64              v); 
-  sc_unsigned& operator -= (long                v); 
-  sc_unsigned& operator -= (unsigned long       v); 
-  sc_unsigned& operator -= (int                 v) 
+  const sc_unsigned& operator -= (const sc_signed&    v); 
+  const sc_unsigned& operator -= (const sc_unsigned&  v); 
+  const sc_unsigned& operator -= (int64               v); 
+  const sc_unsigned& operator -= (uint64              v); 
+  const sc_unsigned& operator -= (long                v); 
+  const sc_unsigned& operator -= (unsigned long       v); 
+  const sc_unsigned& operator -= (int                 v) 
     { return operator-=((long) v); }
-  sc_unsigned& operator -= (unsigned int        v) 
+  const sc_unsigned& operator -= (unsigned int        v) 
     { return operator-=((unsigned long) v); }
 
   friend   sc_signed operator - (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator - (const sc_unsigned&  u, const sc_int_base&  v);
   friend   sc_signed operator - (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator - (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator -= (const sc_int_base&  v);
-  sc_unsigned& operator -= (const sc_uint_base& v);
+  const sc_unsigned& operator -= (const sc_int_base&  v);
+  const sc_unsigned& operator -= (const sc_uint_base& v);
 
   // MULtiplication operators:
    
@@ -1460,23 +888,23 @@ public:
   friend sc_unsigned operator * (unsigned int        u, const sc_unsigned&  v)  
     { return operator*((unsigned long) u,  v); } 
 
-  sc_unsigned& operator *= (const sc_signed&    v); 
-  sc_unsigned& operator *= (const sc_unsigned&  v); 
-  sc_unsigned& operator *= (int64               v); 
-  sc_unsigned& operator *= (uint64              v); 
-  sc_unsigned& operator *= (long                v); 
-  sc_unsigned& operator *= (unsigned long       v); 
-  sc_unsigned& operator *= (int                 v) 
+  const sc_unsigned& operator *= (const sc_signed&    v); 
+  const sc_unsigned& operator *= (const sc_unsigned&  v); 
+  const sc_unsigned& operator *= (int64               v); 
+  const sc_unsigned& operator *= (uint64              v); 
+  const sc_unsigned& operator *= (long                v); 
+  const sc_unsigned& operator *= (unsigned long       v); 
+  const sc_unsigned& operator *= (int                 v) 
     { return operator*=((long) v); }
-  sc_unsigned& operator *= (unsigned int        v) 
+  const sc_unsigned& operator *= (unsigned int        v) 
     { return operator*=((unsigned long) v); }
 
   friend sc_unsigned operator * (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator * (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator * (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator * (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator *= (const sc_int_base&  v);
-  sc_unsigned& operator *= (const sc_uint_base& v);
+  const sc_unsigned& operator *= (const sc_int_base&  v);
+  const sc_unsigned& operator *= (const sc_uint_base& v);
 
   // DIVision operators:
    
@@ -1500,23 +928,23 @@ public:
   friend sc_unsigned operator / (unsigned int        u, const sc_unsigned&  v)  
     { return operator/((unsigned long) u,  v); } 
 
-  sc_unsigned& operator /= (const sc_signed&    v); 
-  sc_unsigned& operator /= (const sc_unsigned&  v); 
-  sc_unsigned& operator /= (int64               v); 
-  sc_unsigned& operator /= (uint64              v); 
-  sc_unsigned& operator /= (long                v); 
-  sc_unsigned& operator /= (unsigned long       v); 
-  sc_unsigned& operator /= (int                 v) 
+  const sc_unsigned& operator /= (const sc_signed&    v); 
+  const sc_unsigned& operator /= (const sc_unsigned&  v); 
+  const sc_unsigned& operator /= (int64               v); 
+  const sc_unsigned& operator /= (uint64              v); 
+  const sc_unsigned& operator /= (long                v); 
+  const sc_unsigned& operator /= (unsigned long       v); 
+  const sc_unsigned& operator /= (int                 v) 
     { return operator/=((long) v); }
-  sc_unsigned& operator /= (unsigned int        v) 
+  const sc_unsigned& operator /= (unsigned int        v) 
     { return operator/=((unsigned long) v); }
 
   friend sc_unsigned operator / (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator / (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator / (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator / (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator /= (const sc_int_base&  v);
-  sc_unsigned& operator /= (const sc_uint_base& v);
+  const sc_unsigned& operator /= (const sc_int_base&  v);
+  const sc_unsigned& operator /= (const sc_uint_base& v);
 
   // MODulo operators:
    
@@ -1540,23 +968,23 @@ public:
   friend sc_unsigned operator % (unsigned int        u, const sc_unsigned&  v)  
     { return operator%((unsigned long) u,  v); } 
 
-  sc_unsigned& operator %= (const sc_signed&    v); 
-  sc_unsigned& operator %= (const sc_unsigned&  v); 
-  sc_unsigned& operator %= (int64               v); 
-  sc_unsigned& operator %= (uint64              v); 
-  sc_unsigned& operator %= (long                v); 
-  sc_unsigned& operator %= (unsigned long       v); 
-  sc_unsigned& operator %= (int                 v) 
+  const sc_unsigned& operator %= (const sc_signed&    v); 
+  const sc_unsigned& operator %= (const sc_unsigned&  v); 
+  const sc_unsigned& operator %= (int64               v); 
+  const sc_unsigned& operator %= (uint64              v); 
+  const sc_unsigned& operator %= (long                v); 
+  const sc_unsigned& operator %= (unsigned long       v); 
+  const sc_unsigned& operator %= (int                 v) 
     { return operator%=((long) v); }
-  sc_unsigned& operator %= (unsigned int        v) 
+  const sc_unsigned& operator %= (unsigned int        v) 
     { return operator%=((unsigned long) v); }
 
   friend sc_unsigned operator % (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator % (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator % (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator % (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator %= (const sc_int_base&  v);
-  sc_unsigned& operator %= (const sc_uint_base& v);
+  const sc_unsigned& operator %= (const sc_int_base&  v);
+  const sc_unsigned& operator %= (const sc_uint_base& v);
 
   // BITWISE OPERATORS:
 
@@ -1582,23 +1010,23 @@ public:
   friend sc_unsigned operator & (unsigned int        u, const sc_unsigned&  v)  
     { return operator&((unsigned long) u,  v); } 
 
-  sc_unsigned& operator &= (const sc_signed&    v); 
-  sc_unsigned& operator &= (const sc_unsigned&  v); 
-  sc_unsigned& operator &= (int64               v); 
-  sc_unsigned& operator &= (uint64              v); 
-  sc_unsigned& operator &= (long                v); 
-  sc_unsigned& operator &= (unsigned long       v); 
-  sc_unsigned& operator &= (int                 v) 
+  const sc_unsigned& operator &= (const sc_signed&    v); 
+  const sc_unsigned& operator &= (const sc_unsigned&  v); 
+  const sc_unsigned& operator &= (int64               v); 
+  const sc_unsigned& operator &= (uint64              v); 
+  const sc_unsigned& operator &= (long                v); 
+  const sc_unsigned& operator &= (unsigned long       v); 
+  const sc_unsigned& operator &= (int                 v) 
     { return operator&=((long) v); }
-  sc_unsigned& operator &= (unsigned int        v) 
+  const sc_unsigned& operator &= (unsigned int        v) 
     { return operator&=((unsigned long) v); }
 
   friend sc_unsigned operator & (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator & (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator & (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator & (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator &= (const sc_int_base&  v);
-  sc_unsigned& operator &= (const sc_uint_base& v);
+  const sc_unsigned& operator &= (const sc_int_base&  v);
+  const sc_unsigned& operator &= (const sc_uint_base& v);
 
   // Bitwise OR operators:
    
@@ -1622,23 +1050,23 @@ public:
   friend sc_unsigned operator | (unsigned int        u, const sc_unsigned&  v)  
     { return operator|((unsigned long) u,  v); } 
 
-  sc_unsigned& operator |= (const sc_signed&    v); 
-  sc_unsigned& operator |= (const sc_unsigned&  v); 
-  sc_unsigned& operator |= (int64               v); 
-  sc_unsigned& operator |= (uint64              v); 
-  sc_unsigned& operator |= (long                v); 
-  sc_unsigned& operator |= (unsigned long       v); 
-  sc_unsigned& operator |= (int                 v) 
+  const sc_unsigned& operator |= (const sc_signed&    v); 
+  const sc_unsigned& operator |= (const sc_unsigned&  v); 
+  const sc_unsigned& operator |= (int64               v); 
+  const sc_unsigned& operator |= (uint64              v); 
+  const sc_unsigned& operator |= (long                v); 
+  const sc_unsigned& operator |= (unsigned long       v); 
+  const sc_unsigned& operator |= (int                 v) 
     { return operator|=((long) v); }
-  sc_unsigned& operator |= (unsigned int        v) 
+  const sc_unsigned& operator |= (unsigned int        v) 
     { return operator|=((unsigned long) v); }
 
   friend sc_unsigned operator | (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator | (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator | (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator | (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator |= (const sc_int_base&  v);
-  sc_unsigned& operator |= (const sc_uint_base& v);
+  const sc_unsigned& operator |= (const sc_int_base&  v);
+  const sc_unsigned& operator |= (const sc_uint_base& v);
 
   // Bitwise XOR operators:
    
@@ -1662,23 +1090,23 @@ public:
   friend sc_unsigned operator ^ (unsigned int        u, const sc_unsigned&  v)  
     { return operator^((unsigned long) u,  v); } 
 
-  sc_unsigned& operator ^= (const sc_signed&    v); 
-  sc_unsigned& operator ^= (const sc_unsigned&  v); 
-  sc_unsigned& operator ^= (int64               v); 
-  sc_unsigned& operator ^= (uint64              v); 
-  sc_unsigned& operator ^= (long                v); 
-  sc_unsigned& operator ^= (unsigned long       v); 
-  sc_unsigned& operator ^= (int                 v) 
+  const sc_unsigned& operator ^= (const sc_signed&    v); 
+  const sc_unsigned& operator ^= (const sc_unsigned&  v); 
+  const sc_unsigned& operator ^= (int64               v); 
+  const sc_unsigned& operator ^= (uint64              v); 
+  const sc_unsigned& operator ^= (long                v); 
+  const sc_unsigned& operator ^= (unsigned long       v); 
+  const sc_unsigned& operator ^= (int                 v) 
     { return operator^=((long) v); }
-  sc_unsigned& operator ^= (unsigned int        v) 
+  const sc_unsigned& operator ^= (unsigned int        v) 
     { return operator^=((unsigned long) v); }
 
   friend sc_unsigned operator ^ (const sc_unsigned&  u, const sc_uint_base& v);
   friend   sc_signed operator ^ (const sc_unsigned&  u, const sc_int_base&  v);
   friend sc_unsigned operator ^ (const sc_uint_base& u, const sc_unsigned&  v);
   friend   sc_signed operator ^ (const sc_int_base&  u, const sc_unsigned&  v);
-  sc_unsigned& operator ^= (const sc_int_base&  v);
-  sc_unsigned& operator ^= (const sc_uint_base& v);
+  const sc_unsigned& operator ^= (const sc_int_base&  v);
+  const sc_unsigned& operator ^= (const sc_uint_base& v);
 
   // SHIFT OPERATORS:
 
@@ -1697,21 +1125,21 @@ public:
   friend sc_unsigned operator << (const sc_unsigned&  u, unsigned int        v) 
     { return operator<<(u, (unsigned long) v); }
 
-  sc_unsigned& operator <<= (const sc_signed&    v); 
-  sc_unsigned& operator <<= (const sc_unsigned&  v); 
-  sc_unsigned& operator <<= (int64               v); 
-  sc_unsigned& operator <<= (uint64              v); 
-  sc_unsigned& operator <<= (long                v); 
-  sc_unsigned& operator <<= (unsigned long       v); 
-  sc_unsigned& operator <<= (int                 v) 
+  const sc_unsigned& operator <<= (const sc_signed&    v); 
+  const sc_unsigned& operator <<= (const sc_unsigned&  v); 
+  const sc_unsigned& operator <<= (int64               v); 
+  const sc_unsigned& operator <<= (uint64              v); 
+  const sc_unsigned& operator <<= (long                v); 
+  const sc_unsigned& operator <<= (unsigned long       v); 
+  const sc_unsigned& operator <<= (int                 v) 
     { return operator<<=((long) v); }
-  sc_unsigned& operator <<= (unsigned int        v) 
+  const sc_unsigned& operator <<= (unsigned int        v) 
     { return operator<<=((unsigned long) v); }
 
   friend sc_unsigned operator << (const sc_unsigned&  u, const sc_uint_base& v);
   friend sc_unsigned operator << (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned& operator <<= (const sc_int_base&  v);
-  sc_unsigned& operator <<= (const sc_uint_base& v);
+  const sc_unsigned& operator <<= (const sc_int_base&  v);
+  const sc_unsigned& operator <<= (const sc_uint_base& v);
 
   // RIGHT SHIFT operators:
    
@@ -1728,21 +1156,21 @@ public:
   friend sc_unsigned operator >> (const sc_unsigned&  u, unsigned int        v) 
     { return operator>>(u, (unsigned long) v); }
 
-  sc_unsigned& operator >>= (const sc_signed&    v); 
-  sc_unsigned& operator >>= (const sc_unsigned&  v); 
-  sc_unsigned& operator >>= (int64               v); 
-  sc_unsigned& operator >>= (uint64              v); 
-  sc_unsigned& operator >>= (long                v); 
-  sc_unsigned& operator >>= (unsigned long       v); 
-  sc_unsigned& operator >>= (int                 v) 
+  const sc_unsigned& operator >>= (const sc_signed&    v); 
+  const sc_unsigned& operator >>= (const sc_unsigned&  v); 
+  const sc_unsigned& operator >>= (int64               v); 
+  const sc_unsigned& operator >>= (uint64              v); 
+  const sc_unsigned& operator >>= (long                v); 
+  const sc_unsigned& operator >>= (unsigned long       v); 
+  const sc_unsigned& operator >>= (int                 v) 
     { return operator>>=((long) v); }
-  sc_unsigned& operator >>= (unsigned int        v) 
+  const sc_unsigned& operator >>= (unsigned int        v) 
     { return operator>>=((unsigned long) v); }
 
   friend sc_unsigned operator >> ( const sc_unsigned& , const sc_uint_base& );
   friend sc_unsigned operator >> ( const sc_unsigned&, const sc_int_base& );
-  sc_unsigned& operator >>= (const sc_int_base&  v);
-  sc_unsigned& operator >>= (const sc_uint_base& v);
+  const sc_unsigned& operator >>= (const sc_int_base&  v);
+  const sc_unsigned& operator >>= (const sc_uint_base& v);
 
   // Unary arithmetic operators
   friend sc_unsigned operator + (const sc_unsigned& u);
@@ -2008,6 +1436,9 @@ public:
                                          int vnd,
                                          const unsigned long *vd);
   
+public:
+  static sc_core::sc_vpool<sc_unsigned> m_pool;
+
 private:
 
   small_type  sgn;         // Shortened as s.
@@ -2031,6 +1462,7 @@ private:
               unsigned long *d, bool alloc = true);
 
   // Create an unsigned number using the bits u[l..r].
+  sc_unsigned(const sc_signed* u, int l, int r);
   sc_unsigned(const sc_unsigned* u, int l, int r);
 
   // Private member functions. The called functions are inline functions.
@@ -2062,195 +1494,14 @@ private:
 };
 
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( const sc_unsigned&, sc_unsigned_concref_r<T1,T2> );
 
 inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( const sc_unsigned&, sc_unsigned_bitref_r );
+::std::ostream&
+operator << ( ::std::ostream&, const sc_unsigned& );
 
 inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( const sc_unsigned&, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned&, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned&, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( bool, const sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( const sc_unsigned&, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( const sc_unsigned&, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( const sc_unsigned&, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned&, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned&, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( bool, const sc_unsigned& );
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( const sc_unsigned&, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned&, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( const sc_unsigned&, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( sc_unsigned&, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( const sc_unsigned&, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( sc_unsigned&, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned&, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned&, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned&, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( bool, sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( const sc_unsigned&, sc_unsigned_concref<T1,T2> );
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned&, sc_unsigned_concref_r<T1,T2> );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( const sc_unsigned&, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( sc_unsigned&, sc_unsigned_bitref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( const sc_unsigned&, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( sc_unsigned&, sc_unsigned_subref_r );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned&, sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( sc_unsigned&, const sc_unsigned& );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( sc_unsigned&, bool );
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( bool, sc_unsigned& );
-
-#endif
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned&, sc_unsigned_concref<T1,T2> );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>
-operator , ( sc_unsigned&, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>
-operator , ( sc_unsigned&, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned&, sc_unsigned& );
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned&, sc_unsigned_concref<T1,T2> );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>
-concat( sc_unsigned&, sc_unsigned_bitref );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>
-concat( sc_unsigned&, sc_unsigned_subref );
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned>
-concat( sc_unsigned&, sc_unsigned& );
-
-
-inline
-ostream&
-operator << ( ostream&, const sc_unsigned& );
-
-inline
-istream&
-operator >> ( istream&, sc_unsigned& );
+::std::istream&
+operator >> ( ::std::istream&, sc_unsigned& );
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
@@ -2261,303 +1512,10 @@ operator >> ( istream&, sc_unsigned& );
 //  Proxy class for sc_unsigned bit selection (r-value only).
 // ----------------------------------------------------------------------------
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
 
 inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( bool a, sc_unsigned_bitref_r b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref_r a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref_r a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref_r a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( bool a, sc_unsigned_bitref_r b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_bitref a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_bitref a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref_r a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_bitref a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref_r a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-operator , ( sc_unsigned_bitref a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( bool a, sc_unsigned_bitref b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref_r a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_bitref a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref_r a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_bitref a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref_r a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_bitref a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref_r a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>
-concat( sc_unsigned_bitref a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_bitref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( bool a, sc_unsigned_bitref b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_unsigned_bitref_r& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_unsigned_bitref_r& a )
 {
     a.print( os );
     return os;
@@ -2570,79 +1528,18 @@ operator << ( ostream& os, const sc_unsigned_bitref_r& a )
 //  Proxy class for sc_unsigned bit selection (r-value and l-value).
 // ----------------------------------------------------------------------------
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned_bitref a, sc_unsigned_concref<T1,T2> b )
+template<class T>
+inline const sc_unsigned_subref& sc_unsigned_subref::operator = ( 
+    const sc_generic_base<T>& a )
 {
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
+    sc_unsigned temp( length() );
+    a->to_sc_unsigned(temp);
+    return *this = temp;
+} 
 
 inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>
-operator , ( sc_unsigned_bitref a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>
-operator , ( sc_unsigned_bitref a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>
-operator , ( sc_unsigned_bitref a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned_bitref a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>
-concat( sc_unsigned_bitref a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>
-concat( sc_unsigned_bitref a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>
-concat( sc_unsigned_bitref a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_bitref,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-inline
-istream&
-operator >> ( istream& is, sc_unsigned_bitref& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_unsigned_bitref& a )
 {
     a.scan( is );
     return is;
@@ -2655,303 +1552,53 @@ operator >> ( istream& is, sc_unsigned_bitref& a )
 //  Proxy class for sc_unsigned part selection (r-value only).
 // ----------------------------------------------------------------------------
 
-// r-value concatenation operators and functions
+// reduce methods
 
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref_r a, sc_unsigned_concref_r<T1,T2> b )
+inline bool sc_unsigned_subref_r::and_reduce() const 
 {
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
+   const sc_unsigned* target_p = m_obj_p;
+   for ( int i = m_right; i <= m_left; i++ )
+	if ( !target_p->test(i) ) return false;
+   return true;
 }
 
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref_r a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
+inline bool sc_unsigned_subref_r::nand_reduce() const
+{ 
+    return !and_reduce(); 
 }
 
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref_r a, sc_unsigned_subref_r b )
+inline bool sc_unsigned_subref_r::or_reduce() const 
 {
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
+   const sc_unsigned* target_p = m_obj_p;
+   for ( int i = m_right; i <= m_left; i++ )
+	if ( target_p->test(i) ) return true;
+   return false;
 }
 
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
+inline bool sc_unsigned_subref_r::nor_reduce() const
+{ 
+    return !or_reduce(); 
 }
 
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r a, bool b )
+inline bool sc_unsigned_subref_r::xor_reduce() const 
 {
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
+   int                odd;
+   const sc_unsigned* target_p = m_obj_p;
+   odd = 0;
+   for ( int i = m_right; i <= m_left; i++ )
+	if ( target_p->test(i) ) odd = ~odd;
+   return odd ? true : false;
 }
 
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( bool a, sc_unsigned_subref_r b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	aa, *b.clone(), 3 );
+inline bool sc_unsigned_subref_r::xnor_reduce() const
+{ 
+    return !xor_reduce(); 
 }
 
 
-template <class T1, class T2>
 inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref_r a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref_r a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref_r a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( bool a, sc_unsigned_subref_r b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref_r a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned_subref a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref_r a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_subref a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref_r a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-operator , ( sc_unsigned_subref a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref_r a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-operator , ( sc_unsigned_subref a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( bool a, sc_unsigned_subref b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref_r a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned_subref a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,
-	                         sc_unsigned_concref_r<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref_r a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>
-concat( sc_unsigned_subref a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref_r a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>
-concat( sc_unsigned_subref a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref_r a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>
-concat( sc_unsigned_subref a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_subref_r,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( bool a, sc_unsigned_subref b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_unsigned_subref_r& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_unsigned_subref_r& a )
 {
     a.print( os );
     return os;
@@ -2967,7 +1614,7 @@ operator << ( ostream& os, const sc_unsigned_subref_r& a )
 // assignment operators
 
 inline
-sc_unsigned_subref&
+const sc_unsigned_subref&
 sc_unsigned_subref::operator = ( const char* a )
 {
     sc_unsigned aa( length() );
@@ -2975,554 +1622,14 @@ sc_unsigned_subref::operator = ( const char* a )
 }
 
 
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
 inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned_subref a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>
-operator , ( sc_unsigned_subref a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>
-operator , ( sc_unsigned_subref a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>
-operator , ( sc_unsigned_subref a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned_subref a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_concref<T1,T2> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>
-concat( sc_unsigned_subref a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>
-concat( sc_unsigned_subref a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>
-concat( sc_unsigned_subref a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_subref,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-inline
-istream&
-operator >> ( istream& is, sc_unsigned_subref& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_unsigned_subref& a )
 {
     a.scan( is );
     return is;
 }
 
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_unsigned_concref_r<T1,T2>
-//
-//  Proxy class for sc_unsigned concatenation (r-value only).
-//  NOT YET IMPLEMENTED
-// ----------------------------------------------------------------------------
-
-// destructor
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<T1,T2>::~sc_unsigned_concref_r()
-{
-    if( -- m_refs == 0 ) {
-	delete &m_refs;
-	if( m_delete == 0 ) {
-	    return;
-	}
-	if( m_delete & 1 ) {
-	    delete &m_left;
-	}
-	if( m_delete & 2 ) {
-	    delete &m_right;
-	}
-    }
-}
-
-
-// r-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_concref_r<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2> a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2> a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( bool a, sc_unsigned_concref_r<T1,T2> b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_concref_r<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2> a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2> a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( bool a, sc_unsigned_concref_r<T1,T2> b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_concref<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_concref_r<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref_r<T1,T2> a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2> a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2> a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( bool a, sc_unsigned_concref<T1,T2> b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_concref<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-                      sc_unsigned_concref_r<T3,T4> >
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_concref_r<T3,T4> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_concref_r<T3,T4> >(
-        *a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_bitref_r>
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_bitref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned_subref_r>
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,
-	                         sc_unsigned_subref_r>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref_r<T1,T2> a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2> a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2> a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned_concref_r<T1,T2>,sc_unsigned>(
-	*a.clone(), bb, 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( bool a, sc_unsigned_concref<T1,T2> b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	aa, *b.clone(), 3 );
-}
-
-#endif
-
-
-template <class T1, class T2>
-inline
-ostream&
-operator << ( ostream& os, const sc_unsigned_concref_r<T1,T2>& a )
-{
-    a.print( os );
-    return os;
-}
-
-
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_unsigned_concref<T1,T2>
-//
-//  Proxy class for sc_unsigned concatenation (r-value and l-value).
-//  NOT YET IMPLEMENTED
-// ----------------------------------------------------------------------------
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_concref<T3,T4> >
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_concref<T3,T4> b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,
-                               sc_unsigned_concref<T3,T4> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>
-operator , ( sc_unsigned_concref<T1,T2> a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2, class T3, class T4>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_concref<T3,T4> >
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_concref<T3,T4> b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,
-                               sc_unsigned_concref<T3,T4> >(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_bitref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned_subref>(
-	*a.clone(), *b.clone(), 3 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>
-concat( sc_unsigned_concref<T1,T2> a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned_concref<T1,T2>,sc_unsigned>(
-	*a.clone(), b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-istream&
-operator >> ( istream& is, sc_unsigned_concref<T1,T2>& a )
-{
-    a.scan( is );
-    return is;
-}
 
 
 // ----------------------------------------------------------------------------
@@ -3531,382 +1638,46 @@ operator >> ( istream& is, sc_unsigned_concref<T1,T2>& a )
 //  Arbitrary precision signed number.
 // ----------------------------------------------------------------------------
 
-// r-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( const sc_unsigned& a, sc_unsigned_concref_r<T1,T2> b )
+template<class T> 
+sc_unsigned::sc_unsigned( const sc_generic_base<T>& v ) 
 {
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
+    int nb = v->length();
+    sgn = default_sign();
+    if( nb > 0 ) {
+        nbits = num_bits( nb );
+    } else {
+        char msg[BUFSIZ];
+        sprintf( msg, 
+		    "sc_unsigned( sc_generic_base<T> ) : nb = %d is not valid", nb);
+        SC_REPORT_ERROR( sc_core::SC_ID_INIT_FAILED_, msg );
+    }
+    ndigits = DIV_CEIL(nbits);
+#   ifdef SC_MAX_NBITS
+        test_bound(nb);
+#    else
+        digit = new unsigned long[ndigits];
+#    endif
+    makezero();
+    v->to_sc_unsigned(*this);
 }
+    
 
 inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( const sc_unsigned& a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( const sc_unsigned& a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned& a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned& a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, bb, 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( bool a, const sc_unsigned& b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	aa, b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( const sc_unsigned& a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( const sc_unsigned& a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( const sc_unsigned& a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned& a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned& a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, bb, 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( bool a, const sc_unsigned& b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	aa, b, 1 );
-}
-
-
-#ifdef SC_DT_MIXED_COMMA_OPERATORS
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( const sc_unsigned& a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-operator , ( sc_unsigned& a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( const sc_unsigned& a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-operator , ( sc_unsigned& a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( const sc_unsigned& a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-operator , ( sc_unsigned& a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( const sc_unsigned& a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned& a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned& a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, bb, 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-operator , ( bool a, sc_unsigned& b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	aa, b, 1 );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( const sc_unsigned& a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >
-concat( sc_unsigned& a, sc_unsigned_concref_r<T1,T2> b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_concref_r<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( const sc_unsigned& a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>
-concat( sc_unsigned& a, sc_unsigned_bitref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_bitref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( const sc_unsigned& a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>
-concat( sc_unsigned& a, sc_unsigned_subref_r b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned_subref_r>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( const sc_unsigned& a, sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( sc_unsigned& a, const sc_unsigned& b )
-{
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( sc_unsigned& a, bool b )
-{
-    sc_unsigned& bb = *new sc_unsigned( 1 );
-    bb = (b ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	a, bb, 2 );
-}
-
-inline
-sc_unsigned_concref_r<sc_unsigned,sc_unsigned>
-concat( bool a, sc_unsigned& b )
-{
-    sc_unsigned& aa = *new sc_unsigned( 1 );
-    aa = (a ? 1 : 0);
-    return sc_unsigned_concref_r<sc_unsigned,sc_unsigned>(
-	aa, b, 1 );
-}
-
-#endif
-
-
-// l-value concatenation operators and functions
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >
-operator , ( sc_unsigned& a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>
-operator , ( sc_unsigned& a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>
-operator , ( sc_unsigned& a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned>
-operator , ( sc_unsigned& a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-
-template <class T1, class T2>
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >
-concat( sc_unsigned& a, sc_unsigned_concref<T1,T2> b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_concref<T1,T2> >(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>
-concat( sc_unsigned& a, sc_unsigned_bitref b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_bitref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>
-concat( sc_unsigned& a, sc_unsigned_subref b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned_subref>(
-	a, *b.clone(), 2 );
-}
-
-inline
-sc_unsigned_concref<sc_unsigned,sc_unsigned>
-concat( sc_unsigned& a, sc_unsigned& b )
-{
-    return sc_unsigned_concref<sc_unsigned,sc_unsigned>(
-	a, b );
-}
-
-
-inline
-ostream&
-operator << ( ostream& os, const sc_unsigned& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_unsigned& a )
 {
     a.print( os );
     return os;
 }
 
 inline
-istream&
-operator >> ( istream& is, sc_unsigned& a )
+::std::istream&
+operator >> ( ::std::istream& is, sc_unsigned& a )
 {
     a.scan( is );
     return is;
 }
 
-
-#undef NOT_YET_IMPLEMENTED
 
 } // namespace sc_dt
 

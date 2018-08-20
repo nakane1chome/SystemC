@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -30,27 +30,30 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: Add make_static_sensitivity() methods to enable
+                               dynamic method process creation with static 
+                               sensitivity.
 
  *****************************************************************************/
 
 #ifndef SC_SENSITIVE_H
 #define SC_SENSITIVE_H
 
-
-#include "systemc/kernel/sc_process.h"
-
+#include "sysc/kernel/sc_process.h"
 
 namespace sc_dt
 {
     class sc_logic;
 }
-using sc_dt::sc_logic;
+
+namespace sc_core {
 
 class sc_event;
 class sc_event_finder;
 class sc_interface;
+class sc_module;
 class sc_port_base;
 template <class T> class sc_in;
 template <class T> class sc_inout;
@@ -70,12 +73,12 @@ class sc_sensitive
 public:
 
     // typedefs
-    typedef sc_signal_in_if<bool>     in_if_b_type;
-    typedef sc_signal_in_if<sc_logic> in_if_l_type;
-    typedef sc_in<bool>               in_port_b_type;
-    typedef sc_in<sc_logic>           in_port_l_type;
-    typedef sc_inout<bool>            inout_port_b_type;
-    typedef sc_inout<sc_logic>        inout_port_l_type;
+    typedef sc_signal_in_if<bool>            in_if_b_type;
+    typedef sc_signal_in_if<sc_dt::sc_logic> in_if_l_type;
+    typedef sc_in<bool>                      in_port_b_type;
+    typedef sc_in<sc_dt::sc_logic>           in_port_l_type;
+    typedef sc_inout<bool>                   inout_port_b_type;
+    typedef sc_inout<sc_dt::sc_logic>        inout_port_l_type;
 
 private:
 
@@ -109,6 +112,13 @@ public:
     sc_sensitive& operator () ( sc_cthread_handle, const inout_port_b_type& );
     sc_sensitive& operator () ( sc_cthread_handle, const inout_port_l_type& );
 
+    static void make_static_sensitivity( sc_process_b*, const sc_event& );
+    static void make_static_sensitivity( sc_process_b*, const sc_interface& );
+    static void make_static_sensitivity( sc_process_b*, const sc_port_base& );
+    static void make_static_sensitivity( sc_process_b*, sc_event_finder& );
+
+    void reset();
+
 private:
 
     sc_module*                                m_module;
@@ -138,12 +148,12 @@ class sc_sensitive_pos
 public:
 
     // typedefs
-    typedef sc_signal_in_if<bool>     in_if_b_type;
-    typedef sc_signal_in_if<sc_logic> in_if_l_type;
-    typedef sc_in<bool>               in_port_b_type;
-    typedef sc_in<sc_logic>           in_port_l_type;
-    typedef sc_inout<bool>            inout_port_b_type;
-    typedef sc_inout<sc_logic>        inout_port_l_type;
+    typedef sc_signal_in_if<bool>            in_if_b_type;
+    typedef sc_signal_in_if<sc_dt::sc_logic> in_if_l_type;
+    typedef sc_in<bool>                      in_port_b_type;
+    typedef sc_in<sc_dt::sc_logic>           in_port_l_type;
+    typedef sc_inout<bool>                   inout_port_b_type;
+    typedef sc_inout<sc_dt::sc_logic>        inout_port_l_type;
 
 private:
 
@@ -173,6 +183,8 @@ public:
     sc_sensitive_pos& operator << ( const inout_port_b_type& );
     sc_sensitive_pos& operator << ( const inout_port_l_type& );
 
+    void reset();
+
 private:
 
     sc_module*                                m_module;
@@ -201,12 +213,12 @@ class sc_sensitive_neg
 public:
 
     // typedefs
-    typedef sc_signal_in_if<bool>     in_if_b_type;
-    typedef sc_signal_in_if<sc_logic> in_if_l_type;
-    typedef sc_in<bool>               in_port_b_type;
-    typedef sc_in<sc_logic>           in_port_l_type;
-    typedef sc_inout<bool>            inout_port_b_type;
-    typedef sc_inout<sc_logic>        inout_port_l_type;
+    typedef sc_signal_in_if<bool>            in_if_b_type;
+    typedef sc_signal_in_if<sc_dt::sc_logic> in_if_l_type;
+    typedef sc_in<bool>                      in_port_b_type;
+    typedef sc_in<sc_dt::sc_logic>           in_port_l_type;
+    typedef sc_inout<bool>                   inout_port_b_type;
+    typedef sc_inout<sc_dt::sc_logic>        inout_port_l_type;
 
 private:
 
@@ -236,6 +248,8 @@ public:
     sc_sensitive_neg& operator << ( const inout_port_b_type& );
     sc_sensitive_neg& operator << ( const inout_port_l_type& );
 
+    void reset();
+
 private:
 
     sc_module*                                m_module;
@@ -250,6 +264,7 @@ private:
     sc_sensitive_neg& operator = ( const sc_sensitive_neg& );
 };
 
+} // namespace sc_core 
 
 #endif
 

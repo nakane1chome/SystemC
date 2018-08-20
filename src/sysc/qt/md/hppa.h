@@ -20,8 +20,8 @@
  */
 
 
-#ifndef QT_PA_RISC_H
-#define QT_PA_RISC_H
+#ifndef QUICKTHREADS_PA_RISC_H
+#define QUICKTHREADS_PA_RISC_H
 
 #if 0
 #include <qt.h>
@@ -31,7 +31,7 @@
 typedef unsigned long qt_word_t;
 
 /* PA-RISC's stack grows up */
-#define QT_GROW_UP
+#define QUICKTHREADS_GROW_UP
 
 /* Stack layout on PA-RISC according to PA-RISC Procedure Calling Conventions:
 
@@ -112,26 +112,26 @@ typedef unsigned long qt_word_t;
    of the procedure (PA-RISC Procedure Calling Conventions Reference
    Manual, 5.3.2 Procedure Labels and Dynamic Calls). */
 
-#define QT_PA_RISC_READ_PLABEL(plabel) \
+#define QUICKTHREADS_PA_RISC_READ_PLABEL(plabel) \
     ( (((int)plabel) & 2) ? \
         ( (*((int *)(((int)plabel) & 0xfffffffc)))) : ((int)plabel) )
 
 /* Stack must be 64 bytes aligned. */
-#define QT_STKALIGN (64)
+#define QUICKTHREADS_STKALIGN (64)
 
 /* Internal helper for putting stuff on stack (negative index!). */
-#define QT_SPUT(top, at, val)   \
+#define QUICKTHREADS_SPUT(top, at, val)   \
     (((qt_word_t *)(top))[-(at)] = (qt_word_t)(val))
 
 /* Offsets of various registers which are modified on the stack.
    rp (return-pointer) has to be stored in the frame-marker-area
    of the "older" stack-segment. */
 
-#define QT_crp  (12+4+16+5)
-#define QT_15   (12+4+4)
-#define QT_16   (12+4+3)
-#define QT_17   (12+4+2)
-#define QT_18   (12+4+1)
+#define QUICKTHREADS_crp  (12+4+16+5)
+#define QUICKTHREADS_15   (12+4+4)
+#define QUICKTHREADS_16   (12+4+3)
+#define QUICKTHREADS_17   (12+4+2)
+#define QUICKTHREADS_18   (12+4+1)
 
 
 /** This stuff is for NON-VARARGS. **/
@@ -146,22 +146,22 @@ typedef unsigned long qt_word_t;
    ------------------------------------------------------------------
  */
 
-#define QT_STKBASE  (16+48+(16*sizeof(qt_word_t))+16+48)
+#define QUICKTHREADS_STKBASE  (16+48+(16*sizeof(qt_word_t))+16+48)
 
 /* The index, relative to sp, of where to put each value. */
-#define QT_ONLY_INDEX   (QT_15)
-#define QT_USER_INDEX   (QT_16)
-#define QT_ARGT_INDEX   (QT_17)
-#define QT_ARGU_INDEX   (QT_18)
+#define QUICKTHREADS_ONLY_INDEX   (QUICKTHREADS_15)
+#define QUICKTHREADS_USER_INDEX   (QUICKTHREADS_16)
+#define QUICKTHREADS_ARGT_INDEX   (QUICKTHREADS_17)
+#define QUICKTHREADS_ARGU_INDEX   (QUICKTHREADS_18)
 
 extern void qt_start(void);
-#define QT_ARGS_MD(sp)  \
-    (QT_SPUT (sp, QT_crp, QT_PA_RISC_READ_PLABEL(qt_start)))
+#define QUICKTHREADS_ARGS_MD(sp)  \
+    (QUICKTHREADS_SPUT (sp, QUICKTHREADS_crp, QUICKTHREADS_PA_RISC_READ_PLABEL(qt_start)))
 
 
 /** This is for VARARGS. **/
 
-#define QT_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS_DEFAULT
 
 /* Stack looks like this (2 stack frames):
 
@@ -174,23 +174,23 @@ extern void qt_start(void);
  */
 
 /* Sp is moved to the end of the first stack frame. */
-#define QT_VARGS_MD0(sp, vasize) \
-    ((qt_t *)(((char *)sp) + QT_STKROUNDUP(vasize + 4*4 + 32)))
+#define QUICKTHREADS_VARGS_MD0(sp, vasize) \
+    ((qt_t *)(((char *)sp) + QUICKTHREADS_STKROUNDUP(vasize + 4*4 + 32)))
 
 /* To reach the arguments from the end of the first stack frame use 32
    as a negative adjustment. */
-#define QT_VARGS_ADJUST(sp)	((qt_t *)(((char *)sp) - 32))
+#define QUICKTHREADS_VARGS_ADJUST(sp)	((qt_t *)(((char *)sp) - 32))
 
 /* Offset to reach the end of the second stack frame. */
-#define QT_VSTKBASE	((16*sizeof(qt_word_t)) + 16 + 4*4 + 32)
+#define QUICKTHREADS_VSTKBASE	((16*sizeof(qt_word_t)) + 16 + 4*4 + 32)
 
 extern void qt_vstart(void);
-#define QT_VARGS_MD1(sp) \
-    (QT_SPUT (sp, QT_crp, QT_PA_RISC_READ_PLABEL(qt_vstart)))
+#define QUICKTHREADS_VARGS_MD1(sp) \
+    (QUICKTHREADS_SPUT (sp, QUICKTHREADS_crp, QUICKTHREADS_PA_RISC_READ_PLABEL(qt_vstart)))
 
-#define QT_VARGT_INDEX      (QT_15)
-#define QT_VSTARTUP_INDEX   (QT_16)
-#define QT_VUSERF_INDEX     (QT_17)
-#define QT_VCLEANUP_INDEX   (QT_18)
+#define QUICKTHREADS_VARGT_INDEX      (QUICKTHREADS_15)
+#define QUICKTHREADS_VSTARTUP_INDEX   (QUICKTHREADS_16)
+#define QUICKTHREADS_VUSERF_INDEX     (QUICKTHREADS_17)
+#define QUICKTHREADS_VCLEANUP_INDEX   (QUICKTHREADS_18)
 
-#endif /* ndef QT_PA_RISC_H */
+#endif /* ndef QUICKTHREADS_PA_RISC_H */

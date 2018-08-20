@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,15 +37,15 @@
 #define SC_LAMBDA_H
 
 
-#include <assert.h>
+#include <cassert>
 
-#include "systemc/kernel/sc_cmnhdr.h"
-#include "systemc/kernel/sc_macros.h"
-#include "systemc/communication/sc_signal_ifs.h"
-#include "systemc/datatypes/bit/sc_logic.h"
-#include "systemc/utils/sc_mempool.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+#include "sysc/kernel/sc_macros.h"
+#include "sysc/communication/sc_signal_ifs.h"
+#include "sysc/datatypes/bit/sc_logic.h"
+#include "sysc/utils/sc_mempool.h"
 
-using sc_dt::sc_logic;
+namespace sc_core {
 
 class sc_port_registry;
 
@@ -83,7 +83,7 @@ enum sc_lambda_rator_e
     SC_LAMBDA_BOOL_EQ,
     SC_LAMBDA_BOOL_NE,
 
-    // relational operators for sc_logic
+    // relational operators for sc_dt::sc_logic
     SC_LAMBDA_SUL_EQ,
     SC_LAMBDA_SUL_NE,
 
@@ -95,7 +95,7 @@ enum sc_lambda_rator_e
     SC_LAMBDA_INT_LT,
     SC_LAMBDA_INT_GT,
 
-    // bitwise operators for sc_logic
+    // bitwise operators for sc_dt::sc_logic
     SC_LAMBDA_SUL_BITAND,
     SC_LAMBDA_SUL_BITOR,
     SC_LAMBDA_SUL_BITNOT,
@@ -126,7 +126,7 @@ enum sc_lambda_rator_e
 //  of the expression tree.
 //
 //  The user should not create a lambda object explicitly; rather, he writes
-//  an expression involving a signal of type sc_logic or int, and a smart
+//  an expression involving a signal of type sc_dt::sc_logic or int, and a smart
 //  pointer sc_lambda_ptr object will be automatically created.
 //
 // ----------------------------------------------------------------------------
@@ -137,7 +137,7 @@ class sc_lambda
     friend class sc_lambda_rand;
     friend class sc_port_registry;
 
-#include "systemc/kernel/sc_lambda_friends.h"
+#include "sysc/kernel/sc_lambda_friends.h"
 
 public:
 
@@ -165,8 +165,8 @@ private:
     // evaluates the expression as an int
     int int_eval() const;
 
-    // evalutes the expression as a sc_logic
-    sc_logic sc_logic_eval() const;
+    // evalutes the expression as a sc_dt::sc_logic
+    sc_dt::sc_logic sc_logic_eval() const;
 
     // returns true if the type of the expression tree is bool
     bool is_bool() const
@@ -182,7 +182,7 @@ private:
 		 ( rator_ty <= SC_LAMBDA_INT_BITXOR ) );
     }
 
-    // returns true if the type of the expression tree is sc_logic
+    // returns true if the type of the expression tree is sc_dt::sc_logic
     bool is_sc_logic() const
     {
         return ( ( SC_LAMBDA_SUL_BITAND <= rator_ty ) &&
@@ -228,7 +228,7 @@ class sc_lambda_ptr
     friend class sc_lambda_rand;
     friend class sc_port_registry;
 
-#include "systemc/kernel/sc_lambda_friends.h"
+#include "sysc/kernel/sc_lambda_friends.h"
 
 public:
 
@@ -322,7 +322,7 @@ private:
 //
 //  sc_lambda_rand is the representation of nodes in the lambda
 //  expression trees.  Nodes could be of type lambda (a subtree),
-//  int, signal of int, sc_logic, or signal of sc_logic.
+//  int, signal of int, sc_dt::sc_logic, or signal of sc_dt::sc_logic.
 //  The type is tagged in a member variable.  There's nothing of
 //  interest to the user in this class.
 //
@@ -353,15 +353,15 @@ public:
     static void operator delete( void* p, size_t sz )
         { sc_mempool::release( p, sz ); }
 
-#include "systemc/kernel/sc_lambda_friends.h"
+#include "sysc/kernel/sc_lambda_friends.h"
 
 private:
 
     sc_lambda_rand_e rand_ty;
     union {
         char lamb_space[sizeof(sc_lambda_ptr)];
-        char ch_space[sizeof(sc_logic)];
-	const sc_signal_in_if<sc_logic>* sul_sig;
+        char ch_space[sizeof(sc_dt::sc_logic)];
+	const sc_signal_in_if<sc_dt::sc_logic>* sul_sig;
 	const sc_signal_in_if<int>* int_sig;
 	const sc_signal_in_if<bool>* edgy_sig;
         int val;
@@ -377,15 +377,15 @@ private:
     {
         val = int(b);
     }
-    sc_lambda_rand( const sc_logic& c )
+    sc_lambda_rand( const sc_dt::sc_logic& c )
         : rand_ty( SC_LAMBDA_RAND_SUL )
     {
-        (void) new(ch_space) sc_logic(c);
+        (void) new(ch_space) sc_dt::sc_logic(c);
     }
     sc_lambda_rand( const sc_signal_logic_deval& s )
         : rand_ty( SC_LAMBDA_RAND_SIGNAL_SUL )
     {
-	sul_sig = RCAST<const sc_signal_in_if<sc_logic>*>( &s );
+	sul_sig = RCAST<const sc_signal_in_if<sc_dt::sc_logic>*>( &s );
     }
     sc_lambda_rand( const sc_signal_in_if<int>& s )
         : rand_ty( SC_LAMBDA_RAND_SIGNAL_INT )
@@ -412,7 +412,7 @@ private:
     ~sc_lambda_rand();
 
     int int_read() const;
-    sc_logic sc_logic_read() const;
+    sc_dt::sc_logic sc_logic_read() const;
     bool bool_read() const;
 
     void replace_ports( void (*fn)(sc_port_registry*, sc_lambda_rand* ),
@@ -422,7 +422,8 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-#include "systemc/kernel/sc_lambda_defs.h"
+#include "sysc/kernel/sc_lambda_defs.h"
 
+} // namespace sc_core
 
 #endif

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License")
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,7 @@
 #define SC_FX_IDS_H
 
 
-#include "systemc/utils/sc_report.h"
+#include "sysc/utils/sc_report.h"
 
 
 // ----------------------------------------------------------------------------
@@ -46,17 +46,38 @@
 //  Report ids in the range of 300-399.
 // ----------------------------------------------------------------------------
 
-extern const int SC_ID_INVALID_WL_;
-extern const int SC_ID_INVALID_N_BITS_;
-extern const int SC_ID_INVALID_DIV_WL_;
-extern const int SC_ID_INVALID_CTE_WL_;
-extern const int SC_ID_INVALID_MAX_WL_;
-extern const int SC_ID_INVALID_FX_VALUE_;
-extern const int SC_ID_INVALID_O_MODE_;
-extern const int SC_ID_OUT_OF_RANGE_;
-extern const int SC_ID_CONTEXT_BEGIN_FAILED_;
-extern const int SC_ID_CONTEXT_END_FAILED_;
-extern const int SC_ID_WRAP_SM_NOT_DEFINED_;
+#ifndef SC_DEFINE_MESSAGE
+#define SC_DEFINE_MESSAGE(id,unused1,unused2) \
+    namespace sc_core { extern const char id[]; }
+namespace sc_core {
+    extern const char SC_ID_REGISTER_ID_FAILED_[]; // in sc_report_handler.cpp
+}
+#endif
+
+
+SC_DEFINE_MESSAGE( SC_ID_INVALID_WL_, 300,
+	"total wordlength <= 0 is not valid" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_N_BITS_, 301,
+	"number of bits < 0 is not valid" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_DIV_WL_, 302,
+	"division wordlength <= 0 is not valid" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_CTE_WL_, 303,
+	"constant wordlength <= 0 is not valid" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_MAX_WL_, 304,
+	"maximum wordlength <= 0 and != -1 is not valid" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_FX_VALUE_, 305,
+    "invalid fixed-point value" )
+SC_DEFINE_MESSAGE( SC_ID_INVALID_O_MODE_, 306,
+	"invalid overflow mode" )
+SC_DEFINE_MESSAGE( SC_ID_OUT_OF_RANGE_, 307,
+	"index out of range" )
+SC_DEFINE_MESSAGE( SC_ID_CONTEXT_BEGIN_FAILED_, 308,
+	"context begin failed" )  
+SC_DEFINE_MESSAGE( SC_ID_CONTEXT_END_FAILED_, 309, 
+	"context end failed" )
+SC_DEFINE_MESSAGE( SC_ID_WRAP_SM_NOT_DEFINED_, 310, 
+	"SC_WRAP_SM not defined for unsigned numbers" )
+
 
 
 #endif

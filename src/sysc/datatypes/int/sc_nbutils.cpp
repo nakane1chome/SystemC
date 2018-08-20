@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,9 +36,9 @@
 
 
 #include <ctype.h>
-#include "systemc/datatypes/int/sc_int_ids.h"
-#include "systemc/datatypes/int/sc_nbutils.h"
-#include "systemc/kernel/sc_macros.h"
+#include "sysc/datatypes/int/sc_int_ids.h"
+#include "sysc/datatypes/int/sc_nbutils.h"
+#include "sysc/kernel/sc_macros.h"
 
 
 namespace sc_dt
@@ -159,12 +159,322 @@ const char
       sprintf( msg,
 	       "get_base_and_sign( const char* v, small_type&, small_type& ) : "
 	       "v = \"\" is not valid" );
-      SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
+      SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
   }
 
   return v;
 
 }
+
+//------------------------------------------------------------------------------
+//"parse_binary_bits"
+//
+// This function parses the supplied string into the supplied vector as a
+// right justified bit value.
+//    src_p  -> character string representing the bits to be parsed.
+//    dst_n  =  number of words in data_p and ctrl_p.
+//    data_p -> words w/BITS_PER_DIGIT bits to receive the value's data bits.
+//    ctrl_p -> words w/BITS_PER_DIGIT bits to receive the value's control bits,
+//              or zero.
+// Result is true if value was non-zero.
+//------------------------------------------------------------------------------
+void parse_binary_bits( 
+    const char* src_p, int dst_n, unsigned long* data_p, unsigned long* ctrl_p )
+{
+    int           bit_i;    // Number of bit now processing.
+    unsigned long ctrl;     // Control word now assembling.
+    unsigned long data;     // Data word now assembling.
+    int           delta_n;  // src_n - dst_n*BITS_PER_DIGIT.
+    int           src_i;    // Index in src_p now accessing (left to right).
+    int           src_n;    // Length of source that is left in bits.
+    int           word_i;   // Bit within word now accessing (left to right).
+
+    // MAKE SURE WE HAVE A STRING TO PARSE:
+
+    if( src_p == 0 ) {
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is zero" );
+    }
+    if( *src_p == 0 ) {
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is empty" );
+    }
+
+
+    // INDEX INTO THE SOURCE TO A DEPTH THAT WILL ACCOMODATE OUR SIZE:
+    //
+    // If the source is smaller than our value initialize our value to zero.
+
+    src_n = strlen(src_p);
+    delta_n = src_n - (dst_n*BITS_PER_DIGIT);
+    if ( delta_n > 0 ) 
+    {
+        src_p = &src_p[delta_n];
+        src_n -= delta_n;
+    }
+    else
+    {
+        for ( word_i = 0; word_i < dst_n; word_i++ ) data_p[word_i] = 0;
+	    if ( ctrl_p ) 
+		for ( word_i = 0; word_i < dst_n; word_i++ ) ctrl_p[word_i] = 0;
+    }
+
+
+    // LOOP OVER THE SOURCE ASSEMBLING WORDS AND PLACING THEM IN OUR VALUE:
+    //
+    // We stride right to left through the source in BITS_PER_DIGIT chunks.
+    // Each of those chunks is processed from left to right a bit at a time.
+    // We process the high order word specially, since there are less bits.
+
+    src_n = src_n - BITS_PER_DIGIT;
+    for (word_i=0; word_i < dst_n; word_i++)
+    {
+        src_i = src_n;
+
+
+        // PARTIAL LAST WORD TO ASSEMBLE:
+
+        if ( src_i < 0 ) 
+        {
+            src_n += BITS_PER_DIGIT;
+            src_i = 0;
+            data = 0;
+            ctrl = 0;
+            for ( src_i = 0; src_i < src_n; src_i++ )
+            {
+                ctrl = ctrl << 1;
+                data = data << 1;
+                switch( src_p[src_i] )
+                {
+                  case 'X':
+                  case 'x': ctrl = ctrl | 1; data = data | 1; break;
+                  case '1': data = data | 1; break;
+                  case 'Z':
+                  case 'z': ctrl = ctrl | 1; break;
+                  case '0':                  break;
+                  default:
+                    {
+                        char msg[BUFSIZ];
+                        sprintf( msg, "character string '%s' is not valid", 
+                        src_p );
+                        SC_REPORT_ERROR(sc_core::SC_ID_CONVERSION_FAILED_, msg);
+                    }
+                    break;
+                }
+            }
+            if ( ctrl_p ) ctrl_p[word_i] = ctrl;
+            data_p[word_i] = data;
+            break;
+        }
+
+
+        // FULL WORD TO BE ASSEMBLED:
+
+        ctrl = 0;
+        data = 0;
+        for ( bit_i = 0; bit_i < BITS_PER_DIGIT; bit_i++ )
+        {
+            ctrl = ctrl << 1;
+            data = data << 1;
+            switch( src_p[src_i++] )
+            {
+              case 'X':
+              case 'x': ctrl = ctrl | 1; data = data | 1; break;
+              case '1': data = data | 1; break;
+              case 'Z':
+              case 'z': ctrl = ctrl | 1; break;
+              case '0':                  break;
+              default:
+                {
+                    char msg[BUFSIZ];
+                    sprintf( msg, "character string '%s' is not valid", 
+                    src_p );
+                    SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
+                }
+                break;
+            }
+        }
+        if ( ctrl_p ) ctrl_p[word_i] = ctrl;
+        data_p[word_i] = data;
+        src_n = src_n - BITS_PER_DIGIT;
+    }
+}
+        
+
+//------------------------------------------------------------------------------
+//"parse_hex_bits"
+//
+// This function parses the supplied string into the supplied vector as a
+// right justified bit value.
+//    src_p  -> character string representing the bits to be parsed.
+//    dst_n  =  number of words in data_p and ctrl_p.
+//    data_p -> words w/32 bits to receive the value's data bits.
+//    ctrl_p -> words w/32 bits to receive the value's control bits,
+//              or zero.
+// Result is true if value was non-zero.
+//------------------------------------------------------------------------------
+void parse_hex_bits( 
+	const char* src_p, int dst_n, unsigned long* data_p, unsigned long* ctrl_p )
+{
+    unsigned long ctrl;     // Control word now assembling.
+    unsigned long data;     // Data word now assembling.
+    int           delta_n;  // src_n - dst_n*BITS_PER_DIGIT.
+    int           digit_i;  // Number of digit now processing.
+    int           src_i;    // Index in src_p now accessing (left to right).
+    int           src_n;    // Length of source that is left in bits.
+    int           word_i;   // Bit within word now accessing (left to right).
+
+    // MAKE SURE WE HAVE A STRING TO PARSE:
+
+    if( src_p == 0 ) {
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is zero" );
+    }
+    if( *src_p == 0 ) {
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
+                         "character string is empty" );
+    }
+
+
+    // INDEX INTO THE SOURCE TO A DEPTH THAT WILL ACCOMODATE OUR SIZE:
+    //
+    // If the source is smaller than our value initialize our value to zero.
+
+    src_n = strlen(src_p);
+    delta_n = src_n - (dst_n*8);
+    if ( delta_n > 0 ) 
+    {
+        src_p = &src_p[delta_n];
+        src_n -= delta_n;
+    }
+    else
+    {
+        for ( word_i = 0; word_i < dst_n; word_i++ ) data_p[word_i] = 0;
+		if ( ctrl_p ) 
+			for ( word_i = 0; word_i < dst_n; word_i++ ) ctrl_p[word_i] = 0;
+    }
+
+
+    // LOOP OVER THE SOURCE ASSEMBLING WORDS AND PLACING THEM IN OUR VALUE:
+    //
+    // We stride right to left through the source in BITS_PER_DIGIT chunks.
+    // Each of those chunks is processed from left to right a bit at a time.
+    // We process the high order word specially, since there are less bits.
+
+    src_n = src_n - 8;
+    for (word_i=0; word_i < dst_n; word_i++)
+    {
+        src_i = src_n;
+
+
+        // PARTIAL LAST WORD TO ASSEMBLE:
+
+        if ( src_i < 0 ) 
+        {
+            src_n += 8;
+            src_i = 0;
+            data = 0;
+            ctrl = 0;
+            for ( src_i = 0; src_i < src_n; src_i++ )
+            {
+                ctrl = ctrl << 4;
+                data = data << 4;
+                switch( src_p[src_i] )
+                {
+                  case 'X':
+                  case 'x': ctrl = ctrl | 15; data = data | 15; break;
+		  case 'F':
+                  case 'f': data = data | 15; break;
+		  case 'E':
+                  case 'e': data = data | 14; break;
+		  case 'D':
+                  case 'd': data = data | 13; break;
+		  case 'C':
+                  case 'c': data = data | 12; break;
+		  case 'B':
+                  case 'b': data = data | 11; break;
+		  case 'A':
+                  case 'a': data = data | 10; break;
+                  case '9': data = data |  9; break;
+                  case '8': data = data |  8; break;
+                  case '7': data = data |  7; break;
+                  case '6': data = data |  6; break;
+                  case '5': data = data |  5; break;
+                  case '4': data = data |  4; break;
+                  case '3': data = data |  3; break;
+                  case '2': data = data |  2; break;
+                  case '1': data = data |  1; break;
+                  case '0':                  break;
+                  case 'Z':
+                  case 'z': ctrl = ctrl | 15; break;
+                  default:
+                    {
+                        char msg[BUFSIZ];
+                        sprintf( msg, "character string '%s' is not valid", 
+                        src_p );
+                        SC_REPORT_ERROR(sc_core::SC_ID_CONVERSION_FAILED_, msg);
+                    }
+                    break;
+                }
+            }
+            if ( ctrl_p ) ctrl_p[word_i] = ctrl;
+            data_p[word_i] = data;
+            break;
+        }
+
+
+        // FULL WORD TO BE ASSEMBLED:
+
+        ctrl = 0;
+        data = 0;
+        for ( digit_i = 0; digit_i < 8; digit_i++ )
+        {
+            ctrl = ctrl << 4;
+            data = data << 4;
+            switch( src_p[src_i++] )
+            {
+	      case 'X':
+	      case 'x': ctrl = ctrl | 15; data = data | 15; break;
+	      case 'F':
+	      case 'f': data = data | 15; break;
+	      case 'E':
+	      case 'e': data = data | 14; break;
+	      case 'D':
+	      case 'd': data = data | 13; break;
+	      case 'C':
+	      case 'c': data = data | 12; break;
+	      case 'B':
+	      case 'b': data = data | 11; break;
+	      case 'A':
+	      case 'a': data = data | 10; break;
+	      case '9': data = data |  9; break;
+	      case '8': data = data |  8; break;
+	      case '7': data = data |  7; break;
+	      case '6': data = data |  6; break;
+	      case '5': data = data |  5; break;
+	      case '4': data = data |  4; break;
+	      case '3': data = data |  3; break;
+	      case '2': data = data |  2; break;
+	      case '1': data = data |  1; break;
+	      case '0':                  break;
+	      case 'Z':
+	      case 'z': ctrl = ctrl | 15; break;
+              default:
+                {
+                    char msg[BUFSIZ];
+                    sprintf( msg, "character string '%s' is not valid", 
+                    src_p );
+                    SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
+                }
+                break;
+            }
+        }
+        if ( ctrl_p ) ctrl_p[word_i] = ctrl;
+        data_p[word_i] = data;
+        src_n = src_n - BITS_PER_DIGIT;
+    }
+}
+        
 
 
 // ----------------------------------------------------------------------------
@@ -198,7 +508,7 @@ vec_from_str(int unb, int und, unsigned long *u,
 		 "vec_from_str( int, int, unsigned long*, const char*, sc_numrep base ) : "
 		 "base = %s does not match the default base",
 		 to_string( base ).c_str() );
-	SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
     }
   }
 
@@ -223,7 +533,7 @@ vec_from_str(int unb, int und, unsigned long *u,
 		   "vec_from_str( int, int, unsigned long*, const char*, sc_numrep base ) : "
 		   "'%c' is not a valid digit in base %d",
 		   *v, b );
-	  SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
+	  SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
       }
       
       // digit = digit * b + val;
@@ -239,7 +549,7 @@ vec_from_str(int unb, int und, unsigned long *u,
 		 "vec_from_str( int, int, unsigned long*, const char*, sc_numrep base ) : "
 		 "'%c' is not a valid digit in base %d",
 		 *v, b );
-	SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
+	SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
     }
   }
 
@@ -332,7 +642,7 @@ vec_add_on(int ulen, unsigned long *ubegin,
 
 #ifdef DEBUG_SYSTEMC
   if( carry != 0 ) {
-      SC_REPORT_WARNING( SC_ID_WITHOUT_MESSAGE_,
+      SC_REPORT_WARNING( sc_core::SC_ID_WITHOUT_MESSAGE_,
 			 "vec_add_on( int, unsigned long*, int, const "
 			 "unsigned long* ) : "
 			 "result of addition is wrapped around" );
@@ -373,7 +683,7 @@ vec_add_on2(int ulen, unsigned long *ubegin,
 
 #ifdef DEBUG_SYSTEMC
   if( carry != 0 ) {
-      SC_REPORT_WARNING( SC_ID_WITHOUT_MESSAGE_,
+      SC_REPORT_WARNING( sc_core::SC_ID_WITHOUT_MESSAGE_,
                          "vec_add_on2( int, unsigned long*, int, const "
 			 "unsigned long* ) : "
 			 "result of addition is wrapped around" );
@@ -437,7 +747,7 @@ vec_add_small_on(int ulen, unsigned long *u, unsigned long v)
 
 #ifdef DEBUG_SYSTEMC
   if( v != 0 ) {
-      SC_REPORT_WARNING( SC_ID_WITHOUT_MESSAGE_,
+      SC_REPORT_WARNING( sc_core::SC_ID_WITHOUT_MESSAGE_,
                          "vec_add_small_on( int, unsigned long*, unsigned "
 			 "long ) : "
 			 "result of addition is wrapped around" );
@@ -558,7 +868,7 @@ vec_sub_on2(int ulen, unsigned long *ubegin,
 
 #ifdef DEBUG_SYSTEMC
   if( borrow != 0 ) {
-      SC_REPORT_WARNING( SC_ID_WITHOUT_MESSAGE_,
+      SC_REPORT_WARNING( sc_core::SC_ID_WITHOUT_MESSAGE_,
                          "vec_sub_on2( int, unsigned long*, int, const "
 			 "unsigned long* ) : "
 			 "result of subtraction is wrapped around" );
@@ -825,7 +1135,7 @@ vec_mul_small_on(int ulen, unsigned long *u, unsigned long v)
 
 #ifdef DEBUG_SYSTEMC
   if( carry != 0 ) {
-      SC_REPORT_WARNING( SC_ID_WITHOUT_MESSAGE_,
+      SC_REPORT_WARNING( sc_core::SC_ID_WITHOUT_MESSAGE_,
                          "vec_mul_small_on( int, unsigned long*, unsigned "
 			 "long ) : "
 			 "result of multiplication is wrapped around" );
@@ -1479,7 +1789,7 @@ vec_reverse(int unb, int und, unsigned long *ud,
       sprintf( msg, "vec_reverse( int, int, unsigned long*, int l, int r ) : "
 	       "l = %d < r = %d is not valid",
 	       l, r );
-      SC_REPORT_ERROR( SC_ID_CONVERSION_FAILED_, msg );
+      SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
   }
 
   // Make sure that l and r are within bounds.

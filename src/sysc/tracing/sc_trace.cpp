@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -47,10 +47,11 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/tracing/sc_trace.h"
-#include "systemc/communication/sc_signal_ifs.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/tracing/sc_trace.h"
+#include "sysc/communication/sc_signal_ifs.h"
 
+namespace sc_core {
 
 // Trace file common functions.
 
@@ -83,7 +84,7 @@ void sc_trace_file::delta_cycles(bool)
 void
 sc_trace( sc_trace_file* tf,
 	  const sc_signal_in_if<char>& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  int width )
 {
     if( tf ) {
@@ -94,7 +95,7 @@ sc_trace( sc_trace_file* tf,
 void
 sc_trace( sc_trace_file* tf,
 	  const sc_signal_in_if<short>& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  int width )
 {
     if( tf ) {
@@ -105,7 +106,7 @@ sc_trace( sc_trace_file* tf,
 void
 sc_trace( sc_trace_file* tf,
 	  const sc_signal_in_if<int>& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  int width )
 {
     if( tf ) {
@@ -116,7 +117,7 @@ sc_trace( sc_trace_file* tf,
 void
 sc_trace( sc_trace_file* tf,
 	  const sc_signal_in_if<long>& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  int width )
 {
     if( tf ) {
@@ -128,9 +129,9 @@ sc_trace( sc_trace_file* tf,
 void
 sc_trace(sc_trace_file* /* not used */,
 	 const void* /* not used */,
-	 const sc_string& name)
+	 const std::string& name)
 {
-    cout << "Object " << name << " will not be traced" << endl;
+    ::std::cout << "Object " << name << " will not be traced" << ::std::endl;
 }
 
 
@@ -152,7 +153,7 @@ void double_to_special_int64(double in, unsigned* high, unsigned* low)
 
 #define DEFN_TRACE_FUNC_REF_A(tp)                                             \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name )        \
+sc_trace( sc_trace_file* tf, const tp& object, const std::string& name ) \
 {                                                                             \
     if( tf ) {                                                                \
 	tf->trace( object, name );                                            \
@@ -161,7 +162,7 @@ sc_trace( sc_trace_file* tf, const tp& object, const sc_string& name )        \
 
 #define DEFN_TRACE_FUNC_PTR_A(tp)                                             \
 void                                                                          \
-sc_trace( sc_trace_file* tf, const tp* object, const sc_string& name )        \
+sc_trace( sc_trace_file* tf, const tp* object, const std::string& name ) \
 {                                                                             \
     if( tf ) {                                                                \
 	tf->trace( *object, name );                                           \
@@ -173,16 +174,16 @@ DEFN_TRACE_FUNC_REF_A(tp)                                                     \
 DEFN_TRACE_FUNC_PTR_A(tp)
 
 
-DEFN_TRACE_FUNC_A( sc_bit )
-DEFN_TRACE_FUNC_A( sc_logic )
+DEFN_TRACE_FUNC_A( sc_dt::sc_bit )
+DEFN_TRACE_FUNC_A( sc_dt::sc_logic )
 
-DEFN_TRACE_FUNC_A( sc_int_base )
-DEFN_TRACE_FUNC_A( sc_uint_base )
-DEFN_TRACE_FUNC_A( sc_signed )
-DEFN_TRACE_FUNC_A( sc_unsigned )
+DEFN_TRACE_FUNC_A( sc_dt::sc_int_base )
+DEFN_TRACE_FUNC_A( sc_dt::sc_uint_base )
+DEFN_TRACE_FUNC_A( sc_dt::sc_signed )
+DEFN_TRACE_FUNC_A( sc_dt::sc_unsigned )
 
-DEFN_TRACE_FUNC_REF_A( sc_bv_base )
-DEFN_TRACE_FUNC_REF_A( sc_lv_base )
+DEFN_TRACE_FUNC_REF_A( sc_dt::sc_bv_base )
+DEFN_TRACE_FUNC_REF_A( sc_dt::sc_lv_base )
 
 
 #undef DEFN_TRACE_FUNC_REF_A
@@ -193,11 +194,12 @@ DEFN_TRACE_FUNC_REF_A( sc_lv_base )
 void
 sc_trace( sc_trace_file* tf,
 	  const unsigned int& object,
-	  const sc_string& name,
+	  const std::string& name,
 	  const char** enum_literals )
 {
     if( tf ) tf->trace( object, name, enum_literals );
 }
 
+} // namespace sc_core
 
 // Taf!

@@ -205,7 +205,7 @@ case $1 in
 				;;
 		esac
 
-#		ln -s md/default.Makefile Makefile.md
+ 		ln -s md/default.Makefile Makefile.md
 #		ln -s md/sparc.h qtmd.h
 		ln -s md/null.c qtmdc.c
 		iter_init=10000000
@@ -277,6 +277,53 @@ case $1 in
 		iter_bench_call_imm=10000000
 		iter_bench_add=10000000
 		iter_bench_load=1000000
+		;;
+
+    powerpc*)
+        : "PowerPC IBM/Motorola processors."
+
+        case $1 in
+			powerpc-apple-macosx*)
+				: "PowerPC using Mach Application Binary Interface"
+                : "NOTICE: Darwin assembler syntax is used:"
+                : "  (i.e. registers are named rx not %rx)"
+                ln -s md/default.Makefile Makefile.md
+#               ln -s md/powerpc_mach.h qtmd.h
+                ln -s md/powerpc_mach.s qtmds.s
+                ;;
+            powerpc-linux*)
+                : "PowerPC using System V Application Binary Interface"
+                : "  (e.g. LinuxPPC)"
+                : "Use powerpc-darwin for MacOS X and other systems based on Mac
+h ABI"
+#               ln -s md/powerpc_sys5.h qtmd.h
+                ln -s md/powerpc_sys5.s qtmds.s
+                ;;
+            *)
+                echo "Unknown configuration"
+                echo "See md/powerpc.README for documentation"
+                echo "Use powerpc-darwin for MacOS X and other systems based on
+Mach ABI"
+                echo "Use powerpc-linux for Linux and other systems based on Sys
+tem V ABI"
+                exit 1
+                ;;
+
+        esac
+
+        ln -s md/powerpc.c qtmdc.c
+        ln -s md/powerpc.README README.md
+        ;;
+
+
+	pthreads*)
+		: Posix thread support rather than Quick threads.
+#		ln -s md/hppa.h qtmd.h
+		ln -s md/null.c qtmdc.c
+		ln -s md/null.s qtmds.s
+#		ln -s md/hppa_b.s qtmdb.s
+		cp md/pthreads.Makefile Makefile
+		exit 0
 		;;
 
 	clean)

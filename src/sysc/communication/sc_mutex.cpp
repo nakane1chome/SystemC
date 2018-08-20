@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,18 +34,16 @@
  *****************************************************************************/
 
 
-#include "systemc/communication/sc_mutex.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/communication/sc_mutex.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_mutex
 //
 //  The sc_mutex primitive channel class.
 // ----------------------------------------------------------------------------
-
-const char* const sc_mutex::kind_string = "sc_mutex";
-
 
 // constructors
 
@@ -101,5 +99,6 @@ sc_mutex::unlock()
     return 0;
 }
 
+} // namespace sc_core
 
 // Taf!

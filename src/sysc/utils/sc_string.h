@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -38,15 +38,24 @@
 #define SC_STRING_H
 
 
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_report.h"
 
+namespace sc_dt {
+	class sc_string_old;
+}
 
-// classes defined in this module
-class sc_string;
+#ifdef SC_USE_SC_STRING_OLD
+	typedef sc_dt::sc_string_old sc_string;
+#endif
+#ifdef SC_USE_STD_STRING
+	typedef ::std::string sc_string;
+#endif
+
+namespace sc_dt {
 
 // forward class declarations
 class sc_string_rep;
-
 
 // ----------------------------------------------------------------------------
 //  ENUM : sc_numrep
@@ -70,8 +79,53 @@ enum sc_numrep
     SC_CSD
 };
 
+// We use typedefs for istream and ostream here to get around some finickiness
+// from aCC:
 
-const sc_string to_string( sc_numrep );
+typedef ::std::istream systemc_istream;
+typedef ::std::ostream systemc_ostream;
+
+const std::string to_string( sc_numrep );
+
+//------------------------------------------------------------------------------
+//"sc_io_base"
+//
+// This inline function returns the type of an i/o stream's base as a SystemC
+// base designator.
+//     stream_object = reference to the i/o stream whose base is to be returned.
+//
+//"sc_io_show_base"
+//
+// This inline function returns true if the base should be shown when a SystemC
+// value is displayed via the supplied stream operator.
+//     stream_object = reference to the i/o stream to return showbase value for.
+//------------------------------------------------------------------------------
+#if defined(__GNUC__)  // GNU C++ compiler.
+    inline sc_numrep sc_io_base( systemc_ostream& stream_object, 
+        sc_numrep def_base )
+    {
+	::std::ios::fmtflags flags = 
+	    stream_object.flags() & ::std::ios::basefield;
+	if ( flags & ::std::ios::dec ) return  SC_DEC;
+	if ( flags & ::std::ios::hex ) return  SC_HEX;
+	if ( flags & ::std::ios::oct ) return  SC_OCT;
+	return def_base;
+    }
+    inline bool sc_io_show_base( systemc_ostream& stream_object )
+    {
+	return stream_object.flags() & ::std::ios::showbase;
+    }
+#else   // Other
+    inline sc_numrep sc_io_base( systemc_ostream& stream_object, 
+        sc_numrep def_base ) 
+    { 
+        return SC_DEC; 
+    }
+    inline bool sc_io_show_base( systemc_ostream& stream_object ) 
+    { 
+        return false; 
+    }
+#endif
 
 
 // ----------------------------------------------------------------------------
@@ -80,45 +134,45 @@ const sc_string to_string( sc_numrep );
 //  String class (yet another).
 // ----------------------------------------------------------------------------
 
-class sc_string 
+class sc_string_old 
 {
-    friend ostream& operator << ( ostream& os, const sc_string& a );
-    friend istream& operator >> ( istream& is, sc_string& a );
+    friend systemc_ostream& operator << (systemc_ostream& os, const sc_string_old& a);
+    friend systemc_istream& operator >> ( systemc_istream& is, sc_string_old& a );
 
 public:
 
     //  constructors
 
-    explicit sc_string( int size = 16 );
-    sc_string( const char* s );
-    sc_string( const char* s, int n ); // get first n chars from the string
-    sc_string( const sc_string& s );
+    explicit sc_string_old( int size = 16 );
+    sc_string_old( const char* s );
+    sc_string_old( const char* s, int n ); // get first n chars from the string
+    sc_string_old( const sc_string_old& s );
 
 
     // destructor
 
-    ~sc_string();
+    ~sc_string_old();
 
 
     // concatenation and assignment
 
-    sc_string& operator = ( const char* s );
-    sc_string& operator = ( const sc_string& s );
+    sc_string_old& operator = ( const char* s );
+    sc_string_old& operator = ( const sc_string_old& s );
 
-    sc_string& operator += ( const char* s );
-    sc_string& operator += ( char c );
-    sc_string& operator += ( const sc_string& s );
+    sc_string_old& operator += ( const char* s );
+    sc_string_old& operator += ( char c );
+    sc_string_old& operator += ( const sc_string_old& s );
 
-    sc_string operator + ( const char* s ) const;
-    sc_string operator + ( char c ) const;
-    sc_string operator + ( const sc_string& s ) const;
+    sc_string_old operator + ( const char* s ) const;
+    sc_string_old operator + ( char c ) const;
+    sc_string_old operator + ( const sc_string_old& s ) const;
 
-    friend sc_string operator + ( const char* s, const sc_string& t );
+    friend sc_string_old operator + ( const char* s, const sc_string_old& t );
 
 
     // returns substring [first,last]
 
-    sc_string substr( int first, int last ) const;
+    sc_string_old substr( int first, int last ) const;
 
 
     // string comparison operators
@@ -129,12 +183,12 @@ public:
     bool operator <= ( const char* s ) const;
     bool operator >  ( const char* s ) const;
     bool operator >= ( const char* s ) const;
-    bool operator == ( const sc_string& s ) const;
-    bool operator != ( const sc_string& s ) const;
-    bool operator <  ( const sc_string& s ) const;
-    bool operator <= ( const sc_string& s ) const;
-    bool operator >  ( const sc_string& s ) const;
-    bool operator >= ( const sc_string& s ) const;
+    bool operator == ( const sc_string_old& s ) const;
+    bool operator != ( const sc_string_old& s ) const;
+    bool operator <  ( const sc_string_old& s ) const;
+    bool operator <= ( const sc_string_old& s ) const;
+    bool operator >  ( const sc_string_old& s ) const;
+    bool operator >= ( const sc_string_old& s ) const;
 
     //
     // returns length of the string (excluding trailing \0)
@@ -159,10 +213,10 @@ public:
     char& operator[](int index);
 
     // formatted string (see printf description)
-    static sc_string to_string(const char* format, ...);
+    static sc_string_old to_string(const char* format, ...);
     //
     //       conveniece formatting functions for common types
-    //       e.g. sc_string("a=%d, s is %s").fmt(1).fmt("string")
+    //       e.g. sc_string_old("a=%d, s is %s").fmt(1).fmt("string")
     //       should produce: a=1, s is string
     //       it should be safe: if less arguments specified
     //       it should print %specifier; extra arguments should be ignored
@@ -170,42 +224,42 @@ public:
     //       specifier it should be ignored
     //
     // must have it inlined because of some compilers
-    template<class T> sc_string& fmt(const T& t)
+    template<class T> sc_string_old& fmt(const T& t)
 	{
 	    // search %
 	    int index;
-	    int len = length();
-	    sc_string temp(*this);
+	    int last_char = length()-1;
+	    sc_string_old temp(*this);
 	    do
 	    {
 		index = temp.pos("%");
-		if(index == length()-1) 
+		if(index == last_char) 
 		    return *this;
-		temp = substr(index+1,len-1);
+		temp = substr(index,last_char);
 	    } while(temp[0] != '%');
-	    int f_len = (int)temp.fmt_length(); // lenght of format field
+	    int f_len = (int)temp.fmt_length(); // length of format field
 	    temp = to_string(substr(0,index+f_len-1).c_str(),t);
-	    return (*this) = temp + substr(index+f_len,len);
+	    return (*this) = temp + substr(index+f_len,last_char);
 	}
-    sc_string& fmt(const sc_string& s);
+    sc_string_old& fmt(const sc_string_old& s);
     //
     // find position of substring in this string 
     // returns -1 if not found
     //
-    int pos(const sc_string& sub_string)const;
+    int pos(const sc_string_old& sub_string)const;
     //
     // remove "count" characters from "index"
     //
-    sc_string& remove(unsigned index, unsigned length);
+    sc_string_old& remove(unsigned index, unsigned length);
     //
     // insert "substring" before "index"
     //
-    sc_string& insert(const sc_string& sub_string, unsigned index);
+    sc_string_old& insert(const sc_string_old& sub_string, unsigned index);
     //
     // returns true if the character at byte index in this string matches 
     // any character in the delimiters string
     //
-    bool is_delimiter(const sc_string& str, unsigned index)const;
+    bool is_delimiter(const sc_string_old& str, unsigned index)const;
     //
     // returns true if string contains the character
     //
@@ -213,25 +267,25 @@ public:
     //
     // produce upper case string from this one
     //
-    sc_string uppercase()const;
+    sc_string_old uppercase()const;
     //
     // produce lower case string from this one
     //
-    sc_string lowercase()const;
+    sc_string_old lowercase()const;
     //
     // legacy methods
     //
-    static sc_string make_str(long n);
+    static sc_string_old make_str(long n);
     void set( int index, char c );
     int cmp( const char* s ) const;
-    int cmp( const sc_string& s ) const;
+    int cmp( const sc_string_old& s ) const;
 
 
-    void print( ostream& os = cout ) const;
+    void print( systemc_ostream& os = ::std::cout ) const;
 
 private:
 
-    sc_string( sc_string_rep* r );
+    sc_string_old( sc_string_rep* r );
 
     sc_string_rep* rep;
 
@@ -243,8 +297,8 @@ private:
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 inline
-ostream&
-operator << ( ostream& os, sc_numrep numrep )
+systemc_ostream&
+operator << ( systemc_ostream& os, sc_numrep numrep )
 {
     os << to_string( numrep );
     return os;
@@ -252,12 +306,13 @@ operator << ( ostream& os, sc_numrep numrep )
 
 
 inline
-ostream&
-operator << ( ostream& os, const sc_string& a )
+systemc_ostream&
+operator << ( systemc_ostream& os, const sc_string_old& a )
 {
     a.print( os );
     return os;
 }
 
+} // namespace sc_dt
 
 #endif

@@ -11,8 +11,8 @@
  * purpose.
  */
 
-#ifndef QT_386_H
-#define QT_386_H
+#ifndef QUICKTHREADS_386_H
+#define QUICKTHREADS_386_H
 
 typedef unsigned long qt_word_t;
 
@@ -63,58 +63,58 @@ extern void qt_vstart (void);
 
 /* Hold 4 saved regs plus two return pcs (qt_error, qt_start) plus
    three args. */
-#define QT_STKBASE	(9 * 4)
+#define QUICKTHREADS_STKBASE	(9 * 4)
 
 /* Hold 4 saved regs plus one return pc (qt_vstart). */
-#define QT_VSTKBASE	(5 * 4)
+#define QUICKTHREADS_VSTKBASE	(5 * 4)
 
 
 /* Stack must be 4-byte aligned. */
-#define QT_STKALIGN	(4)
+#define QUICKTHREADS_STKALIGN	(4)
 
 
 /* Where to place various arguments. */
-#define QT_ONLY_INDEX	(QT_PC)
-#define QT_USER_INDEX	(QT_ARG2)
-#define QT_ARGT_INDEX	(QT_ARG1)
-#define QT_ARGU_INDEX	(QT_ARG0)
+#define QUICKTHREADS_ONLY_INDEX	(QUICKTHREADS_PC)
+#define QUICKTHREADS_USER_INDEX	(QUICKTHREADS_ARG2)
+#define QUICKTHREADS_ARGT_INDEX	(QUICKTHREADS_ARG1)
+#define QUICKTHREADS_ARGU_INDEX	(QUICKTHREADS_ARG0)
 
-#define QT_VSTARTUP_INDEX	(QT_EBP)
-#define QT_VUSERF_INDEX		(QT_EBX)
-#define QT_VCLEANUP_INDEX	(QT_ESI)
-#define QT_VARGT_INDEX		(QT_EDI)
+#define QUICKTHREADS_VSTARTUP_INDEX	(QUICKTHREADS_EBP)
+#define QUICKTHREADS_VUSERF_INDEX		(QUICKTHREADS_EBX)
+#define QUICKTHREADS_VCLEANUP_INDEX	(QUICKTHREADS_ESI)
+#define QUICKTHREADS_VARGT_INDEX		(QUICKTHREADS_EDI)
 
 
-#define QT_EBX	0
-#define QT_EDI	1
-#define QT_ESI	2
-#define QT_EBP	3
-#define QT_PC	4
+#define QUICKTHREADS_EBX	0
+#define QUICKTHREADS_EDI	1
+#define QUICKTHREADS_ESI	2
+#define QUICKTHREADS_EBP	3
+#define QUICKTHREADS_PC	4
 /* The following are defined only for non-varargs. */
-#define QT_RPC	5
-#define QT_ARG0	6
-#define QT_ARG1	7
-#define QT_ARG2	8
+#define QUICKTHREADS_RPC	5
+#define QUICKTHREADS_ARG0	6
+#define QUICKTHREADS_ARG1	7
+#define QUICKTHREADS_ARG2	8
 
 
 /* Stack grows down.  The top of the stack is the first thing to
    pop off (preincrement, postdecrement). */
-#define QT_GROW_DOWN
+#define QUICKTHREADS_GROW_DOWN
 
 extern void qt_error (void);
 
 /* Push on the error return address. */
-#define QT_ARGS_MD(sto) \
-  (QT_SPUT (sto, QT_RPC, qt_error))
+#define QUICKTHREADS_ARGS_MD(sto) \
+  (QUICKTHREADS_SPUT (sto, QUICKTHREADS_RPC, qt_error))
 
 
 /* When varargs are pushed, allocate space for all the args. */
-#define QT_VARGS_MD0(sto, nbytes) \
-  ((qt_t *)(((char *)(sto)) - QT_STKROUNDUP(nbytes)))
+#define QUICKTHREADS_VARGS_MD0(sto, nbytes) \
+  ((qt_t *)(((char *)(sto)) - QUICKTHREADS_STKROUNDUP(nbytes)))
 
-#define QT_VARGS_MD1(sto) \
-  (QT_SPUT (sto, QT_PC, qt_vstart))
+#define QUICKTHREADS_VARGS_MD1(sto) \
+  (QUICKTHREADS_SPUT (sto, QUICKTHREADS_PC, qt_vstart))
 
-#define QT_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS_DEFAULT
 
-#endif /* QT_386_H */
+#endif /* QUICKTHREADS_386_H */

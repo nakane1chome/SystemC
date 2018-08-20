@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -33,10 +33,32 @@
     
  *****************************************************************************/
 
+/* 
+$Log: sc_signal.cpp,v $
+Revision 1.10  2005/03/21 22:31:32  acg
+Changes to sc_core namespace.
 
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_signal.h"
+Revision 1.9  2004/09/27 21:02:54  acg
+Andy Goodrich - Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments will appear in
+     checked out source.
 
+*/
+
+
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_signal.h"
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
+#include "sysc/datatypes/bit/sc_lv_base.h"
+
+using sc_dt::sc_lv_base;
+using sc_dt::sc_signed;
+using sc_dt::sc_unsigned;
+using sc_dt::int64;
+using sc_dt::uint64;
+
+namespace sc_core {
 
 // to avoid code bloat in sc_signal<T>
 
@@ -61,8 +83,6 @@ sc_signal_invalid_writer( const char* name,
 //  Specialization of sc_signal<T> for type bool.
 // ----------------------------------------------------------------------------
 
-const char* const sc_signal<bool>::kind_string = "sc_signal";
-
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_signal<sc_logic>
@@ -70,7 +90,6 @@ const char* const sc_signal<bool>::kind_string = "sc_signal";
 //  Specialization of sc_signal<T> for type sc_logic.
 // ----------------------------------------------------------------------------
 
-const char* const sc_signal<sc_logic>::kind_string = "sc_signal";
-
+} // namespace sc_core
 
 // Taf!

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,14 +34,15 @@
  *****************************************************************************/
 
 
-#ifndef WIN32
+#if !defined(WIN32) && !defined(SC_USE_PTHREADS)
 
 #include <unistd.h>
 #include <sys/mman.h>
 
-#include "systemc/kernel/sc_cor_qt.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_cor_qt.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  File static variables.
@@ -70,22 +71,26 @@ sc_cor_qt::stack_protect( bool enable )
     // Code needs to be tested on HP-UX and disabled if it doesn't work there
     // Code still needs to be ported to WIN32
 
-    static size_t pagesize;
+    static std::size_t pagesize;
     
     if( pagesize == 0 ) {
-	pagesize = sysconf( _SC_PAGESIZE );
+#       if defined(__ppc__)
+	    pagesize = getpagesize();
+#       else
+	    pagesize = sysconf( _SC_PAGESIZE );
+#       endif 
     }
 
     assert( pagesize != 0 );
     assert( m_stack_size > ( 2 * pagesize ) );
 
-#ifdef QT_GROW_DOWN
+#ifdef QUICKTHREADS_GROW_DOWN
     // Stacks grow from high address down to low address
-    caddr_t redzone = caddr_t( ( ( size_t( m_stack ) + pagesize - 1 ) /
+    caddr_t redzone = caddr_t( ( ( std::size_t( m_stack ) + pagesize - 1 ) /
 				 pagesize ) * pagesize );
 #else
     // Stacks grow from low address up to high address
-    caddr_t redzone = caddr_t( ( ( size_t( m_stack ) +
+    caddr_t redzone = caddr_t( ( ( std::size_t( m_stack ) +
 				   m_stack_size - pagesize ) /
 				 pagesize ) * pagesize );
 #endif
@@ -115,7 +120,7 @@ int sc_cor_pkg_qt::instance_count = 0;
 
 inline
 void*
-stack_align( void* sp, int alignment, size_t* stack_size )
+stack_align( void* sp, int alignment, std::size_t* stack_size )
 {
     int round_up_mask = alignment - 1;
     *stack_size = (*stack_size + round_up_mask) & ~round_up_mask;
@@ -160,15 +165,15 @@ sc_cor_qt_wrapper( void* arg, void* cor, qt_userf_t* fn )
 }
 
 sc_cor*
-sc_cor_pkg_qt::create( size_t stack_size, sc_cor_fn* fn, void* arg )
+sc_cor_pkg_qt::create( std::size_t stack_size, sc_cor_fn* fn, void* arg )
 {
-    sc_cor_qt* cor = new sc_cor_qt;
+    sc_cor_qt* cor = new sc_cor_qt();
     cor->m_pkg = this;
     cor->m_stack_size = stack_size;
     cor->m_stack = new char[cor->m_stack_size];
-    void* sto = stack_align( cor->m_stack, QT_STKALIGN, &cor->m_stack_size );
-    cor->m_sp = QT_SP( sto, cor->m_stack_size - QT_STKALIGN );
-    cor->m_sp = QT_ARGS( cor->m_sp, arg, cor, (qt_userf_t*) fn,
+    void* sto = stack_align( cor->m_stack, QUICKTHREADS_STKALIGN, &cor->m_stack_size );
+    cor->m_sp = QUICKTHREADS_SP( sto, cor->m_stack_size - QUICKTHREADS_STKALIGN );
+    cor->m_sp = QUICKTHREADS_ARGS( cor->m_sp, arg, cor, (qt_userf_t*) fn,
 			 sc_cor_qt_wrapper );
     return cor;
 }
@@ -190,7 +195,7 @@ sc_cor_pkg_qt::yield( sc_cor* next_cor )
     sc_cor_qt* new_cor = SCAST<sc_cor_qt*>( next_cor );
     sc_cor_qt* old_cor = curr_cor;
     curr_cor = new_cor;
-    QT_BLOCK( sc_cor_qt_yieldhelp, old_cor, 0, new_cor->m_sp );
+    QUICKTHREADS_BLOCK( sc_cor_qt_yieldhelp, old_cor, 0, new_cor->m_sp );
 }
 
 
@@ -209,7 +214,7 @@ sc_cor_pkg_qt::abort( sc_cor* next_cor )
     sc_cor_qt* new_cor = SCAST<sc_cor_qt*>( next_cor );
     sc_cor_qt* old_cor = curr_cor;
     curr_cor = new_cor;
-    QT_ABORT( sc_cor_qt_aborthelp, old_cor, 0, new_cor->m_sp );
+    QUICKTHREADS_ABORT( sc_cor_qt_aborthelp, old_cor, 0, new_cor->m_sp );
 }
 
 
@@ -220,6 +225,8 @@ sc_cor_pkg_qt::get_main()
 {
     return &main_cor;
 }
+
+} // namespace sc_core
 
 #endif
 

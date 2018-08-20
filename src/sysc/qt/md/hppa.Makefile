@@ -7,3 +7,6 @@
 # `Normal' configuration.
 
 CC = cc -Aa
+
+.s.o:
+	/usr/ccs/bin/as -o $@ $<

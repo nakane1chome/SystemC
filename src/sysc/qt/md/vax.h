@@ -11,8 +11,8 @@
  * purpose.
  */
 
-#ifndef QT_VAX_H
-#define QT_VAX_H
+#ifndef QUICKTHREADS_VAX_H
+#define QUICKTHREADS_VAX_H
 
 typedef unsigned long qt_word_t;
 
@@ -70,61 +70,61 @@ extern void qt_vstart (void);
 
 
 /* Initial call frame for non-varargs and varargs cases. */
-#define QT_STKBASE	(10 * 4)
-#define QT_VSTKBASE	(9 * 4)
+#define QUICKTHREADS_STKBASE	(10 * 4)
+#define QUICKTHREADS_VSTKBASE	(9 * 4)
 
 
 /* Stack "must be" 4-byte aligned.  (Actually, no, but it's
    easiest and probably fastest to do so.) */
 
-#define QT_STKALIGN	(4)
+#define QUICKTHREADS_STKALIGN	(4)
 
 
 /* Where to place various arguments. */
-#define QT_ONLY_INDEX	(5)
-#define QT_USER_INDEX	(8)
-#define QT_ARGT_INDEX	(7)
-#define QT_ARGU_INDEX	(6)
+#define QUICKTHREADS_ONLY_INDEX	(5)
+#define QUICKTHREADS_USER_INDEX	(8)
+#define QUICKTHREADS_ARGT_INDEX	(7)
+#define QUICKTHREADS_ARGU_INDEX	(6)
 
-#define QT_VSTARTUP_INDEX	(6)
-#define QT_VUSERF_INDEX		(7)
-#define QT_VCLEANUP_INDEX	(8)
-#define QT_VARGT_INDEX		(5)
+#define QUICKTHREADS_VSTARTUP_INDEX	(6)
+#define QUICKTHREADS_VUSERF_INDEX		(7)
+#define QUICKTHREADS_VCLEANUP_INDEX	(8)
+#define QUICKTHREADS_VARGT_INDEX		(5)
 
 
 /* Stack grows down.  The top of the stack is the first thing to
    pop off (predecrement, postincrement). */
-#define QT_GROW_DOWN
+#define QUICKTHREADS_GROW_DOWN
 
 
 extern void qt_error (void);
 
-#define QT_VAX_GMASK_NOREGS	(0)
+#define QUICKTHREADS_VAX_GMASK_NOREGS	(0)
 
 /* Push on the error return address, null termination to call chains,
    number of arguments to `only', register save mask (save no
    registers). */
 
-#define QT_ARGS_MD(sto) \
-    (QT_SPUT (sto, 0, 0), \
-     QT_SPUT (sto, 1, QT_VAX_GMASK_NOREGS), \
-     QT_SPUT (sto, 2, 0), \
-     QT_SPUT (sto, 3, 0), \
-     QT_SPUT (sto, 4, qt_start))
+#define QUICKTHREADS_ARGS_MD(sto) \
+    (QUICKTHREADS_SPUT (sto, 0, 0), \
+     QUICKTHREADS_SPUT (sto, 1, QUICKTHREADS_VAX_GMASK_NOREGS), \
+     QUICKTHREADS_SPUT (sto, 2, 0), \
+     QUICKTHREADS_SPUT (sto, 3, 0), \
+     QUICKTHREADS_SPUT (sto, 4, qt_start))
 
-#define QT_VARGS_MD0(sto, nbytes) \
-    (QT_SPUT (sto, (-(nbytes)/4)-1, (nbytes)/4), \
-     ((char *)(((sto)-4) - QT_STKROUNDUP(nbytes))))
+#define QUICKTHREADS_VARGS_MD0(sto, nbytes) \
+    (QUICKTHREADS_SPUT (sto, (-(nbytes)/4)-1, (nbytes)/4), \
+     ((char *)(((sto)-4) - QUICKTHREADS_STKROUNDUP(nbytes))))
 
-#define QT_VARGS_ADJUST(sp)	((char *)sp + 4)
+#define QUICKTHREADS_VARGS_ADJUST(sp)	((char *)sp + 4)
 
-#define QT_VARGS_MD1(sto) \
-    (QT_SPUT (sto, 0, 0), \
-     QT_SPUT (sto, 1, QT_VAX_GMASK_NOREGS), \
-     QT_SPUT (sto, 2, 0), \
-     QT_SPUT (sto, 3, 0), \
-     QT_SPUT (sto, 4, qt_vstart))
+#define QUICKTHREADS_VARGS_MD1(sto) \
+    (QUICKTHREADS_SPUT (sto, 0, 0), \
+     QUICKTHREADS_SPUT (sto, 1, QUICKTHREADS_VAX_GMASK_NOREGS), \
+     QUICKTHREADS_SPUT (sto, 2, 0), \
+     QUICKTHREADS_SPUT (sto, 3, 0), \
+     QUICKTHREADS_SPUT (sto, 4, qt_vstart))
 
-#define QT_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS_DEFAULT
 
-#endif /* QT_VAX_H */
+#endif /* QUICKTHREADS_VAX_H */

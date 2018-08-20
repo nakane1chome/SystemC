@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -28,20 +28,23 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: phase callbacks
     
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_lambda.h"
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/communication/sc_event_finder.h"
-#include "systemc/communication/sc_port.h"
-#include "systemc/communication/sc_signal_ifs.h"
+#include "sysc/kernel/sc_lambda.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/communication/sc_event_finder.h"
+#include "sysc/communication/sc_port.h"
+#include "sysc/communication/sc_signal_ifs.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  STRUCT : sc_bind_elem
@@ -179,13 +182,10 @@ sc_bind_info::size() const
 //  Abstract base class for class sc_port_b.
 // ----------------------------------------------------------------------------
 
-const char* const sc_port_base::kind_string = "sc_port_base";
-
-
 // error reporting
 
 void
-sc_port_base::report_error( int id, const char* add_msg ) const
+sc_port_base::report_error( const char* id, const char* add_msg ) const
 {
     char msg[BUFSIZ];
     if( add_msg != 0 ) {
@@ -288,11 +288,25 @@ sc_port_base::bind( this_type& parent_ )
     parent_.m_bind_info->is_leaf = false;
 }
 
+// called by sc_port_registry::construction_done (null by default)
+
+void sc_port_base::before_end_of_elaboration() 
+{}
 
 // called by elaboration_done (does nothing)
 
 void
 sc_port_base::end_of_elaboration()
+{}
+
+// called by sc_port_registry::start_simulation (does nothing by default)
+
+void sc_port_base::start_of_simulation()
+{}
+
+// called by sc_port_registry::simulation_done (does nothing by default)
+
+void sc_port_base::end_of_simulation()
 {}
 
 
@@ -480,6 +494,12 @@ sc_port_base::complete_binding()
 }
 
 void
+sc_port_base::construction_done()
+{
+    before_end_of_elaboration();
+}
+
+void
 sc_port_base::elaboration_done()
 {
     assert( m_bind_info != 0 && m_bind_info->complete );
@@ -487,6 +507,18 @@ sc_port_base::elaboration_done()
     m_bind_info = 0;
 
     end_of_elaboration();
+}
+
+void
+sc_port_base::start_simulation()
+{
+    start_of_simulation();
+}
+
+void
+sc_port_base::simulation_done()
+{
+    end_of_simulation();
 }
 
 
@@ -567,6 +599,15 @@ sc_port_registry::~sc_port_registry()
     delete_unresolved_lambdas();
 }
 
+// called when construction is done
+
+void
+sc_port_registry::construction_done()
+{
+    for( int i = size() - 1; i >= 0; -- i ) {
+        m_port_vec[i]->construction_done();
+    }
+}
 
 // called when elaboration is done
 
@@ -574,16 +615,35 @@ void
 sc_port_registry::elaboration_done()
 {
     for( int i = size() - 1; i >= 0; -- i ) {
-	m_port_vec[i]->complete_binding();
+        m_port_vec[i]->complete_binding();
     }
 
     resolve_lambdas();
 
     for( int i = size() - 1; i >= 0; -- i ) {
-	m_port_vec[i]->elaboration_done();
+        m_port_vec[i]->elaboration_done();
     }
 }
 
+// called before simulation begins
+
+void
+sc_port_registry::start_simulation()
+{
+    for( int i = size() - 1; i >= 0; -- i ) {
+        m_port_vec[i]->start_simulation();
+    }
+}
+
+// called after simulation ends
+
+void
+sc_port_registry::simulation_done()
+{
+    for( int i = size() - 1; i >= 0; -- i ) {
+        m_port_vec[i]->simulation_done();
+    }
+}
 
 void
 sc_port_registry::resolve_lambdas()
@@ -669,20 +729,20 @@ sc_port_registry::replace_port( sc_port_registry* registry,
 	    break;
 	}
 	// cast pb to the appropriate port type
-	const sc_port_b<sc_signal_in_if<sc_logic> >* in_port =
-            DCAST<const sc_port_b<sc_signal_in_if<sc_logic> >*>( pb );
+	const sc_port_b<sc_signal_in_if<sc_dt::sc_logic> >* in_port =
+            DCAST<const sc_port_b<sc_signal_in_if<sc_dt::sc_logic> >*>( pb );
 	if( in_port != 0 ) {
 	    rand->sul_sig =
-                DCAST<const sc_signal_in_if<sc_logic>*>(
+                DCAST<const sc_signal_in_if<sc_dt::sc_logic>*>(
 		    in_port->get_interface() );
 	    assert( rand->sul_sig != 0 );
 	    break;
 	}
-	const sc_port_b<sc_signal_inout_if<sc_logic> >* inout_port =
-            DCAST<const sc_port_b<sc_signal_inout_if<sc_logic> >*>( pb );
+	const sc_port_b<sc_signal_inout_if<sc_dt::sc_logic> >* inout_port =
+            DCAST<const sc_port_b<sc_signal_inout_if<sc_dt::sc_logic> >*>( pb );
         if( inout_port != 0 ) {
 	    rand->sul_sig =
-                DCAST<const sc_signal_in_if<sc_logic>*>(
+                DCAST<const sc_signal_in_if<sc_dt::sc_logic>*>(
 		    inout_port->get_interface() );
 	    assert( rand->sul_sig != 0 );
 	    break;
@@ -696,5 +756,6 @@ sc_port_registry::replace_port( sc_port_registry* registry,
     }
 }
 
+} // namespace sc_core
 
 // Taf!

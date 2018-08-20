@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,24 +34,33 @@
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_ver.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_ver.h"
+#include "sysc/utils/sc_iostream.h"
 
+namespace sc_core {
 
 static
 const char copyright[] =
-    "        Copyright (c) 1996-2002 by all Contributors\n"
+    "        Copyright (c) 1996-2005 by all Contributors\n"
     "                    ALL RIGHTS RESERVED";
 
 static
 const char systemc_version[] =
-    "             SystemC 2.0.1 --- " __DATE__ " " __TIME__;
+    "             SystemC " SC_RELEASE_STRING " --- " __DATE__ " " __TIME__;
 
 const char*
 sc_copyright()
 {
     return copyright;
 }
+
+
+const char*
+sc_release()
+{
+    return SC_RELEASE_STRING "-OSCI";
+}
+
 
 const char*
 sc_version()
@@ -60,4 +69,17 @@ sc_version()
 }
 
 
+// THIS CONSTRUCTOR ROOTS OUT OLD OBJECTS AT LINK TIME
+//
+// Each source file which includes sc_ver.h for this SystemC version 
+// will have a static instance of the class sc_api_version_XXX defined 
+// in it. That object instanciation will cause the constructor below 
+// to be invoked. If the version of the SystemC being linked against
+// does not contain the constructor below a linkage error will occur.
+
+SC_API_VERSION_STRING::SC_API_VERSION_STRING ()
+{
+}
+
+} // namespace sc_core
 // Taf!

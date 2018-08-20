@@ -52,17 +52,17 @@
 
 
 
-#define QT_VADJ(sp)	(((char *)sp) - QT_VSTKBASE)
+#define QUICKTHREADS_VADJ(sp)	(((char *)sp) - QUICKTHREADS_VSTKBASE)
 
 /* Always allocate at least enough space for 8 args; waste some space
    at the base of the stack to ensure the startup routine doesn't read
    off the end of the stack. */
 
-#define QT_VARGS_MD0(sp, vabytes) \
-   ((qt_t *)(((char *)(sp)) - 8*4 - QT_STKROUNDUP(vabytes)))
+#define QUICKTHREADS_VARGS_MD0(sp, vabytes) \
+   ((qt_t *)(((char *)(sp)) - 8*4 - QUICKTHREADS_STKROUNDUP(vabytes)))
 
 extern void qt_vstart(void);
-#define QT_VARGS_MD1(sp)	(QT_SPUT (sp, QT_1, qt_vstart))
+#define QUICKTHREADS_VARGS_MD1(sp)	(QUICKTHREADS_SPUT (sp, QUICKTHREADS_1, qt_vstart))
 
 
   struct qt_t *
@@ -78,7 +78,7 @@ qt_vargs (struct qt_t *qsp, int nbytes, void *vargs,
   int *stk;		/* Where to read passed-on-stk args. */
 
   ap = *(va_list *)vargs;
-  qsp = QT_VARGS_MD0 (qsp, nbytes);
+  qsp = QUICKTHREADS_VARGS_MD0 (qsp, nbytes);
   sp = (qt_word_t *)qsp;
 
   reg = (ap.__va_arg < 8)
@@ -93,7 +93,7 @@ qt_vargs (struct qt_t *qsp, int nbytes, void *vargs,
     sp[i] = *stk++;
   }
 
-#ifdef QT_NDEF
+#ifdef QUICKTHREADS_NDEF
   for (i=0; i<nbytes/sizeof(qt_word_t); ++i) {
     sp[i] = (n < 8)
       ? *reg++
@@ -102,10 +102,10 @@ qt_vargs (struct qt_t *qsp, int nbytes, void *vargs,
   }
 #endif
 
-  QT_VARGS_MD1 (QT_VADJ(sp));
-  QT_SPUT (QT_VADJ(sp), QT_VARGT_INDEX, pt);
-  QT_SPUT (QT_VADJ(sp), QT_VSTARTUP_INDEX, startup);
-  QT_SPUT (QT_VADJ(sp), QT_VUSERF_INDEX, vuserf);
-  QT_SPUT (QT_VADJ(sp), QT_VCLEANUP_INDEX, cleanup);
-  return ((qt_t *)QT_VADJ(sp));
+  QUICKTHREADS_VARGS_MD1 (QUICKTHREADS_VADJ(sp));
+  QUICKTHREADS_SPUT (QUICKTHREADS_VADJ(sp), QUICKTHREADS_VARGT_INDEX, pt);
+  QUICKTHREADS_SPUT (QUICKTHREADS_VADJ(sp), QUICKTHREADS_VSTARTUP_INDEX, startup);
+  QUICKTHREADS_SPUT (QUICKTHREADS_VADJ(sp), QUICKTHREADS_VUSERF_INDEX, vuserf);
+  QUICKTHREADS_SPUT (QUICKTHREADS_VADJ(sp), QUICKTHREADS_VCLEANUP_INDEX, cleanup);
+  return ((qt_t *)QUICKTHREADS_VADJ(sp));
 }

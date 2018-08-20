@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -29,19 +29,23 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+  Description of Modification: add make_static_sensitivity() routines to support
+                               dynamic method process creation with static
+                               sensitivity
 
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_event.h"
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_sensitive.h"
-#include "systemc/communication/sc_signal_ports.h"
+#include "sysc/kernel/sc_event.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_sensitive.h"
+#include "sysc/communication/sc_signal_ports.h"
 
+namespace sc_core {
 
 // support functions
 
@@ -123,6 +127,13 @@ sc_sensitive::operator () ( const sc_event& event_ )
     return *this;
 }
 
+void
+sc_sensitive::make_static_sensitivity(sc_process_b* handle_, const sc_event& event_)
+{
+    handle_->add_static_event( event_ );
+}
+
+
 sc_sensitive&
 sc_sensitive::operator () ( const sc_interface& interface_ )
 {
@@ -144,6 +155,12 @@ sc_sensitive::operator () ( const sc_interface& interface_ )
     }
 
     return *this;
+}
+
+void
+sc_sensitive::make_static_sensitivity(sc_process_b* handle_, const sc_interface& interface_)
+{
+    handle_->add_static_event( interface_.default_event() );
 }
 
 sc_sensitive&
@@ -172,6 +189,23 @@ sc_sensitive::operator () ( const sc_port_base& port_ )
     return *this;
 }
 
+void
+sc_sensitive::make_static_sensitivity(sc_process_b* handle_, const sc_port_base& port_)
+{
+    if (sc_get_curr_simcontext()->is_running()) {
+      handle_->add_static_event( port_.get_interface()->default_event() );
+    } else {
+	sc_method_handle handle_m = as_method_handle( handle_ );
+	if ( handle_m ) {
+	    port_.make_sensitive( handle_m );
+	    return;
+        }
+	sc_thread_handle handle_t = as_thread_handle( handle_ );
+	// assert(handle_t);
+	port_.make_sensitive( handle_t );
+    }
+}
+
 sc_sensitive&
 sc_sensitive::operator () ( sc_event_finder& event_finder_ )
 {
@@ -198,6 +232,23 @@ sc_sensitive::operator () ( sc_event_finder& event_finder_ )
     }
 
     return *this;
+}
+
+void 
+sc_sensitive::make_static_sensitivity(sc_process_b* handle_, sc_event_finder& event_finder_)
+{
+    if (sc_get_curr_simcontext()->is_running()) {
+      handle_->add_static_event( event_finder_.find_event() );
+    } else {
+	sc_method_handle handle_m = as_method_handle( handle_ );
+	if ( handle_m ) {
+	    event_finder_.port().make_sensitive( handle_m, &event_finder_ );
+	    return;
+        }
+	sc_thread_handle handle_t = as_thread_handle( handle_ );
+	// assert(handle_t);
+	event_finder_.port().make_sensitive( handle_t, &event_finder_);
+    }
 }
 
 
@@ -280,6 +331,11 @@ sc_sensitive::operator () ( sc_cthread_handle handle_,
 {
     port_.make_sensitive( handle_, &port_.pos() );
     return *this;
+}
+
+void sc_sensitive::reset()
+{
+    m_mode = SC_NONE_;
 }
 
 
@@ -510,6 +566,11 @@ sc_sensitive_pos::operator << ( const inout_port_l_type& port_ )
     return operator () ( port_ );
 }
 
+void sc_sensitive_pos::reset()
+{
+    m_mode = SC_NONE_;
+}
+
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_sensitive_neg
@@ -738,5 +799,11 @@ sc_sensitive_neg::operator << ( const inout_port_l_type& port_ )
     return operator () ( port_ );
 }
 
+void sc_sensitive_neg::reset()
+{
+    m_mode = SC_NONE_;
+}
+
+} // namespace sc_core
 
 // Taf!

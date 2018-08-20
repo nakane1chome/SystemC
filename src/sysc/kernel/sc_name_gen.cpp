@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,10 +34,11 @@
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_name_gen.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_name_gen.h"
+#include "sysc/utils/sc_iostream.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_name_gen
@@ -61,19 +62,26 @@ sc_name_gen::~sc_name_gen()
 // to generate unique names for objects in an MT-Safe way
 
 const char*
-sc_name_gen::gen_unique_name( const char* basename_ )
+sc_name_gen::gen_unique_name( const char* basename_, bool preserve_first )
 {
     if( basename_ == 0 ) {
 	SC_REPORT_ERROR( SC_ID_GEN_UNIQUE_NAME_, 0 );
     }
     int* c = m_unique_name_map[basename_];
     if( c == 0 ) {
-	c = new int( -1 );
+	c = new int( 0 );
 	m_unique_name_map.insert( CCAST<char*>( basename_ ), c );
+	if (preserve_first) {
+	    sprintf( m_unique_name, "%s", basename_ );
+	} else {    
+            sprintf( m_unique_name, "%s_%d", basename_, *c );
+        }
+    } else {
+        sprintf( m_unique_name, "%s_%d", basename_, ++ (*c) );
     }
-    sprintf( m_unique_name, "%s_%d", basename_, ++ (*c) );
     return m_unique_name;
 }
 
+} // namespace sc_core
 
 // Taf!

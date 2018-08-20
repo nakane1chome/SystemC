@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,52 +34,12 @@
  *****************************************************************************/
 
 
-#include "systemc/kernel/sc_cmnhdr.h"
-#include "systemc/kernel/sc_externs.h"
-#include "systemc/utils/sc_exception.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+#include "sysc/kernel/sc_externs.h"
 
-
-extern void pln();
-
-static
-inline
-void
-message_function( const char* s )
-{
-    cout << "\n" << s << endl;
-}
-
-bool sc_in_action = false;
 
 int
 main( int argc, char* argv[] )
 {
-    int status = 0;
-    try
-    {
-        pln();
-
-        // Perform initialization here
-        sc_in_action = true;
-
-        status = sc_main( argc, argv );
-
-        // Perform cleanup here
-        sc_in_action = false;
-    }
-    catch( const sc_exception& x )
-    {
-        message_function( x.what() );
-    }
-    catch( const char* s )
-    {
-        message_function( s );
-    }
-    catch( ... )
-    {
-        message_function( "UNKNOWN EXCEPTION OCCURED" );
-    }
-
-    return status;
+	return sc_core::sc_elab_and_sim( argc, argv );
 }

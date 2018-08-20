@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,13 +37,12 @@
 #define SC_TIME_H
 
 
-#include "systemc/datatypes/int/sc_nbdefs.h"
-#include "systemc/datatypes/fx/scfx_ieee.h"
-#include "systemc/utils/sc_iostream.h"
-#include "systemc/utils/sc_string.h"
+#include "sysc/datatypes/int/sc_nbdefs.h"
+#include "sysc/datatypes/fx/scfx_ieee.h"
+#include "sysc/utils/sc_iostream.h"
+#include "sysc/utils/sc_string.h"
 
-using sc_dt::int64;
-using sc_dt::uint64;
+namespace sc_core {
 
 class sc_simcontext;
 
@@ -81,7 +80,7 @@ public:
     sc_time( double, sc_time_unit );
     sc_time( double, sc_time_unit, sc_simcontext* );
     sc_time( double, bool scale );
-    sc_time( uint64, bool scale );
+    sc_time( sc_dt::uint64, bool scale );
     sc_time( const sc_time& );
 
 
@@ -92,11 +91,11 @@ public:
 
     // conversion functions
 
-    uint64 value() const;      // relative to the time resolution
+    sc_dt::uint64 value() const;      // relative to the time resolution
     double to_double() const;  // relative to the time resolution
     double to_default_time_units() const;
     double to_seconds() const;
-    const sc_string to_string() const;
+    const std::string to_string() const;
 
 
     // relational operators
@@ -128,17 +127,17 @@ public:
 
     // print function
 
-    void print( ostream& ) const;
+    void print( ::std::ostream& ) const;
 
 private:
 
-    uint64 m_value;
+    sc_dt::uint64 m_value;
 };
 
 
 // print operator
 
-inline ostream& operator << ( ostream&, const sc_time& );
+inline ::std::ostream& operator << ( ::std::ostream&, const sc_time& );
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
@@ -170,7 +169,7 @@ sc_time::operator = ( const sc_time& t )
 // conversion functions
 
 inline
-uint64
+sc_dt::uint64
 sc_time::value() const  // relative to the time resolution
 {
     return m_value;
@@ -270,7 +269,7 @@ sc_time::operator *= ( double d )
 {
     // linux bug workaround; don't change next two lines
     volatile double tmp = sc_dt::uint64_to_double( m_value ) * d + 0.5;
-    m_value = SCAST<int64>( tmp );
+    m_value = SCAST<sc_dt::int64>( tmp );
     return *this;
 }
 
@@ -280,7 +279,7 @@ sc_time::operator /= ( double d )
 {
     // linux bug workaround; don't change next two lines
     volatile double tmp = sc_dt::uint64_to_double( m_value ) / d + 0.5;
-    m_value = SCAST<int64>( tmp );
+    m_value = SCAST<sc_dt::int64>( tmp );
     return *this;
 }
 
@@ -320,8 +319,8 @@ operator / ( const sc_time& t1, const sc_time& t2 )
 // print operator
 
 inline
-ostream&
-operator << ( ostream& os, const sc_time& t )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_time& t )
 {
     t.print( os );
     return os;
@@ -340,7 +339,7 @@ struct sc_time_params
     bool   time_resolution_specified;
     bool   time_resolution_fixed;
 
-    uint64 default_time_unit;		// in time resolution
+    sc_dt::uint64 default_time_unit;		// in time resolution
     bool   default_time_unit_specified;
 
     sc_time_params();
@@ -361,6 +360,7 @@ extern sc_time sc_get_time_resolution();
 extern void    sc_set_default_time_unit( double, sc_time_unit );
 extern sc_time sc_get_default_time_unit();
 
+} // namespace sc_core
 
 #endif
 

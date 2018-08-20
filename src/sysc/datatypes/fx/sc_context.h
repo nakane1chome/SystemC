@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,12 +37,14 @@
 #define SC_CONTEXT_H
 
 
-#include "systemc/datatypes/fx/sc_fx_ids.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/utils/sc_hash.h"
+#include "sysc/datatypes/fx/sc_fx_ids.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/utils/sc_hash.h"
 
 
-class sc_process_b;
+namespace sc_core {
+	class sc_process_b;
+}
 
 
 namespace sc_dt
@@ -87,9 +89,9 @@ private:
 
     static sc_global<T>* m_instance;
 
-    sc_phash<const sc_process_b*,const T*> m_map;
-    const sc_process_b*                    m_proc;
-    const T*                               m_value_ptr;
+    sc_core::sc_phash<const sc_core::sc_process_b*,const T*> m_map;
+    const sc_core::sc_process_b*                             m_proc;
+    const T*                                                 m_value_ptr;
 
 };
 
@@ -153,7 +155,8 @@ sc_global<T>* sc_global<T>::m_instance = 0;
 template <class T>
 inline
 sc_global<T>::sc_global()
-: m_proc( reinterpret_cast<const sc_process_b*>( -1 ) ), m_value_ptr( 0 )
+: m_proc( 
+	reinterpret_cast<const sc_core::sc_process_b*>( -1 ) ), m_value_ptr( 0 )
 {}
 
 
@@ -162,7 +165,7 @@ inline
 void
 sc_global<T>::update()
 {
-    const sc_process_b* p = sc_get_curr_process_handle();
+    const sc_core::sc_process_b* p = sc_core::sc_get_curr_process_handle();
     if( p != m_proc )
     {
         const T* vp = m_map[p];
@@ -214,7 +217,7 @@ sc_context<T>::sc_context( const sc_context<T>& )
   m_old_value_ptr( 0 )
 {
     // this constructor should never be called
-    SC_REPORT_FATAL( SC_ID_INTERNAL_ERROR_, "should never be called" );
+    SC_REPORT_FATAL( sc_core::SC_ID_INTERNAL_ERROR_, "should never be called" );
 }
 
 template <class T>
@@ -223,7 +226,7 @@ void*
 sc_context<T>::operator new( size_t )
 {
     // this method should never be called
-    SC_REPORT_FATAL( SC_ID_INTERNAL_ERROR_, "should never be called" );
+    SC_REPORT_FATAL( sc_core::SC_ID_INTERNAL_ERROR_, "should never be called" );
 }
 
 
@@ -265,7 +268,7 @@ sc_context<T>::begin()
     }
     else
     {
-        SC_REPORT_ERROR( SC_ID_CONTEXT_BEGIN_FAILED_, 0 );
+        SC_REPORT_ERROR( sc_core::SC_ID_CONTEXT_BEGIN_FAILED_, 0 );
     }
 }
 
@@ -281,7 +284,7 @@ sc_context<T>::end()
     }
     else
     {
-        SC_REPORT_ERROR( SC_ID_CONTEXT_END_FAILED_, 0 );
+        SC_REPORT_ERROR( sc_core::SC_ID_CONTEXT_END_FAILED_, 0 );
     }
 }
 

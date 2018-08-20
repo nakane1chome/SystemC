@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -35,15 +35,16 @@
  *****************************************************************************/
 
 
-#include <stdlib.h>
+#include <cstdlib>
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_module.h"
-#include "systemc/kernel/sc_module_name.h"
-#include "systemc/kernel/sc_object_manager.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/utils/sc_iostream.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_module.h"
+#include "sysc/kernel/sc_module_name.h"
+#include "sysc/kernel/sc_object_manager.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/utils/sc_iostream.h"
 
+namespace sc_core {
 
 sc_module_name::sc_module_name( const char* name_ )
 : m_name( name_ ),
@@ -78,3 +79,5 @@ sc_module_name::operator const char*() const
 {
     return m_name;
 }
+
+} // namespace sc_core

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -41,9 +41,8 @@
 #define SC_BIGINT_H
 
 
-#include "systemc/datatypes/int/sc_signed.h"
-#include "systemc/datatypes/int/sc_unsigned.h"
-
+#include "sysc/datatypes/int/sc_signed.h"
+#include "sysc/datatypes/int/sc_unsigned.h"
 
 namespace sc_dt
 {
@@ -94,10 +93,10 @@ public:
 	: sc_signed( W )
 	{ *this = v; }
 
-    template <class T1, class T2>
-    sc_bigint( const sc_signed_concref<T1,T2>& a )
+    template< class T >
+    sc_bigint( const sc_generic_base<T>& a )
 	: sc_signed( W )
-	{ sc_signed::operator = ( a ); }
+	{ a->to_sc_signed(*this); }
 
     sc_bigint( const sc_unsigned& v )
 	: sc_signed( W )
@@ -106,11 +105,6 @@ public:
     sc_bigint( const sc_unsigned_subref& v )
 	: sc_signed( W )
 	{ *this = v; }
-
-    template <class T1, class T2>
-    sc_bigint( const sc_unsigned_concref<T1,T2>& a )
-	: sc_signed( W )
-	{ sc_signed::operator = ( a ); }
 
     sc_bigint( const char* v )
 	: sc_signed( W )
@@ -182,7 +176,6 @@ public:
 
 #endif
  
-
     // assignment operators
 
     sc_bigint<W>& operator = ( const sc_bigint<W>& v )
@@ -194,19 +187,15 @@ public:
     sc_bigint<W>& operator = (const sc_signed_subref& v )
 	{ sc_signed::operator = ( v ); return *this; }
 
-    template <class T1, class T2>
-    sc_bigint<W>& operator = ( const sc_signed_concref<T1,T2>& a )
-	{ sc_signed::operator = ( a ); return *this; }
+    template< class T >
+    sc_bigint<W>& operator = ( const sc_generic_base<T>& a )
+	{ a->to_sc_signed(*this); return *this;}
 
     sc_bigint<W>& operator = ( const sc_unsigned& v )
 	{ sc_signed::operator = ( v ); return *this; }
 
     sc_bigint<W>& operator = ( const sc_unsigned_subref& v )
 	{ sc_signed::operator = ( v ); return *this; }
-
-    template <class T1, class T2>
-    sc_bigint<W>& operator = ( const sc_unsigned_concref<T1,T2>& a )
-	{ sc_signed::operator = ( a ); return *this; }
 
     sc_bigint<W>& operator = ( const char* v )
 	{ sc_signed::operator = ( v ); return *this; }
@@ -244,7 +233,6 @@ public:
 
     sc_bigint<W>& operator = ( const sc_uint_base& v )
 	{ sc_signed::operator = ( v ); return *this; }
-
 
 #ifdef SC_INCLUDE_FX
 

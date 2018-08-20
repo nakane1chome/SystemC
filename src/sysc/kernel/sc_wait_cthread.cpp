@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,13 +34,24 @@
 
  *****************************************************************************/
 
+/* 
+$Log: sc_wait_cthread.cpp,v $
+Revision 1.5  2004/09/27 20:49:10  acg
+Andy Goodrich, Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments appear in the
+     checkout source.
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_process_int.h"
-#include "systemc/kernel/sc_simcontext_int.h"
-#include "systemc/kernel/sc_wait_cthread.h"
-#include "systemc/communication/sc_port.h"
+*/
 
+
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_process_int.h"
+#include "sysc/kernel/sc_simcontext_int.h"
+#include "sysc/kernel/sc_wait_cthread.h"
+#include "sysc/communication/sc_port.h"
+
+namespace sc_core 
+{
 
 // for SC_CTHREADs
 
@@ -64,18 +75,17 @@ void
 wait( int n, sc_simcontext* simc )
 {
     sc_curr_proc_handle cpi = simc->get_curr_proc_info();
+    if( n <= 0 ) {
+	char msg[BUFSIZ];
+	sprintf( msg, "n = %d", n );
+	SC_REPORT_ERROR( SC_ID_WAIT_N_INVALID_, msg );
+    }
     switch( cpi->kind ) {
-    case SC_CTHREAD_PROC_: {
-        if( n <= 0 ) {
-            char msg[BUFSIZ];
-            sprintf( msg, "n = %d", n );
-            SC_REPORT_ERROR( SC_ID_WAIT_N_INVALID_, msg );
-        }
+      case SC_CTHREAD_PROC_: 
 	RCAST<sc_cthread_handle>( cpi->process_handle )->wait_clock( n );
         break;
-    }
-    default:
-	SC_REPORT_ERROR( SC_ID_WAIT_N_NOT_ALLOWED_, 0 );
+      default:
+        do { wait(); } while (--n);
         break;
     }
 }
@@ -109,7 +119,7 @@ at_posedge( const sc_signal_in_if<bool>& s, sc_simcontext* simc )
 }
 
 void
-at_posedge( const sc_signal_in_if<sc_logic>& s, sc_simcontext* simc )
+at_posedge( const sc_signal_in_if<sc_dt::sc_logic>& s, sc_simcontext* simc )
 {
     if( s.read() == '1' ) {
         wait_until( s.delayed() == '0', simc );
@@ -131,7 +141,7 @@ at_negedge( const sc_signal_in_if<bool>& s, sc_simcontext* simc )
 }
 
 void
-at_negedge( const sc_signal_in_if<sc_logic>& s, sc_simcontext* simc )
+at_negedge( const sc_signal_in_if<sc_dt::sc_logic>& s, sc_simcontext* simc )
 {
     if( s.read() == '0' ) {
         wait_until( s.delayed() == '1', simc );
@@ -146,15 +156,13 @@ void
 watching_before_simulation( const sc_lambda_ptr& lambda, sc_simcontext* simc )
 {
     simc->get_port_registry()->add_lambda_for_resolution( lambda );
-    sc_curr_proc_handle cpi = simc->get_curr_proc_info();
-    switch( cpi->kind ) {
-    case SC_CTHREAD_PROC_: {
-	RCAST<sc_cthread_handle>( cpi->process_handle )->add_lambda( lambda );
-        break;
-    }
-    default:
+    sc_process_b* last_proc = sc_get_last_created_process_handle();
+    
+    if (!last_proc) return;
+    if ( last_proc->is_cthread() ) {
+	RCAST<sc_cthread_handle>( last_proc )->add_lambda( lambda );
+    } else {
 	SC_REPORT_ERROR( SC_ID_WATCHING_NOT_ALLOWED_, 0 );
-        break;
     }
 }
 
@@ -173,6 +181,7 @@ watching_during_simulation( const sc_lambda_ptr& lambda, sc_simcontext* simc )
     }
 }
  
+
 
 void
 __reset_watching( sc_cthread_handle cthread_h )
@@ -213,5 +222,6 @@ __sanitycheck_watchlists( sc_cthread_handle cthread_h )
     assert( cthread_h->m_watchlists[cthread_h->__watch_level()]->empty() );
 }
 
+} // namespace sc_core
 
 // Taf!

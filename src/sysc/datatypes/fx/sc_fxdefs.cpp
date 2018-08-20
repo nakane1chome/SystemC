@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,7 +34,7 @@
  *****************************************************************************/
 
 
-#include "systemc/datatypes/fx/sc_fxdefs.h"
+#include "sysc/datatypes/fx/sc_fxdefs.h"
 
 
 namespace sc_dt
@@ -46,17 +46,17 @@ namespace sc_dt
 //  Enumeration of sign encodings.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_enc enc )
 {
     switch( enc )
     {
         case SC_TC_:
-            return sc_string( "SC_TC_" );
+            return std::string( "SC_TC_" );
         case SC_US_:
-            return sc_string( "SC_US_" );
+            return std::string( "SC_US_" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 
@@ -67,27 +67,27 @@ to_string( sc_enc enc )
 //  Enumeration of quantization modes.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_q_mode q_mode )
 {
     switch( q_mode )
     {
         case SC_RND:
-            return sc_string( "SC_RND" );
+            return std::string( "SC_RND" );
         case SC_RND_ZERO:
-            return sc_string( "SC_RND_ZERO" );
+            return std::string( "SC_RND_ZERO" );
         case SC_RND_MIN_INF:
-            return sc_string( "SC_RND_MIN_INF" );
+            return std::string( "SC_RND_MIN_INF" );
         case SC_RND_INF:
-            return sc_string( "SC_RND_INF" );
+            return std::string( "SC_RND_INF" );
         case SC_RND_CONV:
-            return sc_string( "SC_RND_CONV" );
+            return std::string( "SC_RND_CONV" );
         case SC_TRN:
-            return sc_string( "SC_TRN" );
+            return std::string( "SC_TRN" );
         case SC_TRN_ZERO:
-            return sc_string( "SC_TRN_ZERO" );
+            return std::string( "SC_TRN_ZERO" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 
@@ -98,23 +98,23 @@ to_string( sc_q_mode q_mode )
 //  Enumeration of overflow modes.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_o_mode o_mode )
 {
     switch( o_mode )
     {
         case SC_SAT:
-            return sc_string( "SC_SAT" );
+            return std::string( "SC_SAT" );
         case SC_SAT_ZERO:
-            return sc_string( "SC_SAT_ZERO" );
+            return std::string( "SC_SAT_ZERO" );
         case SC_SAT_SYM:
-            return sc_string( "SC_SAT_SYM" );
+            return std::string( "SC_SAT_SYM" );
         case SC_WRAP:
-            return sc_string( "SC_WRAP" );
+            return std::string( "SC_WRAP" );
         case SC_WRAP_SM:
-            return sc_string( "SC_WRAP_SM" );
+            return std::string( "SC_WRAP_SM" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 
@@ -125,16 +125,16 @@ to_string( sc_o_mode o_mode )
 //  Enumeration of switch states.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_switch sw )
 {
     switch( sw ) {
         case SC_OFF:
-            return sc_string( "SC_OFF" );
+            return std::string( "SC_OFF" );
         case SC_ON:
-            return sc_string( "SC_ON" );
+            return std::string( "SC_ON" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 
@@ -145,16 +145,16 @@ to_string( sc_switch sw )
 //  Enumeration of formats for character string conversion.
 // ----------------------------------------------------------------------------
 
-const sc_string
+const std::string
 to_string( sc_fmt fmt )
 {
     switch( fmt ) {
         case SC_F:
-            return sc_string( "SC_F" );
+            return std::string( "SC_F" );
         case SC_E:
-            return sc_string( "SC_E" );
+            return std::string( "SC_E" );
 	default:
-	    return sc_string( "unknown" );
+	    return std::string( "unknown" );
     }
 }
 

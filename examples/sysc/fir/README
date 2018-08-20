@@ -59,8 +59,3 @@ in order to distribute the operations into 4 cycles, which makes the
 model more difficult to read, but this models now a "RTL" like view to
 the architecture for this design.
 
-In order to compile the RTL model you have to execute 
-'make -f Makefile.rtl' and you should find a run_rtl.x after 
-the compilation.
-
-Note that there are different Makefiles for different platforms.

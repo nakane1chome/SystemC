@@ -11,8 +11,8 @@
  * purpose.
  */
 
-#ifndef QT_KSR1_H
-#define QT_KSR1_H
+#ifndef QUICKTHREADS_KSR1_H
+#define QUICKTHREADS_KSR1_H
 
 /* 
    Stack layout:
@@ -84,7 +84,7 @@
 
    The pointer to the startup code is *not* `qt_start'.  It is the
    word *pointed to* by `qt_start'.  Thus, we dereference `qt_start',
-   see QT_ARGS_MD below.
+   see QUICKTHREADS_ARGS_MD below.
 
    On varargs startup (still unimplemented):
 
@@ -118,12 +118,12 @@
    */
 
 
-#define QT_STKALIGN	128
-#define QT_GROW_DOWN
+#define QUICKTHREADS_STKALIGN	128
+#define QUICKTHREADS_GROW_DOWN
 typedef unsigned long qt_word_t;
 
-#define QT_STKBASE	QT_STKALIGN
-#define QT_VSTKBASE	QT_STKBASE
+#define QUICKTHREADS_STKBASE	QUICKTHREADS_STKALIGN
+#define QUICKTHREADS_VSTKBASE	QUICKTHREADS_STKBASE
 
 extern void qt_start(void);
 /*
@@ -134,31 +134,31 @@ extern void qt_start(void);
  * first word in a procedure's constant block.  That's how the manual
  * says it will be arranged.
  */
-#define QT_ARGS_MD(sp)	(QT_SPUT (sp, 1, ((qt_word_t *)qt_start)[0]))
+#define QUICKTHREADS_ARGS_MD(sp)	(QUICKTHREADS_SPUT (sp, 1, ((qt_word_t *)qt_start)[0]))
 
 /* 
  * The *index* (positive offset) of where to put each value.
  * See the picture of the stack above that explains the offsets.
  */
-#define QT_ONLY_INDEX	(5)
-#define QT_USER_INDEX	(4)
-#define QT_ARGT_INDEX	(3)
-#define QT_ARGU_INDEX	(2)
+#define QUICKTHREADS_ONLY_INDEX	(5)
+#define QUICKTHREADS_USER_INDEX	(4)
+#define QUICKTHREADS_ARGT_INDEX	(3)
+#define QUICKTHREADS_ARGU_INDEX	(2)
 
-#define QT_VARGS_DEFAULT
-#define QT_VARGS(sp, nb, vargs, pt, startup, vuserf, cleanup) \
+#define QUICKTHREADS_VARGS_DEFAULT
+#define QUICKTHREADS_VARGS(sp, nb, vargs, pt, startup, vuserf, cleanup) \
       (qt_vargs (sp, nbytes, &vargs, pt, startup, vuserf, cleanup))
 
 
-#define QT_VARGS_MD0(sp, vabytes) \
-  ((qt_t *)(((char *)(sp)) - 4*8 - QT_STKROUNDUP(vabytes)))
+#define QUICKTHREADS_VARGS_MD0(sp, vabytes) \
+  ((qt_t *)(((char *)(sp)) - 4*8 - QUICKTHREADS_STKROUNDUP(vabytes)))
 
 extern void qt_vstart(void);
-#define QT_VARGS_MD1(sp)	(QT_SPUT (sp, 0, ((qt_word_t *)qt_vstart)[0]))
+#define QUICKTHREADS_VARGS_MD1(sp)	(QUICKTHREADS_SPUT (sp, 0, ((qt_word_t *)qt_vstart)[0]))
 
-#define QT_VCLEANUP_INDEX	(4)
-#define QT_VUSERF_INDEX		(3)
-#define QT_VSTARTUP_INDEX	(2)
-#define QT_VARGT_INDEX		(1)
+#define QUICKTHREADS_VCLEANUP_INDEX	(4)
+#define QUICKTHREADS_VUSERF_INDEX		(3)
+#define QUICKTHREADS_VSTARTUP_INDEX	(2)
+#define QUICKTHREADS_VARGT_INDEX		(1)
 
-#endif /* def QT_KSR1_H */
+#endif /* def QUICKTHREADS_KSR1_H */

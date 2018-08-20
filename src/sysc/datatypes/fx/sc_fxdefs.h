@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,9 +37,9 @@
 #define SC_FXDEFS_H
 
 
-#include "systemc/datatypes/fx/sc_fx_ids.h"
-#include "systemc/datatypes/int/sc_nbutils.h"
-#include "systemc/utils/sc_string.h"
+#include "sysc/datatypes/fx/sc_fx_ids.h"
+#include "sysc/datatypes/int/sc_nbutils.h"
+#include "sysc/utils/sc_string.h"
 
 
 namespace sc_dt
@@ -58,12 +58,12 @@ enum sc_enc
 };
 
 
-const sc_string to_string( sc_enc );
+const std::string to_string( sc_enc );
 
 
 inline
-ostream&
-operator << ( ostream& os, sc_enc enc )
+::std::ostream&
+operator << ( ::std::ostream& os, sc_enc enc )
 {
     return os << to_string( enc );
 }
@@ -87,12 +87,12 @@ enum sc_q_mode
 };
 
 
-const sc_string to_string( sc_q_mode );
+const std::string to_string( sc_q_mode );
 
 
 inline
-ostream&
-operator << ( ostream& os, sc_q_mode q_mode )
+::std::ostream&
+operator << ( ::std::ostream& os, sc_q_mode q_mode )
 {
     return os << to_string( q_mode );
 }
@@ -116,12 +116,12 @@ enum sc_o_mode
 // (*) uses the number of saturated bits argument, see the documentation.
 
 
-const sc_string to_string( sc_o_mode );
+const std::string to_string( sc_o_mode );
 
 
 inline
-ostream&
-operator << ( ostream& os, sc_o_mode o_mode )
+::std::ostream&
+operator << ( ::std::ostream& os, sc_o_mode o_mode )
 {
     return os << to_string( o_mode );
 }
@@ -140,12 +140,12 @@ enum sc_switch
 };
 
 
-const sc_string to_string( sc_switch );
+const std::string to_string( sc_switch );
 
 
 inline
-ostream&
-operator << ( ostream& os, sc_switch sw )
+::std::ostream&
+operator << ( ::std::ostream& os, sc_switch sw )
 {
     return os << to_string( sw );
 }
@@ -164,12 +164,12 @@ enum sc_fmt
 };
 
 
-const sc_string to_string( sc_fmt );
+const std::string to_string( sc_fmt );
 
 
 inline
-ostream&
-operator << ( ostream& os, sc_fmt fmt )
+::std::ostream&
+operator << ( ::std::ostream& os, sc_fmt fmt )
 {
     return os << to_string( fmt );
 }
@@ -239,7 +239,7 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
 #define SC_ASSERT_(cnd,msg)                                                   \
 {                                                                             \
     if( ! (cnd) )                                                             \
-        SC_REPORT_ERROR( SC_ID_INTERNAL_ERROR_, msg );                        \
+        SC_REPORT_ERROR( sc_core::SC_ID_INTERNAL_ERROR_, msg );                        \
 }
 #else
 #define SC_ASSERT_(cnd,msg)
@@ -253,19 +253,20 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
 
 
 #define SC_CHECK_WL_(wl)                                                      \
-    SC_ERROR_IF_( (wl) <= 0, SC_ID_INVALID_WL_ )
+    SC_ERROR_IF_( (wl) <= 0, sc_core::SC_ID_INVALID_WL_ )
 
 #define SC_CHECK_N_BITS_(n_bits)                                              \
-    SC_ERROR_IF_( (n_bits) < 0, SC_ID_INVALID_N_BITS_ )
+    SC_ERROR_IF_( (n_bits) < 0, sc_core::SC_ID_INVALID_N_BITS_ )
 
 #define SC_CHECK_DIV_WL_(div_wl)                                              \
-    SC_ERROR_IF_( (div_wl) <= 0, SC_ID_INVALID_DIV_WL_ )
+    SC_ERROR_IF_( (div_wl) <= 0, sc_core::SC_ID_INVALID_DIV_WL_ )
 
 #define SC_CHECK_CTE_WL_(cte_wl)                                              \
-    SC_ERROR_IF_( (cte_wl) <= 0, SC_ID_INVALID_CTE_WL_ )
+    SC_ERROR_IF_( (cte_wl) <= 0, sc_core::SC_ID_INVALID_CTE_WL_ )
 
 #define SC_CHECK_MAX_WL_(max_wl)                                              \
-    SC_ERROR_IF_( (max_wl) <= 0 && (max_wl) != -1, SC_ID_INVALID_MAX_WL_ )
+    SC_ERROR_IF_( (max_wl) <= 0 && (max_wl) != -1,                            \
+	    sc_core::SC_ID_INVALID_MAX_WL_ )
 
 
 // ----------------------------------------------------------------------------

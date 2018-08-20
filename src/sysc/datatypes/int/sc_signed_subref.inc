@@ -1,7 +1,7 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
@@ -40,11 +40,34 @@
 //  Proxy class for sc_signed part selection (r-value only).
 // ----------------------------------------------------------------------------
 
+// concatenation support
+
+uint64 sc_signed_subref_r::concat_get_uint64() const 
+{
+    sc_unsigned a( m_obj_p, m_left, m_right );
+    return a.to_uint64();
+}
+
+
+bool sc_signed_subref_r::concat_get_ctrl(unsigned long* dst_p, int low_i ) const
+{
+    sc_unsigned a( m_obj_p, m_left, m_right );
+    return a.concat_get_ctrl( dst_p, low_i );
+}
+
+
+bool sc_signed_subref_r::concat_get_data(unsigned long* dst_p, int low_i ) const
+{
+    sc_unsigned a( m_obj_p, m_left, m_right );
+    return a.concat_get_data( dst_p, low_i );
+}
+
+
 // implicit conversion to sc_signed
 
-sc_signed_subref_r::operator sc_signed () const
+sc_signed_subref_r::operator sc_unsigned () const
 {
-    return sc_signed( &m_obj, m_left, m_right );
+    return sc_unsigned( m_obj_p, m_left, m_right );
 }
 
 
@@ -53,67 +76,67 @@ sc_signed_subref_r::operator sc_signed () const
 int
 sc_signed_subref_r::to_int() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_int();
 }
 
 unsigned int
 sc_signed_subref_r::to_uint() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_uint();
 }
 
 long
 sc_signed_subref_r::to_long() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_long();
 }
 
 unsigned long
 sc_signed_subref_r::to_ulong() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_ulong();
 }
 
 int64
 sc_signed_subref_r::to_int64() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_int64();
 }
 
 uint64
 sc_signed_subref_r::to_uint64() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_uint64();
 }
 
 double
 sc_signed_subref_r::to_double() const
 {
-    sc_signed a( &m_obj, m_left, m_right );
+    sc_unsigned a( m_obj_p, m_left, m_right );
     return a.to_double();
 }
 
 
 // explicit conversion to character string
 
-const sc_string
+const std::string
 sc_signed_subref_r::to_string( sc_numrep numrep ) const
 {
-    sc_signed a( length() );
+    sc_unsigned a( length() );
     a = *this;
     return a.to_string( numrep );
 }
 
-const sc_string
+const std::string
 sc_signed_subref_r::to_string( sc_numrep numrep, bool w_prefix ) const
 {
-    sc_signed a( length() );
+    sc_unsigned a( length() );
     a = *this;
     return a.to_string( numrep, w_prefix );
 }
@@ -127,90 +150,90 @@ sc_signed_subref_r::to_string( sc_numrep numrep, bool w_prefix ) const
 
 // assignment operators
 
-sc_signed_subref&
+const sc_signed_subref&
 sc_signed_subref::operator = ( const sc_signed_subref_r& a )
 {
-    return operator = ( SCAST<sc_signed>( a ) );
+    return operator = ( (sc_unsigned)( a ) );
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( const sc_signed_subref& v )
 {
     if( this == &v ) {
 	return *this;
     }
-    return operator = ( static_cast<sc_signed>( v ) );
+    return operator = ( (sc_unsigned)( v ) ); 
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( const sc_signed& v )
 {
     int l = sc_min( m_left, v.nbits - 1 + m_right );
     for( int i = m_right; i <= l; ++ i ) {
-	m_obj.set( i, v.test( i - m_right ) );
+	m_obj_p->set( i, v.test( i - m_right ) );
     }
     return *this;
-}
+} // #### BUG : WHAT ABOUT SIGN EXTENSION?
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( const sc_unsigned_subref_r& v )
 {
-    return operator = ( static_cast<sc_unsigned>( v ) );
+    return operator = ( (sc_unsigned)( v ) );
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( const sc_unsigned& v )
 {
     int l = sc_min( m_left, v.nbits - 1 + m_right );
     for( int i = m_right; i <= l; ++ i ) {
-	m_obj.set( i, v.test( i - m_right ) );
+	m_obj_p->set( i, v.test( i - m_right ) );
     }
     return *this;
-}
+} // #### BUG: WHAT ABOUT SIGN EXTENSION AND FACT nbits IS ONE TOO HIGH?
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( unsigned long v )
 {
     for( int i = m_right; i <= m_left; ++ i ) {
-	m_obj.set( i, static_cast<bool>( v & 1 ) );
+	m_obj_p->set( i, static_cast<bool>( v & 1 ) );
 	v >>= 1;
     }
     return *this;
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( long v ) 
 {
     unsigned long v2 = (unsigned long) v;
     for( int i = m_right; i <= m_left; ++ i ) {
-	m_obj.set( i, static_cast<bool>( v2 & 1 ) );
+	m_obj_p->set( i, static_cast<bool>( v2 & 1 ) );
 	v2 >>= 1;
     }
     return *this;
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( uint64 v )
 {
     for( int i = m_right; i <= m_left; ++ i ) {
-	m_obj.set( i, static_cast<bool>( v & 1 ) );
+	m_obj_p->set( i, static_cast<bool>( v & 1 ) );
 	v >>= 1;
     }
     return *this;
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( int64 v ) 
 {
     uint64 v2 = (uint64) v;
     for( int i = m_right; i <= m_left; ++ i ) {
-	m_obj.set( i, static_cast<bool>( v2 & 1 ) );
+	m_obj_p->set( i, static_cast<bool>( v2 & 1 ) );
 	v2 >>= 1;
     }
     return *this;
 }
 
-sc_signed_subref& 
+const sc_signed_subref& 
 sc_signed_subref::operator = ( double v )
 {
     is_bad_double(v);
@@ -247,7 +270,7 @@ sc_signed_subref::operator = ( double v )
 
     while (i < nb) {
 
-	m_obj.set(i + m_right, (bool) (d[j] & val));
+	m_obj_p->set(i + m_right, (bool) (d[j] & val));
 
 	++i;
 
@@ -266,25 +289,112 @@ sc_signed_subref::operator = ( double v )
     return *this;
 }
 
-sc_signed_subref&
+const sc_signed_subref&
 sc_signed_subref::operator = ( const sc_int_base& a )
 {
     return operator = ( (int64) a );
 }
 
-sc_signed_subref&
+const sc_signed_subref&
 sc_signed_subref::operator = ( const sc_uint_base& a )
 {
     return operator = ( (uint64) a );
 }
 
+// concatenation methods
 
+
+void sc_signed_subref::concat_set( int64 src, int low_i )
+{
+    int  i;
+    int  l;
+    bool sign = src < 0;
+
+    if ( low_i < 64 )    
+    {    
+	src = src >> low_i;
+	l = sc_min( m_left, (63-low_i) + m_right );    
+	for( i = m_right; i <= l; ++ i ) {    
+		m_obj_p->set( i, src & 1 );    
+		src = src >> 1;    
+	}    
+	for ( ; i <= m_left; i++ ) m_obj_p->set(i, sign);     
+    }    
+    else    
+    {    
+	for( i = m_right; i <= m_left; ++ i ) m_obj_p->set(i, sign);     
+    }    
+}
+
+void sc_signed_subref::concat_set( const sc_signed& src, int low_i )
+{
+    int i;
+    int l;
+    int src_i;
+    bool sign = src.test(src.nbits-1);
+    l = src.nbits - (low_i+1);
+    if ( l >= 0 )
+    {
+	l = sc_min( m_left, l + m_right );
+	src_i = low_i;
+	for( i = m_right; i <= l; ++ i, src_i++ ) {
+	    m_obj_p->set( i, src.test( src_i ) );
+	}
+	for ( ; i <= m_left; i++ ) m_obj_p->set(i, sign);
+    }
+    else
+    {    
+	for( i = m_right; i <= m_left; ++ i ) m_obj_p->set(i, sign);     
+    }    
+}
+
+void sc_signed_subref::concat_set( const sc_unsigned& src, int low_i )
+{
+    int i;
+    int l;
+    int src_i;
+    l = src.nbits - (low_i+2);
+    if ( l >= 0 )
+    {
+	l = sc_min( m_left, l + m_right );
+	src_i = low_i;
+	for( i = m_right; i <= l; ++ i, src_i++ ) {
+	    m_obj_p->set( i, src.test( src_i ) );
+	}
+	for ( ; i <= m_left; i++ ) m_obj_p->set(false);
+    }
+    else
+    {    
+	for( i = m_right; i <= m_left; ++ i ) m_obj_p->set(false);     
+    }    
+}
+
+void sc_signed_subref::concat_set( uint64 src, int low_i )
+{
+    int  i;
+    int  l;
+
+    if ( low_i < 64 )  
+    {    
+	src = src >> low_i;
+	l = sc_min( m_left, (63-low_i) + m_right );    
+	for( i = m_right; i <= l; ++ i ) {    
+		m_obj_p->set( i, src & 1 );    
+		src = src >> 1;    
+	}    
+	for ( ; i <= m_left; i++ ) m_obj_p->set(false);     
+    }    
+    else    
+    {    
+	for( i = m_right; i <= m_left; ++ i ) m_obj_p->set(false);     
+    }    
+}
 // other methods
 
 void
-sc_signed_subref::scan( istream& is )
+sc_signed_subref::scan( ::std::istream& is )
 {
-    sc_string s;
+    std::string s;
     is >> s;
     *this = s.c_str();
 }

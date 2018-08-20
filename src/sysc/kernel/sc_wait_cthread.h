@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -34,13 +34,27 @@
 
 ******************************************************************************/
 
+/* 
+$Log: sc_wait_cthread.h,v $
+Revision 1.6  2005/01/10 17:52:20  acg
+Addition of namespace specifications.
+
+Revision 1.5  2004/09/27 20:49:10  acg
+Andy Goodrich, Forte Design Systems, Inc.
+   - Added a $Log comment so that CVS checkin comments appear in the
+     checkout source.
+
+*/
+
 #ifndef SC_WAIT_CTHREAD_H
 #define SC_WAIT_CTHREAD_H
 
 
-#include "systemc/kernel/sc_lambda.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/kernel/sc_lambda.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core 
+{
 
 // for SC_CTHREADs
 
@@ -76,7 +90,7 @@ at_posedge( const sc_signal_in_if<bool>&,
 
 extern
 void
-at_posedge( const sc_signal_in_if<sc_logic>&,
+at_posedge( const sc_signal_in_if<sc_dt::sc_logic>&,
 	    sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
@@ -86,8 +100,9 @@ at_negedge( const sc_signal_in_if<bool>&,
 
 extern
 void
-at_negedge( const sc_signal_in_if<sc_logic>&,
+at_negedge( const sc_signal_in_if<sc_dt::sc_logic>&,
 	    sc_simcontext* = sc_get_curr_simcontext() );
+
 
 
 inline
@@ -148,5 +163,6 @@ public:
     }
 };
 
+} // namespace sc_core
 
 #endif

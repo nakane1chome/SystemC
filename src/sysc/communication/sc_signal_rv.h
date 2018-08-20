@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -36,11 +36,10 @@
 #ifndef SC_SIGNAL_RV_H
 #define SC_SIGNAL_RV_H
 
-#include "systemc/communication/sc_signal.h"
-#include "systemc/datatypes/bit/sc_lv.h"
+#include "sysc/communication/sc_signal.h"
+#include "sysc/datatypes/bit/sc_lv.h"
 
-using sc_dt::sc_logic_value_t;
-using sc_dt::sc_lv;
+namespace sc_core {
 
 class sc_process_b;
 
@@ -48,10 +47,10 @@ class sc_process_b;
 // ----------------------------------------------------------------------------
 //  CLASS sc_lv_resolve<W>
 //
-//  Resolution function for sc_lv<W>.
+//  Resolution function for sc_dt::sc_lv<W>.
 // ----------------------------------------------------------------------------
 
-extern const sc_logic_value_t sc_logic_resolution_tbl[4][4];
+extern const sc_dt::sc_logic_value_t sc_logic_resolution_tbl[4][4];
 
 
 template <int W>
@@ -59,20 +58,20 @@ class sc_lv_resolve
 {
 public:
 
-    // resolves sc_lv<W> values and returns the resolved value
-    static void resolve( sc_lv<W>&, const sc_pvector<sc_lv<W>*>& );
+    // resolves sc_dt::sc_lv<W> values and returns the resolved value
+    static void resolve(sc_dt::sc_lv<W>&, const sc_pvector<sc_dt::sc_lv<W>*>&);
 };
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// resolves sc_lv<W> values and returns the resolved value
+// resolves sc_dt::sc_lv<W> values and returns the resolved value
 
 template <int W>
 inline
 void
-sc_lv_resolve<W>::resolve( sc_lv<W>& result_,
-			   const sc_pvector<sc_lv<W>*>& values_ )
+sc_lv_resolve<W>::resolve( sc_dt::sc_lv<W>& result_,
+			   const sc_pvector<sc_dt::sc_lv<W>*>& values_ )
 {
     int sz = values_.size();
 
@@ -84,7 +83,7 @@ sc_lv_resolve<W>::resolve( sc_lv<W>& result_,
     }
 
     for( int j = result_.length() - 1; j >= 0; -- j ) {
-	sc_logic_value_t res = (*values_[0])[j].value();
+	sc_dt::sc_logic_value_t res = (*values_[0])[j].value();
 	for( int i = sz - 1; i > 0 && res != 3; -- i ) {
 	    res = sc_logic_resolution_tbl[res][(*values_[i])[j].value()];
 	}
@@ -101,15 +100,15 @@ sc_lv_resolve<W>::resolve( sc_lv<W>& result_,
 
 template <int W>
 class sc_signal_rv
-: public sc_signal<sc_lv<W> >
+: public sc_signal<sc_dt::sc_lv<W> >
 {
 public:
 
     // typedefs
 
-    typedef sc_signal_rv<W>      this_type;
-    typedef sc_signal<sc_lv<W> > base_type;
-    typedef sc_lv<W>             data_type;
+    typedef sc_signal_rv<W>             this_type;
+    typedef sc_signal<sc_dt::sc_lv<W> > base_type;
+    typedef sc_dt::sc_lv<W>             data_type;
 
 public:
 
@@ -146,11 +145,8 @@ public:
     this_type& operator = ( const this_type& a )
         { write( a.read() ); return *this; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_signal_rv"; }
 
 protected:
 
@@ -169,9 +165,6 @@ private:
 
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-
-template <int W>
-const char* const sc_signal_rv<W>::kind_string = "sc_signal_rv";
 
 
 // destructor
@@ -230,6 +223,7 @@ sc_signal_rv<W>::update()
     base_type::update();
 }
 
+} // namespace sc_core
 
 #endif
 

@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,7 @@
 #define SC_FXTYPE_PARAMS_H
 
 
-#include "systemc/datatypes/fx/sc_context.h"
+#include "sysc/datatypes/fx/sc_context.h"
 
 
 namespace sc_dt
@@ -90,10 +90,10 @@ public:
     int n_bits() const;
     void n_bits( int );
 
-    const sc_string to_string() const;
+    const std::string to_string() const;
 
-    void print( ostream& = cout ) const;
-    void dump( ostream& = cout ) const;
+    void print( ::std::ostream& = ::std::cout ) const;
+    void dump( ::std::ostream& = ::std::cout ) const;
 
 private:
 
@@ -309,8 +309,8 @@ sc_fxtype_params::n_bits( int n_bits_ )
 
 
 inline
-ostream&
-operator << ( ostream& os, const sc_fxtype_params& a )
+::std::ostream&
+operator << ( ::std::ostream& os, const sc_fxtype_params& a )
 {
     a.print( os );
     return os;

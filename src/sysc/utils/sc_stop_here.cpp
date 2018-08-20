@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,7 +37,44 @@
  *****************************************************************************/
 
 
-#include "systemc/utils/sc_stop_here.h"
+#include "sysc/utils/sc_stop_here.h"
+
+
+namespace sc_core {
+
+// ----------------------------------------------------------------------------
+//  FUNCTION : sc_interrupt_here
+//
+//  Debugging aid for warning, error, and fatal reports.
+//  This function *cannot* be inlined.
+// ----------------------------------------------------------------------------
+
+void
+sc_interrupt_here( int id, sc_severity severity )
+{
+    // you can set a breakpoint at some of the lines below, either to
+    // interrupt with any severity, or to interrupt with a specific severity
+
+    switch( severity ) {
+      case SC_INFO: 
+	static int info_id;
+	info_id = id;
+	break;
+      case SC_WARNING: 
+	static int warning_id;
+	warning_id = id;
+	break;
+      case SC_ERROR: 
+	static int error_id;
+	error_id = id;
+	break;
+      default:
+      case SC_FATAL: 
+	static int fatal_id;
+	fatal_id = id;
+	break;
+    }
+}
 
 
 // ----------------------------------------------------------------------------
@@ -54,28 +91,26 @@ sc_stop_here( int id, sc_severity severity )
     // stop with any severity, or to stop with a specific severity
 
     switch( severity ) {
-    case SC_INFO: {
+      case SC_INFO: 
 	static int info_id;
 	info_id = id;
 	break;
-    }
-    case SC_WARNING: {
+      case SC_WARNING: 
 	static int warning_id;
 	warning_id = id;
 	break;
-    }
-    case SC_ERROR: {
+      case SC_ERROR: 
 	static int error_id;
 	error_id = id;
 	break;
-    }
-    case SC_FATAL: {
+      default:
+      case SC_FATAL: 
 	static int fatal_id;
 	fatal_id = id;
 	break;
     }
-    }
 }
 
+} // namespace sc_core
 
 // Taf!

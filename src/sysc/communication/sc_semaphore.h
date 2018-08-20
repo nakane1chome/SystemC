@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,10 +37,11 @@
 #define SC_SEMAPHORE_H
 
 
-#include "systemc/kernel/sc_event.h"
-#include "systemc/communication/sc_prim_channel.h"
-#include "systemc/communication/sc_semaphore_if.h"
+#include "sysc/kernel/sc_event.h"
+#include "sysc/communication/sc_prim_channel.h"
+#include "sysc/communication/sc_semaphore_if.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_semaphore
@@ -75,11 +76,8 @@ public:
     virtual int get_value() const
 	{ return m_value; }
 
-
-    static const char* const kind_string;
-
     virtual const char* kind() const
-        { return kind_string; }
+        { return "sc_semaphore"; }
 
 protected:
 
@@ -90,7 +88,7 @@ protected:
 
 
     // error reporting
-    void report_error( int id, const char* add_msg = 0 ) const;
+    void report_error( const char* id, const char* add_msg = 0 ) const;
 
 protected:
 
@@ -104,6 +102,7 @@ private:
     sc_semaphore& operator = ( const sc_semaphore& );
 };
 
+} // namespace sc_core
 
 #endif
 

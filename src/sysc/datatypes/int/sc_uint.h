@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -52,7 +52,7 @@
 #define SC_UINT_H
 
 
-#include "systemc/datatypes/int/sc_uint_base.h"
+#include "sysc/datatypes/int/sc_uint_base.h"
 
 
 namespace sc_dt
@@ -100,8 +100,8 @@ public:
 	: sc_uint_base( W )
 	{ sc_uint_base::operator = ( a ); }
 
-    template <class T1, class T2>
-    sc_uint( const sc_uint_concref_r<T1,T2>& a )
+    template< class T >
+    sc_uint( const sc_generic_base<T>& a )
 	: sc_uint_base( W )
 	{ sc_uint_base::operator = ( a ); }
 
@@ -184,8 +184,8 @@ public:
     sc_uint<W>& operator = ( const sc_uint<W>& a )
 	{ m_val = a.m_val; return *this; }
 
-    template <class T1, class T2>
-    sc_uint<W>& operator = ( const sc_uint_concref_r<T1,T2>& a )
+    template<class T>
+    sc_uint<W>& operator = ( const sc_generic_base<T>& a )
 	{ sc_uint_base::operator = ( a ); return *this; }
 
     sc_uint<W>& operator = ( const sc_signed& a )

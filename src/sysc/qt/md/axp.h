@@ -11,10 +11,10 @@
  * purpose.
  */
 
-#ifndef QT_AXP_H
-#define QT_AXP_H
+#ifndef QUICKTHREADS_AXP_H
+#define QUICKTHREADS_AXP_H
 
-#define QT_GROW_DOWN
+#define QUICKTHREADS_GROW_DOWN
 
 typedef unsigned long qt_word_t;
 
@@ -93,21 +93,21 @@ typedef unsigned long qt_word_t;
 
 
 /* Stack must be 16-byte aligned. */
-#define QT_STKALIGN	(16)
+#define QUICKTHREADS_STKALIGN	(16)
 
 /* How much space is allocated to hold all the crud for
    initialization: 7 registers times 8 bytes/register. */
 
-#define QT_STKBASE	(10 * 8)
-#define QT_VSTKBASE	QT_STKBASE
+#define QUICKTHREADS_STKBASE	(10 * 8)
+#define QUICKTHREADS_VSTKBASE	QUICKTHREADS_STKBASE
 
 
 /* Offsets of various registers. */
-#define QT_R26	0
-#define QT_R9	1
-#define QT_R10	2
-#define QT_R11	3
-#define QT_R12	4
+#define QUICKTHREADS_R26	0
+#define QUICKTHREADS_R9	1
+#define QUICKTHREADS_R10	2
+#define QUICKTHREADS_R11	3
+#define QUICKTHREADS_R12	4
 
 
 /* When a never-before-run thread is restored, the return pc points
@@ -123,11 +123,11 @@ typedef unsigned long qt_word_t;
    words are simply wasted. */
 
 extern void qt_start(void);
-#define QT_ARGS_MD(sp)	(QT_SPUT (sp, QT_R26, qt_start))
+#define QUICKTHREADS_ARGS_MD(sp)	(QUICKTHREADS_SPUT (sp, QUICKTHREADS_R26, qt_start))
 
 
 /* The AXP uses a struct for `va_list', so pass a pointer to the
-   struct.  This may break some uses of `QT_VARGS', but then we never
+   struct.  This may break some uses of `QUICKTHREADS_VARGS', but then we never
    claimed it was totally portable. */
 
 typedef void (qt_function_t)(void);
@@ -140,21 +140,21 @@ extern struct qt_t *qt_vargs (struct qt_t *sp, int nbytes,
 			      qt_function_t *vuserf,
 			      qt_function_t *cleanup);
 
-#define QT_VARGS(sp, nbytes, vargs, pt, startup, vuserf, cleanup) \
+#define QUICKTHREADS_VARGS(sp, nbytes, vargs, pt, startup, vuserf, cleanup) \
   (qt_vargs (sp, nbytes, (struct va_list *)(&(vargs)), pt, \
 	     (qt_function_t *) startup, (qt_function_t *)vuserf, \
 	     (qt_function_t *)cleanup));
 
 
 /* The *index* (positive offset) of where to put each value. */
-#define QT_ONLY_INDEX	(QT_R12)
-#define QT_USER_INDEX	(QT_R11)
-#define QT_ARGT_INDEX	(QT_R10)
-#define QT_ARGU_INDEX	(QT_R9)
+#define QUICKTHREADS_ONLY_INDEX	(QUICKTHREADS_R12)
+#define QUICKTHREADS_USER_INDEX	(QUICKTHREADS_R11)
+#define QUICKTHREADS_ARGT_INDEX	(QUICKTHREADS_R10)
+#define QUICKTHREADS_ARGU_INDEX	(QUICKTHREADS_R9)
 
-#define QT_VCLEANUP_INDEX	(QT_R10)
-#define QT_VUSERF_INDEX		(QT_R11)
-#define QT_VSTARTUP_INDEX	(QT_R12)
-#define QT_VARGT_INDEX		(QT_R9)
+#define QUICKTHREADS_VCLEANUP_INDEX	(QUICKTHREADS_R10)
+#define QUICKTHREADS_VUSERF_INDEX		(QUICKTHREADS_R11)
+#define QUICKTHREADS_VSTARTUP_INDEX	(QUICKTHREADS_R12)
+#define QUICKTHREADS_VARGT_INDEX		(QUICKTHREADS_R9)
 
-#endif /* ndef QT_AXP_H */
+#endif /* ndef QUICKTHREADS_AXP_H */

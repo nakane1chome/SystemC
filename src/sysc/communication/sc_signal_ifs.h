@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,14 +37,15 @@
 #define SC_SIGNAL_IFS_H
 
 
-#include "systemc/communication/sc_interface.h"
+#include "sysc/communication/sc_interface.h"
 
 
 namespace sc_dt
 {
     class sc_logic;
 }
-using sc_dt::sc_logic;
+
+namespace sc_core {
 
 class sc_signal_bool_deval;
 class sc_signal_logic_deval;
@@ -149,13 +150,13 @@ private:
 
 
 // ----------------------------------------------------------------------------
-//  CLASS : sc_signal_in_if<sc_logic>
+//  CLASS : sc_signal_in_if<sc_dt::sc_logic>
 //
-//  Specialization of sc_signal_in_if<T> for type sc_logic.
+//  Specialization of sc_signal_in_if<T> for type sc_dt::sc_logic.
 // ----------------------------------------------------------------------------
 
 template <>
-class sc_signal_in_if<sc_logic>
+class sc_signal_in_if<sc_dt::sc_logic>
 : virtual public sc_interface
 {
 public:
@@ -171,10 +172,10 @@ public:
 
 
     // read the current value
-    virtual const sc_logic& read() const = 0;
+    virtual const sc_dt::sc_logic& read() const = 0;
 
     // get a reference to the current value (for tracing)
-    virtual const sc_logic& get_data_ref() const = 0;
+    virtual const sc_dt::sc_logic& get_data_ref() const = 0;
 
 
     // was there a value changed event?
@@ -200,9 +201,9 @@ protected:
 private:
 
     // disabled
-    sc_signal_in_if( const sc_signal_in_if<sc_logic>& );
-    sc_signal_in_if<sc_logic>& operator = (
-	const sc_signal_in_if<sc_logic>& );
+    sc_signal_in_if( const sc_signal_in_if<sc_dt::sc_logic>& );
+    sc_signal_in_if<sc_dt::sc_logic>& operator = (
+	const sc_signal_in_if<sc_dt::sc_logic>& );
 };
 
 
@@ -247,6 +248,7 @@ private:
 
 #define sc_signal_out_if sc_signal_inout_if
 
+} // namespace sc_core
 
 #endif
 

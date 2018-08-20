@@ -51,7 +51,7 @@ This README contains the following sections:
 0.1 Getting Started for Unix
 
 The simple bus example is now part of the SystemC distribution. It is
-located in directory 'examples/systemc/simple_bus'. To be able to run
+located in directory 'examples/sysc/simple_bus'. To be able to run
 the example, first go to this directory and build the executable,
 e.g.
 
@@ -79,7 +79,7 @@ Now you can run the executable, e.g.
 
 The simple bus example is now part of the SystemC distribution. The
 source code of this example is located in directory
-'examples/systemc/simple_bus'. Project and workspace files for Visual
+'examples/sysc/simple_bus'. Project and workspace files for Visual
 C++ are located in directory 'msvc60/examples/simple_bus'. To be able
 to run the example, go to this directory and double-click on the
 simple_bus.dsw file to launch Visual C++ with the workspace file. The

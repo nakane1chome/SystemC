@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -39,8 +39,10 @@
 
 #ifdef WIN32
 
-#include "systemc/kernel/sc_cor.h"
-#include "systemc/kernel/sc_cmnhdr.h"
+#include "sysc/kernel/sc_cor.h"
+#include "sysc/kernel/sc_cmnhdr.h"
+
+namespace sc_core {
 
 class sc_cor_pkg_fiber;
 
@@ -54,6 +56,10 @@ class sc_cor_pkg_fiber;
 class sc_cor_fiber
 : public sc_cor
 {
+#if( defined(_MSC_VER) && _MSC_VER >= 1300 )
+typedef std::size_t size_t;
+#endif
+
 public:
 
     // constructor
@@ -88,6 +94,10 @@ private:
 class sc_cor_pkg_fiber
 : public sc_cor_pkg
 {
+#if( defined(_MSC_VER) && _MSC_VER >= 1300 )
+typedef std::size_t size_t;
+#endif
+
 public:
 
     // constructor
@@ -120,7 +130,9 @@ private:
     sc_cor_pkg_fiber& operator = ( const sc_cor_pkg_fiber& );
 };
 
-#endif
+} // namespace sc_core
+
+#endif // WIN32
 
 
 #endif

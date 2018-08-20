@@ -1,11 +1,11 @@
 ## ****************************************************************************
 ##
 ##  The following code is derived, directly or indirectly, from the SystemC
-##  source code Copyright (c) 1996-2002 by all Contributors.
+##  source code Copyright (c) 1996-2005 by all Contributors.
 ##  All Rights reserved.
 ##
 ##  The contents of this file are subject to the restrictions and limitations
-##  set forth in the SystemC Open Source License Version 2.3 (the "License");
+##  set forth in the SystemC Open Source License Version 2.4 (the "License");
 ##  You may not use this file except in compliance with such restrictions and
 ##  limitations. You may obtain instructions on how to receive a copy of the
 ##  License at http://www.systemc.org/. Software distributed by Contributors
@@ -15,7 +15,7 @@
 ##
 ## ****************************************************************************
 ##
-##  src/systemc/datatypes/fx/Makefile.am --
+##  src/sysc/datatypes/fx/Makefile.am --
 ##  Process this file with automake to produce a Makefile.in file.
 ##
 ##  Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
@@ -63,7 +63,6 @@ NO_H_FILES = \
 noinst_HEADERS = $(H_FILES)
 
 CXX_FILES = \
-	sc_fx_ids.cpp \
 	sc_fxcast_switch.cpp \
 	sc_fxdefs.cpp \
 	sc_fxnum.cpp \
@@ -80,7 +79,7 @@ NO_CXX_FILES =
 
 libfx_a_SOURCES = $(H_FILES) $(CXX_FILES) 
 
-INCLUDE_DIR = $(prefix)/include/systemc/datatypes/fx
+INCLUDE_DIR = $(prefix)/include/sysc/datatypes/fx
 
 install-data-local:
 	@$(NORMAL_INSTALL)

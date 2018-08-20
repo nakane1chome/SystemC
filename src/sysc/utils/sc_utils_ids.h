@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -31,14 +31,13 @@
       Name, Affiliation, Date:
   Description of Modification:
     
+  Alex Riesen, Synopsys, Inc., 2003-02-02
+  ported to SystemC 2.1 exception reporting.
+    
  *****************************************************************************/
 
 #ifndef SC_UTILS_IDS_H
 #define SC_UTILS_IDS_H
-
-
-#include "systemc/utils/sc_report.h"
-
 
 // ----------------------------------------------------------------------------
 //  Report ids (utils)
@@ -46,10 +45,20 @@
 //  Report ids in the range of 800-899.
 // ----------------------------------------------------------------------------
 
-extern const int SC_ID_REGISTER_ID_FAILED_;
-extern const int SC_ID_STRING_TOO_LONG_;
-extern const int SC_ID_FRONT_ON_EMPTY_LIST_;
-extern const int SC_ID_BACK_ON_EMPTY_LIST_;
+#ifndef SC_DEFINE_MESSAGE
+#define SC_DEFINE_MESSAGE(id,unused1,unused2) \
+    namespace sc_core { extern const char id[]; }
+namespace sc_core {
+    extern const char SC_ID_REGISTER_ID_FAILED_[]; // in sc_report_handler.cpp
+}
+#endif
+
+SC_DEFINE_MESSAGE(SC_ID_STRING_TOO_LONG_,
+		  801, "string is too long")
+SC_DEFINE_MESSAGE(SC_ID_FRONT_ON_EMPTY_LIST_,
+		  802, "attempt to take front() on an empty list")
+SC_DEFINE_MESSAGE(SC_ID_BACK_ON_EMPTY_LIST_,
+		  803, "attempt to take back() on an empty list")
 
 
 #endif

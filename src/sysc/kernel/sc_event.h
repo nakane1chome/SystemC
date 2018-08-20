@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -37,10 +37,11 @@
 #define SC_EVENT_H
 
 
-#include "systemc/kernel/sc_kernel_ids.h"
-#include "systemc/kernel/sc_simcontext.h"
-#include "systemc/utils/sc_vector.h"
+#include "sysc/kernel/sc_kernel_ids.h"
+#include "sysc/kernel/sc_simcontext.h"
+#include "sysc/utils/sc_vector.h"
 
+namespace sc_core {
 
 // forward declarations
 class sc_event_timed;
@@ -57,6 +58,7 @@ class sc_event_and_list;
 
 class sc_event
 {
+	friend class sc_clock;
     friend class sc_event_list;
     friend class sc_event_timed;
     friend class sc_simcontext;
@@ -136,17 +138,17 @@ class sc_event_timed
 private:
 
     sc_event_timed( sc_event* e, const sc_time& t )
-	: m_event( e ), m_notify_time( t )
-	{}
+        : m_event( e ), m_notify_time( t )
+        {}
 
     ~sc_event_timed()
-	{ if( m_event != 0 ) { m_event->m_timed = 0; } }
+        { if( m_event != 0 ) { m_event->m_timed = 0; } }
 
     sc_event* event() const
-	{ return m_event; }
+        { return m_event; }
 
     const sc_time& notify_time() const
-	{ return m_notify_time; }
+        { return m_notify_time; }
 
     static void* operator new( size_t )
         { return allocate(); }
@@ -204,7 +206,7 @@ void
 sc_event::notify_delayed()
 {
     if( m_notify_type != NONE ) {
-	SC_REPORT_ERROR( SC_ID_NOTIFY_DELAYED_, 0 );
+        SC_REPORT_ERROR( SC_ID_NOTIFY_DELAYED_, 0 );
     }
     // add this event to the delta events set
     m_delta = m_simc->add_delta_event( this );
@@ -216,19 +218,19 @@ void
 sc_event::notify_delayed( const sc_time& t )
 {
     if( m_notify_type != NONE ) {
-	SC_REPORT_ERROR( SC_ID_NOTIFY_DELAYED_, 0 );
+        SC_REPORT_ERROR( SC_ID_NOTIFY_DELAYED_, 0 );
     }
     if( t == SC_ZERO_TIME ) {
-	// add this event to the delta events set
-	m_delta = m_simc->add_delta_event( this );
-	m_notify_type = DELTA;
+        // add this event to the delta events set
+        m_delta = m_simc->add_delta_event( this );
+        m_notify_type = DELTA;
     } else {
-	// add this event to the timed events set
-	sc_event_timed* et = new sc_event_timed( this,
-						 m_simc->time_stamp() + t );
-	m_simc->add_timed_event( et );
-	m_timed = et;
-	m_notify_type = TIMED;
+        // add this event to the timed events set
+        sc_event_timed* et = new sc_event_timed( this,
+                                                 m_simc->time_stamp() + t );
+        m_simc->add_timed_event( et );
+        m_timed = et;
+        m_notify_type = TIMED;
     }
 }
 
@@ -311,8 +313,8 @@ protected:
     void push_back( const sc_event& );
 
     sc_event_list( const sc_event&,
-		   bool and_list_,
-		   bool auto_delete_ = false );
+                   bool and_list_,
+                   bool auto_delete_ = false );
 
     int size() const;
     bool and_list() const;
@@ -343,8 +345,8 @@ private:
 
 inline
 sc_event_list::sc_event_list( const sc_event& e,
-			      bool and_list_,
-			      bool auto_delete_ )
+                              bool and_list_,
+                              bool auto_delete_ )
 : m_and_list( and_list_ ),
   m_auto_delete( auto_delete_ )
 {
@@ -372,7 +374,7 @@ void
 sc_event_list::auto_delete()
 {
     if( m_auto_delete ) {
-	delete this;
+        delete this;
     }
 }
 
@@ -411,7 +413,7 @@ private:
 
 inline
 sc_event_or_list::sc_event_or_list( const sc_event& e,
-				    bool auto_delete_ )
+                                    bool auto_delete_ )
 : sc_event_list( e, false, auto_delete_ )
 {}
 
@@ -471,7 +473,7 @@ private:
 
 inline
 sc_event_and_list::sc_event_and_list( const sc_event& e,
-				      bool auto_delete_ )
+                                      bool auto_delete_ )
 : sc_event_list( e, true, auto_delete_ )
 {}
 
@@ -496,6 +498,7 @@ sc_event::operator & ( const sc_event& e2 ) const
     return *el;
 }
 
+} // namespace sc_core
 
 #endif
 

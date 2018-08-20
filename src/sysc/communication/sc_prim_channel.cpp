@@ -1,11 +1,11 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2002 by all Contributors.
+  source code Copyright (c) 1996-2005 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License Version 2.3 (the "License");
+  set forth in the SystemC Open Source License Version 2.4 (the "License");
   You may not use this file except in compliance with such restrictions and
   limitations. You may obtain instructions on how to receive a copy of the
   License at http://www.systemc.org/. Software distributed by Contributors
@@ -29,25 +29,26 @@
   MODIFICATION LOG - modifiers, enter your name, affiliation, date and
   changes you are making here.
 
-      Name, Affiliation, Date:
-  Description of Modification:
+      Name, Affiliation, Date: Andy Goodrich, Forte,
+                               Bishnupriya Bhattacharya, Cadence Design Systems,
+                               25 August, 2003
+
+  Description of Modification: phase callbacks
     
  *****************************************************************************/
 
 
-#include "systemc/communication/sc_prim_channel.h"
-#include "systemc/communication/sc_communication_ids.h"
-#include "systemc/kernel/sc_simcontext.h"
+#include "sysc/communication/sc_prim_channel.h"
+#include "sysc/communication/sc_communication_ids.h"
+#include "sysc/kernel/sc_simcontext.h"
 
+namespace sc_core {
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_prim_channel
 //
 //  Abstract base class of all primitive channel classes.
 // ----------------------------------------------------------------------------
-
-const char* const sc_prim_channel::kind_string = "sc_prim_channel";
-
 
 // constructors
 
@@ -83,6 +84,19 @@ sc_prim_channel::update()
 {}
 
 
+// called by construction_done (does nothing by default)
+
+void sc_prim_channel::before_end_of_elaboration() 
+{}
+
+// called when construction is done
+
+void
+sc_prim_channel::construction_done()
+{
+    before_end_of_elaboration();
+}
+
 // called by elaboration_done (does nothing by default)
 
 void
@@ -98,6 +112,33 @@ sc_prim_channel::elaboration_done()
     end_of_elaboration();
 }
 
+// called by start_simulation (does nothing)
+
+void
+sc_prim_channel::start_of_simulation()
+{}
+
+// called before simulation begins
+
+void
+sc_prim_channel::start_simulation()
+{
+    start_of_simulation();
+}
+
+// called by simulation_done (does nothing)
+
+void
+sc_prim_channel::end_of_simulation()
+{}
+
+// called after simulation ends
+
+void
+sc_prim_channel::simulation_done()
+{
+    end_of_simulation();
+}
 
 // ----------------------------------------------------------------------------
 //  CLASS : sc_prim_channel_registry
@@ -175,6 +216,16 @@ sc_prim_channel_registry::~sc_prim_channel_registry()
     delete[] m_update_array;
 }
 
+// called when construction is done
+
+void
+sc_prim_channel_registry::construction_done()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_prim_channel_vec[i]->construction_done();
+    }
+}
+
 
 // called when elaboration is done
 
@@ -186,5 +237,26 @@ sc_prim_channel_registry::elaboration_done()
     }
 }
 
+// called before simulation begins
+
+void
+sc_prim_channel_registry::start_simulation()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_prim_channel_vec[i]->start_simulation();
+    }
+}
+
+// called after simulation ends
+
+void
+sc_prim_channel_registry::simulation_done()
+{
+    for( int i = 0; i < size(); ++ i ) {
+	m_prim_channel_vec[i]->simulation_done();
+    }
+}
+
+} // namespace sc_core
 
 // Taf!
