@@ -18,8 +18,8 @@
 #ifndef __TLM_NONBLOCKING_PORT_H__
 #define __TLM_NONBLOCKING_PORT_H__
 
-#include "tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_core_ifs.h"
-#include "tlm_1/tlm_req_rsp/tlm_ports/tlm_event_finder.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_core_ifs.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_ports/tlm_event_finder.h"
 
 namespace tlm {
 

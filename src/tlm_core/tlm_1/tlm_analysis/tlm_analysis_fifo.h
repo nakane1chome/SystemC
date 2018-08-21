@@ -18,9 +18,9 @@
 #ifndef __TLM_ANALYSIS_FIFO_H__
 #define __TLM_ANALYSIS_FIFO_H__
 
-#include "tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo.h"
-#include "tlm_1/tlm_analysis/tlm_analysis_if.h"
-#include "tlm_1/tlm_analysis/tlm_analysis_triple.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo.h"
+#include "tlm_core/tlm_1/tlm_analysis/tlm_analysis_if.h"
+#include "tlm_core/tlm_1/tlm_analysis/tlm_analysis_triple.h"
 
 namespace tlm {
 

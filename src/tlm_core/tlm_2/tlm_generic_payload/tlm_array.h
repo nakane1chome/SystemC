@@ -21,7 +21,7 @@
 
 #include <systemc>
 #include <exception>
-// unused for the time being: #include <assert.h>
+// unused for the time being: #include <cassert>
 
 namespace tlm {
 

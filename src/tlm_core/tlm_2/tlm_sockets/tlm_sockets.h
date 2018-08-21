@@ -18,7 +18,7 @@
 #ifndef __TLM_SOCKETS_H__
 #define __TLM_SOCKETS_H__
 
-#include "tlm_initiator_socket.h"
-#include "tlm_target_socket.h"
+#include "tlm_core/tlm_2/tlm_sockets/tlm_initiator_socket.h"
+#include "tlm_core/tlm_2/tlm_sockets/tlm_target_socket.h"
 
 #endif /* __TLM_SOCKETS_H__ */

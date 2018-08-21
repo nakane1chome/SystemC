@@ -1,7 +1,7 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2008 by all Contributors.
+  source code Copyright (c) 1996-2011 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
@@ -34,8 +34,8 @@
 
 //#include <systemc>
 
-#include "tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_fifo_ifs.h"
-#include "tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/circular_buffer.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_fifo_ifs.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/circular_buffer.h"
 
 namespace tlm {
 
@@ -65,29 +65,25 @@ public:
 
     // destructor
 
-    virtual ~tlm_fifo() {
-
-      if( buffer != 0 ) delete buffer;
-
-    }
+    virtual ~tlm_fifo() {}
 
     // tlm get interface
 
-    T get( tlm_tag<T> *t = 0 );
+    T get( tlm_tag<T> * = 0 );
 
     bool nb_get( T& );
-    bool nb_can_get( tlm_tag<T> *t = 0 ) const;
-    const sc_core::sc_event &ok_to_get( tlm_tag<T> *t = 0 ) const {
+    bool nb_can_get( tlm_tag<T> * = 0 ) const;
+    const sc_core::sc_event &ok_to_get( tlm_tag<T> * = 0 ) const {
       return m_data_written_event;
     }
 
     // tlm peek interface
 
-    T peek( tlm_tag<T> *t = 0 ) const;
+    T peek( tlm_tag<T> * = 0 ) const;
 
     bool nb_peek( T& ) const;
-    bool nb_can_peek( tlm_tag<T> *t = 0 ) const;
-    const sc_core::sc_event &ok_to_peek( tlm_tag<T> *t = 0 ) const {
+    bool nb_can_peek( tlm_tag<T> * = 0 ) const;
+    const sc_core::sc_event &ok_to_peek( tlm_tag<T> * = 0 ) const {
       return m_data_written_event;
     }
 
@@ -96,9 +92,9 @@ public:
     void put( const T& );
 
     bool nb_put( const T& );
-    bool nb_can_put( tlm_tag<T> *t = 0 ) const;
+    bool nb_can_put( tlm_tag<T> * = 0 ) const;
 
-    const sc_core::sc_event& ok_to_put( tlm_tag<T> *t = 0 ) const {
+    const sc_core::sc_event& ok_to_put( tlm_tag<T> * = 0 ) const {
       return m_data_read_event;
     }
 
@@ -146,7 +142,7 @@ public:
 
 
 protected:
-    sc_core::sc_event &read_event( tlm_tag<T> *t = 0 ) {
+    sc_core::sc_event &read_event( tlm_tag<T> * = 0 ) {
       return m_data_read_event;
     }
 
@@ -160,7 +156,7 @@ protected:
 
 protected:
 
-    circular_buffer<T> *buffer;
+    circular_buffer<T> buffer;
 
     int m_size;                  // logical size of fifo
 
@@ -189,7 +185,11 @@ private:
     }
 
     bool is_full() const {
-      return size() == m_num_readable + m_num_written;
+      //return size() == m_num_readable + m_num_written; // Old buggy code
+      if( size() < 0 )
+        return false;
+      else
+        return size() <= m_num_readable + m_num_written;
     }
 
 };
@@ -210,15 +210,15 @@ void
 tlm_fifo<T>::init( int size_ ) {
 
   if( size_ > 0 ) {
-    buffer = new circular_buffer<T>( size_);
+    buffer.resize( size_ );
   }
 
   else if( size_ < 0 ) {
-    buffer = new circular_buffer<T>( -size_ );
+    buffer.resize( -size_ );
   }
 
   else {
-    buffer = new circular_buffer<T>( 16 );
+    buffer.resize( 16 );
   }
 
   m_size = size_;
@@ -246,16 +246,16 @@ tlm_fifo<T>::update()
     m_expand = false;
     m_num_read = 0;
     m_num_written = 0;
-    m_num_readable = buffer->used();
+    m_num_readable = buffer.used();
     m_num_read_no_notify = 0;
 
 }
 
 } // namespace tlm
 
-#include "tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_put_get.h"
-#include "tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_peek.h"
-#include "tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_resize.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_put_get.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_peek.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo_resize.h"
 
 #endif
 

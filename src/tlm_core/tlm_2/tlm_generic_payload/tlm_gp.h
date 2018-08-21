@@ -18,13 +18,15 @@
 // 12-Jan-2009  John Aynsley  Bug fix. has_mm() and get_ref_count() should both be const
 // 23-Mar-2009  John Aynsley  Add method update_original_from()
 // 20-Apr-2009  John Aynsley  Bug fix for 64-bit machines: unsigned long int -> unsigned int
+//  5-May-2011  JA and Philipp Hartmann  Add tlm_gp_option, set_gp_option, get_gp_option
+// 11-May-2011  John Aynsley  Add run-time check to release()
 
 
 #ifndef __TLM_GP_H__
 #define __TLM_GP_H__
 
 #include <systemc>
-#include "tlm_array.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_array.h"
 
 namespace tlm {
 
@@ -103,6 +105,12 @@ enum tlm_response_status {
     TLM_BYTE_ENABLE_ERROR_RESPONSE = -5
 };
 
+enum tlm_gp_option {
+    TLM_MIN_PAYLOAD,
+    TLM_FULL_PAYLOAD,
+    TLM_FULL_PAYLOAD_ACCEPTED
+};
+
 #define TLM_BYTE_DISABLED 0x0
 #define TLM_BYTE_ENABLED 0xff
 
@@ -127,6 +135,7 @@ public:
         , m_byte_enable(0)
         , m_byte_enable_length(0)
         , m_streaming_width(0)
+        , m_gp_option(TLM_MIN_PAYLOAD)
         , m_extensions(max_num_extensions())
         , m_mm(0)
         , m_ref_count(0)
@@ -143,6 +152,7 @@ public:
         , m_byte_enable(0)
         , m_byte_enable_length(0)
         , m_streaming_width(0)
+        , m_gp_option(TLM_MIN_PAYLOAD)
         , m_extensions(max_num_extensions())
         , m_mm(mm)
         , m_ref_count(0)
@@ -150,13 +160,14 @@ public:
     }
 
     void acquire(){assert(m_mm != 0); m_ref_count++;}
-    void release(){assert(m_mm != 0); if (--m_ref_count==0) m_mm->free(this);}
+    void release(){assert(m_mm != 0 && m_ref_count > 0); if (--m_ref_count==0) m_mm->free(this);}
     int get_ref_count() const {return m_ref_count;}
     void set_mm(tlm_mm_interface* mm) { m_mm = mm; }
     bool has_mm() const { return m_mm != 0; }
 
     void reset(){
       //should the other members be reset too?
+      m_gp_option = TLM_MIN_PAYLOAD;
       m_extensions.free_entire_cache();
     };
 
@@ -174,6 +185,7 @@ private:
         , m_byte_enable(x.get_byte_enable_ptr())
         , m_byte_enable_length(x.get_byte_enable_length())
         , m_streaming_width(x.get_streaming_width())
+        , m_gp_option(x.m_gp_option)
         , m_extensions(max_num_extensions())
     {
         // copy all extensions
@@ -194,6 +206,7 @@ private:
         m_byte_enable =        x.get_byte_enable_ptr();
         m_byte_enable_length = x.get_byte_enable_length();
         m_streaming_width =    x.get_streaming_width();
+        m_gp_option =          x.get_gp_option();
         m_dmi =                x.is_dmi_allowed();
 
         // extension copy: all extension arrays must be of equal size by
@@ -216,6 +229,7 @@ public:
         m_response_status =    other.get_response_status();
         m_byte_enable_length = other.get_byte_enable_length();
         m_streaming_width =    other.get_streaming_width();
+        m_gp_option =          other.get_gp_option();
         m_dmi =                other.is_dmi_allowed();
 
         // deep copy data
@@ -412,6 +426,10 @@ public:
     void                 set_dmi_allowed(bool dmi_allowed) { m_dmi = dmi_allowed; }
     bool                 is_dmi_allowed() const { return m_dmi; }
 
+    // Use full set of attributes in DMI/debug?
+    tlm_gp_option get_gp_option() const { return m_gp_option; }
+    void          set_gp_option( const tlm_gp_option gp_opt ) { m_gp_option = gp_opt; }
+
 private:
 
     /* --------------------------------------------------------------------- */
@@ -458,6 +476,7 @@ private:
     unsigned char*       m_byte_enable;
     unsigned int         m_byte_enable_length;
     unsigned int         m_streaming_width;
+    tlm_gp_option        m_gp_option;
 
 public:
 

@@ -1,7 +1,7 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2008 by all Contributors.
+  source code Copyright (c) 1996-2011 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
@@ -17,7 +17,7 @@
 #ifndef __MULTI_PASSTHROUGH_TARGET_SOCKET_H__
 #define __MULTI_PASSTHROUGH_TARGET_SOCKET_H__
 
-#include "multi_socket_bases.h"
+#include "tlm_utils/multi_socket_bases.h"
 #include <sstream>
 
 namespace tlm_utils {
@@ -99,13 +99,13 @@ public:
   }
 
   //simple helpers for warnings an errors to shorten in code notation
-  void display_warning(const std::string& text){
+  void display_warning(const std::string& text) const {
     std::stringstream s;
     s<<"WARNING in instance "<<base_type::name()<<": "<<text;
     SC_REPORT_WARNING("/OSCI_TLM-2/multi_socket", s.str().c_str());
   }
 
-  void display_error(const std::string& text){
+  void display_error(const std::string& text) const {
     std::stringstream s;
     s<<"ERROR in instance "<<base_type::name()<<": "<<text;
     SC_REPORT_ERROR("/OSCI_TLM-2/multi_socket", s.str().c_str());
@@ -214,10 +214,23 @@ public:
     return *m_binders[m_binders.size()-1];
   }
 
+  // const overload not allowed for multi-sockets
+  virtual const tlm::tlm_fw_transport_if<TYPES>& get_base_interface() const
+  {
+    display_error("'get_base_interface()' const not allowed for multi-sockets.");
+    return base_type::get_base_interface();
+  }
+
   //just return the export of the underlying tlm_target_socket in case of a hierarchical bind
   virtual sc_core::sc_export<tlm::tlm_fw_transport_if<TYPES> >& get_base_export()
   {
     return *this;
+  }
+
+  //just return the export of the underlying tlm_target_socket in case of a hierarchical bind
+  virtual const sc_core::sc_export<tlm::tlm_fw_transport_if<TYPES> >& get_base_export() const
+  {
+    return base_type::get_base_export();
   }
 
   //the standard end of elaboration callback
@@ -248,7 +261,7 @@ public:
   //
   // Bind multi target socket to multi target socket (hierarchical bind)
   //
-  void bind(base_type& s)
+  virtual void bind(base_type& s)
   {
     //warn if already bound hierarchically
     if (m_eoe_disabled){

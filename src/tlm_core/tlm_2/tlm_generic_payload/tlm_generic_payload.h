@@ -18,10 +18,10 @@
 #ifndef __TLM_GENERIC_PAYLOAD_H__
 #define __TLM_GENERIC_PAYLOAD_H__
 
-#include "tlm_helpers.h"
-#include "tlm_phase.h"
-#include "tlm_gp.h"
-#include "tlm_endian_conv.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_helpers.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_phase.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_gp.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_endian_conv.h"
 
 #endif
 

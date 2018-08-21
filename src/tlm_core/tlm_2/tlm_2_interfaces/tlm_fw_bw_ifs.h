@@ -19,8 +19,8 @@
 #define __TLM_FW_BW_IFS_H__
 
 #include <systemc>
-#include "tlm_h/tlm_generic_payload/tlm_generic_payload.h"
-#include "tlm_h/tlm_2_interfaces/tlm_dmi.h"
+#include "tlm_core/tlm_2/tlm_generic_payload/tlm_generic_payload.h"
+#include "tlm_core/tlm_2/tlm_2_interfaces/tlm_dmi.h"
 
 namespace tlm {
 

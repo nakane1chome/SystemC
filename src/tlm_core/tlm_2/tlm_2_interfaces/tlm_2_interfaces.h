@@ -18,8 +18,8 @@
 #ifndef __TLM_2_INTERFACES_H__
 #define __TLM_2_INTERFACES_H__
 
-#include "tlm_dmi.h"
-#include "tlm_fw_bw_ifs.h"
+#include "tlm_core/tlm_2/tlm_2_interfaces/tlm_dmi.h"
+#include "tlm_core/tlm_2/tlm_2_interfaces/tlm_fw_bw_ifs.h"
 
 #endif
 

@@ -18,7 +18,7 @@
 #ifndef __TLM_ANALYSIS_IF_H__
 #define __TLM_ANALYSIS_IF_H__
 
-#include "tlm_write_if.h"
+#include "tlm_core/tlm_1/tlm_analysis/tlm_write_if.h"
 
 namespace tlm {
 

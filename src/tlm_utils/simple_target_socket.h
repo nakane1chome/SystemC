@@ -1,7 +1,7 @@
 /*****************************************************************************
 
   The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2008 by all Contributors.
+  source code Copyright (c) 1996-2011 by all Contributors.
   All Rights reserved.
 
   The contents of this file are subject to the restrictions and limitations
@@ -21,12 +21,18 @@
 // with the addition of one new line of code in each:  wait(*e);
 // *****************************************************************************
 
+// *****************************************************************************
+// Modified by John Aynsley on behalf of Robert Guenzel, May 2011,
+// Fix a bug in simple_target_socket and simple_target_socket_tagged
+// with the addition of one new line of code in each:  wait(t);
+// *****************************************************************************
+
 
 #ifndef __SIMPLE_TARGET_SOCKET_H__
 #define __SIMPLE_TARGET_SOCKET_H__
 
 #include "tlm.h"
-#include "peq_with_get.h"
+#include "tlm_utils/peq_with_get.h"
 #include <sstream>
 
 namespace tlm_utils {
@@ -63,6 +69,8 @@ public:
   {
     bind(m_fw_process);
   }
+
+  using tlm::tlm_target_socket<BUSWIDTH, TYPES>::bind;
 
   // bw transport must come thru us.
   tlm::tlm_bw_transport_if<TYPES> * operator ->() {return &m_bw_process;}
@@ -496,6 +504,7 @@ private:
             case tlm::BEGIN_RESP:
             {
               phase = tlm::END_RESP;
+              sc_core::wait(t);  // This line is a bug fix added in TLM-2.0.2
               t = sc_core::SC_ZERO_TIME;
               (m_mod->*m_nb_transport_ptr)(*trans, phase, t);
 
@@ -592,6 +601,8 @@ public:
   {
     bind(m_fw_process);
   }
+
+  using tlm::tlm_target_socket<BUSWIDTH, TYPES>::bind;
 
   // bw transport must come thru us.
   tlm::tlm_bw_transport_if<TYPES> * operator ->() {return &m_bw_process;}
@@ -1046,6 +1057,7 @@ private:
             case tlm::BEGIN_RESP:
             {
               phase = tlm::END_RESP;
+              sc_core::wait(t);  // This line is a bug fix added in TLM-2.0.2
               t = sc_core::SC_ZERO_TIME;
               (m_mod->*m_nb_transport_ptr)(m_nb_transport_user_id, *trans, phase, t);
 

@@ -18,6 +18,6 @@
 #ifndef __TLM_QUANTUM_H__
 #define __TLM_QUANTUM_H__
 
-#include "tlm_global_quantum.h"
+#include "tlm_core/tlm_2/tlm_quantum/tlm_global_quantum.h"
 
 #endif

@@ -18,7 +18,7 @@
 #ifndef __TLM_ADAPTERS_H__
 #define __TLM_ADAPTERS_H__
 
-#include "tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_master_slave_ifs.h"
+#include "tlm_core/tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_master_slave_ifs.h"
 
 namespace tlm {
 
