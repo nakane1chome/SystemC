@@ -1,0 +1,9 @@
+<map id="sysc/communication/sc_prim_channel.h" name="sysc/communication/sc_prim_channel.h">
+<area shape="rect" id="node2" href="$a00056.html" title="sysc/communication\l/sc_signal.h" alt="" coords="301,95,440,136"/>
+<area shape="rect" id="node8" href="$a00023.html" title="sysc/communication\l/sc_fifo.h" alt="" coords="560,95,699,136"/>
+<area shape="rect" id="node3" href="$a00002.html" title="sysc/communication\l/sc_buffer.h" alt="" coords="5,184,144,225"/>
+<area shape="rect" id="node4" href="$a00398.html" title="systemc" alt="" coords="336,273,405,300"/>
+<area shape="rect" id="node5" href="$a00005.html" title="sysc/communication\l/sc_clock.h" alt="" coords="219,184,357,225"/>
+<area shape="rect" id="node6" href="$a00065.html" title="sysc/communication\l/sc_signal_resolved.h" alt="" coords="382,184,525,225"/>
+<area shape="rect" id="node7" href="$a00071.html" title="sysc/communication\l/sc_signal_rv.h" alt="" coords="549,184,688,225"/>
+</map>

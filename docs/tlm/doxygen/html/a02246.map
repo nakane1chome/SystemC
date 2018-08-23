@@ -1,0 +1,10 @@
+<map id="tlm::tlm_get_peek_if&lt; T &gt;" name="tlm::tlm_get_peek_if&lt; T &gt;">
+<area shape="rect" id="node2" href="$a02220.html" title="tlm::tlm_get_if\&lt; T \&gt;" alt="" coords="213,19,347,46"/>
+<area shape="rect" id="node3" href="$a02204.html" title="tlm::tlm_blocking_get\l_if\&lt; T \&gt;" alt="" coords="11,5,155,47"/>
+<area shape="rect" id="node8" href="$a02240.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; T \&gt;" alt="" coords="208,71,352,112"/>
+<area shape="rect" id="node4" href="$a02212.html" title="tlm::tlm_nonblocking\l_get_if\&lt; T \&gt;" alt="" coords="13,71,153,112"/>
+<area shape="rect" id="node9" href="$a02244.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; T \&gt;" alt="" coords="210,136,350,177"/>
+<area shape="rect" id="node5" href="$a02236.html" title="tlm::tlm_peek_if\&lt; T \&gt;" alt="" coords="209,202,351,229"/>
+<area shape="rect" id="node6" href="$a02228.html" title="tlm::tlm_blocking_peek\l_if\&lt; T \&gt;" alt="" coords="5,136,160,177"/>
+<area shape="rect" id="node7" href="$a02232.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; T \&gt;" alt="" coords="13,201,153,243"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="sysc/communication/sc_prim_channel.h" name="sysc/communication/sc_prim_channel.h">
+<area shape="rect" id="node2" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="32,102,186,129"/>
+<area shape="rect" id="node5" href="$a00335.html" title="sysc/kernel/sc_wait.h" alt="" coords="236,102,379,129"/>
+<area shape="rect" id="node7" href="$a00338.html" title="sysc/kernel/sc_wait\l_cthread.h" alt="" coords="410,95,544,136"/>
+<area shape="rect" id="node3" href="$a00359.html" title="sysc/utils/sc_iostream.h" alt="" coords="157,273,314,300"/>
+<area shape="rect" id="node4" href="$a00218.html" title="sysc/kernel/sc_attribute.h" alt="" coords="26,191,192,218"/>
+<area shape="rect" id="node6" href="$a00311.html" title="sysc/kernel/sc_simcontext.h" alt="" coords="216,191,399,218"/>
+<area shape="rect" id="node8" href="$a00095.html" title="sysc/datatypes/bit\l/sc_logic.h" alt="" coords="423,184,547,225"/>
+<area shape="rect" id="node9" href="$a00059.html" title="sysc/communication\l/sc_signal_ifs.h" alt="" coords="572,184,710,225"/>
+</map>

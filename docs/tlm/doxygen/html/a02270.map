@@ -1,0 +1,7 @@
+<map id="tlm::tlm_blocking_slave_if&lt; REQ, RSP &gt;" name="tlm::tlm_blocking_slave_if&lt; REQ, RSP &gt;">
+<area shape="rect" id="node2" href="$a02208.html" title="tlm::tlm_blocking_put\l_if\&lt; RSP \&gt;" alt="" coords="399,5,543,47"/>
+<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="5,71,148,98"/>
+<area shape="rect" id="node5" href="$a02204.html" title="tlm::tlm_blocking_get\l_if\&lt; REQ \&gt;" alt="" coords="201,64,345,105"/>
+<area shape="rect" id="node6" href="$a02228.html" title="tlm::tlm_blocking_peek\l_if\&lt; REQ \&gt;" alt="" coords="196,129,351,171"/>
+<area shape="rect" id="node4" href="$a02240.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; REQ \&gt;" alt="" coords="399,71,543,112"/>
+</map>

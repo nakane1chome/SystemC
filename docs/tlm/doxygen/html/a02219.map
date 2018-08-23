@@ -1,0 +1,7 @@
+<map id="tlm::tlm_get_if&lt; T &gt;" name="tlm::tlm_get_if&lt; T &gt;">
+<area shape="rect" id="node5" href="$a02248.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="76,244,244,271"/>
+<area shape="rect" id="node2" href="$a02204.html" title="tlm::tlm_blocking_get\l_if\&lt; T \&gt;" alt="" coords="5,80,149,121"/>
+<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="89,5,231,32"/>
+<area shape="rect" id="node4" href="$a02212.html" title="tlm::tlm_nonblocking\l_get_if\&lt; T \&gt;" alt="" coords="174,80,314,121"/>
+<area shape="rect" id="node6" href="$a02260.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="81,319,239,345"/>
+</map>

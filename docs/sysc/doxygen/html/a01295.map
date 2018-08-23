@@ -1,0 +1,4 @@
+<map id="sc_core::sc_in_resolved" name="sc_core::sc_in_resolved">
+<area shape="rect" id="node2" href="$a01272.html" title="sc_core::sc_in\&lt; sc\l_dt::sc_logic \&gt;" alt="" coords="21,124,148,165"/>
+<area shape="rect" id="node3" href="$a01208.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; sc_dt\l::sc_logic \&gt;, 1, SC_ONE\l_OR_MORE_BOUND \&gt;" alt="" coords="5,5,164,76"/>
+</map>

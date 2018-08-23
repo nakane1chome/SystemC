@@ -1,0 +1,10 @@
+<map id="sc_core::sc_signal&lt; bool, POL &gt;" name="sc_core::sc_signal&lt; bool, POL &gt;">
+<area shape="rect" id="node2" href="$a01256.html" title="sc_core::sc_signal\l_inout_if\&lt; bool \&gt;" alt="" coords="275,127,402,168"/>
+<area shape="rect" id="node3" href="$a01244.html" title="sc_core::sc_signal\l_in_if\&lt; bool \&gt;" alt="" coords="10,71,137,112"/>
+<area shape="rect" id="node9" href="$a01892.html" title="sc_core::sc_reset" alt="" coords="278,66,399,93"/>
+<area shape="rect" id="node4" href="$a01252.html" title="sc_core::sc_signal\l_write_if\&lt; bool \&gt;" alt="" coords="10,136,137,177"/>
+<area shape="rect" id="node5" href="$a01212.html" title="sc_core::sc_prim_channel" alt="" coords="253,193,424,219"/>
+<area shape="rect" id="node6" href="$a01832.html" title="sc_core::sc_object" alt="" coords="9,202,137,229"/>
+<area shape="rect" id="node7" href="$a01328.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="263,244,415,285"/>
+<area shape="rect" id="node8" href="$a01780.html" title="sc_core::sc_event" alt="" coords="277,313,401,339"/>
+</map>

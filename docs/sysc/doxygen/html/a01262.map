@@ -1,0 +1,5 @@
+<map id="sc_core::sc_in&lt; T &gt;" name="sc_core::sc_in&lt; T &gt;">
+<area shape="rect" id="node2" href="$a01208.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; T \&gt;, 1,\l SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="268,5,480,61"/>
+<area shape="rect" id="node3" href="$a01204.html" title="sc_core::sc_port_b\l\&lt; sc_signal_in_if\&lt; T \&gt; \&gt;" alt="" coords="5,13,164,54"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="319,85,429,112"/>
+</map>
