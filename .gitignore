@@ -1,0 +1,8 @@
+*.o
+*.lo
+*.Plo
+*.a
+*.la
+*.pc
+*.s
+*.deps
