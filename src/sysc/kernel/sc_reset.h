@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_reset.h -- Process reset support.
+*/
+/** \file sc_reset.h
+    \brief Process reset support.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 17 June 2003
 

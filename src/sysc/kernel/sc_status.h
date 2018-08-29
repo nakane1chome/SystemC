@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_status.h -- Definition of the simulation phases
+*/
+/** \file sc_status.h
+    \brief Definition of the simulation phases
+
 
   Original Author: Philipp A. Hartmann, OFFIS, 2013-02-15
 

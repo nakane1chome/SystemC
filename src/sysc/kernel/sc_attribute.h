@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_attribute.h -- Attribute classes.
+*/
+/** \file sc_attribute.h
+    \brief Attribute classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

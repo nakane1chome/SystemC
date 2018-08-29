@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signed.h -- Arbitrary precision signed arithmetic.
+*/
+/** \file sc_signed.h
+    \brief Arbitrary precision signed arithmetic.
+
 
     This file includes the definitions of sc_signed_bitref,
     sc_signed_subref, and sc_signed classes. The first two classes are

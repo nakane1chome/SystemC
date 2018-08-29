@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_lv_base.h -- Arbitrary size logic vector class.
+*/
+/** \file sc_lv_base.h
+    \brief Arbitrary size logic vector class.
+
 
   Original Author: Gene Bushuyev, Synopsys, Inc.
 

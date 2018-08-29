@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_process_handle.h -- Process access support.
+*/
+/** \file sc_process_handle.h
+    \brief Process access support.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 17 June 2003
                

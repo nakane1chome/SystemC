@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_constants.h -- Default constants whose values may need to be
+*/
+/** \file sc_constants.h
+    \brief Default constants whose values may need to be
+
                     changed depending on the application.
 
   Original Author: Ali Dasdan, Synopsys, Inc.

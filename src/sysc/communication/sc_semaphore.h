@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_semaphore.h -- The sc_semaphore primitive channel class.
+*/
+/** \file sc_semaphore.h
+    \brief The sc_semaphore primitive channel class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

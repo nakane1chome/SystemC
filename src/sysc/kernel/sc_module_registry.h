@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_module_registry.h -- Registry for all modules.
+*/
+/** \file sc_module_registry.h
+    \brief Registry for all modules.
+
                           FOR INTERNAL USE ONLY.
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_stop_here.h -- Function provided for debugging purposes.
+*/
+/** \file sc_stop_here.h
+    \brief Function provided for debugging purposes.
+
                     This file is always compiled in debug mode, such that
                     setting a breakpoint at this function can help locate
                     the cause of a SystemC error or warning.

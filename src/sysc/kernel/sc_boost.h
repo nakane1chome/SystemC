@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_boost.h -- Thread Semantics Provided By The Boost Library
+*/
+/** \file sc_boost.h
+    \brief Thread Semantics Provided By The Boost Library
+
 
   Original Author: Stuart Swan, Cadence Design Systems, Inc
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_process.h -- Process base class support.
+*/
+/** \file sc_process.h
+    \brief Process base class support.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 04 August 2005
 

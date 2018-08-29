@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_cor.h -- Coroutine abstract base classes.
+*/
+/** \file sc_cor.h
+    \brief Coroutine abstract base classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-12-18
 

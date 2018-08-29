@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_list.h -- Simple implementation of a doubly linked list.
+*/
+/** \file sc_list.h
+    \brief Simple implementation of a doubly linked list.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_event_finder.h --
+*/
+/** \file sc_event_finder.h
+    \brief
+
 
   Original Author: Martin Janssen, Synopsys, Inc.
                    Stan Y. Liao, Synopsys, Inc., 2001-05-21

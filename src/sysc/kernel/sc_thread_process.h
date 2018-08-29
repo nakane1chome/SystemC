@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_thread_process.h -- Thread process declarations
+*/
+/** \file sc_thread_process.h
+    \brief Thread process declarations
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 4 August 2005
                

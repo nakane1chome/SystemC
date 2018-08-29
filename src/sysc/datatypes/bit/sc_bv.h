@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_bv.h -- Arbitrary size bit vector class.
+*/
+/** \file sc_bv.h
+    \brief Arbitrary size bit vector class.
+
 
   Original Author: Gene Bushuyev, Synopsys, Inc.
 

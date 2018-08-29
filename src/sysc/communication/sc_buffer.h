@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_buffer.h -- The sc_buffer<T> primitive channel class.
+*/
+/** \file sc_buffer.h
+    \brief The sc_buffer<T> primitive channel class.
+
                  Like sc_signal<T>, but *every* write causes an event.
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_externs.h -- Declaration of `sc_main' and other global variables.
+*/
+/** \file sc_externs.h
+    \brief Declaration of `sc_main' and other global variables.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

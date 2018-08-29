@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_fifo_ports.h -- The sc_fifo<T> port classes.
+*/
+/** \file sc_fifo_ports.h
+    \brief The sc_fifo<T> port classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_vector.h -- Simple implementation of a vector class.
+*/
+/** \file sc_vector.h
+    \brief Simple implementation of a vector class.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

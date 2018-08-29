@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_object_manager.h -- Manager of objects (naming, &c.)
+*/
+/** \file sc_object_manager.h
+    \brief Manager of objects (naming, &c.)
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

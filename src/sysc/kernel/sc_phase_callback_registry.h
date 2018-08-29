@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_phase_callback_registry.h -- Definition of the simulation phase callbacks
+*/
+/** \file sc_phase_callback_registry.h
+    \brief Definition of the simulation phase callbacks
+
 
   The most critical functions are defined inline in this file.  Only active,
   if SC_ENABLE_SIMULATION_PHASE_CALLBACKS[_TRACING] is defined during the

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_kernel_ids.h -- Report ids for the kernel code.
+*/
+/** \file sc_kernel_ids.h
+    \brief Report ids for the kernel code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

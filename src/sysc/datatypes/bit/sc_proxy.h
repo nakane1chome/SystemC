@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_proxy.h -- Proxy base class for vector data types.
+*/
+/** \file sc_proxy.h
+    \brief Proxy base class for vector data types.
+
 
                 This class is created for several purposes:
                 1) hiding operators from the global namespace that would be

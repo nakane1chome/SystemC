@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_spawn.h -- Process spawning support.
+*/
+/** \file sc_spawn.h
+    \brief Process spawning support.
+
 
   Original Authors: Andy Goodrich, Forte Design Systems, 17 June 2003
                     Stuart Swan, Cadence,

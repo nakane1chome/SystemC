@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal.h -- The sc_signal<T> primitive channel class.
+*/
+/** \file sc_signal.h
+    \brief The sc_signal<T> primitive channel class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

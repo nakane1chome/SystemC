@@ -21,6 +21,10 @@
 /*****************************************************************************
 
   sc_report.h -- Run-time logging and reporting facilities
+*/
+/** \file sc_report.h
+    \brief Run-time logging and reporting facilities
+
 
   Interface design by SystemC Verification Working Group.
   Implementation by Alex Riesen, Synopsys Inc.

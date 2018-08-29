@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_module_name.h -- An object used to help manage object names 
+*/
+/** \file sc_module_name.h
+    \brief An object used to help manage object names 
+
                       and hierarchy.
 
   Original Author: Stan Y. Liao, Synopsys, Inc.

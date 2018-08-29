@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_wait_cthread.h -- Wait() and related functions for SC_CTHREADs.
+*/
+/** \file sc_wait_cthread.h
+    \brief Wait() and related functions for SC_CTHREADs.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
                    Martin Janssen, Synopsys, Inc.

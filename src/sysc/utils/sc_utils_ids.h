@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_utils_ids.h -- Report ids for the utils code.
+*/
+/** \file sc_utils_ids.h
+    \brief Report ids for the utils code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_uint.h -- The sc_signal<sc_dt::sc_int<W> > definitions.
+*/
+/** \file sc_signal_uint.h
+    \brief The sc_signal<sc_dt::sc_int<W> > definitions.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 2002-10-22
 

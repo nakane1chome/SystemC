@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_string.h -- Implementation of a simple string class.
+*/
+/** \file sc_string.h
+    \brief Implementation of a simple string class.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

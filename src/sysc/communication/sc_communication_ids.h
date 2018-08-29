@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_communication_ids.h -- Report ids for the communication code.
+*/
+/** \file sc_communication_ids.h
+    \brief Report ids for the communication code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

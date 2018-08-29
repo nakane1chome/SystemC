@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_macros.h -- Miscellaneous definitions that are needed by the headers.
+*/
+/** \file sc_macros.h
+    \brief Miscellaneous definitions that are needed by the headers.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

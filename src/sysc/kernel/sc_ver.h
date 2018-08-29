@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_ver.h -- Version and copyright information.
+*/
+/** \file sc_ver.h
+    \brief Version and copyright information.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

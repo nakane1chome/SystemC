@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_unsigned.h -- Arbitrary precision unsigned arithmetic.
+*/
+/** \file sc_unsigned.h
+    \brief Arbitrary precision unsigned arithmetic.
+
 
     This file includes the definitions of sc_unsigned_bitref,
     sc_unsigned_subref, and sc_unsigned classes. The first two classes

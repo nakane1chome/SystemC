@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_runnable.h --
+*/
+/** \file sc_runnable.h
+    \brief
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

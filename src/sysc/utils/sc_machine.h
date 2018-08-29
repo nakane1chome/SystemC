@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_machine.h -- Machine-dependent Environment Settings
+*/
+/** \file sc_machine.h
+    \brief Machine-dependent Environment Settings
+
 
   Original Author: Andy Goodrich, Forte Design Systems, Inc.
 

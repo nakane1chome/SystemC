@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_export.h -- Base classes of all export classes.
+*/
+/** \file sc_export.h
+    \brief Base classes of all export classes.
+
 
   Original Author: Andy Goodrich, Forte Design Systems
                    Bishnupriya Bhattacharya, Cadence Design Systems

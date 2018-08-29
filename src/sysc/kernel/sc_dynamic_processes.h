@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_dynamic_process.h -- Dynamic Process Package Definitions
+*/
+/** \file sc_dynamic_process.h
+    \brief Dynamic Process Package Definitions
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 5 May 2003
 

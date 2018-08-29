@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_module.h -- Base class of all hierarchical modules and channels.
+*/
+/** \file sc_module.h
+    \brief Base class of all hierarchical modules and channels.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
                    Martin Janssen, Synopsys, Inc.

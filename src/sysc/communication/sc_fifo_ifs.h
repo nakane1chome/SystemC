@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_fifo_ifs.h -- The sc_fifo<T> interface classes.
+*/
+/** \file sc_fifo_ifs.h
+    \brief The sc_fifo<T> interface classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

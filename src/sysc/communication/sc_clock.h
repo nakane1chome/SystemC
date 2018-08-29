@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_clock.h -- The clock channel.
+*/
+/** \file sc_clock.h
+    \brief The clock channel.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

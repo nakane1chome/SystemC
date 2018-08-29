@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_ifs.h -- The sc_signal<T> interface classes.
+*/
+/** \file sc_signal_ifs.h
+    \brief The sc_signal<T> interface classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

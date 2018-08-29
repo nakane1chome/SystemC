@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_bit.h -- Bit class.
+*/
+/** \file sc_bit.h
+    \brief Bit class.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

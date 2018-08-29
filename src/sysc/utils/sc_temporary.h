@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_temporary.h -- Temporary value pool classes.
+*/
+/** \file sc_temporary.h
+    \brief Temporary value pool classes.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, Inc.
 

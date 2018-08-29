@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_bigint.h -- Template version of sc_signed. This class enables
+*/
+/** \file sc_bigint.h
+    \brief Template version of sc_signed. This class enables
+
                  compile-time bit widths for sc_signed numbers.
 
   Original Author: Ali Dasdan, Synopsys, Inc.

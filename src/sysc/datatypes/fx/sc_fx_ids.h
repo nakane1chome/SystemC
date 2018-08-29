@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_fx_ids.h -- Report ids for the datatypes/fx code.
+*/
+/** \file sc_fx_ids.h
+    \brief Report ids for the datatypes/fx code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

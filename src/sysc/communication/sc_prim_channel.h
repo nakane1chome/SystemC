@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_prim_channel.h -- Abstract base class of all primitive channel classes.
+*/
+/** \file sc_prim_channel.h
+    \brief Abstract base class of all primitive channel classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

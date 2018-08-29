@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_nbutils.h -- External and friend functions for both sc_signed and
+*/
+/** \file sc_nbutils.h
+    \brief External and friend functions for both sc_signed and
+
                   sc_unsigned classes.
 
   Original Author: Ali Dasdan, Synopsys, Inc.

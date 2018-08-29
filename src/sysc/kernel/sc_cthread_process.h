@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_cthread_process.h -- Clocked thread declarations
+*/
+/** \file sc_cthread_process.h
+    \brief Clocked thread declarations
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 4 August 2005
                

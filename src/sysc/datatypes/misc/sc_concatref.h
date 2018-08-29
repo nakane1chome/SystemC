@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_concatref.h -- Concatenation support.
+*/
+/** \file sc_concatref.h
+    \brief Concatenation support.
+
  
   Original Author: Andy Goodrich, Forte Design, Inc.
   

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_method_process.h -- Method process declarations
+*/
+/** \file sc_method_process.h
+    \brief Method process declarations
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 4 August 2005
                

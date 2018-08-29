@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_barrier.h -- Barrier Process Synchronization Definition
+*/
+/** \file sc_barrier.h
+    \brief Barrier Process Synchronization Definition
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 5 May 2003
 

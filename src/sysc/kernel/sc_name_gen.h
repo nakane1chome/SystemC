@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_name_gen.h -- Unique name generator.
+*/
+/** \file sc_name_gen.h
+    \brief Unique name generator.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

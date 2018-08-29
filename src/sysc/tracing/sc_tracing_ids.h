@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_tracing_ids.h -- Report ids for the tracing code.
+*/
+/** \file sc_tracing_ids.h
+    \brief Report ids for the tracing code.
+
 
   Original Author: Philipp A. Hartmann, OFFIS, 2013-11-17
 

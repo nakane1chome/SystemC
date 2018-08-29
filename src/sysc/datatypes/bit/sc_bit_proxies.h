@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_bit_proxies.h -- Proxy classes for vector data types.
+*/
+/** \file sc_bit_proxies.h
+    \brief Proxy classes for vector data types.
+
 
   Original Author: Gene Bushuyev, Synopsys, Inc.
 

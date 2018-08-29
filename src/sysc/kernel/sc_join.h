@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_join.h -- Join Process Synchronization Definition
+*/
+/** \file sc_join.h
+    \brief Join Process Synchronization Definition
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 5 May 2003
 

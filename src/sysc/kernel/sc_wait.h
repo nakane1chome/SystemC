@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_wait.h -- Wait() and related functions.
+*/
+/** \file sc_wait.h
+    \brief Wait() and related functions.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
                    Martin Janssen, Synopsys, Inc.

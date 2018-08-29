@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_resolved_ports.h -- The sc_signal_resolved port classes.
+*/
+/** \file sc_signal_resolved_ports.h
+    \brief The sc_signal_resolved port classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-08-20
 

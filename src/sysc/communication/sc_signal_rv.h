@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_rv.h -- The resolved vector signal class.
+*/
+/** \file sc_signal_rv.h
+    \brief The resolved vector signal class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

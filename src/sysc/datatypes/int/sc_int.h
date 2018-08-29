@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_int.h -- A sc_int is a signed integer whose length is less than the
+*/
+/** \file sc_int.h
+    \brief A sc_int is a signed integer whose length is less than the
+
               machine's native integer length. We provide two implementations
               (i) sc_int with length between 1 - 64, and (ii) sc_int with
               length between 1 - 32. Implementation (i) is the default

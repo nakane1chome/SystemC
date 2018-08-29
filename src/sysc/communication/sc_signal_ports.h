@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_ports.h -- The sc_signal<T> port classes.
+*/
+/** \file sc_signal_ports.h
+    \brief The sc_signal<T> port classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

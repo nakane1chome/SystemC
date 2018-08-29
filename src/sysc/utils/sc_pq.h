@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_pq.h -- A simple priority queue (which can be used to model multiple 
+*/
+/** \file sc_pq.h
+    \brief A simple priority queue (which can be used to model multiple 
+
              clocks). From Cormen-Leiserson-Rivest, Ch.7.
 
   Original Author: Stan Y. Liao, Synopsys, Inc.

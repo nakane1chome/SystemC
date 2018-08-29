@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_nbexterns.h -- External functions for both sc_signed and sc_unsigned
+*/
+/** \file sc_nbexterns.h
+    \brief External functions for both sc_signed and sc_unsigned
+
                     classes. These functions work on two parameters u and
                     v, and copy the result to the first parameter u. This
                     is also the reason that they are suffixed with _on_help.

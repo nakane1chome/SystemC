@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_simcontext.h -- Definition of the simulation context class.
+*/
+/** \file sc_simcontext.h
+    \brief Definition of the simulation context class.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
                    Martin Janssen, Synopsys, Inc.

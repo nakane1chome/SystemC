@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_cor_qt.h -- Coroutine implementation with QuickThreads.
+*/
+/** \file sc_cor_qt.h
+    \brief Coroutine implementation with QuickThreads.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-12-18
 

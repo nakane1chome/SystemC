@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_int_ids.h -- Report ids for the datatypes/int code.
+*/
+/** \file sc_int_ids.h
+    \brief Report ids for the datatypes/int code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_clock_ports.h -- The clock ports.
+*/
+/** \file sc_clock_ports.h
+    \brief The clock ports.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

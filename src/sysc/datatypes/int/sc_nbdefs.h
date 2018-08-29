@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_nbdefs.h -- Top level header file for arbitrary precision signed/unsigned
+*/
+/** \file sc_nbdefs.h
+    \brief Top level header file for arbitrary precision signed/unsigned
+
                  arithmetic. This file defines all the constants needed.
 
   Original Author: Ali Dasdan, Synopsys, Inc.

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_object.h -- Abstract base class of all SystemC `simulation' objects.
+*/
+/** \file sc_object.h
+    \brief Abstract base class of all SystemC `simulation' objects.
+
 
   Original Author: Stan Y. Liao, Synopsys, Inc.
 

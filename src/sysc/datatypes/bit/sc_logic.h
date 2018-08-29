@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_logic.h -- C++ implementation of logic type. Behaves
+*/
+/** \file sc_logic.h
+    \brief C++ implementation of logic type. Behaves
+
                 pretty much the same way as HDLs except with 4 values.
 
   Original Author: Stan Y. Liao, Synopsys, Inc.

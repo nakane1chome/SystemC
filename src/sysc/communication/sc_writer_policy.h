@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_writer_policy.h -- The sc_signal<T> writer policy definition
+*/
+/** \file sc_writer_policy.h
+    \brief The sc_signal<T> writer policy definition
+
 
   Original Author: Philipp A: Hartmann, OFFIS
 

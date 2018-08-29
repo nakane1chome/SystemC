@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_time.h -- The time class.
+*/
+/** \file sc_time.h
+    \brief The time class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

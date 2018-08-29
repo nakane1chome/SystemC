@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_host_mutex.h -- A "real" mutex for the underlying host system
+*/
+/** \file sc_host_mutex.h
+    \brief A "real" mutex for the underlying host system
+
 
   Original Author: Philipp A. Hartmann, OFFIS
 

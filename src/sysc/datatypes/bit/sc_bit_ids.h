@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_bit_ids.h -- Report ids for the datatypes/bit code.
+*/
+/** \file sc_bit_ids.h
+    \brief Report ids for the datatypes/bit code.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17
 

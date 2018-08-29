@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_object_int.h -- For inline definitions of some utility functions.
+*/
+/** \file sc_object_int.h
+    \brief For inline definitions of some utility functions.
+
                      DO NOT EXPORT THIS INCLUDE FILE.
 
   Original Author: Philipp A. Hartmann, OFFIS, 2013-02-10

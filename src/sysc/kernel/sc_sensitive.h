@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_sensitive.h -- Sensitivity classes. Requires "sc_process.h"
+*/
+/** \file sc_sensitive.h
+    \brief Sensitivity classes. Requires "sc_process.h"
+
   for declarations of sc_method_handle, &.c.
 
   Original Author: Stan Y. Liao, Synopsys, Inc.

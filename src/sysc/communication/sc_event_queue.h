@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_event_queue.h -- Event Queue Facility Definitions
+*/
+/** \file sc_event_queue.h
+    \brief Event Queue Facility Definitions
+
 
   Original Author: Ulli Holtmann, Synopsys, Inc.
 

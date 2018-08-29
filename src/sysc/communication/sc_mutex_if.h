@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_mutex_if.h -- The sc_mutex_if interface class.
+*/
+/** \file sc_mutex_if.h
+    \brief The sc_mutex_if interface class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_spawn_options.h -- Process spawning options specification.
+*/
+/** \file sc_spawn_options.h
+    \brief Process spawning options specification.
+
 
   Original Authors: Andy Goodrich, Forte Design Systems, 17 June 2003
                     Stuart Swan, Cadence,

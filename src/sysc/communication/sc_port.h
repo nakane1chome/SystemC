@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_port.h -- Base classes of all port classes.
+*/
+/** \file sc_port.h
+    \brief Base classes of all port classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

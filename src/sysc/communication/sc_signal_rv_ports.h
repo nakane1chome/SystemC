@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_rv_ports.h -- The resolved vector signal ports.
+*/
+/** \file sc_signal_rv_ports.h
+    \brief The resolved vector signal ports.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

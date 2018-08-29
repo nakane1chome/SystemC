@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_resolved.h -- The resolved signal class.
+*/
+/** \file sc_signal_resolved.h
+    \brief The resolved signal class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

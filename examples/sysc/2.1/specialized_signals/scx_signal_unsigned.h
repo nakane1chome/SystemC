@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_unsigned.h -- The sc_signal<sc_dt::sc_biguint<W> > definitions.
+*/
+/** \file sc_signal_unsigned.h
+    \brief The sc_signal<sc_dt::sc_biguint<W> > definitions.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 2002-10-22
 

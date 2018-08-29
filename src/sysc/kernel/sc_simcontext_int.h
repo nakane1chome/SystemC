@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_simcontext_int.h -- For inline definitions of some utility functions.
+*/
+/** \file sc_simcontext_int.h
+    \brief For inline definitions of some utility functions.
+
                          DO NOT EXPORT THIS INCLUDE FILE. Include this file
                          after "sc_process_int.h" so that we can get the base
                          class right.

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_uint.h -- A sc_uint is an unsigned integer whose length is less than the
+*/
+/** \file sc_uint.h
+    \brief A sc_uint is an unsigned integer whose length is less than the
+
                machine's native integer length. We provide two implementations
                (i) sc_uint with length between 1 - 64, and (ii) sc_uint with
                length between 1 - 32. Implementation (i) is the default

@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_cor_fiber.h -- Coroutine implementation with fibers.
+*/
+/** \file sc_cor_fiber.h
+    \brief Coroutine implementation with fibers.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-12-18
 

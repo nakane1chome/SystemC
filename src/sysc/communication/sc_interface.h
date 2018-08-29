@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_interface.h -- Abstract base class of all interface classes.
+*/
+/** \file sc_interface.h
+    \brief Abstract base class of all interface classes.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

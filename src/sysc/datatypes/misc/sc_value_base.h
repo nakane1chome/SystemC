@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_value_base.h -- Base class for SystemC bit values.
+*/
+/** \file sc_value_base.h
+    \brief Base class for SystemC bit values.
+
 
   Original Author: Andy Goodrich, Forte Design Systems
 

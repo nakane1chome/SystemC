@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_event.h --
+*/
+/** \file sc_event.h
+    \brief
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

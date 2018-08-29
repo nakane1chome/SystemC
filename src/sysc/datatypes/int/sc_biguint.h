@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_biguint.h -- Template version of sc_unsigned. This class
+*/
+/** \file sc_biguint.h
+    \brief Template version of sc_unsigned. This class
+
                   enables compile-time bit widths for sc_unsigned numbers.
 
   Original Author: Ali Dasdan, Synopsys, Inc.

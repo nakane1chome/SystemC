@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_signal_signed.h -- The sc_signal<sc_dt::sc_bigint<W> > definitions.
+*/
+/** \file sc_signal_signed.h
+    \brief The sc_signal<sc_dt::sc_bigint<W> > definitions.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 2002-10-22
 

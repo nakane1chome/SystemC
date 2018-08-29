@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_mutex.h -- The sc_mutex primitive channel class.
+*/
+/** \file sc_mutex.h
+    \brief The sc_mutex primitive channel class.
+
 
   Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21
 

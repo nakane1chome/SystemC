@@ -18,6 +18,10 @@
 /*****************************************************************************
 
   sc_cor_pthread.h -- Coroutine implementation with pthreads.
+*/
+/** \file sc_cor_pthread.h
+    \brief Coroutine implementation with pthreads.
+
 
   Original Author: Andy Goodrich, Forte Design Systems, 2002-11-10
 
