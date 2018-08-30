@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_buffer<T>
-//
-//  The sc_buffer<T> primitive channel class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_buffer<T>
+   @brief The sc_buffer<T> primitive channel class.
+
+*/
 
 template< typename T, sc_writer_policy POL = SC_DEFAULT_WRITER_POLICY >
 class sc_buffer

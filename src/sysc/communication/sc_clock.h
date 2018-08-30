@@ -38,11 +38,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_clock
-//
-//  The clock channel.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_clock
+   @brief The clock channel.
+
+*/
 
 class sc_clock
   : public sc_signal<bool,SC_ONE_WRITER>
@@ -195,8 +195,6 @@ sc_clock::negedge_action()
 	request_update();
 }
 
-
-// ----------------------------------------------------------------------------
 
 class sc_clock_posedge_callback {
 public:

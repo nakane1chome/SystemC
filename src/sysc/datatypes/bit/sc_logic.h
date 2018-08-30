@@ -80,11 +80,11 @@ namespace sc_dt
 class sc_logic;
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_logic_value_t
-//
-//  Enumeration of values for sc_logic.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_logic_value_t
+   @brief Enumeration of values for sc_logic.
+
+*/
 
 enum sc_logic_value_t
 {
@@ -94,11 +94,11 @@ enum sc_logic_value_t
     Log_X
 };
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_logic
-//
-//  Four-valued logic type.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_logic
+   @brief Four-valued logic type.
+
+*/
 
 class sc_logic
 {
@@ -307,8 +307,6 @@ private:
     sc_logic& operator = ( const char* );
 };
 
-// ----------------------------------------------------------------------------
-
 // bitwise operators
 
 inline const sc_logic operator & ( const sc_logic& a, const sc_logic& b )
@@ -349,8 +347,6 @@ DEFN_BIN_OP(bool,!=)
 
 #undef DEFN_BIN_OP_T
 #undef DEFN_BIN_OP
-
-// ----------------------------------------------------------------------------
 
 inline
 ::std::ostream&

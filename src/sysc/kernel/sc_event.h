@@ -50,11 +50,11 @@ class sc_object;
 // friend function declarations
     int sc_notify_time_compare( const void*, const void* );
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event_expr
-//
-//  The event expression class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event_expr
+   @brief The event expression class.
+
+*/
 
 template< typename T >
 class sc_event_expr
@@ -113,11 +113,11 @@ private:
     void operator=( sc_event_expr const & );
 };
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event_list
-//
-//  Base class for lists of events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event_list
+   @brief Base class for lists of events.
+
+*/
 
 class sc_event_list
 {
@@ -172,11 +172,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event_and_list
-//
-//  AND list of events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event_and_list
+   @brief AND list of events.
+
+*/
 
 class sc_event_and_list
 : public sc_event_list
@@ -207,11 +207,11 @@ public:
 
 typedef sc_event_expr<sc_event_and_list> sc_event_and_expr;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event_or_list
-//
-//  OR list of events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event_or_list
+   @brief OR list of events.
+
+*/
 
 class sc_event_or_list
 : public sc_event_list
@@ -239,11 +239,11 @@ public:
 
 typedef sc_event_expr<sc_event_or_list> sc_event_or_expr;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event
-//
-//  The event class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event
+   @brief The event class.
+
+*/
 
 class sc_event
 {
@@ -332,11 +332,11 @@ private:
 
 extern sc_event sc_non_event; // Event that never happens.
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_event_timed
-//
-//  Class for storing the time to notify a timed event.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_event_timed
+   @brief Class for storing the time to notify a timed event.
+
+*/
 
 class sc_event_timed
 {
@@ -462,9 +462,9 @@ sc_event::add_dynamic( sc_thread_handle thread_h ) const
 }
 
 
-// ----------------------------------------------------------------------------
-//  Deprecated functional notation for notifying events.
-// ----------------------------------------------------------------------------
+/**
+  Deprecated functional notation for notifying events.
+*/
 
 extern void notify( sc_event& e );
 extern void notify( const sc_time& t, sc_event& e );

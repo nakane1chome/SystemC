@@ -80,12 +80,12 @@ class sc_logic;
 
 extern void sc_deprecated_sc_bit();
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_bit
-//
-//  Bit class.
-//  Note: VSIA compatibility indicated.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bit
+   @brief Bit class.
+
+  Note: VSIA compatibility indicated.
+*/
 
 class sc_bit
 {
@@ -268,9 +268,9 @@ private:
     bool m_val;
 };
 
-// ----------------------------------------------------------------------------
-// relational operators and functions
-
+/**
+ relational operators and functions
+*/
 #define DEFN_BIN_FUN_T(ret,fun,tp)          \
     inline ret fun( const sc_bit& a, tp b ) \
        { return fun(a, sc_bit(b) ); }      \
@@ -304,9 +304,9 @@ inline bool not_equal( const sc_bit& a, const sc_bit& b )
 DEFN_BIN_FUN(bool,equal)
 DEFN_BIN_FUN(bool,not_equal)
 
-// ----------------------------------------------------------------------------
-// bitwise operators and functions
-
+/**
+ bitwise operators and functions
+*/
 // bitwise complement
 
     // MANDATORY
@@ -382,8 +382,6 @@ DEFN_BIN_FUN(bool,not_equal)
 #undef DEFN_TRN_FUN_T
 #undef DEFN_TRN_FUN
 
-
-// ----------------------------------------------------------------------------
 
 inline
 ::std::ostream&

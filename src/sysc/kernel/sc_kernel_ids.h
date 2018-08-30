@@ -35,11 +35,11 @@
 #include "sysc/utils/sc_report.h"
 
 
-// ----------------------------------------------------------------------------
-//  Report ids (kernel)
-//
-//  Report ids in the range of 500-599.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (kernel)
+
+  Report ids in the range of 500-599.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

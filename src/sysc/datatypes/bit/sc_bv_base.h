@@ -69,11 +69,11 @@ namespace sc_dt
 class sc_bv_base;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_bv_base
-//
-//  Arbitrary size bit vector base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bv_base
+   @brief Arbitrary size bit vector base class.
+
+*/
 
 class sc_bv_base
     : public sc_proxy<sc_bv_base>

@@ -84,11 +84,11 @@ class sc_fxnum;
 class sc_fxnum_fast;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval
-//
-//  Fixed-point value type; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval
+   @brief Fixed-point value type; arbitrary precision.
+
+*/
 
 class sc_fxval
 {
@@ -428,11 +428,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_fast
-//
-//  Fixed-point value type; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_fast
+   @brief Fixed-point value type; limited precision.
+
+*/
 
 class sc_fxval_fast
 {
@@ -761,11 +761,11 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval
-//
-//  Fixed-point value type; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval
+   @brief Fixed-point value type; arbitrary precision.
+
+*/
 
 // protected method
 
@@ -1531,11 +1531,11 @@ operator >> ( ::std::istream& is, sc_fxval& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_fast
-//
-//  Fixed-point value type; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_fast
+   @brief Fixed-point value type; limited precision.
+
+*/
 
 // protected method
 

@@ -66,11 +66,11 @@ namespace sc_dt
 class scfx_string;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_string
-//
-//  Simple string class for internal use.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_string
+   @brief Simple string class for internal use.
+
+*/
 
 class scfx_string
 {

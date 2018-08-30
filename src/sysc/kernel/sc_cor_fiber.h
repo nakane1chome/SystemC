@@ -53,11 +53,11 @@ typedef sc_cor_pkg_fiber sc_cor_pkg_t;
 typedef std::size_t size_t;
 #endif
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_fiber
-//
-//  Coroutine class implemented with QuickThreads.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_fiber
+   @brief Coroutine class implemented with QuickThreads.
+
+*/
 
 class sc_cor_fiber
 : public sc_cor
@@ -96,11 +96,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_pkg_fiber
-//
-//  Coroutine package class implemented with QuickThreads.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_pkg_fiber
+   @brief Coroutine package class implemented with QuickThreads.
+
+*/
 
 class sc_cor_pkg_fiber
 : public sc_cor_pkg

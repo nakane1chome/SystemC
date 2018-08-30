@@ -51,11 +51,11 @@ class sc_simcontext;
     double        operator / ( const sc_time&, const sc_time& );
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_time_unit
-//
-//  Enumeration of time units.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_time_unit
+   @brief Enumeration of time units.
+
+*/
 
 enum sc_time_unit
 {
@@ -68,11 +68,11 @@ enum sc_time_unit
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_time
-//
-//  The time class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_time
+   @brief The time class.
+
+*/
 
 class sc_time
 {
@@ -352,11 +352,11 @@ operator << ( ::std::ostream& os, const sc_time& t )
 }
 
 
-// ----------------------------------------------------------------------------
-//  STRUCT : sc_time_params
-//
-//  Struct that holds the time resolution and default time unit.
-// ----------------------------------------------------------------------------
+/**
+   @struct sc_time_params
+   @brief Struct that holds the time resolution and default time unit.
+
+*/
 
 struct sc_time_params
 {
@@ -371,8 +371,6 @@ struct sc_time_params
     ~sc_time_params();
 };
 
-
-// ----------------------------------------------------------------------------
 
 extern const sc_time SC_ZERO_TIME;
 

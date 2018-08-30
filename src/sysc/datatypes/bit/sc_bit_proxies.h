@@ -48,11 +48,11 @@ template <class X, class Y> class sc_concref_r;
 template <class X, class Y> class sc_concref;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bitref_r<T>
-//
-//  Proxy class for sc_proxy bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bitref_r<T>
+   @brief Proxy class for sc_proxy bit selection (r-value only).
+
+*/
 
 template <class T>
 class sc_bitref_r
@@ -437,11 +437,11 @@ concat( bool, sc_bitref<T> );
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bitref<X>
-//
-//  Proxy class for sc_proxy bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bitref<X>
+   @brief Proxy class for sc_proxy bit selection (r-value and l-value).
+
+*/
 
 template <class X>
 class sc_bitref
@@ -624,11 +624,11 @@ template <class T>
 operator >> ( ::std::istream&, sc_bitref<T> );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref_r<X>
-//
-//  Proxy class for sc_proxy part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref_r<X>
+   @brief Proxy class for sc_proxy part selection (r-value only).
+
+*/
 
 template <class X>
 class sc_subref_r
@@ -951,11 +951,11 @@ concat( bool, sc_subref<T> );
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref<X>
-//
-//  Proxy class for sc_proxy part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref<X>
+   @brief Proxy class for sc_proxy part selection (r-value and l-value).
+
+*/
 
 template <class X>
 class sc_subref
@@ -1098,11 +1098,11 @@ inline
 operator >> ( ::std::istream&, sc_subref<T> );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concref_r<X,Y>
-//
-//  Proxy class for sc_proxy concatenation (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concref_r<X,Y>
+   @brief Proxy class for sc_proxy concatenation (r-value only).
+
+*/
 
 template <class X, class Y>
 class sc_concref_r
@@ -1428,11 +1428,11 @@ concat( bool, sc_concref<T1,T2> );
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concref<X,Y>
-//
-//  Proxy class for sc_proxy concatenation (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concref<X,Y>
+   @brief Proxy class for sc_proxy concatenation (r-value and l-value).
+
+*/
 
 template <class X, class Y>
 class sc_concref
@@ -1575,12 +1575,12 @@ inline
 operator >> ( ::std::istream&, sc_concref<T1,T2> );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy<T>
-//
-//  Base class template for bit/logic vector classes.
-//  (Barton/Nackmann implementation)
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy<T>
+   @brief Base class template for bit/logic vector classes.
+
+  (Barton/Nackmann implementation)
+*/
 
 // r-value concatenation operators and functions
 
@@ -1878,11 +1878,11 @@ concat( sc_proxy<T1>&, sc_proxy<T2>& );
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bitref_r<T>
-//
-//  Proxy class for sc_proxy bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bitref_r<T>
+   @brief Proxy class for sc_proxy bit selection (r-value only).
+
+*/
 
 // bitwise operators and functions
 
@@ -2210,11 +2210,11 @@ concat( sc_bitref_r<T1> a, sc_proxy<T2>& b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bitref<X>
-//
-//  Proxy class for sc_proxy bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bitref<X>
+   @brief Proxy class for sc_proxy bit selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -2473,11 +2473,11 @@ operator >> ( ::std::istream& is, sc_bitref<X> a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref_r<X>
-//
-//  Proxy class for sc_proxy part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref_r<X>
+   @brief Proxy class for sc_proxy part selection (r-value only).
+
+*/
 
 template <class X>
 inline
@@ -2872,11 +2872,11 @@ concat( sc_subref_r<T1> a, sc_proxy<T2>& b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref<X>
-//
-//  Proxy class for sc_proxy part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref<X>
+   @brief Proxy class for sc_proxy part selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -2983,11 +2983,11 @@ operator >> ( ::std::istream& is, sc_subref<X> a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concref_r<X,Y>
-//
-//  Proxy class for sc_proxy concatenation (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concref_r<X,Y>
+   @brief Proxy class for sc_proxy concatenation (r-value only).
+
+*/
 
 // destructor
 
@@ -3423,11 +3423,11 @@ concat( sc_concref_r<T1,T2> a, sc_proxy<T3>& b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concref<X,Y>
-//
-//  Proxy class for sc_proxy concatenation (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concref<X,Y>
+   @brief Proxy class for sc_proxy concatenation (r-value and l-value).
+
+*/
 
 // other methods
 
@@ -3528,12 +3528,12 @@ operator >> ( ::std::istream& is, sc_concref<X,Y> a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy<T>
-//
-//  Base class template for bit/logic vector classes.
-//  (Barton/Nackmann implementation)
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy<T>
+   @brief Base class template for bit/logic vector classes.
+
+  (Barton/Nackmann implementation)
+*/
 
 // r-value concatenation operators and functions
 

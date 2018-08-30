@@ -67,14 +67,15 @@ namespace sc_dt
 class sc_signed;
 class sc_unsigned;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_value_base
-//
-//  Abstract base class of all SystemC native variables. It provides
-//  support for concatenation operations via a set of virtual methods. 
-//  A general description of the methods appear with their default 
-//  definitions in sc_object.cpp.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_value_base
+   @brief Abstract base class of all SystemC native variables
+
+    It provides
+  support for concatenation operations via a set of virtual methods. 
+  A general description of the methods appear with their default 
+  definitions in sc_object.cpp.
+*/
 
 class sc_value_base 
 {
@@ -94,25 +95,25 @@ class sc_value_base
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_generic_base
-//
-//  Proxy class for user-defined value classes and other classes that 
-//  are defined outside of SystemC. 
-//  The class is utilized as a base class for the arbitrary class:
-//
-//       class my_class : public sc_generic_base<my_class>
-//
-//  The purpose of the class is to allow to_XXXX methods defined within that 
-//  class so that assignments and casts from the arbitrary class to native 
-//  SystemC types are possible. To interact correctly with the SystemC library 
-//  the class derived from sc_generic_base must implement the following 
-//  methods: 
-//    (1) uint64 to_uint64() const
-//    (2) int64  to_int64() const
-//    (3) void to_sc_unsigned( sc_unsigned& ) const
-//    (4) void to_sc_signed( sc_signed& ) const
-// ----------------------------------------------------------------------------
+/**
+   @class sc_generic_base
+   @brief Proxy class for user-defined value classes and other classes that
+
+  are defined outside of SystemC. 
+  The class is utilized as a base class for the arbitrary class:
+
+       class my_class : public sc_generic_base<my_class>
+
+  The purpose of the class is to allow to_XXXX methods defined within that 
+  class so that assignments and casts from the arbitrary class to native 
+  SystemC types are possible. To interact correctly with the SystemC library 
+  the class derived from sc_generic_base must implement the following 
+  methods: 
+    (1) uint64 to_uint64() const
+    (2) int64  to_int64() const
+    (3) void to_sc_unsigned( sc_unsigned& ) const
+    (4) void to_sc_signed( sc_signed& ) const
+*/
 template< class T >
 class sc_generic_base {
   public: 

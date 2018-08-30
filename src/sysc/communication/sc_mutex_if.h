@@ -35,11 +35,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_mutex_if
-//
-//  The sc_mutex_if interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_mutex_if
+   @brief The sc_mutex_if interface class.
+
+*/
 
 class sc_mutex_if
 : virtual public sc_interface
@@ -71,11 +71,11 @@ private:
     sc_mutex_if& operator = ( const sc_mutex_if& );
 };
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_scoped_lock
-//
-//  The sc_scoped_lock class to lock (and automatically release) a mutex.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_scoped_lock
+   @brief The sc_scoped_lock class to lock (and automatically release) a mutex.
+
+*/
 
 //template< typename Lockable = sc_mutex_if >
 class sc_scoped_lock

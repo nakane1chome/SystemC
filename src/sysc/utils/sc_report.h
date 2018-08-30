@@ -41,11 +41,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_severity
-//
-//  Enumeration of possible exception severity levels
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_severity
+   @brief Enumeration of possible exception severity levels
+
+*/
 
 enum sc_severity {
     SC_INFO = 0,        // informative only
@@ -57,11 +57,11 @@ enum sc_severity {
 
 typedef unsigned sc_actions;
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_verbosity
-//
-//  Enumeration of message verbosity.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_verbosity
+   @brief Enumeration of message verbosity.
+
+*/
 
  enum sc_verbosity { 
      SC_NONE = 0, 
@@ -72,11 +72,11 @@ typedef unsigned sc_actions;
      SC_DEBUG = 500
  };
 
-// ----------------------------------------------------------------------------
-//  ENUM : 
-//
-//  Enumeration of actions on an exception (implementation specific)
-// ----------------------------------------------------------------------------
+/**
+  ENUM : 
+
+  Enumeration of actions on an exception (implementation specific)
+*/
 
 enum {
     SC_UNSPECIFIED  = 0x0000, // look for lower-priority rule
@@ -97,11 +97,11 @@ class sc_report;
 class sc_report_handler;
 const std::string sc_report_compose_message( const sc_report& );
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_report
-//
-//  Exception reporting
-// ----------------------------------------------------------------------------
+/**
+   @class sc_report
+   @brief Exception reporting
+
+*/
 
 class sc_report : public std::exception
 {
@@ -195,11 +195,11 @@ typedef std::exception sc_exception;
     ::sc_core::SC_CACHE_REPORT | ::sc_core::SC_ABORT)
 
 
-// ----------------------------------------------------------------------------
-//  Report macros.
-//
-//  Use these macros to report an info, warning, error, or fatal.
-// ----------------------------------------------------------------------------
+/**
+  Report macros.
+
+  Use these macros to report an info, warning, error, or fatal.
+*/
 
 #define SC_REPORT_INFO( msg_type, msg )    \
     ::sc_core::sc_report_handler::report(  \
@@ -222,12 +222,12 @@ typedef std::exception sc_exception;
     ::sc_core::sc_report_handler::report( \
             ::sc_core::SC_FATAL, msg_type, msg, __FILE__, __LINE__ )
 
-// ----------------------------------------------------------------------------
-//  MACRO : sc_assert(expr)
-//
-//  Like assert(), but additionally prints the current process name
-//  and simulation time, if the simulation is running.
-// ----------------------------------------------------------------------------
+/**
+   @macro sc_assert(expr)
+   @brief Like assert(), but additionally prints the current process name
+
+  and simulation time, if the simulation is running.
+*/
 
 #ifdef NDEBUG
 

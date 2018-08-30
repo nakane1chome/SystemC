@@ -96,11 +96,11 @@ namespace sc_core {
 namespace sc_dt
 {
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concatref
-//
-//  Proxy class for sized bit concatenation.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concatref
+   @brief Proxy class for sized bit concatenation.
+
+*/
 
 class sc_concatref : public sc_generic_base<sc_concatref>, public sc_value_base
 {
@@ -601,11 +601,11 @@ operator >> ( ::std::istream& is, sc_concatref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concat_bool
-//
-//  Proxy class for read-only boolean values in concatenations.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concat_bool
+   @brief Proxy class for read-only boolean values in concatenations.
+
+*/
 
 class sc_concat_bool : public sc_value_base
 {
@@ -669,9 +669,9 @@ class sc_concat_bool : public sc_value_base
 };
 
 
-// ----------------------------------------------------------------------------
-// ARITHMETIC AND LOGIC OPERATORS FOR sc_concatref
-// ----------------------------------------------------------------------------
+/**
+ ARITHMETIC AND LOGIC OPERATORS FOR sc_concatref
+*/
 
 #define SC_CONCAT_OP_TYPE(RESULT,OP,OTHER_TYPE) \
     inline RESULT operator OP ( const sc_concatref& a, OTHER_TYPE b ) \
@@ -751,9 +751,9 @@ SC_CONCAT_BOOL_OP(<)
 #undef SC_CONCAT_OP_TYPE
 
 
-// ----------------------------------------------------------------------------
-// CONCATENATION FUNCTION AND OPERATOR FOR STANDARD SYSTEM C DATA TYPES:
-// ----------------------------------------------------------------------------
+/**
+ CONCATENATION FUNCTION AND OPERATOR FOR STANDARD SYSTEM C DATA TYPES:
+*/
 
 inline sc_dt::sc_concatref& concat(
     sc_dt::sc_value_base& a, sc_dt::sc_value_base& b)

@@ -67,11 +67,11 @@ typedef unsigned int  word;       // Using int because of 64-bit machines.
 typedef unsigned short half_word;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_mant
-//
-//  Mantissa class.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_mant
+   @brief Mantissa class.
+
+*/
 
 class scfx_mant
 {
@@ -337,9 +337,9 @@ scfx_mant::half_addr( int i ) const
 }
 
 
-// ----------------------------------------------------------------------------
-//  one's complement of a mantissa
-// ----------------------------------------------------------------------------
+/**
+  one's complement of a mantissa
+*/
 
 inline
 void
@@ -352,9 +352,9 @@ complement( scfx_mant& target, const scfx_mant& source, int size )
 }
 
 
-// ----------------------------------------------------------------------------
-//  increment mantissa
-// ----------------------------------------------------------------------------
+/**
+  increment mantissa
+*/
 
 inline
 void
@@ -370,11 +370,11 @@ inc( scfx_mant& mant )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_mant_ref
-//
-//  Mantissa reference class.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_mant_ref
+   @brief Mantissa reference class.
+
+*/
 
 class scfx_mant_ref
 {

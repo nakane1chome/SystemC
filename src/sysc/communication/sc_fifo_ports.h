@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_in<T>
-//
-//  The sc_fifo<T> input port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_in<T>
+   @brief The sc_fifo<T> input port class.
+
+*/
 
 template <class T>
 class sc_fifo_in
@@ -153,11 +153,11 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_out<T>
-//
-//  The sc_fifo<T> output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_out<T>
+   @brief The sc_fifo<T> output port class.
+
+*/
 
 template <class T>
 class sc_fifo_out

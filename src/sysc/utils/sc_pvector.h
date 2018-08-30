@@ -44,11 +44,11 @@ extern "C" {
 #define ACCESS(I) m_vector[I]
 #define ADDR_ACCESS(I) (m_vector.size() != 0 ? &m_vector[I] : 0 )
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_pvector<T>
-//
-//  Simple vector class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_pvector<T>
+   @brief Simple vector class.
+
+*/
 
 template< class T >
 class sc_pvector

@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_prim_channel
-//
-//  Abstract base class of all primitive channel classes.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_prim_channel
+   @brief Abstract base class of all primitive channel classes.
+
+*/
 
 class sc_prim_channel
 : public sc_object
@@ -222,12 +222,12 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_prim_channel_registry
-//
-//  Registry for all primitive channels.
-//  FOR INTERNAL USE ONLY!
-// ----------------------------------------------------------------------------
+/**
+   @class sc_prim_channel_registry
+   @brief Registry for all primitive channels.
+
+  FOR INTERNAL USE ONLY!
+*/
 
 class sc_prim_channel_registry
 {
@@ -294,12 +294,12 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_prim_channel_registry
-//
-//  Registry for all primitive channels.
-//  FOR INTERNAL USE ONLY!
-// ----------------------------------------------------------------------------
+/**
+   @class sc_prim_channel_registry
+   @brief Registry for all primitive channels.
+
+  FOR INTERNAL USE ONLY!
+*/
 
 inline
 void
@@ -309,11 +309,11 @@ sc_prim_channel_registry::request_update( sc_prim_channel& prim_channel_ )
     m_update_list_p = &prim_channel_;
 }
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_prim_channel
-//
-//  Abstract base class of all primitive channel classes.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_prim_channel
+   @brief Abstract base class of all primitive channel classes.
+
+*/
 
 // request the update method (to be executed during the update phase)
 

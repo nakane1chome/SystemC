@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_attr_base
-//
-//  Attribute base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_attr_base
+   @brief Attribute base class.
+
+*/
 
 class sc_attr_base
 {
@@ -69,12 +69,13 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_attr_cltn
-//
-//  Attribute collection class. Stores pointers to attributes.
-//  Note: iterate over the collection by using iterators.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_attr_cltn
+   @brief Attribute collection class
+
+    Stores pointers to attributes
+  Note: iterate over the collection by using iterators.
+*/
 
 class sc_attr_cltn
 {
@@ -135,12 +136,12 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_attribute<T>
-//
-//  Attribute class.
-//  Note: T must have a default constructor and copy constructor.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_attribute<T>
+   @brief Attribute class.
+
+  Note: T must have a default constructor and copy constructor.
+*/
 
 template <class T>
 class sc_attribute

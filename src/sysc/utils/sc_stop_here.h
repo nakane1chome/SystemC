@@ -45,22 +45,22 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  FUNCTION : sc_interrupt_here
-//
-//  Debugging aid for interrupt warning, error, and fatal reports.
-// ----------------------------------------------------------------------------
+/**
+   @function sc_interrupt_here
+   @brief Debugging aid for interrupt warning, error, and fatal reports.
+
+*/
 
 extern
 void
 sc_interrupt_here( const char* id, sc_severity severity );
 
 
-// ----------------------------------------------------------------------------
-//  FUNCTION : sc_stop_here
-//
-//  Debugging aid for warning, error, and fatal reports.
-// ----------------------------------------------------------------------------
+/**
+   @function sc_stop_here
+   @brief Debugging aid for warning, error, and fatal reports.
+
+*/
 
 extern
 void

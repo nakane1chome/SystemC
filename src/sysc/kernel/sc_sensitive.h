@@ -54,11 +54,11 @@ template <class T> class sc_inout;
 template <class T> class sc_signal_in_if;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_sensitive
-//
-//  Static sensitivity class for events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_sensitive
+   @brief Static sensitivity class for events.
+
+*/
 
 class sc_sensitive
 {
@@ -132,11 +132,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_sensitive_pos
-//
-//  Static sensitivity class for positive edge events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_sensitive_pos
+   @brief Static sensitivity class for positive edge events.
+
+*/
 
 class sc_sensitive_pos
 {
@@ -198,11 +198,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_sensitive_neg
-//
-//  Static sensitivity class for negative edge events.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_sensitive_neg
+   @brief Static sensitivity class for negative edge events.
+
+*/
 
 class sc_sensitive_neg
 {

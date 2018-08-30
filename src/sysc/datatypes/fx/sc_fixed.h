@@ -60,11 +60,11 @@ template <int W, int I, sc_q_mode Q, sc_o_mode O, int N> class sc_fixed;
 template <int W, int I, sc_q_mode Q, sc_o_mode O, int N> class sc_fixed_fast;
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_fixed
-//
-//  "Constrained" signed fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_fixed
+   @brief "Constrained" signed fixed-point class; arbitrary precision.
+
+*/
 
 template <int W, int I,
 	  sc_q_mode Q = SC_DEFAULT_Q_MODE_,
@@ -181,11 +181,11 @@ public:
 };
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_fixed_fast
-//
-//  "Constrained" signed fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_fixed_fast
+   @brief "Constrained" signed fixed-point class; limited precision.
+
+*/
 
 template <int W, int I,
 	  sc_q_mode Q = SC_DEFAULT_Q_MODE_,
@@ -307,11 +307,11 @@ public:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_fixed
-//
-//  "Constrained" signed fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_fixed
+   @brief "Constrained" signed fixed-point class; arbitrary precision.
+
+*/
 
 template<int W, int I, sc_q_mode Q, sc_o_mode O, int N>
 inline
@@ -479,11 +479,11 @@ sc_fixed<W,I,Q,O,N>::operator -- ()
 }
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_fixed_fast
-//
-//  "Constrained" signed fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_fixed_fast
+   @brief "Constrained" signed fixed-point class; limited precision.
+
+*/
 
 template<int W, int I, sc_q_mode Q, sc_o_mode O, int N>
 inline

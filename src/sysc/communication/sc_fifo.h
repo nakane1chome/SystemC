@@ -42,11 +42,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo<T>
-//
-//  The sc_fifo<T> primitive channel class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo<T>
+   @brief The sc_fifo<T> primitive channel class.
+
+*/
 
 template <class T>
 class sc_fifo
@@ -419,8 +419,6 @@ sc_fifo<T>::buf_read( T& val_ )
     return true;
 }
 
-
-// ----------------------------------------------------------------------------
 
 template <class T>
 inline

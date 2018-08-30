@@ -57,9 +57,9 @@
 namespace sc_dt
 {
 
-// ----------------------------------------------------------------------------
-//  Find the most and least significant non-zero bits in a unsigned long
-// ----------------------------------------------------------------------------
+/**
+  Find the most and least significant non-zero bits in a unsigned long
+*/
 
 #define MSB_STATEMENT(n) if( x >> n ) { x >>= n; i += n; }
 
@@ -105,9 +105,9 @@ scfx_find_lsb( unsigned long x )
 #undef LSB_STATEMENT
 
 
-// ----------------------------------------------------------------------------
-//  Utilities for parsing a character string number
-// ----------------------------------------------------------------------------
+/**
+  Utilities for parsing a character string number
+*/
 
 inline
 int
@@ -422,9 +422,9 @@ scfx_to_digit( char c, sc_numrep numrep )
 }
 
 
-// ----------------------------------------------------------------------------
-//  Utilities for printing a character string number
-// ----------------------------------------------------------------------------
+/**
+  Utilities for printing a character string number
+*/
 
 inline
 void

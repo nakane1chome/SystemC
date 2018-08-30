@@ -41,11 +41,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_in_rv<W>
-//
-//  The sc_signal_rv<W> input port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_in_rv<W>
+   @brief The sc_signal_rv<W> input port class.
+
+*/
 
 template <int W>
 class sc_in_rv
@@ -151,11 +151,11 @@ sc_in_rv<W>::end_of_elaboration()
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_inout_rv<W>
-//
-//  The sc_signal_rv<W> input/output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_inout_rv<W>
+   @brief The sc_signal_rv<W> input/output port class.
+
+*/
 
 template <int W>
 class sc_inout_rv
@@ -271,11 +271,11 @@ sc_inout_rv<W>::end_of_elaboration()
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_out_rv<W>
-//
-//  The sc_signal_rv<W> output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_out_rv<W>
+   @brief The sc_signal_rv<W> output port class.
+
+*/
 
 // sc_out_rv can also read from its port, hence no difference with
 // sc_inout_rv. For debugging reasons, a class is provided instead

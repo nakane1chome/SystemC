@@ -85,15 +85,11 @@ sc_object::hierarchy_scope::~hierarchy_scope()
 }
 
 
-// -----------------------------------------------------------------------
-
 inline void
 sc_object::do_simulation_phase_callback()
 {
     simulation_phase_callback();
 }
-
-// -----------------------------------------------------------------------
 
 } // namespace sc_core
 

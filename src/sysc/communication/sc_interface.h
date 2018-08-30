@@ -37,12 +37,12 @@ class sc_event;
 class sc_port_base;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_interface
-//
-//  Abstract base class of all interface classes.
-//  BEWARE: Direct inheritance from this class must be done virtual.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_interface
+   @brief Abstract base class of all interface classes.
+
+   @warning Direct inheritance from this class must be done virtual.
+*/
 
 class sc_interface
 {

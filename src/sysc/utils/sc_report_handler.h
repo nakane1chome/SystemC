@@ -30,11 +30,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  STRUCT : sc_msg_def
-//
-//  Exception message definition structure
-// ----------------------------------------------------------------------------
+/**
+   @struct sc_msg_def
+   @brief Exception message definition structure
+
+*/
 
 struct sc_msg_def
 {

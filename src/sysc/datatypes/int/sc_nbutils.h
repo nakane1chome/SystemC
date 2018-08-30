@@ -155,8 +155,6 @@ is_valid_base(sc_numrep base)
   }
 }
 
-// ----------------------------------------------------------------------------
-
 // One transition of the FSM to find base and sign of a number.
 extern
 small_type 
@@ -188,19 +186,19 @@ vec_from_str(int unb, int und, sc_digit *u,
              const char *v, sc_numrep base = SC_NOBASE) ;
 
 
-// ----------------------------------------------------------------------------
-//  Naming convention for the vec_ functions below:
-//    vec_OP(u, v, w)  : computes w = u OP v.
-//    vec_OP_on(u, v)  : computes u = u OP v if u has more digits than v.
-//    vec_OP_on2(u, v) : computes u = u OP v if u has fewer digits than v.
-//    _large           : parameters are vectors.
-//    _small           : one of the parameters is a single digit.
-//    Xlen             : the number of digits in X.
-// ----------------------------------------------------------------------------
+/**
+  Naming convention for the vec_ functions below:
+    vec_OP(u, v, w)  : computes w = u OP v.
+    vec_OP_on(u, v)  : computes u = u OP v if u has more digits than v.
+    vec_OP_on2(u, v) : computes u = u OP v if u has fewer digits than v.
+    _large           : parameters are vectors.
+    _small           : one of the parameters is a single digit.
+    Xlen             : the number of digits in X.
+*/
 
-// ----------------------------------------------------------------------------
-//  Functions for vector addition: w = u + v or u += v.
-// ----------------------------------------------------------------------------
+/**
+  Functions for vector addition: w = u + v or u += v.
+*/
 
 extern 
 void 
@@ -227,9 +225,9 @@ void
 vec_add_small_on(int ulen, sc_digit *u, sc_digit v);
 
 
-// ----------------------------------------------------------------------------
-//  Functions for vector subtraction: w = u - v, u -= v, or u = v - u.
-// ----------------------------------------------------------------------------
+/**
+  Functions for vector subtraction: w = u - v, u -= v, or u = v - u.
+*/
 
 extern 
 void 
@@ -256,9 +254,9 @@ void
 vec_sub_small_on(int ulen, sc_digit *u, sc_digit v);
 
 
-// ----------------------------------------------------------------------------
-//  Functions for vector multiplication: w = u * v or u *= v.
-// ----------------------------------------------------------------------------
+/**
+  Functions for vector multiplication: w = u * v or u *= v.
+*/
 
 extern 
 void 
@@ -275,9 +273,9 @@ void
 vec_mul_small_on(int ulen, sc_digit *u, sc_digit v);
 
 
-// ----------------------------------------------------------------------------
-//  Functions for vector division: w = u / v.
-// ----------------------------------------------------------------------------
+/**
+  Functions for vector division: w = u / v.
+*/
 
 extern 
 void 
@@ -290,9 +288,9 @@ vec_div_small(int ulen, const sc_digit *u,
               sc_digit v, sc_digit *w);
 
 
-// ----------------------------------------------------------------------------
-//  Functions for vector remainder: w = u % v or u %= v.
-// ----------------------------------------------------------------------------
+/**
+  Functions for vector remainder: w = u % v or u %= v.
+*/
 
 extern 
 void 
@@ -308,9 +306,9 @@ sc_digit
 vec_rem_on_small(int ulen, sc_digit *u, sc_digit v);
 
 
-// ----------------------------------------------------------------------------
-//  Functions to convert between vectors of char and sc_digit.
-// ----------------------------------------------------------------------------
+/**
+  Functions to convert between vectors of char and sc_digit.
+*/
 
 extern 
 int 
@@ -323,9 +321,9 @@ vec_from_char(int ulen, const uchar *u,
               int vlen, sc_digit *v);
 
 
-// ----------------------------------------------------------------------------
-//  Functions to shift left or right, or to create a mirror image of vectors.
-// ----------------------------------------------------------------------------
+/**
+  Functions to shift left or right, or to create a mirror image of vectors.
+*/
 
 extern 
 void 
@@ -341,9 +339,9 @@ vec_reverse(int unb, int und, sc_digit *ud,
             int l, int r = 0);
 
 
-// ----------------------------------------------------------------------------
-//  Various utility functions. 
-// ----------------------------------------------------------------------------
+/**
+  Various utility functions. 
+*/
 
 // Return the low half part of d.
 inline 
@@ -398,8 +396,6 @@ one_and_zeros(int n)
 }
 
 
-// ----------------------------------------------------------------------------
-
 // Find the digit that bit i is in.
 inline
 int 
@@ -417,9 +413,9 @@ bit_ord(int i)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to compare, zero, complement vector(s).
-// ----------------------------------------------------------------------------
+/**
+  Functions to compare, zero, complement vector(s).
+*/
 
 // Compare u and v and return r
 //  r = 0 if u == v
@@ -604,9 +600,9 @@ vec_complement(int ulen, sc_digit *u)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to handle built-in types or signs.
-// ----------------------------------------------------------------------------
+/**
+  Functions to handle built-in types or signs.
+*/
 
 // u = v
 // - v is an unsigned long or uint64, and positive integer.
@@ -678,9 +674,9 @@ mul_signs(small_type us, small_type vs)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to test for errors and print out error messages.
-// ----------------------------------------------------------------------------
+/**
+  Functions to test for errors and print out error messages.
+*/
 
 #ifdef SC_MAX_NBITS
 
@@ -711,9 +707,9 @@ div_by_zero(Type s)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to check if a given vector is zero or make one.
-// ----------------------------------------------------------------------------
+/**
+  Functions to check if a given vector is zero or make one.
+*/
 
 // If u[i] is zero for every i = 0,..., ulen - 1, return SC_ZERO,
 // else return s.
@@ -762,13 +758,13 @@ make_zero(int nd, sc_digit *d)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions for both signed and unsigned numbers to convert sign-magnitude
-//  (SM) and 2's complement (2C) representations.
-//  added = 1 => for signed.
-//  added = 0 => for unsigned.
-//  IF_SC_SIGNED can be used as 'added'.
-// ----------------------------------------------------------------------------
+/**
+  Functions for both signed and unsigned numbers to convert sign-magnitude
+  (SM) and 2's complement (2C) representations.
+  added = 1 => for signed.
+  added = 0 => for unsigned.
+  IF_SC_SIGNED can be used as 'added'.
+*/
 
 // Trim the extra leading bits of a signed or unsigned number.
 inline
@@ -806,10 +802,10 @@ convert_SM_to_2C(small_type s, int nd, sc_digit *d)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to convert between sign-magnitude (SM) and 2's complement
-//  (2C) representations of signed numbers.
-// ----------------------------------------------------------------------------
+/**
+  Functions to convert between sign-magnitude (SM) and 2's complement
+  (2C) representations of signed numbers.
+*/
 
 // Trim the extra leading bits off a signed number.
 inline
@@ -889,10 +885,10 @@ convert_signed_SM_to_2C(small_type s, int nd, sc_digit *d)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to convert between sign-magnitude (SM) and 2's complement
-//  (2C) representations of unsigned numbers.
-// ----------------------------------------------------------------------------
+/**
+  Functions to convert between sign-magnitude (SM) and 2's complement
+  (2C) representations of unsigned numbers.
+*/
 
 // Trim the extra leading bits off an unsigned number.
 inline
@@ -948,9 +944,9 @@ convert_unsigned_SM_to_2C(small_type s, int nd, sc_digit *d)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Functions to copy one (un)signed number to another.
-// ----------------------------------------------------------------------------
+/**
+  Functions to copy one (un)signed number to another.
+*/
 
 // Copy v to u.
 inline
@@ -992,9 +988,9 @@ copy_digits_unsigned(small_type &us,
 }
 
 
-// ----------------------------------------------------------------------------
-//  Faster set(i, v), without bound checking.
-// ----------------------------------------------------------------------------
+/**
+  Faster set(i, v), without bound checking.
+*/
 
 // A version of set(i, v) without bound checking.
 inline
@@ -1017,9 +1013,9 @@ safe_set(int i, bool v, sc_digit *d)
 }
 
 
-// ----------------------------------------------------------------------------
-//  Function to check if a double number is bad (NaN or infinite).
-// ----------------------------------------------------------------------------
+/**
+  Function to check if a double number is bad (NaN or infinite).
+*/
 
 inline
 bool

@@ -80,11 +80,11 @@ namespace sc_dt
 class sc_lv_base;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_lv_base
-//
-//  Arbitrary size logic vector base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_lv_base
+   @brief Arbitrary size logic vector base class.
+
+*/
 
 class sc_lv_base
     : public sc_proxy<sc_lv_base>
@@ -354,12 +354,12 @@ sc_lv_base::clean_tail()
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy
-//
-//  Base class template for bit/logic vector classes.
-//  (Barton/Nackmann implementation)
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy
+   @brief Base class template for bit/logic vector classes.
+
+  (Barton/Nackmann implementation)
+*/
 
 // bitwise operators and functions
 
@@ -850,11 +850,11 @@ DEFN_REL_OP_T(int64)
 #undef DEFN_REL_OP_T
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bitref_r<X>
-//
-//  Proxy class for sc_proxy bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bitref_r<X>
+   @brief Proxy class for sc_proxy bit selection (r-value only).
+
+*/
 
 // r-value concatenation operators and functions
 
@@ -1082,11 +1082,11 @@ concat( bool a, sc_bitref<T> b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref_r<X>
-//
-//  Proxy class for sc_proxy part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref_r<X>
+   @brief Proxy class for sc_proxy part selection (r-value only).
+
+*/
 
 // r-value concatenation operators and functions
 
@@ -1314,11 +1314,11 @@ concat( bool a, sc_subref<T> b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_subref<X>
-//
-//  Proxy class for sc_proxy part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_subref<X>
+   @brief Proxy class for sc_proxy part selection (r-value and l-value).
+
+*/
 
 template <class X>
 inline
@@ -1359,11 +1359,11 @@ sc_subref<X>::operator = ( const sc_subref<X>& b )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_concref_r<X,Y>
-//
-//  Proxy class for sc_proxy concatenation (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_concref_r<X,Y>
+   @brief Proxy class for sc_proxy concatenation (r-value only).
+
+*/
 
 // r-value concatenation operators and functions
 
@@ -1591,12 +1591,12 @@ concat( bool a, sc_concref<T1,T2> b )
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy<T>
-//
-//  Base class template for bit/logic vector classes.
-//  (Barton/Nackmann implementation)
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy<T>
+   @brief Base class template for bit/logic vector classes.
+
+  (Barton/Nackmann implementation)
+*/
 
 // r-value concatenation operators and functions
 

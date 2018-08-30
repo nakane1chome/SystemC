@@ -59,11 +59,11 @@ namespace sc_dt
 class sc_fxtype_params;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxtype_params
-//
-//  Fixed-point type parameters class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxtype_params
+   @brief Fixed-point type parameters class.
+
+*/
 
 class sc_fxtype_params
 {
@@ -117,11 +117,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  TYPEDEF : sc_fxtype_context
-//
-//  Context type for the fixed-point type parameters.
-// ----------------------------------------------------------------------------
+/**
+   @typedef sc_fxtype_context
+   @brief Context type for the fixed-point type parameters.
+
+*/
 
 typedef sc_context<sc_fxtype_params> sc_fxtype_context;
 

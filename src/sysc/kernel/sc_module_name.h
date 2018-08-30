@@ -45,11 +45,11 @@ class sc_module;
 class sc_simcontext;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_module_name
-//
-//  Module name class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_module_name
+   @brief Module name class.
+
+*/
 
 class sc_module_name
 {

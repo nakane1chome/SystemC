@@ -61,11 +61,11 @@
 #include "sysc/utils/sc_report.h"
 
 
-// ----------------------------------------------------------------------------
-//  Report ids (datatypes/bit)
-//
-//  Report ids in the range of 200-299.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (datatypes/bit)
+
+  Report ids in the range of 200-299.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

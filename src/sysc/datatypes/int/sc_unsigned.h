@@ -618,11 +618,11 @@ sc_unsigned xor_unsigned_friend(small_type us,
   // Bitwise NOT operator (unary).
   sc_unsigned operator ~ (const sc_unsigned& u);
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_bitref_r
-//
-//  Proxy class for sc_unsigned bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_bitref_r
+   @brief Proxy class for sc_unsigned bit selection (r-value only).
+
+*/
 
 class sc_unsigned_bitref_r : public sc_value_base
 {
@@ -730,11 +730,11 @@ inline
 operator << ( ::std::ostream&, const sc_unsigned_bitref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_bitref
-//
-//  Proxy class for sc_unsigned bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_bitref
+   @brief Proxy class for sc_unsigned bit selection (r-value and l-value).
+
+*/
 
 class sc_unsigned_bitref
     : public sc_unsigned_bitref_r
@@ -790,11 +790,11 @@ inline
 operator >> ( ::std::istream&, sc_unsigned_bitref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_subref_r
-//
-//  Proxy class for sc_unsigned part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_subref_r
+   @brief Proxy class for sc_unsigned part selection (r-value only).
+
+*/
 
 class sc_unsigned_subref_r : public sc_value_base
 {
@@ -904,11 +904,11 @@ inline
 operator << ( ::std::ostream&, const sc_unsigned_subref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_subref
-//
-//  Proxy class for sc_unsigned part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_subref
+   @brief Proxy class for sc_unsigned part selection (r-value and l-value).
+
+*/
 
 class sc_unsigned_subref
     : public sc_unsigned_subref_r
@@ -980,11 +980,11 @@ inline
 operator >> ( ::std::istream&, sc_unsigned_subref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned
-//
-//  Arbitrary precision unsigned number.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned
+   @brief Arbitrary precision unsigned number.
+
+*/
 
 class sc_unsigned : public sc_value_base
 {
@@ -2014,11 +2014,11 @@ operator >> ( ::std::istream&, sc_unsigned& );
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_bitref_r
-//
-//  Proxy class for sc_unsigned bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_bitref_r
+   @brief Proxy class for sc_unsigned bit selection (r-value only).
+
+*/
 
 
 inline
@@ -2030,11 +2030,11 @@ operator << ( ::std::ostream& os, const sc_unsigned_bitref_r& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_bitref
-//
-//  Proxy class for sc_unsigned bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_bitref
+   @brief Proxy class for sc_unsigned bit selection (r-value and l-value).
+
+*/
 
 template<class T>
 inline const sc_unsigned_subref& sc_unsigned_subref::operator = (
@@ -2054,11 +2054,11 @@ operator >> ( ::std::istream& is, sc_unsigned_bitref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_subref_r
-//
-//  Proxy class for sc_unsigned part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_subref_r
+   @brief Proxy class for sc_unsigned part selection (r-value only).
+
+*/
 
 // reduce methods
 
@@ -2113,11 +2113,11 @@ operator << ( ::std::ostream& os, const sc_unsigned_subref_r& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned_subref
-//
-//  Proxy class for sc_unsigned part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned_subref
+   @brief Proxy class for sc_unsigned part selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -2140,11 +2140,11 @@ operator >> ( ::std::istream& is, sc_unsigned_subref& a )
 
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_unsigned
-//
-//  Arbitrary precision signed number.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_unsigned
+   @brief Arbitrary precision signed number.
+
+*/
 
 template<class T>
 sc_unsigned::sc_unsigned( const sc_generic_base<T>& v )

@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_ppq_base
-//
-//  Priority queue base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_ppq_base
+   @brief Priority queue base class.
+
+*/
 
 class sc_ppq_base
 {
@@ -88,13 +88,13 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_ppq<T>
-//
-//  This class is a simple implementation of a priority queue based on
-//  binary heaps. The class is templatized on its data type. A comparison
-//  function needs to be supplied.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_ppq<T>
+   @brief This class is a simple implementation of a priority queue based on
+
+  binary heaps. The class is templatized on its data type. A comparison
+  function needs to be supplied.
+*/
 
 template <class T>
 class sc_ppq

@@ -43,11 +43,11 @@ namespace sc_core {
 class sc_cor_pkg_qt;
 typedef sc_cor_pkg_qt sc_cor_pkg_t;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_qt
-//
-//  Coroutine class implemented with QuickThreads.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_qt
+   @brief Coroutine class implemented with QuickThreads.
+
+*/
 
 class sc_cor_qt
 : public sc_cor
@@ -82,11 +82,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_pkg_qt
-//
-//  Coroutine package class implemented with QuickThreads.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_pkg_qt
+   @brief Coroutine package class implemented with QuickThreads.
+
+*/
 
 class sc_cor_pkg_qt
 : public sc_cor_pkg

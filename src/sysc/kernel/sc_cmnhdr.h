@@ -50,8 +50,6 @@
 
 #endif // WIN32
 
-// ----------------------------------------------------------------------------
-
 #ifdef _MSC_VER
 
 // Disable VC++ warnings that are harmless
@@ -77,9 +75,9 @@
 
 #endif 
 
-// ----------------------------------------------------------------------------
-// helper macros to aid branch prediction on GCC (compatible) compilers
-
+/**
+ helper macros to aid branch prediction on GCC (compatible) compilers
+*/
 #ifndef __GNUC__
 #  define SC_LIKELY_( x )    !!(x)
 #  define SC_UNLIKELY_( x )  !!(x)
@@ -88,18 +86,16 @@
 #  define SC_UNLIKELY_( x )  __builtin_expect( !!(x), 0 )
 #endif
 
-// ----------------------------------------------------------------------------
-
 #include <cassert>
 #include <cstdio>
 #include <cstdlib>
 
 #endif // SC_CMNHDR_H
 
-// ----------------------------------------------------------------------------
-// only include Windows.h, if explicitly requested
-// (deliberately outside of include guards to enable later effect)
-#if defined(SC_HAS_WINDOWS_H_) && defined(SC_INCLUDE_WINDOWS_H)
+/**
+ only include Windows.h, if explicitly requested
+ (deliberately outside of include guards to enable later effect)
+*/
 #  undef SC_HAS_WINDOWS_H_
 #  include <Windows.h>
 #endif

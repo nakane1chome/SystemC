@@ -121,15 +121,15 @@ assign_v_( sc_proxy<X>& px, const T& a );
 const std::string convert_to_bin( const char* s );
 const std::string convert_to_fmt( const std::string& s, sc_numrep numrep, bool );
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy_traits
-//
-// Template traits helper to select the correct bit/value/vector_types for
-// sc_proxy-based vector classes.
-//
-// All types derived from/based on a bit-vector contain typedef to a plain bool,
-// all others point to the sc_logic_value_t/sc_logic/sc_lv_base types.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy_traits
+   @brief Template traits helper to select the correct bit/value/vector_types for
+
+ sc_proxy-based vector classes.
+
+ All types derived from/based on a bit-vector contain typedef to a plain bool,
+ all others point to the sc_logic_value_t/sc_logic/sc_lv_base types.
+*/
 
 template<typename X> struct sc_proxy_traits;
 
@@ -188,12 +188,12 @@ template<typename X, typename Y> struct sc_proxy_traits<sc_concref<X,Y> >
 {};
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_proxy
-//
-//  Base class template for bit/logic vector classes.
-//  (Barton/Nackmann implementation)
-// ----------------------------------------------------------------------------
+/**
+   @class sc_proxy
+   @brief Base class template for bit/logic vector classes.
+
+  (Barton/Nackmann implementation)
+*/
 
 template <class X>
 class sc_proxy // #### : public sc_value_base
@@ -536,8 +536,6 @@ protected:
     int64 to_anything_signed() const;
 };
 
-
-// ----------------------------------------------------------------------------
 
 // bitwise operators and functions
 
@@ -1532,8 +1530,6 @@ sc_proxy<X>::to_anything_signed() const
 }
 
 
-// ----------------------------------------------------------------------------
-
 // functional notation for the reduce methods
 
 template <class X>
@@ -1584,8 +1580,6 @@ xnor_reduce( const sc_proxy<X>& a )
     return a.xnor_reduce();
 }
 
-
-// ----------------------------------------------------------------------------
 
 template <class X>
 inline

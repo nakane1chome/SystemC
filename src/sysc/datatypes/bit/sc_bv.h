@@ -60,11 +60,11 @@ namespace sc_dt
 template <int W> class sc_bv;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bv<W>
-//
-//  Arbitrary size bit vector class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bv<W>
+   @brief Arbitrary size bit vector class.
+
+*/
 
 template <int W>
 class sc_bv

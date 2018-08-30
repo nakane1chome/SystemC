@@ -60,11 +60,11 @@ namespace sc_dt
 template <int W> class sc_lv;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_lv<W>
-//
-//  Arbitrary size logic vector class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_lv<W>
+   @brief Arbitrary size logic vector class.
+
+*/
 
 template <int W>
 class sc_lv

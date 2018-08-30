@@ -209,12 +209,12 @@ protected: // data fields:
     IF* m_interface_p;		// Interface this port provides.
 };
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_export_registry
-//
-//  Registry for all exports.
-//  FOR INTERNAL USE ONLY!
-// ----------------------------------------------------------------------------
+/**
+   @class sc_export_registry
+   @brief Registry for all exports.
+
+  FOR INTERNAL USE ONLY!
+*/
 
 class sc_export_registry
 {

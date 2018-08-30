@@ -66,11 +66,11 @@ sc_writer_policy_check_write::check_write( sc_object* target, bool )
   return true;
 }
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signal<T>
-//
-//  The sc_signal<T> primitive channel class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signal<T>
+   @brief The sc_signal<T> primitive channel class.
+
+*/
 
 template< class T, sc_writer_policy POL /* = SC_DEFAULT_WRITER_POLICY */ >
 class sc_signal
@@ -274,11 +274,11 @@ sc_signal<T,POL>::do_update()
     m_change_stamp = simcontext()->change_stamp();
 }
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signal<bool>
-//
-//  Specialization of sc_signal<T> for type bool.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signal<bool>
+   @brief Specialization of sc_signal<T> for type bool.
+
+*/
 
 class sc_reset;
 
@@ -439,11 +439,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signal<sc_dt::sc_logic>
-//
-//  Specialization of sc_signal<T> for type sc_dt::sc_logic.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signal<sc_dt::sc_logic>
+   @brief Specialization of sc_signal<T> for type sc_dt::sc_logic.
+
+*/
 
 template< sc_writer_policy POL >
 class sc_signal<sc_dt::sc_logic,POL>
@@ -598,8 +598,6 @@ private:
     // disabled
     sc_signal( const this_type& );
 };
-
-// ----------------------------------------------------------------------------
 
 template< typename T, sc_writer_policy POL >
 inline

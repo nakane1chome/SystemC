@@ -60,11 +60,11 @@ class sc_fix;
 class sc_fix_fast;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fix
-//
-//  "Unconstrained" signed fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fix
+   @brief "Unconstrained" signed fixed-point class; arbitrary precision.
+
+*/
 
 class sc_fix : public sc_fxnum
 {
@@ -295,11 +295,11 @@ public:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fix_fast
-//
-//  "Unconstrained" signed fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fix_fast
+   @brief "Unconstrained" signed fixed-point class; limited precision.
+
+*/
 
 class sc_fix_fast : public sc_fxnum_fast
 {
@@ -523,11 +523,11 @@ public:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fix
-//
-//  "Unconstrained" signed fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fix
+   @brief "Unconstrained" signed fixed-point class; arbitrary precision.
+
+*/
 
 // constructors
 
@@ -1231,11 +1231,11 @@ sc_fix::operator -- ()
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fix_fast
-//
-//  "Unconstrained" signed fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fix_fast
+   @brief "Unconstrained" signed fixed-point class; limited precision.
+
+*/
 
 // constructors
 

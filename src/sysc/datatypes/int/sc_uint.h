@@ -78,15 +78,16 @@ namespace sc_dt
 template <int W> class sc_uint;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_uint<W>
-//
-//  Template class sc_uint<W> is the interface that the user sees. It
-//  is derived from sc_uint_base and most of its methods are just
-//  wrappers that call the corresponding method in the parent
-//  class. Note that the length of sc_uint datatype is specified as a
-//  template parameter.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_uint<W>
+   @brief Template class sc_uint<W> is the interface that the user sees
+
+    It
+  is derived from sc_uint_base and most of its methods are just
+  wrappers that call the corresponding method in the parent
+  class. Note that the length of sc_uint datatype is specified as a
+  template parameter.
+*/
 
 template <int W>
 class sc_uint

@@ -51,12 +51,12 @@ template<class T> class sc_in;
 template<class T> class sc_inout;
 template<class T> class sc_out;
 
-// ----------------------------------------------------------------------------
-//  STRUCT : sc_bind_proxy
-//
-//  Struct for temporarily storing a pointer to an interface or port.
-//  Used for positional binding.
-// ----------------------------------------------------------------------------
+/**
+   @struct sc_bind_proxy
+   @brief Struct for temporarily storing a pointer to an interface or port.
+
+  Used for positional binding.
+*/
 
 struct sc_bind_proxy
 {
@@ -72,11 +72,11 @@ struct sc_bind_proxy
 extern const sc_bind_proxy SC_BIND_PROXY_NIL;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_module
-//
-//  Base class for all structural entities.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_module
+   @brief Base class for all structural entities.
+
+*/
 
 class sc_module
 : public sc_object, public sc_process_host
@@ -391,9 +391,9 @@ extern sc_module* sc_module_dynalloc(sc_module*);
 #define SC_NEW(x)  ::sc_core::sc_module_dynalloc(new x);
 
 
-// -----------------------------------------------------------------------------
-// SOME MACROS TO SIMPLIFY SYNTAX:
-// -----------------------------------------------------------------------------
+/**
+ SOME MACROS TO SIMPLIFY SYNTAX:
+*/
 
 #define SC_MODULE(user_module_name)                                           \
     struct user_module_name : ::sc_core::sc_module
@@ -467,9 +467,9 @@ extern sc_module* sc_module_dynalloc(sc_module*);
 
 
 
-// ----------------------------------------------------------------------------
-//  TYPEDEFS
-// ----------------------------------------------------------------------------
+/**
+  TYPEDEFS
+*/
 
 typedef sc_module sc_channel;
 typedef sc_module sc_behavior;

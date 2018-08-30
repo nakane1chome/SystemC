@@ -84,11 +84,11 @@ class sc_fxnum;
 class sc_fxnum_fast;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_bitref
-//
-//  Proxy class for bit-selection in class sc_fxnum, behaves like sc_bit.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_bitref
+   @brief Proxy class for bit-selection in class sc_fxnum, behaves like sc_bit.
+
+*/
 
 class sc_fxnum_bitref
 {
@@ -155,11 +155,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_bitref
-//
-//  Proxy class for bit-selection in class sc_fxnum_fast, behaves like sc_bit.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_bitref
+   @brief Proxy class for bit-selection in class sc_fxnum_fast, behaves like sc_bit.
+
+*/
 
 class sc_fxnum_fast_bitref
 {
@@ -226,12 +226,12 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_subref
-//
-//  Proxy class for part-selection in class sc_fxnum,
-//  behaves like sc_bv_base.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_subref
+   @brief Proxy class for part-selection in class sc_fxnum,
+
+  behaves like sc_bv_base.
+*/
 
 class sc_fxnum_subref
 {
@@ -389,12 +389,12 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_subref
-//
-//  Proxy class for part-selection in class sc_fxnum_fast,
-//  behaves like sc_bv_base.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_subref
+   @brief Proxy class for part-selection in class sc_fxnum_fast,
+
+  behaves like sc_bv_base.
+*/
 
 class sc_fxnum_fast_subref
 {
@@ -552,11 +552,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum
-//
-//  Base class for the fixed-point types; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum
+   @brief Base class for the fixed-point types; arbitrary precision.
+
+*/
 
 class sc_fxnum
 {
@@ -979,11 +979,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast
-//
-//  Base class for the fixed-point types; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast
+   @brief Base class for the fixed-point types; limited precision.
+
+*/
 
 class sc_fxnum_fast
 {
@@ -1405,11 +1405,11 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_bitref
-//
-//  Proxy class for bit-selection in class sc_fxnum, behaves like sc_bit.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_bitref
+   @brief Proxy class for bit-selection in class sc_fxnum, behaves like sc_bit.
+
+*/
 
 // constructor
 
@@ -1627,11 +1627,11 @@ operator >> ( ::std::istream& is, sc_fxnum_bitref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_bitref
-//
-//  Proxy class for bit-selection in class sc_fxnum_fast, behaves like sc_bit.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_bitref
+   @brief Proxy class for bit-selection in class sc_fxnum_fast, behaves like sc_bit.
+
+*/
 
 // constructor
 
@@ -1849,12 +1849,12 @@ operator >> ( ::std::istream& is, sc_fxnum_fast_bitref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_subref
-//
-//  Proxy class for part-selection in class sc_fxnum,
-//  behaves like sc_bv_base.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_subref
+   @brief Proxy class for part-selection in class sc_fxnum,
+
+  behaves like sc_bv_base.
+*/
 
 // constructor
 
@@ -2199,12 +2199,12 @@ operator >> ( ::std::istream& is, sc_fxnum_subref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_subref
-//
-//  Proxy class for part-selection in class sc_fxnum_fast,
-//  behaves like sc_bv_base.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_subref
+   @brief Proxy class for part-selection in class sc_fxnum_fast,
+
+  behaves like sc_bv_base.
+*/
 
 // constructor
 
@@ -2550,11 +2550,11 @@ operator >> ( ::std::istream& is, sc_fxnum_fast_subref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum
-//
-//  Base class for the fixed-point types; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum
+   @brief Base class for the fixed-point types; arbitrary precision.
+
+*/
 
 inline
 sc_fxnum_observer*
@@ -3674,11 +3674,11 @@ operator >> ( ::std::istream& is, sc_fxnum& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast
-//
-//  Base class for the fixed-point types; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast
+   @brief Base class for the fixed-point types; limited precision.
+
+*/
 
 inline
 sc_fxnum_fast_observer*
@@ -4760,11 +4760,11 @@ operator >> ( ::std::istream& is, sc_fxnum_fast& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval
-//
-//  Fixed-point value type; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval
+   @brief Fixed-point value type; arbitrary precision.
+
+*/
 
 // public constructors
 
@@ -4965,11 +4965,11 @@ DEFN_ASN_OP(-=,sub)
 #undef DEFN_ASN_OP
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_fast
-//
-//  Fixed-point value types; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_fast
+   @brief Fixed-point value types; limited precision.
+
+*/
 
 // public constructors
 

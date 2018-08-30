@@ -77,20 +77,20 @@ template <class T> class sc_global;
 template <class T> class sc_context;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_without_context
-//
-//  Empty class that is used for its type only.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_without_context
+   @brief Empty class that is used for its type only.
+
+*/
 
 class sc_without_context {};
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_global
-//
-//  Template global variable class; singleton; co-routine safe.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_global
+   @brief Template global variable class; singleton; co-routine safe.
+
+*/
 
 template <class T>
 class sc_global
@@ -116,11 +116,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_context_begin
-//
-//  Enumeration of context begin options.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_context_begin
+   @brief Enumeration of context begin options.
+
+*/
 
 enum sc_context_begin
 {
@@ -129,11 +129,11 @@ enum sc_context_begin
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_context
-//
-//  Template context class; co-routine safe.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_context
+   @brief Template context class; co-routine safe.
+
+*/
 
 template <class T>
 class sc_context
@@ -163,11 +163,11 @@ private:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_global
-//
-//  Template global variable class; singleton; co-routine safe.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_global
+   @brief Template global variable class; singleton; co-routine safe.
+
+*/
 
 template <class T>
 sc_global<T>* sc_global<T>::m_instance = 0;
@@ -225,11 +225,11 @@ sc_global<T>::value_ptr()
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_context
-//
-//  Template context class; co-routine safe.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_context
+   @brief Template context class; co-routine safe.
+
+*/
 
 template <class T>
 inline

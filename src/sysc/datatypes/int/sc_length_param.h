@@ -72,11 +72,11 @@ class sc_length_param;
 			      const sc_length_param& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_length_param
-//
-//  Length parameter type.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_length_param
+   @brief Length parameter type.
+
+*/
 
 class sc_length_param
 {
@@ -108,11 +108,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  TYPEDEF : sc_length_context
-//
-//  Context type for the length parameter type.
-// ----------------------------------------------------------------------------
+/**
+   @typedef sc_length_context
+   @brief Context type for the length parameter type.
+
+*/
 
 typedef sc_context<sc_length_param> sc_length_context;
 

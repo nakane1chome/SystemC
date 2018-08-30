@@ -68,11 +68,11 @@ class scfx_ieee_float;
 #define SCFX_MASK_(Size) \
    ((1u << (Size))-1u)
 
-// ----------------------------------------------------------------------------
-//  UNION : ieee_double
-//
-//  IEEE 754 double-precision format.
-// ----------------------------------------------------------------------------
+/**
+   @union ieee_double
+   @brief IEEE 754 double-precision format.
+
+*/
 
 union ieee_double
 {
@@ -109,11 +109,11 @@ const unsigned int SCFX_IEEE_DOUBLE_E_SIZE  =    11;
 
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_ieee_double
-//
-//  Convenient interface to union ieee_double.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_ieee_double
+   @brief Convenient interface to union ieee_double.
+
+*/
 
 class scfx_ieee_double
 {
@@ -413,11 +413,11 @@ scfx_ieee_double::inf( int sign )
 }
 
 
-// ----------------------------------------------------------------------------
-//  UNION : ieee_float
-//
-//  IEEE 754 single-precision format.
-// ----------------------------------------------------------------------------
+/**
+   @union ieee_float
+   @brief IEEE 754 single-precision format.
+
+*/
     
 union ieee_float
 {
@@ -449,11 +449,11 @@ const unsigned int SCFX_IEEE_FLOAT_M_SIZE =   23;
 const unsigned int SCFX_IEEE_FLOAT_E_SIZE =    8;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_ieee_float
-//
-// Convenient wrapper to union ieee_float.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_ieee_float
+   @brief Convenient wrapper to union ieee_float.
+
+*/
 
 class scfx_ieee_float
 {
@@ -633,11 +633,12 @@ scfx_ieee_float::set_nan()
 }
 
 
-// ----------------------------------------------------------------------------
-//  FUNCTION : scfx_pow2
-//
-//  Computes 2.0**exp in double-precision.
-// ----------------------------------------------------------------------------
+/**
+   @function scfx_pow2
+   @brief Computes 2
+
+   0**exp in double-precision
+*/
 
 inline
 double scfx_pow2( int exp )
@@ -670,12 +671,12 @@ double scfx_pow2( int exp )
 }
 
 
-// ----------------------------------------------------------------------------
-//  FUNCTION : uint64_to_double
-//
-//  Platform independent conversion from double uint64 to double.
-//  Needed because VC++6 doesn't support this conversion.
-// ----------------------------------------------------------------------------
+/**
+   @function uint64_to_double
+   @brief Platform independent conversion from double uint64 to double.
+
+  Needed because VC++6 doesn't support this conversion.
+*/
 
 inline
 double

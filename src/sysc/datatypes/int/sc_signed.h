@@ -713,11 +713,11 @@ sc_signed xor_signed_friend(small_type us,
   // Bitwise NOT operator (unary).
   sc_signed operator ~ (const sc_signed& u);
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_bitref_r
-//
-//  Proxy class for sc_signed bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_bitref_r
+   @brief Proxy class for sc_signed bit selection (r-value only).
+
+*/
 
 class sc_signed_bitref_r : public sc_value_base
 {
@@ -825,11 +825,11 @@ inline
 operator << ( ::std::ostream&, const sc_signed_bitref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_bitref
-//
-//  Proxy class for sc_signed bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_bitref
+   @brief Proxy class for sc_signed bit selection (r-value and l-value).
+
+*/
 
 class sc_signed_bitref
     : public sc_signed_bitref_r
@@ -886,11 +886,11 @@ inline
 operator >> ( ::std::istream&, sc_signed_bitref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_subref_r
-//
-//  Proxy class for sc_signed part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_subref_r
+   @brief Proxy class for sc_signed part selection (r-value only).
+
+*/
 
 class sc_signed_subref_r : public sc_value_base
 {
@@ -999,11 +999,11 @@ inline
 operator << ( ::std::ostream&, const sc_signed_subref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_subref
-//
-//  Proxy class for sc_signed part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_subref
+   @brief Proxy class for sc_signed part selection (r-value and l-value).
+
+*/
 
 class sc_signed_subref
     : public sc_signed_subref_r
@@ -1080,11 +1080,11 @@ inline
 operator >> ( ::std::istream&, sc_signed_subref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed
-//
-//  Arbitrary precision signed number.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed
+   @brief Arbitrary precision signed number.
+
+*/
 
 class sc_signed : public sc_value_base
 {
@@ -2242,11 +2242,11 @@ operator >> ( ::std::istream& is, sc_signed_bitref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_subref_r
-//
-//  Proxy class for sc_signed part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_subref_r
+   @brief Proxy class for sc_signed part selection (r-value only).
+
+*/
 
 
 // reduce methods
@@ -2301,11 +2301,11 @@ operator << ( ::std::ostream& os, const sc_signed_subref_r& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed_subref
-//
-//  Proxy class for sc_signed part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed_subref
+   @brief Proxy class for sc_signed part selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -2330,11 +2330,11 @@ operator >> ( ::std::istream& is, sc_signed_subref& a )
 
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_signed
-//
-//  Arbitrary precision signed number.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_signed
+   @brief Arbitrary precision signed number.
+
+*/
 
 template<class T>
 sc_signed::sc_signed( const sc_generic_base<T>& v )

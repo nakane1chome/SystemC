@@ -56,11 +56,11 @@
 #include "sysc/utils/sc_report.h"
 
 
-// ----------------------------------------------------------------------------
-//  Report ids (datatypes/int)
-//
-//  Report ids in the range of 400-499.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (datatypes/int)
+
+  Report ids in the range of 400-499.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

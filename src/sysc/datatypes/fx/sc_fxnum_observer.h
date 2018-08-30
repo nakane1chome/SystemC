@@ -102,11 +102,11 @@ class sc_fxnum_fast;
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_observer
-//
-//  Abstract base class for fixed-point types observers; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_observer
+   @brief Abstract base class for fixed-point types observers; arbitrary precision.
+
+*/
 
 class sc_fxnum_observer
 {
@@ -128,11 +128,11 @@ public:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_observer
-//
-//  Abstract base class for fixed-point types observers; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_observer
+   @brief Abstract base class for fixed-point types observers; limited precision.
+
+*/
 
 class sc_fxnum_fast_observer
 {
@@ -156,11 +156,11 @@ public:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_observer
-//
-//  Abstract base class for fixed-point types observers; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_observer
+   @brief Abstract base class for fixed-point types observers; arbitrary precision.
+
+*/
 
 inline
 void
@@ -183,11 +183,11 @@ sc_fxnum_observer::write( const sc_fxnum& )
 {}
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxnum_fast_observer
-//
-//  Abstract base class for fixed-point types observers; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxnum_fast_observer
+   @brief Abstract base class for fixed-point types observers; limited precision.
+
+*/
 
 inline
 void

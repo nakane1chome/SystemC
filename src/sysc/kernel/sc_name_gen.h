@@ -39,11 +39,11 @@
 
 namespace sc_core{
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_name_gen
-//
-//  Unique name generator class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_name_gen
+   @brief Unique name generator class.
+
+*/
 
 class sc_name_gen
 {

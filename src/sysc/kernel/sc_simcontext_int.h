@@ -289,8 +289,6 @@ sc_simcontext::get_active_invokers()
     return m_active_invokers;
 }
 
-// ----------------------------------------------------------------------------
-
 extern void sc_defunct_process_function( sc_module* );
 
 

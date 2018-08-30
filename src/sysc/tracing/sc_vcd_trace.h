@@ -55,11 +55,9 @@ class vcd_trace;  // defined in vcd_trace.cpp
 template<class T> class vcd_T_trace;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : vcd_trace_file
-//
-//  ...
-// ----------------------------------------------------------------------------
+/**
+   @class vcd_trace_file
+*/
 
 class vcd_trace_file
   : public sc_trace_file_base

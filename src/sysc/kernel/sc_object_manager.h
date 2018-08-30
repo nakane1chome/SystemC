@@ -42,11 +42,11 @@ class sc_object;
 class sc_module_name;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_object_manager
-//
-//  Manager of objects.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_object_manager
+   @brief Manager of objects.
+
+*/
 
 class sc_object_manager
 {

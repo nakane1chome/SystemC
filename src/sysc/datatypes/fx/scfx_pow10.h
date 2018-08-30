@@ -57,11 +57,11 @@ namespace sc_dt
 class scfx_pow10;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_pow10
-//
-//  Class to compute (and cache) powers of 10 in arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_pow10
+   @brief Class to compute (and cache) powers of 10 in arbitrary precision.
+
+*/
 
 const int SCFX_POW10_TABLE_SIZE = 32;
 

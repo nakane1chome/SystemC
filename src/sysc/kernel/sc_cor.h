@@ -41,20 +41,20 @@ namespace sc_core {
 class sc_simcontext;
 
 
-// ----------------------------------------------------------------------------
-//  TYPEDEF : sc_cor_fn
-//
-//  Function type for creating coroutines.
-// ----------------------------------------------------------------------------
+/**
+   @typedef sc_cor_fn
+   @brief Function type for creating coroutines.
+
+*/
 
 typedef void (sc_cor_fn)( void* );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor
-//
-//  Coroutine abstract base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor
+   @brief Coroutine abstract base class.
+
+*/
 
 class sc_cor
 {
@@ -79,11 +79,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_pkg
-//
-//  Coroutine package abstract base class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_pkg
+   @brief Coroutine package abstract base class.
+
+*/
 
 class sc_cor_pkg
 {

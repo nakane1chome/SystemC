@@ -113,8 +113,6 @@ private: // disabled
 
 }; // class sc_trace_file_base
 
-// -----------------------------------------------------------------------
-
 // Convert double time to 64-bit integer
 
 void double_to_special_int64( double in, unsigned* high, unsigned* low );

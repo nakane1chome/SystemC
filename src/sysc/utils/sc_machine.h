@@ -35,9 +35,9 @@
 #include <climits>
 #include "sysc/packages/boost/detail/endian.hpp"
 
-// ----------------------------------------------------------------------------
-//  Little or big endian machine?
-// ----------------------------------------------------------------------------
+/**
+  Little or big endian machine?
+*/
 
 #if defined( SC_BOOST_LITTLE_ENDIAN )
 #   define SC_LITTLE_ENDIAN
@@ -47,9 +47,9 @@
 #   error "Could not detect the endianness of the CPU."
 #endif
 
-// ----------------------------------------------------------------------------
-//  Are long data types 32-bit or 64-bit?
-// ----------------------------------------------------------------------------
+/**
+  Are long data types 32-bit or 64-bit?
+*/
 
 #if ULONG_MAX > 0xffffffffUL
 #   define SC_LONG_64

@@ -60,11 +60,11 @@ class sc_string_rep;
 sc_string_old operator + ( const char* s, const sc_string_old& t );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_string
-//
-//  String class (yet another).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_string
+   @brief String class (yet another).
+
+*/
 
 class sc_string_old
 {

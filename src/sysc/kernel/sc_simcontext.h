@@ -130,11 +130,11 @@ sc_time sc_time_to_pending_activity( const sc_simcontext* );
 
 struct sc_invoke_method; 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_simcontext
-//
-//  The simulation context.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_simcontext
+   @brief The simulation context.
+
+*/
 
 class sc_simcontext
 {
@@ -578,8 +578,6 @@ sc_simcontext::write_check() const
 {
     return m_write_check;
 }
-
-// ----------------------------------------------------------------------------
 
 class sc_process_handle;
 sc_process_handle sc_get_current_process_handle();

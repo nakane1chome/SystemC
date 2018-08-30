@@ -79,14 +79,15 @@ namespace sc_dt
 template <int W> class sc_int;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_int<W>
-//
-//  Template class sc_int<W> is the interface that the user sees. It is
-//  derived from sc_int_base and most of its methods are just wrappers
-//  that call the corresponding method in the parent class. Note that
-//  the length of sc_int datatype is specified as a template parameter.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int<W>
+   @brief Template class sc_int<W> is the interface that the user sees
+
+    It is
+  derived from sc_int_base and most of its methods are just wrappers
+  that call the corresponding method in the parent class. Note that
+  the length of sc_int datatype is specified as a template parameter.
+*/
 
 template <int W>
 class sc_int

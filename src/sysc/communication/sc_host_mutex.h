@@ -85,11 +85,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_host_mutex
-//
-//   The sc_host_mutex class, wrapping an OS mutex on the simulation host
-// ----------------------------------------------------------------------------
+/**
+   @class sc_host_mutex
+   @brief The sc_host_mutex class, wrapping an OS mutex on the simulation host
+
+*/
 
 class sc_host_mutex : public sc_mutex_if
 {

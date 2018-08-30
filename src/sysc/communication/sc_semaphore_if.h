@@ -35,11 +35,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_semaphore_if
-//
-//  The sc_semaphore_if interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_semaphore_if
+   @brief The sc_semaphore_if interface class.
+
+*/
 
 class sc_semaphore_if
 : virtual public sc_interface

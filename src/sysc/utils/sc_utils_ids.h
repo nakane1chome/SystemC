@@ -31,11 +31,11 @@
 #ifndef SC_UTILS_IDS_H
 #define SC_UTILS_IDS_H
 
-// ----------------------------------------------------------------------------
-//  Report ids (utils)
-//
-//  Report ids in the range of 800-899.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (utils)
+
+  Report ids in the range of 800-899.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

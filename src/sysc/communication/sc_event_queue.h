@@ -59,9 +59,9 @@
 namespace sc_core {
 
 
-// ---------------------------------------------------------------------------
-// sc_event_queue_if
-// ---------------------------------------------------------------------------
+/**
+ sc_event_queue_if
+*/
 
 class sc_event_queue_if : public virtual sc_interface
 {
@@ -71,10 +71,10 @@ public:
     virtual void cancel_all() =0;
 };
 
-// ---------------------------------------------------------------------------
-// sc_event_queue: a queue that can contain any number of pending 
-// delta, or timed events.
-// ---------------------------------------------------------------------------
+/**
+ sc_event_queue: a queue that can contain any number of pending 
+ delta, or timed events.
+*/
 
 class sc_event_queue: 
   public sc_event_queue_if,

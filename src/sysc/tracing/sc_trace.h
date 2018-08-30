@@ -206,8 +206,6 @@ DECL_TRACE_FUNC_REF_A( sc_dt::sc_lv_base )
 #undef DECL_TRACE_FUNC_A
 
 
-// ----------------------------------------------------------------------------
-
 #define DEFN_TRACE_FUNC_REF_A(tp)                                             \
 inline                                                                        \
 void                                                                          \
@@ -378,15 +376,15 @@ sc_write_comment( sc_trace_file* tf, const std::string& comment )
 
 void tprintf( sc_trace_file* tf,  const char* format, ... );
 
-// ----------------------------------------------------------------------------
-// Create VCD file
-extern sc_trace_file *sc_create_vcd_trace_file(const char* name);
+/**
+ Create VCD file
+*/
 extern void sc_close_vcd_trace_file( sc_trace_file* tf );
 
 
-// ----------------------------------------------------------------------------
-// Create WIF file
-extern sc_trace_file *sc_create_wif_trace_file(const char *name);
+/**
+ Create WIF file
+*/
 extern void sc_close_wif_trace_file( sc_trace_file* tf );
 
 } // namespace sc_core

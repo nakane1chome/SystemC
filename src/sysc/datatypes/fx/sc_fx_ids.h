@@ -53,11 +53,11 @@
 #include "sysc/utils/sc_report.h"
 
 
-// ----------------------------------------------------------------------------
-//  Report ids (datatypes/fx)
-//
-//  Report ids in the range of 300-399.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (datatypes/fx)
+
+  Report ids in the range of 300-399.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

@@ -75,11 +75,11 @@ class sc_fxnum;
 class sc_fxnum_fast;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS TEMPLATE : sc_bigint<W>
-//
-//  Arbitrary size signed integer type.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_bigint<W>
+   @brief Arbitrary size signed integer type.
+
+*/
 
 #ifdef SC_MAX_NBITS
 template< int W = SC_MAX_NBITS >

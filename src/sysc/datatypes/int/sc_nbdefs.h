@@ -86,11 +86,11 @@
 namespace sc_dt
 {
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_numrep
-//
-//  Enumeration of number representations for character string conversion.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_numrep
+   @brief Enumeration of number representations for character string conversion.
+
+*/
 
 enum sc_numrep
 {

@@ -46,12 +46,12 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  STRUCT : sc_trace_params
-//
-//  Struct for storing the trace file and object name of an sc_trace call.
-//  FOR INTERNAL USE ONLY!
-// ----------------------------------------------------------------------------
+/**
+   @struct sc_trace_params
+   @brief Struct for storing the trace file and object name of an sc_trace call.
+
+  FOR INTERNAL USE ONLY!
+*/
 
 extern void sc_deprecated_add_trace();
 
@@ -69,11 +69,11 @@ struct sc_trace_params
 typedef std::vector<sc_trace_params*> sc_trace_params_vec;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_in<T>
-//
-//  The sc_signal<T> input port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_in<T>
+   @brief The sc_signal<T> input port class.
+
+*/
 
 template <class T>
 class sc_in
@@ -383,11 +383,11 @@ sc_in<T>::vbind( sc_port_base& parent_ )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_in<bool>
-//
-//  Specialization of sc_in<T> for type bool.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_in<bool>
+   @brief Specialization of sc_in<T> for type bool.
+
+*/
 
 template <>
 class sc_in<bool> : 
@@ -657,11 +657,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_in<sc_dt::sc_logic>
-//
-//  Specialization of sc_in<T> for type sc_dt::sc_logic.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_in<sc_dt::sc_logic>
+   @brief Specialization of sc_in<T> for type sc_dt::sc_logic.
+
+*/
 
 template <>
 class sc_in<sc_dt::sc_logic>
@@ -921,11 +921,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_inout<T>
-//
-//  The sc_signal<T> input/output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_inout<T>
+   @brief The sc_signal<T> input/output port class.
+
+*/
 
 template <class T>
 class sc_inout
@@ -1213,11 +1213,11 @@ sc_inout<T>::remove_traces() const
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_inout<bool>
-//
-//  Specialization of sc_inout<T> for type bool.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_inout<bool>
+   @brief Specialization of sc_inout<T> for type bool.
+
+*/
 
 template <>
 class sc_inout<bool> : 
@@ -1449,11 +1449,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_inout<sc_dt::sc_logic>
-//
-//  Specialization of sc_inout<T> for type sc_dt::sc_logic.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_inout<sc_dt::sc_logic>
+   @brief Specialization of sc_inout<T> for type sc_dt::sc_logic.
+
+*/
 
 template <>
 class sc_inout<sc_dt::sc_logic>
@@ -1685,11 +1685,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_out<T>
-//
-//  The sc_signal<T> output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_out<T>
+   @brief The sc_signal<T> output port class.
+
+*/
 
 // sc_out can also read from its port, hence no difference with sc_inout.
 // For debugging reasons, a class is provided instead of a define.
@@ -1785,9 +1785,9 @@ private:
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 
-// ----------------------------------------------------------------------------
-//  FUNCTION : sc_trace
-// ----------------------------------------------------------------------------
+/**
+   @function sc_trace
+*/
 
 template <class T>
 inline

@@ -44,17 +44,17 @@ namespace sc_core {
 class sc_cor_pkg_pthread;
 typedef sc_cor_pkg_pthread sc_cor_pkg_t;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_pthread
-//
-//  Coroutine class implemented with Posix Threads.
-//
-// Notes:
-//   (1) The thread creation mutex and the creation condition are used to
-//       suspend the thread creating another one until the created thread
-//       reaches its invoke_module_method. This allows us to get control of
-//       thread scheduling away from the pthread package.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_pthread
+   @brief Coroutine class implemented with Posix Threads.
+
+
+ Notes:
+   (1) The thread creation mutex and the creation condition are used to
+       suspend the thread creating another one until the created thread
+       reaches its invoke_module_method. This allows us to get control of
+       thread scheduling away from the pthread package.
+*/
 
 class sc_cor_pthread : public sc_cor
 {
@@ -88,11 +88,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_cor_pkg_pthread
-//
-//  Coroutine package class implemented with Posix Threads.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_cor_pkg_pthread
+   @brief Coroutine package class implemented with Posix Threads.
+
+*/
 
 class sc_cor_pkg_pthread
 : public sc_cor_pkg

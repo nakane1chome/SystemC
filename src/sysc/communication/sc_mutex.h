@@ -38,11 +38,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_mutex
-//
-//  The sc_mutex primitive channel class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_mutex
+   @brief The sc_mutex primitive channel class.
+
+*/
 
 class sc_mutex
 : public sc_mutex_if,

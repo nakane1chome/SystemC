@@ -54,11 +54,11 @@
 namespace sc_dt
 {
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_enc
-//
-//  Enumeration of sign encodings.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_enc
+   @brief Enumeration of sign encodings.
+
+*/
 
 enum sc_enc
 {
@@ -78,11 +78,11 @@ operator << ( ::std::ostream& os, sc_enc enc )
 }
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_q_mode
-//
-//  Enumeration of quantization modes.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_q_mode
+   @brief Enumeration of quantization modes.
+
+*/
 
 enum sc_q_mode
 {
@@ -107,11 +107,11 @@ operator << ( ::std::ostream& os, sc_q_mode q_mode )
 }
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_o_mode
-//
-//  Enumeration of overflow modes.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_o_mode
+   @brief Enumeration of overflow modes.
+
+*/
 
 enum sc_o_mode
 {
@@ -136,11 +136,11 @@ operator << ( ::std::ostream& os, sc_o_mode o_mode )
 }
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_switch
-//
-//  Enumeration of switch states.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_switch
+   @brief Enumeration of switch states.
+
+*/
 
 enum sc_switch
 {
@@ -160,11 +160,11 @@ operator << ( ::std::ostream& os, sc_switch sw )
 }
 
 
-// ----------------------------------------------------------------------------
-//  ENUM : sc_fmt
-//
-//  Enumeration of formats for character string conversion.
-// ----------------------------------------------------------------------------
+/**
+   @enum sc_fmt
+   @brief Enumeration of formats for character string conversion.
+
+*/
 
 enum sc_fmt
 {
@@ -184,9 +184,9 @@ operator << ( ::std::ostream& os, sc_fmt fmt )
 }
 
 
-// ----------------------------------------------------------------------------
-//  Built-in & default fixed-point type parameter values.
-// ----------------------------------------------------------------------------
+/**
+  Built-in & default fixed-point type parameter values.
+*/
 
 const int       SC_BUILTIN_WL_     = 32;
 const int       SC_BUILTIN_IWL_    = 32;
@@ -202,9 +202,9 @@ const sc_o_mode SC_DEFAULT_O_MODE_ = SC_BUILTIN_O_MODE_;
 const int       SC_DEFAULT_N_BITS_ = SC_BUILTIN_N_BITS_;
 
 
-// ----------------------------------------------------------------------------
-//  Built-in & default fixed-point cast switch parameter values.
-// ----------------------------------------------------------------------------
+/**
+  Built-in & default fixed-point cast switch parameter values.
+*/
 
 const sc_switch SC_BUILTIN_CAST_SWITCH_ = SC_ON;
 
@@ -212,9 +212,9 @@ const sc_switch SC_BUILTIN_CAST_SWITCH_ = SC_ON;
 const sc_switch SC_DEFAULT_CAST_SWITCH_ = SC_BUILTIN_CAST_SWITCH_;
 
 
-// ----------------------------------------------------------------------------
-//  Built-in & default fixed-point value type parameter values.
-// ----------------------------------------------------------------------------
+/**
+  Built-in & default fixed-point value type parameter values.
+*/
 
 const int SC_BUILTIN_DIV_WL_ = 64;
 const int SC_BUILTIN_CTE_WL_ = 64;
@@ -240,9 +240,9 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  Dedicated error reporting and checking.
-// ----------------------------------------------------------------------------
+/**
+  Dedicated error reporting and checking.
+*/
 
 #ifdef DEBUG_SYSTEMC
 #define SC_ASSERT_(cnd,msg)                                                   \
@@ -278,9 +278,9 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
 	    sc_core::SC_ID_INVALID_MAX_WL_ )
 
 
-// ----------------------------------------------------------------------------
-//  Generic observer macros.
-// ----------------------------------------------------------------------------
+/**
+  Generic observer macros.
+*/
 
 #define SC_OBSERVER_(object,observer_type,event)                              \
 {                                                                             \

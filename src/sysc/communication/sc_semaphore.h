@@ -38,11 +38,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_semaphore
-//
-//  The sc_semaphore primitive channel class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_semaphore
+   @brief The sc_semaphore primitive channel class.
+
+*/
 
 class sc_semaphore
 : public sc_semaphore_if,

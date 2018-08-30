@@ -60,11 +60,11 @@ template <int W, int I, sc_q_mode Q, sc_o_mode O, int N> class sc_ufixed;
 template <int W, int I, sc_q_mode Q, sc_o_mode O, int N> class sc_ufixed_fast;
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_ufixed
-//
-//  "Constrained" unsigned fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_ufixed
+   @brief "Constrained" unsigned fixed-point class; arbitrary precision.
+
+*/
 
 template <int W, int I,
 	  sc_q_mode Q = SC_DEFAULT_Q_MODE_,
@@ -181,11 +181,11 @@ public:
 };
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_ufixed_fast
-//
-//  "Constrained" unsigned fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_ufixed_fast
+   @brief "Constrained" unsigned fixed-point class; limited precision.
+
+*/
 
 template <int W, int I,
 	  sc_q_mode Q = SC_DEFAULT_Q_MODE_,
@@ -307,11 +307,11 @@ public:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_ufixed
-//
-//  "Constrained" unsigned fixed-point class; arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_ufixed
+   @brief "Constrained" unsigned fixed-point class; arbitrary precision.
+
+*/
 
 template<int W, int I, sc_q_mode Q, sc_o_mode O, int N>
 inline
@@ -479,11 +479,11 @@ sc_ufixed<W,I,Q,O,N>::operator -- ()
 }
 
 
-// ----------------------------------------------------------------------------
-//  TEMPLATE CLASS : sc_ufixed_fast
-//
-//  "Constrained" unsigned fixed-point class; limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @template class sc_ufixed_fast
+   @brief "Constrained" unsigned fixed-point class; limited precision.
+
+*/
 
 template<int W, int I, sc_q_mode Q, sc_o_mode O, int N>
 inline

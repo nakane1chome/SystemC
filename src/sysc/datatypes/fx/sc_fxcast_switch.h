@@ -59,11 +59,11 @@ namespace sc_dt
 class sc_fxcast_switch;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxcast_switch
-//
-//  Fixed-point cast switch class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxcast_switch
+   @brief Fixed-point cast switch class.
+
+*/
 
 class sc_fxcast_switch
 {
@@ -94,11 +94,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  TYPEDEF : sc_fxcast_context
-//
-//  Context type for the fixed-point cast switch parameter.
-// ----------------------------------------------------------------------------
+/**
+   @typedef sc_fxcast_context
+   @brief Context type for the fixed-point cast switch parameter.
+
+*/
 
 typedef sc_context<sc_fxcast_switch> sc_fxcast_context;
 

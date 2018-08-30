@@ -109,9 +109,9 @@ const int bits_in_int  = sizeof(int)  * CHAR_BIT;
 const int bits_in_word = sizeof(word) * CHAR_BIT;
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_index
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_index
+*/
 
 class scfx_index
 {
@@ -133,11 +133,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : scfx_rep
-//
-//  Arbitrary-precision fixed-point implementation class.
-// ----------------------------------------------------------------------------
+/**
+   @class scfx_rep
+   @brief Arbitrary-precision fixed-point implementation class.
+
+*/
 
 class scfx_rep
 {

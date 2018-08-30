@@ -35,11 +35,11 @@
 #include "sysc/utils/sc_report.h"
 
 
-// ----------------------------------------------------------------------------
-//  Report ids (communication)
-//
-//  Report ids in the range of 100-199.
-// ----------------------------------------------------------------------------
+/**
+  Report ids (communication)
+
+  Report ids in the range of 100-199.
+*/
 
 #ifndef SC_DEFINE_MESSAGE
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \

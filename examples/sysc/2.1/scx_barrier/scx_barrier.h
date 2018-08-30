@@ -42,13 +42,14 @@
 
 namespace sc_core {
 
-// -----------------------------------------------------------------------------
-// CLASS scx_barrier
-//
-// This class provides a way of synchronising a set of processes. Each process
-// calls the wait() method and one all processes have called that method they
-// will all be released for execution.
-// -----------------------------------------------------------------------------
+/**
+   @class scx_barrier
+   @brief This class provides a way of synchronising a set of processes
+
+    Each process
+ calls the wait() method and one all processes have called that method they
+ will all be released for execution.
+*/
 
 class scx_barrier {
   public:

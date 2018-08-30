@@ -128,11 +128,11 @@ extern const uint_type mask_int[SC_INTWIDTH][SC_INTWIDTH];
     inline bool operator >= ( const sc_int_base& a, const sc_int_base& b );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_bitref_r
-//
-//  Proxy class for sc_int bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_bitref_r
+   @brief Proxy class for sc_int bit selection (r-value only).
+
+*/
 
 class sc_int_bitref_r : public sc_value_base
 {
@@ -249,11 +249,11 @@ inline
 operator << ( ::std::ostream&, const sc_int_bitref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_bitref
-//
-//  Proxy class for sc_int bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_bitref
+   @brief Proxy class for sc_int bit selection (r-value and l-value).
+
+*/
 
 class sc_int_bitref
     : public sc_int_bitref_r
@@ -309,11 +309,11 @@ inline
 operator >> ( ::std::istream&, sc_int_bitref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_subref_r
-//
-//  Proxy class for sc_int part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_subref_r
+   @brief Proxy class for sc_int part selection (r-value only).
+
+*/
 
 class sc_int_subref_r : public sc_value_base
 {
@@ -443,11 +443,11 @@ inline
 operator << ( ::std::ostream&, const sc_int_subref_r& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_subref
-//
-//  Proxy class for sc_int part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_subref
+   @brief Proxy class for sc_int part selection (r-value and l-value).
+
+*/
 
 class sc_int_subref
     : public sc_int_subref_r
@@ -532,11 +532,11 @@ inline
 operator >> ( ::std::istream&, sc_int_subref& );
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_base
-//
-//  Base class for sc_int.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_base
+   @brief Base class for sc_int.
+
+*/
 
 class sc_int_base : public sc_value_base
 {
@@ -887,11 +887,11 @@ operator >> ( ::std::istream&, sc_int_base& );
 
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_bitref_r
-//
-//  Proxy class for sc_int bit selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_bitref_r
+   @brief Proxy class for sc_int bit selection (r-value only).
+
+*/
 
 // implicit conversion to uint64
 
@@ -926,11 +926,11 @@ operator << ( ::std::ostream& os, const sc_int_bitref_r& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_bitref
-//
-//  Proxy class for sc_int bit selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_bitref
+   @brief Proxy class for sc_int bit selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -1006,11 +1006,11 @@ operator >> ( ::std::istream& is, sc_int_bitref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_subref_r
-//
-//  Proxy class for sc_int part selection (r-value only).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_subref_r
+   @brief Proxy class for sc_int part selection (r-value only).
+
+*/
 
 // implicit conversion to int_type
 
@@ -1186,11 +1186,11 @@ operator << ( ::std::ostream& os, const sc_int_subref_r& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_subref
-//
-//  Proxy class for sc_int part selection (r-value and l-value).
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_subref
+   @brief Proxy class for sc_int part selection (r-value and l-value).
+
+*/
 
 // assignment operators
 
@@ -1220,11 +1220,11 @@ operator >> ( ::std::istream& is, sc_int_subref& a )
 }
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_int_base
-//
-//  Base class for sc_int.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_int_base
+   @brief Base class for sc_int.
+
+*/
 
 // bit selection
 

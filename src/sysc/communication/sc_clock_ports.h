@@ -36,11 +36,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  The clock ports.
-//
-//  (Provided for backward compatibility reasons.)
-// ----------------------------------------------------------------------------
+/**
+  The clock ports.
+
+  (Provided for backward compatibility reasons.)
+*/
 
 typedef sc_in<bool>    sc_in_clk;
 typedef sc_inout<bool> sc_inout_clk;

@@ -102,12 +102,12 @@ class sc_fxval_fast;
 #endif
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_observer
-//
-//  Abstract base class for fixed-point value type observers;
-//  arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_observer
+   @brief Abstract base class for fixed-point value type observers;
+
+  arbitrary precision.
+*/
 
 class sc_fxval_observer
 {
@@ -129,12 +129,12 @@ public:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_fast_observer
-//
-//  Abstract base class for fixed-point value type observers;
-//  limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_fast_observer
+   @brief Abstract base class for fixed-point value type observers;
+
+  limited precision.
+*/
 
 class sc_fxval_fast_observer
 {
@@ -158,12 +158,12 @@ public:
 
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_observer
-//
-//  Abstract base class for fixed-point value type observers;
-//  arbitrary precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_observer
+   @brief Abstract base class for fixed-point value type observers;
+
+  arbitrary precision.
+*/
 
 inline
 void
@@ -186,12 +186,12 @@ sc_fxval_observer::write( const sc_fxval& )
 {}
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fxval_fast_observer
-//
-//  Abstract base class for fixed-point value type observers;
-//  limited precision.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fxval_fast_observer
+   @brief Abstract base class for fixed-point value type observers;
+
+  limited precision.
+*/
 
 inline
 void

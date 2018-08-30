@@ -36,11 +36,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_nonblocking_in_if<T>
-//
-//  The sc_fifo<T> input nonblocking interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_nonblocking_in_if<T>
+   @brief The sc_fifo<T> input nonblocking interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_nonblocking_in_if 
@@ -55,11 +55,11 @@ public:
     virtual const sc_event& data_written_event() const = 0; 
 }; 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_blocking_in_if<T>
-//
-//  The sc_fifo<T> input blocking interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_blocking_in_if<T>
+   @brief The sc_fifo<T> input blocking interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_blocking_in_if 
@@ -72,11 +72,11 @@ public:
     virtual T read() = 0; 
 }; 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_in_if<T>
-//
-//  The sc_fifo<T> input interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_in_if<T>
+   @brief The sc_fifo<T> input interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_in_if 
@@ -103,11 +103,11 @@ private:
 }; 
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_nonblocking_out_if<T>
-//
-//  The sc_fifo<T> nonblocking output interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_nonblocking_out_if<T>
+   @brief The sc_fifo<T> nonblocking output interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_nonblocking_out_if 
@@ -122,11 +122,11 @@ public:
     virtual const sc_event& data_read_event() const = 0; 
 }; 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_blocking_out_if<T>
-//
-//  The sc_fifo<T> blocking output interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_blocking_out_if<T>
+   @brief The sc_fifo<T> blocking output interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_blocking_out_if 
@@ -139,11 +139,11 @@ public:
 
 }; 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_fifo_out_if<T>
-//
-//  The sc_fifo<T> output interface class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_fifo_out_if<T>
+   @brief The sc_fifo<T> output interface class.
+
+*/
 
 template <class T> 
 class sc_fifo_out_if 

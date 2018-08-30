@@ -37,11 +37,11 @@
 
 namespace sc_core {
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_in_resolved
-//
-//  The sc_signal_resolved input port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_in_resolved
+   @brief The sc_signal_resolved input port class.
+
+*/
 
 class sc_in_resolved
     : public sc_in<sc_dt::sc_logic>
@@ -127,11 +127,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_inout_resolved
-//
-//  The sc_signal_resolved input/output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_inout_resolved
+   @brief The sc_signal_resolved input/output port class.
+
+*/
 
 class sc_inout_resolved
     : public sc_inout<sc_dt::sc_logic>
@@ -227,11 +227,11 @@ private:
 };
 
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_out_resolved
-//
-//  The sc_signal_resolved output port class.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_out_resolved
+   @brief The sc_signal_resolved output port class.
+
+*/
 
 // sc_out_resolved can also read from its port, hence no difference with
 // sc_inout_resolved. For debugging reasons, a class is provided instead

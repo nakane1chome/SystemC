@@ -46,11 +46,11 @@ class sc_simcontext;
 class sc_trace_file;
 class sc_trace_file_base;
 
-// ----------------------------------------------------------------------------
-//  CLASS : sc_object
-//
-//  Abstract base class of all SystemC `simulation' objects.
-// ----------------------------------------------------------------------------
+/**
+   @class sc_object
+   @brief Abstract base class of all SystemC `simulation' objects.
+
+*/
 
 class sc_object
 {
@@ -162,8 +162,6 @@ sc_object::operator=( sc_object const & )
   // deliberately do nothing
   return *this;
 }
-
-// ----------------------------------------------------------------------------
 
 extern const char SC_HIERARCHY_CHAR;
 extern bool sc_enable_name_checking;
