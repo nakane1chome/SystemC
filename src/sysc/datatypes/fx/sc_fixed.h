@@ -61,7 +61,7 @@ template <int W, int I, sc_q_mode Q, sc_o_mode O, int N> class sc_fixed_fast;
 
 
 /**
-   @template class sc_fixed
+   @class sc_fixed
    @brief "Constrained" signed fixed-point class; arbitrary precision.
 
 */
@@ -182,7 +182,7 @@ public:
 
 
 /**
-   @template class sc_fixed_fast
+   @class sc_fixed_fast
    @brief "Constrained" signed fixed-point class; limited precision.
 
 */
@@ -308,7 +308,7 @@ public:
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 /**
-   @template class sc_fixed
+   @class sc_fixed
    @brief "Constrained" signed fixed-point class; arbitrary precision.
 
 */
@@ -480,7 +480,7 @@ sc_fixed<W,I,Q,O,N>::operator -- ()
 
 
 /**
-   @template class sc_fixed_fast
+   @class sc_fixed_fast
    @brief "Constrained" signed fixed-point class; limited precision.
 
 */

@@ -634,7 +634,7 @@ scfx_ieee_float::set_nan()
 
 
 /**
-   @function scfx_pow2
+   
    @brief Computes 2
 
    0**exp in double-precision
@@ -672,7 +672,7 @@ double scfx_pow2( int exp )
 
 
 /**
-   @function uint64_to_double
+   
    @brief Platform independent conversion from double uint64 to double.
 
   Needed because VC++6 doesn't support this conversion.

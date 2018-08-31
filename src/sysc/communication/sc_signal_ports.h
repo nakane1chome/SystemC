@@ -1786,7 +1786,7 @@ private:
 
 
 /**
-   @function sc_trace
+   
 */
 
 template <class T>

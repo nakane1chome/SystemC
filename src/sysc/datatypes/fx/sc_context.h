@@ -87,7 +87,7 @@ class sc_without_context {};
 
 
 /**
-   @template class sc_global
+   @class sc_global
    @brief Template global variable class; singleton; co-routine safe.
 
 */
@@ -164,7 +164,7 @@ private:
 // IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 /**
-   @template class sc_global
+   @class sc_global
    @brief Template global variable class; singleton; co-routine safe.
 
 */

@@ -348,7 +348,7 @@ sc_uint_base::operator = ( const sc_fxnum_fast& v )
 
 
 /**
-   @function sc_trace
+   
 */
 
 inline
