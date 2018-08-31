@@ -62,7 +62,7 @@ namespace sc_dt
 
 enum sc_enc
 {
-    SC_TC_,	// two's complement
+    SC_TC_,	//!< two's complement
     SC_US_	// unsigned
 };
 
@@ -86,12 +86,12 @@ operator << ( ::std::ostream& os, sc_enc enc )
 
 enum sc_q_mode
 {
-    SC_RND,		// rounding to plus infinity
-    SC_RND_ZERO,	// rounding to zero
-    SC_RND_MIN_INF,	// rounding to minus infinity
-    SC_RND_INF,		// rounding to infinity
-    SC_RND_CONV,	// convergent rounding
-    SC_TRN,		// truncation
+    SC_RND,		//!< rounding to plus infinity
+    SC_RND_ZERO,	//!< rounding to zero
+    SC_RND_MIN_INF,	//!< rounding to minus infinity
+    SC_RND_INF,		//!< rounding to infinity
+    SC_RND_CONV,	//!< convergent rounding
+    SC_TRN,		//!< truncation
     SC_TRN_ZERO		// truncation to zero
 };
 
@@ -115,10 +115,10 @@ operator << ( ::std::ostream& os, sc_q_mode q_mode )
 
 enum sc_o_mode
 {
-    SC_SAT,		// saturation
-    SC_SAT_ZERO,	// saturation to zero
-    SC_SAT_SYM,		// symmetrical saturation
-    SC_WRAP,		// wrap-around (*)
+    SC_SAT,		//!< saturation
+    SC_SAT_ZERO,	//!< saturation to zero
+    SC_SAT_SYM,		//!< symmetrical saturation
+    SC_WRAP,		//!< wrap-around (*)
     SC_WRAP_SM		// sign magnitude wrap-around (*)
 };
 
@@ -168,7 +168,7 @@ operator << ( ::std::ostream& os, sc_switch sw )
 
 enum sc_fmt
 {
-    SC_F,	// fixed
+    SC_F,	//!< fixed
     SC_E	// scientific
 };
 

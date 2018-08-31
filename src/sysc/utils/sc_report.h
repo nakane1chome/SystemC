@@ -48,10 +48,10 @@ namespace sc_core {
 */
 
 enum sc_severity {
-    SC_INFO = 0,        // informative only
-    SC_WARNING, // indicates potentially incorrect condition
-    SC_ERROR,   // indicates a definite problem
-    SC_FATAL,   // indicates a problem from which we cannot recover
+    SC_INFO = 0,        //!< informative only
+    SC_WARNING, //!< indicates potentially incorrect condition
+    SC_ERROR,   //!< indicates a definite problem
+    SC_FATAL,   //!< indicates a problem from which we cannot recover
     SC_MAX_SEVERITY
 };
 
@@ -79,14 +79,14 @@ typedef unsigned sc_actions;
 */
 
 enum {
-    SC_UNSPECIFIED  = 0x0000, // look for lower-priority rule
-    SC_DO_NOTHING   = 0x0001, // take no action (ignore if other bits set)
-    SC_THROW        = 0x0002, // throw an exception
-    SC_LOG          = 0x0004, // add report to report log
-    SC_DISPLAY      = 0x0008, // display report to screen
-    SC_CACHE_REPORT = 0x0010, // save report to cache
-    SC_INTERRUPT    = 0x0020, // call sc_interrupt_here(...)
-    SC_STOP         = 0x0040, // call sc_stop()
+    SC_UNSPECIFIED  = 0x0000, //!< look for lower-priority rule
+    SC_DO_NOTHING   = 0x0001, //!< take no action (ignore if other bits set)
+    SC_THROW        = 0x0002, //!< throw an exception
+    SC_LOG          = 0x0004, //!< add report to report log
+    SC_DISPLAY      = 0x0008, //!< display report to screen
+    SC_CACHE_REPORT = 0x0010, //!< save report to cache
+    SC_INTERRUPT    = 0x0020, //!< call sc_interrupt_here(...)
+    SC_STOP         = 0x0040, //!< call sc_stop()
     SC_ABORT        = 0x0080  // call abort()
 };
 
