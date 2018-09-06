@@ -1,9 +1,14 @@
 /*! \mainpage SystemC 
  *
  * \section source_sec Original Source
+ * 
+ * Important - this is not official documentation for the System C project.
  *
- * This reference implementation is sourced from http://www.accellera.org/downloads/standards/systemc.
+ * The original reference implementation is sourced from http://www.accellera.org/downloads/standards/systemc.
  *
+ * This version has been updated to improve readability.
+ *
+ * The full language is defined by the IEEE 1666-2011 standard here: https://standards.ieee.org/standard/1666-2011.html
  *
  * \section intro_sec Introduction
  *
