@@ -1,0 +1,10 @@
+<map id="tlm::tlm_put_get_imp&lt; PUT_DATA, GET_DATA &gt;" name="tlm::tlm_put_get_imp&lt; PUT_DATA, GET_DATA &gt;">
+<area shape="rect" id="node2" href="$a02376.html" title="tlm::tlm_put_if\&lt; PUT\l_DATA \&gt;" alt="" coords="240,71,380,112"/>
+<area shape="rect" id="node3" href="$a02360.html" title="tlm::tlm_blocking_put\l_if\&lt; PUT_DATA \&gt;" alt="" coords="27,5,171,47"/>
+<area shape="rect" id="node4" href="$a02368.html" title="tlm::tlm_nonblocking\l_put_if\&lt; PUT_DATA \&gt;" alt="" coords="23,71,174,112"/>
+<area shape="rect" id="node5" href="$a02400.html" title="tlm::tlm_get_peek_if\l\&lt; GET_DATA \&gt;" alt="" coords="241,201,379,243"/>
+<area shape="rect" id="node6" href="$a02372.html" title="tlm::tlm_get_if\&lt; GET\l_DATA \&gt;" alt="" coords="29,136,169,177"/>
+<area shape="rect" id="node7" href="$a02388.html" title="tlm::tlm_peek_if\&lt; GET\l_DATA \&gt;" alt="" coords="23,201,174,243"/>
+<area shape="rect" id="node8" href="$a02392.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; GET_DATA \&gt;" alt="" coords="18,267,179,308"/>
+<area shape="rect" id="node9" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; GET_DATA \&gt;" alt="" coords="5,332,192,373"/>
+</map>

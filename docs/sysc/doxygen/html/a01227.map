@@ -1,9 +1,0 @@
-<map id="sc_core::sc_signal&lt; T, POL &gt;" name="sc_core::sc_signal&lt; T, POL &gt;">
-<area shape="rect" id="node8" href="$a01096.html" title="sc_core::sc_buffer\l\&lt; T, POL \&gt;" alt="" coords="575,129,699,171"/>
-<area shape="rect" id="node2" href="$a01256.html" title="sc_core::sc_signal\l_inout_if\&lt; T \&gt;" alt="" coords="203,71,330,112"/>
-<area shape="rect" id="node3" href="$a01240.html" title="sc_core::sc_signal\l_in_if\&lt; T \&gt;" alt="" coords="6,5,133,47"/>
-<area shape="rect" id="node4" href="$a01252.html" title="sc_core::sc_signal\l_write_if\&lt; T \&gt;" alt="" coords="6,71,133,112"/>
-<area shape="rect" id="node5" href="$a01212.html" title="sc_core::sc_prim_channel" alt="" coords="181,137,352,163"/>
-<area shape="rect" id="node6" href="$a01832.html" title="sc_core::sc_object" alt="" coords="5,137,133,163"/>
-<area shape="rect" id="node7" href="$a01328.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="191,188,343,229"/>
-</map>

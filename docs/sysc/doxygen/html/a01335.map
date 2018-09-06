@@ -1,5 +1,0 @@
-<map id="sc_core::sc_writer_policy_check_write" name="sc_core::sc_writer_policy_check_write">
-<area shape="rect" id="node2" href="$a01352.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_ONE\l_WRITER \&gt;" alt="" coords="192,5,359,61"/>
-<area shape="rect" id="node3" href="$a01340.html" title="sc_core::sc_writer\l_policy_check_delta" alt="" coords="206,86,345,127"/>
-<area shape="rect" id="node4" href="$a01356.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_MANY\l_WRITERS \&gt;" alt="" coords="407,79,585,135"/>
-</map>

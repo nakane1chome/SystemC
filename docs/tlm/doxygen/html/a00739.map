@@ -1,5 +1,7 @@
-<map id="tlm_core/tlm_2/tlm_generic_payload/tlm_array.h" name="tlm_core/tlm_2/tlm_generic_payload/tlm_array.h">
-<area shape="rect" id="node2" href="$a00746.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm_gp.h" alt="" coords="5,109,180,151"/>
-<area shape="rect" id="node3" href="$a00743.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm\l_generic_payload.h" alt="" coords="21,303,165,359"/>
-<area shape="rect" id="node4" href="$a00740.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm\l_endian_conv.h" alt="" coords="75,199,219,255"/>
+<map id="tlm_core/tlm_2/tlm_2_interfaces/tlm_fw_bw_ifs.h" name="tlm_core/tlm_2/tlm_2_interfaces/tlm_fw_bw_ifs.h">
+<area shape="rect" id="node2" href="$a00731.html" title="tlm_core/tlm_2/tlm\l_2_interfaces/tlm_2\l_interfaces.h" alt="" coords="5,213,140,269"/>
+<area shape="rect" id="node4" href="$a00764.html" title="tlm_core/tlm_2/tlm\l_sockets/tlm_initiator\l_socket.h" alt="" coords="110,109,254,165"/>
+<area shape="rect" id="node6" href="$a00770.html" title="tlm_core/tlm_2/tlm\l_sockets/tlm_target\l_socket.h" alt="" coords="279,109,413,165"/>
+<area shape="rect" id="node3" href="$a00662.html" title="tlm" alt="" coords="137,317,177,344"/>
+<area shape="rect" id="node5" href="$a00767.html" title="tlm_core/tlm_2/tlm\l_sockets/tlm_sockets.h" alt="" coords="164,221,320,262"/>
 </map>

@@ -1,3 +1,6 @@
-<map id="sc_core::sc_fifo_nonblocking_out_if&lt; T &gt;" name="sc_core::sc_fifo_nonblocking_out_if&lt; T &gt;">
-<area shape="rect" id="node2" href="$a01180.html" title="sc_core::sc_interface" alt="" coords="27,5,170,32"/>
+<map id="sc_core::sc_fifo_in_if&lt; T &gt;" name="sc_core::sc_fifo_in_if&lt; T &gt;">
+<area shape="rect" id="node5" href="$a01143.html" title="sc_core::sc_fifo\&lt; T \&gt;" alt="" coords="129,259,269,285"/>
+<area shape="rect" id="node2" href="$a01147.html" title="sc_core::sc_fifo_nonblocking\l_in_if\&lt; T \&gt;" alt="" coords="5,80,192,121"/>
+<area shape="rect" id="node3" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="127,5,270,32"/>
+<area shape="rect" id="node4" href="$a01151.html" title="sc_core::sc_fifo_blocking\l_in_if\&lt; T \&gt;" alt="" coords="216,80,381,121"/>
 </map>

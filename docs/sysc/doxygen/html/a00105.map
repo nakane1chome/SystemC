@@ -1,21 +1,21 @@
 <map id="sysc/datatypes/bit/sc_proxy.h" name="sysc/datatypes/bit/sc_proxy.h">
-<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="680,541,843,568"/>
-<area shape="rect" id="node7" href="$a00359.html" title="sysc/utils/sc_iostream.h" alt="" coords="1208,541,1365,568"/>
-<area shape="rect" id="node14" href="$a00200.html" title="sysc/datatypes/int\l/sc_signed.h" alt="" coords="690,95,814,136"/>
-<area shape="rect" id="node21" href="$a00083.html" title="sysc/datatypes/bit\l/sc_bit_ids.h" alt="" coords="410,452,534,493"/>
-<area shape="rect" id="node24" href="$a00209.html" title="sysc/datatypes/int\l/sc_unsigned.h" alt="" coords="589,184,713,225"/>
-<area shape="rect" id="node25" href="$a00182.html" title="sysc/datatypes/int\l/sc_int_base.h" alt="" coords="1082,95,1206,136"/>
-<area shape="rect" id="node26" href="$a00206.html" title="sysc/datatypes/int\l/sc_uint_base.h" alt="" coords="982,184,1106,225"/>
-<area shape="rect" id="node27" href="$a00080.html" title="sysc/datatypes/bit\l/sc_bit.h" alt="" coords="1426,363,1550,404"/>
-<area shape="rect" id="node28" href="$a00095.html" title="sysc/datatypes/bit\l/sc_logic.h" alt="" coords="1591,273,1715,315"/>
-<area shape="rect" id="node29" href="$a00263.html" title="sysc/kernel/sc_macros.h" alt="" coords="1727,370,1889,397"/>
-<area shape="rect" id="node15" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="1209,281,1364,307"/>
-<area shape="rect" id="node16" href="$a00215.html" title="sysc/datatypes/misc\l/sc_value_base.h" alt="" coords="686,273,823,315"/>
-<area shape="rect" id="node17" href="$a00191.html" title="sysc/datatypes/int\l/sc_nbdefs.h" alt="" coords="699,452,823,493"/>
-<area shape="rect" id="node18" href="$a00389.html" title="sysc/utils/sc_temporary.h" alt="" coords="344,281,509,307"/>
-<area shape="rect" id="node19" href="$a00188.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="847,273,982,315"/>
-<area shape="rect" id="node20" href="$a00197.html" title="sysc/datatypes/int\l/sc_nbutils.h" alt="" coords="435,363,559,404"/>
-<area shape="rect" id="node23" href="$a00194.html" title="sysc/datatypes/int\l/sc_nbexterns.h" alt="" coords="195,273,319,315"/>
-<area shape="rect" id="node22" href="$a00185.html" title="sysc/datatypes/int\l/sc_int_ids.h" alt="" coords="959,452,1083,493"/>
-<area shape="rect" id="node30" href="$a00368.html" title="sysc/utils/sc_mempool.h" alt="" coords="1487,459,1649,486"/>
+<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="685,541,848,568"/>
+<area shape="rect" id="node8" href="$a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="1380,541,1537,568"/>
+<area shape="rect" id="node15" href="$a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="605,95,729,136"/>
+<area shape="rect" id="node22" href="$a00083.html" title="Report ids for the datatypes/bit code. " alt="" coords="221,452,345,493"/>
+<area shape="rect" id="node25" href="$a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="505,184,629,225"/>
+<area shape="rect" id="node26" href="$a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="1163,95,1287,136"/>
+<area shape="rect" id="node27" href="$a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="1063,184,1187,225"/>
+<area shape="rect" id="node28" href="$a00080.html" title="Bit class. " alt="" coords="1541,363,1665,404"/>
+<area shape="rect" id="node29" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="1666,273,1790,315"/>
+<area shape="rect" id="node30" href="$a00263.html" title="Miscellaneous definitions that are needed by the headers. " alt="" coords="1841,370,2004,397"/>
+<area shape="rect" id="node16" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="868,281,1023,307"/>
+<area shape="rect" id="node17" href="$a00215.html" title="Base class for SystemC bit values. " alt="" coords="547,273,685,315"/>
+<area shape="rect" id="node18" href="$a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="705,452,829,493"/>
+<area shape="rect" id="node19" href="$a00392.html" title="Temporary value pool classes. " alt="" coords="1047,281,1212,307"/>
+<area shape="rect" id="node20" href="$a00188.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="709,273,843,315"/>
+<area shape="rect" id="node21" href="$a00197.html" title="External and friend functions for both sc_signed and. " alt="" coords="271,363,395,404"/>
+<area shape="rect" id="node24" href="$a00194.html" title="External functions for both sc_signed and sc_unsigned. " alt="" coords="246,273,370,315"/>
+<area shape="rect" id="node23" href="$a00185.html" title="Report ids for the datatypes/int code. " alt="" coords="1239,452,1363,493"/>
+<area shape="rect" id="node31" href="$a00371.html" title="sysc/utils/sc_mempool.h" alt="" coords="1673,459,1834,486"/>
 </map>

@@ -1,5 +1,4 @@
-<map id="sc_core::sc_bind_proxy" name="sc_core::sc_bind_proxy">
-<area shape="rect" id="node2" href="$a01180.html" title="sc_core::sc_interface" alt="" coords="5,81,148,108"/>
-<area shape="rect" id="node3" href="$a01196.html" title="sc_core::sc_port_base" alt="" coords="173,81,322,108"/>
-<area shape="rect" id="node4" href="$a01832.html" title="sc_core::sc_object" alt="" coords="183,5,311,32"/>
+<map id="sc_core::sc_method_process" name="sc_core::sc_method_process">
+<area shape="rect" id="node2" href="$a01875.html" title="sc_core::sc_process_b" alt="" coords="5,80,156,107"/>
+<area shape="rect" id="node3" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="17,5,145,32"/>
 </map>

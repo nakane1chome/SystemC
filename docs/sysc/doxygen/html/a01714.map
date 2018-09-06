@@ -1,5 +1,4 @@
-<map id="sc_dt::sc_concatref" name="sc_dt::sc_concatref">
-<area shape="rect" id="node4" href="$a02064.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_concatref \&gt;" alt="" coords="511,43,657,85"/>
-<area shape="rect" id="node2" href="$a01728.html" title="sc_dt::sc_generic_base\l\&lt; sc_concatref \&gt;" alt="" coords="5,35,160,77"/>
-<area shape="rect" id="node3" href="$a01724.html" title="sc_dt::sc_value_base" alt="" coords="11,113,154,140"/>
+<map id="sc_dt::sc_unsigned" name="sc_dt::sc_unsigned">
+<area shape="rect" id="node3" href="$a01623.html" title="sc_dt::sc_biguint\&lt; W \&gt;" alt="" coords="5,155,156,181"/>
+<area shape="rect" id="node2" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="9,5,152,32"/>
 </map>

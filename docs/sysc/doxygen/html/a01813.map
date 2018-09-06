@@ -1,0 +1,5 @@
+<map id="sc_core::sc_bind_proxy" name="sc_core::sc_bind_proxy">
+<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="5,81,148,108"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class for class sc_port_b. " alt="" coords="173,81,322,108"/>
+<area shape="rect" id="node4" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="183,5,311,32"/>
+</map>

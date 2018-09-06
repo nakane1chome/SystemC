@@ -1,12 +1,12 @@
 <map id="sysc/kernel/sc_spawn_options.h" name="sysc/kernel/sc_spawn_options.h">
-<area shape="rect" id="node3" href="$a00020.html" title="sysc/communication\l/sc_export.h" alt="" coords="263,273,402,315"/>
-<area shape="rect" id="node8" href="$a00062.html" title="sysc/communication\l/sc_signal_ports.h" alt="" coords="351,95,490,136"/>
-<area shape="rect" id="node5" href="$a00011.html" title="sysc/communication\l/sc_communication_ids.h" alt="" coords="412,363,579,404"/>
-<area shape="rect" id="node6" href="$a00035.html" title="sysc/communication\l/sc_interface.h" alt="" coords="603,363,742,404"/>
-<area shape="rect" id="node7" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="142,370,297,397"/>
-<area shape="rect" id="node9" href="$a00014.html" title="sysc/communication\l/sc_event_finder.h" alt="" coords="515,184,654,225"/>
-<area shape="rect" id="node10" href="$a00044.html" title="sysc/communication\l/sc_port.h" alt="" coords="426,273,565,315"/>
-<area shape="rect" id="node11" href="$a00059.html" title="sysc/communication\l/sc_signal_ifs.h" alt="" coords="613,273,751,315"/>
-<area shape="rect" id="node12" href="$a00095.html" title="sysc/datatypes/bit\l/sc_logic.h" alt="" coords="139,184,263,225"/>
-<area shape="rect" id="node13" href="$a00341.html" title="sysc/tracing/sc_trace.h" alt="" coords="287,191,440,218"/>
+<area shape="rect" id="node3" href="$a00020.html" title="Base classes of all export classes. " alt="" coords="263,273,402,315"/>
+<area shape="rect" id="node8" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="351,95,490,136"/>
+<area shape="rect" id="node5" href="$a00011.html" title="Report ids for the communication code. " alt="" coords="412,363,579,404"/>
+<area shape="rect" id="node6" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="603,363,742,404"/>
+<area shape="rect" id="node7" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="142,370,297,397"/>
+<area shape="rect" id="node9" href="$a00014.html" title="Original Author: Martin Janssen, Synopsys, Inc. Stan Y. Liao, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="515,184,654,225"/>
+<area shape="rect" id="node10" href="$a00044.html" title="Base classes of all port classes. " alt="" coords="426,273,565,315"/>
+<area shape="rect" id="node11" href="$a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="613,273,751,315"/>
+<area shape="rect" id="node12" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="139,184,263,225"/>
+<area shape="rect" id="node13" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="287,191,440,218"/>
 </map>

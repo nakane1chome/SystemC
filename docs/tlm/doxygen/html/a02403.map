@@ -1,0 +1,6 @@
+<map id="tlm::tlm_fifo_debug_if&lt; T &gt;" name="tlm::tlm_fifo_debug_if&lt; T &gt;">
+<area shape="rect" id="node3" href="$a02412.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="5,169,163,196"/>
+<area shape="rect" id="node5" href="$a02408.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="187,169,344,196"/>
+<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="103,5,246,32"/>
+<area shape="rect" id="node4" href="$a02460.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="115,244,234,271"/>
+</map>

@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_ufix_fast" name="sc_dt::sc_ufix_fast">
-<area shape="rect" id="node2" href="$a01516.html" title="sc_dt::sc_fxnum_fast" alt="" coords="5,95,148,121"/>
-<area shape="rect" id="node3" href="$a01692.html" title="sc_dt::sc_uint_base" alt="" coords="9,5,144,32"/>
+<map id="sc_dt::sc_ufix" name="sc_dt::sc_ufix">
+<area shape="rect" id="node3" href="$a01559.html" title="&quot;Constrained&quot; unsigned fixed&#45;point class; arbitrary precision. " alt="" coords="5,155,144,196"/>
+<area shape="rect" id="node2" href="$a01515.html" title="Base class for the fixed&#45;point types; arbitrary precision. " alt="" coords="17,5,132,32"/>
 </map>

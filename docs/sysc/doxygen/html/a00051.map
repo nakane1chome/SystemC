@@ -1,10 +1,10 @@
 <map id="sysc/communication/sc_semaphore.h" name="sysc/communication/sc_semaphore.h">
-<area shape="rect" id="node2" href="$a00248.html" title="sysc/kernel/sc_event.h" alt="" coords="211,102,362,129"/>
-<area shape="rect" id="node7" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="387,102,541,129"/>
-<area shape="rect" id="node8" href="$a00053.html" title="sysc/communication\l/sc_semaphore_if.h" alt="" coords="565,95,704,136"/>
+<area shape="rect" id="node2" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="211,102,362,129"/>
+<area shape="rect" id="node7" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="387,102,541,129"/>
+<area shape="rect" id="node8" href="$a00053.html" title="The sc_semaphore_if interface class. " alt="" coords="565,95,704,136"/>
 <area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="56,273,219,300"/>
-<area shape="rect" id="node4" href="$a00260.html" title="sysc/kernel/sc_kernel\l_ids.h" alt="" coords="26,184,171,225"/>
-<area shape="rect" id="node5" href="$a00311.html" title="sysc/kernel/sc_simcontext.h" alt="" coords="195,191,378,218"/>
-<area shape="rect" id="node6" href="$a00077.html" title="sysc/communication\l/sc_writer_policy.h" alt="" coords="403,184,541,225"/>
-<area shape="rect" id="node9" href="$a00035.html" title="sysc/communication\l/sc_interface.h" alt="" coords="565,184,704,225"/>
+<area shape="rect" id="node4" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="26,184,171,225"/>
+<area shape="rect" id="node5" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="195,191,378,218"/>
+<area shape="rect" id="node6" href="$a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="403,184,541,225"/>
+<area shape="rect" id="node9" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="565,184,704,225"/>
 </map>

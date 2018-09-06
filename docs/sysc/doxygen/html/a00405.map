@@ -1,0 +1,35 @@
+<map id="systemc.h" name="systemc.h">
+<area shape="rect" id="node18" href="$a00401.html" title="systemc" alt="" coords="1917,80,1986,107"/>
+<area shape="rect" id="node19" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="596,534,758,561"/>
+<area shape="rect" id="node20" href="$a00254.html" title="Declaration of `sc_main&#39; and other global variables. " alt="" coords="2684,169,2846,196"/>
+<area shape="rect" id="node21" href="$a00251.html" title="sysc/kernel/sc_except.h" alt="" coords="536,169,695,196"/>
+<area shape="rect" id="node22" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="924,266,1086,293"/>
+<area shape="rect" id="node23" href="$a00296.html" title="Process access support. " alt="" coords="928,348,1082,389"/>
+<area shape="rect" id="node24" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="1024,445,1207,471"/>
+<area shape="rect" id="node25" href="$a00332.html" title="Version and copyright information. " alt="" coords="3778,169,3915,196"/>
+<area shape="rect" id="node26" href="$a00002.html" title="The sc_buffer&lt;T&gt; primitive channel class. " alt="" coords="2056,259,2194,300"/>
+<area shape="rect" id="node27" href="$a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="1784,348,1922,389"/>
+<area shape="rect" id="node28" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="3444,437,3568,479"/>
+<area shape="rect" id="node29" href="$a00080.html" title="Bit class. " alt="" coords="3536,527,3660,568"/>
+<area shape="rect" id="node30" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="1776,445,1930,471"/>
+<area shape="rect" id="node31" href="$a00005.html" title="The clock channel. " alt="" coords="1674,162,1813,203"/>
+<area shape="rect" id="node32" href="$a00008.html" title="The clock ports. " alt="" coords="3300,162,3438,203"/>
+<area shape="rect" id="node33" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="3353,259,3492,300"/>
+<area shape="rect" id="node34" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="973,162,1112,203"/>
+<area shape="rect" id="node35" href="$a00020.html" title="Base classes of all export classes. " alt="" coords="714,348,853,389"/>
+<area shape="rect" id="node36" href="$a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="1106,348,1245,389"/>
+<area shape="rect" id="node37" href="$a00029.html" title="The sc_fifo&lt;T&gt; port classes. " alt="" coords="1186,162,1325,203"/>
+<area shape="rect" id="node38" href="$a00038.html" title="The sc_mutex primitive channel class. " alt="" coords="1349,162,1488,203"/>
+<area shape="rect" id="node39" href="$a00050.html" title="The sc_semaphore primitive channel class. " alt="" coords="1512,162,1650,203"/>
+<area shape="rect" id="node40" href="$a00065.html" title="The resolved signal class. " alt="" coords="1888,259,2031,300"/>
+<area shape="rect" id="node41" href="$a00068.html" title="The sc_signal_resolved port classes. " alt="" coords="3513,155,3652,211"/>
+<area shape="rect" id="node42" href="$a00071.html" title="The resolved vector signal class. " alt="" coords="2653,259,2792,300"/>
+<area shape="rect" id="node43" href="$a00098.html" title="Arbitrary size logic vector class. " alt="" coords="3000,348,3124,389"/>
+<area shape="rect" id="node44" href="$a00074.html" title="The resolved vector signal ports. " alt="" coords="2870,162,3012,203"/>
+<area shape="rect" id="node45" href="$a00089.html" title="Arbitrary size bit vector class. " alt="" coords="2988,259,3112,300"/>
+<area shape="rect" id="node46" href="$a00173.html" title="Template version of sc_signed. This class enables. " alt="" coords="1990,162,2114,203"/>
+<area shape="rect" id="node47" href="$a00176.html" title="Template version of sc_unsigned. This class. " alt="" coords="2138,162,2262,203"/>
+<area shape="rect" id="node48" href="$a00179.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="2286,162,2410,203"/>
+<area shape="rect" id="node49" href="$a00203.html" title="A sc_uint is an unsigned integer whose length is less than the. " alt="" coords="2434,162,2558,203"/>
+<area shape="rect" id="node50" href="$a00212.html" title="Concatenation support. " alt="" coords="3087,162,3224,203"/>
+</map>

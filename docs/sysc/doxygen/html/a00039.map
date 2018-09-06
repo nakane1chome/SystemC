@@ -1,11 +1,11 @@
 <map id="sysc/communication/sc_mutex.h" name="sysc/communication/sc_mutex.h">
-<area shape="rect" id="node2" href="$a00248.html" title="sysc/kernel/sc_event.h" alt="" coords="29,102,180,129"/>
-<area shape="rect" id="node7" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="205,102,359,129"/>
-<area shape="rect" id="node8" href="$a00335.html" title="sysc/kernel/sc_wait.h" alt="" coords="384,102,527,129"/>
-<area shape="rect" id="node9" href="$a00041.html" title="sysc/communication\l/sc_mutex_if.h" alt="" coords="561,95,699,136"/>
+<area shape="rect" id="node2" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="29,102,180,129"/>
+<area shape="rect" id="node7" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="205,102,359,129"/>
+<area shape="rect" id="node8" href="$a00335.html" title="Wait() and related functions. " alt="" coords="384,102,527,129"/>
+<area shape="rect" id="node9" href="$a00041.html" title="The sc_mutex_if interface class. " alt="" coords="561,95,699,136"/>
 <area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="137,273,299,300"/>
-<area shape="rect" id="node4" href="$a00260.html" title="sysc/kernel/sc_kernel\l_ids.h" alt="" coords="25,184,171,225"/>
-<area shape="rect" id="node5" href="$a00311.html" title="sysc/kernel/sc_simcontext.h" alt="" coords="359,191,541,218"/>
-<area shape="rect" id="node6" href="$a00077.html" title="sysc/communication\l/sc_writer_policy.h" alt="" coords="195,184,334,225"/>
-<area shape="rect" id="node10" href="$a00035.html" title="sysc/communication\l/sc_interface.h" alt="" coords="566,184,705,225"/>
+<area shape="rect" id="node4" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="25,184,171,225"/>
+<area shape="rect" id="node5" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="359,191,541,218"/>
+<area shape="rect" id="node6" href="$a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="195,184,334,225"/>
+<area shape="rect" id="node10" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="566,184,705,225"/>
 </map>

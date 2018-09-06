@@ -1,5 +1,0 @@
-<map id="sc_core::sc_reset" name="sc_core::sc_reset">
-<area shape="rect" id="node3" href="$a01888.html" title="sc_core::sc_reset_target" alt="" coords="5,5,167,32"/>
-<area shape="rect" id="node4" href="$a01244.html" title="sc_core::sc_signal\l_in_if\&lt; bool \&gt;" alt="" coords="193,95,320,136"/>
-<area shape="rect" id="node5" href="$a01180.html" title="sc_core::sc_interface" alt="" coords="191,5,333,32"/>
-</map>

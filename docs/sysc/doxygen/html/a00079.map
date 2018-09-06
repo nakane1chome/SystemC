@@ -1,17 +1,17 @@
 <map id="sysc/communication/sc_writer_policy.h" name="sysc/communication/sc_writer_policy.h">
-<area shape="rect" id="node2" href="$a00059.html" title="sysc/communication\l/sc_signal_ifs.h" alt="" coords="163,169,301,211"/>
-<area shape="rect" id="node4" href="$a00056.html" title="sysc/communication\l/sc_signal.h" alt="" coords="325,259,464,300"/>
-<area shape="rect" id="node7" href="$a00332.html" title="sysc/kernel/sc_ver.h" alt="" coords="1154,95,1291,121"/>
-<area shape="rect" id="node8" href="$a00248.html" title="sysc/kernel/sc_event.h" alt="" coords="603,95,754,121"/>
-<area shape="rect" id="node16" href="$a00299.html" title="sysc/kernel/sc_reset.h" alt="" coords="914,95,1062,121"/>
-<area shape="rect" id="node3" href="$a00338.html" title="sysc/kernel/sc_wait\l_cthread.h" alt="" coords="5,259,139,300"/>
-<area shape="rect" id="node6" href="$a00062.html" title="sysc/communication\l/sc_signal_ports.h" alt="" coords="163,259,301,300"/>
-<area shape="rect" id="node5" href="$a00398.html" title="systemc" alt="" coords="685,348,755,375"/>
-<area shape="rect" id="node9" href="$a00044.html" title="sysc/communication\l/sc_port.h" alt="" coords="376,169,515,211"/>
-<area shape="rect" id="node10" href="$a00017.html" title="sysc/communication\l/sc_event_queue.h" alt="" coords="488,259,627,300"/>
-<area shape="rect" id="node11" href="$a00023.html" title="sysc/communication\l/sc_fifo.h" alt="" coords="651,259,789,300"/>
-<area shape="rect" id="node12" href="$a00038.html" title="sysc/communication\l/sc_mutex.h" alt="" coords="813,259,952,300"/>
-<area shape="rect" id="node13" href="$a00050.html" title="sysc/communication\l/sc_semaphore.h" alt="" coords="920,169,1059,211"/>
-<area shape="rect" id="node14" href="$a00326.html" title="sysc/kernel/sc_thread\l_process.h" alt="" coords="1083,169,1229,211"/>
-<area shape="rect" id="node15" href="$a00266.html" title="sysc/kernel/sc_method\l_process.h" alt="" coords="742,169,895,211"/>
+<area shape="rect" id="node2" href="$a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="163,169,301,211"/>
+<area shape="rect" id="node4" href="$a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="325,259,464,300"/>
+<area shape="rect" id="node7" href="$a00332.html" title="Version and copyright information. " alt="" coords="1154,95,1291,121"/>
+<area shape="rect" id="node8" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="603,95,754,121"/>
+<area shape="rect" id="node16" href="$a00299.html" title="Process reset support. " alt="" coords="914,95,1062,121"/>
+<area shape="rect" id="node3" href="$a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="5,259,139,300"/>
+<area shape="rect" id="node6" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="163,259,301,300"/>
+<area shape="rect" id="node5" href="$a00401.html" title="systemc" alt="" coords="685,348,755,375"/>
+<area shape="rect" id="node9" href="$a00044.html" title="Base classes of all port classes. " alt="" coords="376,169,515,211"/>
+<area shape="rect" id="node10" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="488,259,627,300"/>
+<area shape="rect" id="node11" href="$a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="651,259,789,300"/>
+<area shape="rect" id="node12" href="$a00038.html" title="The sc_mutex primitive channel class. " alt="" coords="813,259,952,300"/>
+<area shape="rect" id="node13" href="$a00050.html" title="The sc_semaphore primitive channel class. " alt="" coords="920,169,1059,211"/>
+<area shape="rect" id="node14" href="$a00326.html" title="Thread process declarations. " alt="" coords="1083,169,1229,211"/>
+<area shape="rect" id="node15" href="$a00266.html" title="Method process declarations. " alt="" coords="742,169,895,211"/>
 </map>

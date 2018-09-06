@@ -1,3 +1,8 @@
-<map id="sc_core::sc_prim_channel" name="sc_core::sc_prim_channel">
-<area shape="rect" id="node2" href="$a01832.html" title="sc_core::sc_object" alt="" coords="27,5,155,32"/>
+<map id="sc_core::sc_port&lt; IF, N, P &gt;" name="sc_core::sc_port&lt; IF, N, P &gt;">
+<area shape="rect" id="node4" href="$a01267.html" title="sc_in\&lt; sc_dt::sc_lv\l\&lt; W \&gt; \&gt;" alt="" coords="34,259,163,300"/>
+<area shape="rect" id="node6" href="$a01279.html" title="sc_inout\&lt; sc_dt::sc\l_lv\&lt; W \&gt; \&gt;" alt="" coords="196,259,327,300"/>
+<area shape="rect" id="node2" href="$a01207.html" title="Abstract base class for class sc_port. " alt="" coords="111,80,241,121"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class for class sc_port_b. " alt="" coords="101,5,251,32"/>
+<area shape="rect" id="node5" href="$a01319.html" title="sc_core::sc_in_rv\&lt; W \&gt;" alt="" coords="5,348,160,375"/>
+<area shape="rect" id="node7" href="$a01323.html" title="sc_core::sc_inout_rv\&lt; W \&gt;" alt="" coords="185,348,357,375"/>
 </map>

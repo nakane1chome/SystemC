@@ -1,6 +1,0 @@
-<map id="sc_core::sc_clock_negedge_callback" name="sc_core::sc_clock_negedge_callback">
-<area shape="rect" id="node2" href="$a01100.html" title="sc_core::sc_clock" alt="" coords="240,243,364,269"/>
-<area shape="rect" id="node3" href="$a01228.html" title="sc_core::sc_signal\l\&lt; bool, SC_ONE_WRITER \&gt;" alt="" coords="210,95,394,136"/>
-<area shape="rect" id="node4" href="$a01780.html" title="sc_core::sc_event" alt="" coords="5,5,129,32"/>
-<area shape="rect" id="node5" href="$a01940.html" title="sc_core::sc_time" alt="" coords="419,102,537,129"/>
-</map>

@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$a01419.html" title="Template traits helper to select the correct bit/value/vector_types for. " alt="" coords="5,143,180,170"/>
+<area shape="rect" id="node2" href="$a01435.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_bitref\&lt; X \&gt; \&gt;" alt="" coords="228,5,372,47"/>
+<area shape="rect" id="node3" href="$a01431.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_bitref_r\&lt; X \&gt; \&gt;" alt="" coords="228,71,372,112"/>
+<area shape="rect" id="node4" href="$a01447.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_proxy\&lt; X \&gt; \&gt;" alt="" coords="228,136,372,177"/>
+<area shape="rect" id="node5" href="$a01443.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_subref\&lt; X \&gt; \&gt;" alt="" coords="228,201,372,243"/>
+<area shape="rect" id="node6" href="$a01439.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_subref_r\&lt; X \&gt; \&gt;" alt="" coords="228,267,372,308"/>
+</map>

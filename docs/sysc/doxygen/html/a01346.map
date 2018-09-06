@@ -1,4 +1,4 @@
-<map id="sc_core::sc_writer_policy_check_port" name="sc_core::sc_writer_policy_check_port">
-<area shape="rect" id="node2" href="$a01196.html" title="sc_core::sc_port_base" alt="" coords="5,81,155,108"/>
-<area shape="rect" id="node3" href="$a01832.html" title="sc_core::sc_object" alt="" coords="16,5,144,32"/>
+<map id="sc_core::sc_writer_policy_nocheck_port" name="sc_core::sc_writer_policy_nocheck_port">
+<area shape="rect" id="node2" href="$a01359.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_MANY\l_WRITERS \&gt;" alt="" coords="220,5,399,61"/>
+<area shape="rect" id="node3" href="$a01363.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_UNCHECKED\l_WRITERS \&gt;" alt="" coords="200,85,419,141"/>
 </map>

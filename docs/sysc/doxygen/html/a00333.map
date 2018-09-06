@@ -1,4 +1,4 @@
 <map id="sysc/kernel/sc_ver.h" name="sysc/kernel/sc_ver.h">
-<area shape="rect" id="node2" href="$a00263.html" title="sysc/kernel/sc_macros.h" alt="" coords="5,87,168,114"/>
-<area shape="rect" id="node3" href="$a00077.html" title="sysc/communication\l/sc_writer_policy.h" alt="" coords="192,80,331,121"/>
+<area shape="rect" id="node2" href="$a00263.html" title="Miscellaneous definitions that are needed by the headers. " alt="" coords="5,87,168,114"/>
+<area shape="rect" id="node3" href="$a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="192,80,331,121"/>
 </map>

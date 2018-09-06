@@ -1,8 +1,0 @@
-<map id="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;" name="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;">
-<area shape="rect" id="node2" href="$a01256.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="231,71,363,127"/>
-<area shape="rect" id="node3" href="$a01248.html" title="sc_core::sc_signal\l_in_if\&lt; sc_dt::sc_logic \&gt;" alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node4" href="$a01252.html" title="sc_core::sc_signal\l_write_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="19,71,150,127"/>
-<area shape="rect" id="node5" href="$a01212.html" title="sc_core::sc_prim_channel" alt="" coords="212,151,383,178"/>
-<area shape="rect" id="node6" href="$a01832.html" title="sc_core::sc_object" alt="" coords="21,151,149,178"/>
-<area shape="rect" id="node7" href="$a01328.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="221,203,373,244"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="sc_core::sc_out&lt; T &gt;" name="sc_core::sc_out&lt; T &gt;">
-<area shape="rect" id="node2" href="$a01276.html" title="sc_core::sc_inout\&lt; T \&gt;" alt="" coords="45,109,196,136"/>
-<area shape="rect" id="node3" href="$a01208.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; T \&gt;\l, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,236,61"/>
-</map>

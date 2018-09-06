@@ -1,0 +1,14 @@
+<map id="sc_core::sc_prim_channel" name="sc_core::sc_prim_channel">
+<area shape="rect" id="node3" href="$a01143.html" title="sc_core::sc_fifo\&lt; T \&gt;" alt="" coords="422,5,562,32"/>
+<area shape="rect" id="node4" href="$a01231.html" title="sc_core::sc_signal\l\&lt; T, POL \&gt;" alt="" coords="429,57,555,98"/>
+<area shape="rect" id="node6" href="$a01235.html" title="sc_core::sc_signal\l\&lt; bool, POL \&gt;" alt="" coords="429,122,555,163"/>
+<area shape="rect" id="node7" href="$a01239.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_logic, POL \&gt;" alt="" coords="411,187,573,229"/>
+<area shape="rect" id="node8" href="$a01231.html" title="sc_core::sc_signal\l\&lt; bool, SC_ONE_WRITER \&gt;" alt="" coords="400,253,584,294"/>
+<area shape="rect" id="node10" href="$a01231.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_logic, SC\l_MANY_WRITERS \&gt;" alt="" coords="420,319,564,375"/>
+<area shape="rect" id="node12" href="$a01231.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_lv\&lt; W \&gt;,\l SC_MANY_WRITERS \&gt;" alt="" coords="409,399,575,455"/>
+<area shape="rect" id="node2" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="5,195,133,221"/>
+<area shape="rect" id="node5" href="$a01099.html" title="sc_core::sc_buffer\l\&lt; T, POL \&gt;" alt="" coords="633,57,757,98"/>
+<area shape="rect" id="node9" href="$a01103.html" title="The clock channel. " alt="" coords="633,260,757,287"/>
+<area shape="rect" id="node11" href="$a01295.html" title="The resolved signal class. " alt="" coords="632,326,759,367"/>
+<area shape="rect" id="node13" href="$a01315.html" title="sc_core::sc_signal\l_rv\&lt; W \&gt;" alt="" coords="632,406,759,447"/>
+</map>

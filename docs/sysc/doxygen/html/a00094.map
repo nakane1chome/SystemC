@@ -1,8 +1,8 @@
 <map id="sysc/datatypes/bit/sc_bv_base.h" name="sysc/datatypes/bit/sc_bv_base.h">
-<area shape="rect" id="node2" href="$a00101.html" title="sysc/datatypes/bit\l/sc_lv_base.h" alt="" coords="160,95,284,136"/>
-<area shape="rect" id="node7" href="$a00089.html" title="sysc/datatypes/bit\l/sc_bv.h" alt="" coords="315,184,439,225"/>
-<area shape="rect" id="node3" href="$a00098.html" title="sysc/datatypes/bit\l/sc_lv.h" alt="" coords="5,184,129,225"/>
+<area shape="rect" id="node2" href="$a00101.html" title="Arbitrary size logic vector class. " alt="" coords="160,95,284,136"/>
+<area shape="rect" id="node7" href="$a00089.html" title="Arbitrary size bit vector class. " alt="" coords="315,184,439,225"/>
+<area shape="rect" id="node3" href="$a00098.html" title="Arbitrary size logic vector class. " alt="" coords="5,184,129,225"/>
 <area shape="rect" id="node6" href="$a00128.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="153,184,291,225"/>
-<area shape="rect" id="node4" href="$a00398.html" title="systemc" alt="" coords="211,363,281,389"/>
-<area shape="rect" id="node5" href="$a00212.html" title="sysc/datatypes/misc\l/sc_concatref.h" alt="" coords="177,273,315,315"/>
+<area shape="rect" id="node4" href="$a00401.html" title="systemc" alt="" coords="211,363,281,389"/>
+<area shape="rect" id="node5" href="$a00212.html" title="Concatenation support. " alt="" coords="177,273,315,315"/>
 </map>

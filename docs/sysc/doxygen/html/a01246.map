@@ -1,3 +1,6 @@
-<map id="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;" name="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;">
-<area shape="rect" id="node2" href="$a01180.html" title="sc_core::sc_interface" alt="" coords="13,5,156,32"/>
+<map id="sc_core::sc_signal_in_if&lt; bool &gt;" name="sc_core::sc_signal_in_if&lt; bool &gt;">
+<area shape="rect" id="node3" href="$a01259.html" title="sc_core::sc_signal\l_inout_if\&lt; bool \&gt;" alt="" coords="95,169,221,211"/>
+<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="87,5,229,32"/>
+<area shape="rect" id="node4" href="$a01235.html" title="sc_core::sc_signal\l\&lt; bool, POL \&gt;" alt="" coords="5,259,132,300"/>
+<area shape="rect" id="node5" href="$a01231.html" title="sc_core::sc_signal\l\&lt; bool, SC_ONE_WRITER \&gt;" alt="" coords="157,259,341,300"/>
 </map>

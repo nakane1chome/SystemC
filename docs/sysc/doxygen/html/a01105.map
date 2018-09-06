@@ -1,0 +1,6 @@
+<map id="sc_core::sc_clock_posedge_callback" name="sc_core::sc_clock_posedge_callback">
+<area shape="rect" id="node2" href="$a01103.html" title="The clock channel. " alt="" coords="240,243,364,269"/>
+<area shape="rect" id="node3" href="$a01231.html" title="sc_core::sc_signal\l\&lt; bool, SC_ONE_WRITER \&gt;" alt="" coords="210,95,394,136"/>
+<area shape="rect" id="node4" href="$a01783.html" title="The event class. " alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node5" href="$a01943.html" title="The time class. " alt="" coords="419,102,537,129"/>
+</map>

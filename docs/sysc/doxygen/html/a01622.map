@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_int&lt; W &gt;" name="sc_dt::sc_int&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01644.html" title="sc_dt::sc_int_base" alt="" coords="13,80,140,107"/>
-<area shape="rect" id="node3" href="$a01724.html" title="sc_dt::sc_value_base" alt="" coords="5,5,148,32"/>
+<map id="sc_dt::sc_biguint&lt; W &gt;" name="sc_dt::sc_biguint&lt; W &gt;">
+<area shape="rect" id="node2" href="$a01715.html" title="Arbitrary precision unsigned number. " alt="" coords="15,80,146,107"/>
+<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="9,5,152,32"/>
 </map>

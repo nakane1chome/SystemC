@@ -1,5 +1,6 @@
-<map id="sc_core::sc_in_rv&lt; W &gt;" name="sc_core::sc_in_rv&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01264.html" title="sc_core::sc_in\&lt; sc\l_dt::sc_lv\&lt; W \&gt; \&gt;" alt="" coords="301,57,428,99"/>
-<area shape="rect" id="node3" href="$a01208.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; sc_dt\l::sc_lv\&lt; W \&gt; \&gt;, 1, SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,76"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="45,101,156,127"/>
+<map id="sc_core::sc_signal_rv&lt; W &gt;" name="sc_core::sc_signal_rv&lt; W &gt;">
+<area shape="rect" id="node2" href="$a01231.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_lv\&lt; W \&gt;,\l SC_MANY_WRITERS \&gt;" alt="" coords="224,71,389,127"/>
+<area shape="rect" id="node3" href="$a01259.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_lv\&lt; W \&gt; \&gt;" alt="" coords="25,5,157,61"/>
+<area shape="rect" id="node4" href="$a01215.html" title="Abstract base class of all primitive channel classes. " alt="" coords="5,85,176,112"/>
+<area shape="rect" id="node5" href="$a01331.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="15,137,167,178"/>
 </map>

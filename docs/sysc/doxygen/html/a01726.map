@@ -1,0 +1,28 @@
+<map id="sc_dt::sc_value_base" name="sc_dt::sc_value_base">
+<area shape="rect" id="node2" href="$a01723.html" title="Proxy class for read&#45;only boolean values in concatenations. " alt="" coords="206,5,355,32"/>
+<area shape="rect" id="node3" href="$a01719.html" title="Proxy class for sized bit concatenation. " alt="" coords="214,56,347,83"/>
+<area shape="rect" id="node4" href="$a01647.html" title="Base class for sc_int. " alt="" coords="217,107,344,133"/>
+<area shape="rect" id="node6" href="$a01631.html" title="Proxy class for sc_int bit selection (r&#45;value only). " alt="" coords="211,157,351,184"/>
+<area shape="rect" id="node8" href="$a01639.html" title="Proxy class for sc_int part selection (r&#45;value only). " alt="" coords="207,208,354,235"/>
+<area shape="rect" id="node10" href="$a01671.html" title="Arbitrary precision signed number. " alt="" coords="223,259,339,285"/>
+<area shape="rect" id="node12" href="$a01655.html" title="Proxy class for sc_signed bit selection (r&#45;value only). " alt="" coords="199,309,362,336"/>
+<area shape="rect" id="node14" href="$a01663.html" title="Proxy class for sc_signed part selection (r&#45;value only). " alt="" coords="196,360,365,387"/>
+<area shape="rect" id="node16" href="$a01695.html" title="Base class for sc_uint. " alt="" coords="213,411,348,437"/>
+<area shape="rect" id="node18" href="$a01679.html" title="Proxy class for sc_uint bit selection (r&#45;value only). " alt="" coords="207,461,354,488"/>
+<area shape="rect" id="node20" href="$a01687.html" title="Proxy class for sc_uint part selection (r&#45;value only). " alt="" coords="204,512,357,539"/>
+<area shape="rect" id="node22" href="$a01715.html" title="Arbitrary precision unsigned number. " alt="" coords="215,563,346,589"/>
+<area shape="rect" id="node24" href="$a01699.html" title="Proxy class for sc_unsigned bit selection (r&#45;value only). " alt="" coords="215,614,346,655"/>
+<area shape="rect" id="node26" href="$a01707.html" title="Proxy class for sc_unsigned part selection (r&#45;value only). " alt="" coords="215,679,346,721"/>
+<area shape="rect" id="node5" href="$a01627.html" title="sc_dt::sc_int\&lt; W \&gt;" alt="" coords="429,107,556,133"/>
+<area shape="rect" id="node7" href="$a01635.html" title="Proxy class for sc_int bit selection (r&#45;value and l&#45;value). " alt="" coords="428,157,557,184"/>
+<area shape="rect" id="node9" href="$a01643.html" title="Proxy class for sc_int part selection (r&#45;value and l&#45;value). " alt="" coords="425,208,560,235"/>
+<area shape="rect" id="node11" href="$a01619.html" title="sc_dt::sc_bigint\&lt; W \&gt;" alt="" coords="421,259,565,285"/>
+<area shape="rect" id="node13" href="$a01659.html" title="Proxy class for sc_signed bit selection (r&#45;value and l&#45;value). " alt="" coords="417,309,569,336"/>
+<area shape="rect" id="node15" href="$a01667.html" title="Proxy class for sc_signed part selection (r&#45;value and l&#45;value). " alt="" coords="413,360,572,387"/>
+<area shape="rect" id="node17" href="$a01675.html" title="sc_dt::sc_uint\&lt; W \&gt;" alt="" coords="425,411,560,437"/>
+<area shape="rect" id="node19" href="$a01683.html" title="Proxy class for sc_uint bit selection (r&#45;value and l&#45;value). " alt="" coords="425,461,561,488"/>
+<area shape="rect" id="node21" href="$a01691.html" title="Proxy class for sc_uint part selection (r&#45;value and l&#45;value). " alt="" coords="421,512,564,539"/>
+<area shape="rect" id="node23" href="$a01623.html" title="sc_dt::sc_biguint\&lt; W \&gt;" alt="" coords="417,563,568,589"/>
+<area shape="rect" id="node25" href="$a01703.html" title="Proxy class for sc_unsigned bit selection (r&#45;value and l&#45;value). " alt="" coords="427,614,558,655"/>
+<area shape="rect" id="node27" href="$a01711.html" title="Proxy class for sc_unsigned part selection (r&#45;value and l&#45;value). " alt="" coords="427,679,558,721"/>
+</map>

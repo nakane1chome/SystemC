@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$a01944.html" title="sc_core::sc_time_params" alt="" coords="5,5,172,32"/>
+<area shape="rect" id="node1" title="STL class. " alt="" coords="5,35,105,61"/>
+<area shape="rect" id="node2" href="$a02043.html" title="Exception reporting. " alt="" coords="157,5,283,32"/>
+<area shape="rect" id="node3" href="$a01803.html" title="sc_core::sc_unwind\l_exception" alt="" coords="153,57,287,98"/>
 </map>

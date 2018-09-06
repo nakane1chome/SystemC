@@ -1,0 +1,5 @@
+<map id="tlm::tlm_bw_direct_mem_if" name="tlm::tlm_bw_direct_mem_if">
+<area shape="rect" id="node3" href="$a02518.html" title="tlm::tlm_bw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="9,169,153,211"/>
+<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01183.html" title="sc_core::sc_interface" alt="" coords="10,5,153,32"/>
+<area shape="rect" id="node4" href="$a02630.html" title="tlm_utils::callback\l_binder_bw\&lt; TYPES \&gt;" alt="" coords="5,259,157,300"/>
+</map>

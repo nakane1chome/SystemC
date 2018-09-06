@@ -1,0 +1,6 @@
+<map id="sc_dt::sc_unsigned_subref" name="sc_dt::sc_unsigned_subref">
+<area shape="rect" id="node5" href="$a02067.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_unsigned\l_subref \&gt;" alt="" coords="53,380,186,436"/>
+<area shape="rect" id="node2" href="$a01707.html" title="Proxy class for sc_unsigned part selection (r&#45;value only). " alt="" coords="114,171,245,212"/>
+<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="103,5,245,32"/>
+<area shape="rect" id="node4" href="$a01715.html" title="Arbitrary precision unsigned number. " alt="" coords="195,81,326,108"/>
+</map>

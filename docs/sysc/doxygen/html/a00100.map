@@ -1,6 +1,6 @@
 <map id="sysc/datatypes/bit/sc_lv.h" name="sysc/datatypes/bit/sc_lv.h">
-<area shape="rect" id="node2" href="$a00071.html" title="sysc/communication\l/sc_signal_rv.h" alt="" coords="5,95,144,136"/>
-<area shape="rect" id="node3" href="$a00398.html" title="systemc" alt="" coords="143,273,212,300"/>
-<area shape="rect" id="node4" href="$a00074.html" title="sysc/communication\l/sc_signal_rv_ports.h" alt="" coords="53,184,195,225"/>
-<area shape="rect" id="node5" href="$a00212.html" title="sysc/datatypes/misc\l/sc_concatref.h" alt="" coords="270,184,407,225"/>
+<area shape="rect" id="node2" href="$a00071.html" title="The resolved vector signal class. " alt="" coords="5,95,144,136"/>
+<area shape="rect" id="node3" href="$a00401.html" title="systemc" alt="" coords="143,273,212,300"/>
+<area shape="rect" id="node4" href="$a00074.html" title="The resolved vector signal ports. " alt="" coords="53,184,195,225"/>
+<area shape="rect" id="node5" href="$a00212.html" title="Concatenation support. " alt="" coords="270,184,407,225"/>
 </map>

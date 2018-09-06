@@ -1,0 +1,9 @@
+<map id="tlm::tlm_blocking_master_if&lt; REQ, RSP &gt;" name="tlm::tlm_blocking_master_if&lt; REQ, RSP &gt;">
+<area shape="rect" id="node7" href="$a02418.html" title="tlm::tlm_master_if\l\&lt; REQ, RSP \&gt;" alt="" coords="804,39,928,80"/>
+<area shape="rect" id="node2" href="$a02342.html" title="tlm::tlm_blocking_put\l_if\&lt; REQ \&gt;" alt="" coords="399,5,543,47"/>
+<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01183.html" title="sc_core::sc_interface" alt="" coords="5,71,148,98"/>
+<area shape="rect" id="node5" href="$a02338.html" title="tlm::tlm_blocking_get\l_if\&lt; RSP \&gt;" alt="" coords="201,64,345,105"/>
+<area shape="rect" id="node6" href="$a02362.html" title="tlm::tlm_blocking_peek\l_if\&lt; RSP \&gt;" alt="" coords="196,129,351,171"/>
+<area shape="rect" id="node4" href="$a02374.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; RSP \&gt;" alt="" coords="399,71,543,112"/>
+<area shape="rect" id="node8" href="$a02450.html" title="tlm::tlm_master_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="976,39,1115,80"/>
+</map>

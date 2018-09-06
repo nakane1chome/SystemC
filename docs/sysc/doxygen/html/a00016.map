@@ -1,8 +1,8 @@
 <map id="sysc/communication/sc_event_finder.h" name="sysc/communication/sc_event_finder.h">
-<area shape="rect" id="node2" href="$a00062.html" title="sysc/communication\l/sc_signal_ports.h" alt="" coords="219,95,357,136"/>
-<area shape="rect" id="node3" href="$a00008.html" title="sysc/communication\l/sc_clock_ports.h" alt="" coords="5,191,144,233"/>
-<area shape="rect" id="node4" href="$a00398.html" title="systemc" alt="" coords="200,288,269,315"/>
-<area shape="rect" id="node5" href="$a00068.html" title="sysc/communication\l/sc_signal_resolved\l_ports.h" alt="" coords="219,184,357,240"/>
-<area shape="rect" id="node6" href="$a00074.html" title="sysc/communication\l/sc_signal_rv_ports.h" alt="" coords="381,191,523,233"/>
-<area shape="rect" id="node7" href="$a00320.html" title="sysc/kernel/sc_spawn\l_options.h" alt="" coords="547,191,693,233"/>
+<area shape="rect" id="node2" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="219,95,357,136"/>
+<area shape="rect" id="node3" href="$a00008.html" title="The clock ports. " alt="" coords="5,191,144,233"/>
+<area shape="rect" id="node4" href="$a00401.html" title="systemc" alt="" coords="200,288,269,315"/>
+<area shape="rect" id="node5" href="$a00068.html" title="The sc_signal_resolved port classes. " alt="" coords="219,184,357,240"/>
+<area shape="rect" id="node6" href="$a00074.html" title="The resolved vector signal ports. " alt="" coords="381,191,523,233"/>
+<area shape="rect" id="node7" href="$a00320.html" title="Process spawning options specification. " alt="" coords="547,191,693,233"/>
 </map>

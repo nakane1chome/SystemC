@@ -1,9 +1,0 @@
-<map id="sc_core::sc_signal_rv&lt; W &gt;" name="sc_core::sc_signal_rv&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01228.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_lv\&lt; W \&gt;,\l SC_MANY_WRITERS \&gt;" alt="" coords="340,116,505,172"/>
-<area shape="rect" id="node3" href="$a01256.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_lv\&lt; W \&gt; \&gt;" alt="" coords="25,5,157,61"/>
-<area shape="rect" id="node4" href="$a01212.html" title="sc_core::sc_prim_channel" alt="" coords="5,85,176,112"/>
-<area shape="rect" id="node5" href="$a01328.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="15,137,167,178"/>
-<area shape="rect" id="node6" href="$a01780.html" title="sc_core::sc_event" alt="" coords="29,252,153,279"/>
-<area shape="rect" id="node8" href="$a01872.html" title="sc_core::sc_process_b" alt="" coords="347,296,498,323"/>
-<area shape="rect" id="node10" href="$a01404.html" title="sc_dt::sc_lv\&lt; W \&gt;" alt="" coords="361,351,484,377"/>
-</map>

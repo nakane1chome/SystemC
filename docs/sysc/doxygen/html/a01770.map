@@ -1,3 +1,4 @@
-<map id="sc_core::sc_event_and_list" name="sc_core::sc_event_and_list">
-<area shape="rect" id="node2" href="$a01768.html" title="sc_core::sc_event_list" alt="" coords="19,5,166,32"/>
+<map id="sc_core::sc_event_list" name="sc_core::sc_event_list">
+<area shape="rect" id="node2" href="$a01775.html" title="AND list of events. " alt="" coords="5,80,180,107"/>
+<area shape="rect" id="node3" href="$a01779.html" title="OR list of events. " alt="" coords="205,80,370,107"/>
 </map>

@@ -1,6 +1,0 @@
-<map id="sc_core::sc_fifo_out_if&lt; T &gt;" name="sc_core::sc_fifo_out_if&lt; T &gt;">
-<area shape="rect" id="node5" href="$a01140.html" title="sc_core::sc_fifo\&lt; T \&gt;" alt="" coords="129,259,269,285"/>
-<area shape="rect" id="node2" href="$a01156.html" title="sc_core::sc_fifo_nonblocking\l_out_if\&lt; T \&gt;" alt="" coords="5,80,192,121"/>
-<area shape="rect" id="node3" href="$a01180.html" title="sc_core::sc_interface" alt="" coords="127,5,270,32"/>
-<area shape="rect" id="node4" href="$a01160.html" title="sc_core::sc_fifo_blocking\l_out_if\&lt; T \&gt;" alt="" coords="216,80,381,121"/>
-</map>

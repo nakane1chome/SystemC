@@ -1,0 +1,5 @@
+<map id="sc_core::sc_in_resolved" name="sc_core::sc_in_resolved">
+<area shape="rect" id="node2" href="$a01275.html" title="Specialization of sc_in&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="269,57,396,99"/>
+<area shape="rect" id="node3" href="$a01211.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; sc_dt\l::sc_logic \&gt;, 1, SC_ONE\l_OR_MORE_BOUND \&gt;" alt="" coords="5,5,164,76"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="29,101,140,127"/>
+</map>

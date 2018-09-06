@@ -1,6 +1,0 @@
-<map id="sc_core::sc_process_b" name="sc_core::sc_process_b">
-<area shape="rect" id="node3" href="$a01808.html" title="sc_core::sc_method\l_process" alt="" coords="5,155,141,196"/>
-<area shape="rect" id="node4" href="$a01936.html" title="sc_core::sc_thread\l_process" alt="" coords="166,155,295,196"/>
-<area shape="rect" id="node2" href="$a01832.html" title="sc_core::sc_object" alt="" coords="88,5,216,32"/>
-<area shape="rect" id="node5" href="$a01760.html" title="sc_core::sc_cthread\l_process" alt="" coords="163,244,299,285"/>
-</map>

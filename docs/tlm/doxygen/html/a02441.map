@@ -1,0 +1,10 @@
+<map id="tlm::tlm_fifo&lt; T &gt;" name="tlm::tlm_fifo&lt; T &gt;">
+<area shape="rect" id="node9" href="$a02306.html" title="tlm::tlm_analysis_fifo\&lt; T \&gt;" alt="" coords="607,116,777,143"/>
+<area shape="rect" id="node2" href="$a02394.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="228,64,385,91"/>
+<area shape="rect" id="node3" href="$a02382.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="5,5,173,32"/>
+<area shape="rect" id="node4" href="$a02386.html" title="tlm::tlm_fifo_debug\l_if\&lt; T \&gt;" alt="" coords="24,57,155,98"/>
+<area shape="rect" id="node5" href="$a02390.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="228,116,385,143"/>
+<area shape="rect" id="node6" href="$a02358.html" title="tlm::tlm_put_if\&lt; T \&gt;" alt="" coords="23,123,156,149"/>
+<area shape="rect" id="node7" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01215.html" title="sc_core::sc_prim_channel" alt="" coords="221,171,392,197"/>
+<area shape="rect" id="node8" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01835.html" title="sc_core::sc_object" alt="" coords="25,173,153,200"/>
+</map>

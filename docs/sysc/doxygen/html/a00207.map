@@ -1,13 +1,13 @@
 <map id="sysc/datatypes/int/sc_uint_base.h" name="sysc/datatypes/int/sc_uint_base.h">
-<area shape="rect" id="node2" href="$a00281.html" title="sysc/kernel/sc_object.h" alt="" coords="32,102,187,129"/>
-<area shape="rect" id="node3" href="$a00359.html" title="sysc/utils/sc_iostream.h" alt="" coords="205,273,363,300"/>
-<area shape="rect" id="node6" href="$a00215.html" title="sysc/datatypes/misc\l/sc_value_base.h" alt="" coords="269,95,406,136"/>
-<area shape="rect" id="node7" href="$a00191.html" title="sysc/datatypes/int\l/sc_nbdefs.h" alt="" coords="275,184,399,225"/>
-<area shape="rect" id="node8" href="$a00185.html" title="sysc/datatypes/int\l/sc_int_ids.h" alt="" coords="482,95,606,136"/>
+<area shape="rect" id="node2" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="32,102,187,129"/>
+<area shape="rect" id="node3" href="$a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="205,273,363,300"/>
+<area shape="rect" id="node6" href="$a00215.html" title="Base class for SystemC bit values. " alt="" coords="269,95,406,136"/>
+<area shape="rect" id="node7" href="$a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="275,184,399,225"/>
+<area shape="rect" id="node8" href="$a00185.html" title="Report ids for the datatypes/int code. " alt="" coords="482,95,606,136"/>
 <area shape="rect" id="node10" href="$a00188.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="630,95,765,136"/>
 <area shape="rect" id="node12" href="$a00149.html" title="sysc/datatypes/fx/scfx\l_ieee.h" alt="" coords="789,95,936,136"/>
-<area shape="rect" id="node13" href="$a00389.html" title="sysc/utils/sc_temporary.h" alt="" coords="639,273,804,300"/>
-<area shape="rect" id="node5" href="$a00218.html" title="sysc/kernel/sc_attribute.h" alt="" coords="26,191,193,218"/>
-<area shape="rect" id="node9" href="$a00377.html" title="sysc/utils/sc_report.h" alt="" coords="468,191,609,218"/>
+<area shape="rect" id="node13" href="$a00392.html" title="Temporary value pool classes. " alt="" coords="639,273,804,300"/>
+<area shape="rect" id="node5" href="$a00218.html" title="Attribute classes. " alt="" coords="26,191,193,218"/>
+<area shape="rect" id="node9" href="$a00380.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="468,191,609,218"/>
 <area shape="rect" id="node11" href="$a00110.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="634,184,771,225"/>
 </map>

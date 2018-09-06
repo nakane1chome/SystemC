@@ -1,6 +1,6 @@
 <map id="sysc/datatypes/misc/sc_value_base.h" name="sysc/datatypes/misc/sc_value_base.h">
-<area shape="rect" id="node2" href="$a00191.html" title="sysc/datatypes/int\l/sc_nbdefs.h" alt="" coords="245,95,369,136"/>
+<area shape="rect" id="node2" href="$a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="245,95,369,136"/>
 <area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,184,168,211"/>
-<area shape="rect" id="node6" href="$a00359.html" title="sysc/utils/sc_iostream.h" alt="" coords="363,184,520,211"/>
-<area shape="rect" id="node7" href="$a00227.html" title="sysc/kernel/sc_constants.h" alt="" coords="545,184,719,211"/>
+<area shape="rect" id="node6" href="$a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="363,184,520,211"/>
+<area shape="rect" id="node7" href="$a00227.html" title="Default constants whose values may need to be. " alt="" coords="545,184,719,211"/>
 </map>
