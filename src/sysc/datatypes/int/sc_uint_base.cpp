@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -69,21 +71,26 @@
 #include "sysc/datatypes/fx/sc_ufix.h"
 #include "sysc/datatypes/fx/scfx_other_defs.h"
 
+#include <sstream>
 
-namespace sc_dt
-{
+// explicit template instantiations
+namespace sc_core {
+template class SC_API sc_vpool<sc_dt::sc_uint_bitref>;
+template class SC_API sc_vpool<sc_dt::sc_uint_subref>;
+} // namespace sc_core
+
+namespace sc_dt {
 
 // to avoid code bloat in sc_uint_concat<T1,T2>
 
 void
 sc_uint_concref_invalid_length( int length )
 {
-    char msg[BUFSIZ];
-    std::sprintf( msg,
-	     "sc_uint_concref<T1,T2> initialization: length = %d "
-	     "violates 1 <= length <= %d",
-	     length, SC_INTWIDTH );
-    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+    std::stringstream msg;
+    msg << "sc_uint_concref<T1,T2> initialization: length = " << length
+        << "violates 1 <= length <= " << SC_INTWIDTH;
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg.str().c_str() );
+    sc_core::sc_abort(); // can't recover from here
 }
 
 
@@ -100,16 +107,16 @@ sc_core::sc_vpool<sc_uint_bitref> sc_uint_bitref::m_pool(9);
 
 // #### OPTIMIZE
 void sc_uint_bitref::concat_set(int64 src, int low_i)
-{   
+{
     sc_uint_base aa( 1 );
     *this = aa = (low_i < 64) ? src >> low_i : src >> 63;
 }
 
 void sc_uint_bitref::concat_set(const sc_signed& src, int low_i)
 {
-    sc_uint_base aa( 1 );     
+    sc_uint_base aa( 1 );
     if ( low_i < src.length() )
-        *this = aa = 1 & (src >> low_i);      
+        *this = aa = 1 & (src >> low_i);
     else
         *this = aa = (src < 0) ? (int_type)-1 : 0;
 }
@@ -156,9 +163,9 @@ bool sc_uint_subref_r::concat_get_ctrl( sc_digit* dst_p, int low_i ) const
 
     dst_i = low_i / BITS_PER_DIGIT;
     left_shift = low_i % BITS_PER_DIGIT;
-    end_i = (low_i + (m_left-m_right)) / BITS_PER_DIGIT; 
+    end_i = (low_i + (m_left-m_right)) / BITS_PER_DIGIT;
 
-    mask = ~(-1 << left_shift);
+    mask = ~(~UINT_ZERO << left_shift);
     dst_p[dst_i] = (sc_digit)((dst_p[dst_i] & mask));
 
     dst_i++;
@@ -179,7 +186,7 @@ bool sc_uint_subref_r::concat_get_data( sc_digit* dst_p, int low_i ) const
 
     dst_i = low_i / BITS_PER_DIGIT;
     left_shift = low_i % BITS_PER_DIGIT;
-    high_i = low_i + (m_left-m_right); 
+    high_i = low_i + (m_left-m_right);
     end_i = high_i / BITS_PER_DIGIT;
     mask = ~mask_int[m_left][m_right];
     val = (m_obj_p->m_val & mask) >> m_right;
@@ -188,8 +195,8 @@ bool sc_uint_subref_r::concat_get_data( sc_digit* dst_p, int low_i ) const
 
     // PROCESS THE FIRST WORD:
 
-    mask = ~(-1 << left_shift);
-    dst_p[dst_i] = (sc_digit)(((dst_p[dst_i] & mask)) | 
+    mask = ~(~UINT_ZERO << left_shift);
+    dst_p[dst_i] = (sc_digit)(((dst_p[dst_i] & mask)) |
 	((val << left_shift) & DIGIT_MASK));
 
     switch ( end_i - dst_i )
@@ -237,7 +244,7 @@ sc_core::sc_vpool<sc_uint_subref> sc_uint_subref::m_pool(9);
 
 // assignment operators
 
-sc_uint_subref& 
+sc_uint_subref&
 sc_uint_subref::operator = ( uint_type v )
 {
     uint_type val = m_obj_p->m_val;
@@ -286,26 +293,26 @@ void sc_uint_subref::concat_set(int64 src, int low_i)
     *this = aa = (low_i < 64) ? src >> low_i : src >> 63;
 }
 
-void sc_uint_subref::concat_set(const sc_signed& src, int low_i)   
+void sc_uint_subref::concat_set(const sc_signed& src, int low_i)
 {
-    sc_uint_base aa( length() );   
+    sc_uint_base aa( length() );
     if ( low_i < src.length() )
         *this = aa = src >> low_i;
     else
         *this = aa = (src < 0) ? (int_type)-1 : 0;
 }
 
-void sc_uint_subref::concat_set(const sc_unsigned& src, int low_i)   
+void sc_uint_subref::concat_set(const sc_unsigned& src, int low_i)
 {
     sc_uint_base aa( length() );
     if ( low_i < src.length() )
         *this = aa = src >> low_i;
     else
         *this = aa = 0;
-} 
+}
 
-void sc_uint_subref::concat_set(uint64 src, int low_i)   
-{      
+void sc_uint_subref::concat_set(uint64 src, int low_i)
+{
     sc_uint_base aa( length() );
     *this = aa = (low_i < 64) ? src >> low_i : 0;
 }
@@ -332,34 +339,32 @@ sc_uint_subref::scan( ::std::istream& is )
 void
 sc_uint_base::invalid_length() const
 {
-    char msg[BUFSIZ];
-    std::sprintf( msg,
-	     "sc_uint[_base] initialization: length = %d violates "
-	     "1 <= length <= %d",
-	     m_len, SC_INTWIDTH );
-    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+    std::stringstream msg;
+    msg << "sc_uint[_base] initialization: length = " << m_len
+        << " violates 1 <= length <= " << SC_INTWIDTH;
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg.str().c_str() );
+    sc_core::sc_abort(); // can't recover from here}
 }
 
 void
 sc_uint_base::invalid_index( int i ) const
 {
-    char msg[BUFSIZ];
-    std::sprintf( msg,
-	     "sc_uint[_base] bit selection: index = %d violates "
-	     "0 <= index <= %d",
-	     i, m_len - 1 );
-    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+    std::stringstream msg;
+    msg << "sc_uint[_base] bit selection: index = " << i
+        << " violates 0 <= index <= " << (m_len - 1);
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg.str().c_str() );
+    sc_core::sc_abort(); // can't recover from here
 }
 
 void
 sc_uint_base::invalid_range( int l, int r ) const
 {
-    char msg[BUFSIZ];
-    std::sprintf( msg,
-	     "sc_uint[_base] part selection: left = %d, right = %d violates "
-	     "%d >= left >= right >= 0",
-	     l, r, m_len - 1 );
-    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+    std::stringstream msg;
+    msg << "sc_uint[_base] part selection: "
+        << "left = " << l << ", right = " << r << " violates "
+        << (m_len-1) << " >= left >= right >= 0";
+    SC_REPORT_ERROR( sc_core::SC_ID_OUT_OF_BOUNDS_, msg.str().c_str() );
+    sc_core::sc_abort(); // can't recover from here
 }
 
 
@@ -368,17 +373,16 @@ sc_uint_base::check_value() const
 {
     uint_type limit = (~UINT_ZERO >> m_ulen);
     if( m_val > limit ) {
-	char msg[BUFSIZ];
-	std::sprintf( msg, "sc_uint[_base]: value does not fit into a length of %d",
-		 m_len );
-	SC_REPORT_WARNING( sc_core::SC_ID_OUT_OF_BOUNDS_, msg );
+        std::stringstream msg;
+        msg << "sc_uint[_base]: value does not fit into a length of " << m_len;
+        SC_REPORT_WARNING( sc_core::SC_ID_OUT_OF_BOUNDS_, msg.str().c_str() );
     }
 }
 
 
 // constructors
 
-sc_uint_base::sc_uint_base( const sc_bv_base& v ) 
+sc_uint_base::sc_uint_base( const sc_bv_base& v )
     : m_val(0), m_len( v.length() ), m_ulen( SC_INTWIDTH - m_len )
 {
     check_length();
@@ -456,7 +460,7 @@ sc_uint_base::operator = ( const sc_signed& a )
     return *this;
 }
 
-sc_uint_base& 
+sc_uint_base&
 sc_uint_base::operator = ( const sc_unsigned& a )
 {
     int minlen = sc_min( m_len, a.length() );
@@ -512,21 +516,20 @@ sc_uint_base::operator = ( const char* a )
 	SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
 			 "character string is zero" );
     }
-    if( *a == 0 ) {
+    else if( *a == 0 ) {
 	SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_,
 			 "character string is empty" );
     }
-    try {
+    else try {
 	int len = m_len;
 	sc_ufix aa( a, len, len, SC_TRN, SC_WRAP, 0, SC_ON );
 	return this->operator = ( aa );
-    } catch( sc_core::sc_report ) {
-	char msg[BUFSIZ];
-	std::sprintf( msg, "character string '%s' is not valid", a );
-	SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg );
-	// never reached
-	return *this;
+    } catch( const sc_core::sc_report & ) {
+        std::stringstream msg;
+        msg << "character string '" << a << "' is not valid";
+        SC_REPORT_ERROR( sc_core::SC_ID_CONVERSION_FAILED_, msg.str().c_str() );
     }
+    return *this;
 }
 
 
@@ -579,7 +582,7 @@ sc_uint_base::xor_reduce() const
 
 
 bool sc_uint_base::concat_get_ctrl( sc_digit* dst_p, int low_i ) const
-{    
+{
     int       dst_i;       // Word in dst_p now processing.
     int       end_i;       // Highest order word in dst_p to process.
     int       left_shift;  // Left shift for val.
@@ -591,7 +594,7 @@ bool sc_uint_base::concat_get_ctrl( sc_digit* dst_p, int low_i ) const
 
     // PROCESS THE FIRST WORD:
 
-    mask = ~((uint_type)-1 << left_shift);
+    mask = ~(~UINT_ZERO << left_shift);
     dst_p[dst_i] = (sc_digit)((dst_p[dst_i] & mask));
 
     dst_i++;
@@ -615,7 +618,7 @@ bool sc_uint_base::concat_get_ctrl( sc_digit* dst_p, int low_i ) const
 //   low_i =  first bit within dst_p to be set.
 //------------------------------------------------------------------------------
 bool sc_uint_base::concat_get_data( sc_digit* dst_p, int low_i ) const
-{    
+{
     int       dst_i;       // Word in dst_p now processing.
     int       end_i;       // Highest order word in dst_p to process.
     int       high_i;      // Index of high order bit in dst_p to set.
@@ -635,14 +638,14 @@ bool sc_uint_base::concat_get_data( sc_digit* dst_p, int low_i ) const
 
     if ( m_len < 64 )
     {
-	mask = ~((uint_type)-1 << m_len);
+	mask = ~(~UINT_ZERO << m_len);
         val &=  mask;
     }
 
     // PROCESS THE FIRST WORD:
 
-    mask = ~((uint_type)-1 << left_shift);
-    dst_p[dst_i] = (sc_digit)(((dst_p[dst_i] & mask)) | 
+    mask = ~(~UINT_ZERO << left_shift);
+    dst_p[dst_i] = (sc_digit)(((dst_p[dst_i] & mask)) |
 	((val << left_shift) & DIGIT_MASK));
 
     switch ( end_i - dst_i )
@@ -690,9 +693,9 @@ void sc_uint_base::concat_set(int64 src, int low_i)
 void sc_uint_base::concat_set(const sc_signed& src, int low_i)
 {
     if ( low_i < src.length() )
-        *this = src >> low_i;                             
+        *this = src >> low_i;
     else
-        *this = (src < 0) ? (int_type)-1 : 0; 
+        *this = (src < 0) ? (int_type)-1 : 0;
 }
 
 void sc_uint_base::concat_set(const sc_unsigned& src, int low_i)

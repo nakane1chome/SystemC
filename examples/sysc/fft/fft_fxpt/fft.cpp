@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -247,7 +249,7 @@ void fft::entry()
              real[index] = tmp_real;
              imag[index] = tmp_imag;
 	    
-	     i = i + (len << 1);   
+             i = (short)(i + (len << 1));
           }
 
         //Remaining Iterations: Use Stored W
@@ -279,7 +281,7 @@ void fft::entry()
               real[index2] = real2_out;
               imag[index2] = imag2_out; 
 
-              i = i + (len << 1);
+              i = (short)(i + (len << 1));
             }
             windex = windex + incr;
             j++;
@@ -308,7 +310,7 @@ void fft::entry()
        bits_index[2]= bits_i[1];
        bits_index[1]= bits_i[2];
        bits_index[0]= bits_i[3];
-       index = bits_index;
+       index = (short)bits_index;
        real1 = real[index];
        imag1 = imag[index];
        out_real.write(real1); 

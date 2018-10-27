@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -33,7 +35,10 @@
 
 #ifndef SC_DISABLE_ASYNC_UPDATES
 #  include "sysc/communication/sc_host_mutex.h"
+#  include "sysc/communication/sc_host_semaphore.h"
 #endif
+
+#include <algorithm> // std::find
 
 namespace sc_core {
 
@@ -154,11 +159,20 @@ public:
 	return m_push_queue.size() != 0;
     }
 
+    void suspend()
+    {
+        if( m_has_suspending_channels ) {
+            m_suspend_semaphore.wait();
+            m_suspend_semaphore.post(); // replace token
+        }
+    }
+
     void append( sc_prim_channel& prim_channel_ )
     {
-	sc_scoped_lock lock( m_mutex );
-	m_push_queue.push_back( &prim_channel_ );
-	// return releases the mutex
+        sc_scoped_lock lock( m_mutex );
+        m_push_queue.push_back( &prim_channel_ );
+        m_suspend_semaphore.post();
+        // return releases the mutex
     }
 
     void accept_updates()
@@ -177,14 +191,50 @@ public:
 	    // we use request_update instead of perform_update
 	    // to skip duplicates
 	    (*it++)->request_update();
+	    int sem_trywait = m_suspend_semaphore.trywait(); // this must never block !
+	    sc_assert( sem_trywait == 0 );
 	}
 	m_pop_queue.clear();
     }
 
+    bool attach_suspending( sc_prim_channel& p )
+    {
+        sc_scoped_lock lock( m_mutex );
+        std::vector<sc_prim_channel*>::iterator it =
+          std::find(m_suspending_channels.begin(), m_suspending_channels.end(), &p);
+        if ( it == m_suspending_channels.end() ) {
+            m_suspending_channels.push_back(&p);
+            m_has_suspending_channels = true;
+            return true;
+        }
+        return false;
+        // return releases the mutex
+    }
+
+    bool detach_suspending( sc_prim_channel& p )
+    {
+        sc_scoped_lock lock( m_mutex );
+        std::vector<sc_prim_channel*>::iterator it =
+          std::find(m_suspending_channels.begin(), m_suspending_channels.end(), &p);
+        if ( it != m_suspending_channels.end() ) {
+            *it = m_suspending_channels.back();
+            m_suspending_channels.pop_back();
+            m_has_suspending_channels = (m_suspending_channels.size() > 0);
+            return true;
+        }
+        return false;
+        // return releases the mutex
+    }
+
+    async_update_list() : m_has_suspending_channels() {}
+
 private:
     sc_host_mutex                   m_mutex;
+    sc_host_semaphore               m_suspend_semaphore;
     std::vector< sc_prim_channel* > m_push_queue;
     std::vector< sc_prim_channel* > m_pop_queue;
+    std::vector< sc_prim_channel* > m_suspending_channels;
+    bool                            m_has_suspending_channels;
 
 #endif // ! SC_DISABLE_ASYNC_UPDATES
 };
@@ -201,19 +251,21 @@ sc_prim_channel_registry::insert( sc_prim_channel& prim_channel_ )
 {
     if( sc_is_running() ) {
        SC_REPORT_ERROR( SC_ID_INSERT_PRIM_CHANNEL_, "simulation running" );
+       return;
     }
 
     if( m_simc->elaboration_done() ) {
-
-	SC_REPORT_ERROR( SC_ID_INSERT_PRIM_CHANNEL_, "elaboration done" );
+       SC_REPORT_ERROR( SC_ID_INSERT_PRIM_CHANNEL_, "elaboration done" );
+       return;
     }
 
 #ifdef DEBUG_SYSTEMC
     // check if prim_channel_ is already inserted
     for( int i = 0; i < size(); ++ i ) {
-	if( &prim_channel_ == m_prim_channel_vec[i] ) {
-	    SC_REPORT_ERROR( SC_ID_INSERT_PRIM_CHANNEL_, "already inserted" );
-	}
+        if( &prim_channel_ == m_prim_channel_vec[i] ) {
+            SC_REPORT_ERROR( SC_ID_INSERT_PRIM_CHANNEL_, "already inserted" );
+            return;
+        }
     }
 #endif
 
@@ -232,12 +284,18 @@ sc_prim_channel_registry::remove( sc_prim_channel& prim_channel_ )
 	}
     }
     if( i == size() ) {
-	SC_REPORT_ERROR( SC_ID_REMOVE_PRIM_CHANNEL_, 0 );
+        SC_REPORT_ERROR( SC_ID_REMOVE_PRIM_CHANNEL_, 0 );
+        return;
     }
 
     // remove
-    m_prim_channel_vec[i] = m_prim_channel_vec[size() - 1];
-    m_prim_channel_vec.resize(size()-1);
+    m_prim_channel_vec[i] = m_prim_channel_vec.back();
+    m_prim_channel_vec.pop_back();
+
+#ifndef SC_DISABLE_ASYNC_UPDATES
+    // remove, if async suspending channel
+    m_async_update_list_p->detach_suspending(prim_channel_);
+#endif
 }
 
 bool
@@ -250,6 +308,17 @@ sc_prim_channel_registry::pending_async_updates() const
 #endif
 }
 
+bool
+sc_prim_channel_registry::async_suspend()
+{
+#ifndef SC_DISABLE_ASYNC_UPDATES
+    m_async_update_list_p->suspend();
+    return !pending_async_updates();
+#else
+    return true;
+#endif
+}
+
 void
 sc_prim_channel_registry::async_request_update( sc_prim_channel& prim_channel_ )
 {
@@ -257,6 +326,28 @@ sc_prim_channel_registry::async_request_update( sc_prim_channel& prim_channel_ )
     m_async_update_list_p->append( prim_channel_ );
 #else
     SC_REPORT_ERROR( SC_ID_NO_ASYNC_UPDATE_, prim_channel_.name() );
+#endif
+}
+
+bool
+sc_prim_channel_registry::async_attach_suspending(sc_prim_channel& p)
+{
+#ifndef SC_DISABLE_ASYNC_UPDATES
+    return m_async_update_list_p->attach_suspending( p );
+#else
+    SC_REPORT_ERROR( SC_ID_NO_ASYNC_UPDATE_, p.name() );
+    return false;
+#endif
+}
+
+bool
+sc_prim_channel_registry::async_detach_suspending(sc_prim_channel& p)
+{
+#ifndef SC_DISABLE_ASYNC_UPDATES
+    return m_async_update_list_p->detach_suspending( p );
+#else
+    SC_REPORT_ERROR( SC_ID_NO_ASYNC_UPDATE_, p.name() );
+    return false;
 #endif
 }
 
