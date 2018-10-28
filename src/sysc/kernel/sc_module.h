@@ -390,6 +390,7 @@ public:
 };
 
 extern SC_API sc_module* sc_module_dynalloc(sc_module*);
+/** @def SC_NEW(x) */
 #define SC_NEW(x)  ::sc_core::sc_module_dynalloc(new x);
 
 
@@ -397,14 +398,17 @@ extern SC_API sc_module* sc_module_dynalloc(sc_module*);
  SOME MACROS TO SIMPLIFY SYNTAX:
 */
 
+/** @def SC_MODULE(user_module_name) */
 #define SC_MODULE(user_module_name)                                           \
     struct user_module_name : ::sc_core::sc_module
 
+/** @def SC_CTOR(user_module_name) */
 #define SC_CTOR(user_module_name)                                             \
     typedef user_module_name SC_CURRENT_USER_MODULE;                          \
     user_module_name( ::sc_core::sc_module_name )
 
 // the SC_HAS_PROCESS macro call must be followed by a ;
+/** @def SC_HAS_PROCESS(user_module_name) */
 #define SC_HAS_PROCESS(user_module_name)                                      \
     typedef user_module_name SC_CURRENT_USER_MODULE
 
@@ -448,6 +452,7 @@ extern SC_API sc_module* sc_module_dynalloc(sc_module*);
         this->sensitive.operator() ( handle, edge );\
     }
 
+/** @def SC_CTHREAD(func, edge) */
 #define SC_CTHREAD(func, edge)                                                \
     declare_cthread_process( func ## _handle,                                 \
                              #func,                                           \
@@ -455,12 +460,14 @@ extern SC_API sc_module* sc_module_dynalloc(sc_module*);
                              func,                                            \
                              edge )
 
+/** @def SC_METHOD(func) */
 #define SC_METHOD(func)                                                       \
     declare_method_process( func ## _handle,                                  \
                             #func,                                            \
                             SC_CURRENT_USER_MODULE,                           \
                             func )
 
+/** @def SC_THREAD(func) */
 #define SC_THREAD(func)                                                       \
     declare_thread_process( func ## _handle,                                  \
                             #func,                                            \

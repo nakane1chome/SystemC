@@ -20,6 +20,10 @@
 /*****************************************************************************
 
   sc_uint.h -- An unsigned integer whose length is less than 64 bits.
+*/
+/** \file sc_uint.h
+    \brief An unsigned integer whose length is less than 64 bits.
+
 
                Unlike arbitrary precision, arithmetic and bitwise operations
                are performed using the native types (hence capped at 64 bits).

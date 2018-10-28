@@ -111,8 +111,10 @@ extern SC_API const std::string  sc_copyright_string;
   ) ) ) )
 
 // explicitly avoid macro expansion
+/** @def SC_API_DEFINED_( Symbol ) */
 #define SC_API_DEFINED_( Symbol ) \
   Symbol ## _DEFINED_
+/** @def SC_API_UNDEFINED_( Symbol ) */
 #define SC_API_UNDEFINED_( Symbol ) \
   Symbol ## _UNDEFINED_
 

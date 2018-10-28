@@ -20,6 +20,10 @@
 /*****************************************************************************
 
   sc_string_view.h -- Non-owning, constant reference to a character string
+*/
+/** \file sc_string_view.h
+    \brief Non-owning, constant reference to a character string
+
 
   Original Author: Philipp A Hartmann, Intel
 

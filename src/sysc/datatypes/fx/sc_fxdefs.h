@@ -247,6 +247,7 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
   Dedicated error reporting and checking.
 */
 
+/** @def SC_ERROR_IF_IMPL_(cnd,id,msg) */
 #define SC_ERROR_IF_IMPL_(cnd,id,msg)                                         \
   do {                                                                        \
     if( cnd ) {                                                               \
@@ -262,21 +263,27 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
 # define SC_ASSERT_(cnd,msg) (void(0))
 #endif
 
+/** @def SC_ERROR_IF_(cnd,id) */
 #define SC_ERROR_IF_(cnd,id)                                                  \
     SC_ERROR_IF_IMPL_( cnd, id, 0 )
 
+/** @def SC_CHECK_WL_(wl) */
 #define SC_CHECK_WL_(wl)                                                      \
     SC_ERROR_IF_( (wl) <= 0, sc_core::SC_ID_INVALID_WL_ )
 
+/** @def SC_CHECK_N_BITS_(n_bits) */
 #define SC_CHECK_N_BITS_(n_bits)                                              \
     SC_ERROR_IF_( (n_bits) < 0, sc_core::SC_ID_INVALID_N_BITS_ )
 
+/** @def SC_CHECK_DIV_WL_(div_wl) */
 #define SC_CHECK_DIV_WL_(div_wl)                                              \
     SC_ERROR_IF_( (div_wl) <= 0, sc_core::SC_ID_INVALID_DIV_WL_ )
 
+/** @def SC_CHECK_CTE_WL_(cte_wl) */
 #define SC_CHECK_CTE_WL_(cte_wl)                                              \
     SC_ERROR_IF_( (cte_wl) <= 0, sc_core::SC_ID_INVALID_CTE_WL_ )
 
+/** @def SC_CHECK_MAX_WL_(max_wl) */
 #define SC_CHECK_MAX_WL_(max_wl)                                              \
     SC_ERROR_IF_( (max_wl) <= 0 && (max_wl) != -1,                            \
 	    sc_core::SC_ID_INVALID_MAX_WL_ )
@@ -286,6 +293,7 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
   Generic observer macros.
 */
 
+/** @def SC_OBSERVER_(object,observer_type,event) */
 #define SC_OBSERVER_(object,observer_type,event)                              \
 {                                                                             \
     if( (object).observer() != 0 )                                            \
@@ -296,6 +304,7 @@ const int SC_DEFAULT_MAX_WL_ = SC_BUILTIN_MAX_WL_;
     }                                                                         \
 }
 
+/** @def SC_OBSERVER_DEFAULT_(observer_type) */
 #define SC_OBSERVER_DEFAULT_(observer_type)                                   \
 {                                                                             \
     if( m_observer == 0 && observer_type::default_observer != 0 )             \

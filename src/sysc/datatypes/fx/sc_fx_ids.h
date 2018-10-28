@@ -62,6 +62,7 @@
 */
 
 #ifndef SC_DEFINE_MESSAGE
+/** @def SC_DEFINE_MESSAGE(id,unused1,unused2) */
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \
     namespace sc_core { extern SC_API const char id[]; }
 namespace sc_core {

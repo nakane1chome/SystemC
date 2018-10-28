@@ -65,23 +65,31 @@ class sc_fxnum_fast;
 
 #ifdef SC_ENABLE_OBSERVERS
 
+/** @def SC_FXNUM_OBSERVER_CONSTRUCT_(object) */
 #define SC_FXNUM_OBSERVER_CONSTRUCT_(object)                                  \
     SC_OBSERVER_(object,sc_fxnum_observer*,construct)
+/** @def SC_FXNUM_OBSERVER_DESTRUCT_(object) */
 #define SC_FXNUM_OBSERVER_DESTRUCT_(object)                                   \
     SC_OBSERVER_(object,sc_fxnum_observer*,destruct)
+/** @def SC_FXNUM_OBSERVER_READ_(object) */
 #define SC_FXNUM_OBSERVER_READ_(object)                                       \
     SC_OBSERVER_(object,sc_fxnum_observer*,read)
+/** @def SC_FXNUM_OBSERVER_WRITE_(object) */
 #define SC_FXNUM_OBSERVER_WRITE_(object)                                      \
     SC_OBSERVER_(object,sc_fxnum_observer*,write)
 #define SC_FXNUM_OBSERVER_DEFAULT_                                            \
     SC_OBSERVER_DEFAULT_(sc_fxnum_observer)
 
+/** @def SC_FXNUM_FAST_OBSERVER_CONSTRUCT_(object) */
 #define SC_FXNUM_FAST_OBSERVER_CONSTRUCT_(object)                             \
     SC_OBSERVER_(object,sc_fxnum_fast_observer*,construct)
+/** @def SC_FXNUM_FAST_OBSERVER_DESTRUCT_(object) */
 #define SC_FXNUM_FAST_OBSERVER_DESTRUCT_(object)                              \
     SC_OBSERVER_(object,sc_fxnum_fast_observer*,destruct)
+/** @def SC_FXNUM_FAST_OBSERVER_READ_(object) */
 #define SC_FXNUM_FAST_OBSERVER_READ_(object)                                  \
     SC_OBSERVER_(object,sc_fxnum_fast_observer*,read)
+/** @def SC_FXNUM_FAST_OBSERVER_WRITE_(object) */
 #define SC_FXNUM_FAST_OBSERVER_WRITE_(object)                                 \
     SC_OBSERVER_(object,sc_fxnum_fast_observer*,write)
 #define SC_FXNUM_FAST_OBSERVER_DEFAULT_                                       \
@@ -89,15 +97,23 @@ class sc_fxnum_fast;
 
 #else
 
+/** @def SC_FXNUM_OBSERVER_CONSTRUCT_(object) */
 #define SC_FXNUM_OBSERVER_CONSTRUCT_(object)
+/** @def SC_FXNUM_OBSERVER_DESTRUCT_(object) */
 #define SC_FXNUM_OBSERVER_DESTRUCT_(object)
+/** @def SC_FXNUM_OBSERVER_READ_(object) */
 #define SC_FXNUM_OBSERVER_READ_(object)
+/** @def SC_FXNUM_OBSERVER_WRITE_(object) */
 #define SC_FXNUM_OBSERVER_WRITE_(object)
 #define SC_FXNUM_OBSERVER_DEFAULT_
 
+/** @def SC_FXNUM_FAST_OBSERVER_CONSTRUCT_(object) */
 #define SC_FXNUM_FAST_OBSERVER_CONSTRUCT_(object)
+/** @def SC_FXNUM_FAST_OBSERVER_DESTRUCT_(object) */
 #define SC_FXNUM_FAST_OBSERVER_DESTRUCT_(object)
+/** @def SC_FXNUM_FAST_OBSERVER_READ_(object) */
 #define SC_FXNUM_FAST_OBSERVER_READ_(object)
+/** @def SC_FXNUM_FAST_OBSERVER_WRITE_(object) */
 #define SC_FXNUM_FAST_OBSERVER_WRITE_(object)
 #define SC_FXNUM_FAST_OBSERVER_DEFAULT_
 

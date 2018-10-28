@@ -179,8 +179,8 @@ class SC_API sc_simcontext
 
     enum sc_signal_write_check
     {
-       SC_SIGNAL_WRITE_CHECK_DISABLE_  = 0x0, // no multiple writer checks
-       SC_SIGNAL_WRITE_CHECK_DEFAULT_  = 0x1, // default IEEE-1666 writer checks
+       SC_SIGNAL_WRITE_CHECK_DISABLE_  = 0x0, //!< no multiple writer checks
+       SC_SIGNAL_WRITE_CHECK_DEFAULT_  = 0x1, //!< default IEEE-1666 writer checks
        SC_SIGNAL_WRITE_CHECK_CONFLICT_ = 0x2  // only check for conflicting writes
     };
 

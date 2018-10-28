@@ -98,10 +98,12 @@ namespace sc_meta {
   struct remove_special_fptr< special_result& (*)( T ) >
     { typedef T type; };
 
+/** @def SC_RPTYPE_(Type) */
 #define SC_RPTYPE_(Type)                                   \
   ::sc_core::sc_meta::remove_special_fptr         \
     < ::sc_core::sc_meta::special_result& (*) Type >::type::value
 
+/** @def SC_ENABLE_IF_( Cond ) */
 #define SC_ENABLE_IF_( Cond )                              \
   typename ::sc_core::sc_meta::enable_if                   \
     < SC_RPTYPE_(Cond) >::type * = NULL

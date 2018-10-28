@@ -20,6 +20,10 @@
 /*****************************************************************************
 
   sc_typeindex.h -- Wrapper around std::typeinfo to allow usage in containers
+*/
+/** \file sc_typeindex.h
+    \brief Wrapper around std::typeinfo to allow usage in containers
+
 
   Original Author: Philipp A. Hartmann, Intel Corporation
 

@@ -20,6 +20,10 @@
 /*****************************************************************************
 
   sc_host_semaphore.h -- A "real" semaphore for the underlying host system
+*/
+/** \file sc_host_semaphore.h
+    \brief A "real" semaphore for the underlying host system
+
 
   Original Author: Philipp A. Hartmann, Intel
 

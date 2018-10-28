@@ -79,21 +79,28 @@ namespace sc_core {
 
 // token stringification
 
+/** @def SC_STRINGIFY_HELPER_( Arg ) */
 #define SC_STRINGIFY_HELPER_( Arg ) \
   SC_STRINGIFY_HELPER_DEFERRED_( Arg )
+/** @def SC_STRINGIFY_HELPER_DEFERRED_( Arg ) */
 #define SC_STRINGIFY_HELPER_DEFERRED_( Arg ) \
   SC_STRINGIFY_HELPER_MORE_DEFERRED_( Arg )
+/** @def SC_STRINGIFY_HELPER_MORE_DEFERRED_( Arg ) */
 #define SC_STRINGIFY_HELPER_MORE_DEFERRED_( Arg ) \
   #Arg 
 
 
 // token concatenation
+/** @def SC_CONCAT_HELPER_( a, b ) */
 #define SC_CONCAT_HELPER_( a, b ) \
   SC_CONCAT_HELPER_DEFERRED_( a, b )
+/** @def SC_CONCAT_HELPER_DEFERRED_( a, b ) */
 #define SC_CONCAT_HELPER_DEFERRED_( a, b ) \
   SC_CONCAT_HELPER_MORE_DEFERRED_( a,b )
+/** @def SC_CONCAT_HELPER_MORE_DEFERRED_( a, b ) */
 #define SC_CONCAT_HELPER_MORE_DEFERRED_( a, b ) \
   a ## b
+/** @def SC_CONCAT_UNDERSCORE_( a, b ) */
 #define SC_CONCAT_UNDERSCORE_( a, b ) \
   SC_CONCAT_HELPER_( a, SC_CONCAT_HELPER_( _, b ) )
 
@@ -102,16 +109,19 @@ namespace sc_core {
  *  -- the user can find out at which location in their source file a process calls wait.
  */
 
+/** @def SC_WAIT() */
 #define SC_WAIT()                                       \
     ::sc_core::sc_set_location( __FILE__, __LINE__ );   \
     ::sc_core::wait();                                  \
     ::sc_core::sc_set_location( NULL, 0 )
 
+/** @def SC_WAITN(n) */
 #define SC_WAITN(n)                                     \
     ::sc_core::sc_set_location( __FILE__, __LINE__ );   \
     ::sc_core::wait(n);                                 \
     ::sc_core::sc_set_location( NULL, 0 )
 
+/** @def SC_WAIT_UNTIL(expr) */
 #define SC_WAIT_UNTIL(expr)                             \
   do { SC_WAIT(); } while( !(expr) )
 

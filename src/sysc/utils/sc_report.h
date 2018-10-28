@@ -87,15 +87,15 @@ enum sc_severity {
 typedef unsigned sc_actions;
 
 enum {
-    SC_UNSPECIFIED  = 0x0000, // look for lower-priority rule
-    SC_DO_NOTHING   = 0x0001, // take no action (ignore if other bits set)
-    SC_THROW        = 0x0002, // throw an exception
-    SC_LOG          = 0x0004, // add report to report log
-    SC_DISPLAY      = 0x0008, // display report to screen
-    SC_CACHE_REPORT = 0x0010, // save report to cache
-    SC_INTERRUPT    = 0x0020, // call sc_interrupt_here(...)
-    SC_STOP         = 0x0040, // call sc_stop()
-    SC_ABORT        = 0x0080, // call abort()
+    SC_UNSPECIFIED  = 0x0000, //!< look for lower-priority rule
+    SC_DO_NOTHING   = 0x0001, //!< take no action (ignore if other bits set)
+    SC_THROW        = 0x0002, //!< throw an exception
+    SC_LOG          = 0x0004, //!< add report to report log
+    SC_DISPLAY      = 0x0008, //!< display report to screen
+    SC_CACHE_REPORT = 0x0010, //!< save report to cache
+    SC_INTERRUPT    = 0x0020, //!< call sc_interrupt_here(...)
+    SC_STOP         = 0x0040, //!< call sc_stop()
+    SC_ABORT        = 0x0080, //!< call abort()
 
     // default action constants
     SC_DEFAULT_INFO_ACTIONS    = SC_LOG | SC_DISPLAY,
@@ -203,23 +203,28 @@ typedef std::exception sc_exception;
   Use these macros to report an info, warning, error, or fatal.
 */
 
+/** @def SC_REPORT_INFO( msg_type, msg ) */
 #define SC_REPORT_INFO( msg_type, msg )    \
     ::sc_core::sc_report_handler::report(  \
             ::sc_core::SC_INFO, msg_type, msg, __FILE__, __LINE__ )
 
+/** @def SC_REPORT_INFO_VERB( msg_type, msg, verbosity ) */
 #define SC_REPORT_INFO_VERB( msg_type, msg, verbosity )   \
     ::sc_core::sc_report_handler::report(                 \
             ::sc_core::SC_INFO, msg_type, msg, verbosity, \
                                __FILE__ , __LINE__ )
 
+/** @def SC_REPORT_WARNING( msg_type, msg ) */
 #define SC_REPORT_WARNING( msg_type, msg ) \
     ::sc_core::sc_report_handler::report(  \
             ::sc_core::SC_WARNING, msg_type, msg, __FILE__, __LINE__ )
 
+/** @def SC_REPORT_ERROR( msg_type, msg ) */
 #define SC_REPORT_ERROR( msg_type, msg )  \
     ::sc_core::sc_report_handler::report( \
             ::sc_core::SC_ERROR, msg_type, msg, __FILE__, __LINE__ )
 
+/** @def SC_REPORT_FATAL( msg_type, msg ) */
 #define SC_REPORT_FATAL( msg_type, msg )  \
     ::sc_core::sc_report_handler::report( \
             ::sc_core::SC_FATAL, msg_type, msg, __FILE__, __LINE__ )

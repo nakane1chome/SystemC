@@ -686,6 +686,7 @@ class SC_API sc_concat_bool : public sc_value_base
  ARITHMETIC AND LOGIC OPERATORS FOR sc_concatref
 */
 
+/** @def SC_CONCAT_OP_TYPE(RESULT,OP,OTHER_TYPE) */
 #define SC_CONCAT_OP_TYPE(RESULT,OP,OTHER_TYPE) \
     inline RESULT operator OP ( const sc_concatref& a, OTHER_TYPE b ) \
     { \
@@ -697,6 +698,7 @@ class SC_API sc_concat_bool : public sc_value_base
     } 
 
 
+/** @def SC_CONCAT_OP(RESULT,OP) */
 #define SC_CONCAT_OP(RESULT,OP) \
     inline RESULT operator OP ( const sc_concatref& a, const sc_concatref& b ) \
     { \
@@ -721,6 +723,7 @@ class SC_API sc_concat_bool : public sc_value_base
         return (int)a OP b.value(); \
     } 
 
+/** @def SC_CONCAT_BOOL_OP(OP) */
 #define SC_CONCAT_BOOL_OP(OP) \
     inline bool operator OP ( const sc_concatref& a, const sc_concatref& b ) \
     { \

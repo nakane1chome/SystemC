@@ -61,7 +61,7 @@ struct sc_bind_info;
 
 enum sc_port_policy
 {
-    SC_ONE_OR_MORE_BOUND,   // Default
+    SC_ONE_OR_MORE_BOUND,   //!< Default
     SC_ZERO_OR_MORE_BOUND,
     SC_ALL_BOUND
 };

@@ -65,6 +65,7 @@
 */
 
 #ifndef SC_DEFINE_MESSAGE
+/** @def SC_DEFINE_MESSAGE(id,unused1,unused2) */
 #define SC_DEFINE_MESSAGE(id,unused1,unused2) \
     namespace sc_core { extern SC_API const char id[]; }
 extern SC_API const char SC_ID_REGISTER_ID_FAILED_[]; // in sc_report_handler.cpp

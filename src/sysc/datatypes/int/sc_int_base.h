@@ -20,6 +20,10 @@
 /*****************************************************************************
 
   sc_int_base.h -- A signed integer whose length is less than 64 bit.
+*/
+/** \file sc_int_base.h
+    \brief A signed integer whose length is less than 64 bit.
+
 
               Unlike arbitrary precision, arithmetic and bitwise operations
               are performed using the native types (hence capped at 64 bits).
