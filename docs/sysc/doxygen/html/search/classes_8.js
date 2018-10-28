@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wif_5ft_5ftrace',['wif_T_trace',['../a01971.html',1,'sc_core']]],
-  ['wif_5ftrace_5ffile',['wif_trace_file',['../a01975.html',1,'sc_core']]]
+  ['vcd_5ft_5ftrace',['vcd_T_trace',['../a02007.html',1,'sc_core']]],
+  ['vcd_5ftrace_5ffile',['vcd_trace_file',['../a02011.html',1,'sc_core']]]
 ];

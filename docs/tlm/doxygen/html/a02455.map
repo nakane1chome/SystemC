@@ -1,3 +1,9 @@
-<map id="tlm_utils::instance_specific_extension&lt; T &gt;" name="tlm_utils::instance_specific_extension&lt; T &gt;">
-<area shape="rect" id="node2" href="$a02452.html" title="tlm_utils::ispex_base" alt="" coords="17,5,156,32"/>
+<map id="tlm::tlm_blocking_slave_if&lt; REQ, RSP &gt;" name="tlm::tlm_blocking_slave_if&lt; REQ, RSP &gt;">
+<area shape="rect" id="node7" href="$a02472.html" title="tlm::tlm_slave_if\&lt;\l REQ, RSP \&gt;" alt="" coords="793,39,916,80"/>
+<area shape="rect" id="node2" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; RSP \&gt;" alt="" coords="399,5,543,47"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="5,71,148,98"/>
+<area shape="rect" id="node5" href="$a02388.html" title="tlm::tlm_blocking_get\l_if\&lt; REQ \&gt;" alt="" coords="201,64,345,105"/>
+<area shape="rect" id="node6" href="$a02412.html" title="tlm::tlm_blocking_peek\l_if\&lt; REQ \&gt;" alt="" coords="196,129,351,171"/>
+<area shape="rect" id="node4" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; REQ \&gt;" alt="" coords="399,71,543,112"/>
+<area shape="rect" id="node8" href="$a02504.html" title="tlm::tlm_slave_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="964,39,1092,80"/>
 </map>

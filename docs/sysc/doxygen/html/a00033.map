@@ -1,5 +1,5 @@
 <map id="sysc/communication/sc_host_mutex.h" name="sysc/communication/sc_host_mutex.h">
-<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="245,102,408,129"/>
-<area shape="rect" id="node8" href="$a00041.html" title="The sc_mutex_if interface class. " alt="" coords="480,95,619,136"/>
-<area shape="rect" id="node9" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="528,184,667,225"/>
+<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,273,283,300"/>
+<area shape="rect" id="node8" href="$a00044.html" title="The sc_mutex_if interface class. " alt="" coords="186,95,325,136"/>
+<area shape="rect" id="node9" href="$a00038.html" title="Abstract base class of all interface classes. " alt="" coords="186,184,325,225"/>
 </map>

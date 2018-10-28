@@ -1,0 +1,5 @@
+<map id="tlm_utils::multi_init_base_if&lt; TYPES &gt;" name="tlm_utils::multi_init_base_if&lt; TYPES &gt;">
+<area shape="rect" id="node2" href="$a02716.html" title="tlm_utils::multi_init\l_base\&lt; TYPES \&gt;" alt="" coords="188,64,316,105"/>
+<area shape="rect" id="node3" href="$a02684.html" title="multi_passthrough_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, sc_core::SC_ZERO\l_OR_MORE_BOUND \&gt;" alt="" coords="364,5,576,76"/>
+<area shape="rect" id="node4" href="$a02684.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; BUSWIDTH,\l TYPES, N, POL \&gt;" alt="" coords="370,101,570,157"/>
+</map>

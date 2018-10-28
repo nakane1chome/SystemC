@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TLM-2.0: tlm_core/tlm_2/tlm_quantum/tlm_quantum.h File Reference</title>
+<title>TLM-2.0: tlm_core/tlm_2/tlm_generic_payload/tlm_gp.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TLM-2.0
-   &#160;<span id="projectnumber">2.0.3</span>
+   &#160;<span id="projectnumber">2.0.4</span>
    </div>
    <div id="projectbrief">Accellera TLM-2.0 proof-of-concept library</div>
   </td>
@@ -81,43 +81,147 @@ $(document).ready(function(){initNavTree('a00761.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">tlm_quantum.h File Reference</div>  </div>
+<div class="title">tlm_gp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00758_source.html">tlm_core/tlm_2/tlm_quantum/tlm_global_quantum.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="elRef" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00224.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="elRef" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00377.html">sysc/utils/sc_report.h</a>&quot;</code><br />
+<code>#include &quot;<a class="elRef" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00194.html">sysc/datatypes/int/sc_nbdefs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00752_source.html">tlm_core/tlm_2/tlm_generic_payload/tlm_array.h</a>&quot;</code><br />
+<code>#include &lt;typeinfo&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for tlm_quantum.h:</div>
+Include dependency graph for tlm_gp.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00762.png" border="0" usemap="#tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8h" alt=""/></div>
-<map name="tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8h" id="tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8h">
-<area shape="rect" id="node2" href="a00758.html" title="tlm_core/tlm_2/tlm\l_quantum/tlm_global\l_quantum.h" alt="" coords="18,95,161,151"/>
-<area shape="rect" id="node3" doxygen="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00401.html" title="systemc" alt="" coords="55,199,124,225"/>
+<div class="center"><img src="a00762.png" border="0" usemap="#tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8h" alt=""/></div>
+<map name="tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8h" id="tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8h">
+<area shape="rect" id="node2" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="160,206,323,233"/>
+<area shape="rect" id="node3" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00377.html" title="sysc/utils/sc_report.h" alt="" coords="100,109,241,136"/>
+<area shape="rect" id="node5" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00194.html" title="sysc/datatypes/int\l/sc_nbdefs.h" alt="" coords="317,102,441,143"/>
+<area shape="rect" id="node7" href="a00752.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm\l_array.h" alt="" coords="465,95,609,151"/>
+<area shape="rect" id="node4" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00380.html" title="sysc/utils/sc_report\l_handler.h" alt="" coords="5,199,136,240"/>
+<area shape="rect" id="node6" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00227.html" title="sysc/kernel/sc_constants.h" alt="" coords="347,206,522,233"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00763.png" border="0" usemap="#tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8hdep" alt=""/></div>
-<map name="tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8hdep" id="tlm__core_2tlm__2_2tlm__quantum_2tlm__quantum_8hdep">
-<area shape="rect" id="node2" href="a00662.html" title="tlm" alt="" coords="480,95,520,121"/>
-<area shape="rect" id="node3" href="a00776.html" title="tlm_utils/instance\l_specific_extensions.h" alt="" coords="5,169,155,211"/>
-<area shape="rect" id="node4" href="a00785.html" title="tlm_utils/multi_socket\l_bases.h" alt="" coords="179,169,325,211"/>
-<area shape="rect" id="node5" href="a00788.html" title="tlm_utils/passthrough\l_target_socket.h" alt="" coords="350,169,493,211"/>
-<area shape="rect" id="node6" href="a00791.html" title="tlm_utils/peq_with\l_cb_and_phase.h" alt="" coords="517,169,643,211"/>
-<area shape="rect" id="node7" href="a00797.html" title="tlm_utils/simple_initiator\l_socket.h" alt="" coords="667,169,827,211"/>
-<area shape="rect" id="node8" href="a00800.html" title="tlm_utils/simple_target\l_socket.h" alt="" coords="851,169,1002,211"/>
+<div class="center"><img src="a00763.png" border="0" usemap="#tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8hdep" alt=""/></div>
+<map name="tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8hdep" id="tlm__core_2tlm__2_2tlm__generic__payload_2tlm__gp_8hdep">
+<area shape="rect" id="node2" href="a00758.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm\l_generic_payload.h" alt="" coords="61,199,205,255"/>
+<area shape="rect" id="node5" href="a00755.html" title="tlm_core/tlm_2/tlm\l_generic_payload/tlm\l_endian_conv.h" alt="" coords="116,95,260,151"/>
+<area shape="rect" id="node3" href="a00749.html" title="tlm_core/tlm_2/tlm\l_2_interfaces/tlm_fw\l_bw_ifs.h" alt="" coords="5,303,147,359"/>
+<area shape="rect" id="node4" href="a00674.html" title="tlm" alt="" coords="171,317,211,344"/>
 </map>
 </div>
 </div>
 <p><a href="a00761_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02588.html">tlm::tlm_mm_interface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02592.html">tlm::tlm_extension_base</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02596.html">tlm::tlm_extension&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02600.html">tlm::tlm_generic_payload</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00828"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html">tlm</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aee6c671fa7a49f01da4a966f33067175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00761.html#aee6c671fa7a49f01da4a966f33067175">TLM_BYTE_DISABLED</a>&#160;&#160;&#160;0x0</td></tr>
+<tr class="separator:aee6c671fa7a49f01da4a966f33067175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8d2c3eb34ebd54e62bb2016614a827f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00761.html#af8d2c3eb34ebd54e62bb2016614a827f">TLM_BYTE_ENABLED</a>&#160;&#160;&#160;0xff</td></tr>
+<tr class="separator:af8d2c3eb34ebd54e62bb2016614a827f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4afba0cb27464c4ef150b2f789f24b71"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html#a4afba0cb27464c4ef150b2f789f24b71">tlm::tlm_command</a> { <a class="el" href="a00828.html#a4afba0cb27464c4ef150b2f789f24b71a1538cd0007f7e145c31baab0c2ac1753">tlm::TLM_READ_COMMAND</a>, 
+<a class="el" href="a00828.html#a4afba0cb27464c4ef150b2f789f24b71aab9b159668e1dc31945911d21ffb067a">tlm::TLM_WRITE_COMMAND</a>, 
+<a class="el" href="a00828.html#a4afba0cb27464c4ef150b2f789f24b71a2222b571e251e54c5b6b233549f0c7cd">tlm::TLM_IGNORE_COMMAND</a>
+ }</td></tr>
+<tr class="separator:a4afba0cb27464c4ef150b2f789f24b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8249b2be3f1d43dbe1c606f0ed20fb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fb">tlm::tlm_response_status</a> { <br />
+&#160;&#160;<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fba79f0be38e413b4cfaac776a10ef1adf3">tlm::TLM_OK_RESPONSE</a> = 1, 
+<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fbae61def2069320c50021a70c32992eb12">tlm::TLM_INCOMPLETE_RESPONSE</a> = 0, 
+<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fbaacb7bf66e73305034789abbaec9861db">tlm::TLM_GENERIC_ERROR_RESPONSE</a> = -1, 
+<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fba2a755caf4a4ca523938b58cba3757569">tlm::TLM_ADDRESS_ERROR_RESPONSE</a> = -2, 
+<br />
+&#160;&#160;<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fbae5a49a5a273f26c14cc49def5095155a">tlm::TLM_COMMAND_ERROR_RESPONSE</a> = -3, 
+<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fba8cd3d40636f4e6241bdf37c16c5050c7">tlm::TLM_BURST_ERROR_RESPONSE</a> = -4, 
+<a class="el" href="a00828.html#a5f8249b2be3f1d43dbe1c606f0ed20fba997d04c01c857f77b2708d78d2e73087">tlm::TLM_BYTE_ENABLE_ERROR_RESPONSE</a> = -5
+<br />
+ }</td></tr>
+<tr class="separator:a5f8249b2be3f1d43dbe1c606f0ed20fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fde6ca27eba0e951cd01159f1c20c5e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html#a0fde6ca27eba0e951cd01159f1c20c5e">tlm::tlm_gp_option</a> { <a class="el" href="a00828.html#a0fde6ca27eba0e951cd01159f1c20c5ea2020e97d7f0dbefe1a6b9b5cf37c3eeb">tlm::TLM_MIN_PAYLOAD</a>, 
+<a class="el" href="a00828.html#a0fde6ca27eba0e951cd01159f1c20c5eaa78f9c334dd18d32da0d156cda17d017">tlm::TLM_FULL_PAYLOAD</a>, 
+<a class="el" href="a00828.html#a0fde6ca27eba0e951cd01159f1c20c5ea98e2ff9272ab162ebe3080bc839f2531">tlm::TLM_FULL_PAYLOAD_ACCEPTED</a>
+ }</td></tr>
+<tr class="separator:a0fde6ca27eba0e951cd01159f1c20c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4b12c137cc2c98250b9c827f26530aed"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html#a4b12c137cc2c98250b9c827f26530aed">tlm::max_num_extensions</a> ()</td></tr>
+<tr class="separator:a4b12c137cc2c98250b9c827f26530aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3941513c72de2a70fb13ecea6f305683"><td class="memItemLeft" align="right" valign="top"><a class="elRef" doxygen="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag:../../../sysc/doxygen/html/" href="../../../sysc/doxygen/html/a00224.html#afd296367ff4ff514096587ab9244e39f">SC_API_TEMPLATE_DECL_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00828.html#a3941513c72de2a70fb13ecea6f305683">tlm::tlm_array&lt; tlm_extension_base *&gt;</a></td></tr>
+<tr class="separator:a3941513c72de2a70fb13ecea6f305683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aee6c671fa7a49f01da4a966f33067175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee6c671fa7a49f01da4a966f33067175">&#9670;&nbsp;</a></span>TLM_BYTE_DISABLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TLM_BYTE_DISABLED&#160;&#160;&#160;0x0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00761_source.html#l00112">112</a> of file <a class="el" href="a00761_source.html">tlm_gp.h</a>.</p>
+
+</div>
+</div>
+<a id="af8d2c3eb34ebd54e62bb2016614a827f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d2c3eb34ebd54e62bb2016614a827f">&#9670;&nbsp;</a></span>TLM_BYTE_ENABLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TLM_BYTE_ENABLED&#160;&#160;&#160;0xff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00761_source.html#l00113">113</a> of file <a class="el" href="a00761_source.html">tlm_gp.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_54d760f7f187686fd9c4b070d5c46b52.html">tlm_core</a></li><li class="navelem"><a class="el" href="dir_9345038caee142a641c3808e66796fc4.html">tlm_2</a></li><li class="navelem"><a class="el" href="dir_cfd40c4c39d823af6ff63a228b6dcd82.html">tlm_quantum</a></li><li class="navelem"><a class="el" href="a00761.html">tlm_quantum.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:35 for TLM-2.0 by
+    <li class="navelem"><a class="el" href="dir_54d760f7f187686fd9c4b070d5c46b52.html">tlm_core</a></li><li class="navelem"><a class="el" href="dir_9345038caee142a641c3808e66796fc4.html">tlm_2</a></li><li class="navelem"><a class="el" href="dir_c71f0c876475a7748a1d7bf643718c97.html">tlm_generic_payload</a></li><li class="navelem"><a class="el" href="a00761.html">tlm_gp.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:12:16 for TLM-2.0 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

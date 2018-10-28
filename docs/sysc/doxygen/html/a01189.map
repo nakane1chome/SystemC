@@ -1,3 +1,4 @@
-<map id="sc_core::sc_mutex_if" name="sc_core::sc_mutex_if">
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="5,5,148,32"/>
+<map id="sc_core::sc_host_mutex" name="sc_core::sc_host_mutex">
+<area shape="rect" id="node2" href="$a01207.html" title="The sc_mutex_if interface class. " alt="" coords="13,80,156,107"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="13,5,156,32"/>
 </map>

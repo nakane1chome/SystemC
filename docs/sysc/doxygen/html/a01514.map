@@ -1,6 +1,4 @@
-<map id="sc_dt::sc_fxnum" name="sc_dt::sc_fxnum">
-<area shape="rect" id="node2" href="$a01479.html" title="&quot;Unconstrained&quot; signed fixed&#45;point class; arbitrary precision. " alt="" coords="46,80,137,107"/>
-<area shape="rect" id="node4" href="$a01551.html" title="&quot;Unconstrained&quot; unsigned fixed&#45;point class; arbitrary precision. " alt="" coords="171,80,270,107"/>
-<area shape="rect" id="node3" href="$a01487.html" title="&quot;Constrained&quot; signed fixed&#45;point class; arbitrary precision. " alt="" coords="5,155,137,196"/>
-<area shape="rect" id="node5" href="$a01559.html" title="&quot;Constrained&quot; unsigned fixed&#45;point class; arbitrary precision. " alt="" coords="162,155,301,196"/>
+<map id="sc_dt::sc_fix_fast" name="sc_dt::sc_fix_fast">
+<area shape="rect" id="node3" href="$a01523.html" title="&quot;Constrained&quot; signed fixed&#45;point class; limited precision. " alt="" coords="10,155,143,196"/>
+<area shape="rect" id="node2" href="$a01551.html" title="Base class for the fixed&#45;point types; limited precision. " alt="" coords="5,5,148,32"/>
 </map>

@@ -1,27 +1,8 @@
 var a00398 =
 [
-    [ "remove_const", "a02071.html", "a02071" ],
-    [ "remove_const< const T >", "a02075.html", "a02075" ],
-    [ "is_same", "a02079.html", "a02079" ],
-    [ "is_same< T, T >", "a02083.html", "a02083" ],
-    [ "is_const", "a02087.html", "a02087" ],
-    [ "is_const< const T >", "a02091.html", "a02091" ],
-    [ "is_more_const", "a02095.html", "a02095" ],
-    [ "special_result", "a02099.html", null ],
-    [ "remove_special_fptr", "a02103.html", null ],
-    [ "remove_special_fptr< special_result &(*)(T) >", "a02107.html", "a02107" ],
-    [ "sc_vector", "a02111.html", "a02111" ],
-    [ "sc_vector_assembly", "a02115.html", "a02115" ],
-    [ "sc_vector_iter", "a02119.html", "a02119" ],
-    [ "sc_vector_base", "a02123.html", "a02123" ],
-    [ "sc_direct_access", "a02127.html", "a02127" ],
-    [ "sc_member_access", "a02131.html", "a02131" ],
-    [ "sc_vector_iter", "a02119.html", "a02119" ],
-    [ "sc_vector", "a02111.html", "a02111" ],
-    [ "sc_vector_assembly", "a02115.html", "a02115" ],
-    [ "SC_ENABLE_IF_", "a00398.html#ae760668417268961d55f598cea8a7074", null ],
-    [ "SC_RPTYPE_", "a00398.html#a2184bdf04b5557b30da8c312650bfce3", null ],
-    [ "sc_assemble_vector", "a00398.html#a24150599b83f189ede71b50e33a438b4", null ],
-    [ "sc_vector_do_bind", "a00398.html#a1c4ee3c22957c64e76ce3349ee28d300", null ],
-    [ "sc_vector_do_operator_paren", "a00398.html#a5ed596c989c1ed678c36ebdb978f8c5d", null ]
+    [ "SC_DEFINE_MESSAGE", "a00398.html#a3a0fa0aac7295df1391acf37d9d281f8", null ],
+    [ "back", "a00398.html#ac71ad48716734d193b8f00ff0a4b4a9b", null ],
+    [ "front", "a00398.html#a00f852e12ef89fedf8f0d8c4020a6f9b", null ],
+    [ "SC_DEFINE_MESSAGE", "a00398.html#a86dfdd7e55b4c6032c9709571b59cd8f", null ],
+    [ "SC_DEFINE_MESSAGE", "a00398.html#af482956cf779ffb67b5655ad96c11533", null ]
 ];

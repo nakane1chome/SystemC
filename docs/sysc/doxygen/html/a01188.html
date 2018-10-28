@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,26 +82,28 @@ $(document).ready(function(){initNavTree('a01191.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">sc_core::sc_mutex_if Member List</div>  </div>
+<div class="title">sc_core::sc_host_mutex Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a01191.html">sc_core::sc_mutex_if</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a01191.html">sc_core::sc_host_mutex</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a01183.html#a3f0bf642e91be47772a3cd74a76a98cf">default_event</a>() const</td><td class="entry"><a class="el" href="a01183.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01191.html#a60e4ec2e991f43bdc946989a3c33e7c3">lock</a>()=0</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_mutex_if</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01183.html#a7c93074c41900149ab2ac84bd6787ae6">register_port</a>(sc_port_base &amp;port_, const char *if_typename_)</td><td class="entry"><a class="el" href="a01183.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01183.html#a683561f63d51dc7665a0d205ecbbdf43">sc_interface</a>()</td><td class="entry"><a class="el" href="a01183.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01191.html#a9121fc608e21ff5d6805ebcc054c60c0">sc_mutex_if</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_mutex_if</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01191.html#ab3ca0de5f6df296c2993ad46de13176f">trylock</a>()=0</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_mutex_if</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01191.html#a98b7482db60812a9acf28554ecbd5f5e">unlock</a>()=0</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_mutex_if</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01183.html#adbe820669c3473b5f6605a842b0b0835">~sc_interface</a>()</td><td class="entry"><a class="el" href="a01183.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01199.html#a3f0bf642e91be47772a3cd74a76a98cf">default_event</a>() const</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01191.html#af90a3ba3d548e09f8f88f5876dc56d99">lock</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01199.html#a7c93074c41900149ab2ac84bd6787ae6">register_port</a>(sc_port_base &amp;port_, const char *if_typename_)</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01191.html#a782275fbba92ed7d94ae21bd1406db49">sc_host_mutex</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01199.html#a683561f63d51dc7665a0d205ecbbdf43">sc_interface</a>()</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01207.html#a9121fc608e21ff5d6805ebcc054c60c0">sc_mutex_if</a>()</td><td class="entry"><a class="el" href="a01207.html">sc_core::sc_mutex_if</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01191.html#a06cb6aad185aef0e41f6ad7809dbb205">trylock</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01191.html#ac38257ffd5ebb1281b3327af5e760f8c">unlock</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01191.html#ab44af180b34bcb13ffab33a0de2f209b">~sc_host_mutex</a>()</td><td class="entry"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01199.html#adbe820669c3473b5f6605a842b0b0835">~sc_interface</a>()</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:00 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

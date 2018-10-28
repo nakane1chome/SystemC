@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/utils/sc_pvector.h File Reference</title>
+<title>SystemC: sysc/utils/sc_report.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -85,24 +85,60 @@ $(document).ready(function(){initNavTree('a00377.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">sc_pvector.h File Reference</div>  </div>
+<div class="title">sc_report.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+
+<p>Run-time logging and reporting facilities.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;exception&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00380_source.html">sysc/utils/sc_report_handler.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_pvector.h:</div>
+Include dependency graph for sc_report.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00378.png" border="0" usemap="#sysc_2utils_2sc__pvector_8h" alt=""/></div>
+<div class="center"><img src="a00378.png" border="0" usemap="#sysc_2utils_2sc__report_8h" alt=""/></div>
+<map name="sysc_2utils_2sc__report_8h" id="sysc_2utils_2sc__report_8h">
+<area shape="rect" id="node4" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="184,87,347,114"/>
+<area shape="rect" id="node10" href="a00380.html" title="sysc/utils/sc_report\l_handler.h" alt="" coords="371,80,501,121"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00379.png" border="0" usemap="#sysc_2utils_2sc__pvector_8hdep" alt=""/></div>
-<map name="sysc_2utils_2sc__pvector_8hdep" id="sysc_2utils_2sc__pvector_8hdep">
-<area shape="rect" id="node2" href="a00401.html" title="systemc" alt="" coords="46,80,115,107"/>
-<area shape="rect" id="node3" href="a00404.html" title="systemc.h" alt="" coords="41,155,120,181"/>
+<div class="center"><img src="a00379.png" border="0" usemap="#sysc_2utils_2sc__report_8hdep" alt=""/></div>
+<map name="sysc_2utils_2sc__report_8hdep" id="sysc_2utils_2sc__report_8hdep">
+<area shape="rect" id="node2" href="a00260.html" title="Report ids for the kernel code. " alt="" coords="662,169,807,211"/>
+<area shape="rect" id="node8" href="a00011.html" title="Report ids for the communication code. " alt="" coords="319,80,486,121"/>
+<area shape="rect" id="node11" href="a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="706,259,843,300"/>
+<area shape="rect" id="node16" href="a00086.html" title="Report ids for the datatypes/bit code. " alt="" coords="1002,169,1126,211"/>
+<area shape="rect" id="node17" href="a00200.html" title="External and friend functions for both sc_signed and. " alt="" coords="867,259,991,300"/>
+<area shape="rect" id="node22" href="a00188.html" title="Report ids for the datatypes/int code. " alt="" coords="997,80,1121,121"/>
+<area shape="rect" id="node25" href="a00383.html" title="Function provided for debugging purposes. " alt="" coords="1145,80,1268,121"/>
+<area shape="rect" id="node26" href="a00386.html" title="Implementation of a simple string class. " alt="" coords="1292,87,1431,114"/>
+<area shape="rect" id="node3" href="a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="335,355,497,382"/>
+<area shape="rect" id="node4" href="a00293.html" title="Process base class support. " alt="" coords="334,266,498,293"/>
+<area shape="rect" id="node6" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="107,266,258,293"/>
+<area shape="rect" id="node5" href="a00047.html" title="Base classes of all port classes. " alt="" coords="172,348,311,389"/>
+<area shape="rect" id="node7" href="a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="5,348,144,389"/>
+<area shape="rect" id="node9" href="a00020.html" title="Base classes of all export classes. " alt="" coords="333,169,472,211"/>
+<area shape="rect" id="node10" href="a00077.html" title="The resolved vector signal ports. " alt="" coords="496,169,637,211"/>
+<area shape="rect" id="node12" href="a00128.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="854,348,991,389"/>
+<area shape="rect" id="node13" href="a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="693,348,830,389"/>
+<area shape="rect" id="node14" href="a00161.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="521,348,668,389"/>
+<area shape="rect" id="node15" href="a00158.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="1168,348,1315,389"/>
+<area shape="rect" id="node18" href="a00104.html" title="Arbitrary size logic vector class. " alt="" coords="1017,616,1141,657"/>
+<area shape="rect" id="node19" href="a00095.html" title="Arbitrary size bit vector class. " alt="" coords="1093,527,1217,568"/>
+<area shape="rect" id="node20" href="a00089.html" title="Proxy classes for vector data types. " alt="" coords="1118,437,1242,479"/>
+<area shape="rect" id="node21" href="a00107.html" title="Proxy base class for vector data types. " alt="" coords="1339,348,1463,389"/>
+<area shape="rect" id="node23" href="a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="1270,259,1394,300"/>
+<area shape="rect" id="node24" href="a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="1170,169,1294,211"/>
 </map>
 </div>
 </div>
@@ -110,64 +146,318 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02039.html">sc_core::sc_pvector&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02087.html">sc_core::sc_report</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception reporting.  <a href="a02087.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ae1378dd54ebc6f450b432cb399000525"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#ae1378dd54ebc6f450b432cb399000525">ACCESS</a>(I)&#160;&#160;&#160;m_vector[I]</td></tr>
-<tr class="separator:ae1378dd54ebc6f450b432cb399000525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d877b321dbdd4dbdcb3c5aeb733628e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a1d877b321dbdd4dbdcb3c5aeb733628e">ADDR_ACCESS</a>(I)&#160;&#160;&#160;(m_vector.size() != 0 ? &amp;m_vector[I] : 0 )</td></tr>
-<tr class="separator:a1d877b321dbdd4dbdcb3c5aeb733628e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96d99fea4b785441c169dd3b365d890a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a96d99fea4b785441c169dd3b365d890a">SC_REPORT_INFO</a>(msg_type,  msg)</td></tr>
+<tr class="separator:a96d99fea4b785441c169dd3b365d890a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38fc0dfb8d6fcd6bd5d907b46e16fce9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a38fc0dfb8d6fcd6bd5d907b46e16fce9">SC_REPORT_INFO_VERB</a>(msg_type,  msg,  verbosity)</td></tr>
+<tr class="separator:a38fc0dfb8d6fcd6bd5d907b46e16fce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe483c250d556bb8a833e3e05da6654"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#acfe483c250d556bb8a833e3e05da6654">SC_REPORT_WARNING</a>(msg_type,  msg)</td></tr>
+<tr class="separator:acfe483c250d556bb8a833e3e05da6654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5720f0a4adf8866eb628b62a4fde9bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#ad5720f0a4adf8866eb628b62a4fde9bf">SC_REPORT_ERROR</a>(msg_type,  msg)</td></tr>
+<tr class="separator:ad5720f0a4adf8866eb628b62a4fde9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3661cb5dd8c369e6838f91847cdb6d07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a3661cb5dd8c369e6838f91847cdb6d07">SC_REPORT_FATAL</a>(msg_type,  msg)</td></tr>
+<tr class="separator:a3661cb5dd8c369e6838f91847cdb6d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18fc009aaf72aedc9d131aaa5fbb4a21"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a18fc009aaf72aedc9d131aaa5fbb4a21">SC_NORETURN_</a>&#160;&#160;&#160;/* nothing */</td></tr>
+<tr class="separator:a18fc009aaf72aedc9d131aaa5fbb4a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74afc5942d7b28d11f360a6f03181daa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html#a74afc5942d7b28d11f360a6f03181daa">sc_assert</a>(expr)</td></tr>
+<tr class="separator:a74afc5942d7b28d11f360a6f03181daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aafa116a3fc5bfb5e04997dc15762b3a1"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#aafa116a3fc5bfb5e04997dc15762b3a1">sc_core::CFT</a>) (const void *, const void *)</td></tr>
-<tr class="separator:aafa116a3fc5bfb5e04997dc15762b3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ddb1a732ada16a5c04854b19a8e3442"><td class="memItemLeft" align="right" valign="top">typedef unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a7ddb1a732ada16a5c04854b19a8e3442">sc_core::sc_actions</a></td></tr>
+<tr class="separator:a7ddb1a732ada16a5c04854b19a8e3442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f25767d6c84206b61ee6c80477e3b8e"><td class="memItemLeft" align="right" valign="top">typedef std::exception&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a7f25767d6c84206b61ee6c80477e3b8e">sc_core::sc_exception</a></td></tr>
+<tr class="separator:a7f25767d6c84206b61ee6c80477e3b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aa3a80a7746d587512323f2edc83e5b0e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0e">sc_core::sc_severity</a> { <br />
+&#160;&#160;<a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675">sc_core::SC_INFO</a> = 0, 
+<a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead51483b845b42e87825f2c71f12c67d5">sc_core::SC_WARNING</a>, 
+<a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ea5ba5d6acf68a05a0122ca2da147d2b7d">sc_core::SC_ERROR</a>, 
+<a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0eacf1a7aa6c4aa03be39ee308908ff616e">sc_core::SC_FATAL</a>, 
+<br />
+&#160;&#160;<a class="el" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ea1ea1bacdd4addc7ec80fc2caf747ad6d">sc_core::SC_MAX_SEVERITY</a>
+<br />
+ }<tr class="memdesc:aa3a80a7746d587512323f2edc83e5b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of possible exception severity levels.  <a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0e">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:aa3a80a7746d587512323f2edc83e5b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f85f8696482890628428855959b378"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a57f85f8696482890628428855959b378">sc_core::sc_verbosity</a> { <br />
+&#160;&#160;<a class="el" href="a00561.html#a57f85f8696482890628428855959b378a34c3f85e038acaba65da0eed4126cd36">sc_core::SC_NONE</a> = 0, 
+<a class="el" href="a00561.html#a57f85f8696482890628428855959b378a46dcccc49ff8b0f4faf102a307456253">sc_core::SC_LOW</a> = 100, 
+<a class="el" href="a00561.html#a57f85f8696482890628428855959b378a1a3fe57ec4b6e8032d7288ee33be8ecd">sc_core::SC_MEDIUM</a> = 200, 
+<a class="el" href="a00561.html#a57f85f8696482890628428855959b378a3b051130461aff5cb676bc4021f3d859">sc_core::SC_HIGH</a> = 300, 
+<br />
+&#160;&#160;<a class="el" href="a00561.html#a57f85f8696482890628428855959b378ad1ec5d4169b769a4f3aa426cb9881206">sc_core::SC_FULL</a> = 400, 
+<a class="el" href="a00561.html#a57f85f8696482890628428855959b378ac3d8a770ce994c79971af0e3498e5457">sc_core::SC_DEBUG</a> = 500
+<br />
+ }</td></tr>
+<tr class="separator:a57f85f8696482890628428855959b378"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ded5583c5ab309dbe72dafc729674db"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba0a482c78cbe2d8c84d0b34021d156f30">sc_core::SC_UNSPECIFIED</a> = 0x0000, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba43247b6fdd82197acb4fe74f0edd96d7">sc_core::SC_DO_NOTHING</a> = 0x0001, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba3ff96e0395a08f00834b49a2e5532658">sc_core::SC_THROW</a> = 0x0002, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba105c183473970696920dd006207f7973">sc_core::SC_LOG</a> = 0x0004, 
+<br />
+&#160;&#160;<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbaf28c4eba216be43a0772a075e24e7878">sc_core::SC_DISPLAY</a> = 0x0008, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba7b2ca6fedcfd0c3506ec549d224b83c3">sc_core::SC_CACHE_REPORT</a> = 0x0010, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbab3eb6c04af237fe0d7b4bf9b2e009164">sc_core::SC_INTERRUPT</a> = 0x0020, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba3d8a6502175008e463fa4232e5f4cfc9">sc_core::SC_STOP</a> = 0x0040, 
+<br />
+&#160;&#160;<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba200a23eb4070364a2de403438930226a">sc_core::SC_ABORT</a> = 0x0080, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbacc9c19fe42ba9d0a4c4dc6ab87f41e21">sc_core::SC_DEFAULT_INFO_ACTIONS</a> = SC_LOG | SC_DISPLAY, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbad7f36af06d3d7f43670444ea2c4f4e76">sc_core::SC_DEFAULT_WARNING_ACTIONS</a> = SC_LOG | SC_DISPLAY, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbac3c8e7a736e23c36954a359bf857f299">sc_core::SC_DEFAULT_ERROR_ACTIONS</a> = SC_LOG | SC_CACHE_REPORT | SC_THROW, 
+<br />
+&#160;&#160;<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dbae2fdff9b47d55e16bbf7b095c3a752a3">sc_core::SC_DEFAULT_FATAL_ACTIONS</a> = SC_LOG | SC_DISPLAY | SC_CACHE_REPORT | SC_ABORT, 
+<a class="el" href="a00561.html#a0ded5583c5ab309dbe72dafc729674dba13bc143b3340948d3f63dc5c3426aef9">sc_core::SC_DEFAULT_CATCH_ACTIONS</a> = SC_DISPLAY
+<br />
+ }</td></tr>
+<tr class="separator:a0ded5583c5ab309dbe72dafc729674db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a33ce8dcf4156a109d4990f27a7d58463"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a33ce8dcf4156a109d4990f27a7d58463">sc_core::sc_report_compose_message</a> (const sc_report &amp;)</td></tr>
+<tr class="separator:a33ce8dcf4156a109d4990f27a7d58463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca486349a820d58c10ec90329357852f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00377.html#a18fc009aaf72aedc9d131aaa5fbb4a21">SC_NORETURN_</a> <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#aca486349a820d58c10ec90329357852f">sc_core::sc_abort</a> ()</td></tr>
+<tr class="separator:aca486349a820d58c10ec90329357852f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c65af442b27f2bb2c284aa69383d9bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00377.html#a18fc009aaf72aedc9d131aaa5fbb4a21">SC_NORETURN_</a> <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a6c65af442b27f2bb2c284aa69383d9bc">sc_core::sc_assertion_failed</a> (const char *msg, const char *file, int line)</td></tr>
+<tr class="separator:a6c65af442b27f2bb2c284aa69383d9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afa641ebcfe6aed0eebe1d491cfbbad1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#afa641ebcfe6aed0eebe1d491cfbbad1d">sc_core::SC_ID_UNKNOWN_ERROR_</a> []</td></tr>
+<tr class="separator:afa641ebcfe6aed0eebe1d491cfbbad1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f6a5b71c9d76d0da5d349454d0bf81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#ac2f6a5b71c9d76d0da5d349454d0bf81">sc_core::SC_ID_WITHOUT_MESSAGE_</a> []</td></tr>
+<tr class="separator:ac2f6a5b71c9d76d0da5d349454d0bf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c37adc55916b6d993cd36b05dad7a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#af6c37adc55916b6d993cd36b05dad7a3">sc_core::SC_ID_NOT_IMPLEMENTED_</a> []</td></tr>
+<tr class="separator:af6c37adc55916b6d993cd36b05dad7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4510a1c2f2dd573a4506c1a7b336c6d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a4510a1c2f2dd573a4506c1a7b336c6d2">sc_core::SC_ID_INTERNAL_ERROR_</a> []</td></tr>
+<tr class="separator:a4510a1c2f2dd573a4506c1a7b336c6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ecc791509f8108b8d48dfabc7f2802"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#ac2ecc791509f8108b8d48dfabc7f2802">sc_core::SC_ID_ASSERTION_FAILED_</a> []</td></tr>
+<tr class="separator:ac2ecc791509f8108b8d48dfabc7f2802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a8e2146a0cc5f10fa44f318d2bcffa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a32a8e2146a0cc5f10fa44f318d2bcffa">sc_core::SC_ID_OUT_OF_BOUNDS_</a> []</td></tr>
+<tr class="separator:a32a8e2146a0cc5f10fa44f318d2bcffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c7b0f39e9c960fe6052cf6d7293c2d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a1c7b0f39e9c960fe6052cf6d7293c2d5">sc_core::SC_ID_ABORT_</a> []</td></tr>
+<tr class="separator:a1c7b0f39e9c960fe6052cf6d7293c2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae1378dd54ebc6f450b432cb399000525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1378dd54ebc6f450b432cb399000525">&#9670;&nbsp;</a></span>ACCESS</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Run-time logging and reporting facilities. </p>
+<p>Interface design by SystemC Verification Working Group. Implementation by Alex Riesen, Synopsys Inc. Original implementation by Martin Janssen, Synopsys Inc. Reference implementation by Cadence Design Systems, Inc., 2002-09-23: Norris Ip, Dean Shea, John Rose, Jasvinder Singh, William Paulsen, John Pierce, Rachida Kebichi, Ted Elkind, David Bailey.</p>
+<p>CHANGE LOG AT END OF FILE </p>
+
+<p class="definition">Definition in file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a74afc5942d7b28d11f360a6f03181daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74afc5942d7b28d11f360a6f03181daa">&#9670;&nbsp;</a></span>sc_assert</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ACCESS</td>
+          <td class="memname">#define sc_assert</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">I</td><td>)</td>
-          <td>&#160;&#160;&#160;m_vector[I]</td>
+          <td class="paramname">expr</td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00044">44</a> of file <a class="el" href="a00377_source.html">sc_pvector.h</a>.</p>
+<b>Value:</b><div class="fragment"><div class="line">((void)((expr) ? 0 : \</div><div class="line">   (<a class="code" href="a00561.html#a6c65af442b27f2bb2c284aa69383d9bc">::sc_core::sc_assertion_failed</a>(#expr,__FILE__,__LINE__),0)))</div><div class="ttc" id="a00561_html_a6c65af442b27f2bb2c284aa69383d9bc"><div class="ttname"><a href="a00561.html#a6c65af442b27f2bb2c284aa69383d9bc">sc_core::sc_assertion_failed</a></div><div class="ttdeci">SC_NORETURN_ SC_API void sc_assertion_failed(const char *msg, const char *file, int line)</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00270">270</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
 
 </div>
 </div>
-<a id="a1d877b321dbdd4dbdcb3c5aeb733628e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d877b321dbdd4dbdcb3c5aeb733628e">&#9670;&nbsp;</a></span>ADDR_ACCESS</h2>
+<a id="a18fc009aaf72aedc9d131aaa5fbb4a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18fc009aaf72aedc9d131aaa5fbb4a21">&#9670;&nbsp;</a></span>SC_NORETURN_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ADDR_ACCESS</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">I</td><td>)</td>
-          <td>&#160;&#160;&#160;(m_vector.size() != 0 ? &amp;m_vector[I] : 0 )</td>
+          <td class="memname">#define SC_NORETURN_&#160;&#160;&#160;/* nothing */</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00045">45</a> of file <a class="el" href="a00377_source.html">sc_pvector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00243">243</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+
+</div>
+</div>
+<a id="ad5720f0a4adf8866eb628b62a4fde9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5720f0a4adf8866eb628b62a4fde9bf">&#9670;&nbsp;</a></span>SC_REPORT_ERROR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_REPORT_ERROR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">::sc_core::sc_report_handler::report</a>( \</div><div class="line">            ::<a class="code" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ea5ba5d6acf68a05a0122ca2da147d2b7d">sc_core::SC_ERROR</a>, msg_type, msg, __FILE__, __LINE__ )</div><div class="ttc" id="a00561_html_aa3a80a7746d587512323f2edc83e5b0ea5ba5d6acf68a05a0122ca2da147d2b7d"><div class="ttname"><a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ea5ba5d6acf68a05a0122ca2da147d2b7d">sc_core::SC_ERROR</a></div><div class="ttdoc">indicates a definite problem </div><div class="ttdef"><b>Definition:</b> <a href="a00377_source.html#l00061">sc_report.h:61</a></div></div>
+<div class="ttc" id="a02095_html_a2f5982e27329ddf79528a42682d4cafa"><div class="ttname"><a href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">sc_core::sc_report_handler::report</a></div><div class="ttdeci">static void report(sc_severity, const char *msg_type, const char *msg, const char *file, int line)</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00223">223</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+
+</div>
+</div>
+<a id="a3661cb5dd8c369e6838f91847cdb6d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3661cb5dd8c369e6838f91847cdb6d07">&#9670;&nbsp;</a></span>SC_REPORT_FATAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_REPORT_FATAL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">::sc_core::sc_report_handler::report</a>( \</div><div class="line">            ::<a class="code" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0eacf1a7aa6c4aa03be39ee308908ff616e">sc_core::SC_FATAL</a>, msg_type, msg, __FILE__, __LINE__ )</div><div class="ttc" id="a00561_html_aa3a80a7746d587512323f2edc83e5b0eacf1a7aa6c4aa03be39ee308908ff616e"><div class="ttname"><a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0eacf1a7aa6c4aa03be39ee308908ff616e">sc_core::SC_FATAL</a></div><div class="ttdoc">indicates a problem from which we cannot recover </div><div class="ttdef"><b>Definition:</b> <a href="a00377_source.html#l00062">sc_report.h:62</a></div></div>
+<div class="ttc" id="a02095_html_a2f5982e27329ddf79528a42682d4cafa"><div class="ttname"><a href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">sc_core::sc_report_handler::report</a></div><div class="ttdeci">static void report(sc_severity, const char *msg_type, const char *msg, const char *file, int line)</div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00228">228</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+
+</div>
+</div>
+<a id="a96d99fea4b785441c169dd3b365d890a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d99fea4b785441c169dd3b365d890a">&#9670;&nbsp;</a></span>SC_REPORT_INFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_REPORT_INFO</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">::sc_core::sc_report_handler::report</a>(  \</div><div class="line">            ::<a class="code" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675">sc_core::SC_INFO</a>, msg_type, msg, __FILE__, __LINE__ )</div><div class="ttc" id="a02095_html_a2f5982e27329ddf79528a42682d4cafa"><div class="ttname"><a href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">sc_core::sc_report_handler::report</a></div><div class="ttdeci">static void report(sc_severity, const char *msg_type, const char *msg, const char *file, int line)</div></div>
+<div class="ttc" id="a00561_html_aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675"><div class="ttname"><a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675">sc_core::SC_INFO</a></div><div class="ttdoc">informative only </div><div class="ttdef"><b>Definition:</b> <a href="a00377_source.html#l00059">sc_report.h:59</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00207">207</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+
+</div>
+</div>
+<a id="a38fc0dfb8d6fcd6bd5d907b46e16fce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38fc0dfb8d6fcd6bd5d907b46e16fce9">&#9670;&nbsp;</a></span>SC_REPORT_INFO_VERB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_REPORT_INFO_VERB</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">verbosity&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">::sc_core::sc_report_handler::report</a>(                 \</div><div class="line">            ::<a class="code" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675">sc_core::SC_INFO</a>, msg_type, msg, verbosity, \</div><div class="line">                               __FILE__ , __LINE__ )</div><div class="ttc" id="a02095_html_a2f5982e27329ddf79528a42682d4cafa"><div class="ttname"><a href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">sc_core::sc_report_handler::report</a></div><div class="ttdeci">static void report(sc_severity, const char *msg_type, const char *msg, const char *file, int line)</div></div>
+<div class="ttc" id="a00561_html_aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675"><div class="ttname"><a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675">sc_core::SC_INFO</a></div><div class="ttdoc">informative only </div><div class="ttdef"><b>Definition:</b> <a href="a00377_source.html#l00059">sc_report.h:59</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00212">212</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
+
+</div>
+</div>
+<a id="acfe483c250d556bb8a833e3e05da6654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe483c250d556bb8a833e3e05da6654">&#9670;&nbsp;</a></span>SC_REPORT_WARNING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_REPORT_WARNING</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg_type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">msg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">::sc_core::sc_report_handler::report</a>(  \</div><div class="line">            ::<a class="code" href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead51483b845b42e87825f2c71f12c67d5">sc_core::SC_WARNING</a>, msg_type, msg, __FILE__, __LINE__ )</div><div class="ttc" id="a02095_html_a2f5982e27329ddf79528a42682d4cafa"><div class="ttname"><a href="a02095.html#a2f5982e27329ddf79528a42682d4cafa">sc_core::sc_report_handler::report</a></div><div class="ttdeci">static void report(sc_severity, const char *msg_type, const char *msg, const char *file, int line)</div></div>
+<div class="ttc" id="a00561_html_aa3a80a7746d587512323f2edc83e5b0ead51483b845b42e87825f2c71f12c67d5"><div class="ttname"><a href="a00561.html#aa3a80a7746d587512323f2edc83e5b0ead51483b845b42e87825f2c71f12c67d5">sc_core::SC_WARNING</a></div><div class="ttdoc">indicates potentially incorrect condition </div><div class="ttdef"><b>Definition:</b> <a href="a00377_source.html#l00060">sc_report.h:60</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00218">218</a> of file <a class="el" href="a00377_source.html">sc_report.h</a>.</p>
 
 </div>
 </div>
@@ -176,8 +466,8 @@ Typedefs</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00377.html">sc_pvector.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00377.html">sc_report.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:56 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

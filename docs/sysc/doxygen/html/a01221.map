@@ -1,6 +1,4 @@
-<map id="sc_core::sc_semaphore" name="sc_core::sc_semaphore">
-<area shape="rect" id="node2" href="$a01227.html" title="The sc_semaphore_if interface class. " alt="" coords="5,81,176,108"/>
-<area shape="rect" id="node3" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="19,5,162,32"/>
-<area shape="rect" id="node4" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="200,81,328,108"/>
-<area shape="rect" id="node5" href="$a01783.html" title="The event class. " alt="" coords="353,81,477,108"/>
+<map id="sc_core::sc_port_b&lt; IF &gt;" name="sc_core::sc_port_b&lt; IF &gt;">
+<area shape="rect" id="node2" href="$a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="5,80,155,107"/>
+<area shape="rect" id="node3" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="16,5,144,32"/>
 </map>

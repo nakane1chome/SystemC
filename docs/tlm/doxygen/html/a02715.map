@@ -1,4 +1,10 @@
-<map id="tlm_utils::simple_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;" name="tlm_utils::simple_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;">
-<area shape="rect" id="node2" href="$a02600.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="244,35,407,76"/>
-<area shape="rect" id="node3" href="$a02588.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, 1,sc_core::SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,105"/>
+<map id="tlm_utils::multi_init_base&lt; BUSWIDTH, TYPES, N, POL &gt;" name="tlm_utils::multi_init_base&lt; BUSWIDTH, TYPES, N, POL &gt;">
+<area shape="rect" id="node7" href="$a02684.html" title="multi_passthrough_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, sc_core::SC_ZERO\l_OR_MORE_BOUND \&gt;" alt="" coords="713,42,925,113"/>
+<area shape="rect" id="node9" href="$a02684.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; BUSWIDTH,\l TYPES, N, POL \&gt;" alt="" coords="719,137,919,193"/>
+<area shape="rect" id="node2" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="225,20,427,76"/>
+<area shape="rect" id="node3" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="5,5,177,91"/>
+<area shape="rect" id="node4" href="$a02712.html" title="tlm_utils::multi_init\l_base_if\&lt; TYPES \&gt;" alt="" coords="259,101,393,142"/>
+<area shape="rect" id="node5" href="$a02652.html" title="tlm_utils::multi_socket_base" alt="" coords="235,167,417,193"/>
+<area shape="rect" id="node6" href="$a02640.html" title="tlm_utils::convenience\l_socket_base" alt="" coords="17,159,165,201"/>
+<area shape="rect" id="node8" href="$a02688.html" title="tlm_utils::multi_passthrough\l_initiator_socket_optional\l\&lt; MODULE, BUSWIDTH, TYPES, N \&gt;" alt="" coords="973,49,1213,105"/>
 </map>

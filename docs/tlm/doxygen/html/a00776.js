@@ -1,12 +1,12 @@
 var a00776 =
 [
-    [ "ispex_base", "a02586.html", "a02586" ],
-    [ "instance_specific_extension", "a02590.html", "a02590" ],
-    [ "instance_specific_extensions_per_accessor", "a02594.html", "a02594" ],
-    [ "instance_specific_extension_container_pool", "a02598.html", "a02598" ],
-    [ "instance_specific_extension_container", "a02602.html", "a02602" ],
-    [ "instance_specific_extension_carrier", "a02606.html", "a02606" ],
-    [ "instance_specific_extension_accessor", "a02610.html", "a02610" ],
-    [ "max_num_ispex", "a00776.html#ad5c4a44990925f24c876f7687b9f5ca8", null ],
-    [ "max_num_ispex_accessors", "a00776.html#a243b001b92ee7cd478d51fd5ac28a5e4", null ]
+    [ "tlm_base_socket_if", "a02612.html", "a02612" ],
+    [ "tlm_socket_category", "a00776.html#a4c4ab9add0ec354433809466943bece8", [
+      [ "TLM_UNKNOWN_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8a4cd503b53961644181c571e5c275bcdb", null ],
+      [ "TLM_INITIATOR_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8a350f155f6138fa9947935852f90455fa", null ],
+      [ "TLM_TARGET_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8a0562a244fe6d3c16242621682ef7d6de", null ],
+      [ "TLM_MULTI_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8ae9a071e9be55c5888a0be7239a764945", null ],
+      [ "TLM_MULTI_INITIATOR_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8a4599b588ed8eefe565a508c35274b874", null ],
+      [ "TLM_MULTI_TARGET_SOCKET", "a00776.html#a4c4ab9add0ec354433809466943bece8a27978a1c11f50d8567b83f5389c42c99", null ]
+    ] ]
 ];

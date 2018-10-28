@@ -1,9 +1,10 @@
 var a01191 =
 [
-    [ "sc_mutex_if", "a01191.html#a9121fc608e21ff5d6805ebcc054c60c0", null ],
+    [ "sc_host_mutex", "a01191.html#a782275fbba92ed7d94ae21bd1406db49", null ],
+    [ "~sc_host_mutex", "a01191.html#ab44af180b34bcb13ffab33a0de2f209b", null ],
     [ "default_event", "a01191.html#a3f0bf642e91be47772a3cd74a76a98cf", null ],
-    [ "lock", "a01191.html#a60e4ec2e991f43bdc946989a3c33e7c3", null ],
+    [ "lock", "a01191.html#af90a3ba3d548e09f8f88f5876dc56d99", null ],
     [ "register_port", "a01191.html#a7c93074c41900149ab2ac84bd6787ae6", null ],
-    [ "trylock", "a01191.html#ab3ca0de5f6df296c2993ad46de13176f", null ],
-    [ "unlock", "a01191.html#a98b7482db60812a9acf28554ecbd5f5e", null ]
+    [ "trylock", "a01191.html#a06cb6aad185aef0e41f6ad7809dbb205", null ],
+    [ "unlock", "a01191.html#ac38257ffd5ebb1281b3327af5e760f8c", null ]
 ];

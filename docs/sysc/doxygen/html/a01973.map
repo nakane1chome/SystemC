@@ -1,4 +1,6 @@
-<map id="sc_core::wif_trace_file" name="sc_core::wif_trace_file">
-<area shape="rect" id="node2" href="$a01959.html" title="sc_core::sc_trace_file_base" alt="" coords="49,95,227,121"/>
-<area shape="rect" id="node3" href="$a01955.html" title="sc_core::sc_trace_file" alt="" coords="5,5,151,32"/>
+<map id="sc_core::sc_spawn_options" name="sc_core::sc_spawn_options">
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="15,13,158,39"/>
+<area shape="rect" id="node5" href="$a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="12,78,161,105"/>
+<area shape="rect" id="node8" href="$a01127.html" title="Event finder base class. " alt="" coords="5,205,168,231"/>
+<area shape="rect" id="node10" href="$a01815.html" title="The event class. " alt="" coords="25,294,149,321"/>
 </map>

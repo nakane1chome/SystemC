@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_spawn_options Class Reference</title>
+<title>SystemC: sc_core::sc_reset Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,93 +82,56 @@ $(document).ready(function(){initNavTree('a01935.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="a01932.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_spawn_options Class Reference</div>  </div>
+<div class="title">sc_core::sc_reset Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00320_source.html">sysc/kernel/sc_spawn_options.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00299_source.html">sysc/kernel/sc_reset.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for sc_core::sc_spawn_options:</div>
+Collaboration diagram for sc_core::sc_reset:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01933.png" border="0" usemap="#sc__core_1_1sc__spawn__options_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__spawn__options_coll__map" id="sc__core_1_1sc__spawn__options_coll__map">
-<area shape="rect" id="node3" href="a01183.html" title="Abstract base class of all interface classes. " alt="" coords="15,13,158,39"/>
-<area shape="rect" id="node5" href="a01199.html" title="Abstract base class for class sc_port_b. " alt="" coords="12,78,161,105"/>
-<area shape="rect" id="node8" href="a01115.html" title="Event finder base class. " alt="" coords="5,209,168,235"/>
-<area shape="rect" id="node10" href="a01783.html" title="The event class. " alt="" coords="25,274,149,301"/>
+<div class="center"><img src="a01933.png" border="0" usemap="#sc__core_1_1sc__reset_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__reset_coll__map" id="sc__core_1_1sc__reset_coll__map">
+<area shape="rect" id="node3" href="a01927.html" title="sc_core::sc_reset_target" alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node4" href="a01271.html" title="Specialization of sc_signal_in_if&lt;T&gt; for type bool. " alt="" coords="193,95,320,136"/>
+<area shape="rect" id="node5" href="a01199.html" title="Abstract base class of all interface classes. " alt="" coords="191,5,333,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2870e096f6171111e3b965b62a4e85c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ae2870e096f6171111e3b965b62a4e85c">sc_spawn_options</a> ()</td></tr>
-<tr class="separator:ae2870e096f6171111e3b965b62a4e85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaee636f1368e438971035047790beb39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aaee636f1368e438971035047790beb39">~sc_spawn_options</a> ()</td></tr>
-<tr class="separator:aaee636f1368e438971035047790beb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9f63a0d782a436867e712cb186e2a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a2d9f63a0d782a436867e712cb186e2a5">async_reset_signal_is</a> (const <a class="el" href="a01267.html">sc_in</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:a2d9f63a0d782a436867e712cb186e2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72f1c81f34297418a6f8a853d45c6ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ae72f1c81f34297418a6f8a853d45c6ef">async_reset_signal_is</a> (const <a class="el" href="a01279.html">sc_inout</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:ae72f1c81f34297418a6f8a853d45c6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d5ce06e4e8dd04b99e0d4c5261f41a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ab5d5ce06e4e8dd04b99e0d4c5261f41a">async_reset_signal_is</a> (const <a class="el" href="a01291.html">sc_out</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:ab5d5ce06e4e8dd04b99e0d4c5261f41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa60cbf4660ea1f7df3a579e574b46236"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aa60cbf4660ea1f7df3a579e574b46236">async_reset_signal_is</a> (const <a class="el" href="a01243.html">sc_signal_in_if</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:aa60cbf4660ea1f7df3a579e574b46236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2839be3d14e085b2a123818158396e11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a2839be3d14e085b2a123818158396e11">reset_signal_is</a> (const <a class="el" href="a01267.html">sc_in</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:a2839be3d14e085b2a123818158396e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b1ac98f7cad69f1665931a2fdc40c32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a8b1ac98f7cad69f1665931a2fdc40c32">reset_signal_is</a> (const <a class="el" href="a01279.html">sc_inout</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:a8b1ac98f7cad69f1665931a2fdc40c32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8730750a58d5fe07d1e39e4af841af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ade8730750a58d5fe07d1e39e4af841af">reset_signal_is</a> (const <a class="el" href="a01291.html">sc_out</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:ade8730750a58d5fe07d1e39e4af841af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd6d13604008f7825a57b30085d3e88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#acdd6d13604008f7825a57b30085d3e88">reset_signal_is</a> (const <a class="el" href="a01243.html">sc_signal_in_if</a>&lt; bool &gt; &amp;, bool level)</td></tr>
-<tr class="separator:acdd6d13604008f7825a57b30085d3e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2543a53aea98b147e7a21cb8d9d54f15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a2543a53aea98b147e7a21cb8d9d54f15">dont_initialize</a> ()</td></tr>
-<tr class="separator:a2543a53aea98b147e7a21cb8d9d54f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdd6ac0fbb9cc2acb496d2d7e1c966a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#abdd6ac0fbb9cc2acb496d2d7e1c966a6">is_method</a> () const</td></tr>
-<tr class="separator:abdd6ac0fbb9cc2acb496d2d7e1c966a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60ac96580288f2939bed145c5b74d721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a60ac96580288f2939bed145c5b74d721">set_stack_size</a> (int stack_size)</td></tr>
-<tr class="separator:a60ac96580288f2939bed145c5b74d721"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae063bba3b2314df0ce24877a6ef23bb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ae063bba3b2314df0ce24877a6ef23bb9">set_sensitivity</a> (const <a class="el" href="a01783.html">sc_event</a> *event)</td></tr>
-<tr class="separator:ae063bba3b2314df0ce24877a6ef23bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d94797b98a4df5921216dd330a4e186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a4d94797b98a4df5921216dd330a4e186">set_sensitivity</a> (<a class="el" href="a01199.html">sc_port_base</a> *port_base)</td></tr>
-<tr class="separator:a4d94797b98a4df5921216dd330a4e186"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b558e066cd3a3bc41d8526ddba769aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a2b558e066cd3a3bc41d8526ddba769aa">set_sensitivity</a> (<a class="el" href="a01183.html">sc_interface</a> *interface_p)</td></tr>
-<tr class="separator:a2b558e066cd3a3bc41d8526ddba769aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dab4c0354d098b89efc616a6991c8bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a8dab4c0354d098b89efc616a6991c8bb">set_sensitivity</a> (<a class="el" href="a01131.html">sc_export_base</a> *export_base)</td></tr>
-<tr class="separator:a8dab4c0354d098b89efc616a6991c8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9ce12b763706635b3f31854d5361229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ad9ce12b763706635b3f31854d5361229">set_sensitivity</a> (<a class="el" href="a01115.html">sc_event_finder</a> *event_finder)</td></tr>
-<tr class="separator:ad9ce12b763706635b3f31854d5361229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3507101b40ea876527a5d34e638eb2ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a3507101b40ea876527a5d34e638eb2ec">spawn_method</a> ()</td></tr>
-<tr class="separator:a3507101b40ea876527a5d34e638eb2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:afd68ab7edf68fce0a32a5384a1d64330"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#afd68ab7edf68fce0a32a5384a1d64330">specify_resets</a> () const</td></tr>
-<tr class="separator:afd68ab7edf68fce0a32a5384a1d64330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0f28fbfbe059183806280c8edbe15d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ab0f28fbfbe059183806280c8edbe15d3">sc_reset</a> (const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt; *iface_p)</td></tr>
+<tr class="separator:ab0f28fbfbe059183806280c8edbe15d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a4d8abc3fee9340ffc7c57685e372d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a6a4d8abc3fee9340ffc7c57685e372d0">notify_processes</a> ()</td></tr>
+<tr class="separator:a6a4d8abc3fee9340ffc7c57685e372d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76df1ddaa2cb5fddf32174f9de336ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a76df1ddaa2cb5fddf32174f9de336ebd">remove_process</a> (<a class="el" href="a01911.html">sc_process_b</a> *)</td></tr>
+<tr class="separator:a76df1ddaa2cb5fddf32174f9de336ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a88cf7f13d1b1785a6d2d82edfb0358b1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a88cf7f13d1b1785a6d2d82edfb0358b1">reconcile_resets</a> (<a class="el" href="a01931.html">sc_reset_finder</a> *reset_finder_q)</td></tr>
+<tr class="separator:a88cf7f13d1b1785a6d2d82edfb0358b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d09b54e38a6f2250347859929c3374"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ae7d09b54e38a6f2250347859929c3374">reset_signal_is</a> (bool async, const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt; &amp;iface, bool level)</td></tr>
+<tr class="separator:ae7d09b54e38a6f2250347859929c3374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f468a5a6b6f08fe345d1b0c616cc1f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ac5f468a5a6b6f08fe345d1b0c616cc1f">reset_signal_is</a> (bool async, const <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt; &amp;iface, bool level)</td></tr>
+<tr class="separator:ac5f468a5a6b6f08fe345d1b0c616cc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4b24fb1b10759bc53c63dea2f11ada9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aa4b24fb1b10759bc53c63dea2f11ada9">reset_signal_is</a> (bool async, const <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt; &amp;iface, bool level)</td></tr>
+<tr class="separator:aa4b24fb1b10759bc53c63dea2f11ada9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78d2fdf2bd7357c7f3495176ae9e47e2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a78d2fdf2bd7357c7f3495176ae9e47e2">reset_signal_is</a> (bool async, const <a class="el" href="a01315.html">sc_out</a>&lt; bool &gt; &amp;iface, bool level)</td></tr>
+<tr class="separator:a78d2fdf2bd7357c7f3495176ae9e47e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ad19813c57288806da38238f7dd743a9b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ad19813c57288806da38238f7dd743a9b">m_dont_initialize</a></td></tr>
-<tr class="separator:ad19813c57288806da38238f7dd743a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac33a6b80ea847b3a5edc5c7e1c5c917c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sc_spawn_reset_base * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ac33a6b80ea847b3a5edc5c7e1c5c917c">m_resets</a></td></tr>
-<tr class="separator:ac33a6b80ea847b3a5edc5c7e1c5c917c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf38b96681607b575a5cb0f1e314e0e6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="a01783.html">sc_event</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aaf38b96681607b575a5cb0f1e314e0e6">m_sensitive_events</a></td></tr>
-<tr class="separator:aaf38b96681607b575a5cb0f1e314e0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec8b34bc1be7424c2a002cf1f557377"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="a01115.html">sc_event_finder</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aaec8b34bc1be7424c2a002cf1f557377">m_sensitive_event_finders</a></td></tr>
-<tr class="separator:aaec8b34bc1be7424c2a002cf1f557377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5bbd2ad5ec68068f2d250ea828a2da7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="a01183.html">sc_interface</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ac5bbd2ad5ec68068f2d250ea828a2da7">m_sensitive_interfaces</a></td></tr>
-<tr class="separator:ac5bbd2ad5ec68068f2d250ea828a2da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328fe22adb1e8e3aeaffc22927efd553"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="a01199.html">sc_port_base</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a328fe22adb1e8e3aeaffc22927efd553">m_sensitive_port_bases</a></td></tr>
-<tr class="separator:a328fe22adb1e8e3aeaffc22927efd553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c5dedc98347bd0e2df79ae0b792bc81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a1c5dedc98347bd0e2df79ae0b792bc81">m_spawn_method</a></td></tr>
-<tr class="separator:a1c5dedc98347bd0e2df79ae0b792bc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5421303e30bac9d24675d9047dac9938"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a5421303e30bac9d24675d9047dac9938">m_stack_size</a></td></tr>
-<tr class="separator:a5421303e30bac9d24675d9047dac9938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a182ac2397b431be9cfa1da1fc3b5233b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a182ac2397b431be9cfa1da1fc3b5233b">m_iface_p</a></td></tr>
+<tr class="separator:a182ac2397b431be9cfa1da1fc3b5233b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfa71633901f6b8c78e3b76019cc544"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="a01927.html">sc_reset_target</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a9dfa71633901f6b8c78e3b76019cc544">m_targets</a></td></tr>
+<tr class="separator:a9dfa71633901f6b8c78e3b76019cc544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -176,17 +139,30 @@ Friends</h2></td></tr>
 <tr class="separator:af2c9e96bc0fe4f99c3fdbf18a3965fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc919bce635598675ac34601d8fefbf7"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#acc919bce635598675ac34601d8fefbf7">sc_method_process</a></td></tr>
 <tr class="separator:acc919bce635598675ac34601d8fefbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460de50921ea4456ecaf395eb8594974"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a460de50921ea4456ecaf395eb8594974">sc_module</a></td></tr>
+<tr class="separator:a460de50921ea4456ecaf395eb8594974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecefb96dee3037749836e9d81eba9f21"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aecefb96dee3037749836e9d81eba9f21">sc_process_b</a></td></tr>
 <tr class="separator:aecefb96dee3037749836e9d81eba9f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed8bd449a86d253c0bb8244d163f97ac"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#aed8bd449a86d253c0bb8244d163f97ac">sc_signal&lt; bool, SC_ONE_WRITER &gt;</a></td></tr>
+<tr class="separator:aed8bd449a86d253c0bb8244d163f97ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6d1d40161d82c11b78741e28868bd3"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#abd6d1d40161d82c11b78741e28868bd3">sc_signal&lt; bool, SC_MANY_WRITERS &gt;</a></td></tr>
+<tr class="separator:abd6d1d40161d82c11b78741e28868bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6955ada6338a02dc37b3ce53bed13b20"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a6955ada6338a02dc37b3ce53bed13b20">sc_signal&lt; bool, SC_UNCHECKED_WRITERS &gt;</a></td></tr>
+<tr class="separator:a6955ada6338a02dc37b3ce53bed13b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a833de7b9d6933c5c9b296583c4c835"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#a8a833de7b9d6933c5c9b296583c4c835">sc_simcontext</a></td></tr>
+<tr class="separator:a8a833de7b9d6933c5c9b296583c4c835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7502c4c4532c9b04b5368d321554349"><td class="memTemplParams" colspan="2">template&lt;typename SOURCE &gt; </td></tr>
+<tr class="memitem:aa7502c4c4532c9b04b5368d321554349"><td class="memTemplItemLeft" align="right" valign="top">class&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01935.html#aa7502c4c4532c9b04b5368d321554349">sc_spawn_reset</a></td></tr>
+<tr class="separator:aa7502c4c4532c9b04b5368d321554349"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac96f23e2e92c5f037cba0971b62ebcff"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01935.html#ac96f23e2e92c5f037cba0971b62ebcff">sc_thread_process</a></td></tr>
 <tr class="separator:ac96f23e2e92c5f037cba0971b62ebcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00054">54</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00117">117</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae2870e096f6171111e3b965b62a4e85c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2870e096f6171111e3b965b62a4e85c">&#9670;&nbsp;</a></span>sc_spawn_options()</h2>
+<a id="ab0f28fbfbe059183806280c8edbe15d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f28fbfbe059183806280c8edbe15d3">&#9670;&nbsp;</a></span>sc_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,155 +171,27 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_spawn_options::sc_spawn_options </td>
+          <td class="memname">sc_core::sc_reset::sc_reset </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt; *&#160;</td>
+          <td class="paramname"><em>iface_p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00060">60</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="aaee636f1368e438971035047790beb39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaee636f1368e438971035047790beb39">&#9670;&nbsp;</a></span>~sc_spawn_options()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_core::sc_spawn_options::~sc_spawn_options </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00142">142</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2d9f63a0d782a436867e712cb186e2a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d9f63a0d782a436867e712cb186e2a5">&#9670;&nbsp;</a></span>async_reset_signal_is() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::async_reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01267.html">sc_in</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae72f1c81f34297418a6f8a853d45c6ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae72f1c81f34297418a6f8a853d45c6ef">&#9670;&nbsp;</a></span>async_reset_signal_is() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::async_reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01279.html">sc_inout</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab5d5ce06e4e8dd04b99e0d4c5261f41a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5d5ce06e4e8dd04b99e0d4c5261f41a">&#9670;&nbsp;</a></span>async_reset_signal_is() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::async_reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01291.html">sc_out</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa60cbf4660ea1f7df3a579e574b46236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa60cbf4660ea1f7df3a579e574b46236">&#9670;&nbsp;</a></span>async_reset_signal_is() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::async_reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01243.html">sc_signal_in_if</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2543a53aea98b147e7a21cb8d9d54f15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2543a53aea98b147e7a21cb8d9d54f15">&#9670;&nbsp;</a></span>dont_initialize()</h2>
+<a id="a6a4d8abc3fee9340ffc7c57685e372d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a4d8abc3fee9340ffc7c57685e372d0">&#9670;&nbsp;</a></span>notify_processes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,376 +200,235 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::sc_spawn_options::dont_initialize </td>
+          <td class="memname">void sc_core::sc_reset::notify_processes </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00078">78</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="abdd6ac0fbb9cc2acb496d2d7e1c966a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdd6ac0fbb9cc2acb496d2d7e1c966a6">&#9670;&nbsp;</a></span>is_method()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_spawn_options::is_method </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00080">80</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a2839be3d14e085b2a123818158396e11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2839be3d14e085b2a123818158396e11">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01267.html">sc_in</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8b1ac98f7cad69f1665931a2fdc40c32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b1ac98f7cad69f1665931a2fdc40c32">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01279.html">sc_inout</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ade8730750a58d5fe07d1e39e4af841af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade8730750a58d5fe07d1e39e4af841af">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01291.html">sc_out</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acdd6d13604008f7825a57b30085d3e88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdd6d13604008f7825a57b30085d3e88">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::reset_signal_is </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01243.html">sc_signal_in_if</a>&lt; bool &gt; &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae063bba3b2314df0ce24877a6ef23bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae063bba3b2314df0ce24877a6ef23bb9">&#9670;&nbsp;</a></span>set_sensitivity() <span class="overload">[1/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_sensitivity </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01783.html">sc_event</a> *&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00084">84</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a4d94797b98a4df5921216dd330a4e186"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d94797b98a4df5921216dd330a4e186">&#9670;&nbsp;</a></span>set_sensitivity() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_sensitivity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a01199.html">sc_port_base</a> *&#160;</td>
-          <td class="paramname"><em>port_base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00087">87</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a2b558e066cd3a3bc41d8526ddba769aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b558e066cd3a3bc41d8526ddba769aa">&#9670;&nbsp;</a></span>set_sensitivity() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_sensitivity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a01183.html">sc_interface</a> *&#160;</td>
-          <td class="paramname"><em>interface_p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00090">90</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a8dab4c0354d098b89efc616a6991c8bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dab4c0354d098b89efc616a6991c8bb">&#9670;&nbsp;</a></span>set_sensitivity() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_sensitivity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a01131.html">sc_export_base</a> *&#160;</td>
-          <td class="paramname"><em>export_base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00093">93</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="ad9ce12b763706635b3f31854d5361229"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9ce12b763706635b3f31854d5361229">&#9670;&nbsp;</a></span>set_sensitivity() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_sensitivity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a01115.html">sc_event_finder</a> *&#160;</td>
-          <td class="paramname"><em>event_finder</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00096">96</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a60ac96580288f2939bed145c5b74d721"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60ac96580288f2939bed145c5b74d721">&#9670;&nbsp;</a></span>set_stack_size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::set_stack_size </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>stack_size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00082">82</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a3507101b40ea876527a5d34e638eb2ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3507101b40ea876527a5d34e638eb2ec">&#9670;&nbsp;</a></span>spawn_method()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::spawn_method </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00099">99</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="afd68ab7edf68fce0a32a5384a1d64330"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd68ab7edf68fce0a32a5384a1d64330">&#9670;&nbsp;</a></span>specify_resets()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_spawn_options::specify_resets </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a88cf7f13d1b1785a6d2d82edfb0358b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88cf7f13d1b1785a6d2d82edfb0358b1">&#9670;&nbsp;</a></span>reconcile_resets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void sc_core::sc_reset::reconcile_resets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01931.html">sc_reset_finder</a> *&#160;</td>
+          <td class="paramname"><em>reset_finder_q</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76df1ddaa2cb5fddf32174f9de336ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76df1ddaa2cb5fddf32174f9de336ebd">&#9670;&nbsp;</a></span>remove_process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_reset::remove_process </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7d09b54e38a6f2250347859929c3374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d09b54e38a6f2250347859929c3374">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void sc_core::sc_reset::reset_signal_is </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5f468a5a6b6f08fe345d1b0c616cc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f468a5a6b6f08fe345d1b0c616cc1f">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void sc_core::sc_reset::reset_signal_is </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa4b24fb1b10759bc53c63dea2f11ada9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4b24fb1b10759bc53c63dea2f11ada9">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void sc_core::sc_reset::reset_signal_is </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78d2fdf2bd7357c7f3495176ae9e47e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78d2fdf2bd7357c7f3495176ae9e47e2">&#9670;&nbsp;</a></span>reset_signal_is() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void sc_core::sc_reset::reset_signal_is </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01315.html">sc_out</a>&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>iface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -739,7 +446,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01763.html">sc_cthread_process</a></td>
+          <td class="memname">friend class <a class="el" href="a01795.html">sc_cthread_process</a></td>
         </tr>
       </table>
   </td>
@@ -749,7 +456,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00055">55</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00118">118</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
@@ -763,7 +470,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01811.html">sc_method_process</a></td>
+          <td class="memname">friend class <a class="el" href="a01847.html">sc_method_process</a></td>
         </tr>
       </table>
   </td>
@@ -773,7 +480,31 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00056">56</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00119">119</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a460de50921ea4456ecaf395eb8594974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460de50921ea4456ecaf395eb8594974">&#9670;&nbsp;</a></span>sc_module</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01855.html">sc_module</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00120">120</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
@@ -787,7 +518,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01875.html">sc_process_b</a></td>
+          <td class="memname">friend class <a class="el" href="a01911.html">sc_process_b</a></td>
         </tr>
       </table>
   </td>
@@ -797,7 +528,129 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00057">57</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00121">121</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="abd6d1d40161d82c11b78741e28868bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6d1d40161d82c11b78741e28868bd3">&#9670;&nbsp;</a></span>sc_signal< bool, SC_MANY_WRITERS ></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01255.html">sc_signal</a>&lt; bool, <a class="el" href="a00561.html#ae291a92ac88dd846d36d6a9cd9835607abfdd1eba847a6183ab527d3f51c543f5">SC_MANY_WRITERS</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00123">123</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="aed8bd449a86d253c0bb8244d163f97ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8bd449a86d253c0bb8244d163f97ac">&#9670;&nbsp;</a></span>sc_signal< bool, SC_ONE_WRITER ></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01255.html">sc_signal</a>&lt; bool, <a class="el" href="a00561.html#ae291a92ac88dd846d36d6a9cd9835607a3e4e04e6ed61133348c6f4a8d0131d25">SC_ONE_WRITER</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00122">122</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a6955ada6338a02dc37b3ce53bed13b20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6955ada6338a02dc37b3ce53bed13b20">&#9670;&nbsp;</a></span>sc_signal< bool, SC_UNCHECKED_WRITERS ></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01255.html">sc_signal</a>&lt; bool, <a class="el" href="a00561.html#ae291a92ac88dd846d36d6a9cd9835607a9bd426068dd960793db998491616aa6a">SC_UNCHECKED_WRITERS</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00124">124</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a8a833de7b9d6933c5c9b296583c4c835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a833de7b9d6933c5c9b296583c4c835">&#9670;&nbsp;</a></span>sc_simcontext</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01963.html">sc_simcontext</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00125">125</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="aa7502c4c4532c9b04b5368d321554349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7502c4c4532c9b04b5368d321554349">&#9670;&nbsp;</a></span>sc_spawn_reset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SOURCE &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01923.html">sc_spawn_reset</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00126">126</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
@@ -811,7 +664,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01939.html">sc_thread_process</a></td>
+          <td class="memname">friend class <a class="el" href="a01979.html">sc_thread_process</a></td>
         </tr>
       </table>
   </td>
@@ -821,13 +674,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00058">58</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00127">127</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad19813c57288806da38238f7dd743a9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad19813c57288806da38238f7dd743a9b">&#9670;&nbsp;</a></span>m_dont_initialize</h2>
+<a id="a182ac2397b431be9cfa1da1fc3b5233b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a182ac2397b431be9cfa1da1fc3b5233b">&#9670;&nbsp;</a></span>m_iface_p</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -836,7 +689,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_spawn_options::m_dont_initialize</td>
+          <td class="memname">const <a class="el" href="a01267.html">sc_signal_in_if</a>&lt;bool&gt;* sc_core::sc_reset::m_iface_p</td>
         </tr>
       </table>
   </td>
@@ -846,12 +699,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00109">109</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00148">148</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
-<a id="ac33a6b80ea847b3a5edc5c7e1c5c917c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac33a6b80ea847b3a5edc5c7e1c5c917c">&#9670;&nbsp;</a></span>m_resets</h2>
+<a id="a9dfa71633901f6b8c78e3b76019cc544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfa71633901f6b8c78e3b76019cc544">&#9670;&nbsp;</a></span>m_targets</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -860,7 +713,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;sc_spawn_reset_base*&gt; sc_core::sc_spawn_options::m_resets</td>
+          <td class="memname">std::vector&lt;<a class="el" href="a01927.html">sc_reset_target</a>&gt; sc_core::sc_reset::m_targets</td>
         </tr>
       </table>
   </td>
@@ -870,164 +723,20 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00110">110</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="aaec8b34bc1be7424c2a002cf1f557377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaec8b34bc1be7424c2a002cf1f557377">&#9670;&nbsp;</a></span>m_sensitive_event_finders</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="a01115.html">sc_event_finder</a>*&gt; sc_core::sc_spawn_options::m_sensitive_event_finders</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00112">112</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="aaf38b96681607b575a5cb0f1e314e0e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf38b96681607b575a5cb0f1e314e0e6">&#9670;&nbsp;</a></span>m_sensitive_events</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;const <a class="el" href="a01783.html">sc_event</a>*&gt; sc_core::sc_spawn_options::m_sensitive_events</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00111">111</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="ac5bbd2ad5ec68068f2d250ea828a2da7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5bbd2ad5ec68068f2d250ea828a2da7">&#9670;&nbsp;</a></span>m_sensitive_interfaces</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="a01183.html">sc_interface</a>*&gt; sc_core::sc_spawn_options::m_sensitive_interfaces</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00113">113</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a328fe22adb1e8e3aeaffc22927efd553"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328fe22adb1e8e3aeaffc22927efd553">&#9670;&nbsp;</a></span>m_sensitive_port_bases</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="a01199.html">sc_port_base</a>*&gt; sc_core::sc_spawn_options::m_sensitive_port_bases</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00114">114</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a1c5dedc98347bd0e2df79ae0b792bc81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c5dedc98347bd0e2df79ae0b792bc81">&#9670;&nbsp;</a></span>m_spawn_method</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_spawn_options::m_spawn_method</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00115">115</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
-
-</div>
-</div>
-<a id="a5421303e30bac9d24675d9047dac9938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5421303e30bac9d24675d9047dac9938">&#9670;&nbsp;</a></span>m_stack_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int sc_core::sc_spawn_options::m_stack_size</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00320_source.html#l00116">116</a> of file <a class="el" href="a00320_source.html">sc_spawn_options.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00149">149</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00320_source.html">sc_spawn_options.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00299_source.html">sc_reset.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01935.html">sc_spawn_options</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01935.html">sc_reset</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:05 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

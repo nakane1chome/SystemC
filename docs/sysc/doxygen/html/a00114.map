@@ -1,7 +1,11 @@
-<map id="sysc/datatypes/fx/sc_fix.h" name="sysc/datatypes/fx/sc_fix.h">
-<area shape="rect" id="node2" href="$a00128.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="236,95,373,136"/>
-<area shape="rect" id="node3" href="$a00101.html" title="Arbitrary size logic vector class. " alt="" coords="5,184,129,225"/>
-<area shape="rect" id="node4" href="$a00137.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="153,184,291,225"/>
-<area shape="rect" id="node5" href="$a00158.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="315,184,462,225"/>
-<area shape="rect" id="node6" href="$a00131.html" title="sysc/datatypes/fx/sc\l_fxnum_observer.h" alt="" coords="487,184,624,225"/>
+<map id="sysc/datatypes/fx/sc_context.h" name="sysc/datatypes/fx/sc_context.h">
+<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,259,283,285"/>
+<area shape="rect" id="node8" href="$a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="128,95,265,136"/>
+<area shape="rect" id="node10" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="501,102,684,129"/>
+<area shape="rect" id="node14" href="$a00359.html" title="sysc/utils/sc_hash.h" alt="" coords="925,184,1060,211"/>
+<area shape="rect" id="node9" href="$a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="23,184,165,211"/>
+<area shape="rect" id="node11" href="$a00293.html" title="Process base class support. " alt="" coords="240,184,404,211"/>
+<area shape="rect" id="node12" href="$a00323.html" title="Definition of the simulation phases. " alt="" coords="429,184,583,211"/>
+<area shape="rect" id="node13" href="$a00329.html" title="The time class. " alt="" coords="608,184,753,211"/>
+<area shape="rect" id="node15" href="$a00371.html" title="A simple priority queue (which can be used to model multiple. " alt="" coords="778,184,901,211"/>
 </map>

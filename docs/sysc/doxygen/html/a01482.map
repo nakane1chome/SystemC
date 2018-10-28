@@ -1,4 +1,3 @@
-<map id="sc_dt::sc_fix_fast" name="sc_dt::sc_fix_fast">
-<area shape="rect" id="node3" href="$a01491.html" title="&quot;Constrained&quot; signed fixed&#45;point class; limited precision. " alt="" coords="10,155,143,196"/>
-<area shape="rect" id="node2" href="$a01519.html" title="Base class for the fixed&#45;point types; limited precision. " alt="" coords="5,5,148,32"/>
+<map id="sc_dt::sc_mixed_proxy_traits_helper&lt; X, Y &gt;" name="sc_dt::sc_mixed_proxy_traits_helper&lt; X, Y &gt;">
+<area shape="rect" id="node2" href="$a01459.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_lv_base \&gt;" alt="" coords="9,5,153,47"/>
 </map>

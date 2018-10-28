@@ -1,0 +1,12 @@
+<map id="tlm::tlm_base_socket_if" name="tlm::tlm_base_socket_if">
+<area shape="rect" id="node2" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="211,5,385,61"/>
+<area shape="rect" id="node3" href="$a02624.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="211,85,385,141"/>
+<area shape="rect" id="node4" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="212,165,384,251"/>
+<area shape="rect" id="node8" href="$a02624.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="212,292,384,377"/>
+<area shape="rect" id="node5" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="439,35,640,91"/>
+<area shape="rect" id="node6" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l 1, POL \&gt;" alt="" coords="439,115,640,171"/>
+<area shape="rect" id="node7" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l 1, sc_core::SC_ONE_OR\l_MORE_BOUND \&gt;" alt="" coords="439,195,640,266"/>
+<area shape="rect" id="node9" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, N, POL \&gt;" alt="" coords="433,290,645,331"/>
+<area shape="rect" id="node10" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1, POL \&gt;" alt="" coords="434,355,645,397"/>
+<area shape="rect" id="node11" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1,\l sc_core::SC_ONE_OR_MORE\l_BOUND \&gt;" alt="" coords="440,421,639,491"/>
+</map>

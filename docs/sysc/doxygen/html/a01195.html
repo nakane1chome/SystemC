@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_scoped_lock Class Reference</title>
+<title>SystemC: sc_core::sc_host_semaphore Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,57 +82,58 @@ $(document).ready(function(){initNavTree('a01195.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a01192.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_scoped_lock Class Reference</div>  </div>
+<div class="title">sc_core::sc_host_semaphore Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="a01195.html" title="The sc_scoped_lock class to lock (and automatically release) a mutex. ">sc_scoped_lock</a> class to lock (and automatically release) a mutex.  
- <a href="a01195.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00041_source.html">sysc/communication/sc_mutex_if.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00035_source.html">sysc/communication/sc_host_semaphore.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for sc_core::sc_host_semaphore:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01194.png" border="0" usemap="#sc__core_1_1sc__host__semaphore_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__host__semaphore_inherit__map" id="sc__core_1_1sc__host__semaphore_inherit__map">
+<area shape="rect" id="node2" href="a01243.html" title="The sc_semaphore_if interface class. " alt="" coords="13,80,184,107"/>
+<area shape="rect" id="node3" href="a01199.html" title="Abstract base class of all interface classes. " alt="" coords="27,5,170,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sc_core::sc_host_semaphore:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01193.png" border="0" usemap="#sc__core_1_1sc__host__semaphore_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__host__semaphore_coll__map" id="sc__core_1_1sc__host__semaphore_coll__map">
+<area shape="rect" id="node2" href="a01243.html" title="The sc_semaphore_if interface class. " alt="" coords="13,80,184,107"/>
+<area shape="rect" id="node3" href="a01199.html" title="Abstract base class of all interface classes. " alt="" coords="27,5,170,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa0372401b86ca9c680b6a0b3ca587648"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01191.html">sc_mutex_if</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#aa0372401b86ca9c680b6a0b3ca587648">lockable_type</a></td></tr>
-<tr class="separator:aa0372401b86ca9c680b6a0b3ca587648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ab4d6c186ebc30999014602bd582deb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a7ab4d6c186ebc30999014602bd582deb">sc_scoped_lock</a> (<a class="el" href="a01195.html#aa0372401b86ca9c680b6a0b3ca587648">lockable_type</a> &amp;mtx)</td></tr>
-<tr class="separator:a7ab4d6c186ebc30999014602bd582deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144cc48927dd272767638856b58de56f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a144cc48927dd272767638856b58de56f">release</a> ()</td></tr>
-<tr class="separator:a144cc48927dd272767638856b58de56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a2c68ec6a47e53114fb6f5ea02c2ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a63a2c68ec6a47e53114fb6f5ea02c2ec">~sc_scoped_lock</a> ()</td></tr>
-<tr class="separator:a63a2c68ec6a47e53114fb6f5ea02c2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718ae86558f81bd0461859d858de2775"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a718ae86558f81bd0461859d858de2775">sc_host_semaphore</a> (int init=0)</td></tr>
+<tr class="separator:a718ae86558f81bd0461859d858de2775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49dea16b028a7d0de7adc04398396115"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a49dea16b028a7d0de7adc04398396115">~sc_host_semaphore</a> ()</td></tr>
+<tr class="separator:a49dea16b028a7d0de7adc04398396115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f9f843d819efe8d7d5062d0265b2c8"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a48f9f843d819efe8d7d5062d0265b2c8">wait</a> ()</td></tr>
+<tr class="separator:a48f9f843d819efe8d7d5062d0265b2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe4c302f353b0d79493e2b2a62bdfb7"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a7fe4c302f353b0d79493e2b2a62bdfb7">trywait</a> ()</td></tr>
+<tr class="separator:a7fe4c302f353b0d79493e2b2a62bdfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d97da6d9df0435b0c3eede6313b40fd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a7d97da6d9df0435b0c3eede6313b40fd">post</a> ()</td></tr>
+<tr class="separator:a7d97da6d9df0435b0c3eede6313b40fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8ad6f5bce4acebd98e08046525b6df"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01195.html#a5f8ad6f5bce4acebd98e08046525b6df">get_value</a> () const</td></tr>
+<tr class="separator:a5f8ad6f5bce4acebd98e08046525b6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c93074c41900149ab2ac84bd6787ae6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01199.html#a7c93074c41900149ab2ac84bd6787ae6">register_port</a> (<a class="el" href="a01215.html">sc_port_base</a> &amp;port_, const char *if_typename_)</td></tr>
+<tr class="separator:a7c93074c41900149ab2ac84bd6787ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f0bf642e91be47772a3cd74a76a98cf"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="a01815.html">sc_event</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01199.html#a3f0bf642e91be47772a3cd74a76a98cf">default_event</a> () const</td></tr>
+<tr class="separator:a3f0bf642e91be47772a3cd74a76a98cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="a01195.html" title="The sc_scoped_lock class to lock (and automatically release) a mutex. ">sc_scoped_lock</a> class to lock (and automatically release) a mutex. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00081">81</a> of file <a class="el" href="a00041_source.html">sc_mutex_if.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aa0372401b86ca9c680b6a0b3ca587648"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0372401b86ca9c680b6a0b3ca587648">&#9670;&nbsp;</a></span>lockable_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a01191.html">sc_mutex_if</a> <a class="el" href="a01195.html#aa0372401b86ca9c680b6a0b3ca587648">sc_core::sc_scoped_lock::lockable_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00085">85</a> of file <a class="el" href="a00041_source.html">sc_mutex_if.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7ab4d6c186ebc30999014602bd582deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ab4d6c186ebc30999014602bd582deb">&#9670;&nbsp;</a></span>sc_scoped_lock()</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00054">54</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a718ae86558f81bd0461859d858de2775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a718ae86558f81bd0461859d858de2775">&#9670;&nbsp;</a></span>sc_host_semaphore()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,10 +142,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_scoped_lock::sc_scoped_lock </td>
+          <td class="memname">sc_core::sc_host_semaphore::sc_host_semaphore </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a01195.html#aa0372401b86ca9c680b6a0b3ca587648">lockable_type</a> &amp;&#160;</td>
-          <td class="paramname"><em>mtx</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>init</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -155,12 +156,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00088">88</a> of file <a class="el" href="a00041_source.html">sc_mutex_if.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00090">90</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
 
 </div>
 </div>
-<a id="a63a2c68ec6a47e53114fb6f5ea02c2ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63a2c68ec6a47e53114fb6f5ea02c2ec">&#9670;&nbsp;</a></span>~sc_scoped_lock()</h2>
+<a id="a49dea16b028a7d0de7adc04398396115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49dea16b028a7d0de7adc04398396115">&#9670;&nbsp;</a></span>~sc_host_semaphore()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +170,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_scoped_lock::~sc_scoped_lock </td>
+          <td class="memname">virtual sc_core::sc_host_semaphore::~sc_host_semaphore </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -177,18 +178,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00106">106</a> of file <a class="el" href="a00041_source.html">sc_mutex_if.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00092">92</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a144cc48927dd272767638856b58de56f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a144cc48927dd272767638856b58de56f">&#9670;&nbsp;</a></span>release()</h2>
+<a id="a3f0bf642e91be47772a3cd74a76a98cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f0bf642e91be47772a3cd74a76a98cf">&#9670;&nbsp;</a></span>default_event()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +198,63 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_scoped_lock::release </td>
+          <td class="memname">virtual const <a class="el" href="a01815.html">sc_event</a>&amp; sc_core::sc_interface::default_event </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01251.html#a9352ded4e318ff9c59469c5cecbe2a93">sc_core::sc_signal_t&lt; T, POL &gt;</a>, <a class="el" href="a01251.html#a9352ded4e318ff9c59469c5cecbe2a93">sc_core::sc_signal_t&lt; bool, POL &gt;</a>, <a class="el" href="a01251.html#a9352ded4e318ff9c59469c5cecbe2a93">sc_core::sc_signal_t&lt; sc_dt::sc_logic, POL &gt;</a>, and <a class="el" href="a01139.html#a86321d0a2be19b6e3cc073ac7ad2d491">sc_core::sc_event_queue</a>.</p>
+
+</div>
+</div>
+<a id="a5f8ad6f5bce4acebd98e08046525b6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8ad6f5bce4acebd98e08046525b6df">&#9670;&nbsp;</a></span>get_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int sc_core::sc_host_semaphore::get_value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01243.html#a8e0c609b176a938d4fbdf454874ddb66">sc_core::sc_semaphore_if</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00110">110</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
+
+</div>
+</div>
+<a id="a7d97da6d9df0435b0c3eede6313b40fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d97da6d9df0435b0c3eede6313b40fd">&#9670;&nbsp;</a></span>post()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int sc_core::sc_host_semaphore::post </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,25 +262,123 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00095">95</a> of file <a class="el" href="a00041_source.html">sc_mutex_if.h</a>.</p>
+<p>Implements <a class="el" href="a01243.html#a40b9903de2407397edb7f8115613a22d">sc_core::sc_semaphore_if</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00106">106</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
+
+</div>
+</div>
+<a id="a7c93074c41900149ab2ac84bd6787ae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c93074c41900149ab2ac84bd6787ae6">&#9670;&nbsp;</a></span>register_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_interface::register_port </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01215.html">sc_port_base</a> &amp;&#160;</td>
+          <td class="paramname"><em>port_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>if_typename_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01251.html#acd9eff9b297ea6c088c1f719ee39e2d4">sc_core::sc_signal_t&lt; T, POL &gt;</a>, <a class="el" href="a01251.html#acd9eff9b297ea6c088c1f719ee39e2d4">sc_core::sc_signal_t&lt; bool, POL &gt;</a>, <a class="el" href="a01251.html#acd9eff9b297ea6c088c1f719ee39e2d4">sc_core::sc_signal_t&lt; sc_dt::sc_logic, POL &gt;</a>, <a class="el" href="a01339.html#a30a70b7873c0602045f5e493f4cc393f">sc_core::sc_signal_rv&lt; W &gt;</a>, <a class="el" href="a01115.html#a414e9883124060d3909d45246a324302">sc_core::sc_clock</a>, <a class="el" href="a01319.html#ac861d4a662e835f2ea8aaf80341fc044">sc_core::sc_signal_resolved</a>, and <a class="el" href="a01155.html#aed079a7e354aa665d5428df0c307188d">sc_core::sc_fifo&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a7fe4c302f353b0d79493e2b2a62bdfb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe4c302f353b0d79493e2b2a62bdfb7">&#9670;&nbsp;</a></span>trywait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int sc_core::sc_host_semaphore::trywait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01243.html#a2f5726bc11969f8dd2fce2c1e6940334">sc_core::sc_semaphore_if</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00102">102</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
+
+</div>
+</div>
+<a id="a48f9f843d819efe8d7d5062d0265b2c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f9f843d819efe8d7d5062d0265b2c8">&#9670;&nbsp;</a></span>wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int sc_core::sc_host_semaphore::wait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01243.html#a502abd3615bf0acc76fdcbfbdd37ce86">sc_core::sc_semaphore_if</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00098">98</a> of file <a class="el" href="a00035_source.html">sc_host_semaphore.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/communication/<a class="el" href="a00041_source.html">sc_mutex_if.h</a></li>
+<li>sysc/communication/<a class="el" href="a00035_source.html">sc_host_semaphore.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01195.html">sc_scoped_lock</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01195.html">sc_host_semaphore</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:00 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

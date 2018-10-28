@@ -1,6 +1,5 @@
 var a01831 =
 [
-    [ "sc_name_gen", "a01831.html#a171fca41af5484eb9e31035ba193e008", null ],
-    [ "~sc_name_gen", "a01831.html#a6a7218312f8d41da06ffd5f62e2cd196", null ],
-    [ "gen_unique_name", "a01831.html#a0a33c86d0664c8dd4e2849a63ad09940", null ]
+    [ "sc_halt", "a01831.html#a3676e989189a2531590780d6ce830573", null ],
+    [ "sc_halt", "a01831.html#a5b1ae8b586143c213d8cc10d9cfd5e59", null ]
 ];

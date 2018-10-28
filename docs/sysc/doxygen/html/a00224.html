@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -87,38 +87,72 @@ $(document).ready(function(){initNavTree('a00224.html','');});
 <div class="title">sc_cmnhdr.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;sysc/packages/boost/config.hpp&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;Windows.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sc_cmnhdr.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00225.png" border="0" usemap="#sysc_2kernel_2sc__cmnhdr_8h" alt=""/></div>
+<map name="sysc_2kernel_2sc__cmnhdr_8h" id="sysc_2kernel_2sc__cmnhdr_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00226.png" border="0" usemap="#sysc_2kernel_2sc__cmnhdr_8hdep" alt=""/></div>
 <map name="sysc_2kernel_2sc__cmnhdr_8hdep" id="sysc_2kernel_2sc__cmnhdr_8hdep">
-<area shape="rect" id="node2" href="a00401.html" title="systemc" alt="" coords="850,355,920,382"/>
-<area shape="rect" id="node4" href="a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="502,80,626,121"/>
-<area shape="rect" id="node6" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="928,266,1111,293"/>
-<area shape="rect" id="node7" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="1003,355,1154,382"/>
-<area shape="rect" id="node11" href="a00104.html" title="Proxy base class for vector data types. " alt="" coords="435,437,559,479"/>
-<area shape="rect" id="node18" href="a00032.html" title="A &quot;real&quot; mutex for the underlying host system. " alt="" coords="1288,80,1426,121"/>
-<area shape="rect" id="node3" href="a00404.html" title="systemc.h" alt="" coords="846,445,924,471"/>
-<area shape="rect" id="node5" href="a00329.html" title="The time class. " alt="" coords="755,177,900,203"/>
-<area shape="rect" id="node8" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="751,266,904,293"/>
-<area shape="rect" id="node9" href="a00197.html" title="External and friend functions for both sc_signed and. " alt="" coords="34,169,158,211"/>
-<area shape="rect" id="node10" href="a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="139,348,263,389"/>
-<area shape="rect" id="node12" href="a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="139,259,263,300"/>
-<area shape="rect" id="node13" href="a00080.html" title="Bit class. " alt="" coords="603,259,727,300"/>
-<area shape="rect" id="node14" href="a00215.html" title="Base class for SystemC bit values. " alt="" coords="388,169,526,211"/>
-<area shape="rect" id="node15" href="a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="384,348,508,389"/>
-<area shape="rect" id="node16" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="403,259,527,300"/>
-<area shape="rect" id="node17" href="a00356.html" title="sysc/tracing/sc_wif\l_trace.h" alt="" coords="233,169,364,211"/>
+<area shape="rect" id="node2" href="a00404.html" title="systemc" alt="" coords="2110,616,2180,643"/>
+<area shape="rect" id="node4" href="a00251.html" title="sysc/kernel/sc_except.h" alt="" coords="350,355,508,382"/>
+<area shape="rect" id="node6" href="a00245.html" title="sysc/kernel/sc_dynamic\l_processes.h" alt="" coords="234,437,392,479"/>
+<area shape="rect" id="node8" href="a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="1332,87,1473,114"/>
+<area shape="rect" id="node10" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="1030,355,1180,382"/>
+<area shape="rect" id="node16" href="a00128.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="1204,348,1342,389"/>
+<area shape="rect" id="node17" href="a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="868,348,1006,389"/>
+<area shape="rect" id="node20" href="a00107.html" title="Proxy base class for vector data types. " alt="" coords="2379,348,2503,389"/>
+<area shape="rect" id="node22" href="a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="2512,259,2636,300"/>
+<area shape="rect" id="node25" href="a00221.html" title="Attribute classes. " alt="" coords="2764,87,2931,114"/>
+<area shape="rect" id="node27" href="a00038.html" title="Abstract base class of all interface classes. " alt="" coords="3390,80,3529,121"/>
+<area shape="rect" id="node31" href="a00032.html" title="A &quot;real&quot; mutex for the underlying host system. " alt="" coords="3845,259,3984,300"/>
+<area shape="rect" id="node33" href="a00035.html" title="A &quot;real&quot; semaphore for the underlying host system. " alt="" coords="3143,259,3294,300"/>
+<area shape="rect" id="node34" href="a00395.html" title="Wrapper around std::typeinfo to allow usage in containers. " alt="" coords="2942,177,3105,203"/>
+<area shape="rect" id="node35" href="a00194.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="2010,80,2134,121"/>
+<area shape="rect" id="node37" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="619,266,802,293"/>
+<area shape="rect" id="node40" href="a00098.html" title="C++ implementation of logic type. Behaves. " alt="" coords="2279,259,2403,300"/>
+<area shape="rect" id="node42" href="a00323.html" title="Definition of the simulation phases. " alt="" coords="450,87,605,114"/>
+<area shape="rect" id="node43" href="a00371.html" title="A simple priority queue (which can be used to model multiple. " alt="" coords="629,87,752,114"/>
+<area shape="rect" id="node44" href="a00362.html" title="Simple implementation of a doubly linked list. " alt="" coords="3180,87,3304,114"/>
+<area shape="rect" id="node45" href="a00332.html" title="Version and copyright information. " alt="" coords="3660,534,3798,561"/>
+<area shape="rect" id="node46" href="a00392.html" title="Temporary value pool classes. " alt="" coords="2473,87,2638,114"/>
+<area shape="rect" id="node47" href="a00389.html" title="Non&#45;owning, constant reference to a character string. " alt="" coords="4008,527,4138,568"/>
+<area shape="rect" id="node48" href="a00131.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="4084,80,4222,121"/>
+<area shape="rect" id="node49" href="a00230.html" title="Coroutine abstract base classes. " alt="" coords="533,355,672,382"/>
+<area shape="rect" id="node50" href="a00350.html" title="Report ids for the tracing code. " alt="" coords="4298,80,4451,121"/>
+<area shape="rect" id="node3" href="a00407.html" title="systemc.h" alt="" coords="2106,691,2184,717"/>
+<area shape="rect" id="node5" href="a00326.html" title="Thread process declarations. " alt="" coords="468,437,614,479"/>
+<area shape="rect" id="node7" href="a00266.html" title="Method process declarations. " alt="" coords="639,437,792,479"/>
+<area shape="rect" id="node9" href="a00260.html" title="Report ids for the kernel code. " alt="" coords="1090,259,1235,300"/>
+<area shape="rect" id="node13" href="a00011.html" title="Report ids for the communication code. " alt="" coords="2158,169,2324,211"/>
+<area shape="rect" id="node15" href="a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="928,259,1066,300"/>
+<area shape="rect" id="node18" href="a00086.html" title="Report ids for the datatypes/bit code. " alt="" coords="1440,169,1564,211"/>
+<area shape="rect" id="node19" href="a00200.html" title="External and friend functions for both sc_signed and. " alt="" coords="1440,259,1564,300"/>
+<area shape="rect" id="node21" href="a00188.html" title="Report ids for the datatypes/int code. " alt="" coords="1810,169,1934,211"/>
+<area shape="rect" id="node23" href="a00383.html" title="Function provided for debugging purposes. " alt="" coords="1029,169,1152,211"/>
+<area shape="rect" id="node24" href="a00386.html" title="Implementation of a simple string class. " alt="" coords="1226,177,1365,203"/>
+<area shape="rect" id="node11" href="a00047.html" title="Base classes of all port classes. " alt="" coords="2632,437,2770,479"/>
+<area shape="rect" id="node12" href="a00017.html" title="Event Queue Facility Definitions. " alt="" coords="2353,527,2492,568"/>
+<area shape="rect" id="node14" href="a00020.html" title="Base classes of all export classes. " alt="" coords="2954,259,3093,300"/>
+<area shape="rect" id="node26" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="2764,177,2918,203"/>
+<area shape="rect" id="node28" href="a00062.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="3444,169,3582,211"/>
+<area shape="rect" id="node29" href="a00026.html" title="The sc_fifo&lt;T&gt; interface classes. " alt="" coords="3606,169,3745,211"/>
+<area shape="rect" id="node30" href="a00044.html" title="The sc_mutex_if interface class. " alt="" coords="3820,169,3958,211"/>
+<area shape="rect" id="node32" href="a00056.html" title="The sc_semaphore_if interface class. " alt="" coords="3180,169,3318,211"/>
+<area shape="rect" id="node36" href="a00329.html" title="The time class. " alt="" coords="1640,177,1786,203"/>
+<area shape="rect" id="node38" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="1895,266,2048,293"/>
+<area shape="rect" id="node39" href="a00083.html" title="Bit class. " alt="" coords="2010,169,2134,211"/>
+<area shape="rect" id="node41" href="a00218.html" title="Base class for SystemC bit values. " alt="" coords="2348,169,2486,211"/>
 </map>
 </div>
 </div>
@@ -130,8 +164,100 @@ Macros</h2></td></tr>
 <tr class="separator:acf2e425249d8e3ebb7e2f79a5c56a2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3caa42f97b389c2842a212d80af8548b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#a3caa42f97b389c2842a212d80af8548b">SC_UNLIKELY_</a>(x)&#160;&#160;&#160;!!(x)</td></tr>
 <tr class="separator:a3caa42f97b389c2842a212d80af8548b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7bcba7021df4fd879838fd2a49346ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#ac7bcba7021df4fd879838fd2a49346ca">SC_CPLUSPLUS</a>&#160;&#160;&#160;__cplusplus</td></tr>
+<tr class="separator:ac7bcba7021df4fd879838fd2a49346ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0928772a61e9918db1524c5593637423"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#a0928772a61e9918db1524c5593637423">SC_CPLUSPLUS_BASE_</a>&#160;&#160;&#160;201103L</td></tr>
+<tr class="separator:a0928772a61e9918db1524c5593637423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a83b4467f29c44a07a7ea00f7d7872"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#a20a83b4467f29c44a07a7ea00f7d7872">IEEE_1666_CPLUSPLUS</a>&#160;&#160;&#160;<a class="el" href="a00224.html#ac7bcba7021df4fd879838fd2a49346ca">SC_CPLUSPLUS</a></td></tr>
+<tr class="separator:a20a83b4467f29c44a07a7ea00f7d7872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7463a9cd001fb93ac473b088cb8e528a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#a7463a9cd001fb93ac473b088cb8e528a">SC_TPLEXTERN_</a>&#160;&#160;&#160;extern</td></tr>
+<tr class="separator:a7463a9cd001fb93ac473b088cb8e528a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4a86b3f5de3ac2097081e7166fe89f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;&#160;&#160;/* nothing */</td></tr>
+<tr class="separator:aff4a86b3f5de3ac2097081e7166fe89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd296367ff4ff514096587ab9244e39f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#afd296367ff4ff514096587ab9244e39f">SC_API_TEMPLATE_DECL_</a>&#160;&#160;&#160;<a class="el" href="a00224.html#a7463a9cd001fb93ac473b088cb8e528a">SC_TPLEXTERN_</a> template class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a></td></tr>
+<tr class="separator:afd296367ff4ff514096587ab9244e39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a20a83b4467f29c44a07a7ea00f7d7872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a83b4467f29c44a07a7ea00f7d7872">&#9670;&nbsp;</a></span>IEEE_1666_CPLUSPLUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IEEE_1666_CPLUSPLUS&#160;&#160;&#160;<a class="el" href="a00224.html#ac7bcba7021df4fd879838fd2a49346ca">SC_CPLUSPLUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00137">137</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
+<a id="aff4a86b3f5de3ac2097081e7166fe89f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4a86b3f5de3ac2097081e7166fe89f">&#9670;&nbsp;</a></span>SC_API</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_API&#160;&#160;&#160;/* nothing */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00168">168</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
+<a id="afd296367ff4ff514096587ab9244e39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd296367ff4ff514096587ab9244e39f">&#9670;&nbsp;</a></span>SC_API_TEMPLATE_DECL_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_API_TEMPLATE_DECL_&#160;&#160;&#160;<a class="el" href="a00224.html#a7463a9cd001fb93ac473b088cb8e528a">SC_TPLEXTERN_</a> template class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00177">177</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
+<a id="ac7bcba7021df4fd879838fd2a49346ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7bcba7021df4fd879838fd2a49346ca">&#9670;&nbsp;</a></span>SC_CPLUSPLUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_CPLUSPLUS&#160;&#160;&#160;__cplusplus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00121">121</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
+<a id="a0928772a61e9918db1524c5593637423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0928772a61e9918db1524c5593637423">&#9670;&nbsp;</a></span>SC_CPLUSPLUS_BASE_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_CPLUSPLUS_BASE_&#160;&#160;&#160;201103L</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00127">127</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
 <a id="acf2e425249d8e3ebb7e2f79a5c56a2bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf2e425249d8e3ebb7e2f79a5c56a2bc">&#9670;&nbsp;</a></span>SC_LIKELY_</h2>
 
@@ -149,7 +275,23 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 <p>helper macros to aid branch prediction on GCC (compatible) compilers </p>
 
-<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00082">82</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00084">84</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+
+</div>
+</div>
+<a id="a7463a9cd001fb93ac473b088cb8e528a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7463a9cd001fb93ac473b088cb8e528a">&#9670;&nbsp;</a></span>SC_TPLEXTERN_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_TPLEXTERN_&#160;&#160;&#160;extern</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00155">155</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
 
 </div>
 </div>
@@ -169,7 +311,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00083">83</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00085">85</a> of file <a class="el" href="a00224_source.html">sc_cmnhdr.h</a>.</p>
 
 </div>
 </div>
@@ -179,7 +321,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_b4b56023568c35e5a49172d00a6c7a39.html">kernel</a></li><li class="navelem"><a class="el" href="a00224.html">sc_cmnhdr.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:53 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

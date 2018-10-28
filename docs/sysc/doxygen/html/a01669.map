@@ -1,3 +1,4 @@
-<map id="sc_dt::sc_signed" name="sc_dt::sc_signed">
-<area shape="rect" id="node2" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<map id="sc_dt::sc_int_subref_r" name="sc_dt::sc_int_subref_r">
+<area shape="rect" id="node2" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node3" href="$a01679.html" title="Base class for sc_int. " alt="" coords="99,81,225,108"/>
 </map>

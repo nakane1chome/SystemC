@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_subref_r&lt; X &gt;" name="sc_dt::sc_subref_r&lt; X &gt;">
-<area shape="rect" id="node3" href="$a01383.html" title="sc_dt::sc_subref\&lt; X \&gt;" alt="" coords="11,169,156,196"/>
-<area shape="rect" id="node2" href="$a01415.html" title="sc_dt::sc_proxy\&lt; sc\l_subref_r\&lt; X \&gt; \&gt;" alt="" coords="17,5,150,47"/>
+<map id="sc_core::sc_writer_policy_check&lt; SC_ONE_WRITER &gt;" name="sc_core::sc_writer_policy_check&lt; SC_ONE_WRITER &gt;">
+<area shape="rect" id="node2" href="$a01375.html" title="sc_core::sc_writer\l_policy_check_port" alt="" coords="5,5,139,47"/>
+<area shape="rect" id="node3" href="$a01363.html" title="sc_core::sc_writer\l_policy_check_write" alt="" coords="163,5,301,47"/>
 </map>

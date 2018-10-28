@@ -34,6 +34,7 @@ var NAVTREE =
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
+        [ "Variables", "globals_vars.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -43,17 +44,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00341.html",
-"a02306.html#a360e61ef1933e8b10c9f61dd6d45cfae",
-"a02390.html#a506568e42b6e8057a451c47d400d2594",
-"a02434.html#a5a1213ba04041e8caa6140cac50f12e9",
-"a02458.html#a687936908b37e1c2e56cd12a941f99f9",
-"a02474.html#a6448d53a209be65590b26e0547516aec",
-"a02550.html#a465e5b08194660aa0b66d4e8219fa887",
-"a02578.html#a6b530248b9c4ca08da914b0f9b70c072",
-"a02614.html#aef91eeb042540b72d334be6ef94be5b2",
-"a02638.html#a4cdf8cc6350f8cb64090055d846b1e77",
-"a02670.html#af8d68079416c8b246ca11706617e4c7a",
-"a02698.html#a725b54330bd4f74139adc5f64666cc97"
+"a02356.html#a0202596f1f911706eae62908183e39af",
+"a02432.html#acda9f1feda9ee5f03ad90e3ac9838b64",
+"a02484.html#a38a53f30a8719f77e35df8965845819e",
+"a02508.html#a3e77bd590c5e801ae904eb17bf1fed61",
+"a02524.html#a262b9ec042009301a6a170b8258245e1",
+"a02600.html#a0e54344a791d5a2d772bb937245adde5",
+"a02632.html#a0dd324e6e316703fc1c28f36557c456e",
+"a02684.html#a6b530248b9c4ca08da914b0f9b70c072",
+"a02692.html#a966adcf170c9cc049062fb753565065e",
+"a02716.html#ab5d7a458a633f87ad6ba4ca00b8df6de",
+"a02740.html#aa2ea268cadfad621fab19cd4238d3427",
+"a02756.html#a9c9ccb3a01d1cc2d15e41281f4797373",
+"a02784.html#a9596b98165db3ca73212b46a71b3dc89",
+"a02800.html#a419422ae300553667ce112c1d3177a87",
+"a02812.html#ae7f97fa6790c6ee01c6fedc56f52d404",
+"a02844.html#ac3e4e798ea9220a9cb9401542c43ab4c",
+"a02876.html#ac35125c8c6921b2ddd62f2c4d603c14a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

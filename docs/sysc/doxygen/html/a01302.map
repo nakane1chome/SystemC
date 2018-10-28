@@ -1,5 +1,5 @@
-<map id="sc_core::sc_inout_resolved" name="sc_core::sc_inout_resolved">
-<area shape="rect" id="node4" href="$a01307.html" title="The sc_signal_resolved output port class. " alt="" coords="644,27,809,54"/>
-<area shape="rect" id="node2" href="$a01287.html" title="Specialization of sc_inout&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="244,20,373,61"/>
-<area shape="rect" id="node3" href="$a01211.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; sc\l_dt::sc_logic \&gt;, 1, SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,76"/>
+<map id="sc_core::sc_inout&lt; T &gt;" name="sc_core::sc_inout&lt; T &gt;">
+<area shape="rect" id="node4" href="$a01315.html" title="sc_core::sc_out\&lt; T \&gt;" alt="" coords="50,288,191,315"/>
+<area shape="rect" id="node2" href="$a01227.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; T \&gt;\l, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,109,236,165"/>
+<area shape="rect" id="node3" href="$a01223.html" title="sc_core::sc_port_b\l\&lt; sc_signal_inout_if\l\&lt; T \&gt; \&gt;" alt="" coords="53,5,188,61"/>
 </map>

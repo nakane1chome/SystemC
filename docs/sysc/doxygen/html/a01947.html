@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_time_params Struct Reference</title>
+<title>SystemC: sc_core::sc_sensitive_pos Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,57 +82,455 @@ $(document).ready(function(){initNavTree('a01947.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="a01944.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_time_params Struct Reference</div>  </div>
+<div class="title">sc_core::sc_sensitive_pos Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Struct that holds the time resolution and default time unit.  
+<p>Static sensitivity class for positive edge events.  
  <a href="a01947.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00329_source.html">sysc/kernel/sc_time.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for sc_core::sc_time_params:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01945.png" border="0" usemap="#sc__core_1_1sc__time__params_coll__map" alt="Collaboration graph"/></div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="a00308_source.html">sysc/kernel/sc_sensitive.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af628c8cfc91064ecaa5c36e9e1024f4b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">in_if_b_type</a></td></tr>
+<tr class="separator:af628c8cfc91064ecaa5c36e9e1024f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadfdc06de3c56f968f2b5070933be09d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01267.html">sc_signal_in_if</a>&lt; <a class="el" href="a01435.html">sc_dt::sc_logic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">in_if_l_type</a></td></tr>
+<tr class="separator:aadfdc06de3c56f968f2b5070933be09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8920dbcaebc0d665229b101eb1e37f8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">in_port_b_type</a></td></tr>
+<tr class="separator:ab8920dbcaebc0d665229b101eb1e37f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c4d64fcc3651ca3eb541bc3701cb25"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01291.html">sc_in</a>&lt; <a class="el" href="a01435.html">sc_dt::sc_logic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">in_port_l_type</a></td></tr>
+<tr class="separator:a60c4d64fcc3651ca3eb541bc3701cb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f4223a589d94a9b3b26403f0c9ee9a2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">inout_port_b_type</a></td></tr>
+<tr class="separator:a6f4223a589d94a9b3b26403f0c9ee9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9529df6fd913ca243f3b93cee0f323"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01303.html">sc_inout</a>&lt; <a class="el" href="a01435.html">sc_dt::sc_logic</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">inout_port_l_type</a></td></tr>
+<tr class="separator:aef9529df6fd913ca243f3b93cee0f323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73b4bac482e4d2744a24be4617440d4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a73b4bac482e4d2744a24be4617440d4b">sc_time_params</a> ()</td></tr>
-<tr class="separator:a73b4bac482e4d2744a24be4617440d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f109827cf99bd3eae7bdc22830c8776"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a5f109827cf99bd3eae7bdc22830c8776">~sc_time_params</a> ()</td></tr>
-<tr class="separator:a5f109827cf99bd3eae7bdc22830c8776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e90d3578f94eec9b36af96be9de9e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ad2e90d3578f94eec9b36af96be9de9e9">operator&lt;&lt;</a> (<a class="el" href="a01919.html">sc_process_handle</a>)</td></tr>
+<tr class="separator:ad2e90d3578f94eec9b36af96be9de9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab376da3465be544166bb0a5a08b12951"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ab376da3465be544166bb0a5a08b12951">operator&lt;&lt;</a> (<a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a>)</td></tr>
+<tr class="separator:ab376da3465be544166bb0a5a08b12951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72de606dd38621f370aa6935835df9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ad72de606dd38621f370aa6935835df9a">operator&lt;&lt;</a> (<a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a>)</td></tr>
+<tr class="separator:ad72de606dd38621f370aa6935835df9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3613fa0e3b2b00444f5e2926b927f370"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a3613fa0e3b2b00444f5e2926b927f370">operator()</a> (const <a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">in_if_b_type</a> &amp;)</td></tr>
+<tr class="separator:a3613fa0e3b2b00444f5e2926b927f370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f4c8bea69dd4bd6f85720722de2b1e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a4f4c8bea69dd4bd6f85720722de2b1e8">operator()</a> (const <a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">in_if_l_type</a> &amp;)</td></tr>
+<tr class="separator:a4f4c8bea69dd4bd6f85720722de2b1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd7d436ce3e247608261bdaedcccb37d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#afd7d436ce3e247608261bdaedcccb37d">operator()</a> (const <a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">in_port_b_type</a> &amp;)</td></tr>
+<tr class="separator:afd7d436ce3e247608261bdaedcccb37d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7990d09798e0335d4bc9e71daabf6a70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a7990d09798e0335d4bc9e71daabf6a70">operator()</a> (const <a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">in_port_l_type</a> &amp;)</td></tr>
+<tr class="separator:a7990d09798e0335d4bc9e71daabf6a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df65d61bf352579cb65e244fea3fa27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a3df65d61bf352579cb65e244fea3fa27">operator()</a> (const <a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">inout_port_b_type</a> &amp;)</td></tr>
+<tr class="separator:a3df65d61bf352579cb65e244fea3fa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5242c34374286f9891049400340fa26a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a5242c34374286f9891049400340fa26a">operator()</a> (const <a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">inout_port_l_type</a> &amp;)</td></tr>
+<tr class="separator:a5242c34374286f9891049400340fa26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6afee5ab58d03bd1f772dbc512454c8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a6afee5ab58d03bd1f772dbc512454c8e">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">in_if_b_type</a> &amp;)</td></tr>
+<tr class="separator:a6afee5ab58d03bd1f772dbc512454c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef468bc7c3c3b847ed9dafac2321e4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a4ef468bc7c3c3b847ed9dafac2321e4a">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">in_if_l_type</a> &amp;)</td></tr>
+<tr class="separator:a4ef468bc7c3c3b847ed9dafac2321e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e0f3dfb6cbebc6155ec2987a4bb307"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#aa0e0f3dfb6cbebc6155ec2987a4bb307">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">in_port_b_type</a> &amp;)</td></tr>
+<tr class="separator:aa0e0f3dfb6cbebc6155ec2987a4bb307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5f49a5f195e0e1b674669d21f0476a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#aa5f49a5f195e0e1b674669d21f0476a5">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">in_port_l_type</a> &amp;)</td></tr>
+<tr class="separator:aa5f49a5f195e0e1b674669d21f0476a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4b049ab0afeb6a363b47a8ca432161b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ab4b049ab0afeb6a363b47a8ca432161b">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">inout_port_b_type</a> &amp;)</td></tr>
+<tr class="separator:ab4b049ab0afeb6a363b47a8ca432161b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21a556cabfee52ada6b0e3dc4c9574e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01947.html">sc_sensitive_pos</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#ad21a556cabfee52ada6b0e3dc4c9574e">operator&lt;&lt;</a> (const <a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">inout_port_l_type</a> &amp;)</td></tr>
+<tr class="separator:ad21a556cabfee52ada6b0e3dc4c9574e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ae0124b831db87c005d4a38e354870e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a9ae0124b831db87c005d4a38e354870e">reset</a> ()</td></tr>
+<tr class="separator:a9ae0124b831db87c005d4a38e354870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:afa8d46678e3e40ac31abcd77d4ea704e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#afa8d46678e3e40ac31abcd77d4ea704e">time_resolution</a></td></tr>
-<tr class="separator:afa8d46678e3e40ac31abcd77d4ea704e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b857254dbaf4ba66b24b04b78e9c4d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a33b857254dbaf4ba66b24b04b78e9c4d">time_resolution_specified</a></td></tr>
-<tr class="separator:a33b857254dbaf4ba66b24b04b78e9c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cc315c640a0989d3794cac9fff48500"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a5cc315c640a0989d3794cac9fff48500">time_resolution_fixed</a></td></tr>
-<tr class="separator:a5cc315c640a0989d3794cac9fff48500"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f429b6a7dd0362d1b3a381e2fe89ee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01943.html#a83e697fa67cbd57bd182f273a966f4d8">sc_time::value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a9f429b6a7dd0362d1b3a381e2fe89ee0">default_time_unit</a></td></tr>
-<tr class="separator:a9f429b6a7dd0362d1b3a381e2fe89ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c20398d826df1a475ce61326601d8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a82c20398d826df1a475ce61326601d8c">default_time_unit_specified</a></td></tr>
-<tr class="separator:a82c20398d826df1a475ce61326601d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a460de50921ea4456ecaf395eb8594974"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01947.html#a460de50921ea4456ecaf395eb8594974">sc_module</a></td></tr>
+<tr class="separator:a460de50921ea4456ecaf395eb8594974"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Struct that holds the time resolution and default time unit. </p>
+<div class="textblock"><p>Static sensitivity class for positive edge events. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00361">361</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a73b4bac482e4d2744a24be4617440d4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b4bac482e4d2744a24be4617440d4b">&#9670;&nbsp;</a></span>sc_time_params()</h2>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00143">143</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="af628c8cfc91064ecaa5c36e9e1024f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af628c8cfc91064ecaa5c36e9e1024f4b">&#9670;&nbsp;</a></span>in_if_b_type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_time_params::sc_time_params </td>
+          <td class="memname">typedef <a class="el" href="a01267.html">sc_signal_in_if</a>&lt;bool&gt; <a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">sc_core::sc_sensitive_pos::in_if_b_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00150">150</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<a id="aadfdc06de3c56f968f2b5070933be09d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadfdc06de3c56f968f2b5070933be09d">&#9670;&nbsp;</a></span>in_if_l_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01267.html">sc_signal_in_if</a>&lt;<a class="el" href="a01435.html">sc_dt::sc_logic</a>&gt; <a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">sc_core::sc_sensitive_pos::in_if_l_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00151">151</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8920dbcaebc0d665229b101eb1e37f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8920dbcaebc0d665229b101eb1e37f8">&#9670;&nbsp;</a></span>in_port_b_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01291.html">sc_in</a>&lt;bool&gt; <a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">sc_core::sc_sensitive_pos::in_port_b_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00152">152</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<a id="a60c4d64fcc3651ca3eb541bc3701cb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c4d64fcc3651ca3eb541bc3701cb25">&#9670;&nbsp;</a></span>in_port_l_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01291.html">sc_in</a>&lt;<a class="el" href="a01435.html">sc_dt::sc_logic</a>&gt; <a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">sc_core::sc_sensitive_pos::in_port_l_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00153">153</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<a id="a6f4223a589d94a9b3b26403f0c9ee9a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f4223a589d94a9b3b26403f0c9ee9a2">&#9670;&nbsp;</a></span>inout_port_b_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01303.html">sc_inout</a>&lt;bool&gt; <a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">sc_core::sc_sensitive_pos::inout_port_b_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00154">154</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<a id="aef9529df6fd913ca243f3b93cee0f323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9529df6fd913ca243f3b93cee0f323">&#9670;&nbsp;</a></span>inout_port_l_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01303.html">sc_inout</a>&lt;<a class="el" href="a01435.html">sc_dt::sc_logic</a>&gt; <a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">sc_core::sc_sensitive_pos::inout_port_l_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00155">155</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3613fa0e3b2b00444f5e2926b927f370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3613fa0e3b2b00444f5e2926b927f370">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">in_if_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f4c8bea69dd4bd6f85720722de2b1e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f4c8bea69dd4bd6f85720722de2b1e8">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">in_if_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd7d436ce3e247608261bdaedcccb37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd7d436ce3e247608261bdaedcccb37d">&#9670;&nbsp;</a></span>operator()() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">in_port_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7990d09798e0335d4bc9e71daabf6a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7990d09798e0335d4bc9e71daabf6a70">&#9670;&nbsp;</a></span>operator()() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">in_port_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3df65d61bf352579cb65e244fea3fa27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df65d61bf352579cb65e244fea3fa27">&#9670;&nbsp;</a></span>operator()() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">inout_port_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5242c34374286f9891049400340fa26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5242c34374286f9891049400340fa26a">&#9670;&nbsp;</a></span>operator()() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">inout_port_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2e90d3578f94eec9b36af96be9de9e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e90d3578f94eec9b36af96be9de9e9">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[1/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01919.html">sc_process_handle</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab376da3465be544166bb0a5a08b12951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab376da3465be544166bb0a5a08b12951">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[2/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad72de606dd38621f370aa6935835df9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72de606dd38621f370aa6935835df9a">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6afee5ab58d03bd1f772dbc512454c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6afee5ab58d03bd1f772dbc512454c8e">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#af628c8cfc91064ecaa5c36e9e1024f4b">in_if_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ef468bc7c3c3b847ed9dafac2321e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef468bc7c3c3b847ed9dafac2321e4a">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#aadfdc06de3c56f968f2b5070933be09d">in_if_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0e0f3dfb6cbebc6155ec2987a4bb307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0e0f3dfb6cbebc6155ec2987a4bb307">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#ab8920dbcaebc0d665229b101eb1e37f8">in_port_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5f49a5f195e0e1b674669d21f0476a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f49a5f195e0e1b674669d21f0476a5">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#a60c4d64fcc3651ca3eb541bc3701cb25">in_port_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4b049ab0afeb6a363b47a8ca432161b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b049ab0afeb6a363b47a8ca432161b">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#a6f4223a589d94a9b3b26403f0c9ee9a2">inout_port_b_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad21a556cabfee52ada6b0e3dc4c9574e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21a556cabfee52ada6b0e3dc4c9574e">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01947.html">sc_sensitive_pos</a>&amp; sc_core::sc_sensitive_pos::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01947.html#aef9529df6fd913ca243f3b93cee0f323">inout_port_l_type</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ae0124b831db87c005d4a38e354870e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae0124b831db87c005d4a38e354870e">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_sensitive_pos::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -142,114 +540,41 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f109827cf99bd3eae7bdc22830c8776"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f109827cf99bd3eae7bdc22830c8776">&#9670;&nbsp;</a></span>~sc_time_params()</h2>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a460de50921ea4456ecaf395eb8594974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460de50921ea4456ecaf395eb8594974">&#9670;&nbsp;</a></span>sc_module</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_time_params::~sc_time_params </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="a01855.html">sc_module</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9f429b6a7dd0362d1b3a381e2fe89ee0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f429b6a7dd0362d1b3a381e2fe89ee0">&#9670;&nbsp;</a></span>default_time_unit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01943.html#a83e697fa67cbd57bd182f273a966f4d8">sc_time::value_type</a> sc_core::sc_time_params::default_time_unit</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00367">367</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00145">145</a> of file <a class="el" href="a00308_source.html">sc_sensitive.h</a>.</p>
 
 </div>
 </div>
-<a id="a82c20398d826df1a475ce61326601d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c20398d826df1a475ce61326601d8c">&#9670;&nbsp;</a></span>default_time_unit_specified</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_time_params::default_time_unit_specified</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00368">368</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
-
-</div>
-</div>
-<a id="afa8d46678e3e40ac31abcd77d4ea704e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa8d46678e3e40ac31abcd77d4ea704e">&#9670;&nbsp;</a></span>time_resolution</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double sc_core::sc_time_params::time_resolution</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00363">363</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
-
-</div>
-</div>
-<a id="a5cc315c640a0989d3794cac9fff48500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cc315c640a0989d3794cac9fff48500">&#9670;&nbsp;</a></span>time_resolution_fixed</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_time_params::time_resolution_fixed</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00365">365</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
-
-</div>
-</div>
-<a id="a33b857254dbaf4ba66b24b04b78e9c4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33b857254dbaf4ba66b24b04b78e9c4d">&#9670;&nbsp;</a></span>time_resolution_specified</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_time_params::time_resolution_specified</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00364">364</a> of file <a class="el" href="a00329_source.html">sc_time.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00329_source.html">sc_time.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>sysc/kernel/<a class="el" href="a00308_source.html">sc_sensitive.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01947.html">sc_time_params</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01947.html">sc_sensitive_pos</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:06 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

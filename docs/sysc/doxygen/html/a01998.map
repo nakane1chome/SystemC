@@ -1,3 +1,5 @@
-<map id="sc_core::sc_pdhash&lt; K, C &gt;" name="sc_core::sc_pdhash&lt; K, C &gt;">
-<area shape="rect" id="node2" href="$a01983.html" title="sc_core::sc_phash_base" alt="" coords="5,5,167,32"/>
+<map id="sc_core::sc_trace_file" name="sc_core::sc_trace_file">
+<area shape="rect" id="node2" href="$a02003.html" title="sc_core::sc_trace_file_base" alt="" coords="79,80,257,107"/>
+<area shape="rect" id="node3" href="$a02011.html" title="sc_core::vcd_trace_file" alt="" coords="5,155,157,181"/>
+<area shape="rect" id="node4" href="$a02019.html" title="sc_core::wif_trace_file" alt="" coords="182,155,330,181"/>
 </map>

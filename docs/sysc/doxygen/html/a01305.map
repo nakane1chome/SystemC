@@ -1,4 +1,5 @@
-<map id="sc_core::sc_out_resolved" name="sc_core::sc_out_resolved">
-<area shape="rect" id="node2" href="$a01303.html" title="The sc_signal_resolved input/output port class. " alt="" coords="5,95,180,121"/>
-<area shape="rect" id="node3" href="$a01287.html" title="Specialization of sc_inout&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="28,5,157,47"/>
+<map id="sc_core::sc_inout&lt; bool &gt;" name="sc_core::sc_inout&lt; bool &gt;">
+<area shape="rect" id="node2" href="$a01227.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; bool\l \&gt;, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="244,5,485,61"/>
+<area shape="rect" id="node3" href="$a01223.html" title="sc_core::sc_port_b\l\&lt; sc_signal_inout_if\l\&lt; bool \&gt; \&gt;" alt="" coords="5,5,140,61"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="309,85,420,112"/>
 </map>

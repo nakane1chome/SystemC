@@ -1,3 +1,4 @@
-<map id="sc_core::sc_unwind_exception" name="sc_core::sc_unwind_exception">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="22,5,122,32"/>
+<map id="sc_core::sc_event_list" name="sc_core::sc_event_list">
+<area shape="rect" id="node2" href="$a01807.html" title="AND list of events. " alt="" coords="5,80,180,107"/>
+<area shape="rect" id="node3" href="$a01811.html" title="OR list of events. " alt="" coords="205,80,370,107"/>
 </map>

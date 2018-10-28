@@ -1,6 +1,6 @@
 var a00389 =
 [
-    [ "sc_string_old", "a02059.html", "a02059" ],
-    [ "operator+", "a00389.html#a68b57497197e7e6eb6f1e3558486887a", null ],
-    [ "operator<<", "a00389.html#aea2ddc4934d0ddb0f758a8d3f724a00a", null ]
+    [ "sc_zstring_view", "a02107.html", "a02107" ],
+    [ "SC_STRING_VIEW_NS_", "a00389.html#a774811b3b9cb39c5b74152e26fcad338", null ],
+    [ "sc_string_view", "a00389.html#adb3d9b08b4e375cf994afcd629c8e49c", null ]
 ];

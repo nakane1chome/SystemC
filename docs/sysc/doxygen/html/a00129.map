@@ -1,17 +1,10 @@
-<map id="sysc/datatypes/fx/sc_fxnum.h" name="sysc/datatypes/fx/sc_fxnum.h">
-<area shape="rect" id="node2" href="$a00101.html" title="Arbitrary size logic vector class. " alt="" coords="174,184,298,225"/>
-<area shape="rect" id="node7" href="$a00137.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="569,95,706,136"/>
-<area shape="rect" id="node9" href="$a00158.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="800,273,947,315"/>
-<area shape="rect" id="node16" href="$a00131.html" title="sysc/datatypes/fx/sc\l_fxnum_observer.h" alt="" coords="1109,95,1246,136"/>
-<area shape="rect" id="node3" href="$a00083.html" title="Report ids for the datatypes/bit code. " alt="" coords="98,363,222,404"/>
-<area shape="rect" id="node4" href="$a00092.html" title="Arbitrary size bit vector class. " alt="" coords="174,273,298,315"/>
-<area shape="rect" id="node5" href="$a00188.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="369,363,503,404"/>
-<area shape="rect" id="node6" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="26,273,150,315"/>
-<area shape="rect" id="node8" href="$a00164.html" title="sysc/datatypes/fx/scfx\l_rep.h" alt="" coords="724,184,871,225"/>
-<area shape="rect" id="node10" href="$a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="575,184,699,225"/>
-<area shape="rect" id="node11" href="$a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="573,273,697,315"/>
-<area shape="rect" id="node12" href="$a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="325,184,449,225"/>
-<area shape="rect" id="node13" href="$a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="425,273,549,315"/>
-<area shape="rect" id="node14" href="$a00140.html" title="sysc/datatypes/fx/sc\l_fxval_observer.h" alt="" coords="895,184,1033,225"/>
-<area shape="rect" id="node15" href="$a00125.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="1054,273,1191,315"/>
+<map id="sysc/datatypes/fx/sc_fxdefs.h" name="sysc/datatypes/fx/sc_fxdefs.h">
+<area shape="rect" id="node2" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,348,283,375"/>
+<area shape="rect" id="node8" href="$a00365.html" title="Machine&#45;dependent Environment Settings. " alt="" coords="881,102,1038,129"/>
+<area shape="rect" id="node11" href="$a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="183,95,320,136"/>
+<area shape="rect" id="node13" href="$a00200.html" title="External and friend functions for both sc_signed and. " alt="" coords="483,95,607,136"/>
+<area shape="rect" id="node12" href="$a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="131,273,273,300"/>
+<area shape="rect" id="node16" href="$a00086.html" title="Report ids for the datatypes/bit code. " alt="" coords="187,184,311,225"/>
+<area shape="rect" id="node17" href="$a00188.html" title="Report ids for the datatypes/int code. " alt="" coords="335,184,459,225"/>
+<area shape="rect" id="node18" href="$a00194.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="483,184,607,225"/>
 </map>

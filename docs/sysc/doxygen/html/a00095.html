@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/datatypes/bit/sc_logic.h File Reference</title>
+<title>SystemC: sysc/datatypes/bit/sc_bv_base.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,54 +83,41 @@ $(document).ready(function(){initNavTree('a00095.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">sc_logic.h File Reference</div>  </div>
+<div class="title">sc_bv_base.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>C++ implementation of logic type. Behaves.  
+<p>Arbitrary size bit vector class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00362_source.html">sysc/utils/sc_iostream.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00263_source.html">sysc/kernel/sc_macros.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00371_source.html">sysc/utils/sc_mempool.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00080_source.html">sysc/datatypes/bit/sc_bit.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00086_source.html">sysc/datatypes/bit/sc_bit_ids.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00089_source.html">sysc/datatypes/bit/sc_bit_proxies.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00107_source.html">sysc/datatypes/bit/sc_proxy.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00191_source.html">sysc/datatypes/int/sc_length_param.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_logic.h:</div>
+Include dependency graph for sc_bv_base.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00096.png" border="0" usemap="#sysc_2datatypes_2bit_2sc__logic_8h" alt=""/></div>
-<map name="sysc_2datatypes_2bit_2sc__logic_8h" id="sysc_2datatypes_2bit_2sc__logic_8h">
-<area shape="rect" id="node3" href="a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="247,273,404,300"/>
-<area shape="rect" id="node10" href="a00263.html" title="Miscellaneous definitions that are needed by the headers. " alt="" coords="136,102,299,129"/>
-<area shape="rect" id="node11" href="a00371.html" title="sysc/utils/sc_mempool.h" alt="" coords="186,191,347,218"/>
-<area shape="rect" id="node12" href="a00080.html" title="Bit class. " alt="" coords="374,95,498,136"/>
-<area shape="rect" id="node13" href="a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="423,184,547,225"/>
+<div class="center"><img src="a00096.png" border="0" usemap="#sysc_2datatypes_2bit_2sc__bv__base_8h" alt=""/></div>
+<map name="sysc_2datatypes_2bit_2sc__bv__base_8h" id="sysc_2datatypes_2bit_2sc__bv__base_8h">
+<area shape="rect" id="node2" href="a00086.html" title="Report ids for the datatypes/bit code. " alt="" coords="14,273,138,315"/>
+<area shape="rect" id="node4" href="a00089.html" title="Proxy classes for vector data types. " alt="" coords="39,95,163,136"/>
+<area shape="rect" id="node5" href="a00107.html" title="Proxy base class for vector data types. " alt="" coords="114,184,238,225"/>
+<area shape="rect" id="node6" href="a00191.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="239,95,374,136"/>
+<area shape="rect" id="node3" href="a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="5,363,147,389"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00097.png" border="0" usemap="#sysc_2datatypes_2bit_2sc__logic_8hdep" alt=""/></div>
-<map name="sysc_2datatypes_2bit_2sc__logic_8hdep" id="sysc_2datatypes_2bit_2sc__logic_8hdep">
-<area shape="rect" id="node2" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="745,95,879,136"/>
-<area shape="rect" id="node4" href="a00401.html" title="systemc" alt="" coords="589,385,659,411"/>
-<area shape="rect" id="node6" href="a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="768,281,907,322"/>
-<area shape="rect" id="node7" href="a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="283,184,421,225"/>
-<area shape="rect" id="node9" href="a00068.html" title="The sc_signal_resolved port classes. " alt="" coords="555,273,693,329"/>
-<area shape="rect" id="node12" href="a00104.html" title="Proxy base class for vector data types. " alt="" coords="1007,95,1131,136"/>
-<area shape="rect" id="node15" href="a00101.html" title="Arbitrary size logic vector class. " alt="" coords="1107,377,1231,419"/>
-<area shape="rect" id="node3" href="a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="556,191,719,218"/>
-<area shape="rect" id="node5" href="a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="743,184,881,225"/>
-<area shape="rect" id="node8" href="a00008.html" title="The clock ports. " alt="" coords="221,281,360,322"/>
-<area shape="rect" id="node10" href="a00074.html" title="The resolved vector signal ports. " alt="" coords="5,281,147,322"/>
-<area shape="rect" id="node11" href="a00320.html" title="Process spawning options specification. " alt="" coords="384,281,531,322"/>
-<area shape="rect" id="node13" href="a00086.html" title="Proxy classes for vector data types. " alt="" coords="1007,184,1131,225"/>
-<area shape="rect" id="node14" href="a00092.html" title="Arbitrary size bit vector class. " alt="" coords="1058,281,1182,322"/>
+<div class="center"><img src="a00097.png" border="0" usemap="#sysc_2datatypes_2bit_2sc__bv__base_8hdep" alt=""/></div>
+<map name="sysc_2datatypes_2bit_2sc__bv__base_8hdep" id="sysc_2datatypes_2bit_2sc__bv__base_8hdep">
+<area shape="rect" id="node2" href="a00104.html" title="Arbitrary size logic vector class. " alt="" coords="160,95,284,136"/>
+<area shape="rect" id="node7" href="a00092.html" title="Arbitrary size bit vector class. " alt="" coords="315,184,439,225"/>
+<area shape="rect" id="node3" href="a00101.html" title="Arbitrary size logic vector class. " alt="" coords="5,184,129,225"/>
+<area shape="rect" id="node6" href="a00131.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="153,184,291,225"/>
+<area shape="rect" id="node4" href="a00404.html" title="systemc" alt="" coords="211,363,281,389"/>
+<area shape="rect" id="node5" href="a00215.html" title="Concatenation support. " alt="" coords="177,273,315,315"/>
 </map>
 </div>
 </div>
@@ -138,207 +125,27 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01403.html">sc_dt::sc_logic</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Four-valued logic type.  <a href="a01403.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01431.html">sc_dt::sc_bv_base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arbitrary size bit vector base class.  <a href="a01431.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00550"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html">sc_dt</a></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,  tp)</td></tr>
-<tr class="separator:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#a813e7689c7ceca0d2f103e0373b5e6ad">DEFN_ASN_OP</a>(op)</td></tr>
-<tr class="separator:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b1acf9dd47412aa96459b6e6840b06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#a33b1acf9dd47412aa96459b6e6840b06">DEFN_BIN_OP_T</a>(ret,  op,  tp)</td></tr>
-<tr class="separator:a33b1acf9dd47412aa96459b6e6840b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebb0d78a0c14894e7ed7ec5e28b0b96e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#aebb0d78a0c14894e7ed7ec5e28b0b96e">DEFN_BIN_OP</a>(ret,  op)</td></tr>
-<tr class="separator:aebb0d78a0c14894e7ed7ec5e28b0b96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a223af6739d8c2583afe1493167e80f1f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a223af6739d8c2583afe1493167e80f1f">sc_dt::sc_logic_value_t</a> { <a class="el" href="a00550.html#a223af6739d8c2583afe1493167e80f1facf684ee264000f979e683d589578cb76">sc_dt::Log_0</a> = 0, 
-<a class="el" href="a00550.html#a223af6739d8c2583afe1493167e80f1fa3d94e65043b731e0c9d787b50e197caf">sc_dt::Log_1</a>, 
-<a class="el" href="a00550.html#a223af6739d8c2583afe1493167e80f1fa312c0fda75290bb3115f0a6838a54e58">sc_dt::Log_Z</a>, 
-<a class="el" href="a00550.html#a223af6739d8c2583afe1493167e80f1fa4a796d0647b5a2c459b8806f2df1c677">sc_dt::Log_X</a>
- }<tr class="memdesc:a223af6739d8c2583afe1493167e80f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of values for sc_logic.  <a href="a00550.html#a223af6739d8c2583afe1493167e80f1f">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a223af6739d8c2583afe1493167e80f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a650a32e9591a15abbdacef0b415d0478"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a650a32e9591a15abbdacef0b415d0478">sc_dt::operator&amp;</a> (const sc_logic &amp;a, const sc_logic &amp;b)</td></tr>
-<tr class="separator:a650a32e9591a15abbdacef0b415d0478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa4f11c07555ffcc0fc97e15c772c236"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#afa4f11c07555ffcc0fc97e15c772c236">sc_dt::operator|</a> (const sc_logic &amp;a, const sc_logic &amp;b)</td></tr>
-<tr class="separator:afa4f11c07555ffcc0fc97e15c772c236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a712fb799189610ca33f8542faa614091"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a712fb799189610ca33f8542faa614091">sc_dt::operator^</a> (const sc_logic &amp;a, const sc_logic &amp;b)</td></tr>
-<tr class="separator:a712fb799189610ca33f8542faa614091"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a682e704d226b970e4996557c3a7e64d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a682e704d226b970e4996557c3a7e64d0">sc_dt::operator==</a> (const sc_logic &amp;a, const sc_logic &amp;b)</td></tr>
-<tr class="separator:a682e704d226b970e4996557c3a7e64d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f44cb6c8d3c779db140c9f8e06f4b5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a5f44cb6c8d3c779db140c9f8e06f4b5c">sc_dt::operator!=</a> (const sc_logic &amp;a, const sc_logic &amp;b)</td></tr>
-<tr class="separator:a5f44cb6c8d3c779db140c9f8e06f4b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32c99e6f4d73fbfa37f6881b3f0c8517"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a32c99e6f4d73fbfa37f6881b3f0c8517">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;os, const sc_logic &amp;a)</td></tr>
-<tr class="separator:a32c99e6f4d73fbfa37f6881b3f0c8517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef1349ce364097fa382a86aef84edc9d"><td class="memItemLeft" align="right" valign="top">inline ::std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aef1349ce364097fa382a86aef84edc9d">sc_dt::operator&gt;&gt;</a> (::std::istream &amp;is, sc_logic &amp;a)</td></tr>
-<tr class="separator:aef1349ce364097fa382a86aef84edc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ab2715f1c8bc1b0f4b6000c63743c919b"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#ab2715f1c8bc1b0f4b6000c63743c919b">sc_dt::SC_LOGIC_0</a></td></tr>
-<tr class="separator:ab2715f1c8bc1b0f4b6000c63743c919b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae517eb9f471b3b8355a7ee00ddc7a58c"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#ae517eb9f471b3b8355a7ee00ddc7a58c">sc_dt::SC_LOGIC_1</a></td></tr>
-<tr class="separator:ae517eb9f471b3b8355a7ee00ddc7a58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11f43af5111be2f73ce54cca7c2a4fa8"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a11f43af5111be2f73ce54cca7c2a4fa8">sc_dt::SC_LOGIC_Z</a></td></tr>
-<tr class="separator:a11f43af5111be2f73ce54cca7c2a4fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e9684c845cfbea4f5f9e374ec4fcc79"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a2e9684c845cfbea4f5f9e374ec4fcc79">sc_dt::SC_LOGIC_X</a></td></tr>
-<tr class="separator:a2e9684c845cfbea4f5f9e374ec4fcc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c90c0623cc0b1f107db111351ca3a7a"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a5c90c0623cc0b1f107db111351ca3a7a">sc_dt::sc_logic_0</a></td></tr>
-<tr class="separator:a5c90c0623cc0b1f107db111351ca3a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8f829fb3219fc990c25d020db6e54a"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a4f8f829fb3219fc990c25d020db6e54a">sc_dt::sc_logic_1</a></td></tr>
-<tr class="separator:a4f8f829fb3219fc990c25d020db6e54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a211eebd1818449dc934c948317bc1496"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a211eebd1818449dc934c948317bc1496">sc_dt::sc_logic_Z</a></td></tr>
-<tr class="separator:a211eebd1818449dc934c948317bc1496"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a513e2c9efff64513a605335ac0b0248c"><td class="memItemLeft" align="right" valign="top">const sc_logic&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a513e2c9efff64513a605335ac0b0248c">sc_dt::sc_logic_X</a></td></tr>
-<tr class="separator:a513e2c9efff64513a605335ac0b0248c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>C++ implementation of logic type. Behaves. </p>
-<p>pretty much the same way as HDLs except with 4 values.</p>
-<p>Original Author: Stan Y. Liao, Synopsys, Inc. </p>
+<div class="textblock"><p>Arbitrary size bit vector class. </p>
+<p>Original Author: Gene Bushuyev, Synopsys, Inc. </p>
 
-<p class="definition">Definition in file <a class="el" href="a00095_source.html">sc_logic.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a813e7689c7ceca0d2f103e0373b5e6ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a813e7689c7ceca0d2f103e0373b5e6ad">&#9670;&nbsp;</a></span>DEFN_ASN_OP</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFN_ASN_OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">op</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00095.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op, <a class="code" href="a00550.html#a223af6739d8c2583afe1493167e80f1f">sc_logic_value_t</a>)            \</div><div class="line">    DEFN_ASN_OP_T(op, <span class="keywordtype">bool</span>)                        \</div><div class="line">    DEFN_ASN_OP_T(op, <span class="keywordtype">char</span>)                        \</div><div class="line">    DEFN_ASN_OP_T(op, <span class="keywordtype">int</span> )                        \</div><div class="line">    DEFN_ASN_OP_T(op, <span class="keyword">const</span> sc_bit&amp; )</div><div class="ttc" id="a00095_html_a8d20a45ac165ec7ca334e44a0bdd33fa"><div class="ttname"><a href="a00095.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a></div><div class="ttdeci">#define DEFN_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00205">sc_logic.h:205</a></div></div>
-<div class="ttc" id="a00550_html_a223af6739d8c2583afe1493167e80f1f"><div class="ttname"><a href="a00550.html#a223af6739d8c2583afe1493167e80f1f">sc_dt::sc_logic_value_t</a></div><div class="ttdeci">sc_logic_value_t</div><div class="ttdoc">Enumeration of values for sc_logic. </div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00089">sc_logic.h:89</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00095_source.html#l00209">209</a> of file <a class="el" href="a00095_source.html">sc_logic.h</a>.</p>
-
-</div>
-</div>
-<a id="a8d20a45ac165ec7ca334e44a0bdd33fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d20a45ac165ec7ca334e44a0bdd33fa">&#9670;&nbsp;</a></span>DEFN_ASN_OP_T</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFN_ASN_OP_T</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">op, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">tp&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">sc_logic&amp; <span class="keyword">operator</span> op ( tp v )                 \</div><div class="line">        { *<span class="keyword">this</span> op sc_logic( v ); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div></div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00095_source.html#l00205">205</a> of file <a class="el" href="a00095_source.html">sc_logic.h</a>.</p>
-
-</div>
-</div>
-<a id="aebb0d78a0c14894e7ed7ec5e28b0b96e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebb0d78a0c14894e7ed7ec5e28b0b96e">&#9670;&nbsp;</a></span>DEFN_BIN_OP</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFN_BIN_OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ret, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">op&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00095.html#a33b1acf9dd47412aa96459b6e6840b06">DEFN_BIN_OP_T</a>(ret,op,<a class="code" href="a00550.html#a223af6739d8c2583afe1493167e80f1f">sc_logic_value_t</a>)             \</div><div class="line">    DEFN_BIN_OP_T(ret,op,<span class="keywordtype">bool</span>)                         \</div><div class="line">    DEFN_BIN_OP_T(ret,op,<span class="keywordtype">char</span>)                         \</div><div class="line">    DEFN_BIN_OP_T(ret,op,<span class="keywordtype">int</span>)</div><div class="ttc" id="a00550_html_a223af6739d8c2583afe1493167e80f1f"><div class="ttname"><a href="a00550.html#a223af6739d8c2583afe1493167e80f1f">sc_dt::sc_logic_value_t</a></div><div class="ttdeci">sc_logic_value_t</div><div class="ttdoc">Enumeration of values for sc_logic. </div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00089">sc_logic.h:89</a></div></div>
-<div class="ttc" id="a00095_html_a33b1acf9dd47412aa96459b6e6840b06"><div class="ttname"><a href="a00095.html#a33b1acf9dd47412aa96459b6e6840b06">DEFN_BIN_OP_T</a></div><div class="ttdeci">#define DEFN_BIN_OP_T(ret, op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00321">sc_logic.h:321</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00095_source.html#l00327">327</a> of file <a class="el" href="a00095_source.html">sc_logic.h</a>.</p>
-
-</div>
-</div>
-<a id="a33b1acf9dd47412aa96459b6e6840b06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33b1acf9dd47412aa96459b6e6840b06">&#9670;&nbsp;</a></span>DEFN_BIN_OP_T</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DEFN_BIN_OP_T</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ret, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">op, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">tp&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">inline</span> ret <span class="keyword">operator</span> op ( <span class="keyword">const</span> sc_logic&amp; a, tp <a class="code" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">        { <span class="keywordflow">return</span> ( a op sc_logic( <a class="code" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) ); }             \</div><div class="line">    inline ret <span class="keyword">operator</span> op ( tp a, <span class="keyword">const</span> sc_logic&amp; <a class="code" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">        { <span class="keywordflow">return</span> ( sc_logic( a ) op <a class="code" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a> ); }</div><div class="ttc" id="a00550_html_adf3ee606b574990426012b8c6cc286f4"><div class="ttname"><a href="a00550.html#adf3ee606b574990426012b8c6cc286f4">sc_dt::b</a></div><div class="ttdeci">uint64 const sc_uint_base int b</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l01003">sc_fxval.h:1003</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00095_source.html#l00321">321</a> of file <a class="el" href="a00095_source.html">sc_logic.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00095_source.html">sc_bv_base.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_d489ae3556ea625c3b8f44aba1bab533.html">bit</a></li><li class="navelem"><a class="el" href="a00095.html">sc_logic.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_d489ae3556ea625c3b8f44aba1bab533.html">bit</a></li><li class="navelem"><a class="el" href="a00095.html">sc_bv_base.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:51 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

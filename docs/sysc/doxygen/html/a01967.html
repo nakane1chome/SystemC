@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::vcd_trace_file Class Reference</title>
+<title>SystemC: sc_core::sc_spawn_object&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,1569 +82,86 @@ $(document).ready(function(){initNavTree('a01967.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a01964.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::vcd_trace_file Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">sc_core::sc_spawn_object&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00353_source.html">sysc/tracing/sc_vcd_trace.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00317_source.html">sysc/kernel/sc_spawn.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::vcd_trace_file:</div>
+Inheritance diagram for sc_core::sc_spawn_object&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01966.png" border="0" usemap="#sc__core_1_1vcd__trace__file_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1vcd__trace__file_inherit__map" id="sc__core_1_1vcd__trace__file_inherit__map">
-<area shape="rect" id="node2" href="a01959.html" title="sc_core::sc_trace_file_base" alt="" coords="5,80,184,107"/>
-<area shape="rect" id="node3" href="a01955.html" title="sc_core::sc_trace_file" alt="" coords="22,5,167,32"/>
+<div class="center"><img src="a01966.png" border="0" usemap="#sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map" id="sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map">
+<area shape="rect" id="node2" href="a01895.html" title="sc_core::sc_process_host" alt="" coords="22,5,190,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sc_core::vcd_trace_file:</div>
+Collaboration diagram for sc_core::sc_spawn_object&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01965.png" border="0" usemap="#sc__core_1_1vcd__trace__file_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1vcd__trace__file_coll__map" id="sc__core_1_1vcd__trace__file_coll__map">
-<area shape="rect" id="node2" href="a01959.html" title="sc_core::sc_trace_file_base" alt="" coords="49,95,227,121"/>
-<area shape="rect" id="node3" href="a01955.html" title="sc_core::sc_trace_file" alt="" coords="5,5,151,32"/>
+<div class="center"><img src="a01965.png" border="0" usemap="#sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map" id="sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map">
+<area shape="rect" id="node2" href="a01895.html" title="sc_core::sc_process_host" alt="" coords="5,5,173,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:abc49b8c4ce1d79a605e4301ea7cba322"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322">vcd_enum</a> { <a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322a0aed8d877bed34ad18d35753ab68e025">VCD_WIRE</a> =0, 
-<a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322a9c05f840276a693859fd2fc82cdb46c2">VCD_REAL</a> =1, 
-<a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322aef7b4a199c0e1dec68ca017f91920864">VCD_LAST</a>
- }</td></tr>
-<tr class="separator:abc49b8c4ce1d79a605e4301ea7cba322"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae50cb419d087da5a276308fd4ee6baf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ae50cb419d087da5a276308fd4ee6baf6">vcd_trace_file</a> (const char *name)</td></tr>
-<tr class="separator:ae50cb419d087da5a276308fd4ee6baf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a265d91be64ddd1c3d152d9ae13931d88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a265d91be64ddd1c3d152d9ae13931d88">~vcd_trace_file</a> ()</td></tr>
-<tr class="separator:a265d91be64ddd1c3d152d9ae13931d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98b2e62237c1a7fe84a3aab92603cf60"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a98b2e62237c1a7fe84a3aab92603cf60">obtain_name</a> ()</td></tr>
-<tr class="separator:a98b2e62237c1a7fe84a3aab92603cf60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c0c3227bde1b58253c45607076b4cf4"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a7c0c3227bde1b58253c45607076b4cf4">filename</a> () const</td></tr>
-<tr class="separator:a7c0c3227bde1b58253c45607076b4cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a743eb3eb40455411df1830454f9931e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a743eb3eb40455411df1830454f9931e8">delta_cycles</a> () const</td></tr>
-<tr class="separator:a743eb3eb40455411df1830454f9931e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb1e7ad96a8e09aef202ad03843dfa76"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#acb1e7ad96a8e09aef202ad03843dfa76">delta_cycles</a> (bool flag)</td></tr>
-<tr class="separator:acb1e7ad96a8e09aef202ad03843dfa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a65f967a8384a1cda985fd0f1f1b3d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#ac9a65f967a8384a1cda985fd0f1f1b3d">set_time_unit</a> (double v, <a class="el" href="a00549.html#abecb00ba031fb67c85124f66eb70aed4">sc_time_unit</a> tu)</td></tr>
-<tr class="separator:ac9a65f967a8384a1cda985fd0f1f1b3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a552d514e5894e03af615a27094f079fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01955.html#a552d514e5894e03af615a27094f079fe">trace</a> (const unsigned int &amp;object, const std::string &amp;name, const char **enum_literals)=0</td></tr>
-<tr class="separator:a552d514e5894e03af615a27094f079fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefb440b6478650929226a60cba075c7e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01955.html#aefb440b6478650929226a60cba075c7e">space</a> (int n)</td></tr>
-<tr class="separator:aefb440b6478650929226a60cba075c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ab05d6f51bed475ade04956f9dd971a1a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; vcd_trace * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ab05d6f51bed475ade04956f9dd971a1a">traces</a></td></tr>
-<tr class="separator:ab05d6f51bed475ade04956f9dd971a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:afdc34ede8ab6c4b1b2c5563cd9f5ee19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#afdc34ede8ab6c4b1b2c5563cd9f5ee19">trace</a> (const bool &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:afdc34ede8ab6c4b1b2c5563cd9f5ee19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49dafdfc6273c5f8de969228331e0e7a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a49dafdfc6273c5f8de969228331e0e7a">trace</a> (const <a class="el" href="a01367.html">sc_dt::sc_bit</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a49dafdfc6273c5f8de969228331e0e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad31b199b9b5cf391be38f477e0dd4e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ad31b199b9b5cf391be38f477e0dd4e9f">trace</a> (const <a class="el" href="a01403.html">sc_dt::sc_logic</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:ad31b199b9b5cf391be38f477e0dd4e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa0c74689c7240b59cbb1b5a0d78aa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a4fa0c74689c7240b59cbb1b5a0d78aa3">trace</a> (const unsigned char &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:a4fa0c74689c7240b59cbb1b5a0d78aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d616c80d3813fa1173dde6fa952539c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a4d616c80d3813fa1173dde6fa952539c">trace</a> (const unsigned <a class="el" href="a00083.html#af2b4988bf5cb782d5f4046ebc6b70886">short</a> &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:a4d616c80d3813fa1173dde6fa952539c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6a9aba159fb149558b8ee04a86850ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ab6a9aba159fb149558b8ee04a86850ce">trace</a> (const unsigned int &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:ab6a9aba159fb149558b8ee04a86850ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb432c371cc80e5df6ee374af2ddeaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a2bb432c371cc80e5df6ee374af2ddeaf">trace</a> (const unsigned long &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:a2bb432c371cc80e5df6ee374af2ddeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad03fc1865da88d7a18307a4f378b7dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ad03fc1865da88d7a18307a4f378b7dd4">trace</a> (const char &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:ad03fc1865da88d7a18307a4f378b7dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad417c20f3c08fb44fac5d2d9bc081c8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ad417c20f3c08fb44fac5d2d9bc081c8e">trace</a> (const <a class="el" href="a00083.html#af2b4988bf5cb782d5f4046ebc6b70886">short</a> &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:ad417c20f3c08fb44fac5d2d9bc081c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0df55089461404b11d0e35f4cf0fb331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a0df55089461404b11d0e35f4cf0fb331">trace</a> (const int &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:a0df55089461404b11d0e35f4cf0fb331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5a7297793fceb52f8bfc5d2a8f7171b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ae5a7297793fceb52f8bfc5d2a8f7171b">trace</a> (const long &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:ae5a7297793fceb52f8bfc5d2a8f7171b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad714ab4a2aeffda4aeb5336b8cf58619"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ad714ab4a2aeffda4aeb5336b8cf58619">trace</a> (const <a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a> &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:ad714ab4a2aeffda4aeb5336b8cf58619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60a0ada9ccb855ff25beaf14e80061af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a60a0ada9ccb855ff25beaf14e80061af">trace</a> (const <a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a> &amp;object, const std::string &amp;name, int width)</td></tr>
-<tr class="separator:a60a0ada9ccb855ff25beaf14e80061af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6b94cbc29c0f84d1b2903ff099aac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a1e6b94cbc29c0f84d1b2903ff099aac2">trace</a> (const float &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a1e6b94cbc29c0f84d1b2903ff099aac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f0525aedb6590f803e95404026718b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a0f0525aedb6590f803e95404026718b2">trace</a> (const double &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a0f0525aedb6590f803e95404026718b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af748fe55d45d3a277001f3ca9f76c886"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#af748fe55d45d3a277001f3ca9f76c886">trace</a> (const <a class="el" href="a01695.html">sc_dt::sc_uint_base</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:af748fe55d45d3a277001f3ca9f76c886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc02948408ea08265d071efca02b964d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#abc02948408ea08265d071efca02b964d">trace</a> (const <a class="el" href="a01647.html">sc_dt::sc_int_base</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:abc02948408ea08265d071efca02b964d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee42cf99deb964d2c6e6ee9933b049d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#aee42cf99deb964d2c6e6ee9933b049d2">trace</a> (const <a class="el" href="a01715.html">sc_dt::sc_unsigned</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:aee42cf99deb964d2c6e6ee9933b049d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a515ea33ff9a3479912ac6366a6ae2f6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a515ea33ff9a3479912ac6366a6ae2f6d">trace</a> (const <a class="el" href="a01671.html">sc_dt::sc_signed</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a515ea33ff9a3479912ac6366a6ae2f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5def276667c0a29664f5b7f03611f5fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a5def276667c0a29664f5b7f03611f5fd">trace</a> (const <a class="el" href="a01535.html">sc_dt::sc_fxval</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a5def276667c0a29664f5b7f03611f5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cb2205c1e2bba211c50ab1bfbf37cfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a9cb2205c1e2bba211c50ab1bfbf37cfc">trace</a> (const <a class="el" href="a01539.html">sc_dt::sc_fxval_fast</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a9cb2205c1e2bba211c50ab1bfbf37cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed980ad4bc8570e9c3b411c90734384"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a7ed980ad4bc8570e9c3b411c90734384">trace</a> (const <a class="el" href="a01515.html">sc_dt::sc_fxnum</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a7ed980ad4bc8570e9c3b411c90734384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fe770905f01ecb5cf8d59560161aa30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a3fe770905f01ecb5cf8d59560161aa30">trace</a> (const <a class="el" href="a01519.html">sc_dt::sc_fxnum_fast</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a3fe770905f01ecb5cf8d59560161aa30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8d9b1755eb07a76d66a4a5149d142f9"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:af8d9b1755eb07a76d66a4a5149d142f9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01967.html#af8d9b1755eb07a76d66a4a5149d142f9">traceT</a> (const T &amp;object, const std::string &amp;name, <a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322">vcd_enum</a> type=<a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322a0aed8d877bed34ad18d35753ab68e025">VCD_WIRE</a>)</td></tr>
-<tr class="separator:af8d9b1755eb07a76d66a4a5149d142f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a1e5243a32acc70ac81c14e6e91d4e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a86a1e5243a32acc70ac81c14e6e91d4e">trace</a> (const <a class="el" href="a01399.html">sc_dt::sc_bv_base</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:a86a1e5243a32acc70ac81c14e6e91d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9fda2b2aa77987d9f1bc70a016a2425"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ac9fda2b2aa77987d9f1bc70a016a2425">trace</a> (const <a class="el" href="a01411.html">sc_dt::sc_lv_base</a> &amp;object, const std::string &amp;name)</td></tr>
-<tr class="separator:ac9fda2b2aa77987d9f1bc70a016a2425"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a715785076600d7b70c06a93dca04bf4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a715785076600d7b70c06a93dca04bf4a">trace</a> (const unsigned &amp;object, const std::string &amp;name, const char **enum_literals)</td></tr>
-<tr class="separator:a715785076600d7b70c06a93dca04bf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac426232e89fbb1bb3b93431ad0f6483b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#ac426232e89fbb1bb3b93431ad0f6483b">write_comment</a> (const std::string &amp;comment)</td></tr>
-<tr class="separator:ac426232e89fbb1bb3b93431ad0f6483b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6208d54a4a576c6e74c25cb0c01a885e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a6208d54a4a576c6e74c25cb0c01a885e">cycle</a> (bool delta_cycle)</td></tr>
-<tr class="separator:a6208d54a4a576c6e74c25cb0c01a885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91348e323ea49aac8f7114efa917b162"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a91348e323ea49aac8f7114efa917b162">initialize</a> ()</td></tr>
-<tr class="separator:a91348e323ea49aac8f7114efa917b162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fdb5b97623c439fe196c726f6606ef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a3fdb5b97623c439fe196c726f6606ef2">open_fp</a> ()</td></tr>
-<tr class="separator:a3fdb5b97623c439fe196c726f6606ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af95ab8679ec14edc8985ecadca2ac829"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#af95ab8679ec14edc8985ecadca2ac829">add_trace_check</a> (const std::string &amp;name) const</td></tr>
-<tr class="separator:af95ab8679ec14edc8985ecadca2ac829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e306a2890d46659b23b2a91ba284c6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a8e306a2890d46659b23b2a91ba284c6a">sc_spawn_object</a> (T object)</td></tr>
+<tr class="separator:a8e306a2890d46659b23b2a91ba284c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f6055df6581f96bf11e6bd3f3746642"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a3f6055df6581f96bf11e6bd3f3746642">semantics</a> ()</td></tr>
+<tr class="separator:a3f6055df6581f96bf11e6bd3f3746642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf24d38ae99fdf5fed561e8fb8301111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01895.html#acf24d38ae99fdf5fed561e8fb8301111">defunct</a> ()</td></tr>
+<tr class="separator:acf24d38ae99fdf5fed561e8fb8301111"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:aabe7a92009444f039a6fde72881c9ca9"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#aabe7a92009444f039a6fde72881c9ca9">fp</a></td></tr>
-<tr class="separator:aabe7a92009444f039a6fde72881c9ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cf88be17be6a42d40321f72907537d9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a2cf88be17be6a42d40321f72907537d9">timescale_unit</a></td></tr>
-<tr class="separator:a2cf88be17be6a42d40321f72907537d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b362b10f37d233af3c7098e456a2481"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01959.html#a4b362b10f37d233af3c7098e456a2481">timescale_set_by_user</a></td></tr>
-<tr class="separator:a4b362b10f37d233af3c7098e456a2481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d632b76b56ce8b3de1d059d9cae421b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01967.html#a1d632b76b56ce8b3de1d059d9cae421b">m_object</a></td></tr>
+<tr class="separator:a1d632b76b56ce8b3de1d059d9cae421b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00062">62</a> of file <a class="el" href="a00353_source.html">sc_vcd_trace.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="abc49b8c4ce1d79a605e4301ea7cba322"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc49b8c4ce1d79a605e4301ea7cba322">&#9670;&nbsp;</a></span>vcd_enum</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class sc_core::sc_spawn_object&lt; T &gt;</h3>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322">sc_core::vcd_trace_file::vcd_enum</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abc49b8c4ce1d79a605e4301ea7cba322a0aed8d877bed34ad18d35753ab68e025"></a>VCD_WIRE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abc49b8c4ce1d79a605e4301ea7cba322a9c05f840276a693859fd2fc82cdb46c2"></a>VCD_REAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="abc49b8c4ce1d79a605e4301ea7cba322aef7b4a199c0e1dec68ca017f91920864"></a>VCD_LAST&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00067">67</a> of file <a class="el" href="a00353_source.html">sc_vcd_trace.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae50cb419d087da5a276308fd4ee6baf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae50cb419d087da5a276308fd4ee6baf6">&#9670;&nbsp;</a></span>vcd_trace_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_core::vcd_trace_file::vcd_trace_file </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a265d91be64ddd1c3d152d9ae13931d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a265d91be64ddd1c3d152d9ae13931d88">&#9670;&nbsp;</a></span>~vcd_trace_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_core::vcd_trace_file::~vcd_trace_file </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="af95ab8679ec14edc8985ecadca2ac829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af95ab8679ec14edc8985ecadca2ac829">&#9670;&nbsp;</a></span>add_trace_check()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_trace_file_base::add_trace_check </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6208d54a4a576c6e74c25cb0c01a885e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6208d54a4a576c6e74c25cb0c01a885e">&#9670;&nbsp;</a></span>cycle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::cycle </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>delta_cycle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a01955.html#aa764170956d5a956a3b34028780cbf9b">sc_core::sc_trace_file</a>.</p>
-
-</div>
-</div>
-<a id="a743eb3eb40455411df1830454f9931e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a743eb3eb40455411df1830454f9931e8">&#9670;&nbsp;</a></span>delta_cycles() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_trace_file_base::delta_cycles </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00067">67</a> of file <a class="el" href="a00347_source.html">sc_trace_file_base.h</a>.</p>
-
-</div>
-</div>
-<a id="acb1e7ad96a8e09aef202ad03843dfa76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb1e7ad96a8e09aef202ad03843dfa76">&#9670;&nbsp;</a></span>delta_cycles() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::sc_trace_file_base::delta_cycles </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>flag</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a01955.html#a8c297be26e2bfe653991d2cdceec2f7a">sc_core::sc_trace_file</a>.</p>
-
-</div>
-</div>
-<a id="a7c0c3227bde1b58253c45607076b4cf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c0c3227bde1b58253c45607076b4cf4">&#9670;&nbsp;</a></span>filename()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* sc_core::sc_trace_file_base::filename </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00064">64</a> of file <a class="el" href="a00347_source.html">sc_trace_file_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a91348e323ea49aac8f7114efa917b162"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91348e323ea49aac8f7114efa917b162">&#9670;&nbsp;</a></span>initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_trace_file_base::initialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a98b2e62237c1a7fe84a3aab92603cf60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98b2e62237c1a7fe84a3aab92603cf60">&#9670;&nbsp;</a></span>obtain_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string sc_core::vcd_trace_file::obtain_name </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3fdb5b97623c439fe196c726f6606ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fdb5b97623c439fe196c726f6606ef2">&#9670;&nbsp;</a></span>open_fp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_trace_file_base::open_fp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9a65f967a8384a1cda985fd0f1f1b3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a65f967a8384a1cda985fd0f1f1b3d">&#9670;&nbsp;</a></span>set_time_unit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::sc_trace_file_base::set_time_unit </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00549.html#abecb00ba031fb67c85124f66eb70aed4">sc_time_unit</a>&#160;</td>
-          <td class="paramname"><em>tu</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a01955.html#ae286858737132c85481a7ba666e8b21b">sc_core::sc_trace_file</a>.</p>
-
-</div>
-</div>
-<a id="aefb440b6478650929226a60cba075c7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefb440b6478650929226a60cba075c7e">&#9670;&nbsp;</a></span>space()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::sc_trace_file::space </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afdc34ede8ab6c4b1b2c5563cd9f5ee19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdc34ede8ab6c4b1b2c5563cd9f5ee19">&#9670;&nbsp;</a></span>trace() <span class="overload">[1/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const bool &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a49dafdfc6273c5f8de969228331e0e7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49dafdfc6273c5f8de969228331e0e7a">&#9670;&nbsp;</a></span>trace() <span class="overload">[2/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01367.html">sc_dt::sc_bit</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad31b199b9b5cf391be38f477e0dd4e9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad31b199b9b5cf391be38f477e0dd4e9f">&#9670;&nbsp;</a></span>trace() <span class="overload">[3/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01403.html">sc_dt::sc_logic</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4fa0c74689c7240b59cbb1b5a0d78aa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fa0c74689c7240b59cbb1b5a0d78aa3">&#9670;&nbsp;</a></span>trace() <span class="overload">[4/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned char &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4d616c80d3813fa1173dde6fa952539c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d616c80d3813fa1173dde6fa952539c">&#9670;&nbsp;</a></span>trace() <span class="overload">[5/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned <a class="el" href="a00083.html#af2b4988bf5cb782d5f4046ebc6b70886">short</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab6a9aba159fb149558b8ee04a86850ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6a9aba159fb149558b8ee04a86850ce">&#9670;&nbsp;</a></span>trace() <span class="overload">[6/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2bb432c371cc80e5df6ee374af2ddeaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb432c371cc80e5df6ee374af2ddeaf">&#9670;&nbsp;</a></span>trace() <span class="overload">[7/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned long &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad03fc1865da88d7a18307a4f378b7dd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad03fc1865da88d7a18307a4f378b7dd4">&#9670;&nbsp;</a></span>trace() <span class="overload">[8/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const char &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad417c20f3c08fb44fac5d2d9bc081c8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad417c20f3c08fb44fac5d2d9bc081c8e">&#9670;&nbsp;</a></span>trace() <span class="overload">[9/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00083.html#af2b4988bf5cb782d5f4046ebc6b70886">short</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0df55089461404b11d0e35f4cf0fb331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0df55089461404b11d0e35f4cf0fb331">&#9670;&nbsp;</a></span>trace() <span class="overload">[10/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const int &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5a7297793fceb52f8bfc5d2a8f7171b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5a7297793fceb52f8bfc5d2a8f7171b">&#9670;&nbsp;</a></span>trace() <span class="overload">[11/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const long &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad714ab4a2aeffda4aeb5336b8cf58619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad714ab4a2aeffda4aeb5336b8cf58619">&#9670;&nbsp;</a></span>trace() <span class="overload">[12/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a60a0ada9ccb855ff25beaf14e80061af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60a0ada9ccb855ff25beaf14e80061af">&#9670;&nbsp;</a></span>trace() <span class="overload">[13/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1e6b94cbc29c0f84d1b2903ff099aac2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e6b94cbc29c0f84d1b2903ff099aac2">&#9670;&nbsp;</a></span>trace() <span class="overload">[14/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const float &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0f0525aedb6590f803e95404026718b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f0525aedb6590f803e95404026718b2">&#9670;&nbsp;</a></span>trace() <span class="overload">[15/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af748fe55d45d3a277001f3ca9f76c886"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af748fe55d45d3a277001f3ca9f76c886">&#9670;&nbsp;</a></span>trace() <span class="overload">[16/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_dt::sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a552d514e5894e03af615a27094f079fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a552d514e5894e03af615a27094f079fe">&#9670;&nbsp;</a></span>trace() <span class="overload">[17/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::sc_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned int &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char **&#160;</td>
-          <td class="paramname"><em>enum_literals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abc02948408ea08265d071efca02b964d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc02948408ea08265d071efca02b964d">&#9670;&nbsp;</a></span>trace() <span class="overload">[18/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01647.html">sc_dt::sc_int_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aee42cf99deb964d2c6e6ee9933b049d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee42cf99deb964d2c6e6ee9933b049d2">&#9670;&nbsp;</a></span>trace() <span class="overload">[19/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01715.html">sc_dt::sc_unsigned</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a515ea33ff9a3479912ac6366a6ae2f6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a515ea33ff9a3479912ac6366a6ae2f6d">&#9670;&nbsp;</a></span>trace() <span class="overload">[20/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01671.html">sc_dt::sc_signed</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5def276667c0a29664f5b7f03611f5fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5def276667c0a29664f5b7f03611f5fd">&#9670;&nbsp;</a></span>trace() <span class="overload">[21/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01535.html">sc_dt::sc_fxval</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9cb2205c1e2bba211c50ab1bfbf37cfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cb2205c1e2bba211c50ab1bfbf37cfc">&#9670;&nbsp;</a></span>trace() <span class="overload">[22/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01539.html">sc_dt::sc_fxval_fast</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7ed980ad4bc8570e9c3b411c90734384"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed980ad4bc8570e9c3b411c90734384">&#9670;&nbsp;</a></span>trace() <span class="overload">[23/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01515.html">sc_dt::sc_fxnum</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3fe770905f01ecb5cf8d59560161aa30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fe770905f01ecb5cf8d59560161aa30">&#9670;&nbsp;</a></span>trace() <span class="overload">[24/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01519.html">sc_dt::sc_fxnum_fast</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a86a1e5243a32acc70ac81c14e6e91d4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86a1e5243a32acc70ac81c14e6e91d4e">&#9670;&nbsp;</a></span>trace() <span class="overload">[25/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01399.html">sc_dt::sc_bv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9fda2b2aa77987d9f1bc70a016a2425"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9fda2b2aa77987d9f1bc70a016a2425">&#9670;&nbsp;</a></span>trace() <span class="overload">[26/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01411.html">sc_dt::sc_lv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a715785076600d7b70c06a93dca04bf4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a715785076600d7b70c06a93dca04bf4a">&#9670;&nbsp;</a></span>trace() <span class="overload">[27/27]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::vcd_trace_file::trace </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char **&#160;</td>
-          <td class="paramname"><em>enum_literals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af8d9b1755eb07a76d66a4a5149d142f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8d9b1755eb07a76d66a4a5149d142f9">&#9670;&nbsp;</a></span>traceT()</h2>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00079">79</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8e306a2890d46659b23b2a91ba284c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e306a2890d46659b23b2a91ba284c6a">&#9670;&nbsp;</a></span>sc_spawn_object()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::vcd_trace_file::traceT </td>
+          <td class="memname"><a class="el" href="a01967.html">sc_core::sc_spawn_object</a>&lt; T &gt;::<a class="el" href="a01967.html">sc_spawn_object</a> </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>object</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322">vcd_enum</a>&#160;</td>
-          <td class="paramname"><em>type</em> = <code><a class="el" href="a01967.html#abc49b8c4ce1d79a605e4301ea7cba322a0aed8d877bed34ad18d35753ab68e025">VCD_WIRE</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00169">169</a> of file <a class="el" href="a00353_source.html">sc_vcd_trace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00081">81</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
 
 </div>
 </div>
-<a id="ac426232e89fbb1bb3b93431ad0f6483b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac426232e89fbb1bb3b93431ad0f6483b">&#9670;&nbsp;</a></span>write_comment()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acf24d38ae99fdf5fed561e8fb8301111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf24d38ae99fdf5fed561e8fb8301111">&#9670;&nbsp;</a></span>defunct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1653,123 +170,89 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::vcd_trace_file::write_comment </td>
+          <td class="memname">void sc_core::sc_process_host::defunct </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>comment</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="a01955.html#a5f2fef74534b7d6e92c4dc77dae77633">sc_core::sc_trace_file</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00101">101</a> of file <a class="el" href="a00293_source.html">sc_process.h</a>.</p>
+
+</div>
+</div>
+<a id="a3f6055df6581f96bf11e6bd3f3746642"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f6055df6581f96bf11e6bd3f3746642">&#9670;&nbsp;</a></span>semantics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a01967.html">sc_core::sc_spawn_object</a>&lt; T &gt;::semantics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00085">85</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aabe7a92009444f039a6fde72881c9ca9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabe7a92009444f039a6fde72881c9ca9">&#9670;&nbsp;</a></span>fp</h2>
+<a id="a1d632b76b56ce8b3de1d059d9cae421b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d632b76b56ce8b3de1d059d9cae421b">&#9670;&nbsp;</a></span>m_object</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">FILE* sc_core::sc_trace_file_base::fp</td>
+          <td class="memname">T <a class="el" href="a01967.html">sc_core::sc_spawn_object</a>&lt; T &gt;::m_object</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00099">99</a> of file <a class="el" href="a00347_source.html">sc_trace_file_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a4b362b10f37d233af3c7098e456a2481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b362b10f37d233af3c7098e456a2481">&#9670;&nbsp;</a></span>timescale_set_by_user</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_core::sc_trace_file_base::timescale_set_by_user</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00101">101</a> of file <a class="el" href="a00347_source.html">sc_trace_file_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a2cf88be17be6a42d40321f72907537d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cf88be17be6a42d40321f72907537d9">&#9670;&nbsp;</a></span>timescale_unit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double sc_core::sc_trace_file_base::timescale_unit</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00100">100</a> of file <a class="el" href="a00347_source.html">sc_trace_file_base.h</a>.</p>
-
-</div>
-</div>
-<a id="ab05d6f51bed475ade04956f9dd971a1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab05d6f51bed475ade04956f9dd971a1a">&#9670;&nbsp;</a></span>traces</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;vcd_trace*&gt; sc_core::vcd_trace_file::traces</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00214">214</a> of file <a class="el" href="a00353_source.html">sc_vcd_trace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00091">91</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/tracing/<a class="el" href="a00353_source.html">sc_vcd_trace.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00317_source.html">sc_spawn.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01967.html">vcd_trace_file</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01967.html">sc_spawn_object</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:07 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

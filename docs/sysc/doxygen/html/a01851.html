@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_phase_callback_registry Class Reference</title>
+<title>SystemC: sc_core::sc_bind_proxy Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,149 +82,147 @@ $(document).ready(function(){initNavTree('a01851.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#friends">Friends</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a01848.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_phase_callback_registry Class Reference</div>  </div>
+<div class="title">sc_core::sc_bind_proxy Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00290_source.html">sysc/kernel/sc_phase_callback_registry.h</a>&gt;</code></p>
+<p>Struct for temporarily storing a pointer to an interface or port.  
+ <a href="a01851.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00269_source.html">sysc/kernel/sc_module.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for sc_core::sc_bind_proxy:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01849.png" border="0" usemap="#sc__core_1_1sc__bind__proxy_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__bind__proxy_coll__map" id="sc__core_1_1sc__bind__proxy_coll__map">
+<area shape="rect" id="node2" href="a01199.html" title="Abstract base class of all interface classes. " alt="" coords="5,81,148,108"/>
+<area shape="rect" id="node3" href="a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="173,81,322,108"/>
+<area shape="rect" id="node4" href="a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="183,5,311,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01855.html">entry</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad982918a6ce3dc5313ce2ae59bda2240"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#ad982918a6ce3dc5313ce2ae59bda2240">sc_bind_proxy</a> ()</td></tr>
+<tr class="separator:ad982918a6ce3dc5313ce2ae59bda2240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac239e4b99295e629c810906212d3f13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#aac239e4b99295e629c810906212d3f13">sc_bind_proxy</a> (<a class="el" href="a01199.html">sc_interface</a> &amp;)</td></tr>
+<tr class="separator:aac239e4b99295e629c810906212d3f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51aa646139da624060f5c5eaaca1fb87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a51aa646139da624060f5c5eaaca1fb87">sc_bind_proxy</a> (<a class="el" href="a01215.html">sc_port_base</a> &amp;)</td></tr>
+<tr class="separator:a51aa646139da624060f5c5eaaca1fb87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a4c6899be3ba3d633874cdb7fb34ecfa8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01851.html">sc_phase_callback_registry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a4c6899be3ba3d633874cdb7fb34ecfa8">this_type</a></td></tr>
-<tr class="separator:a4c6899be3ba3d633874cdb7fb34ecfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31196395523308cf9bc302d4764f8221"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01835.html">sc_object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a31196395523308cf9bc302d4764f8221">cb_type</a></td></tr>
-<tr class="separator:a31196395523308cf9bc302d4764f8221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34d80bd6872213d9f1241d24c555fae6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01835.html#a38a53f30a8719f77e35df8965845819e">cb_type::phase_cb_mask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a34d80bd6872213d9f1241d24c555fae6">mask_type</a></td></tr>
-<tr class="separator:a34d80bd6872213d9f1241d24c555fae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a8a833de7b9d6933c5c9b296583c4c835"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a8a833de7b9d6933c5c9b296583c4c835">sc_simcontext</a></td></tr>
-<tr class="separator:a8a833de7b9d6933c5c9b296583c4c835"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe316699185dd3108ba952d356e513e5"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#abe316699185dd3108ba952d356e513e5">sc_object</a></td></tr>
-<tr class="separator:abe316699185dd3108ba952d356e513e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acf5e1d9812e35aeb1c47a480fcdb4a30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01199.html">sc_interface</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#acf5e1d9812e35aeb1c47a480fcdb4a30">iface</a></td></tr>
+<tr class="separator:acf5e1d9812e35aeb1c47a480fcdb4a30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a421f0418c5ee2789169dbc84d8518cc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01215.html">sc_port_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01851.html#a421f0418c5ee2789169dbc84d8518cc3">port</a></td></tr>
+<tr class="separator:a421f0418c5ee2789169dbc84d8518cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00056">56</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a31196395523308cf9bc302d4764f8221"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31196395523308cf9bc302d4764f8221">&#9670;&nbsp;</a></span>cb_type</h2>
+<div class="textblock"><p>Struct for temporarily storing a pointer to an interface or port. </p>
+<p>Used for positional binding. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00269_source.html#l00063">63</a> of file <a class="el" href="a00269_source.html">sc_module.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad982918a6ce3dc5313ce2ae59bda2240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad982918a6ce3dc5313ce2ae59bda2240">&#9670;&nbsp;</a></span>sc_bind_proxy() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01835.html">sc_object</a> <a class="el" href="a01851.html#a31196395523308cf9bc302d4764f8221">sc_core::sc_phase_callback_registry::cb_type</a></td>
+          <td class="memname">sc_core::sc_bind_proxy::sc_bind_proxy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00060">60</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
-
 </div>
 </div>
-<a id="a34d80bd6872213d9f1241d24c555fae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34d80bd6872213d9f1241d24c555fae6">&#9670;&nbsp;</a></span>mask_type</h2>
+<a id="aac239e4b99295e629c810906212d3f13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac239e4b99295e629c810906212d3f13">&#9670;&nbsp;</a></span>sc_bind_proxy() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01835.html#a38a53f30a8719f77e35df8965845819e">cb_type::phase_cb_mask</a> <a class="el" href="a01851.html#a34d80bd6872213d9f1241d24c555fae6">sc_core::sc_phase_callback_registry::mask_type</a></td>
+          <td class="memname">sc_core::sc_bind_proxy::sc_bind_proxy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01199.html">sc_interface</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00061">61</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
-
 </div>
 </div>
-<a id="a4c6899be3ba3d633874cdb7fb34ecfa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c6899be3ba3d633874cdb7fb34ecfa8">&#9670;&nbsp;</a></span>this_type</h2>
+<a id="a51aa646139da624060f5c5eaaca1fb87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51aa646139da624060f5c5eaaca1fb87">&#9670;&nbsp;</a></span>sc_bind_proxy() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01851.html">sc_phase_callback_registry</a> <a class="el" href="a01851.html#a4c6899be3ba3d633874cdb7fb34ecfa8">sc_core::sc_phase_callback_registry::this_type</a></td>
+          <td class="memname">sc_core::sc_bind_proxy::sc_bind_proxy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01215.html">sc_port_base</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00059">59</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
-
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="abe316699185dd3108ba952d356e513e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe316699185dd3108ba952d356e513e5">&#9670;&nbsp;</a></span>sc_object</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="acf5e1d9812e35aeb1c47a480fcdb4a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf5e1d9812e35aeb1c47a480fcdb4a30">&#9670;&nbsp;</a></span>iface</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01835.html">sc_object</a></td>
+          <td class="memname"><a class="el" href="a01199.html">sc_interface</a>* sc_core::sc_bind_proxy::iface</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00070">70</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00269_source.html#l00065">65</a> of file <a class="el" href="a00269_source.html">sc_module.h</a>.</p>
 
 </div>
 </div>
-<a id="a8a833de7b9d6933c5c9b296583c4c835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a833de7b9d6933c5c9b296583c4c835">&#9670;&nbsp;</a></span>sc_simcontext</h2>
+<a id="a421f0418c5ee2789169dbc84d8518cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a421f0418c5ee2789169dbc84d8518cc3">&#9670;&nbsp;</a></span>port</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="a01923.html">sc_simcontext</a></td>
+          <td class="memname"><a class="el" href="a01215.html">sc_port_base</a>* sc_core::sc_bind_proxy::port</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00069">69</a> of file <a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00269_source.html#l00066">66</a> of file <a class="el" href="a00269_source.html">sc_module.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00290_source.html">sc_phase_callback_registry.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>sysc/kernel/<a class="el" href="a00269_source.html">sc_module.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01851.html">sc_phase_callback_registry</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01851.html">sc_bind_proxy</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:58 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,47 +1,8 @@
 var a00380 =
 [
-    [ "sc_report", "a02043.html", "a02043" ],
-    [ "sc_assert", "a00380.html#a74afc5942d7b28d11f360a6f03181daa", null ],
-    [ "SC_DEFAULT_ERROR_ACTIONS", "a00380.html#ac470486bada7c053119d930add0fe27f", null ],
-    [ "SC_DEFAULT_FATAL_ACTIONS", "a00380.html#ad60c883b385686fbd164dd04efd29f62", null ],
-    [ "SC_DEFAULT_INFO_ACTIONS", "a00380.html#afcbdf811fb7ef32588019775ea3a3501", null ],
-    [ "SC_DEFAULT_WARNING_ACTIONS", "a00380.html#abd4867adda87d866b4ac3b64afe56425", null ],
-    [ "SC_REPORT_ERROR", "a00380.html#ad5720f0a4adf8866eb628b62a4fde9bf", null ],
-    [ "SC_REPORT_FATAL", "a00380.html#a3661cb5dd8c369e6838f91847cdb6d07", null ],
-    [ "SC_REPORT_INFO", "a00380.html#a96d99fea4b785441c169dd3b365d890a", null ],
-    [ "SC_REPORT_INFO_VERB", "a00380.html#a38fc0dfb8d6fcd6bd5d907b46e16fce9", null ],
-    [ "SC_REPORT_WARNING", "a00380.html#acfe483c250d556bb8a833e3e05da6654", null ],
-    [ "sc_actions", "a00380.html#a7ddb1a732ada16a5c04854b19a8e3442", null ],
-    [ "sc_exception", "a00380.html#a7f25767d6c84206b61ee6c80477e3b8e", null ],
-    [ "SC_UNSPECIFIED", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba0a482c78cbe2d8c84d0b34021d156f30", null ],
-    [ "SC_DO_NOTHING", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba43247b6fdd82197acb4fe74f0edd96d7", null ],
-    [ "SC_THROW", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba3ff96e0395a08f00834b49a2e5532658", null ],
-    [ "SC_LOG", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba105c183473970696920dd006207f7973", null ],
-    [ "SC_DISPLAY", "a00380.html#a0ded5583c5ab309dbe72dafc729674dbaf28c4eba216be43a0772a075e24e7878", null ],
-    [ "SC_CACHE_REPORT", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba7b2ca6fedcfd0c3506ec549d224b83c3", null ],
-    [ "SC_INTERRUPT", "a00380.html#a0ded5583c5ab309dbe72dafc729674dbab3eb6c04af237fe0d7b4bf9b2e009164", null ],
-    [ "SC_STOP", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba3d8a6502175008e463fa4232e5f4cfc9", null ],
-    [ "SC_ABORT", "a00380.html#a0ded5583c5ab309dbe72dafc729674dba200a23eb4070364a2de403438930226a", null ],
-    [ "sc_severity", "a00380.html#aa3a80a7746d587512323f2edc83e5b0e", [
-      [ "SC_INFO", "a00380.html#aa3a80a7746d587512323f2edc83e5b0ead2bd3c618cb02608fcdbdf26e0a63675", null ],
-      [ "SC_WARNING", "a00380.html#aa3a80a7746d587512323f2edc83e5b0ead51483b845b42e87825f2c71f12c67d5", null ],
-      [ "SC_ERROR", "a00380.html#aa3a80a7746d587512323f2edc83e5b0ea5ba5d6acf68a05a0122ca2da147d2b7d", null ],
-      [ "SC_FATAL", "a00380.html#aa3a80a7746d587512323f2edc83e5b0eacf1a7aa6c4aa03be39ee308908ff616e", null ],
-      [ "SC_MAX_SEVERITY", "a00380.html#aa3a80a7746d587512323f2edc83e5b0ea1ea1bacdd4addc7ec80fc2caf747ad6d", null ]
-    ] ],
-    [ "sc_verbosity", "a00380.html#a57f85f8696482890628428855959b378", [
-      [ "SC_NONE", "a00380.html#a57f85f8696482890628428855959b378a34c3f85e038acaba65da0eed4126cd36", null ],
-      [ "SC_LOW", "a00380.html#a57f85f8696482890628428855959b378a46dcccc49ff8b0f4faf102a307456253", null ],
-      [ "SC_MEDIUM", "a00380.html#a57f85f8696482890628428855959b378a1a3fe57ec4b6e8032d7288ee33be8ecd", null ],
-      [ "SC_HIGH", "a00380.html#a57f85f8696482890628428855959b378a3b051130461aff5cb676bc4021f3d859", null ],
-      [ "SC_FULL", "a00380.html#a57f85f8696482890628428855959b378ad1ec5d4169b769a4f3aa426cb9881206", null ],
-      [ "SC_DEBUG", "a00380.html#a57f85f8696482890628428855959b378ac3d8a770ce994c79971af0e3498e5457", null ]
-    ] ],
-    [ "sc_report_compose_message", "a00380.html#a8dbf2ad39cac59cc29d8c7b2e4aedcda", null ],
-    [ "SC_ID_ASSERTION_FAILED_", "a00380.html#afc6703a3c47d21f672cb4fab5a5031e5", null ],
-    [ "SC_ID_INTERNAL_ERROR_", "a00380.html#a779ddeac12e1c0a3df541b194c448b5c", null ],
-    [ "SC_ID_NOT_IMPLEMENTED_", "a00380.html#a017093c56818abb80a3c03560407d57e", null ],
-    [ "SC_ID_OUT_OF_BOUNDS_", "a00380.html#a0de6ce1fac96e97db4bdd2fb24468fc2", null ],
-    [ "SC_ID_UNKNOWN_ERROR_", "a00380.html#a382ee4ee3dfa6fe3aabb6bd136264c8b", null ],
-    [ "SC_ID_WITHOUT_MESSAGE_", "a00380.html#af6b3c3ec5fde4421e6415c7bb8716f80", null ]
+    [ "sc_msg_def", "a02091.html", "a02091" ],
+    [ "sc_report_handler", "a02095.html", "a02095" ],
+    [ "msg_def_items", "a02099.html", "a02099" ],
+    [ "sc_report_handler_proc", "a00380.html#acc0d7597d9312ec973a88912cd1f6781", null ],
+    [ "sc_report_close_default_log", "a00380.html#a9cd2fea4c1ed619ce4a4902366d283d0", null ]
 ];

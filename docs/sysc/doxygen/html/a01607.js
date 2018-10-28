@@ -1,7 +1,28 @@
 var a01607 =
 [
-    [ "scfx_index", "a01607.html#a280eec8639362c73a73d7c93463ddd4b", null ],
-    [ "bi", "a01607.html#a08543a389f7883520232e59facb6c7b9", null ],
-    [ "wi", "a01607.html#acc2d660305cced99a1d5ccd5fd211051", null ],
-    [ "wi", "a01607.html#ae68390ca9c091f5e24fe6949c4d48adc", null ]
+    [ "scfx_ieee_double", "a01607.html#a5a7d68abdd56c51ef7e2b05a2eac8378", null ],
+    [ "scfx_ieee_double", "a01607.html#a534df86488fb95122ddeea49a43f5d42", null ],
+    [ "scfx_ieee_double", "a01607.html#a02df9fc60364529ab713eb73ad5d8920", null ],
+    [ "exponent", "a01607.html#aeb377d63b97097ef0e4bf3642e3daad8", null ],
+    [ "exponent", "a01607.html#aab8608b977c52cf02c58de9f0b145e77", null ],
+    [ "inf", "a01607.html#a8b5d0366505e21b93e1aca4e21a9c389", null ],
+    [ "is_inf", "a01607.html#a0b0b791c39145f25c9108fbdd22f3344", null ],
+    [ "is_nan", "a01607.html#abda7158a1627add049f232e1c00b2da2", null ],
+    [ "is_normal", "a01607.html#ad657814227cdb7140c88e5028c5ac116", null ],
+    [ "is_subnormal", "a01607.html#ac78da65f48eaecb101d89f205f9935d0", null ],
+    [ "is_zero", "a01607.html#af1d4bd164da352a6ede40f083eade976", null ],
+    [ "lsb", "a01607.html#ac4e098d9b3f732f47fbf66da27f6f5d3", null ],
+    [ "mantissa0", "a01607.html#a944b8c7a64358daf88479550de0c0eee", null ],
+    [ "mantissa0", "a01607.html#abf26b070fa8ab564393f1e1d854cc16a", null ],
+    [ "mantissa1", "a01607.html#a3948455ea71d4de49de8ef802fcdb1b8", null ],
+    [ "mantissa1", "a01607.html#a9ff95f8631ac8116afabcddc6ddb71cd", null ],
+    [ "msb", "a01607.html#a46557bb2d99183811a80f336b1358db6", null ],
+    [ "nan", "a01607.html#a08db862a296e41fa16c67f04f2a7a8c0", null ],
+    [ "negative", "a01607.html#ac9c3a68ae4e29cd86ad84de1ae4010fe", null ],
+    [ "negative", "a01607.html#a81c699d6d228518e5035309cd319cdc0", null ],
+    [ "operator double", "a01607.html#a57f00addebd0d50b3491166f306d13a9", null ],
+    [ "operator=", "a01607.html#a9ae29b1eeb58677843e6aac2974a23f5", null ],
+    [ "operator=", "a01607.html#abd2254c8ecc21503fee6f41fa988eb12", null ],
+    [ "set_inf", "a01607.html#a32e2b16fd19bca1427d817a813cb54b0", null ],
+    [ "set_nan", "a01607.html#a883335df4d7d21d319e0a520ac73290a", null ]
 ];

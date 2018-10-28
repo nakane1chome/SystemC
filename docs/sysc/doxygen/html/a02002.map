@@ -1,3 +1,5 @@
-<map id="sc_core::sc_strhash_iter&lt; C &gt;" name="sc_core::sc_strhash_iter&lt; C &gt;">
-<area shape="rect" id="node2" href="$a01987.html" title="sc_core::sc_phash_base_iter" alt="" coords="5,5,192,32"/>
+<map id="sc_core::sc_trace_file_base" name="sc_core::sc_trace_file_base">
+<area shape="rect" id="node3" href="$a02011.html" title="sc_core::vcd_trace_file" alt="" coords="5,155,157,181"/>
+<area shape="rect" id="node4" href="$a02019.html" title="sc_core::wif_trace_file" alt="" coords="182,155,330,181"/>
+<area shape="rect" id="node2" href="$a01999.html" title="sc_core::sc_trace_file" alt="" coords="95,5,241,32"/>
 </map>

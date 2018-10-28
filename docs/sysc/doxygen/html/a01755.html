@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_cor_qt Class Reference</title>
+<title>SystemC: sc_dt::sc_concat_bool Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,63 +83,74 @@ $(document).ready(function(){initNavTree('a01755.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="a01752.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_cor_qt Class Reference</div>  </div>
+<div class="title">sc_dt::sc_concat_bool Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Coroutine class implemented with QuickThreads.  
+<p>Proxy class for read-only boolean values in concatenations.  
  <a href="a01755.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00239_source.html">sysc/kernel/sc_cor_qt.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00215_source.html">sysc/datatypes/misc/sc_concatref.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::sc_cor_qt:</div>
+Inheritance diagram for sc_dt::sc_concat_bool:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01754.png" border="0" usemap="#sc__core_1_1sc__cor__qt_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__cor__qt_inherit__map" id="sc__core_1_1sc__cor__qt_inherit__map">
-<area shape="rect" id="node2" href="a01747.html" title="Coroutine abstract base class. " alt="" coords="15,5,125,32"/>
+<div class="center"><img src="a01754.png" border="0" usemap="#sc__dt_1_1sc__concat__bool_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__dt_1_1sc__concat__bool_inherit__map" id="sc__dt_1_1sc__concat__bool_inherit__map">
+<area shape="rect" id="node2" href="a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="9,5,151,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sc_core::sc_cor_qt:</div>
+Collaboration diagram for sc_dt::sc_concat_bool:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01753.png" border="0" usemap="#sc__core_1_1sc__cor__qt_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__cor__qt_coll__map" id="sc__core_1_1sc__cor__qt_coll__map">
-<area shape="rect" id="node2" href="a01747.html" title="Coroutine abstract base class. " alt="" coords="5,81,116,108"/>
-<area shape="rect" id="node3" href="a01759.html" title="Coroutine package class implemented with QuickThreads. " alt="" coords="141,81,298,108"/>
-<area shape="rect" id="node4" href="a01751.html" title="Coroutine package abstract base class. " alt="" coords="150,5,289,32"/>
+<div class="center"><img src="a01753.png" border="0" usemap="#sc__dt_1_1sc__concat__bool_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__dt_1_1sc__concat__bool_coll__map" id="sc__dt_1_1sc__concat__bool_coll__map">
+<area shape="rect" id="node3" href="a02115.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_concat_bool \&gt;" alt="" coords="38,185,201,227"/>
+<area shape="rect" id="node2" href="a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="113,5,256,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8a8fbc6f3f807d3dcab1e0861a24afcf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a8a8fbc6f3f807d3dcab1e0861a24afcf">sc_cor_qt</a> ()</td></tr>
-<tr class="separator:a8a8fbc6f3f807d3dcab1e0861a24afcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a54ade5f86eb0f55867309c950d983b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a9a54ade5f86eb0f55867309c950d983b">~sc_cor_qt</a> ()</td></tr>
-<tr class="separator:a9a54ade5f86eb0f55867309c950d983b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1961179e6c1edb2bef6d879e79fd53f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#af1961179e6c1edb2bef6d879e79fd53f">stack_protect</a> (bool enable)</td></tr>
-<tr class="separator:af1961179e6c1edb2bef6d879e79fd53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939fd8f47051f1937c5b104bb812c6f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a939fd8f47051f1937c5b104bb812c6f2">sc_concat_bool</a> ()</td></tr>
+<tr class="separator:a939fd8f47051f1937c5b104bb812c6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aece2622de1fd1e0b422e2e5c5f34f0d0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#aece2622de1fd1e0b422e2e5c5f34f0d0">~sc_concat_bool</a> ()</td></tr>
+<tr class="separator:aece2622de1fd1e0b422e2e5c5f34f0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ed413e95833808efd034bf6b5459f2"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a72ed413e95833808efd034bf6b5459f2">concat_length</a> (bool *xz_present_p) const</td></tr>
+<tr class="separator:a72ed413e95833808efd034bf6b5459f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7550d3843f657af6d85883d1d984390b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a7550d3843f657af6d85883d1d984390b">concat_get_ctrl</a> (<a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
+<tr class="separator:a7550d3843f657af6d85883d1d984390b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa737cb6f159fa0c1c2b1b5bd128fe7a6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#aa737cb6f159fa0c1c2b1b5bd128fe7a6">concat_get_data</a> (<a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
+<tr class="separator:aa737cb6f159fa0c1c2b1b5bd128fe7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02e0ebaa82dd8a9ce2a83642388c7bd9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a02e0ebaa82dd8a9ce2a83642388c7bd9">concat_get_uint64</a> () const</td></tr>
+<tr class="separator:a02e0ebaa82dd8a9ce2a83642388c7bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:abf2a5dc720de1d411033a4726e2ce0ec"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#abf2a5dc720de1d411033a4726e2ce0ec">m_stack_size</a></td></tr>
-<tr class="separator:abf2a5dc720de1d411033a4726e2ce0ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b6146b3d096ea04e6bd186f36ac150e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a5b6146b3d096ea04e6bd186f36ac150e">m_stack</a></td></tr>
-<tr class="separator:a5b6146b3d096ea04e6bd186f36ac150e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48a46f3d13f22cca30a6c0de4cace81b"><td class="memItemLeft" align="right" valign="top">qt_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a48a46f3d13f22cca30a6c0de4cace81b">m_sp</a></td></tr>
-<tr class="separator:a48a46f3d13f22cca30a6c0de4cace81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f4460a0529ca7a3909fec4e41b28b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01759.html">sc_cor_pkg_qt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a91f4460a0529ca7a3909fec4e41b28b4">m_pkg</a></td></tr>
-<tr class="separator:a91f4460a0529ca7a3909fec4e41b28b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aeef7f53a8bb0ae45b1ce816f1c3a1106"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a01755.html">sc_concat_bool</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#aeef7f53a8bb0ae45b1ce816f1c3a1106">allocate</a> (bool v)</td></tr>
+<tr class="separator:aeef7f53a8bb0ae45b1ce816f1c3a1106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a520fec3440c7ca865e40238ac7973738"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a520fec3440c7ca865e40238ac7973738">m_value</a></td></tr>
+<tr class="separator:a520fec3440c7ca865e40238ac7973738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a89651058d669da090dce5681d3114d6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a02115.html">sc_core::sc_vpool</a>&lt; <a class="el" href="a01755.html">sc_concat_bool</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html#a89651058d669da090dce5681d3114d6b">m_pool</a></td></tr>
+<tr class="separator:a89651058d669da090dce5681d3114d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Coroutine class implemented with QuickThreads. </p>
+<div class="textblock"><p>Proxy class for read-only boolean values in concatenations. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00052">52</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00623">623</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8a8fbc6f3f807d3dcab1e0861a24afcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a8fbc6f3f807d3dcab1e0861a24afcf">&#9670;&nbsp;</a></span>sc_cor_qt()</h2>
+<a id="a939fd8f47051f1937c5b104bb812c6f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a939fd8f47051f1937c5b104bb812c6f2">&#9670;&nbsp;</a></span>sc_concat_bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +159,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_cor_qt::sc_cor_qt </td>
+          <td class="memname">sc_dt::sc_concat_bool::sc_concat_bool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -161,12 +172,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00058">58</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00633">633</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 
 </div>
 </div>
-<a id="a9a54ade5f86eb0f55867309c950d983b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a54ade5f86eb0f55867309c950d983b">&#9670;&nbsp;</a></span>~sc_cor_qt()</h2>
+<a id="aece2622de1fd1e0b422e2e5c5f34f0d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece2622de1fd1e0b422e2e5c5f34f0d0">&#9670;&nbsp;</a></span>~sc_concat_bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +186,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual sc_core::sc_cor_qt::~sc_cor_qt </td>
+          <td class="memname">virtual sc_dt::sc_concat_bool::~sc_concat_bool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -188,13 +199,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00063">63</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00639">639</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1961179e6c1edb2bef6d879e79fd53f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1961179e6c1edb2bef6d879e79fd53f">&#9670;&nbsp;</a></span>stack_protect()</h2>
+<a id="aeef7f53a8bb0ae45b1ce816f1c3a1106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeef7f53a8bb0ae45b1ce816f1c3a1106">&#9670;&nbsp;</a></span>allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,99 +214,222 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void sc_core::sc_cor_qt::stack_protect </td>
+          <td class="memname">static <a class="el" href="a01755.html">sc_concat_bool</a>* sc_dt::sc_concat_bool::allocate </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01747.html#a99181ac5c254d2c823fd67cfbd7f4d52">sc_core::sc_cor</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00644">644</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="a7550d3843f657af6d85883d1d984390b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7550d3843f657af6d85883d1d984390b">&#9670;&nbsp;</a></span>concat_get_ctrl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool sc_dt::sc_concat_bool::concat_get_ctrl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
+          <td class="paramname"><em>dst_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00659">659</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="aa737cb6f159fa0c1c2b1b5bd128fe7a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa737cb6f159fa0c1c2b1b5bd128fe7a6">&#9670;&nbsp;</a></span>concat_get_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool sc_dt::sc_concat_bool::concat_get_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
+          <td class="paramname"><em>dst_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>low_i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00667">667</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="a02e0ebaa82dd8a9ce2a83642388c7bd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02e0ebaa82dd8a9ce2a83642388c7bd9">&#9670;&nbsp;</a></span>concat_get_uint64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> sc_dt::sc_concat_bool::concat_get_uint64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00678">678</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="a72ed413e95833808efd034bf6b5459f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ed413e95833808efd034bf6b5459f2">&#9670;&nbsp;</a></span>concat_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int sc_dt::sc_concat_bool::concat_length </td>
+          <td>(</td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>xz_present_p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00653">653</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a91f4460a0529ca7a3909fec4e41b28b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91f4460a0529ca7a3909fec4e41b28b4">&#9670;&nbsp;</a></span>m_pkg</h2>
+<a id="a89651058d669da090dce5681d3114d6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89651058d669da090dce5681d3114d6b">&#9670;&nbsp;</a></span>m_pool</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01759.html">sc_cor_pkg_qt</a>* sc_core::sc_cor_qt::m_pkg</td>
+          <td class="memname"><a class="el" href="a02115.html">sc_core::sc_vpool</a>&lt;<a class="el" href="a01755.html">sc_concat_bool</a>&gt; sc_dt::sc_concat_bool::m_pool</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00075">75</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00626">626</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 
 </div>
 </div>
-<a id="a48a46f3d13f22cca30a6c0de4cace81b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48a46f3d13f22cca30a6c0de4cace81b">&#9670;&nbsp;</a></span>m_sp</h2>
+<a id="a520fec3440c7ca865e40238ac7973738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520fec3440c7ca865e40238ac7973738">&#9670;&nbsp;</a></span>m_value</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">qt_t* sc_core::sc_cor_qt::m_sp</td>
+          <td class="memname">bool sc_dt::sc_concat_bool::m_value</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00073">73</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
-
-</div>
-</div>
-<a id="a5b6146b3d096ea04e6bd186f36ac150e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b6146b3d096ea04e6bd186f36ac150e">&#9670;&nbsp;</a></span>m_stack</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* sc_core::sc_cor_qt::m_stack</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00072">72</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
-
-</div>
-</div>
-<a id="abf2a5dc720de1d411033a4726e2ce0ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf2a5dc720de1d411033a4726e2ce0ec">&#9670;&nbsp;</a></span>m_stack_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t sc_core::sc_cor_qt::m_stack_size</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00071">71</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00627">627</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00239_source.html">sc_cor_qt.h</a></li>
+<li>sysc/datatypes/misc/<a class="el" href="a00215_source.html">sc_concatref.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01755.html">sc_cor_qt</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00562.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01755.html">sc_concat_bool</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:11 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

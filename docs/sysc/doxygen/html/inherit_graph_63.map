@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$a01219.html" title="Registry for all primitive channels. " alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node1" href="$a02075.html" title="Priority queue base class. " alt="" coords="5,64,153,91"/>
+<area shape="rect" id="node2" href="$a02079.html" title="sc_core::sc_ppq\&lt; T \&gt;" alt="" coords="213,5,357,32"/>
+<area shape="rect" id="node3" href="$a02079.html" title="sc_core::sc_ppq\&lt; sc\l_core::sc_event_timed *\&gt;" alt="" coords="201,57,368,98"/>
+<area shape="rect" id="node4" href="$a02079.html" title="sc_core::sc_ppq\&lt; sc\l_core::sc_time *\&gt;" alt="" coords="215,122,354,163"/>
 </map>

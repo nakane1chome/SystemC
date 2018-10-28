@@ -1,7 +1,23 @@
-<map id="tlm_utils::callback_binder_fw&lt; TYPES &gt;" name="tlm_utils::callback_binder_fw&lt; TYPES &gt;">
-<area shape="rect" id="node2" href="$a02532.html" title="tlm::tlm_fw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="260,137,401,179"/>
-<area shape="rect" id="node3" href="$a02504.html" title="tlm::tlm_fw_nonblocking\l_transport_if\&lt; TYPES::\ltlm_payload_type, TYPES\l::tlm_phase_type \&gt;" alt="" coords="23,5,195,76"/>
-<area shape="rect" id="node4" href="$a02512.html" title="tlm::tlm_blocking_transport\l_if\&lt; TYPES::tlm_payload_type \&gt;" alt="" coords="5,100,212,141"/>
-<area shape="rect" id="node5" href="$a02516.html" title="tlm::tlm_fw_direct\l_mem_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="33,166,184,222"/>
-<area shape="rect" id="node6" href="$a02524.html" title="tlm::tlm_transport\l_dbg_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="37,246,180,302"/>
+<map id="tlm_utils::simple_socket_base" name="tlm_utils::simple_socket_base">
+<area shape="rect" id="node3" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="441,5,668,61"/>
+<area shape="rect" id="node5" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="441,86,668,157"/>
+<area shape="rect" id="node7" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="457,181,653,237"/>
+<area shape="rect" id="node9" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="443,262,666,333"/>
+<area shape="rect" id="node11" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="441,357,668,413"/>
+<area shape="rect" id="node13" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="441,438,668,509"/>
+<area shape="rect" id="node15" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="457,533,653,589"/>
+<area shape="rect" id="node17" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="443,614,666,685"/>
+<area shape="rect" id="node19" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="441,709,668,765"/>
+<area shape="rect" id="node20" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="457,789,653,845"/>
+<area shape="rect" id="node21" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="441,869,668,925"/>
+<area shape="rect" id="node22" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="457,949,653,1005"/>
+<area shape="rect" id="node2" href="$a02640.html" title="tlm_utils::convenience\l_socket_base" alt="" coords="5,497,153,538"/>
+<area shape="rect" id="node4" href="$a02792.html" title="tlm_utils::simple_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="722,5,934,61"/>
+<area shape="rect" id="node6" href="$a02796.html" title="tlm_utils::simple_initiator\l_socket_optional\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="734,93,922,149"/>
+<area shape="rect" id="node8" href="$a02808.html" title="tlm_utils::simple_initiator\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="737,181,919,237"/>
+<area shape="rect" id="node10" href="$a02812.html" title="tlm_utils::simple_initiator\l_socket_tagged_optional\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="716,269,940,325"/>
+<area shape="rect" id="node12" href="$a02840.html" title="tlm_utils::simple_target\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="722,357,934,413"/>
+<area shape="rect" id="node14" href="$a02844.html" title="tlm_utils::simple_target\l_socket_optional\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="734,445,922,501"/>
+<area shape="rect" id="node16" href="$a02872.html" title="tlm_utils::simple_target\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="737,533,919,589"/>
+<area shape="rect" id="node18" href="$a02876.html" title="tlm_utils::simple_target\l_socket_tagged_optional\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="716,621,940,677"/>
 </map>

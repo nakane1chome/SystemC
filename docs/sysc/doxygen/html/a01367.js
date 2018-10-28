@@ -1,25 +1,9 @@
 var a01367 =
 [
-    [ "sc_bit", "a01367.html#adbc1ba5dd4b67aa0efab53e7bf138280", null ],
-    [ "sc_bit", "a01367.html#a568ceea0f9fd082bbdde608aebdb7f9a", null ],
-    [ "sc_bit", "a01367.html#a97a9d33dac5c7effd57b28566f8ff73a", null ],
-    [ "~sc_bit", "a01367.html#aa8cb46d7d3c9c06dc78684a901bc0750", null ],
-    [ "b_not", "a01367.html#a0a3566b39565edd789318befa88759b8", null ],
-    [ "operator bool", "a01367.html#a503da97c216948ac0f3c0e6538b58d08", null ],
-    [ "operator!", "a01367.html#a4a6d3d6a8e42c4939ef02b8430ff50a6", null ],
-    [ "operator&=", "a01367.html#aba8e158323b51067e11a481339e7fd15", null ],
-    [ "operator=", "a01367.html#a0d2e780b7e368516b3d7ebbbbf31b9b9", null ],
-    [ "operator=", "a01367.html#abc112d2a64bf770bf23f236ba7024e0b", null ],
-    [ "operator^=", "a01367.html#a01d28fb9843bb6ed3fc8e60f175b8fdd", null ],
-    [ "operator|=", "a01367.html#aac70eead106184f7f80ac5bd58612fcd", null ],
-    [ "print", "a01367.html#a4e7a70bdde815be8f5513367186ecffb", null ],
-    [ "scan", "a01367.html#aa3879d5a40fcfa5edaa4bc8bceb9de2d", null ],
-    [ "to_bool", "a01367.html#a5e66930489f6ad7de9f846095fde4bcd", null ],
-    [ "to_char", "a01367.html#a6489a7ee3a5872a7d5652753f2a5d469", null ],
-    [ "operator!=", "a01367.html#afc9c399a2b2115248a2bd3d018ab7059", null ],
-    [ "operator&", "a01367.html#a5166b6e867539d6d3194b5efa807eb13", null ],
-    [ "operator==", "a01367.html#a0878ac213532d2986a86870b7473585a", null ],
-    [ "operator^", "a01367.html#a4908aea5d9d69e28b4faffe45aed3234", null ],
-    [ "operator|", "a01367.html#a209f3da30e2b56f95847563b54a0d099", null ],
-    [ "operator~", "a01367.html#a65ad30b91a638cc08b5037f8e383d879", null ]
+    [ "sc_writer_policy_check_delta", "a01367.html#a1f6804cc64c547f6c3fc2556541cab55", null ],
+    [ "check_write", "a01367.html#a270e4162081657be3f632cd7d6418717", null ],
+    [ "needs_update", "a01367.html#a08689db9a9a1b854cad8e323afe0baf6", null ],
+    [ "update", "a01367.html#a80bf656d80983600030831a4ab98a64b", null ],
+    [ "m_delta_only", "a01367.html#ad7c8ef9ee370eb9383ddbb72697f0606", null ],
+    [ "m_writer_p", "a01367.html#a24ce9357bbf246b559ca1d8c2c4a117d", null ]
 ];

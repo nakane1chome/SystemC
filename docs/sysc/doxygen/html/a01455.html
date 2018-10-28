@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_dt::sc_mixed_proxy_traits_helper&lt; X, X &gt; Struct Template Reference</title>
+<title>SystemC: sc_dt::sc_proxy_traits&lt; sc_bv_base &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -81,38 +81,108 @@ $(document).ready(function(){initNavTree('a01455.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="a01452.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_dt::sc_mixed_proxy_traits_helper&lt; X, X &gt; Struct Template Reference</div>  </div>
+<div class="title">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00104_source.html">sysc/datatypes/bit/sc_proxy.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for sc_dt::sc_mixed_proxy_traits_helper&lt; X, X &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01454.png" border="0" usemap="#sc__dt_1_1sc__mixed__proxy__traits__helper_3_01_x_00_01_x_01_4_inherit__map" alt="Inheritance graph"/></div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for sc_dt::sc_mixed_proxy_traits_helper&lt; X, X &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01453.png" border="0" usemap="#sc__dt_1_1sc__mixed__proxy__traits__helper_3_01_x_00_01_x_01_4_coll__map" alt="Collaboration graph"/></div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="a00107_source.html">sysc/datatypes/bit/sc_proxy.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6bdc9d28d2ae4140d4d9bfdcca10dd6f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01451.html">sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01455.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a></td></tr>
+<tr class="separator:a6bdc9d28d2ae4140d4d9bfdcca10dd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe14bc464c7ca3f1e54ff8f471d993d3"><td class="memItemLeft" align="right" valign="top">typedef bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01455.html#abe14bc464c7ca3f1e54ff8f471d993d3">value_type</a></td></tr>
+<tr class="separator:abe14bc464c7ca3f1e54ff8f471d993d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cad1331ff0515f71cb1593f406d19d9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01435.html">sc_logic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01455.html#a9cad1331ff0515f71cb1593f406d19d9">bit_type</a></td></tr>
+<tr class="separator:a9cad1331ff0515f71cb1593f406d19d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d05c67d2c135ecd1a80bc2f01b8f149"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01431.html">sc_bv_base</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01455.html#a3d05c67d2c135ecd1a80bc2f01b8f149">vector_type</a></td></tr>
+<tr class="separator:a3d05c67d2c135ecd1a80bc2f01b8f149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename X&gt;<br />
-struct sc_dt::sc_mixed_proxy_traits_helper&lt; X, X &gt;</h3>
+<div class="textblock"><h3>template&lt;&gt;<br />
+struct sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00176">176</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/datatypes/bit/<a class="el" href="a00104_source.html">sc_proxy.h</a></li>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00138">138</a> of file <a class="el" href="a00107_source.html">sc_proxy.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9cad1331ff0515f71cb1593f406d19d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cad1331ff0515f71cb1593f406d19d9">&#9670;&nbsp;</a></span>bit_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01435.html">sc_logic</a> <a class="el" href="a01451.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt;::<a class="el" href="a01455.html#a9cad1331ff0515f71cb1593f406d19d9">bit_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00142">142</a> of file <a class="el" href="a00107_source.html">sc_proxy.h</a>.</p>
+
+</div>
+</div>
+<a id="a6bdc9d28d2ae4140d4d9bfdcca10dd6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">&#9670;&nbsp;</a></span>traits_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01451.html">sc_proxy_traits</a>&lt;<a class="el" href="a01431.html">sc_bv_base</a>&gt; <a class="el" href="a01451.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt;::<a class="el" href="a01455.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00140">140</a> of file <a class="el" href="a00107_source.html">sc_proxy.h</a>.</p>
+
+</div>
+</div>
+<a id="abe14bc464c7ca3f1e54ff8f471d993d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe14bc464c7ca3f1e54ff8f471d993d3">&#9670;&nbsp;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef bool <a class="el" href="a01451.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt;::<a class="el" href="a01455.html#abe14bc464c7ca3f1e54ff8f471d993d3">value_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00141">141</a> of file <a class="el" href="a00107_source.html">sc_proxy.h</a>.</p>
+
+</div>
+</div>
+<a id="a3d05c67d2c135ecd1a80bc2f01b8f149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d05c67d2c135ecd1a80bc2f01b8f149">&#9670;&nbsp;</a></span>vector_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01431.html">sc_bv_base</a> <a class="el" href="a01451.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt;::<a class="el" href="a01455.html#a3d05c67d2c135ecd1a80bc2f01b8f149">vector_type</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00143">143</a> of file <a class="el" href="a00107_source.html">sc_proxy.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>sysc/datatypes/bit/<a class="el" href="a00107_source.html">sc_proxy.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00550.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01455.html">sc_mixed_proxy_traits_helper&lt; X, X &gt;</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:34 for SystemC by
+    <li class="navelem"><a class="el" href="a00562.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01455.html">sc_proxy_traits&lt; sc_bv_base &gt;</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:14 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

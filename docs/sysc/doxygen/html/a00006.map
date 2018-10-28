@@ -1,21 +1,21 @@
 <map id="sysc/communication/sc_clock.h" name="sysc/communication/sc_clock.h">
-<area shape="rect" id="node2" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="403,191,566,218"/>
-<area shape="rect" id="node16" href="$a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="1058,95,1197,136"/>
-<area shape="rect" id="node21" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="225,191,379,218"/>
-<area shape="rect" id="node3" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="737,541,883,583"/>
-<area shape="rect" id="node4" href="$a00293.html" title="Process base class support. " alt="" coords="728,459,892,486"/>
-<area shape="rect" id="node5" href="$a00272.html" title="An object used to help manage object names. " alt="" coords="231,273,383,315"/>
-<area shape="rect" id="node6" href="$a00308.html" title="Sensitivity classes. Requires &quot;sc_process.h&quot;. " alt="" coords="443,370,612,397"/>
-<area shape="rect" id="node7" href="$a00329.html" title="The time class. " alt="" coords="121,459,267,486"/>
-<area shape="rect" id="node8" href="$a00335.html" title="Wait() and related functions. " alt="" coords="739,281,881,307"/>
-<area shape="rect" id="node10" href="$a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="906,273,1039,315"/>
-<area shape="rect" id="node14" href="$a00296.html" title="Process access support. " alt="" coords="407,273,562,315"/>
-<area shape="rect" id="node15" href="$a00365.html" title="Simple implementation of a doubly linked list. " alt="" coords="32,281,156,307"/>
-<area shape="rect" id="node9" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="719,370,901,397"/>
-<area shape="rect" id="node11" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="945,363,1069,404"/>
-<area shape="rect" id="node12" href="$a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="1363,363,1502,404"/>
-<area shape="rect" id="node13" href="$a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="1363,452,1502,493"/>
-<area shape="rect" id="node17" href="$a00044.html" title="Base classes of all port classes. " alt="" coords="1219,184,1358,225"/>
-<area shape="rect" id="node18" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="1216,281,1367,307"/>
-<area shape="rect" id="node20" href="$a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="901,184,1039,225"/>
+<area shape="rect" id="node2" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="1210,191,1373,218"/>
+<area shape="rect" id="node14" href="$a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="362,95,501,136"/>
+<area shape="rect" id="node20" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="5,191,159,218"/>
+<area shape="rect" id="node3" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="1209,541,1355,583"/>
+<area shape="rect" id="node4" href="$a00293.html" title="Process base class support. " alt="" coords="1200,459,1364,486"/>
+<area shape="rect" id="node5" href="$a00272.html" title="An object used to help manage object names. " alt="" coords="1341,273,1493,315"/>
+<area shape="rect" id="node6" href="$a00308.html" title="Sensitivity classes. Requires &quot;sc_process.h&quot;. " alt="" coords="1357,370,1527,397"/>
+<area shape="rect" id="node7" href="$a00329.html" title="The time class. " alt="" coords="675,459,820,486"/>
+<area shape="rect" id="node8" href="$a00335.html" title="Wait() and related functions. " alt="" coords="691,281,833,307"/>
+<area shape="rect" id="node10" href="$a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="858,273,991,315"/>
+<area shape="rect" id="node12" href="$a00296.html" title="Process access support. " alt="" coords="1021,452,1175,493"/>
+<area shape="rect" id="node13" href="$a00362.html" title="Simple implementation of a doubly linked list. " alt="" coords="1067,281,1191,307"/>
+<area shape="rect" id="node9" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="656,370,839,397"/>
+<area shape="rect" id="node11" href="$a00098.html" title="C++ implementation of logic type. Behaves. " alt="" coords="863,363,987,404"/>
+<area shape="rect" id="node15" href="$a00047.html" title="Base classes of all port classes. " alt="" coords="426,184,565,225"/>
+<area shape="rect" id="node16" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="363,281,513,307"/>
+<area shape="rect" id="node17" href="$a00080.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="259,363,398,404"/>
+<area shape="rect" id="node18" href="$a00050.html" title="Abstract base class of all primitive channel classes. " alt="" coords="693,184,831,225"/>
+<area shape="rect" id="node19" href="$a00062.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="119,273,258,315"/>
 </map>

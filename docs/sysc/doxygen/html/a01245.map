@@ -1,3 +1,5 @@
-<map id="sc_core::sc_signal_in_if&lt; bool &gt;" name="sc_core::sc_signal_in_if&lt; bool &gt;">
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="5,5,148,32"/>
+<map id="sc_core::sc_signal_channel" name="sc_core::sc_signal_channel">
+<area shape="rect" id="node2" href="$a01231.html" title="Abstract base class of all primitive channel classes. " alt="" coords="5,81,176,108"/>
+<area shape="rect" id="node3" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="27,5,155,32"/>
+<area shape="rect" id="node4" href="$a01815.html" title="The event class. " alt="" coords="201,81,325,108"/>
 </map>

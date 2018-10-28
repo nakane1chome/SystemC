@@ -1,3 +1,4 @@
-<map id="sc_core::sc_cor" name="sc_core::sc_cor">
-<area shape="rect" id="node2" href="$a01755.html" title="Coroutine class implemented with QuickThreads. " alt="" coords="5,80,135,107"/>
+<map id="sc_dt::sc_unsigned" name="sc_dt::sc_unsigned">
+<area shape="rect" id="node3" href="$a01655.html" title="sc_dt::sc_biguint\&lt; W \&gt;" alt="" coords="5,155,156,181"/>
+<area shape="rect" id="node2" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="9,5,152,32"/>
 </map>

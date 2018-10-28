@@ -1,3 +1,8 @@
-<map id="tlm_utils/peq_with_get.h" name="tlm_utils/peq_with_get.h">
-<area shape="rect" id="node2" href="$a00797.html" title="tlm_utils/simple_target\l_socket.h" alt="" coords="5,95,156,136"/>
+<map id="tlm_utils/convenience_socket_bases.h" name="tlm_utils/convenience_socket_bases.h">
+<area shape="rect" id="node2" href="$a00806.html" title="tlm_utils/multi_socket\l_bases.h" alt="" coords="123,95,269,136"/>
+<area shape="rect" id="node5" href="$a00809.html" title="tlm_utils/passthrough\l_target_socket.h" alt="" coords="294,95,437,136"/>
+<area shape="rect" id="node6" href="$a00818.html" title="tlm_utils/simple_initiator\l_socket.h" alt="" coords="461,95,621,136"/>
+<area shape="rect" id="node7" href="$a00821.html" title="tlm_utils/simple_target\l_socket.h" alt="" coords="646,95,797,136"/>
+<area shape="rect" id="node3" href="$a00800.html" title="tlm_utils/multi_passthrough\l_initiator_socket.h" alt="" coords="5,184,184,225"/>
+<area shape="rect" id="node4" href="$a00803.html" title="tlm_utils/multi_passthrough\l_target_socket.h" alt="" coords="208,184,387,225"/>
 </map>

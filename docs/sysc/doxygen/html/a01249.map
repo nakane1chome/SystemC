@@ -1,3 +1,9 @@
-<map id="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;" name="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;">
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="13,5,156,32"/>
+<map id="sc_core::sc_signal_t&lt; T, POL &gt;" name="sc_core::sc_signal_t&lt; T, POL &gt;">
+<area shape="rect" id="node2" href="$a01283.html" title="sc_core::sc_signal\l_inout_if\&lt; T \&gt;" alt="" coords="353,68,479,109"/>
+<area shape="rect" id="node3" href="$a01267.html" title="sc_core::sc_signal\l_in_if\&lt; T \&gt;" alt="" coords="27,5,154,47"/>
+<area shape="rect" id="node4" href="$a01279.html" title="sc_core::sc_signal\l_write_if\&lt; T \&gt;" alt="" coords="27,71,154,112"/>
+<area shape="rect" id="node5" href="$a01247.html" title="sc_core::sc_signal\l_channel" alt="" coords="353,133,479,175"/>
+<area shape="rect" id="node6" href="$a01231.html" title="Abstract base class of all primitive channel classes. " alt="" coords="5,139,176,166"/>
+<area shape="rect" id="node7" href="$a01815.html" title="The event class. " alt="" coords="29,229,153,255"/>
+<area shape="rect" id="node8" href="$a01355.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="340,199,492,240"/>
 </map>

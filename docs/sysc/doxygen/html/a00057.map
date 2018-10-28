@@ -1,18 +1,4 @@
-<map id="sysc/communication/sc_signal.h" name="sysc/communication/sc_signal.h">
-<area shape="rect" id="node2" href="$a00044.html" title="Base classes of all port classes. " alt="" coords="461,95,600,136"/>
-<area shape="rect" id="node5" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="99,191,250,218"/>
-<area shape="rect" id="node6" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="777,281,959,307"/>
-<area shape="rect" id="node7" href="$a00293.html" title="Process base class support. " alt="" coords="641,370,805,397"/>
-<area shape="rect" id="node11" href="$a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="5,363,144,404"/>
-<area shape="rect" id="node13" href="$a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="895,95,1033,136"/>
-<area shape="rect" id="node16" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="1138,273,1262,315"/>
-<area shape="rect" id="node18" href="$a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="112,273,251,315"/>
-<area shape="rect" id="node19" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="1286,281,1439,307"/>
-<area shape="rect" id="node3" href="$a00011.html" title="Report ids for the communication code. " alt="" coords="326,184,493,225"/>
-<area shape="rect" id="node4" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="193,363,332,404"/>
-<area shape="rect" id="node8" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="645,459,800,486"/>
-<area shape="rect" id="node9" href="$a00329.html" title="The time class. " alt="" coords="1138,370,1283,397"/>
-<area shape="rect" id="node10" href="$a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="1243,452,1367,493"/>
-<area shape="rect" id="node14" href="$a00335.html" title="Wait() and related functions. " alt="" coords="811,191,954,218"/>
-<area shape="rect" id="node15" href="$a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="979,184,1112,225"/>
+<map id="sysc/communication/sc_semaphore_if.h" name="sysc/communication/sc_semaphore_if.h">
+<area shape="rect" id="node2" href="$a00038.html" title="Abstract base class of all interface classes. " alt="" coords="17,95,156,136"/>
+<area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,184,168,211"/>
 </map>

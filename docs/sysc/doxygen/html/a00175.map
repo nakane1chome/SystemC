@@ -1,4 +1,4 @@
-<map id="sysc/datatypes/int/sc_bigint.h" name="sysc/datatypes/int/sc_bigint.h">
-<area shape="rect" id="node2" href="$a00401.html" title="systemc" alt="" coords="33,95,102,121"/>
-<area shape="rect" id="node3" href="$a00404.html" title="systemc.h" alt="" coords="28,169,107,196"/>
+<map id="sysc/datatypes/fx/scfx_utils.h" name="sysc/datatypes/fx/scfx_utils.h">
+<area shape="rect" id="node2" href="$a00155.html" title="sysc/datatypes/fx/scfx\l_mant.h" alt="" coords="5,95,152,136"/>
+<area shape="rect" id="node3" href="$a00167.html" title="sysc/datatypes/fx/scfx\l_rep.h" alt="" coords="5,184,152,225"/>
 </map>

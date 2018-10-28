@@ -1,6 +1,13 @@
-<map id="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;" name="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;">
-<area shape="rect" id="node3" href="$a01259.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="403,35,535,91"/>
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="5,50,148,77"/>
-<area shape="rect" id="node4" href="$a01239.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_logic, POL \&gt;" alt="" coords="583,5,744,47"/>
-<area shape="rect" id="node5" href="$a01231.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_logic, SC\l_MANY_WRITERS \&gt;" alt="" coords="591,71,735,127"/>
+<map id="sc_core::sc_signal_t&lt; T, POL &gt;" name="sc_core::sc_signal_t&lt; T, POL &gt;">
+<area shape="rect" id="node8" href="$a01255.html" title="sc_core::sc_signal\l\&lt; T, POL \&gt;" alt="" coords="645,99,771,140"/>
+<area shape="rect" id="node11" href="$a01255.html" title="sc_signal\&lt; sc_dt::sc\l_lv\&lt; W \&gt;, SC_MANY_WRITERS \&gt;" alt="" coords="599,164,817,205"/>
+<area shape="rect" id="node2" href="$a01283.html" title="sc_core::sc_signal\l_inout_if\&lt; T \&gt;" alt="" coords="237,67,363,108"/>
+<area shape="rect" id="node3" href="$a01267.html" title="sc_core::sc_signal\l_in_if\&lt; T \&gt;" alt="" coords="27,5,154,47"/>
+<area shape="rect" id="node4" href="$a01279.html" title="sc_core::sc_signal\l_write_if\&lt; T \&gt;" alt="" coords="27,71,154,112"/>
+<area shape="rect" id="node5" href="$a01247.html" title="sc_core::sc_signal\l_channel" alt="" coords="237,132,363,173"/>
+<area shape="rect" id="node6" href="$a01231.html" title="Abstract base class of all primitive channel classes. " alt="" coords="5,139,176,166"/>
+<area shape="rect" id="node7" href="$a01355.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="224,197,376,239"/>
+<area shape="rect" id="node9" href="$a01111.html" title="sc_core::sc_buffer\l\&lt; T, POL \&gt;" alt="" coords="891,33,1015,75"/>
+<area shape="rect" id="node10" href="$a01115.html" title="The clock channel. " alt="" coords="865,99,1041,140"/>
+<area shape="rect" id="node12" href="$a01339.html" title="sc_core::sc_signal\l_rv\&lt; W \&gt;" alt="" coords="890,164,1017,205"/>
 </map>

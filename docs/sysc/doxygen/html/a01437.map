@@ -1,3 +1,4 @@
-<map id="sc_dt::sc_proxy_traits&lt; sc_subref_r&lt; X &gt; &gt;" name="sc_dt::sc_proxy_traits&lt; sc_subref_r&lt; X &gt; &gt;">
-<area shape="rect" id="node2" href="$a01419.html" title="Template traits helper to select the correct bit/value/vector_types for. " alt="" coords="5,5,180,32"/>
+<map id="sc_dt::sc_lv&lt; W &gt;" name="sc_dt::sc_lv&lt; W &gt;">
+<area shape="rect" id="node2" href="$a01443.html" title="Arbitrary size logic vector base class. " alt="" coords="11,95,133,121"/>
+<area shape="rect" id="node3" href="$a01447.html" title="sc_dt::sc_proxy\&lt; sc\l_lv_base \&gt;" alt="" coords="5,5,139,47"/>
 </map>

@@ -1,4 +1,6 @@
-<map id="sc_core::sc_out_rv&lt; W &gt;" name="sc_core::sc_out_rv&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01323.html" title="sc_core::sc_inout_rv\&lt; W \&gt;" alt="" coords="5,95,177,121"/>
-<area shape="rect" id="node3" href="$a01279.html" title="sc_core::sc_inout\&lt;\l sc_dt::sc_lv\&lt; W \&gt; \&gt;" alt="" coords="23,5,159,47"/>
+<map id="sc_core::sc_inout_resolved" name="sc_core::sc_inout_resolved">
+<area shape="rect" id="node2" href="$a01311.html" title="Specialization of sc_inout&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="305,93,435,135"/>
+<area shape="rect" id="node3" href="$a01227.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; sc\l_dt::sc_logic \&gt;, 1, SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,76"/>
+<area shape="rect" id="node4" href="$a01435.html" title="Four&#45;valued logic type. " alt="" coords="47,101,154,127"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="45,151,156,178"/>
 </map>

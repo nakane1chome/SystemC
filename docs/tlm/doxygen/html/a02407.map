@@ -1,8 +1,7 @@
-<map id="tlm::tlm_extension_base" name="tlm::tlm_extension_base">
-<area shape="rect" id="node2" href="$a02412.html" title="tlm::tlm_extension\&lt; T \&gt;" alt="" coords="213,5,367,32"/>
-<area shape="rect" id="node3" href="$a02412.html" title="tlm::tlm_extension\l\&lt; instance_specific\l_extension_carrier \&gt;" alt="" coords="221,56,359,112"/>
-<area shape="rect" id="node5" href="$a02412.html" title="tlm::tlm_extension\l\&lt; mm_end_event_ext \&gt;" alt="" coords="212,137,368,178"/>
-<area shape="rect" id="node6" href="$a02412.html" title="tlm::tlm_extension\l\&lt; tlm_endian_context \&gt;" alt="" coords="212,202,368,243"/>
-<area shape="rect" id="node4" href="$a02472.html" title="tlm_utils::instance\l_specific_extension\l_carrier" alt="" coords="429,56,562,112"/>
-<area shape="rect" id="node7" href="$a02396.html" title="tlm::tlm_endian_context" alt="" coords="416,209,575,236"/>
+<map id="tlm::tlm_put_if&lt; T &gt;" name="tlm::tlm_put_if&lt; T &gt;">
+<area shape="rect" id="node5" href="$a02440.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="81,244,239,271"/>
+<area shape="rect" id="node2" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; T \&gt;" alt="" coords="5,80,149,121"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="89,5,231,32"/>
+<area shape="rect" id="node4" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; T \&gt;" alt="" coords="174,80,314,121"/>
+<area shape="rect" id="node6" href="$a02492.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="101,319,219,345"/>
 </map>

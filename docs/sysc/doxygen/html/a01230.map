@@ -1,9 +1,8 @@
-<map id="sc_core::sc_signal&lt; T, POL &gt;" name="sc_core::sc_signal&lt; T, POL &gt;">
-<area shape="rect" id="node8" href="$a01099.html" title="sc_core::sc_buffer\l\&lt; T, POL \&gt;" alt="" coords="575,129,699,171"/>
-<area shape="rect" id="node2" href="$a01259.html" title="sc_core::sc_signal\l_inout_if\&lt; T \&gt;" alt="" coords="203,71,330,112"/>
-<area shape="rect" id="node3" href="$a01243.html" title="sc_core::sc_signal\l_in_if\&lt; T \&gt;" alt="" coords="6,5,133,47"/>
-<area shape="rect" id="node4" href="$a01255.html" title="sc_core::sc_signal\l_write_if\&lt; T \&gt;" alt="" coords="6,71,133,112"/>
-<area shape="rect" id="node5" href="$a01215.html" title="Abstract base class of all primitive channel classes. " alt="" coords="181,137,352,163"/>
-<area shape="rect" id="node6" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="5,137,133,163"/>
-<area shape="rect" id="node7" href="$a01331.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="191,188,343,229"/>
+<map id="sc_core::sc_prim_channel" name="sc_core::sc_prim_channel">
+<area shape="rect" id="node3" href="$a01155.html" title="sc_core::sc_fifo\&lt; T \&gt;" alt="" coords="400,19,540,46"/>
+<area shape="rect" id="node4" href="$a01247.html" title="sc_core::sc_signal\l_channel" alt="" coords="407,71,533,112"/>
+<area shape="rect" id="node2" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="5,49,133,75"/>
+<area shape="rect" id="node5" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; T, POL \&gt;" alt="" coords="591,5,717,47"/>
+<area shape="rect" id="node6" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; bool, POL \&gt;" alt="" coords="591,71,717,112"/>
+<area shape="rect" id="node7" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; sc_dt::sc_logic,\l POL \&gt;" alt="" coords="588,137,720,193"/>
 </map>

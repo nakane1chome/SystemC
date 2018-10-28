@@ -1,6 +1,3 @@
-<map id="sc_dt::sc_unsigned_bitref" name="sc_dt::sc_unsigned_bitref">
-<area shape="rect" id="node5" href="$a02067.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_unsigned\l_bitref \&gt;" alt="" coords="53,380,186,436"/>
-<area shape="rect" id="node2" href="$a01699.html" title="Proxy class for sc_unsigned bit selection (r&#45;value only). " alt="" coords="114,171,245,212"/>
-<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="103,5,245,32"/>
-<area shape="rect" id="node4" href="$a01715.html" title="Arbitrary precision unsigned number. " alt="" coords="195,81,326,108"/>
+<map id="sc_dt::sc_signed" name="sc_dt::sc_signed">
+<area shape="rect" id="node2" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
 </map>

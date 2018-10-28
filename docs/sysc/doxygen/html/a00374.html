@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/utils/sc_pq.h File Reference</title>
+<title>SystemC: sysc/utils/sc_pvector.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,35 +83,28 @@ $(document).ready(function(){initNavTree('a00374.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">sc_pq.h File Reference</div>  </div>
+<div class="title">sc_pvector.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A simple priority queue (which can be used to model multiple.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_pq.h:</div>
+Include dependency graph for sc_pvector.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00375.png" border="0" usemap="#sysc_2utils_2sc__pq_8h" alt=""/></div>
+<div class="center"><img src="a00375.png" border="0" usemap="#sysc_2utils_2sc__pvector_8h" alt=""/></div>
+<map name="sysc_2utils_2sc__pvector_8h" id="sysc_2utils_2sc__pvector_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00376.png" border="0" usemap="#sysc_2utils_2sc__pq_8hdep" alt=""/></div>
-<map name="sysc_2utils_2sc__pq_8hdep" id="sysc_2utils_2sc__pq_8hdep">
-<area shape="rect" id="node2" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="416,80,599,107"/>
-<area shape="rect" id="node3" href="a00335.html" title="Wait() and related functions. " alt="" coords="5,162,148,189"/>
-<area shape="rect" id="node4" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="173,155,306,196"/>
-<area shape="rect" id="node5" href="a00401.html" title="systemc" alt="" coords="415,333,485,360"/>
-<area shape="rect" id="node6" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="432,162,583,189"/>
-<area shape="rect" id="node7" href="a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="381,244,519,285"/>
-<area shape="rect" id="node8" href="a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="543,244,682,285"/>
-<area shape="rect" id="node9" href="a00110.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="659,155,796,196"/>
-<area shape="rect" id="node10" href="a00314.html" title="For inline definitions of some utility functions. " alt="" coords="820,155,992,196"/>
-<area shape="rect" id="node11" href="a00290.html" title="Definition of the simulation phase callbacks. " alt="" coords="1017,155,1161,196"/>
+<div class="center"><img src="a00376.png" border="0" usemap="#sysc_2utils_2sc__pvector_8hdep" alt=""/></div>
+<map name="sysc_2utils_2sc__pvector_8hdep" id="sysc_2utils_2sc__pvector_8hdep">
+<area shape="rect" id="node2" href="a00404.html" title="systemc" alt="" coords="46,80,115,107"/>
+<area shape="rect" id="node3" href="a00407.html" title="systemc.h" alt="" coords="41,155,120,181"/>
 </map>
 </div>
 </div>
@@ -119,31 +112,74 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02031.html">sc_core::sc_ppq_base</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority queue base class.  <a href="a02031.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02035.html">sc_core::sc_ppq&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02083.html">sc_core::sc_pvector&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ae1378dd54ebc6f450b432cb399000525"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00374.html#ae1378dd54ebc6f450b432cb399000525">ACCESS</a>(I)&#160;&#160;&#160;m_vector[I]</td></tr>
+<tr class="separator:ae1378dd54ebc6f450b432cb399000525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d877b321dbdd4dbdcb3c5aeb733628e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00374.html#a1d877b321dbdd4dbdcb3c5aeb733628e">ADDR_ACCESS</a>(I)&#160;&#160;&#160;(m_vector.size() != 0 ? &amp;m_vector[I] : 0 )</td></tr>
+<tr class="separator:a1d877b321dbdd4dbdcb3c5aeb733628e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aafa116a3fc5bfb5e04997dc15762b3a1"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#aafa116a3fc5bfb5e04997dc15762b3a1">sc_core::CFT</a>) (const void *, const void *)</td></tr>
+<tr class="separator:aafa116a3fc5bfb5e04997dc15762b3a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple priority queue (which can be used to model multiple. </p>
-<p>clocks). From Cormen-Leiserson-Rivest, Ch.7.</p>
-<p>Original Author: Stan Y. Liao, Synopsys, Inc.</p>
-<p>CHANGE LOG AT END OF FILE </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae1378dd54ebc6f450b432cb399000525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1378dd54ebc6f450b432cb399000525">&#9670;&nbsp;</a></span>ACCESS</h2>
 
-<p class="definition">Definition in file <a class="el" href="a00374_source.html">sc_pq.h</a>.</p>
-</div></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ACCESS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">I</td><td>)</td>
+          <td>&#160;&#160;&#160;m_vector[I]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00374_source.html#l00046">46</a> of file <a class="el" href="a00374_source.html">sc_pvector.h</a>.</p>
+
+</div>
+</div>
+<a id="a1d877b321dbdd4dbdcb3c5aeb733628e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d877b321dbdd4dbdcb3c5aeb733628e">&#9670;&nbsp;</a></span>ADDR_ACCESS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADDR_ACCESS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">I</td><td>)</td>
+          <td>&#160;&#160;&#160;(m_vector.size() != 0 ? &amp;m_vector[I] : 0 )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00374_source.html#l00047">47</a> of file <a class="el" href="a00374_source.html">sc_pvector.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00374.html">sc_pq.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00374.html">sc_pvector.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:55 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

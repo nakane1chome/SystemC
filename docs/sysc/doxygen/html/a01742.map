@@ -1,3 +1,4 @@
-<map id="sc_core::sc_attribute&lt; T &gt;" name="sc_core::sc_attribute&lt; T &gt;">
-<area shape="rect" id="node2" href="$a01735.html" title="Attribute base class. " alt="" coords="17,5,164,32"/>
+<map id="sc_dt::sc_unsigned_subref" name="sc_dt::sc_unsigned_subref">
+<area shape="rect" id="node2" href="$a01739.html" title="Proxy class for sc_unsigned part selection (r&#45;value only). " alt="" coords="11,80,142,121"/>
+<area shape="rect" id="node3" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
 </map>

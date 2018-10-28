@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mask_5ftype',['mask_type',['../a01851.html#a34d80bd6872213d9f1241d24c555fae6',1,'sc_core::sc_phase_callback_registry']]],
-  ['member_5ftype',['member_type',['../a02131.html#a61e5b7fa42b4aefa59fb985827b855e2',1,'sc_core::sc_member_access::member_type()'],['../a02115.html#a0ddd56b591b45750b829fbeb30b745c4',1,'sc_core::sc_vector_assembly::member_type()']]]
+  ['non_5fconst_5fpolicy',['non_const_policy',['../a02187.html#a175c25a10c035e40f19124b5b2ef6797',1,'sc_core::sc_direct_access::non_const_policy()'],['../a02191.html#a99acd781c6f095c8bbc31f36d1b5d214',1,'sc_core::sc_member_access::non_const_policy()']]]
 ];

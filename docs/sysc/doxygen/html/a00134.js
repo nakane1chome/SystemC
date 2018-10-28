@@ -1,8 +1,15 @@
 var a00134 =
 [
-    [ "sc_fxtype_params", "a01531.html", "a01531" ],
-    [ "sc_fxtype_context", "a00134.html#ad53dceb3036688638f62a71b7f56a694", null ],
-    [ "operator!=", "a00134.html#a0561b8a64aeb14ae141b087e10f620b8", null ],
-    [ "operator<<", "a00134.html#aa1f6615c06683ab1a12c4593102f4579", null ],
-    [ "operator==", "a00134.html#ab78be5087d037d1a7e56cbaecd89f9a2", null ]
+    [ "sc_fxnum_observer", "a01555.html", "a01555" ],
+    [ "sc_fxnum_fast_observer", "a01559.html", "a01559" ],
+    [ "SC_FXNUM_FAST_OBSERVER_CONSTRUCT_", "a00134.html#a9c5f0460ed7a9c4b0a71f22161741e44", null ],
+    [ "SC_FXNUM_FAST_OBSERVER_DEFAULT_", "a00134.html#add66f30e1d96da3534f09dc1b2cb7af5", null ],
+    [ "SC_FXNUM_FAST_OBSERVER_DESTRUCT_", "a00134.html#a65ce83fd05f31ab36ded43d3c3b13d73", null ],
+    [ "SC_FXNUM_FAST_OBSERVER_READ_", "a00134.html#ace1285cb9ad0b5d11399e526fb50824d", null ],
+    [ "SC_FXNUM_FAST_OBSERVER_WRITE_", "a00134.html#acc36d6188e19146688d6b409fbd40002", null ],
+    [ "SC_FXNUM_OBSERVER_CONSTRUCT_", "a00134.html#a8b8acced2276b16af47677b715791cad", null ],
+    [ "SC_FXNUM_OBSERVER_DEFAULT_", "a00134.html#a3b810a4e286935dff0536a8a144c33ec", null ],
+    [ "SC_FXNUM_OBSERVER_DESTRUCT_", "a00134.html#a8d3e51cd43bc5a894bc71a7d30c7a83a", null ],
+    [ "SC_FXNUM_OBSERVER_READ_", "a00134.html#a4769a00a1e0b1b25dcff29bfc405ad21", null ],
+    [ "SC_FXNUM_OBSERVER_WRITE_", "a00134.html#a23254e913090adfaef6da9900db099dc", null ]
 ];

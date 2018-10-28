@@ -1,3 +1,5 @@
-<map id="tlm_utils::multi_to_multi_bind_base&lt; TYPES &gt;" name="tlm_utils::multi_to_multi_bind_base&lt; TYPES &gt;">
-<area shape="rect" id="node2" href="$a02484.html" title="tlm_utils::multi_passthrough\l_target_socket\&lt; TYPES \&gt;" alt="" coords="9,95,189,136"/>
+<map id="tlm::tlm_req_rsp_channel&lt; REQ, RSP, REQ_CHANNEL, RSP_CHANNEL &gt;" name="tlm::tlm_req_rsp_channel&lt; REQ, RSP, REQ_CHANNEL, RSP_CHANNEL &gt;">
+<area shape="rect" id="node2" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01855.html" title="sc_core::sc_module" alt="" coords="87,80,222,107"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01871.html" title="sc_core::sc_object" alt="" coords="5,5,133,32"/>
+<area shape="rect" id="node4" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01895.html" title="sc_core::sc_process_host" alt="" coords="157,5,325,32"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;" name="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;">
+<area shape="rect" id="node2" href="$a02612.html" title="tlm::tlm_base_socket_if" alt="" coords="198,5,355,32"/>
+<area shape="rect" id="node3" href="$a02616.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, FW\l_IF, BW_IF \&gt;" alt="" coords="183,56,371,112"/>
+<area shape="rect" id="node4" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; FW\l_IF, N, POL \&gt;" alt="" coords="203,137,350,178"/>
+<area shape="rect" id="node5" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01223.html" title="sc_core::sc_port_b\l\&lt; IF \&gt;" alt="" coords="5,137,135,178"/>
+</map>

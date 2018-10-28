@@ -1,0 +1,5 @@
+<map id="tlm_utils::simple_target_socket_optional&lt; MODULE, BUSWIDTH, TYPES &gt;" name="tlm_utils::simple_target_socket_optional&lt; MODULE, BUSWIDTH, TYPES &gt;">
+<area shape="rect" id="node2" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="264,20,491,91"/>
+<area shape="rect" id="node3" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1, POL \&gt;" alt="" coords="5,5,216,47"/>
+<area shape="rect" id="node4" href="$a02644.html" title="tlm_utils::simple_socket_base" alt="" coords="15,71,207,98"/>
+</map>

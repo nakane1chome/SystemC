@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt; Struct Template Reference</title>
+<title>SystemC: sc_core::sc_writer_policy_check_write Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,50 +83,63 @@ $(document).ready(function(){initNavTree('a01363.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a01360.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt; Struct Template Reference</div>  </div>
+<div class="title">sc_core::sc_writer_policy_check_write Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00077_source.html">sysc/communication/sc_writer_policy.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00080_source.html">sysc/communication/sc_writer_policy.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;:</div>
+Inheritance diagram for sc_core::sc_writer_policy_check_write:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01362.png" border="0" usemap="#sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_inherit__map" id="sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_inherit__map">
-<area shape="rect" id="node2" href="a01347.html" title="sc_core::sc_writer\l_policy_nocheck_port" alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node3" href="a01335.html" title="sc_core::sc_writer\l_policy_nocheck_write" alt="" coords="176,5,328,47"/>
+<div class="center"><img src="a01362.png" border="0" usemap="#sc__core_1_1sc__writer__policy__check__write_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__writer__policy__check__write_inherit__map" id="sc__core_1_1sc__writer__policy__check__write_inherit__map">
+<area shape="rect" id="node2" href="a01379.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_ONE\l_WRITER \&gt;" alt="" coords="192,5,359,61"/>
+<area shape="rect" id="node3" href="a01367.html" title="sc_core::sc_writer\l_policy_check_delta" alt="" coords="206,86,345,127"/>
+<area shape="rect" id="node4" href="a01383.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_MANY\l_WRITERS \&gt;" alt="" coords="407,79,585,135"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;:</div>
+Collaboration diagram for sc_core::sc_writer_policy_check_write:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01361.png" border="0" usemap="#sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_coll__map" id="sc__core_1_1sc__writer__policy__check_3_01_s_c___u_n_c_h_e_c_k_e_d___w_r_i_t_e_r_s_01_4_coll__map">
-<area shape="rect" id="node2" href="a01347.html" title="sc_core::sc_writer\l_policy_nocheck_port" alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node3" href="a01335.html" title="sc_core::sc_writer\l_policy_nocheck_write" alt="" coords="176,5,328,47"/>
+<div class="center"><img src="a01361.png" border="0" usemap="#sc__core_1_1sc__writer__policy__check__write_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__writer__policy__check__write_coll__map" id="sc__core_1_1sc__writer__policy__check__write_coll__map">
+<area shape="rect" id="node2" href="a01919.html" title="sc_core::sc_process\l_handle" alt="" coords="599,83,736,124"/>
+<area shape="rect" id="node4" href="a01815.html" title="The event class. " alt="" coords="5,135,129,162"/>
+<area shape="rect" id="node6" href="a01911.html" title="sc_core::sc_process_b" alt="" coords="277,283,428,310"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a98b439f58119befec7159ab20ffd1150"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01347.html#a98b439f58119befec7159ab20ffd1150">check_port</a> (<a class="el" href="a01835.html">sc_object</a> *, <a class="el" href="a01199.html">sc_port_base</a> *, bool)</td></tr>
-<tr class="separator:a98b439f58119befec7159ab20ffd1150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24d654acb3a926b761ad2ddd8f4e9d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01335.html#ad24d654acb3a926b761ad2ddd8f4e9d1">check_write</a> (<a class="el" href="a01835.html">sc_object</a> *, bool)</td></tr>
-<tr class="separator:ad24d654acb3a926b761ad2ddd8f4e9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e11d84a41e9b54d41e71d198e916f98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01335.html#a7e11d84a41e9b54d41e71d198e916f98">update</a> ()</td></tr>
-<tr class="separator:a7e11d84a41e9b54d41e71d198e916f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270e4162081657be3f632cd7d6418717"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#a270e4162081657be3f632cd7d6418717">check_write</a> (<a class="el" href="a01871.html">sc_object</a> *target, bool value_changed)</td></tr>
+<tr class="separator:a270e4162081657be3f632cd7d6418717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e83d0cd3f6feb0b98b1b9aab1adff8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#ab4e83d0cd3f6feb0b98b1b9aab1adff8">needs_update</a> () const</td></tr>
+<tr class="separator:ab4e83d0cd3f6feb0b98b1b9aab1adff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d3a149aacf17e453905616a7693d1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#a99d3a149aacf17e453905616a7693d1c">update</a> ()</td></tr>
+<tr class="separator:a99d3a149aacf17e453905616a7693d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a7062d0aa17c582c199e6da3dcded4fa0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#a7062d0aa17c582c199e6da3dcded4fa0">sc_writer_policy_check_write</a> (bool delta_only=only_delta())</td></tr>
+<tr class="separator:a7062d0aa17c582c199e6da3dcded4fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ad7c8ef9ee370eb9383ddbb72697f0606"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#ad7c8ef9ee370eb9383ddbb72697f0606">m_delta_only</a></td></tr>
+<tr class="separator:ad7c8ef9ee370eb9383ddbb72697f0606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24ce9357bbf246b559ca1d8c2c4a117d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01919.html">sc_process_handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01363.html#a24ce9357bbf246b559ca1d8c2c4a117d">m_writer_p</a></td></tr>
+<tr class="separator:a24ce9357bbf246b559ca1d8c2c4a117d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;&gt;<br />
-struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
-
-
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00136">136</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a98b439f58119befec7159ab20ffd1150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98b439f58119befec7159ab20ffd1150">&#9670;&nbsp;</a></span>check_port()</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00080_source.html#l00090">90</a> of file <a class="el" href="a00080_source.html">sc_writer_policy.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7062d0aa17c582c199e6da3dcded4fa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7062d0aa17c582c199e6da3dcded4fa0">&#9670;&nbsp;</a></span>sc_writer_policy_check_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,22 +148,45 @@ struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_writer_policy_nocheck_port::check_port </td>
+          <td class="memname">sc_core::sc_writer_policy_check_write::sc_writer_policy_check_write </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a01835.html">sc_object</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>delta_only</em> = <code>only_delta()</code></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a01199.html">sc_port_base</a> *&#160;</td>
-          <td class="paramname">, </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00080_source.html#l00100">100</a> of file <a class="el" href="a00080_source.html">sc_writer_policy.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a270e4162081657be3f632cd7d6418717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270e4162081657be3f632cd7d6418717">&#9670;&nbsp;</a></span>check_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sc_core::sc_writer_policy_check_write::check_write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01871.html">sc_object</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>value_changed</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,17 +196,17 @@ struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00110">110</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00051">51</a> of file <a class="el" href="a00059_source.html">sc_signal.h</a>.</p>
 
 </div>
 </div>
-<a id="ad24d654acb3a926b761ad2ddd8f4e9d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad24d654acb3a926b761ad2ddd8f4e9d1">&#9670;&nbsp;</a></span>check_write()</h2>
+<a id="ab4e83d0cd3f6feb0b98b1b9aab1adff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e83d0cd3f6feb0b98b1b9aab1adff8">&#9670;&nbsp;</a></span>needs_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,36 +215,25 @@ struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_writer_policy_nocheck_write::check_write </td>
+          <td class="memname">bool sc_core::sc_writer_policy_check_write::needs_update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a01835.html">sc_object</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00075">75</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00080_source.html#l00093">93</a> of file <a class="el" href="a00080_source.html">sc_writer_policy.h</a>.</p>
 
 </div>
 </div>
-<a id="a7e11d84a41e9b54d41e71d198e916f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e11d84a41e9b54d41e71d198e916f98">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a99d3a149aacf17e453905616a7693d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d3a149aacf17e453905616a7693d1c">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +242,7 @@ struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::sc_writer_policy_nocheck_write::update </td>
+          <td class="memname">void sc_core::sc_writer_policy_check_write::update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -225,25 +250,75 @@ struct sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</h3>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00077">77</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00074">74</a> of file <a class="el" href="a00059_source.html">sc_signal.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/communication/<a class="el" href="a00077_source.html">sc_writer_policy.h</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad7c8ef9ee370eb9383ddbb72697f0606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c8ef9ee370eb9383ddbb72697f0606">&#9670;&nbsp;</a></span>m_delta_only</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool sc_core::sc_writer_policy_check_write::m_delta_only</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00080_source.html#l00103">103</a> of file <a class="el" href="a00080_source.html">sc_writer_policy.h</a>.</p>
+
+</div>
+</div>
+<a id="a24ce9357bbf246b559ca1d8c2c4a117d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ce9357bbf246b559ca1d8c2c4a117d">&#9670;&nbsp;</a></span>m_writer_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01919.html">sc_process_handle</a> sc_core::sc_writer_policy_check_write::m_writer_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00080_source.html#l00104">104</a> of file <a class="el" href="a00080_source.html">sc_writer_policy.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>sysc/communication/<a class="el" href="a00080_source.html">sc_writer_policy.h</a></li>
+<li>sysc/communication/<a class="el" href="a00059_source.html">sc_signal.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01363.html">sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01363.html">sc_writer_policy_check_write</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:09 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

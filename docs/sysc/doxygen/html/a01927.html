@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_spawn_object&lt; T &gt; Class Template Reference</title>
+<title>SystemC: sc_core::sc_reset_target Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,177 +82,101 @@ $(document).ready(function(){initNavTree('a01927.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a01924.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_spawn_object&lt; T &gt; Class Template Reference</div>  </div>
+<div class="title">sc_core::sc_reset_target Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00317_source.html">sysc/kernel/sc_spawn.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00299_source.html">sysc/kernel/sc_reset.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::sc_spawn_object&lt; T &gt;:</div>
+Collaboration diagram for sc_core::sc_reset_target:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01926.png" border="0" usemap="#sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map" id="sc__core_1_1sc__spawn__object_3_01_t_01_4_inherit__map">
-<area shape="rect" id="node2" href="a01859.html" title="sc_core::sc_process_host" alt="" coords="22,5,190,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for sc_core::sc_spawn_object&lt; T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01925.png" border="0" usemap="#sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map" id="sc__core_1_1sc__spawn__object_3_01_t_01_4_coll__map">
-<area shape="rect" id="node2" href="a01859.html" title="sc_core::sc_process_host" alt="" coords="5,5,173,32"/>
+<div class="center"><img src="a01925.png" border="0" usemap="#sc__core_1_1sc__reset__target_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__reset__target_coll__map" id="sc__core_1_1sc__reset__target_coll__map">
+<area shape="rect" id="node2" href="a01911.html" title="sc_core::sc_process_b" alt="" coords="575,328,725,355"/>
+<area shape="rect" id="node3" href="a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="253,5,381,32"/>
+<area shape="rect" id="node4" href="a01867.html" title="Unique name generator class. " alt="" coords="241,56,394,83"/>
+<area shape="rect" id="node5" href="a01803.html" title="Base class for lists of events. " alt="" coords="244,107,391,133"/>
+<area shape="rect" id="node6" href="a01903.html" title="sc_core::sc_throw_it\l_helper" alt="" coords="248,158,387,199"/>
+<area shape="rect" id="node7" href="a01815.html" title="The event class. " alt="" coords="5,363,129,389"/>
+<area shape="rect" id="node8" href="a01895.html" title="sc_core::sc_process_host" alt="" coords="233,456,401,483"/>
+<area shape="rect" id="node9" href="a02087.html" title="Exception reporting. " alt="" coords="254,507,381,533"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e306a2890d46659b23b2a91ba284c6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#a8e306a2890d46659b23b2a91ba284c6a">sc_spawn_object</a> (T object)</td></tr>
-<tr class="separator:a8e306a2890d46659b23b2a91ba284c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f6055df6581f96bf11e6bd3f3746642"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#a3f6055df6581f96bf11e6bd3f3746642">semantics</a> ()</td></tr>
-<tr class="separator:a3f6055df6581f96bf11e6bd3f3746642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf24d38ae99fdf5fed561e8fb8301111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01859.html#acf24d38ae99fdf5fed561e8fb8301111">defunct</a> ()</td></tr>
-<tr class="separator:acf24d38ae99fdf5fed561e8fb8301111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a1d632b76b56ce8b3de1d059d9cae421b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#a1d632b76b56ce8b3de1d059d9cae421b">m_object</a></td></tr>
-<tr class="separator:a1d632b76b56ce8b3de1d059d9cae421b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aacb45ee9fbbe13c48f21fa00260f423e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#aacb45ee9fbbe13c48f21fa00260f423e">m_async</a></td></tr>
+<tr class="separator:aacb45ee9fbbe13c48f21fa00260f423e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1244aeb679918ddf0f70c88554c0a2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#ad1244aeb679918ddf0f70c88554c0a2e">m_level</a></td></tr>
+<tr class="separator:ad1244aeb679918ddf0f70c88554c0a2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2d7ddc8bd1e80fbf0e21362d1372f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01927.html#ace2d7ddc8bd1e80fbf0e21362d1372f4">m_process_p</a></td></tr>
+<tr class="separator:ace2d7ddc8bd1e80fbf0e21362d1372f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T&gt;<br />
-class sc_core::sc_spawn_object&lt; T &gt;</h3>
-
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00077">77</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8e306a2890d46659b23b2a91ba284c6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e306a2890d46659b23b2a91ba284c6a">&#9670;&nbsp;</a></span>sc_spawn_object()</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00062">62</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="aacb45ee9fbbe13c48f21fa00260f423e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb45ee9fbbe13c48f21fa00260f423e">&#9670;&nbsp;</a></span>m_async</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01927.html">sc_core::sc_spawn_object</a>&lt; T &gt;::<a class="el" href="a01927.html">sc_spawn_object</a> </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>object</em></td><td>)</td>
-          <td></td>
+          <td class="memname">bool sc_core::sc_reset_target::m_async</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00079">79</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00064">64</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="acf24d38ae99fdf5fed561e8fb8301111"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf24d38ae99fdf5fed561e8fb8301111">&#9670;&nbsp;</a></span>defunct()</h2>
+<a id="ad1244aeb679918ddf0f70c88554c0a2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1244aeb679918ddf0f70c88554c0a2e">&#9670;&nbsp;</a></span>m_level</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::sc_process_host::defunct </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">bool sc_core::sc_reset_target::m_level</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00095">95</a> of file <a class="el" href="a00293_source.html">sc_process.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00065">65</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
-<a id="a3f6055df6581f96bf11e6bd3f3746642"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f6055df6581f96bf11e6bd3f3746642">&#9670;&nbsp;</a></span>semantics()</h2>
+<a id="ace2d7ddc8bd1e80fbf0e21362d1372f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2d7ddc8bd1e80fbf0e21362d1372f4">&#9670;&nbsp;</a></span>m_process_p</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a01927.html">sc_core::sc_spawn_object</a>&lt; T &gt;::semantics </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a01911.html">sc_process_b</a>* sc_core::sc_reset_target::m_process_p</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00083">83</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1d632b76b56ce8b3de1d059d9cae421b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d632b76b56ce8b3de1d059d9cae421b">&#9670;&nbsp;</a></span>m_object</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a01927.html">sc_core::sc_spawn_object</a>&lt; T &gt;::m_object</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00089">89</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00066">66</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00317_source.html">sc_spawn.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00299_source.html">sc_reset.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01927.html">sc_spawn_object</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01927.html">sc_reset_target</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:05 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

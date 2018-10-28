@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,22 +82,29 @@ $(document).ready(function(){initNavTree('a01195.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">sc_core::sc_scoped_lock Member List</div>  </div>
+<div class="title">sc_core::sc_host_semaphore Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a01195.html">sc_core::sc_scoped_lock</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a01195.html">sc_core::sc_host_semaphore</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a01195.html#aa0372401b86ca9c680b6a0b3ca587648">lockable_type</a> typedef</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_scoped_lock</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a01195.html#a144cc48927dd272767638856b58de56f">release</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_scoped_lock</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01195.html#a7ab4d6c186ebc30999014602bd582deb">sc_scoped_lock</a>(lockable_type &amp;mtx)</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_scoped_lock</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01195.html#a63a2c68ec6a47e53114fb6f5ea02c2ec">~sc_scoped_lock</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_scoped_lock</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01199.html#a3f0bf642e91be47772a3cd74a76a98cf">default_event</a>() const</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01195.html#a5f8ad6f5bce4acebd98e08046525b6df">get_value</a>() const</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01195.html#a7d97da6d9df0435b0c3eede6313b40fd">post</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01199.html#a7c93074c41900149ab2ac84bd6787ae6">register_port</a>(sc_port_base &amp;port_, const char *if_typename_)</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01195.html#a718ae86558f81bd0461859d858de2775">sc_host_semaphore</a>(int init=0)</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01199.html#a683561f63d51dc7665a0d205ecbbdf43">sc_interface</a>()</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01243.html#ae8e4f1f89aa8e6e34882b7461abe19e7">sc_semaphore_if</a>()</td><td class="entry"><a class="el" href="a01243.html">sc_core::sc_semaphore_if</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01195.html#a7fe4c302f353b0d79493e2b2a62bdfb7">trywait</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01195.html#a48f9f843d819efe8d7d5062d0265b2c8">wait</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a01195.html#a49dea16b028a7d0de7adc04398396115">~sc_host_semaphore</a>()</td><td class="entry"><a class="el" href="a01195.html">sc_core::sc_host_semaphore</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a01199.html#adbe820669c3473b5f6605a842b0b0835">~sc_interface</a>()</td><td class="entry"><a class="el" href="a01199.html">sc_core::sc_interface</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:00 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

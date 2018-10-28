@@ -1,4 +1,5 @@
-<map id="tlm_utils::simple_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;" name="tlm_utils::simple_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;">
-<area shape="rect" id="node2" href="$a02579.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="244,35,407,76"/>
-<area shape="rect" id="node3" href="$a02567.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, 1,sc_core::SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,105"/>
+<map id="tlm_utils::multi_passthrough_target_socket_optional&lt; MODULE, BUSWIDTH, TYPES, N &gt;" name="tlm_utils::multi_passthrough_target_socket_optional&lt; MODULE, BUSWIDTH, TYPES, N &gt;">
+<area shape="rect" id="node2" href="$a02692.html" title="tlm_utils::multi_passthrough\l_target_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="349,111,601,182"/>
+<area shape="rect" id="node3" href="$a02724.html" title="tlm_utils::multi_target\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="9,5,199,61"/>
+<area shape="rect" id="node4" href="$a02728.html" title="tlm_utils::multi_to\l_multi_bind_base\&lt; TYPES \&gt;" alt="" coords="11,86,197,127"/>
 </map>

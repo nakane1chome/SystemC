@@ -1,5 +1,5 @@
-<map id="sc_core::sc_in&lt; sc_dt::sc_logic &gt;" name="sc_core::sc_in&lt; sc_dt::sc_logic &gt;">
-<area shape="rect" id="node4" href="$a01299.html" title="The sc_signal_resolved input port class. " alt="" coords="6,317,163,344"/>
-<area shape="rect" id="node2" href="$a01211.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; sc_dt\l::sc_logic \&gt;, 1, SC_ONE\l_OR_MORE_BOUND \&gt;" alt="" coords="5,109,164,180"/>
-<area shape="rect" id="node3" href="$a01207.html" title="sc_core::sc_port_b\l\&lt; sc_signal_in_if\&lt; sc\l_dt::sc_logic \&gt; \&gt;" alt="" coords="14,5,155,61"/>
+<map id="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;" name="sc_core::sc_signal_in_if&lt; sc_dt::sc_logic &gt;">
+<area shape="rect" id="node3" href="$a01283.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="19,169,151,225"/>
+<area shape="rect" id="node2" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="13,5,156,32"/>
+<area shape="rect" id="node4" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; sc_dt::sc_logic,\l POL \&gt;" alt="" coords="19,273,151,329"/>
 </map>

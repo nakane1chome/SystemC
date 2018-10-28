@@ -1,4 +1,6 @@
-<map id="tlm_utils::instance_specific_extension_carrier" name="tlm_utils::instance_specific_extension_carrier">
-<area shape="rect" id="node2" href="$a02564.html" title="tlm::tlm_extension\l\&lt; instance_specific\l_extension_carrier \&gt;" alt="" coords="16,80,153,136"/>
-<area shape="rect" id="node3" href="$a02560.html" title="tlm::tlm_extension_base" alt="" coords="5,5,164,32"/>
+<map id="tlm::tlm_base_target_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;" name="tlm::tlm_base_target_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;">
+<area shape="rect" id="node2" href="$a02612.html" title="tlm::tlm_base_socket_if" alt="" coords="220,5,377,32"/>
+<area shape="rect" id="node3" href="$a02620.html" title="tlm::tlm_base_target\l_socket_b\&lt; BUSWIDTH,\l FW_IF, BW_IF \&gt;" alt="" coords="216,56,381,112"/>
+<area shape="rect" id="node4" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01147.html" title="sc_core::sc_export\l\&lt; FW_IF \&gt;" alt="" coords="235,137,363,178"/>
+<area shape="rect" id="node5" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01143.html" title="sc_core::sc_export_base" alt="" coords="5,144,168,171"/>
 </map>

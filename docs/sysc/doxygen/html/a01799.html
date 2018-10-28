@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_kill Class Reference</title>
+<title>SystemC: sc_core::sc_event_expr&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,36 +83,93 @@ $(document).ready(function(){initNavTree('a01799.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="a01796.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_kill Class Reference</div>  </div>
+<div class="title">sc_core::sc_event_expr&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00251_source.html">sysc/kernel/sc_except.h</a>&gt;</code></p>
+<p>The event expression class.  
+ <a href="a01799.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00248_source.html">sysc/kernel/sc_event.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada67131f70d6e09f1bfc3aeaf7e3b265"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#ada67131f70d6e09f1bfc3aeaf7e3b265">sc_kill</a> ()</td></tr>
-<tr class="separator:ada67131f70d6e09f1bfc3aeaf7e3b265"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a6aa9b5a087f63d477e39b725a79fd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a8a6aa9b5a087f63d477e39b725a79fd3">sc_kill</a> (const <a class="el" href="a01799.html">sc_kill</a> &amp;)</td></tr>
-<tr class="separator:a8a6aa9b5a087f63d477e39b725a79fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98680d4dab778f4226b729071d9e2ea8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a98680d4dab778f4226b729071d9e2ea8">sc_event_expr</a> (<a class="el" href="a01799.html">sc_event_expr</a> const &amp;e)</td></tr>
+<tr class="separator:a98680d4dab778f4226b729071d9e2ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9feea03d5b986a30eff1d84947258b99"><td class="memItemLeft" align="right" valign="top">T const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a9feea03d5b986a30eff1d84947258b99">release</a> () const</td></tr>
+<tr class="separator:a9feea03d5b986a30eff1d84947258b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad443b7d77145485b27b15c15f3efbc40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#ad443b7d77145485b27b15c15f3efbc40">push_back</a> (<a class="el" href="a01815.html">sc_event</a> const &amp;e) const</td></tr>
+<tr class="separator:ad443b7d77145485b27b15c15f3efbc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5526f971d236ef1523280edb09f394c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a5526f971d236ef1523280edb09f394c9">push_back</a> (type const &amp;el) const</td></tr>
+<tr class="separator:a5526f971d236ef1523280edb09f394c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c9a73248ddf1774923c65eb20ff8802"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a3c9a73248ddf1774923c65eb20ff8802">operator T const &amp;</a> () const</td></tr>
+<tr class="separator:a3c9a73248ddf1774923c65eb20ff8802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a120c31857c971e0b50790499e65843bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a120c31857c971e0b50790499e65843bc">~sc_event_expr</a> ()</td></tr>
+<tr class="separator:a120c31857c971e0b50790499e65843bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a13f565eb1938ead239f8b6a0927057b0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#a13f565eb1938ead239f8b6a0927057b0">sc_event</a></td></tr>
+<tr class="separator:a13f565eb1938ead239f8b6a0927057b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae60a98a3f4332c8a15e0b5e29cc19fee"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#ae60a98a3f4332c8a15e0b5e29cc19fee">sc_event_and_list</a></td></tr>
+<tr class="separator:ae60a98a3f4332c8a15e0b5e29cc19fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3bab374e5a04c6dd9a0149b2689790"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01799.html#aef3bab374e5a04c6dd9a0149b2689790">sc_event_or_list</a></td></tr>
+<tr class="separator:aef3bab374e5a04c6dd9a0149b2689790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00061">61</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class sc_core::sc_event_expr&lt; T &gt;</h3>
+
+<p>The event expression class. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00068">68</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ada67131f70d6e09f1bfc3aeaf7e3b265"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada67131f70d6e09f1bfc3aeaf7e3b265">&#9670;&nbsp;</a></span>sc_kill() <span class="overload">[1/2]</span></h2>
+<a id="a98680d4dab778f4226b729071d9e2ea8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98680d4dab778f4226b729071d9e2ea8">&#9670;&nbsp;</a></span>sc_event_expr()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_kill::sc_kill </td>
+          <td class="memname"><a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::<a class="el" href="a01799.html">sc_event_expr</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01799.html">sc_event_expr</a>&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00082">82</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="a120c31857c971e0b50790499e65843bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a120c31857c971e0b50790499e65843bc">&#9670;&nbsp;</a></span>~sc_event_expr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::~<a class="el" href="a01799.html">sc_event_expr</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -125,25 +182,27 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00064">64</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00112">112</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
 
 </div>
 </div>
-<a id="a8a6aa9b5a087f63d477e39b725a79fd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a6aa9b5a087f63d477e39b725a79fd3">&#9670;&nbsp;</a></span>sc_kill() <span class="overload">[2/2]</span></h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3c9a73248ddf1774923c65eb20ff8802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c9a73248ddf1774923c65eb20ff8802">&#9670;&nbsp;</a></span>operator T const &()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_kill::sc_kill </td>
+          <td class="memname"><a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::operator T const &amp; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01799.html">sc_kill</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -153,20 +212,188 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00065">65</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00107">107</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="ad443b7d77145485b27b15c15f3efbc40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad443b7d77145485b27b15c15f3efbc40">&#9670;&nbsp;</a></span>push_back() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01815.html">sc_event</a> const &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00096">96</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="a5526f971d236ef1523280edb09f394c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5526f971d236ef1523280edb09f394c9">&#9670;&nbsp;</a></span>push_back() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::push_back </td>
+          <td>(</td>
+          <td class="paramtype">type const &amp;&#160;</td>
+          <td class="paramname"><em>el</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00102">102</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="a9feea03d5b986a30eff1d84947258b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9feea03d5b986a30eff1d84947258b99">&#9670;&nbsp;</a></span>release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T const&amp; <a class="el" href="a01799.html">sc_core::sc_event_expr</a>&lt; T &gt;::release </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00088">88</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a13f565eb1938ead239f8b6a0927057b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f565eb1938ead239f8b6a0927057b0">&#9670;&nbsp;</a></span>sc_event</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01815.html">sc_event</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00070">70</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="ae60a98a3f4332c8a15e0b5e29cc19fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae60a98a3f4332c8a15e0b5e29cc19fee">&#9670;&nbsp;</a></span>sc_event_and_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01807.html">sc_event_and_list</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00071">71</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
+
+</div>
+</div>
+<a id="aef3bab374e5a04c6dd9a0149b2689790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef3bab374e5a04c6dd9a0149b2689790">&#9670;&nbsp;</a></span>sc_event_or_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a01811.html">sc_event_or_list</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00072">72</a> of file <a class="el" href="a00248_source.html">sc_event.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00251_source.html">sc_except.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00248_source.html">sc_event.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01799.html">sc_kill</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01799.html">sc_event_expr</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:58 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

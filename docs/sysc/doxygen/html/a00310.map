@@ -1,6 +1,6 @@
 <map id="sysc/kernel/sc_sensitive.h" name="sysc/kernel/sc_sensitive.h">
 <area shape="rect" id="node2" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="107,80,269,107"/>
-<area shape="rect" id="node3" href="$a00401.html" title="systemc" alt="" coords="153,244,223,271"/>
+<area shape="rect" id="node3" href="$a00404.html" title="systemc" alt="" coords="153,244,223,271"/>
 <area shape="rect" id="node4" href="$a00296.html" title="Process access support. " alt="" coords="25,155,180,196"/>
 <area shape="rect" id="node5" href="$a00005.html" title="The clock channel. " alt="" coords="204,155,343,196"/>
 <area shape="rect" id="node6" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="367,155,505,196"/>

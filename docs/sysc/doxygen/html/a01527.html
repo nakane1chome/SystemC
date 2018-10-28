@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_dt::sc_fxnum_fast_observer Class Reference</title>
+<title>SystemC: sc_dt::sc_fxcast_switch Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,54 +83,51 @@ $(document).ready(function(){initNavTree('a01527.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="a01524.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_dt::sc_fxnum_fast_observer Class Reference</div>  </div>
+<div class="title">sc_dt::sc_fxcast_switch Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Abstract base class for fixed-point types observers; limited precision.  
+<p>Fixed-point cast switch class.  
  <a href="a01527.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00131_source.html">sysc/datatypes/fx/sc_fxnum_observer.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for sc_dt::sc_fxnum_fast_observer:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01525.png" border="0" usemap="#sc__dt_1_1sc__fxnum__fast__observer_coll__map" alt="Collaboration graph"/></div>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="a00125_source.html">sysc/datatypes/fx/sc_fxcast_switch.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1902ac7463a5a9fe9e40b6335ee17f49"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a1902ac7463a5a9fe9e40b6335ee17f49">construct</a> (const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;)</td></tr>
-<tr class="separator:a1902ac7463a5a9fe9e40b6335ee17f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2913d4703cd924ffff8ede50341e90f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#ac2913d4703cd924ffff8ede50341e90f">destruct</a> (const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;)</td></tr>
-<tr class="separator:ac2913d4703cd924ffff8ede50341e90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2ebb8babe91ca4ae317de8c039143d2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#ab2ebb8babe91ca4ae317de8c039143d2">read</a> (const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;)</td></tr>
-<tr class="separator:ab2ebb8babe91ca4ae317de8c039143d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7728d40241abcc769239ea8cbfc515d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#ad7728d40241abcc769239ea8cbfc515d">write</a> (const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;)</td></tr>
-<tr class="separator:ad7728d40241abcc769239ea8cbfc515d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d86c4f1927b5f0c99cd98eb0f133bb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a3d86c4f1927b5f0c99cd98eb0f133bb3">sc_fxcast_switch</a> ()</td></tr>
+<tr class="separator:a3d86c4f1927b5f0c99cd98eb0f133bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5fa32ec7bdc8cc1a0e863b9cb5f88c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#aa5fa32ec7bdc8cc1a0e863b9cb5f88c9">sc_fxcast_switch</a> (<a class="el" href="a00562.html#ac3088a9000bafb9fa9e323e2bd1fbae9">sc_switch</a>)</td></tr>
+<tr class="separator:aa5fa32ec7bdc8cc1a0e863b9cb5f88c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a6527a264bcc525567296cec175fe43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a7a6527a264bcc525567296cec175fe43">sc_fxcast_switch</a> (const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;)</td></tr>
+<tr class="separator:a7a6527a264bcc525567296cec175fe43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70bec551275bc87e0a424ef475366d9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a70bec551275bc87e0a424ef475366d9d">sc_fxcast_switch</a> (<a class="el" href="a01507.html">sc_without_context</a>)</td></tr>
+<tr class="separator:a70bec551275bc87e0a424ef475366d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a800ff5dffb368dfaf75e532151e5164f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a800ff5dffb368dfaf75e532151e5164f">operator=</a> (const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;)</td></tr>
+<tr class="separator:a800ff5dffb368dfaf75e532151e5164f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dc6dc633ed7acd0e4412f86e1ab649a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a9dc6dc633ed7acd0e4412f86e1ab649a">to_string</a> () const</td></tr>
+<tr class="separator:a9dc6dc633ed7acd0e4412f86e1ab649a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35811adff919f9b038f6fdb4fe79e19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#ab35811adff919f9b038f6fdb4fe79e19">print</a> (::std::ostream &amp;=::std::cout) const</td></tr>
+<tr class="separator:ab35811adff919f9b038f6fdb4fe79e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e5da31615d4dfd00a0731ac6f9d6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#ac5e5da31615d4dfd00a0731ac6f9d6f5">dump</a> (::std::ostream &amp;=::std::cout) const</td></tr>
+<tr class="separator:ac5e5da31615d4dfd00a0731ac6f9d6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a707dc7dd29bbb95650f259112c89e387"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a01527.html">sc_fxnum_fast_observer</a> *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a707dc7dd29bbb95650f259112c89e387">default_observer</a> )()</td></tr>
-<tr class="separator:a707dc7dd29bbb95650f259112c89e387"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a655a81a28d9ec5fb030c8a0d8dbb4cdd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a655a81a28d9ec5fb030c8a0d8dbb4cdd">sc_fxnum_fast_observer</a> ()</td></tr>
-<tr class="separator:a655a81a28d9ec5fb030c8a0d8dbb4cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbdc08c7cda7b70e99f33c1b077d2494"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#acbdc08c7cda7b70e99f33c1b077d2494">~sc_fxnum_fast_observer</a> ()</td></tr>
-<tr class="separator:acbdc08c7cda7b70e99f33c1b077d2494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a8c56556d1c37048e115490f2ddef8126"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a8c56556d1c37048e115490f2ddef8126">operator==</a> (const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;, const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;)</td></tr>
+<tr class="separator:a8c56556d1c37048e115490f2ddef8126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02019459dbb2482b9fb3ae3ac27afdb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01527.html#a02019459dbb2482b9fb3ae3ac27afdb2">operator!=</a> (const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;, const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;)</td></tr>
+<tr class="separator:a02019459dbb2482b9fb3ae3ac27afdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Abstract base class for fixed-point types observers; limited precision. </p>
+<div class="textblock"><p>Fixed-point cast switch class. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00137">137</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00070">70</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a655a81a28d9ec5fb030c8a0d8dbb4cdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a655a81a28d9ec5fb030c8a0d8dbb4cdd">&#9670;&nbsp;</a></span>sc_fxnum_fast_observer()</h2>
+<a id="a3d86c4f1927b5f0c99cd98eb0f133bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d86c4f1927b5f0c99cd98eb0f133bb3">&#9670;&nbsp;</a></span>sc_fxcast_switch() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,7 +136,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_dt::sc_fxnum_fast_observer::sc_fxnum_fast_observer </td>
+          <td class="memname">sc_dt::sc_fxcast_switch::sc_fxcast_switch </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -147,17 +144,17 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00142">142</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00121">121</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 
 </div>
 </div>
-<a id="acbdc08c7cda7b70e99f33c1b077d2494"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbdc08c7cda7b70e99f33c1b077d2494">&#9670;&nbsp;</a></span>~sc_fxnum_fast_observer()</h2>
+<a id="aa5fa32ec7bdc8cc1a0e863b9cb5f88c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5fa32ec7bdc8cc1a0e863b9cb5f88c9">&#9670;&nbsp;</a></span>sc_fxcast_switch() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,26 +163,101 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual sc_dt::sc_fxnum_fast_observer::~sc_fxnum_fast_observer </td>
+          <td class="memname">sc_dt::sc_fxcast_switch::sc_fxcast_switch </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="a00562.html#ac3088a9000bafb9fa9e323e2bd1fbae9">sc_switch</a>&#160;</td>
+          <td class="paramname"><em>sw_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00128">128</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
+
+</div>
+</div>
+<a id="a7a6527a264bcc525567296cec175fe43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a6527a264bcc525567296cec175fe43">&#9670;&nbsp;</a></span>sc_fxcast_switch() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_dt::sc_fxcast_switch::sc_fxcast_switch </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00133">133</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
+
+</div>
+</div>
+<a id="a70bec551275bc87e0a424ef475366d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70bec551275bc87e0a424ef475366d9d">&#9670;&nbsp;</a></span>sc_fxcast_switch() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_dt::sc_fxcast_switch::sc_fxcast_switch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01507.html">sc_without_context</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00143">143</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00138">138</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1902ac7463a5a9fe9e40b6335ee17f49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1902ac7463a5a9fe9e40b6335ee17f49">&#9670;&nbsp;</a></span>construct()</h2>
+<a id="ac5e5da31615d4dfd00a0731ac6f9d6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e5da31615d4dfd00a0731ac6f9d6f5">&#9670;&nbsp;</a></span>dump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_dt::sc_fxcast_switch::dump </td>
+          <td>(</td>
+          <td class="paramtype">::std::ostream &amp;&#160;</td>
+          <td class="paramname"> = <code>::std::cout</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a800ff5dffb368dfaf75e532151e5164f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800ff5dffb368dfaf75e532151e5164f">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,82 +266,62 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_dt::sc_fxnum_fast_observer::construct </td>
+          <td class="memname"><a class="el" href="a01527.html">sc_fxcast_switch</a> &amp; sc_dt::sc_fxcast_switch::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00194">194</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00145">145</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 
 </div>
 </div>
-<a id="ac2913d4703cd924ffff8ede50341e90f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2913d4703cd924ffff8ede50341e90f">&#9670;&nbsp;</a></span>destruct()</h2>
+<a id="ab35811adff919f9b038f6fdb4fe79e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab35811adff919f9b038f6fdb4fe79e19">&#9670;&nbsp;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_dt::sc_fxnum_fast_observer::destruct </td>
+          <td class="memname">void sc_dt::sc_fxcast_switch::print </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">::std::ostream &amp;&#160;</td>
+          <td class="paramname"> = <code>::std::cout</code></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00199">199</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
-
 </div>
 </div>
-<a id="ab2ebb8babe91ca4ae317de8c039143d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ebb8babe91ca4ae317de8c039143d2">&#9670;&nbsp;</a></span>read()</h2>
+<a id="a9dc6dc633ed7acd0e4412f86e1ab649a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dc6dc633ed7acd0e4412f86e1ab649a">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_dt::sc_fxnum_fast_observer::read </td>
+          <td class="memname">const std::string sc_dt::sc_fxcast_switch::to_string </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00204">204</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
-
 </div>
 </div>
-<a id="ad7728d40241abcc769239ea8cbfc515d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7728d40241abcc769239ea8cbfc515d">&#9670;&nbsp;</a></span>write()</h2>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a02019459dbb2482b9fb3ae3ac27afdb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02019459dbb2482b9fb3ae3ac27afdb2">&#9670;&nbsp;</a></span>operator!=</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,27 +330,36 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_dt::sc_fxnum_fast_observer::write </td>
+          <td class="memname">bool operator!= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01519.html">sc_fxnum_fast</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00209">209</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00165">165</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a707dc7dd29bbb95650f259112c89e387"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a707dc7dd29bbb95650f259112c89e387">&#9670;&nbsp;</a></span>default_observer</h2>
+<a id="a8c56556d1c37048e115490f2ddef8126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c56556d1c37048e115490f2ddef8126">&#9670;&nbsp;</a></span>operator==</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,30 +368,44 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01527.html">sc_fxnum_fast_observer</a>*(* sc_dt::sc_fxnum_fast_observer::default_observer) ()</td>
+          <td class="memname">bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01527.html">sc_fxcast_switch</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00152">152</a> of file <a class="el" href="a00131_source.html">sc_fxnum_observer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00125_source.html#l00157">157</a> of file <a class="el" href="a00125_source.html">sc_fxcast_switch.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/datatypes/fx/<a class="el" href="a00131_source.html">sc_fxnum_observer.h</a></li>
+<li>sysc/datatypes/fx/<a class="el" href="a00125_source.html">sc_fxcast_switch.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00550.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01527.html">sc_fxnum_fast_observer</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:34 for SystemC by
+    <li class="navelem"><a class="el" href="a00562.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01527.html">sc_fxcast_switch</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:12 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

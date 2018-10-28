@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -93,16 +93,16 @@ $(document).ready(function(){initNavTree('a00032.html','');});
 <p>A "real" mutex for the underlying host system.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00041_source.html">sysc/communication/sc_mutex_if.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00044_source.html">sysc/communication/sc_mutex_if.h</a>&quot;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sc_host_mutex.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00033.png" border="0" usemap="#sysc_2communication_2sc__host__mutex_8h" alt=""/></div>
 <map name="sysc_2communication_2sc__host__mutex_8h" id="sysc_2communication_2sc__host__mutex_8h">
-<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="245,102,408,129"/>
-<area shape="rect" id="node8" href="a00041.html" title="The sc_mutex_if interface class. " alt="" coords="480,95,619,136"/>
-<area shape="rect" id="node9" href="a00035.html" title="Abstract base class of all interface classes. " alt="" coords="528,184,667,225"/>
+<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,273,283,300"/>
+<area shape="rect" id="node8" href="a00044.html" title="The sc_mutex_if interface class. " alt="" coords="186,95,325,136"/>
+<area shape="rect" id="node9" href="a00038.html" title="Abstract base class of all interface classes. " alt="" coords="186,184,325,225"/>
 </map>
 </div>
 </div>
@@ -110,33 +110,21 @@ Include dependency graph for sc_host_mutex.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01179.html">sc_core::sc_host_mutex</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01179.html" title="The sc_host_mutex class, wrapping an OS mutex on the simulation host. ">sc_host_mutex</a> class, wrapping an OS mutex on the simulation host.  <a href="a01179.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01191.html">sc_core::sc_host_mutex</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01191.html" title="The sc_host_mutex class, wrapping an OS mutex on the simulation host. ">sc_host_mutex</a> class, wrapping an OS mutex on the simulation host.  <a href="a01191.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1fde6f004a35ef2819cc46c74ba5b01b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a1fde6f004a35ef2819cc46c74ba5b01b">SC_INCLUDE_WINDOWS_H</a></td></tr>
 <tr class="separator:a1fde6f004a35ef2819cc46c74ba5b01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa9f2f41c5897d3ead86265c1e35ede4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aaa9f2f41c5897d3ead86265c1e35ede4">SC_MTX_TYPE_</a>&#160;&#160;&#160;pthread_mutex_t</td></tr>
-<tr class="separator:aaa9f2f41c5897d3ead86265c1e35ede4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659b5a2ec193e679ba3dc2e0252bfbd6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a659b5a2ec193e679ba3dc2e0252bfbd6">SC_PTHREAD_NULL_</a>&#160;&#160;&#160;NULL</td></tr>
 <tr class="separator:a659b5a2ec193e679ba3dc2e0252bfbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a743b1becf011ce48313cb9f4def32d7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a743b1becf011ce48313cb9f4def32d7c">SC_MTX_INIT_</a>(Mutex)&#160;&#160;&#160;pthread_mutex_init( &amp;(Mutex), <a class="el" href="a00032.html#a659b5a2ec193e679ba3dc2e0252bfbd6">SC_PTHREAD_NULL_</a> )</td></tr>
-<tr class="separator:a743b1becf011ce48313cb9f4def32d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac783e82e477bce44f45e20807cbb115e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ac783e82e477bce44f45e20807cbb115e">SC_MTX_LOCK_</a>(Mutex)&#160;&#160;&#160;pthread_mutex_lock( &amp;(Mutex) )</td></tr>
-<tr class="separator:ac783e82e477bce44f45e20807cbb115e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa214cefbe7ee2bf0472fab1d7a046f03"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aa214cefbe7ee2bf0472fab1d7a046f03">SC_MTX_UNLOCK_</a>(Mutex)&#160;&#160;&#160;pthread_mutex_unlock( &amp;(Mutex) )</td></tr>
-<tr class="separator:aa214cefbe7ee2bf0472fab1d7a046f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afffeed8a6146afa6f08b8f16e9451a87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#afffeed8a6146afa6f08b8f16e9451a87">SC_MTX_TRYLOCK_</a>(Mutex)&#160;&#160;&#160;( false )</td></tr>
-<tr class="separator:afffeed8a6146afa6f08b8f16e9451a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77052b8584ba858d76e0c8ad00536552"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a77052b8584ba858d76e0c8ad00536552">SC_MTX_DESTROY_</a>(Mutex)&#160;&#160;&#160;pthread_mutex_destroy( &amp;(Mutex) )</td></tr>
-<tr class="separator:a77052b8584ba858d76e0c8ad00536552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A "real" mutex for the underlying host system. </p>
@@ -157,123 +145,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00035">35</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="a77052b8584ba858d76e0c8ad00536552"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77052b8584ba858d76e0c8ad00536552">&#9670;&nbsp;</a></span>SC_MTX_DESTROY_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_DESTROY_</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_destroy( &amp;(Mutex) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00081">81</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="a743b1becf011ce48313cb9f4def32d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a743b1becf011ce48313cb9f4def32d7c">&#9670;&nbsp;</a></span>SC_MTX_INIT_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_INIT_</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_init( &amp;(Mutex), <a class="el" href="a00032.html#a659b5a2ec193e679ba3dc2e0252bfbd6">SC_PTHREAD_NULL_</a> )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00066">66</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="ac783e82e477bce44f45e20807cbb115e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac783e82e477bce44f45e20807cbb115e">&#9670;&nbsp;</a></span>SC_MTX_LOCK_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_LOCK_</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_lock( &amp;(Mutex) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00068">68</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="afffeed8a6146afa6f08b8f16e9451a87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afffeed8a6146afa6f08b8f16e9451a87">&#9670;&nbsp;</a></span>SC_MTX_TRYLOCK_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_TRYLOCK_</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;( false )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00077">77</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="aaa9f2f41c5897d3ead86265c1e35ede4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa9f2f41c5897d3ead86265c1e35ede4">&#9670;&nbsp;</a></span>SC_MTX_TYPE_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_TYPE_&#160;&#160;&#160;pthread_mutex_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00058">58</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
-
-</div>
-</div>
-<a id="aa214cefbe7ee2bf0472fab1d7a046f03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa214cefbe7ee2bf0472fab1d7a046f03">&#9670;&nbsp;</a></span>SC_MTX_UNLOCK_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_MTX_UNLOCK_</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_unlock( &amp;(Mutex) )</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00070">70</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00037">37</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
 
 </div>
 </div>
@@ -289,7 +161,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00063">63</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00032_source.html#l00071">71</a> of file <a class="el" href="a00032_source.html">sc_host_mutex.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +171,7 @@ Macros</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00032.html">sc_host_mutex.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:50 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

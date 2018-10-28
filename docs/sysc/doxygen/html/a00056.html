@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/communication/sc_signal.h File Reference</title>
+<title>SystemC: sysc/communication/sc_semaphore_if.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,59 +83,32 @@ $(document).ready(function(){initNavTree('a00056.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">sc_signal.h File Reference</div>  </div>
+<div class="title">sc_semaphore_if.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="a02187.html" title="The sc_signal&lt;T&gt; primitive channel class. ">sc_signal&lt;T&gt;</a> primitive channel class.  
+<p>The sc_semaphore_if interface class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00044_source.html">sysc/communication/sc_port.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00047_source.html">sysc/communication/sc_prim_channel.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00059_source.html">sysc/communication/sc_signal_ifs.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00077_source.html">sysc/communication/sc_writer_policy.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00248_source.html">sysc/kernel/sc_event.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00293_source.html">sysc/kernel/sc_process.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00311_source.html">sysc/kernel/sc_simcontext.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00095_source.html">sysc/datatypes/bit/sc_logic.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00344_source.html">sysc/tracing/sc_trace.h</a>&quot;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00038_source.html">sysc/communication/sc_interface.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_signal.h:</div>
+Include dependency graph for sc_semaphore_if.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00057.png" border="0" usemap="#sysc_2communication_2sc__signal_8h" alt=""/></div>
-<map name="sysc_2communication_2sc__signal_8h" id="sysc_2communication_2sc__signal_8h">
-<area shape="rect" id="node2" href="a00044.html" title="Base classes of all port classes. " alt="" coords="461,95,600,136"/>
-<area shape="rect" id="node5" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="99,191,250,218"/>
-<area shape="rect" id="node6" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="777,281,959,307"/>
-<area shape="rect" id="node7" href="a00293.html" title="Process base class support. " alt="" coords="641,370,805,397"/>
-<area shape="rect" id="node11" href="a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="5,363,144,404"/>
-<area shape="rect" id="node13" href="a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="895,95,1033,136"/>
-<area shape="rect" id="node16" href="a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="1138,273,1262,315"/>
-<area shape="rect" id="node18" href="a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="112,273,251,315"/>
-<area shape="rect" id="node19" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="1286,281,1439,307"/>
-<area shape="rect" id="node3" href="a00011.html" title="Report ids for the communication code. " alt="" coords="326,184,493,225"/>
-<area shape="rect" id="node4" href="a00035.html" title="Abstract base class of all interface classes. " alt="" coords="193,363,332,404"/>
-<area shape="rect" id="node8" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="645,459,800,486"/>
-<area shape="rect" id="node9" href="a00329.html" title="The time class. " alt="" coords="1138,370,1283,397"/>
-<area shape="rect" id="node10" href="a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="1243,452,1367,493"/>
-<area shape="rect" id="node14" href="a00335.html" title="Wait() and related functions. " alt="" coords="811,191,954,218"/>
-<area shape="rect" id="node15" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="979,184,1112,225"/>
+<div class="center"><img src="a00057.png" border="0" usemap="#sysc_2communication_2sc__semaphore__if_8h" alt=""/></div>
+<map name="sysc_2communication_2sc__semaphore__if_8h" id="sysc_2communication_2sc__semaphore__if_8h">
+<area shape="rect" id="node2" href="a00038.html" title="Abstract base class of all interface classes. " alt="" coords="17,95,156,136"/>
+<area shape="rect" id="node3" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,184,168,211"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00058.png" border="0" usemap="#sysc_2communication_2sc__signal_8hdep" alt=""/></div>
-<map name="sysc_2communication_2sc__signal_8hdep" id="sysc_2communication_2sc__signal_8hdep">
-<area shape="rect" id="node2" href="a00002.html" title="The sc_buffer&lt;T&gt; primitive channel class. " alt="" coords="5,184,144,225"/>
-<area shape="rect" id="node3" href="a00401.html" title="systemc" alt="" coords="307,273,376,300"/>
-<area shape="rect" id="node4" href="a00005.html" title="The clock channel. " alt="" coords="219,184,357,225"/>
-<area shape="rect" id="node5" href="a00065.html" title="The resolved signal class. " alt="" coords="293,95,435,136"/>
-<area shape="rect" id="node6" href="a00071.html" title="The resolved vector signal class. " alt="" coords="460,95,599,136"/>
-<area shape="rect" id="node7" href="a00074.html" title="The resolved vector signal ports. " alt="" coords="483,184,624,225"/>
+<div class="center"><img src="a00058.png" border="0" usemap="#sysc_2communication_2sc__semaphore__if_8hdep" alt=""/></div>
+<map name="sysc_2communication_2sc__semaphore__if_8hdep" id="sysc_2communication_2sc__semaphore__if_8hdep">
+<area shape="rect" id="node2" href="a00053.html" title="The sc_semaphore primitive channel class. " alt="" coords="5,95,144,136"/>
+<area shape="rect" id="node4" href="a00035.html" title="A &quot;real&quot; semaphore for the underlying host system. " alt="" coords="169,95,319,136"/>
+<area shape="rect" id="node3" href="a00404.html" title="systemc" alt="" coords="40,184,109,211"/>
 </map>
 </div>
 </div>
@@ -143,45 +116,28 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01231.html">sc_core::sc_signal&lt; T, POL &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01235.html">sc_core::sc_signal&lt; bool, POL &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01239.html">sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01243.html">sc_core::sc_semaphore_if</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01243.html" title="The sc_semaphore_if interface class. ">sc_semaphore_if</a> interface class.  <a href="a01243.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a96e642e5b93b3c418c0adac8c6f3b8d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a96e642e5b93b3c418c0adac8c6f3b8d3">sc_core::sc_deprecated_get_data_ref</a> ()</td></tr>
-<tr class="separator:a96e642e5b93b3c418c0adac8c6f3b8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba9c2f686011cc135876ed6c64a6bd37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#aba9c2f686011cc135876ed6c64a6bd37">sc_core::sc_deprecated_get_new_value</a> ()</td></tr>
-<tr class="separator:aba9c2f686011cc135876ed6c64a6bd37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ef5212d161928f6dfdd771e8c69a13e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a0ef5212d161928f6dfdd771e8c69a13e">sc_core::sc_deprecated_trace</a> ()</td></tr>
-<tr class="separator:a0ef5212d161928f6dfdd771e8c69a13e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6509313db69d4e3fd2e0413f5a9102f3"><td class="memItemLeft" align="right" valign="top">sc_event *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a6509313db69d4e3fd2e0413f5a9102f3">sc_core::sc_lazy_kernel_event</a> (sc_event **, const char *name)</td></tr>
-<tr class="separator:a6509313db69d4e3fd2e0413f5a9102f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac164e408532f417d670050a11648e331"><td class="memTemplParams" colspan="2">template&lt;typename T , sc_writer_policy POL&gt; </td></tr>
-<tr class="memitem:ac164e408532f417d670050a11648e331"><td class="memTemplItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00549.html#ac164e408532f417d670050a11648e331">sc_core::operator&lt;&lt;</a> (::std::ostream &amp;os, const sc_signal&lt; T, POL &gt; &amp;a)</td></tr>
-<tr class="separator:ac164e408532f417d670050a11648e331"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="a02187.html" title="The sc_signal&lt;T&gt; primitive channel class. ">sc_signal&lt;T&gt;</a> primitive channel class. </p>
+<div class="textblock"><p>The sc_semaphore_if interface class. </p>
 <p>Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21</p>
 <p>CHANGE LOG IS AT THE END OF THE FILE </p>
 
-<p class="definition">Definition in file <a class="el" href="a00056_source.html">sc_signal.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00056_source.html">sc_semaphore_if.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00056.html">sc_signal.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00056.html">sc_semaphore_if.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:50 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

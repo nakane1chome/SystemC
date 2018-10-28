@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/datatypes/int/sc_nbdefs.h File Reference</title>
+<title>SystemC: sysc/datatypes/int/sc_length_param.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,823 +82,93 @@ $(document).ready(function(){initNavTree('a00191.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">sc_nbdefs.h File Reference</div>  </div>
+<div class="title">sc_length_param.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Top level header file for arbitrary precision signed/unsigned.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
-<code>#include &lt;climits&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00362_source.html">sysc/utils/sc_iostream.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00227_source.html">sysc/kernel/sc_constants.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00113_source.html">sysc/datatypes/fx/sc_context.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_nbdefs.h:</div>
+Include dependency graph for sc_length_param.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00192.png" border="0" usemap="#sysc_2datatypes_2int_2sc__nbdefs_8h" alt=""/></div>
-<map name="sysc_2datatypes_2int_2sc__nbdefs_8h" id="sysc_2datatypes_2int_2sc__nbdefs_8h">
-<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="245,95,408,121"/>
-<area shape="rect" id="node10" href="a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="641,95,799,121"/>
-<area shape="rect" id="node17" href="a00227.html" title="Default constants whose values may need to be. " alt="" coords="823,95,998,121"/>
+<div class="center"><img src="a00192.png" border="0" usemap="#sysc_2datatypes_2int_2sc__length__param_8h" alt=""/></div>
+<map name="sysc_2datatypes_2int_2sc__length__param_8h" id="sysc_2datatypes_2int_2sc__length__param_8h">
+<area shape="rect" id="node2" href="a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="158,95,295,136"/>
+<area shape="rect" id="node3" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,273,168,300"/>
+<area shape="rect" id="node4" href="a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="66,184,203,225"/>
+<area shape="rect" id="node5" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="227,191,410,218"/>
+<area shape="rect" id="node6" href="a00359.html" title="sysc/utils/sc_hash.h" alt="" coords="251,273,386,300"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00193.png" border="0" usemap="#sysc_2datatypes_2int_2sc__nbdefs_8hdep" alt=""/></div>
-<map name="sysc_2datatypes_2int_2sc__nbdefs_8hdep" id="sysc_2datatypes_2int_2sc__nbdefs_8hdep">
-<area shape="rect" id="node2" href="a00329.html" title="The time class. " alt="" coords="161,370,307,397"/>
-<area shape="rect" id="node6" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="400,459,553,486"/>
-<area shape="rect" id="node7" href="a00197.html" title="External and friend functions for both sc_signed and. " alt="" coords="811,95,935,136"/>
-<area shape="rect" id="node9" href="a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="685,363,809,404"/>
-<area shape="rect" id="node13" href="a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="917,273,1041,315"/>
-<area shape="rect" id="node14" href="a00080.html" title="Bit class. " alt="" coords="1079,273,1203,315"/>
-<area shape="rect" id="node16" href="a00215.html" title="Base class for SystemC bit values. " alt="" coords="484,184,621,225"/>
-<area shape="rect" id="node17" href="a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="433,363,557,404"/>
-<area shape="rect" id="node18" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="433,273,557,315"/>
-<area shape="rect" id="node19" href="a00356.html" title="sysc/tracing/sc_wif\l_trace.h" alt="" coords="1211,95,1342,136"/>
-<area shape="rect" id="node3" href="a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="213,459,375,486"/>
-<area shape="rect" id="node5" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="5,459,188,486"/>
-<area shape="rect" id="node4" href="a00401.html" title="systemc" alt="" coords="526,541,595,568"/>
-<area shape="rect" id="node8" href="a00125.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="697,184,835,225"/>
-<area shape="rect" id="node12" href="a00194.html" title="External functions for both sc_signed and sc_unsigned. " alt="" coords="911,184,1035,225"/>
-<area shape="rect" id="node10" href="a00104.html" title="Proxy base class for vector data types. " alt="" coords="788,452,912,493"/>
-<area shape="rect" id="node11" href="a00212.html" title="Concatenation support. " alt="" coords="577,452,715,493"/>
-<area shape="rect" id="node15" href="a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="987,363,1111,404"/>
+<div class="center"><img src="a00193.png" border="0" usemap="#sysc_2datatypes_2int_2sc__length__param_8hdep" alt=""/></div>
+<map name="sysc_2datatypes_2int_2sc__length__param_8hdep" id="sysc_2datatypes_2int_2sc__length__param_8hdep">
+<area shape="rect" id="node2" href="a00203.html" title="Arbitrary precision signed arithmetic. " alt="" coords="369,184,493,225"/>
+<area shape="rect" id="node4" href="a00095.html" title="Arbitrary size bit vector class. " alt="" coords="56,363,180,404"/>
+<area shape="rect" id="node5" href="a00104.html" title="Arbitrary size logic vector class. " alt="" coords="5,452,129,493"/>
+<area shape="rect" id="node11" href="a00212.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="319,95,443,136"/>
+<area shape="rect" id="node12" href="a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="971,184,1095,225"/>
+<area shape="rect" id="node14" href="a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="723,95,847,136"/>
+<area shape="rect" id="node3" href="a00107.html" title="Proxy base class for vector data types. " alt="" coords="897,273,1021,315"/>
+<area shape="rect" id="node6" href="a00176.html" title="Template version of sc_signed. This class enables. " alt="" coords="255,273,379,315"/>
+<area shape="rect" id="node7" href="a00179.html" title="Template version of sc_unsigned. This class. " alt="" coords="107,273,231,315"/>
+<area shape="rect" id="node8" href="a00215.html" title="Concatenation support. " alt="" coords="564,273,701,315"/>
+<area shape="rect" id="node9" href="a00140.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="403,273,540,315"/>
+<area shape="rect" id="node10" href="a00158.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="726,273,873,315"/>
+<area shape="rect" id="node13" href="a00182.html" title="A signed integer whose length is less than 64 bits. " alt="" coords="1045,273,1169,315"/>
+<area shape="rect" id="node15" href="a00206.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="823,184,947,225"/>
 </map>
 </div>
 </div>
 <p><a href="a00191_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00550"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html">sc_dt</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01683.html">sc_dt::sc_length_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length parameter type.  <a href="a01683.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a14cc9339249bf50a84ed70c74c812a5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a14cc9339249bf50a84ed70c74c812a5a">SC_DT_MIXED_COMMA_OPERATORS</a></td></tr>
-<tr class="separator:a14cc9339249bf50a84ed70c74c812a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a389fe26f7a8b342d8fd4408190c80900"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a389fe26f7a8b342d8fd4408190c80900">SC_NEG</a>&#160;&#160;&#160;-1</td></tr>
-<tr class="separator:a389fe26f7a8b342d8fd4408190c80900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98342000914a46f15358d895383e5bee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a98342000914a46f15358d895383e5bee">SC_ZERO</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a98342000914a46f15358d895383e5bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada46c64cf37b4af7d72599dc0951e871"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#ada46c64cf37b4af7d72599dc0951e871">SC_POS</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ada46c64cf37b4af7d72599dc0951e871"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c7486b7a782066ca607406e871b7492"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a6c7486b7a782066ca607406e871b7492">SC_NOSIGN</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a6c7486b7a782066ca607406e871b7492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369ecd38b3ab077fc235f892354bb46f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a369ecd38b3ab077fc235f892354bb46f">BITS_PER_BYTE</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:a369ecd38b3ab077fc235f892354bb46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af813bcb05e1dcf204e1404395ac4e237"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#af813bcb05e1dcf204e1404395ac4e237">BYTE_RADIX</a>&#160;&#160;&#160;256</td></tr>
-<tr class="separator:af813bcb05e1dcf204e1404395ac4e237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25c8363b88d9b8f73cc6b1a98bba8d9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a25c8363b88d9b8f73cc6b1a98bba8d9c">BYTE_MASK</a>&#160;&#160;&#160;255</td></tr>
-<tr class="separator:a25c8363b88d9b8f73cc6b1a98bba8d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9794a22e433da1780d89dc408f225192"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a9794a22e433da1780d89dc408f225192">LOG2_BITS_PER_BYTE</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a9794a22e433da1780d89dc408f225192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18464109b5f4fc79dd2891dc544ffd12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a18464109b5f4fc79dd2891dc544ffd12">BYTES_PER_DIGIT_TYPE</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a18464109b5f4fc79dd2891dc544ffd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ebb0ab20be1fcafcf9762f604500366"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a2ebb0ab20be1fcafcf9762f604500366">BITS_PER_DIGIT_TYPE</a>&#160;&#160;&#160;32</td></tr>
-<tr class="separator:a2ebb0ab20be1fcafcf9762f604500366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6294f65ce9fd0f3a47a51f47d0712a66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a6294f65ce9fd0f3a47a51f47d0712a66">BYTES_PER_DIGIT</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a6294f65ce9fd0f3a47a51f47d0712a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac151ab516815f02c5566c6db21dd3850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#ac151ab516815f02c5566c6db21dd3850">BITS_PER_DIGIT</a>&#160;&#160;&#160;30</td></tr>
-<tr class="separator:ac151ab516815f02c5566c6db21dd3850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15926de397795b354e674374a1ae9237"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a15926de397795b354e674374a1ae9237">DIGIT_RADIX</a>&#160;&#160;&#160;(1ul &lt;&lt; BITS_PER_DIGIT)</td></tr>
-<tr class="separator:a15926de397795b354e674374a1ae9237"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24522358dc4e1957d6b2afcf64adc4f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a24522358dc4e1957d6b2afcf64adc4f5">DIGIT_MASK</a>&#160;&#160;&#160;(<a class="el" href="a00191.html#a15926de397795b354e674374a1ae9237">DIGIT_RADIX</a> - 1)</td></tr>
-<tr class="separator:a24522358dc4e1957d6b2afcf64adc4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ccd4e50df2f3e89e4bc018dce43153"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#ad5ccd4e50df2f3e89e4bc018dce43153">BITS_PER_HALF_DIGIT</a>&#160;&#160;&#160;(<a class="el" href="a00191.html#ac151ab516815f02c5566c6db21dd3850">BITS_PER_DIGIT</a> / 2)</td></tr>
-<tr class="separator:ad5ccd4e50df2f3e89e4bc018dce43153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02c4f0a5ee7b5ffe06ec568e115e71d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a02c4f0a5ee7b5ffe06ec568e115e71d2">HALF_DIGIT_RADIX</a>&#160;&#160;&#160;(1ul &lt;&lt; BITS_PER_HALF_DIGIT)</td></tr>
-<tr class="separator:a02c4f0a5ee7b5ffe06ec568e115e71d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3053d55bf90330c5d0d0c46d16c2cba7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a3053d55bf90330c5d0d0c46d16c2cba7">HALF_DIGIT_MASK</a>&#160;&#160;&#160;(<a class="el" href="a00191.html#a02c4f0a5ee7b5ffe06ec568e115e71d2">HALF_DIGIT_RADIX</a> - 1)</td></tr>
-<tr class="separator:a3053d55bf90330c5d0d0c46d16c2cba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d90f649df39da8c7e440e79dd908fbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a6d90f649df39da8c7e440e79dd908fbd">DIV_CEIL2</a>(x,  y)&#160;&#160;&#160;(((x) - 1) / (y) + 1)</td></tr>
-<tr class="separator:a6d90f649df39da8c7e440e79dd908fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a490ec0bd20745b2aaeab3d3eeff2f4cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a490ec0bd20745b2aaeab3d3eeff2f4cc">DIV_CEIL</a>(x)&#160;&#160;&#160;<a class="el" href="a00191.html#a6d90f649df39da8c7e440e79dd908fbd">DIV_CEIL2</a>(x, <a class="el" href="a00191.html#ac151ab516815f02c5566c6db21dd3850">BITS_PER_DIGIT</a>)</td></tr>
-<tr class="separator:a490ec0bd20745b2aaeab3d3eeff2f4cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a844b54f8b6fad96bcab1648f54651aea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:a844b54f8b6fad96bcab1648f54651aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07b5175fb8244fc1bdd27f9012243fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#af07b5175fb8244fc1bdd27f9012243fa">BITS_PER_INT</a>&#160;&#160;&#160;(sizeof(int) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:af07b5175fb8244fc1bdd27f9012243fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f660aa23a5dbc0f4b8df48b4302b8c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a2f660aa23a5dbc0f4b8df48b4302b8c3">BITS_PER_LONG</a>&#160;&#160;&#160;(sizeof(long) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:a2f660aa23a5dbc0f4b8df48b4302b8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d403d53e8ff422fc838892b967e2b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a00d403d53e8ff422fc838892b967e2b2">BITS_PER_INT64</a>&#160;&#160;&#160;(sizeof(::<a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a>) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:a00d403d53e8ff422fc838892b967e2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa177baea59265c6711cc4d3888f95eab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#aa177baea59265c6711cc4d3888f95eab">BITS_PER_UINT</a>&#160;&#160;&#160;(sizeof(unsigned int) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:aa177baea59265c6711cc4d3888f95eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a158233c933acbd5262ad2a61f10d6451"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a158233c933acbd5262ad2a61f10d6451">BITS_PER_ULONG</a>&#160;&#160;&#160;(sizeof(unsigned long) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:a158233c933acbd5262ad2a61f10d6451"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a634f84877904d1c7efe1c6f24b6244"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a4a634f84877904d1c7efe1c6f24b6244">BITS_PER_UINT64</a>&#160;&#160;&#160;(sizeof(::<a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a>) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td></tr>
-<tr class="separator:a4a634f84877904d1c7efe1c6f24b6244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cd91a7889b99ce787efa35f4942ea08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a2cd91a7889b99ce787efa35f4942ea08">DIGITS_PER_CHAR</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a2cd91a7889b99ce787efa35f4942ea08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeacc1a5741545b52ac65a9b08168b293"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#aeacc1a5741545b52ac65a9b08168b293">DIGITS_PER_INT</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#af07b5175fb8244fc1bdd27f9012243fa">BITS_PER_INT</a>+29)/30)</td></tr>
-<tr class="separator:aeacc1a5741545b52ac65a9b08168b293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68febac496c913325534f8fb6724c88c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a68febac496c913325534f8fb6724c88c">DIGITS_PER_LONG</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#a2f660aa23a5dbc0f4b8df48b4302b8c3">BITS_PER_LONG</a>+29)/30)</td></tr>
-<tr class="separator:a68febac496c913325534f8fb6724c88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4dd0c14291e9ccd90b6e47ac45fc9aa8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a4dd0c14291e9ccd90b6e47ac45fc9aa8">DIGITS_PER_INT64</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#a00d403d53e8ff422fc838892b967e2b2">BITS_PER_INT64</a>+29)/30)</td></tr>
-<tr class="separator:a4dd0c14291e9ccd90b6e47ac45fc9aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3082149415e86f56f5df86f30e55d8de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a3082149415e86f56f5df86f30e55d8de">DIGITS_PER_UINT</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#aa177baea59265c6711cc4d3888f95eab">BITS_PER_UINT</a>+29)/30)</td></tr>
-<tr class="separator:a3082149415e86f56f5df86f30e55d8de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7ac1f05e6b679b21d1592d761e000f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a1e7ac1f05e6b679b21d1592d761e000f">DIGITS_PER_ULONG</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#a158233c933acbd5262ad2a61f10d6451">BITS_PER_ULONG</a>+29)/30)</td></tr>
-<tr class="separator:a1e7ac1f05e6b679b21d1592d761e000f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeca2ddcaac1f020fb793cf47d5b10ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#abeca2ddcaac1f020fb793cf47d5b10ad">DIGITS_PER_UINT64</a>&#160;&#160;&#160;((<a class="el" href="a00191.html#a4a634f84877904d1c7efe1c6f24b6244">BITS_PER_UINT64</a>+29)/30)</td></tr>
-<tr class="separator:abeca2ddcaac1f020fb793cf47d5b10ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae878d433a84ab8f5626810dc7ba720d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#ae878d433a84ab8f5626810dc7ba720d9">LLWIDTH</a>&#160;&#160;&#160;<a class="el" href="a00191.html#a00d403d53e8ff422fc838892b967e2b2">BITS_PER_INT64</a></td></tr>
-<tr class="separator:ae878d433a84ab8f5626810dc7ba720d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeedc66c3baa6469c2924a58fd3613bfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#aeedc66c3baa6469c2924a58fd3613bfd">INTWIDTH</a>&#160;&#160;&#160;<a class="el" href="a00191.html#af07b5175fb8244fc1bdd27f9012243fa">BITS_PER_INT</a></td></tr>
-<tr class="separator:aeedc66c3baa6469c2924a58fd3613bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6edb67bade708e206888b4c84fa3638b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a6edb67bade708e206888b4c84fa3638b">SC_INTWIDTH</a>&#160;&#160;&#160;64</td></tr>
-<tr class="separator:a6edb67bade708e206888b4c84fa3638b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad7f9b4978963cba9d617a37c385b228a"><td class="memItemLeft" align="right" valign="top">typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#ad7f9b4978963cba9d617a37c385b228a">sc_dt::uchar</a></td></tr>
-<tr class="separator:ad7f9b4978963cba9d617a37c385b228a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24b5ab9d89d2201797c64885ed4a1495"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a24b5ab9d89d2201797c64885ed4a1495">sc_dt::small_type</a></td></tr>
-<tr class="separator:a24b5ab9d89d2201797c64885ed4a1495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac387c29028ace5ebdafd46a173a8146a"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#ac387c29028ace5ebdafd46a173a8146a">sc_dt::sc_digit</a></td></tr>
-<tr class="separator:ac387c29028ace5ebdafd46a173a8146a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7241d680b54f08c83418b8743a42b667"><td class="memItemLeft" align="right" valign="top">typedef int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></td></tr>
-<tr class="separator:a7241d680b54f08c83418b8743a42b667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e509e6e05abf63a5c3f08a342e4cd91"><td class="memItemLeft" align="right" valign="top">typedef uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></td></tr>
-<tr class="separator:a0e509e6e05abf63a5c3f08a342e4cd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2789e869da81040d303d767eca87589"><td class="memItemLeft" align="right" valign="top">typedef ::std::ios::fmtflags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#af2789e869da81040d303d767eca87589">sc_dt::fmtflags</a></td></tr>
-<tr class="separator:af2789e869da81040d303d767eca87589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91ee067e28f43380d62cc8656effe11f"><td class="memItemLeft" align="right" valign="top">typedef int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a91ee067e28f43380d62cc8656effe11f">sc_dt::int_type</a></td></tr>
-<tr class="separator:a91ee067e28f43380d62cc8656effe11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4830f7c702212e2450d5cda8603a21e"><td class="memItemLeft" align="right" valign="top">typedef uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">sc_dt::uint_type</a></td></tr>
-<tr class="separator:aa4830f7c702212e2450d5cda8603a21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e98a92a91036ae4af6adde14ccdc33f"><td class="memItemLeft" align="right" valign="top">typedef sc_context&lt; sc_length_param &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a6e98a92a91036ae4af6adde14ccdc33f">sc_dt::sc_length_context</a></td></tr>
+<tr class="separator:a6e98a92a91036ae4af6adde14ccdc33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a4d7f17e93afae1c969127c6b80baa0f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_dt::sc_numrep</a> { <br />
-&#160;&#160;<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a57b0fc7080c8e8823dd373416e61e38d">sc_dt::SC_NOBASE</a> = 0, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a307c54bef660788d5be06b7db68b7942">sc_dt::SC_BIN</a> = 2, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9ab5bd29df600aa251432d9cf565e3969c">sc_dt::SC_OCT</a> = 8, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9ae9985e111b26103887bc8cb856062d70">sc_dt::SC_DEC</a> = 10, 
-<br />
-&#160;&#160;<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a3bba378d8c598eaebcbfd61a3341413b">sc_dt::SC_HEX</a> = 16, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a3f0b0a2200db8c111e7275278bac962c">sc_dt::SC_BIN_US</a>, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a6b148eae66cb447584899b7b0b25e23d">sc_dt::SC_BIN_SM</a>, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a27b98a3dc7d893f39c987f846cd26ea3">sc_dt::SC_OCT_US</a>, 
-<br />
-&#160;&#160;<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a7422976e4f533f6c8989d33301ffbdb1">sc_dt::SC_OCT_SM</a>, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9ac20afd6fc8d81e8c690b939a00319713">sc_dt::SC_HEX_US</a>, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a2269b5783b048c0d2c13abc7977c2e47">sc_dt::SC_HEX_SM</a>, 
-<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9a1cec3b96584130b8fce5557f58cda822">sc_dt::SC_CSD</a>
-<br />
- }<tr class="memdesc:a4d7f17e93afae1c969127c6b80baa0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of number representations for character string conversion.  <a href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">More...</a><br /></td></tr>
-</td></tr>
-<tr class="separator:a4d7f17e93afae1c969127c6b80baa0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a45deb636c84c3717d74d02c45d7d7ab1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a45deb636c84c3717d74d02c45d7d7ab1">sc_dt::operator==</a> (const sc_length_param &amp;, const sc_length_param &amp;)</td></tr>
+<tr class="separator:a45deb636c84c3717d74d02c45d7d7ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06815c1c37ed2a88835f7590a7e42c44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a06815c1c37ed2a88835f7590a7e42c44">sc_dt::operator!=</a> (const sc_length_param &amp;, const sc_length_param &amp;)</td></tr>
+<tr class="separator:a06815c1c37ed2a88835f7590a7e42c44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eed766b520ddb94147c0d99b31f4f36"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a1eed766b520ddb94147c0d99b31f4f36">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;os, const sc_length_param &amp;a)</td></tr>
+<tr class="separator:a1eed766b520ddb94147c0d99b31f4f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9c2801ca37a185d67aa9278b407b63c4"><td class="memItemLeft" align="right" valign="top">const uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a9c2801ca37a185d67aa9278b407b63c4">sc_dt::UINT64_ZERO</a></td></tr>
-<tr class="separator:a9c2801ca37a185d67aa9278b407b63c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83a74813a41ca91db389982e1402828d"><td class="memItemLeft" align="right" valign="top">const uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a83a74813a41ca91db389982e1402828d">sc_dt::UINT64_ONE</a></td></tr>
-<tr class="separator:a83a74813a41ca91db389982e1402828d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab308094ea2477a764488560bf08585d4"><td class="memItemLeft" align="right" valign="top">const uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#ab308094ea2477a764488560bf08585d4">sc_dt::UINT64_32ONES</a></td></tr>
-<tr class="separator:ab308094ea2477a764488560bf08585d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80a10dce041d6248a0106188e641eafd"><td class="memItemLeft" align="right" valign="top">const small_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a80a10dce041d6248a0106188e641eafd">sc_dt::NB_DEFAULT_BASE</a></td></tr>
-<tr class="separator:a80a10dce041d6248a0106188e641eafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc169e53c7fa9630225eba36bf0e789"><td class="memItemLeft" align="right" valign="top">const uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aafc169e53c7fa9630225eba36bf0e789">sc_dt::UINT_ZERO</a></td></tr>
-<tr class="separator:aafc169e53c7fa9630225eba36bf0e789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55423481107e039c4b5f9e9b24ab3703"><td class="memItemLeft" align="right" valign="top">const uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a55423481107e039c4b5f9e9b24ab3703">sc_dt::UINT_ONE</a></td></tr>
-<tr class="separator:a55423481107e039c4b5f9e9b24ab3703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d17e1260a524a15eeb1d1a21118561"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#afd296367ff4ff514096587ab9244e39f">SC_API_TEMPLATE_DECL_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad4d17e1260a524a15eeb1d1a21118561">sc_dt::sc_global&lt; sc_length_param &gt;</a></td></tr>
+<tr class="separator:ad4d17e1260a524a15eeb1d1a21118561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623ca9a50cb1448d92ea36b30361c346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#afd296367ff4ff514096587ab9244e39f">SC_API_TEMPLATE_DECL_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a623ca9a50cb1448d92ea36b30361c346">sc_dt::sc_context&lt; sc_length_param &gt;</a></td></tr>
+<tr class="separator:a623ca9a50cb1448d92ea36b30361c346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Top level header file for arbitrary precision signed/unsigned. </p>
-<p>arithmetic. This file defines all the constants needed.</p>
-<p>Original Author: Ali Dasdan, Synopsys, Inc. </p>
-
-<p class="definition">Definition in file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a369ecd38b3ab077fc235f892354bb46f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a369ecd38b3ab077fc235f892354bb46f">&#9670;&nbsp;</a></span>BITS_PER_BYTE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_BYTE&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00125">125</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a844b54f8b6fad96bcab1648f54651aea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a844b54f8b6fad96bcab1648f54651aea">&#9670;&nbsp;</a></span>BITS_PER_CHAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_CHAR&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00203">203</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="ac151ab516815f02c5566c6db21dd3850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac151ab516815f02c5566c6db21dd3850">&#9670;&nbsp;</a></span>BITS_PER_DIGIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_DIGIT&#160;&#160;&#160;30</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00141">141</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a2ebb0ab20be1fcafcf9762f604500366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ebb0ab20be1fcafcf9762f604500366">&#9670;&nbsp;</a></span>BITS_PER_DIGIT_TYPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_DIGIT_TYPE&#160;&#160;&#160;32</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00137">137</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="ad5ccd4e50df2f3e89e4bc018dce43153"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ccd4e50df2f3e89e4bc018dce43153">&#9670;&nbsp;</a></span>BITS_PER_HALF_DIGIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_HALF_DIGIT&#160;&#160;&#160;(<a class="el" href="a00191.html#ac151ab516815f02c5566c6db21dd3850">BITS_PER_DIGIT</a> / 2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00149">149</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="af07b5175fb8244fc1bdd27f9012243fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07b5175fb8244fc1bdd27f9012243fa">&#9670;&nbsp;</a></span>BITS_PER_INT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_INT&#160;&#160;&#160;(sizeof(int) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00204">204</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a00d403d53e8ff422fc838892b967e2b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00d403d53e8ff422fc838892b967e2b2">&#9670;&nbsp;</a></span>BITS_PER_INT64</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_INT64&#160;&#160;&#160;(sizeof(::<a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a>) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00206">206</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a2f660aa23a5dbc0f4b8df48b4302b8c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f660aa23a5dbc0f4b8df48b4302b8c3">&#9670;&nbsp;</a></span>BITS_PER_LONG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_LONG&#160;&#160;&#160;(sizeof(long) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00205">205</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="aa177baea59265c6711cc4d3888f95eab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa177baea59265c6711cc4d3888f95eab">&#9670;&nbsp;</a></span>BITS_PER_UINT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_UINT&#160;&#160;&#160;(sizeof(unsigned int) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00207">207</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a4a634f84877904d1c7efe1c6f24b6244"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a634f84877904d1c7efe1c6f24b6244">&#9670;&nbsp;</a></span>BITS_PER_UINT64</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_UINT64&#160;&#160;&#160;(sizeof(::<a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a>) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00209">209</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a158233c933acbd5262ad2a61f10d6451"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a158233c933acbd5262ad2a61f10d6451">&#9670;&nbsp;</a></span>BITS_PER_ULONG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BITS_PER_ULONG&#160;&#160;&#160;(sizeof(unsigned long) * <a class="el" href="a00191.html#a844b54f8b6fad96bcab1648f54651aea">BITS_PER_CHAR</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00208">208</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a25c8363b88d9b8f73cc6b1a98bba8d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25c8363b88d9b8f73cc6b1a98bba8d9c">&#9670;&nbsp;</a></span>BYTE_MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BYTE_MASK&#160;&#160;&#160;255</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00127">127</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="af813bcb05e1dcf204e1404395ac4e237"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af813bcb05e1dcf204e1404395ac4e237">&#9670;&nbsp;</a></span>BYTE_RADIX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BYTE_RADIX&#160;&#160;&#160;256</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00126">126</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a6294f65ce9fd0f3a47a51f47d0712a66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6294f65ce9fd0f3a47a51f47d0712a66">&#9670;&nbsp;</a></span>BYTES_PER_DIGIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BYTES_PER_DIGIT&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00140">140</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a18464109b5f4fc79dd2891dc544ffd12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18464109b5f4fc79dd2891dc544ffd12">&#9670;&nbsp;</a></span>BYTES_PER_DIGIT_TYPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BYTES_PER_DIGIT_TYPE&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00136">136</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a24522358dc4e1957d6b2afcf64adc4f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24522358dc4e1957d6b2afcf64adc4f5">&#9670;&nbsp;</a></span>DIGIT_MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGIT_MASK&#160;&#160;&#160;(<a class="el" href="a00191.html#a15926de397795b354e674374a1ae9237">DIGIT_RADIX</a> - 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00143">143</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a15926de397795b354e674374a1ae9237"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15926de397795b354e674374a1ae9237">&#9670;&nbsp;</a></span>DIGIT_RADIX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGIT_RADIX&#160;&#160;&#160;(1ul &lt;&lt; BITS_PER_DIGIT)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00142">142</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a2cd91a7889b99ce787efa35f4942ea08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cd91a7889b99ce787efa35f4942ea08">&#9670;&nbsp;</a></span>DIGITS_PER_CHAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_CHAR&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00212">212</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="aeacc1a5741545b52ac65a9b08168b293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeacc1a5741545b52ac65a9b08168b293">&#9670;&nbsp;</a></span>DIGITS_PER_INT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_INT&#160;&#160;&#160;((<a class="el" href="a00191.html#af07b5175fb8244fc1bdd27f9012243fa">BITS_PER_INT</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00213">213</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a4dd0c14291e9ccd90b6e47ac45fc9aa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dd0c14291e9ccd90b6e47ac45fc9aa8">&#9670;&nbsp;</a></span>DIGITS_PER_INT64</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_INT64&#160;&#160;&#160;((<a class="el" href="a00191.html#a00d403d53e8ff422fc838892b967e2b2">BITS_PER_INT64</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00215">215</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a68febac496c913325534f8fb6724c88c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68febac496c913325534f8fb6724c88c">&#9670;&nbsp;</a></span>DIGITS_PER_LONG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_LONG&#160;&#160;&#160;((<a class="el" href="a00191.html#a2f660aa23a5dbc0f4b8df48b4302b8c3">BITS_PER_LONG</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00214">214</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a3082149415e86f56f5df86f30e55d8de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3082149415e86f56f5df86f30e55d8de">&#9670;&nbsp;</a></span>DIGITS_PER_UINT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_UINT&#160;&#160;&#160;((<a class="el" href="a00191.html#aa177baea59265c6711cc4d3888f95eab">BITS_PER_UINT</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00216">216</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="abeca2ddcaac1f020fb793cf47d5b10ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeca2ddcaac1f020fb793cf47d5b10ad">&#9670;&nbsp;</a></span>DIGITS_PER_UINT64</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_UINT64&#160;&#160;&#160;((<a class="el" href="a00191.html#a4a634f84877904d1c7efe1c6f24b6244">BITS_PER_UINT64</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00218">218</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a1e7ac1f05e6b679b21d1592d761e000f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e7ac1f05e6b679b21d1592d761e000f">&#9670;&nbsp;</a></span>DIGITS_PER_ULONG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITS_PER_ULONG&#160;&#160;&#160;((<a class="el" href="a00191.html#a158233c933acbd5262ad2a61f10d6451">BITS_PER_ULONG</a>+29)/30)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00217">217</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a490ec0bd20745b2aaeab3d3eeff2f4cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a490ec0bd20745b2aaeab3d3eeff2f4cc">&#9670;&nbsp;</a></span>DIV_CEIL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIV_CEIL</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="a00191.html#a6d90f649df39da8c7e440e79dd908fbd">DIV_CEIL2</a>(x, <a class="el" href="a00191.html#ac151ab516815f02c5566c6db21dd3850">BITS_PER_DIGIT</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00158">158</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a6d90f649df39da8c7e440e79dd908fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d90f649df39da8c7e440e79dd908fbd">&#9670;&nbsp;</a></span>DIV_CEIL2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIV_CEIL2</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">y&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(((x) - 1) / (y) + 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00154">154</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a3053d55bf90330c5d0d0c46d16c2cba7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3053d55bf90330c5d0d0c46d16c2cba7">&#9670;&nbsp;</a></span>HALF_DIGIT_MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HALF_DIGIT_MASK&#160;&#160;&#160;(<a class="el" href="a00191.html#a02c4f0a5ee7b5ffe06ec568e115e71d2">HALF_DIGIT_RADIX</a> - 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00151">151</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a02c4f0a5ee7b5ffe06ec568e115e71d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02c4f0a5ee7b5ffe06ec568e115e71d2">&#9670;&nbsp;</a></span>HALF_DIGIT_RADIX</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define HALF_DIGIT_RADIX&#160;&#160;&#160;(1ul &lt;&lt; BITS_PER_HALF_DIGIT)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00150">150</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="aeedc66c3baa6469c2924a58fd3613bfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeedc66c3baa6469c2924a58fd3613bfd">&#9670;&nbsp;</a></span>INTWIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INTWIDTH&#160;&#160;&#160;<a class="el" href="a00191.html#af07b5175fb8244fc1bdd27f9012243fa">BITS_PER_INT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00233">233</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="ae878d433a84ab8f5626810dc7ba720d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae878d433a84ab8f5626810dc7ba720d9">&#9670;&nbsp;</a></span>LLWIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LLWIDTH&#160;&#160;&#160;<a class="el" href="a00191.html#a00d403d53e8ff422fc838892b967e2b2">BITS_PER_INT64</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00232">232</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a9794a22e433da1780d89dc408f225192"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9794a22e433da1780d89dc408f225192">&#9670;&nbsp;</a></span>LOG2_BITS_PER_BYTE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LOG2_BITS_PER_BYTE&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00131">131</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a14cc9339249bf50a84ed70c74c812a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14cc9339249bf50a84ed70c74c812a5a">&#9670;&nbsp;</a></span>SC_DT_MIXED_COMMA_OPERATORS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_DT_MIXED_COMMA_OPERATORS</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00083">83</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a6edb67bade708e206888b4c84fa3638b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6edb67bade708e206888b4c84fa3638b">&#9670;&nbsp;</a></span>SC_INTWIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_INTWIDTH&#160;&#160;&#160;64</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00239">239</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a389fe26f7a8b342d8fd4408190c80900"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a389fe26f7a8b342d8fd4408190c80900">&#9670;&nbsp;</a></span>SC_NEG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_NEG&#160;&#160;&#160;-1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00113">113</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a6c7486b7a782066ca607406e871b7492"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c7486b7a782066ca607406e871b7492">&#9670;&nbsp;</a></span>SC_NOSIGN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_NOSIGN&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00116">116</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="ada46c64cf37b4af7d72599dc0951e871"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada46c64cf37b4af7d72599dc0951e871">&#9670;&nbsp;</a></span>SC_POS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_POS&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00115">115</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
-<a id="a98342000914a46f15358d895383e5bee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98342000914a46f15358d895383e5bee">&#9670;&nbsp;</a></span>SC_ZERO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_ZERO&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00191_source.html#l00114">114</a> of file <a class="el" href="a00191_source.html">sc_nbdefs.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_4913bade71ac789252954d06e5b30a22.html">int</a></li><li class="navelem"><a class="el" href="a00191.html">sc_nbdefs.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_4913bade71ac789252954d06e5b30a22.html">int</a></li><li class="navelem"><a class="el" href="a00191.html">sc_length_param.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:52 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

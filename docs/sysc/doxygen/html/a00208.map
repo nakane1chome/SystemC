@@ -1,10 +1,4 @@
-<map id="sysc/datatypes/int/sc_uint_base.h" name="sysc/datatypes/int/sc_uint_base.h">
-<area shape="rect" id="node2" href="$a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="328,95,452,136"/>
-<area shape="rect" id="node3" href="$a00104.html" title="Proxy base class for vector data types. " alt="" coords="5,184,129,225"/>
-<area shape="rect" id="node6" href="$a00212.html" title="Concatenation support. " alt="" coords="153,184,291,225"/>
-<area shape="rect" id="node7" href="$a00137.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="463,184,600,225"/>
-<area shape="rect" id="node8" href="$a00155.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="625,184,771,225"/>
-<area shape="rect" id="node9" href="$a00203.html" title="A sc_uint is an unsigned integer whose length is less than the. " alt="" coords="719,95,843,136"/>
-<area shape="rect" id="node4" href="$a00179.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="315,184,439,225"/>
-<area shape="rect" id="node5" href="$a00401.html" title="systemc" alt="" coords="342,273,411,300"/>
+<map id="sysc/datatypes/int/sc_uint.h" name="sysc/datatypes/int/sc_uint.h">
+<area shape="rect" id="node2" href="$a00404.html" title="systemc" alt="" coords="33,95,102,121"/>
+<area shape="rect" id="node3" href="$a00407.html" title="systemc.h" alt="" coords="28,169,107,196"/>
 </map>

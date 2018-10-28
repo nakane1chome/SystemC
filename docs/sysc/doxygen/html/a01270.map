@@ -1,4 +1,5 @@
-<map id="sc_core::sc_in&lt; bool &gt;" name="sc_core::sc_in&lt; bool &gt;">
-<area shape="rect" id="node2" href="$a01211.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; bool \&gt;\l, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,95,236,151"/>
-<area shape="rect" id="node3" href="$a01207.html" title="sc_core::sc_port_b\l\&lt; sc_signal_in_if\&lt; bool \&gt; \&gt;" alt="" coords="33,5,208,47"/>
+<map id="sc_core::sc_signal_in_if&lt; bool &gt;" name="sc_core::sc_signal_in_if&lt; bool &gt;">
+<area shape="rect" id="node3" href="$a01283.html" title="sc_core::sc_signal\l_inout_if\&lt; bool \&gt;" alt="" coords="13,169,140,211"/>
+<area shape="rect" id="node2" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node4" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; bool, POL \&gt;" alt="" coords="13,259,140,300"/>
 </map>

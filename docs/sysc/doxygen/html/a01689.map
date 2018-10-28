@@ -1,6 +1,6 @@
-<map id="sc_dt::sc_uint_subref" name="sc_dt::sc_uint_subref">
-<area shape="rect" id="node5" href="$a02067.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_uint_subref \&gt;" alt="" coords="41,351,197,392"/>
-<area shape="rect" id="node2" href="$a01687.html" title="Proxy class for sc_uint part selection (r&#45;value only). " alt="" coords="105,171,259,197"/>
-<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="105,5,248,32"/>
-<area shape="rect" id="node4" href="$a01695.html" title="Base class for sc_uint. " alt="" coords="199,81,333,108"/>
+<map id="sc_dt::sc_signed_bitref" name="sc_dt::sc_signed_bitref">
+<area shape="rect" id="node5" href="$a02115.html" title="sc_core::sc_vpool\&lt;\l sc_dt::sc_signed_bitref \&gt;" alt="" coords="36,351,203,392"/>
+<area shape="rect" id="node2" href="$a01687.html" title="Proxy class for sc_signed bit selection (r&#45;value only). " alt="" coords="103,171,266,197"/>
+<area shape="rect" id="node3" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="108,5,251,32"/>
+<area shape="rect" id="node4" href="$a01703.html" title="Arbitrary precision signed number. " alt="" coords="201,81,317,108"/>
 </map>

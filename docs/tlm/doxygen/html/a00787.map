@@ -1,4 +1,4 @@
-<map id="tlm_utils/multi_socket_bases.h" name="tlm_utils/multi_socket_bases.h">
-<area shape="rect" id="node2" href="$a00779.html" title="tlm_utils/multi_passthrough\l_initiator_socket.h" alt="" coords="5,95,184,136"/>
-<area shape="rect" id="node3" href="$a00782.html" title="tlm_utils/multi_passthrough\l_target_socket.h" alt="" coords="208,95,387,136"/>
+<map id="tlm_core/tlm_2/tlm_sockets/tlm_target_socket.h" name="tlm_core/tlm_2/tlm_sockets/tlm_target_socket.h">
+<area shape="rect" id="node2" href="$a00782.html" title="tlm_core/tlm_2/tlm\l_sockets/tlm_sockets.h" alt="" coords="5,109,161,151"/>
+<area shape="rect" id="node3" href="$a00674.html" title="tlm" alt="" coords="63,199,103,225"/>
 </map>

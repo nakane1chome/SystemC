@@ -1,2 +1,5 @@
-<map id="sysc/kernel/sc_attribute.h" name="sysc/kernel/sc_attribute.h">
+<map id="sysc/datatypes/misc/sc_value_base.h" name="sysc/datatypes/misc/sc_value_base.h">
+<area shape="rect" id="node2" href="$a00194.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="202,95,326,136"/>
+<area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,184,168,211"/>
+<area shape="rect" id="node6" href="$a00227.html" title="Default constants whose values may need to be. " alt="" coords="362,184,537,211"/>
 </map>

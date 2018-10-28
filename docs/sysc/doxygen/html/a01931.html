@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_spawn_object_v&lt; T &gt; Class Template Reference</title>
+<title>SystemC: sc_core::sc_reset_finder Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -84,75 +84,101 @@ $(document).ready(function(){initNavTree('a01931.html','');});
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="a01928.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_spawn_object_v&lt; T &gt; Class Template Reference</div>  </div>
+<div class="title">sc_core::sc_reset_finder Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00317_source.html">sysc/kernel/sc_spawn.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00299_source.html">sysc/kernel/sc_reset.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::sc_spawn_object_v&lt; T &gt;:</div>
+Collaboration diagram for sc_core::sc_reset_finder:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01930.png" border="0" usemap="#sc__core_1_1sc__spawn__object__v_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__spawn__object__v_3_01_t_01_4_inherit__map" id="sc__core_1_1sc__spawn__object__v_3_01_t_01_4_inherit__map">
-<area shape="rect" id="node2" href="a01859.html" title="sc_core::sc_process_host" alt="" coords="7,5,175,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for sc_core::sc_spawn_object_v&lt; T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01929.png" border="0" usemap="#sc__core_1_1sc__spawn__object__v_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__spawn__object__v_3_01_t_01_4_coll__map" id="sc__core_1_1sc__spawn__object__v_3_01_t_01_4_coll__map">
-<area shape="rect" id="node2" href="a01859.html" title="sc_core::sc_process_host" alt="" coords="5,5,173,32"/>
+<div class="center"><img src="a01929.png" border="0" usemap="#sc__core_1_1sc__reset__finder_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__reset__finder_coll__map" id="sc__core_1_1sc__reset__finder_coll__map">
+<area shape="rect" id="node2" href="a01295.html" title="Specialization of sc_in&lt;T&gt; for type bool. " alt="" coords="351,36,500,63"/>
+<area shape="rect" id="node3" href="a01227.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; bool \&gt;\l, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,236,61"/>
+<area shape="rect" id="node4" title="STL class. " alt="" coords="65,92,176,119"/>
+<area shape="rect" id="node6" href="a01307.html" title="Specialization of sc_inout&lt;T&gt; for type bool. " alt="" coords="361,93,490,134"/>
+<area shape="rect" id="node5" href="a01315.html" title="sc_core::sc_out\&lt; bool \&gt;" alt="" coords="683,160,840,187"/>
+<area shape="rect" id="node7" href="a01911.html" title="sc_core::sc_process_b" alt="" coords="686,404,837,431"/>
+<area shape="rect" id="node8" href="a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="361,163,489,189"/>
+<area shape="rect" id="node9" href="a01867.html" title="Unique name generator class. " alt="" coords="349,213,502,240"/>
+<area shape="rect" id="node10" href="a01803.html" title="Base class for lists of events. " alt="" coords="352,264,499,291"/>
+<area shape="rect" id="node11" href="a01903.html" title="sc_core::sc_throw_it\l_helper" alt="" coords="356,315,495,357"/>
+<area shape="rect" id="node12" href="a01815.html" title="The event class. " alt="" coords="59,511,183,537"/>
+<area shape="rect" id="node13" href="a01895.html" title="sc_core::sc_process_host" alt="" coords="341,613,509,640"/>
+<area shape="rect" id="node14" href="a02087.html" title="Exception reporting. " alt="" coords="362,664,489,691"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a36c23b3fb303964c4ea165ac543d27ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a36c23b3fb303964c4ea165ac543d27ca">sc_spawn_object_v</a> (typename T::result_type *r_p, T object)</td></tr>
-<tr class="separator:a36c23b3fb303964c4ea165ac543d27ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78fcdfcb743b7ca91e4d65f17de23220"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a78fcdfcb743b7ca91e4d65f17de23220">semantics</a> ()</td></tr>
-<tr class="separator:a78fcdfcb743b7ca91e4d65f17de23220"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf24d38ae99fdf5fed561e8fb8301111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01859.html#acf24d38ae99fdf5fed561e8fb8301111">defunct</a> ()</td></tr>
-<tr class="separator:acf24d38ae99fdf5fed561e8fb8301111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aeadf9792dd2d6d377ddaea4c1f4fdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a5aeadf9792dd2d6d377ddaea4c1f4fdf">sc_reset_finder</a> (bool async, const <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt; *port_p, bool level, <a class="el" href="a01911.html">sc_process_b</a> *target_p)</td></tr>
+<tr class="separator:a5aeadf9792dd2d6d377ddaea4c1f4fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab45438b4f104c04104daa7c672b4b27f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#ab45438b4f104c04104daa7c672b4b27f">sc_reset_finder</a> (bool async, const <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt; *port_p, bool level, <a class="el" href="a01911.html">sc_process_b</a> *target_p)</td></tr>
+<tr class="separator:ab45438b4f104c04104daa7c672b4b27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39580d4ddcdeadce8a42210398d917e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#ab39580d4ddcdeadce8a42210398d917e">sc_reset_finder</a> (bool async, const <a class="el" href="a01315.html">sc_out</a>&lt; bool &gt; *port_p, bool level, <a class="el" href="a01911.html">sc_process_b</a> *target_p)</td></tr>
+<tr class="separator:ab39580d4ddcdeadce8a42210398d917e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:af67c05bf2d168d9bbabde87192686e1e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#af67c05bf2d168d9bbabde87192686e1e">m_object</a></td></tr>
-<tr class="separator:af67c05bf2d168d9bbabde87192686e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad47c000057a1fbff7c82114fdcdff154"><td class="memItemLeft" align="right" valign="top">T::result_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#ad47c000057a1fbff7c82114fdcdff154">m_result_p</a></td></tr>
-<tr class="separator:ad47c000057a1fbff7c82114fdcdff154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38624f3bbc2400a9f9a8961fcc7bd6c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a38624f3bbc2400a9f9a8961fcc7bd6c7">m_async</a></td></tr>
+<tr class="separator:a38624f3bbc2400a9f9a8961fcc7bd6c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a789e6209b910f7a6992d197f894e6f2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a789e6209b910f7a6992d197f894e6f2b">m_level</a></td></tr>
+<tr class="separator:a789e6209b910f7a6992d197f894e6f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf7f37e49cc548e30c13f6f1b5c16ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01931.html">sc_reset_finder</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a0cf7f37e49cc548e30c13f6f1b5c16ab">m_next_p</a></td></tr>
+<tr class="separator:a0cf7f37e49cc548e30c13f6f1b5c16ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab208433d7842b90f884cc4609062f106"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#ab208433d7842b90f884cc4609062f106">m_in_p</a></td></tr>
+<tr class="separator:ab208433d7842b90f884cc4609062f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15efcb4bb4b01fc05d0e6c0e4c2effa1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a15efcb4bb4b01fc05d0e6c0e4c2effa1">m_inout_p</a></td></tr>
+<tr class="separator:a15efcb4bb4b01fc05d0e6c0e4c2effa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4dcb15be317ab9f56e46ba54b4378e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01315.html">sc_out</a>&lt; bool &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a9d4dcb15be317ab9f56e46ba54b4378e">m_out_p</a></td></tr>
+<tr class="separator:a9d4dcb15be317ab9f56e46ba54b4378e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b14057d9261a0221585d77b37458790"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a2b14057d9261a0221585d77b37458790">m_target_p</a></td></tr>
+<tr class="separator:a2b14057d9261a0221585d77b37458790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a459c3ab69abfc8912c9261f7dc0719dd"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a459c3ab69abfc8912c9261f7dc0719dd">sc_reset</a></td></tr>
+<tr class="separator:a459c3ab69abfc8912c9261f7dc0719dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a833de7b9d6933c5c9b296583c4c835"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01931.html#a8a833de7b9d6933c5c9b296583c4c835">sc_simcontext</a></td></tr>
+<tr class="separator:a8a833de7b9d6933c5c9b296583c4c835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T&gt;<br />
-class sc_core::sc_spawn_object_v&lt; T &gt;</h3>
-
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00189">189</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00086">86</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a36c23b3fb303964c4ea165ac543d27ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36c23b3fb303964c4ea165ac543d27ca">&#9670;&nbsp;</a></span>sc_spawn_object_v()</h2>
+<a id="a5aeadf9792dd2d6d377ddaea4c1f4fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aeadf9792dd2d6d377ddaea4c1f4fdf">&#9670;&nbsp;</a></span>sc_reset_finder() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01931.html">sc_core::sc_spawn_object_v</a>&lt; T &gt;::<a class="el" href="a01931.html">sc_spawn_object_v</a> </td>
+          <td class="memname">sc_core::sc_reset_finder::sc_reset_finder </td>
           <td>(</td>
-          <td class="paramtype">typename T::result_type *&#160;</td>
-          <td class="paramname"><em>r_p</em>, </td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>object</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a01291.html">sc_in</a>&lt; bool &gt; *&#160;</td>
+          <td class="paramname"><em>port_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td>
+          <td class="paramname"><em>target_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,20 +186,93 @@ template&lt;typename T&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00191">191</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+</div>
+</div>
+<a id="ab45438b4f104c04104daa7c672b4b27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab45438b4f104c04104daa7c672b4b27f">&#9670;&nbsp;</a></span>sc_reset_finder() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_core::sc_reset_finder::sc_reset_finder </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01303.html">sc_inout</a>&lt; bool &gt; *&#160;</td>
+          <td class="paramname"><em>port_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td>
+          <td class="paramname"><em>target_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="acf24d38ae99fdf5fed561e8fb8301111"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf24d38ae99fdf5fed561e8fb8301111">&#9670;&nbsp;</a></span>defunct()</h2>
+<a id="ab39580d4ddcdeadce8a42210398d917e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39580d4ddcdeadce8a42210398d917e">&#9670;&nbsp;</a></span>sc_reset_finder() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_core::sc_reset_finder::sc_reset_finder </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>async</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01315.html">sc_out</a>&lt; bool &gt; *&#160;</td>
+          <td class="paramname"><em>port_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01911.html">sc_process_b</a> *&#160;</td>
+          <td class="paramname"><em>target_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a459c3ab69abfc8912c9261f7dc0719dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459c3ab69abfc8912c9261f7dc0719dd">&#9670;&nbsp;</a></span>sc_reset</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,66 +281,56 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_core::sc_process_host::defunct </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="a01935.html">sc_reset</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00095">95</a> of file <a class="el" href="a00293_source.html">sc_process.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00087">87</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
-<a id="a78fcdfcb743b7ca91e4d65f17de23220"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78fcdfcb743b7ca91e4d65f17de23220">&#9670;&nbsp;</a></span>semantics()</h2>
+<a id="a8a833de7b9d6933c5c9b296583c4c835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a833de7b9d6933c5c9b296583c4c835">&#9670;&nbsp;</a></span>sc_simcontext</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a01931.html">sc_core::sc_spawn_object_v</a>&lt; T &gt;::semantics </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">friend class <a class="el" href="a01963.html">sc_simcontext</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00196">196</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00088">88</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af67c05bf2d168d9bbabde87192686e1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af67c05bf2d168d9bbabde87192686e1e">&#9670;&nbsp;</a></span>m_object</h2>
+<a id="a38624f3bbc2400a9f9a8961fcc7bd6c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38624f3bbc2400a9f9a8961fcc7bd6c7">&#9670;&nbsp;</a></span>m_async</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="a01931.html">sc_core::sc_spawn_object_v</a>&lt; T &gt;::m_object</td>
+          <td class="memname">bool sc_core::sc_reset_finder::m_async</td>
         </tr>
       </table>
   </td>
@@ -251,23 +340,21 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00202">202</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00098">98</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
-<a id="ad47c000057a1fbff7c82114fdcdff154"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad47c000057a1fbff7c82114fdcdff154">&#9670;&nbsp;</a></span>m_result_p</h2>
+<a id="ab208433d7842b90f884cc4609062f106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab208433d7842b90f884cc4609062f106">&#9670;&nbsp;</a></span>m_in_p</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T::result_type* <a class="el" href="a01931.html">sc_core::sc_spawn_object_v</a>&lt; T &gt;::m_result_p</td>
+          <td class="memname">const <a class="el" href="a01291.html">sc_in</a>&lt;bool&gt;* sc_core::sc_reset_finder::m_in_p</td>
         </tr>
       </table>
   </td>
@@ -277,20 +364,140 @@ template&lt;typename T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00203">203</a> of file <a class="el" href="a00317_source.html">sc_spawn.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00101">101</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a15efcb4bb4b01fc05d0e6c0e4c2effa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15efcb4bb4b01fc05d0e6c0e4c2effa1">&#9670;&nbsp;</a></span>m_inout_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01303.html">sc_inout</a>&lt;bool&gt;* sc_core::sc_reset_finder::m_inout_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00102">102</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a789e6209b910f7a6992d197f894e6f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a789e6209b910f7a6992d197f894e6f2b">&#9670;&nbsp;</a></span>m_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sc_core::sc_reset_finder::m_level</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00099">99</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a0cf7f37e49cc548e30c13f6f1b5c16ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cf7f37e49cc548e30c13f6f1b5c16ab">&#9670;&nbsp;</a></span>m_next_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01931.html">sc_reset_finder</a>* sc_core::sc_reset_finder::m_next_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00100">100</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a9d4dcb15be317ab9f56e46ba54b4378e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4dcb15be317ab9f56e46ba54b4378e">&#9670;&nbsp;</a></span>m_out_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01315.html">sc_out</a>&lt;bool&gt;* sc_core::sc_reset_finder::m_out_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00103">103</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
+
+</div>
+</div>
+<a id="a2b14057d9261a0221585d77b37458790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b14057d9261a0221585d77b37458790">&#9670;&nbsp;</a></span>m_target_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01911.html">sc_process_b</a>* sc_core::sc_reset_finder::m_target_p</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00104">104</a> of file <a class="el" href="a00299_source.html">sc_reset.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00317_source.html">sc_spawn.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00299_source.html">sc_reset.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01931.html">sc_spawn_object_v</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01931.html">sc_reset_finder</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:05 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

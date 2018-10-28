@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_dt::sc_proxy_traits&lt; sc_bv_base &gt; Struct Template Reference</title>
+<title>SystemC: sc_dt::sc_bitref_conv_r&lt; T, sc_proxy_traits&lt; sc_bv_base &gt; &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,125 +82,66 @@ $(document).ready(function(){initNavTree('a01423.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a01420.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt; Struct Template Reference</div>  </div>
+<div class="title">sc_dt::sc_bitref_conv_r&lt; T, sc_proxy_traits&lt; sc_bv_base &gt; &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00104_source.html">sysc/datatypes/bit/sc_proxy.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00089_source.html">sysc/datatypes/bit/sc_bit_proxies.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a6bdc9d28d2ae4140d4d9bfdcca10dd6f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01419.html">sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a></td></tr>
-<tr class="separator:a6bdc9d28d2ae4140d4d9bfdcca10dd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe14bc464c7ca3f1e54ff8f471d993d3"><td class="memItemLeft" align="right" valign="top">typedef bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#abe14bc464c7ca3f1e54ff8f471d993d3">value_type</a></td></tr>
-<tr class="separator:abe14bc464c7ca3f1e54ff8f471d993d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefaea1ebd96c758ef03ab34f069d58b5"><td class="memItemLeft" align="right" valign="top">typedef bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#aefaea1ebd96c758ef03ab34f069d58b5">bit_type</a></td></tr>
-<tr class="separator:aefaea1ebd96c758ef03ab34f069d58b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d05c67d2c135ecd1a80bc2f01b8f149"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01399.html">sc_bv_base</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#a3d05c67d2c135ecd1a80bc2f01b8f149">vector_type</a></td></tr>
-<tr class="separator:a3d05c67d2c135ecd1a80bc2f01b8f149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae760d412b4b3ae9e1666b21180342b3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01423.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#aae760d412b4b3ae9e1666b21180342b3">type</a></td></tr>
-<tr class="separator:aae760d412b4b3ae9e1666b21180342b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab5398cee53e1d39b688aeadde3d564c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01423.html#ab5398cee53e1d39b688aeadde3d564c1">operator!</a> () const</td></tr>
+<tr class="separator:ab5398cee53e1d39b688aeadde3d564c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;&gt;<br />
-struct sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class sc_dt::sc_bitref_conv_r&lt; T, sc_proxy_traits&lt; sc_bv_base &gt; &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00136">136</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aefaea1ebd96c758ef03ab34f069d58b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefaea1ebd96c758ef03ab34f069d58b5">&#9670;&nbsp;</a></span>bit_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef bool <a class="el" href="a01419.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;::<a class="el" href="a01423.html#aefaea1ebd96c758ef03ab34f069d58b5">bit_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00140">140</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-
-</div>
-</div>
-<a id="a6bdc9d28d2ae4140d4d9bfdcca10dd6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">&#9670;&nbsp;</a></span>traits_type</h2>
+<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00072">72</a> of file <a class="el" href="a00089_source.html">sc_bit_proxies.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab5398cee53e1d39b688aeadde3d564c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5398cee53e1d39b688aeadde3d564c1">&#9670;&nbsp;</a></span>operator!()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01419.html">sc_proxy_traits</a>&lt;<a class="el" href="a01399.html">sc_bv_base</a>&gt; <a class="el" href="a01419.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;::<a class="el" href="a01423.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a></td>
+          <td class="memname">bool <a class="el" href="a01395.html">sc_dt::sc_bitref_conv_r</a>&lt; T, <a class="el" href="a01451.html">sc_proxy_traits</a>&lt; <a class="el" href="a01431.html">sc_bv_base</a> &gt; &gt;::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00138">138</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00083">83</a> of file <a class="el" href="a00089_source.html">sc_bit_proxies.h</a>.</p>
 
 </div>
 </div>
-<a id="aae760d412b4b3ae9e1666b21180342b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae760d412b4b3ae9e1666b21180342b3">&#9670;&nbsp;</a></span>type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a01423.html#a6bdc9d28d2ae4140d4d9bfdcca10dd6f">traits_type</a> <a class="el" href="a01419.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;::<a class="el" href="a01423.html#aae760d412b4b3ae9e1666b21180342b3">type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00142">142</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-
-</div>
-</div>
-<a id="abe14bc464c7ca3f1e54ff8f471d993d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe14bc464c7ca3f1e54ff8f471d993d3">&#9670;&nbsp;</a></span>value_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef bool <a class="el" href="a01419.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;::<a class="el" href="a01423.html#abe14bc464c7ca3f1e54ff8f471d993d3">value_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00139">139</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-
-</div>
-</div>
-<a id="a3d05c67d2c135ecd1a80bc2f01b8f149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d05c67d2c135ecd1a80bc2f01b8f149">&#9670;&nbsp;</a></span>vector_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a01399.html">sc_bv_base</a> <a class="el" href="a01419.html">sc_dt::sc_proxy_traits</a>&lt; <a class="el" href="a01399.html">sc_bv_base</a> &gt;::<a class="el" href="a01423.html#a3d05c67d2c135ecd1a80bc2f01b8f149">vector_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00141">141</a> of file <a class="el" href="a00104_source.html">sc_proxy.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/datatypes/bit/<a class="el" href="a00104_source.html">sc_proxy.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>sysc/datatypes/bit/<a class="el" href="a00089_source.html">sc_bit_proxies.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00550.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01423.html">sc_proxy_traits&lt; sc_bv_base &gt;</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:34 for SystemC by
+    <li class="navelem"><a class="el" href="a00562.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01423.html">sc_bitref_conv_r&lt; T, sc_proxy_traits&lt; sc_bv_base &gt; &gt;</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:10 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,10 +1,9 @@
-<map id="tlm::tlm_fifo&lt; T &gt;" name="tlm::tlm_fifo&lt; T &gt;">
-<area shape="rect" id="node9" href="$a02324.html" title="tlm::tlm_analysis_fifo\&lt; T \&gt;" alt="" coords="607,116,777,143"/>
-<area shape="rect" id="node2" href="$a02412.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="228,64,385,91"/>
-<area shape="rect" id="node3" href="$a02400.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="5,5,173,32"/>
-<area shape="rect" id="node4" href="$a02404.html" title="tlm::tlm_fifo_debug\l_if\&lt; T \&gt;" alt="" coords="24,57,155,98"/>
-<area shape="rect" id="node5" href="$a02408.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="228,116,385,143"/>
-<area shape="rect" id="node6" href="$a02376.html" title="tlm::tlm_put_if\&lt; T \&gt;" alt="" coords="23,123,156,149"/>
-<area shape="rect" id="node7" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01212.html" title="sc_core::sc_prim_channel" alt="" coords="221,171,392,197"/>
-<area shape="rect" id="node8" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01852.html" title="sc_core::sc_object" alt="" coords="25,173,153,200"/>
+<map id="tlm::tlm_nonblocking_master_if&lt; REQ, RSP &gt;" name="tlm::tlm_nonblocking_master_if&lt; REQ, RSP &gt;">
+<area shape="rect" id="node7" href="$a02468.html" title="tlm::tlm_master_if\l\&lt; REQ, RSP \&gt;" alt="" coords="791,39,915,80"/>
+<area shape="rect" id="node2" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; REQ \&gt;" alt="" coords="387,5,527,47"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="5,71,148,98"/>
+<area shape="rect" id="node5" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; RSP \&gt;" alt="" coords="196,64,336,105"/>
+<area shape="rect" id="node6" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; RSP \&gt;" alt="" coords="196,129,336,171"/>
+<area shape="rect" id="node4" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; RSP \&gt;" alt="" coords="384,71,529,112"/>
+<area shape="rect" id="node8" href="$a02500.html" title="tlm::tlm_master_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="963,39,1101,80"/>
 </map>

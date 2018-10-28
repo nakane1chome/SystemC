@@ -1,4 +1,6 @@
-<map id="sc_dt::sc_proxy_traits&lt; sc_concref_r&lt; X, Y &gt; &gt;" name="sc_dt::sc_proxy_traits&lt; sc_concref_r&lt; X, Y &gt; &gt;">
-<area shape="rect" id="node2" href="$a01451.html" title="sc_dt::sc_mixed_proxy\l_traits_helper\&lt; X::traits\l_type::type, Y::traits_type\l::type \&gt;" alt="" coords="197,5,361,76"/>
-<area shape="rect" id="node3" href="$a01427.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_lv_base \&gt;" alt="" coords="5,20,149,61"/>
+<map id="sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;" name="sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;">
+<area shape="rect" id="node2" href="$a01483.html" title="sc_dt::sc_mixed_proxy\l_traits_helper\&lt; X, Y \&gt;" alt="" coords="199,5,349,47"/>
+<area shape="rect" id="node3" href="$a01483.html" title="sc_dt::sc_mixed_proxy\l_traits_helper\&lt; X::traits\l_type, Y::traits_type \&gt;" alt="" coords="197,71,351,127"/>
+<area shape="rect" id="node4" href="$a01495.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_concref\&lt; X, Y \&gt; \&gt;" alt="" coords="404,45,559,87"/>
+<area shape="rect" id="node5" href="$a01491.html" title="sc_dt::sc_proxy_traits\l\&lt; sc_concref_r\&lt; X, Y \&gt; \&gt;" alt="" coords="399,111,564,152"/>
 </map>

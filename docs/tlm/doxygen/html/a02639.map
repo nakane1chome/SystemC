@@ -1,0 +1,25 @@
+<map id="tlm_utils::convenience_socket_base" name="tlm_utils::convenience_socket_base">
+<area shape="rect" id="node2" href="$a02652.html" title="tlm_utils::multi_socket_base" alt="" coords="206,100,389,127"/>
+<area shape="rect" id="node5" href="$a02648.html" title="tlm_utils::passthrough\l_socket_base" alt="" coords="225,393,370,434"/>
+<area shape="rect" id="node12" href="$a02644.html" title="tlm_utils::simple_socket_base" alt="" coords="201,1132,393,1159"/>
+<area shape="rect" id="node3" href="$a02716.html" title="tlm_utils::multi_init\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="481,5,672,61"/>
+<area shape="rect" id="node4" href="$a02724.html" title="tlm_utils::multi_target\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="481,85,672,141"/>
+<area shape="rect" id="node6" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="481,165,672,221"/>
+<area shape="rect" id="node7" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="465,246,688,317"/>
+<area shape="rect" id="node8" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="457,341,696,397"/>
+<area shape="rect" id="node9" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES,\l sc_core::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="441,422,712,493"/>
+<area shape="rect" id="node10" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="481,517,672,573"/>
+<area shape="rect" id="node11" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES, POL \&gt;" alt="" coords="441,597,712,653"/>
+<area shape="rect" id="node13" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="463,677,690,733"/>
+<area shape="rect" id="node14" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="463,758,690,829"/>
+<area shape="rect" id="node15" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="479,853,675,909"/>
+<area shape="rect" id="node16" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="465,934,688,1005"/>
+<area shape="rect" id="node17" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="463,1029,690,1085"/>
+<area shape="rect" id="node18" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="463,1110,690,1181"/>
+<area shape="rect" id="node19" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="479,1205,675,1261"/>
+<area shape="rect" id="node20" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="465,1286,688,1357"/>
+<area shape="rect" id="node21" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="463,1381,690,1437"/>
+<area shape="rect" id="node22" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="479,1461,675,1517"/>
+<area shape="rect" id="node23" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="463,1541,690,1597"/>
+<area shape="rect" id="node24" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="479,1621,675,1677"/>
+</map>

@@ -1,5 +1,4 @@
-<map id="sc_core::sc_writer_policy_check_write" name="sc_core::sc_writer_policy_check_write">
-<area shape="rect" id="node2" href="$a01355.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_ONE\l_WRITER \&gt;" alt="" coords="192,5,359,61"/>
-<area shape="rect" id="node3" href="$a01343.html" title="sc_core::sc_writer\l_policy_check_delta" alt="" coords="206,86,345,127"/>
-<area shape="rect" id="node4" href="$a01359.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_MANY\l_WRITERS \&gt;" alt="" coords="407,79,585,135"/>
+<map id="sc_core::sc_signal_rv&lt; W &gt;" name="sc_core::sc_signal_rv&lt; W &gt;">
+<area shape="rect" id="node2" href="$a01255.html" title="sc_core::sc_signal\l\&lt; sc_dt::sc_lv\&lt; W \&gt;,\l SC_MANY_WRITERS \&gt;" alt="" coords="5,109,171,165"/>
+<area shape="rect" id="node3" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; sc_dt::sc_lv\&lt; W\l \&gt;, POL \&gt;" alt="" coords="21,5,155,61"/>
 </map>

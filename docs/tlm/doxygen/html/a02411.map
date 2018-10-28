@@ -1,3 +1,6 @@
-<map id="tlm::tlm_extension&lt; T &gt;" name="tlm::tlm_extension&lt; T &gt;">
-<area shape="rect" id="node2" href="$a02408.html" title="tlm::tlm_extension_base" alt="" coords="5,5,164,32"/>
+<map id="tlm::tlm_blocking_peek_if&lt; T &gt;" name="tlm::tlm_blocking_peek_if&lt; T &gt;">
+<area shape="rect" id="node3" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; T \&gt;" alt="" coords="5,169,149,211"/>
+<area shape="rect" id="node5" href="$a02420.html" title="tlm::tlm_peek_if\&lt; T \&gt;" alt="" coords="174,177,317,203"/>
+<area shape="rect" id="node2" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="90,5,233,32"/>
+<area shape="rect" id="node4" href="$a02432.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="77,259,245,285"/>
 </map>

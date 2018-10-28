@@ -1,11 +1,11 @@
 var a00293 =
 [
-    [ "sc_process_host", "a01859.html", "a01859" ],
-    [ "sc_process_monitor", "a01863.html", "a01863" ],
-    [ "sc_throw_it_helper", "a01867.html", "a01867" ],
-    [ "sc_throw_it", "a01871.html", "a01871" ],
-    [ "sc_process_b", "a01875.html", "a01875" ],
-    [ "scoped_flag", "a01879.html", "a01879" ],
+    [ "sc_process_host", "a01895.html", "a01895" ],
+    [ "sc_process_monitor", "a01899.html", "a01899" ],
+    [ "sc_throw_it_helper", "a01903.html", "a01903" ],
+    [ "sc_throw_it", "a01907.html", "a01907" ],
+    [ "sc_process_b", "a01911.html", "a01911" ],
+    [ "scoped_flag", "a01915.html", "a01915" ],
     [ "SC_DECL_HELPER_STRUCT", "a00293.html#ac71456eed513159ded63fbfa40439b13", null ],
     [ "SC_MAKE_FUNC_PTR", "a00293.html#a580e4861b4550717077ee2267c2097ca", null ],
     [ "SC_USE_MEMBER_FUNC_PTR", "a00293.html#a3ec2c3fbb7cd8f5b4ff497b9dfbd0451", null ],
@@ -25,10 +25,10 @@ var a00293 =
       [ "SC_INCLUDE_DESCENDANTS", "a00293.html#af299d964d600dfca2e37224a6cb83298af29b3ba60742a626758f93eaabb1d895", null ],
       [ "SC_INVALID_DESCENDANTS", "a00293.html#af299d964d600dfca2e37224a6cb83298afc70e35380bb92b642ccb41a406d9d45", null ]
     ] ],
-    [ "sc_gen_unique_name", "a00293.html#acfe7915935d5f15045d5d3b3c11c3819", null ],
-    [ "sc_get_current_process_handle", "a00293.html#a6ca888c2e4285ec4e03a3018ba2100c9", null ],
-    [ "sc_set_stack_size", "a00293.html#ad36cce03f17ea25819292d3124b0ddb3", null ],
+    [ "sc_gen_unique_name", "a00293.html#a378479e6d63d99df82cd55b6b8ee7aa8", null ],
+    [ "sc_get_current_process_handle", "a00293.html#a9ecafc84e894dcf005776dc4e4ba6cdf", null ],
+    [ "sc_set_stack_size", "a00293.html#a1980a285a69614f2c12e1bf45e70ec5e", null ],
     [ "sc_thread_cor_fn", "a00293.html#aabd066bb337994094ef03529230382f5", null ],
-    [ "timed_out", "a00293.html#a196d815508abe91dd05e3885490872e3", null ],
-    [ "sc_allow_process_control_corners", "a00293.html#adfebaf9e7dbe988e172e607fc6ce17df", null ]
+    [ "timed_out", "a00293.html#a03fee28edc2913a881713c746de992bc", null ],
+    [ "sc_allow_process_control_corners", "a00293.html#a20c07dbcc7db8c8c6186e9c3d5b22b14", null ]
 ];

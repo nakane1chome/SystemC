@@ -1,2 +1,8 @@
-<map id="sysc/datatypes/fx/scfx_string.h" name="sysc/datatypes/fx/scfx_string.h">
+<map id="sysc/datatypes/fx/scfx_rep.h" name="sysc/datatypes/fx/scfx_rep.h">
+<area shape="rect" id="node3" href="$a00155.html" title="sysc/datatypes/fx/scfx\l_mant.h" alt="" coords="224,95,371,136"/>
+<area shape="rect" id="node6" href="$a00161.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="83,273,229,315"/>
+<area shape="rect" id="node7" href="$a00170.html" title="sysc/datatypes/fx/scfx\l_string.h" alt="" coords="457,273,604,315"/>
+<area shape="rect" id="node4" href="$a00152.html" title="sysc/datatypes/fx/scfx\l_ieee.h" alt="" coords="139,184,285,225"/>
+<area shape="rect" id="node5" href="$a00173.html" title="sysc/datatypes/fx/scfx\l_utils.h" alt="" coords="309,184,456,225"/>
+<area shape="rect" id="node8" href="$a00263.html" title="Miscellaneous definitions that are needed by the headers. " alt="" coords="480,191,643,218"/>
 </map>

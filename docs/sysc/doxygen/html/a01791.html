@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_user Class Reference</title>
+<title>SystemC: sc_core::sc_cor_pkg_qt Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -85,25 +85,73 @@ $(document).ready(function(){initNavTree('a01791.html','');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a01788.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_user Class Reference</div>  </div>
+<div class="title">sc_core::sc_cor_pkg_qt Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00251_source.html">sysc/kernel/sc_except.h</a>&gt;</code></p>
+<p>Coroutine package class implemented with QuickThreads.  
+ <a href="a01791.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00239_source.html">sysc/kernel/sc_cor_qt.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for sc_core::sc_cor_pkg_qt:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01790.png" border="0" usemap="#sc__core_1_1sc__cor__pkg__qt_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__cor__pkg__qt_inherit__map" id="sc__core_1_1sc__cor__pkg__qt_inherit__map">
+<area shape="rect" id="node2" href="a01783.html" title="Coroutine package abstract base class. " alt="" coords="15,5,153,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sc_core::sc_cor_pkg_qt:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01789.png" border="0" usemap="#sc__core_1_1sc__cor__pkg__qt_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__cor__pkg__qt_coll__map" id="sc__core_1_1sc__cor__pkg__qt_coll__map">
+<area shape="rect" id="node2" href="a01783.html" title="Coroutine package abstract base class. " alt="" coords="15,5,153,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a09322334de4dd920aa0f9915a1d085c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#a09322334de4dd920aa0f9915a1d085c8">sc_user</a> ()</td></tr>
-<tr class="separator:a09322334de4dd920aa0f9915a1d085c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6ca67bbfeea977570361a4376683f73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#ad6ca67bbfeea977570361a4376683f73">sc_user</a> (const <a class="el" href="a01791.html">sc_user</a> &amp;)</td></tr>
-<tr class="separator:ad6ca67bbfeea977570361a4376683f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6a6007cc04016f0509c937da8b3f9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#afb6a6007cc04016f0509c937da8b3f9d">sc_cor_pkg_qt</a> (<a class="el" href="a01963.html">sc_simcontext</a> *simc)</td></tr>
+<tr class="separator:afb6a6007cc04016f0509c937da8b3f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970ce51fe19b03f1d2593455085ed19d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#a970ce51fe19b03f1d2593455085ed19d">~sc_cor_pkg_qt</a> ()</td></tr>
+<tr class="separator:a970ce51fe19b03f1d2593455085ed19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd999e5095fbdd317cee0799c9819fd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a01779.html">sc_cor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#a6cd999e5095fbdd317cee0799c9819fd">create</a> (std::size_t stack_size, <a class="el" href="a00561.html#a255c51eaf00af94c8537149973b6f884">sc_cor_fn</a> *fn, void *arg)</td></tr>
+<tr class="separator:a6cd999e5095fbdd317cee0799c9819fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586a2e4047ae45e6785aa14bd29147aa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#a586a2e4047ae45e6785aa14bd29147aa">yield</a> (<a class="el" href="a01779.html">sc_cor</a> *next_cor)</td></tr>
+<tr class="separator:a586a2e4047ae45e6785aa14bd29147aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61303da808bb0287949f7d288634fbe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#ad61303da808bb0287949f7d288634fbe">abort</a> (<a class="el" href="a01779.html">sc_cor</a> *next_cor)</td></tr>
+<tr class="separator:ad61303da808bb0287949f7d288634fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a8a3505b96db33ba89bac5984848bc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a01779.html">sc_cor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01791.html#ac4a8a3505b96db33ba89bac5984848bc">get_main</a> ()</td></tr>
+<tr class="separator:ac4a8a3505b96db33ba89bac5984848bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5372fa4c26f71b186da324191815b572"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01963.html">sc_simcontext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01783.html#a5372fa4c26f71b186da324191815b572">simcontext</a> ()</td></tr>
+<tr class="separator:a5372fa4c26f71b186da324191815b572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00046">46</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
+<div class="textblock"><p>Coroutine package class implemented with QuickThreads. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00093">93</a> of file <a class="el" href="a00239_source.html">sc_cor_qt.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a09322334de4dd920aa0f9915a1d085c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09322334de4dd920aa0f9915a1d085c8">&#9670;&nbsp;</a></span>sc_user() <span class="overload">[1/2]</span></h2>
+<a id="afb6a6007cc04016f0509c937da8b3f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6a6007cc04016f0509c937da8b3f9d">&#9670;&nbsp;</a></span>sc_cor_pkg_qt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_core::sc_cor_pkg_qt::sc_cor_pkg_qt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01963.html">sc_simcontext</a> *&#160;</td>
+          <td class="paramname"><em>simc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a970ce51fe19b03f1d2593455085ed19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970ce51fe19b03f1d2593455085ed19d">&#9670;&nbsp;</a></span>~sc_cor_pkg_qt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +160,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_user::sc_user </td>
+          <td class="memname">virtual sc_core::sc_cor_pkg_qt::~sc_cor_pkg_qt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -120,17 +168,16 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00050">50</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
-
 </div>
 </div>
-<a id="ad6ca67bbfeea977570361a4376683f73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6ca67bbfeea977570361a4376683f73">&#9670;&nbsp;</a></span>sc_user() <span class="overload">[2/2]</span></h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad61303da808bb0287949f7d288634fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61303da808bb0287949f7d288634fbe">&#9670;&nbsp;</a></span>abort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,34 +186,160 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_user::sc_user </td>
+          <td class="memname">virtual void sc_core::sc_cor_pkg_qt::abort </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01791.html">sc_user</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a01779.html">sc_cor</a> *&#160;</td>
+          <td class="paramname"><em>next_cor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01783.html#a33431ff19d3bf1f868223bc871e0e6d5">sc_core::sc_cor_pkg</a>.</p>
+
+</div>
+</div>
+<a id="a6cd999e5095fbdd317cee0799c9819fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd999e5095fbdd317cee0799c9819fd">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a01779.html">sc_cor</a>* sc_core::sc_cor_pkg_qt::create </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>stack_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00561.html#a255c51eaf00af94c8537149973b6f884">sc_cor_fn</a> *&#160;</td>
+          <td class="paramname"><em>fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01783.html#a3620212c08fbfb3f002160c6d473a7a7">sc_core::sc_cor_pkg</a>.</p>
+
+</div>
+</div>
+<a id="ac4a8a3505b96db33ba89bac5984848bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a8a3505b96db33ba89bac5984848bc">&#9670;&nbsp;</a></span>get_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a01779.html">sc_cor</a>* sc_core::sc_cor_pkg_qt::get_main </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00051">51</a> of file <a class="el" href="a00251_source.html">sc_except.h</a>.</p>
+<p>Implements <a class="el" href="a01783.html#a21ef09beab82d6fd075adf4833d2e368">sc_core::sc_cor_pkg</a>.</p>
+
+</div>
+</div>
+<a id="a5372fa4c26f71b186da324191815b572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5372fa4c26f71b186da324191815b572">&#9670;&nbsp;</a></span>simcontext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01963.html">sc_simcontext</a>* sc_core::sc_cor_pkg::simcontext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00115">115</a> of file <a class="el" href="a00230_source.html">sc_cor.h</a>.</p>
+
+</div>
+</div>
+<a id="a586a2e4047ae45e6785aa14bd29147aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586a2e4047ae45e6785aa14bd29147aa">&#9670;&nbsp;</a></span>yield()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_cor_pkg_qt::yield </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01779.html">sc_cor</a> *&#160;</td>
+          <td class="paramname"><em>next_cor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01783.html#a7c3f9c7683cc6310ec563b3fe8e550d3">sc_core::sc_cor_pkg</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/kernel/<a class="el" href="a00251_source.html">sc_except.h</a></li>
+<li>sysc/kernel/<a class="el" href="a00239_source.html">sc_cor_qt.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01791.html">sc_user</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01791.html">sc_cor_pkg_qt</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:58 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_dt::sc_uint_base Class Reference</title>
+<title>SystemC: sc_dt::sc_signed_subref_r Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,246 +83,121 @@ $(document).ready(function(){initNavTree('a01695.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="a01692.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_dt::sc_uint_base Class Reference</div>  </div>
+<div class="title">sc_dt::sc_signed_subref_r Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for <a class="el" href="a01675.html">sc_uint</a>.  
+<p>Proxy class for <a class="el" href="a01703.html" title="Arbitrary precision signed number. ">sc_signed</a> part selection (r-value only).  
  <a href="a01695.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00206_source.html">sysc/datatypes/int/sc_uint_base.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00203_source.html">sysc/datatypes/int/sc_signed.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_dt::sc_uint_base:</div>
+Inheritance diagram for sc_dt::sc_signed_subref_r:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01694.png" border="0" usemap="#sc__dt_1_1sc__uint__base_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__dt_1_1sc__uint__base_inherit__map" id="sc__dt_1_1sc__uint__base_inherit__map">
-<area shape="rect" id="node3" href="a01675.html" title="sc_dt::sc_uint\&lt; W \&gt;" alt="" coords="9,155,144,181"/>
-<area shape="rect" id="node2" href="a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<div class="center"><img src="a01694.png" border="0" usemap="#sc__dt_1_1sc__signed__subref__r_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__dt_1_1sc__signed__subref__r_inherit__map" id="sc__dt_1_1sc__signed__subref__r_inherit__map">
+<area shape="rect" id="node3" href="a01699.html" title="Proxy class for sc_signed part selection (r&#45;value and l&#45;value). " alt="" coords="11,155,169,181"/>
+<area shape="rect" id="node2" href="a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="19,5,161,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sc_dt::sc_uint_base:</div>
+Collaboration diagram for sc_dt::sc_signed_subref_r:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01693.png" border="0" usemap="#sc__dt_1_1sc__uint__base_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__dt_1_1sc__uint__base_coll__map" id="sc__dt_1_1sc__uint__base_coll__map">
-<area shape="rect" id="node2" href="a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<div class="center"><img src="a01693.png" border="0" usemap="#sc__dt_1_1sc__signed__subref__r_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__dt_1_1sc__signed__subref__r_coll__map" id="sc__dt_1_1sc__signed__subref__r_coll__map">
+<area shape="rect" id="node2" href="a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="13,5,156,32"/>
+<area shape="rect" id="node3" href="a01703.html" title="Arbitrary precision signed number. " alt="" coords="107,81,223,108"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4526f1063ebb6c4f1e3f7000f7463717"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4526f1063ebb6c4f1e3f7000f7463717">sc_uint_base</a> (int w=<a class="el" href="a01651.html">sc_length_param</a>().len())</td></tr>
-<tr class="separator:a4526f1063ebb6c4f1e3f7000f7463717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e41c9e5e5bc6a60ee0cfa735aef0890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a1e41c9e5e5bc6a60ee0cfa735aef0890">sc_uint_base</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v, int w)</td></tr>
-<tr class="separator:a1e41c9e5e5bc6a60ee0cfa735aef0890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afea739280c0cd1cc981593ca6795a11f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#afea739280c0cd1cc981593ca6795a11f">sc_uint_base</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a)</td></tr>
-<tr class="separator:afea739280c0cd1cc981593ca6795a11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a149ea915ec38a3e3b35b82b4b66e6637"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a149ea915ec38a3e3b35b82b4b66e6637">sc_uint_base</a> (const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;a)</td></tr>
-<tr class="separator:a149ea915ec38a3e3b35b82b4b66e6637"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2517451edbb1c8fab98f0f086a932e61"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a2517451edbb1c8fab98f0f086a932e61"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01695.html#a2517451edbb1c8fab98f0f086a932e61">sc_uint_base</a> (const <a class="el" href="a01731.html">sc_generic_base</a>&lt; T &gt; &amp;a)</td></tr>
-<tr class="separator:a2517451edbb1c8fab98f0f086a932e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7652d279fbb9351a8feee438e675bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5a7652d279fbb9351a8feee438e675bc">sc_uint_base</a> (const <a class="el" href="a01399.html">sc_bv_base</a> &amp;v)</td></tr>
-<tr class="separator:a5a7652d279fbb9351a8feee438e675bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a2c88dbfc18325f65e44c4092dd82c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a86a2c88dbfc18325f65e44c4092dd82c">sc_uint_base</a> (const <a class="el" href="a01411.html">sc_lv_base</a> &amp;v)</td></tr>
-<tr class="separator:a86a2c88dbfc18325f65e44c4092dd82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dad7441c7ede97a4b9b9f3711820d8c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7dad7441c7ede97a4b9b9f3711820d8c">sc_uint_base</a> (const <a class="el" href="a01639.html">sc_int_subref_r</a> &amp;v)</td></tr>
-<tr class="separator:a7dad7441c7ede97a4b9b9f3711820d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef493b779069356bb10a9758fc451067"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aef493b779069356bb10a9758fc451067">sc_uint_base</a> (const <a class="el" href="a01663.html">sc_signed_subref_r</a> &amp;v)</td></tr>
-<tr class="separator:aef493b779069356bb10a9758fc451067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d422c6b4c0af3ef6aaaa73b29e1d9b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5d422c6b4c0af3ef6aaaa73b29e1d9b2">sc_uint_base</a> (const <a class="el" href="a01707.html">sc_unsigned_subref_r</a> &amp;v)</td></tr>
-<tr class="separator:a5d422c6b4c0af3ef6aaaa73b29e1d9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75cbb02300a8c75a8051b6ee84764509"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a75cbb02300a8c75a8051b6ee84764509">sc_uint_base</a> (const <a class="el" href="a01671.html">sc_signed</a> &amp;a)</td></tr>
-<tr class="separator:a75cbb02300a8c75a8051b6ee84764509"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5239651f200c24944c84f8c093a5c9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aa5239651f200c24944c84f8c093a5c9a">sc_uint_base</a> (const <a class="el" href="a01715.html">sc_unsigned</a> &amp;a)</td></tr>
-<tr class="separator:aa5239651f200c24944c84f8c093a5c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaf003d73d1ae93fb7c52c2717582e3e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abaf003d73d1ae93fb7c52c2717582e3e">~sc_uint_base</a> ()</td></tr>
-<tr class="separator:abaf003d73d1ae93fb7c52c2717582e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5776fb028f50f8b835e20a0788def549"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5776fb028f50f8b835e20a0788def549">operator=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a5776fb028f50f8b835e20a0788def549"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c13f4e0febd7b7a9e5860d77660b82b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a9c13f4e0febd7b7a9e5860d77660b82b">operator=</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a)</td></tr>
-<tr class="separator:a9c13f4e0febd7b7a9e5860d77660b82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae98434c49819b7c3cd8cd44e85bc7624"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae98434c49819b7c3cd8cd44e85bc7624">operator=</a> (const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;a)</td></tr>
-<tr class="separator:ae98434c49819b7c3cd8cd44e85bc7624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40594df08a70ecae13338c054921761d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a40594df08a70ecae13338c054921761d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01695.html#a40594df08a70ecae13338c054921761d">operator=</a> (const <a class="el" href="a01731.html">sc_generic_base</a>&lt; T &gt; &amp;a)</td></tr>
-<tr class="separator:a40594df08a70ecae13338c054921761d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03be0ed64e64f62cf738264bf25e17a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a03be0ed64e64f62cf738264bf25e17a1">operator=</a> (const <a class="el" href="a01671.html">sc_signed</a> &amp;a)</td></tr>
-<tr class="separator:a03be0ed64e64f62cf738264bf25e17a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c257fb7295137f7985a1c983923514"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ad7c257fb7295137f7985a1c983923514">operator=</a> (const <a class="el" href="a01715.html">sc_unsigned</a> &amp;a)</td></tr>
-<tr class="separator:ad7c257fb7295137f7985a1c983923514"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37babccf7d4e936062b1418848dc73c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a37babccf7d4e936062b1418848dc73c3">operator=</a> (const <a class="el" href="a01399.html">sc_bv_base</a> &amp;a)</td></tr>
-<tr class="separator:a37babccf7d4e936062b1418848dc73c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99aade3304e110f1bcc9a4e87aa52619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a99aade3304e110f1bcc9a4e87aa52619">operator=</a> (const <a class="el" href="a01411.html">sc_lv_base</a> &amp;a)</td></tr>
-<tr class="separator:a99aade3304e110f1bcc9a4e87aa52619"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a845ce68d774dee7b7cdf014f82ecf7df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a845ce68d774dee7b7cdf014f82ecf7df">operator=</a> (const char *a)</td></tr>
-<tr class="separator:a845ce68d774dee7b7cdf014f82ecf7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780e4b7f2f78b7cfcd3d469b2a02d45b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a780e4b7f2f78b7cfcd3d469b2a02d45b">operator=</a> (unsigned long a)</td></tr>
-<tr class="separator:a780e4b7f2f78b7cfcd3d469b2a02d45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2f11ad3a7248039d74441797265a361"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae2f11ad3a7248039d74441797265a361">operator=</a> (long a)</td></tr>
-<tr class="separator:ae2f11ad3a7248039d74441797265a361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109d70d9b5f110d02a2ae9a0c60e8149"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a109d70d9b5f110d02a2ae9a0c60e8149">operator=</a> (unsigned int a)</td></tr>
-<tr class="separator:a109d70d9b5f110d02a2ae9a0c60e8149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85178c4690dbce26f8fd05b734418521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a85178c4690dbce26f8fd05b734418521">operator=</a> (int a)</td></tr>
-<tr class="separator:a85178c4690dbce26f8fd05b734418521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a161e1dd340d31094bc358126b23ce8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a6a161e1dd340d31094bc358126b23ce8">operator=</a> (<a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a> a)</td></tr>
-<tr class="separator:a6a161e1dd340d31094bc358126b23ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacae7f65458f47bf85190da622b24afa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aacae7f65458f47bf85190da622b24afa">operator=</a> (double a)</td></tr>
-<tr class="separator:aacae7f65458f47bf85190da622b24afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a910c325809e17cced8a48e88454d0fb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a910c325809e17cced8a48e88454d0fb7">operator+=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a910c325809e17cced8a48e88454d0fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf494092a949b404d45313ac1ecc80e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aaf494092a949b404d45313ac1ecc80e4">operator-=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:aaf494092a949b404d45313ac1ecc80e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ba5d25d43889492b5bc5eb62f2f8cd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a2ba5d25d43889492b5bc5eb62f2f8cd6">operator*=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a2ba5d25d43889492b5bc5eb62f2f8cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a00330b9affe08a03b03349a2b9024a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a9a00330b9affe08a03b03349a2b9024a">operator/=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a9a00330b9affe08a03b03349a2b9024a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d28d69165fa7684ac8834148fc6fc70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a6d28d69165fa7684ac8834148fc6fc70">operator%=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a6d28d69165fa7684ac8834148fc6fc70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a146dc9832c9a57e6a4db958ea76eee06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a146dc9832c9a57e6a4db958ea76eee06">operator&amp;=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a146dc9832c9a57e6a4db958ea76eee06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91be5ae5700342000beca0ab392ea2ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a91be5ae5700342000beca0ab392ea2ec">operator|=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a91be5ae5700342000beca0ab392ea2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55b73586a3a179a894654cacff0550de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a55b73586a3a179a894654cacff0550de">operator^=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a55b73586a3a179a894654cacff0550de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a763ab2f907ab6f6b713839d4db29b5b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a763ab2f907ab6f6b713839d4db29b5b4">operator&lt;&lt;=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a763ab2f907ab6f6b713839d4db29b5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d93358df5bd3c5ac0ed42498623ba2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a44d93358df5bd3c5ac0ed42498623ba2">operator&gt;&gt;=</a> (<a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> v)</td></tr>
-<tr class="separator:a44d93358df5bd3c5ac0ed42498623ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af773ee14685a3004f95d1104f43409fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#af773ee14685a3004f95d1104f43409fd">operator++</a> ()</td></tr>
-<tr class="separator:af773ee14685a3004f95d1104f43409fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a876df5f7d3e8555ceffa40bfbd90b33e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01695.html">sc_uint_base</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a876df5f7d3e8555ceffa40bfbd90b33e">operator++</a> (int)</td></tr>
-<tr class="separator:a876df5f7d3e8555ceffa40bfbd90b33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b5696202c0518666279c06567f7ab38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a2b5696202c0518666279c06567f7ab38">operator--</a> ()</td></tr>
-<tr class="separator:a2b5696202c0518666279c06567f7ab38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af08ad6eaeeaa5659ea9aed8f17b6b36c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01695.html">sc_uint_base</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#af08ad6eaeeaa5659ea9aed8f17b6b36c">operator--</a> (int)</td></tr>
-<tr class="separator:af08ad6eaeeaa5659ea9aed8f17b6b36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32445edd50c003cfd19c300652df5641"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01683.html">sc_uint_bitref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a32445edd50c003cfd19c300652df5641">operator[]</a> (int i)</td></tr>
-<tr class="separator:a32445edd50c003cfd19c300652df5641"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcdbc01626eda45cd63149862b2cbbe4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01679.html">sc_uint_bitref_r</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abcdbc01626eda45cd63149862b2cbbe4">operator[]</a> (int i) const</td></tr>
-<tr class="separator:abcdbc01626eda45cd63149862b2cbbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab51c65b19fc1820bb3423c804df3d14f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01683.html">sc_uint_bitref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ab51c65b19fc1820bb3423c804df3d14f">bit</a> (int i)</td></tr>
-<tr class="separator:ab51c65b19fc1820bb3423c804df3d14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6934b80cf00a7164df0f9349a3520c18"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01679.html">sc_uint_bitref_r</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a6934b80cf00a7164df0f9349a3520c18">bit</a> (int i) const</td></tr>
-<tr class="separator:a6934b80cf00a7164df0f9349a3520c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e2a318d63f1dda23e82a5016ea14997"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01691.html">sc_uint_subref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a9e2a318d63f1dda23e82a5016ea14997">operator()</a> (int left, int right)</td></tr>
-<tr class="separator:a9e2a318d63f1dda23e82a5016ea14997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff3dfa4f1aa038953984d081e4cac0f5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aff3dfa4f1aa038953984d081e4cac0f5">operator()</a> (int left, int right) const</td></tr>
-<tr class="separator:aff3dfa4f1aa038953984d081e4cac0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4249bf60abea42877826554ea6f67384"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01691.html">sc_uint_subref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4249bf60abea42877826554ea6f67384">range</a> (int left, int right)</td></tr>
-<tr class="separator:a4249bf60abea42877826554ea6f67384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7246a866a4a55d040f5205b38f83b53d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7246a866a4a55d040f5205b38f83b53d">range</a> (int left, int right) const</td></tr>
-<tr class="separator:a7246a866a4a55d040f5205b38f83b53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac79db1d12f15d7a41386d56d3d4976cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ac79db1d12f15d7a41386d56d3d4976cc">test</a> (int i) const</td></tr>
-<tr class="separator:ac79db1d12f15d7a41386d56d3d4976cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecabfc41e27f6e906860eb4a0aa141f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aecabfc41e27f6e906860eb4a0aa141f1">set</a> (int i)</td></tr>
-<tr class="separator:aecabfc41e27f6e906860eb4a0aa141f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06734edd375869b5d2fea8c6e96686cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a06734edd375869b5d2fea8c6e96686cc">set</a> (int i, bool v)</td></tr>
-<tr class="separator:a06734edd375869b5d2fea8c6e96686cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa64b8ee6ffda810b89f1ea30539106"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a8fa64b8ee6ffda810b89f1ea30539106">length</a> () const</td></tr>
-<tr class="separator:a8fa64b8ee6ffda810b89f1ea30539106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ccb52d42101e9d7adf3f27f81bc21bd"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7ccb52d42101e9d7adf3f27f81bc21bd">concat_length</a> (bool *xz_present_p) const</td></tr>
-<tr class="separator:a7ccb52d42101e9d7adf3f27f81bc21bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f106a5114e5531e3ed1d15425895699"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a8f106a5114e5531e3ed1d15425895699">concat_get_ctrl</a> (<a class="el" href="a00550.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
-<tr class="separator:a8f106a5114e5531e3ed1d15425895699"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7176d5b7b5b37ccb37daf558e238d52"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#af7176d5b7b5b37ccb37daf558e238d52">concat_get_data</a> (<a class="el" href="a00550.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
-<tr class="separator:af7176d5b7b5b37ccb37daf558e238d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc05d254c59d8ecbede51f98e9bed5eb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#afc05d254c59d8ecbede51f98e9bed5eb">concat_get_uint64</a> () const</td></tr>
-<tr class="separator:afc05d254c59d8ecbede51f98e9bed5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b890b794648f727636b486cf07a5a52"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a0b890b794648f727636b486cf07a5a52">concat_set</a> (<a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a> src, int low_i)</td></tr>
-<tr class="separator:a0b890b794648f727636b486cf07a5a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfd4898e73cce86a0900e254f596fed8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abfd4898e73cce86a0900e254f596fed8">concat_set</a> (const <a class="el" href="a01671.html">sc_signed</a> &amp;src, int low_i)</td></tr>
-<tr class="separator:abfd4898e73cce86a0900e254f596fed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e2f88ad7cc96758a555e97e1f9e66c0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5e2f88ad7cc96758a555e97e1f9e66c0">concat_set</a> (const <a class="el" href="a01715.html">sc_unsigned</a> &amp;src, int low_i)</td></tr>
-<tr class="separator:a5e2f88ad7cc96758a555e97e1f9e66c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae294490f1f45fc769485ed59497941a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aae294490f1f45fc769485ed59497941a">concat_set</a> (<a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> src, int low_i)</td></tr>
-<tr class="separator:aae294490f1f45fc769485ed59497941a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0f953a5aa8505ff9e16faeceb6cad0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4b0f953a5aa8505ff9e16faeceb6cad0">and_reduce</a> () const</td></tr>
-<tr class="separator:a4b0f953a5aa8505ff9e16faeceb6cad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdec50c0bce67fed0b1d9e627be126e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4fdec50c0bce67fed0b1d9e627be126e">nand_reduce</a> () const</td></tr>
-<tr class="separator:a4fdec50c0bce67fed0b1d9e627be126e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a875509778e4ec8b16921a1290ecbad2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a875509778e4ec8b16921a1290ecbad2f">or_reduce</a> () const</td></tr>
-<tr class="separator:a875509778e4ec8b16921a1290ecbad2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4783b49ce5a7bdcfb21d8186f61f6838"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4783b49ce5a7bdcfb21d8186f61f6838">nor_reduce</a> () const</td></tr>
-<tr class="separator:a4783b49ce5a7bdcfb21d8186f61f6838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9805a495b81c0b3a1154cade7afc25cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a9805a495b81c0b3a1154cade7afc25cf">xor_reduce</a> () const</td></tr>
-<tr class="separator:a9805a495b81c0b3a1154cade7afc25cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4459ca217ca293596b13706753807d78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4459ca217ca293596b13706753807d78">xnor_reduce</a> () const</td></tr>
-<tr class="separator:a4459ca217ca293596b13706753807d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5633f14f193fd9890b7ed1184c1162dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5633f14f193fd9890b7ed1184c1162dd">operator uint_type</a> () const</td></tr>
-<tr class="separator:a5633f14f193fd9890b7ed1184c1162dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12b39db2525bb4e67850ec1af957dcce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a12b39db2525bb4e67850ec1af957dcce">value</a> () const</td></tr>
-<tr class="separator:a12b39db2525bb4e67850ec1af957dcce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b202b173073ff84363fec427c7cb38d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a3b202b173073ff84363fec427c7cb38d">to_int</a> () const</td></tr>
-<tr class="separator:a3b202b173073ff84363fec427c7cb38d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae96764a31459ba2c1e8f25e8744fb80"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aae96764a31459ba2c1e8f25e8744fb80">to_uint</a> () const</td></tr>
-<tr class="separator:aae96764a31459ba2c1e8f25e8744fb80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87bc7ce210cd522b8df04339bb1838da"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a87bc7ce210cd522b8df04339bb1838da">to_long</a> () const</td></tr>
-<tr class="separator:a87bc7ce210cd522b8df04339bb1838da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a425ea0975c019c28fa2d708e2e91501d"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a425ea0975c019c28fa2d708e2e91501d">to_ulong</a> () const</td></tr>
-<tr class="separator:a425ea0975c019c28fa2d708e2e91501d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbc3d6548290f245a3f87ea3c7bfefa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abbc3d6548290f245a3f87ea3c7bfefa1">to_int64</a> () const</td></tr>
-<tr class="separator:abbc3d6548290f245a3f87ea3c7bfefa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaf6dadf4d12586aadb5aa794b77350a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#adaf6dadf4d12586aadb5aa794b77350a">to_uint64</a> () const</td></tr>
-<tr class="separator:adaf6dadf4d12586aadb5aa794b77350a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc956fc9ab19bd766f3afae0f0210fed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abc956fc9ab19bd766f3afae0f0210fed">to_double</a> () const</td></tr>
-<tr class="separator:abc956fc9ab19bd766f3afae0f0210fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f3f27ea9e03f68721c4c6559726d6d4"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a8f3f27ea9e03f68721c4c6559726d6d4">long_low</a> () const</td></tr>
-<tr class="separator:a8f3f27ea9e03f68721c4c6559726d6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada3d47171191729e6d035ee01b382507"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ada3d47171191729e6d035ee01b382507">long_high</a> () const</td></tr>
-<tr class="separator:ada3d47171191729e6d035ee01b382507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae095fda8bac8e19a83fb3245a4afb295"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae095fda8bac8e19a83fb3245a4afb295">to_string</a> (<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a> numrep=<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9ae9985e111b26103887bc8cb856062d70">SC_DEC</a>) const</td></tr>
-<tr class="separator:ae095fda8bac8e19a83fb3245a4afb295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cf62e82f7672d13ce122ad26835d32b"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7cf62e82f7672d13ce122ad26835d32b">to_string</a> (<a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a> numrep, bool w_prefix) const</td></tr>
-<tr class="separator:a7cf62e82f7672d13ce122ad26835d32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f3b241cddf60ea2bc195e72c7a5f8f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5f3b241cddf60ea2bc195e72c7a5f8f3">print</a> (::std::ostream &amp;os=::std::cout) const</td></tr>
-<tr class="separator:a5f3b241cddf60ea2bc195e72c7a5f8f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53af00ddacf132effafbd5d8acdc3ad5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a53af00ddacf132effafbd5d8acdc3ad5">scan</a> (::std::istream &amp;is=::std::cin)</td></tr>
-<tr class="separator:a53af00ddacf132effafbd5d8acdc3ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3dd2a3dc0eebc7880b7af39afd9dae9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ab3dd2a3dc0eebc7880b7af39afd9dae9">~sc_signed_subref_r</a> ()</td></tr>
+<tr class="separator:ab3dd2a3dc0eebc7880b7af39afd9dae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af497ddf1b8545a2687f05f2ee7b2ef83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#af497ddf1b8545a2687f05f2ee7b2ef83">sc_signed_subref_r</a> (const <a class="el" href="a01695.html">sc_signed_subref_r</a> &amp;a)</td></tr>
+<tr class="separator:af497ddf1b8545a2687f05f2ee7b2ef83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9a16a1d52fdff8649caa53e7978cb68"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae9a16a1d52fdff8649caa53e7978cb68">length</a> () const</td></tr>
+<tr class="separator:ae9a16a1d52fdff8649caa53e7978cb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a548b74dab52adae0c1c6dae657b77fa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a548b74dab52adae0c1c6dae657b77fa6">operator sc_unsigned</a> () const</td></tr>
+<tr class="separator:a548b74dab52adae0c1c6dae657b77fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54b9d3a3374e78cf672e7f9e159028f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae54b9d3a3374e78cf672e7f9e159028f">to_int</a> () const</td></tr>
+<tr class="separator:ae54b9d3a3374e78cf672e7f9e159028f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0eea8cc1e7d40fd95fda49f95ae9651"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ae0eea8cc1e7d40fd95fda49f95ae9651">to_uint</a> () const</td></tr>
+<tr class="separator:ae0eea8cc1e7d40fd95fda49f95ae9651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa567042202588cfa00e634f393dec841"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aa567042202588cfa00e634f393dec841">to_long</a> () const</td></tr>
+<tr class="separator:aa567042202588cfa00e634f393dec841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ebe656ed0e83596a7f08890543e0cda"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4ebe656ed0e83596a7f08890543e0cda">to_ulong</a> () const</td></tr>
+<tr class="separator:a4ebe656ed0e83596a7f08890543e0cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0852991c50434a742f8bd34669fbb97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ab0852991c50434a742f8bd34669fbb97">to_int64</a> () const</td></tr>
+<tr class="separator:ab0852991c50434a742f8bd34669fbb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5693b5f957fd3fcc02c86362cb7f00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aca5693b5f957fd3fcc02c86362cb7f00">to_uint64</a> () const</td></tr>
+<tr class="separator:aca5693b5f957fd3fcc02c86362cb7f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16976c59012bb02dfa21294f4f2e27ca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a16976c59012bb02dfa21294f4f2e27ca">to_double</a> () const</td></tr>
+<tr class="separator:a16976c59012bb02dfa21294f4f2e27ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a653a8ffe426ad8dd94b67954ecc6d177"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a653a8ffe426ad8dd94b67954ecc6d177">to_string</a> (<a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a> numrep=<a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9ae9985e111b26103887bc8cb856062d70">SC_DEC</a>) const</td></tr>
+<tr class="separator:a653a8ffe426ad8dd94b67954ecc6d177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0730bd84adf83d9656fdd0df4cd990"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7c0730bd84adf83d9656fdd0df4cd990">to_string</a> (<a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a> numrep, bool w_prefix) const</td></tr>
+<tr class="separator:a7c0730bd84adf83d9656fdd0df4cd990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469acdf388368ca6e2e64020ff0db715"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a469acdf388368ca6e2e64020ff0db715">concat_length</a> (bool *xz_present_p) const</td></tr>
+<tr class="separator:a469acdf388368ca6e2e64020ff0db715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4087784ff7efc2260cf2a9b94dc95c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5e4087784ff7efc2260cf2a9b94dc95c">concat_get_uint64</a> () const</td></tr>
+<tr class="separator:a5e4087784ff7efc2260cf2a9b94dc95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc6cadc32ece35cedd29f145f0e98d3d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#acc6cadc32ece35cedd29f145f0e98d3d">concat_get_ctrl</a> (<a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
+<tr class="separator:acc6cadc32ece35cedd29f145f0e98d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fdb9e42d3df76a573139b269a0becb6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a5fdb9e42d3df76a573139b269a0becb6">concat_get_data</a> (<a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *dst_p, int low_i) const</td></tr>
+<tr class="separator:a5fdb9e42d3df76a573139b269a0becb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f1d448eaec1fde3eb1ba4f1fb5996c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a37f1d448eaec1fde3eb1ba4f1fb5996c">and_reduce</a> () const</td></tr>
+<tr class="separator:a37f1d448eaec1fde3eb1ba4f1fb5996c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ba207c067a93d595bc8ca35414801d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a9ba207c067a93d595bc8ca35414801d2">nand_reduce</a> () const</td></tr>
+<tr class="separator:a9ba207c067a93d595bc8ca35414801d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1323d9494c5e445078780f21b4638533"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a1323d9494c5e445078780f21b4638533">or_reduce</a> () const</td></tr>
+<tr class="separator:a1323d9494c5e445078780f21b4638533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf23dd22645a7a4835b87ad64b0f23b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#adf23dd22645a7a4835b87ad64b0f23b8">nor_reduce</a> () const</td></tr>
+<tr class="separator:adf23dd22645a7a4835b87ad64b0f23b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086870e25d3a4f3c5b6d6f62c4c0c93c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a086870e25d3a4f3c5b6d6f62c4c0c93c">xor_reduce</a> () const</td></tr>
+<tr class="separator:a086870e25d3a4f3c5b6d6f62c4c0c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe95f79796613ae6b862599ffcc1e5f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abe95f79796613ae6b862599ffcc1e5f6">xnor_reduce</a> () const</td></tr>
+<tr class="separator:abe95f79796613ae6b862599ffcc1e5f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7de633033975543cd621fb0fa842a49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ac7de633033975543cd621fb0fa842a49">print</a> (::std::ostream &amp;os=::std::cout) const</td></tr>
+<tr class="separator:ac7de633033975543cd621fb0fa842a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ad23a781217aa1f6925f38220021224a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ad23a781217aa1f6925f38220021224a4">sc_signed_subref_r</a> ()</td></tr>
+<tr class="separator:ad23a781217aa1f6925f38220021224a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc83a9288f69895c9551016ef6be718"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a7cc83a9288f69895c9551016ef6be718">initialize</a> (const <a class="el" href="a01703.html">sc_signed</a> *obj_p, int left_, int right_)</td></tr>
+<tr class="separator:a7cc83a9288f69895c9551016ef6be718"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a8a998a822b49318dd7210288405ab6fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a8a998a822b49318dd7210288405ab6fd">m_val</a></td></tr>
-<tr class="separator:a8a998a822b49318dd7210288405ab6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af64821c9c9355ee88dba670f83c424df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#af64821c9c9355ee88dba670f83c424df">m_len</a></td></tr>
-<tr class="separator:af64821c9c9355ee88dba670f83c424df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a513cfd3757ebd562f8bb244f50d7fd16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a513cfd3757ebd562f8bb244f50d7fd16">m_ulen</a></td></tr>
-<tr class="separator:a513cfd3757ebd562f8bb244f50d7fd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade494f8e2693b396d6638daa3d3328df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ade494f8e2693b396d6638daa3d3328df">m_left</a></td></tr>
+<tr class="separator:ade494f8e2693b396d6638daa3d3328df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64c5d07b785cfdc127de2d0d837f1a45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01703.html">sc_signed</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a64c5d07b785cfdc127de2d0d837f1a45">m_obj_p</a></td></tr>
+<tr class="separator:a64c5d07b785cfdc127de2d0d837f1a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f5fb601aa6928dbbd6c44ef41a1d99f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a4f5fb601aa6928dbbd6c44ef41a1d99f">m_right</a></td></tr>
+<tr class="separator:a4f5fb601aa6928dbbd6c44ef41a1d99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:acf14483b27605502030674f346f5c44e"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#acf14483b27605502030674f346f5c44e">sc_uint_bitref_r</a></td></tr>
-<tr class="separator:acf14483b27605502030674f346f5c44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb283e830e57559627617bcf277b86e"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#abfb283e830e57559627617bcf277b86e">sc_uint_bitref</a></td></tr>
-<tr class="separator:abfb283e830e57559627617bcf277b86e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ae3535236bdf202d3094bf43712d72"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a56ae3535236bdf202d3094bf43712d72">sc_uint_subref_r</a></td></tr>
-<tr class="separator:a56ae3535236bdf202d3094bf43712d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe4a60578b3eb9511d353f4c9eaceff6"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#afe4a60578b3eb9511d353f4c9eaceff6">sc_uint_subref</a></td></tr>
-<tr class="separator:afe4a60578b3eb9511d353f4c9eaceff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f74b0d54ca5fe1ab8a0e96100cbe76"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a96f74b0d54ca5fe1ab8a0e96100cbe76">operator==</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:a96f74b0d54ca5fe1ab8a0e96100cbe76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c022d9f3df3abf65c4be3cb750bb42"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ac1c022d9f3df3abf65c4be3cb750bb42">operator!=</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:ac1c022d9f3df3abf65c4be3cb750bb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab652593b60d4ec29dd4ecaa899dd33ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#ab652593b60d4ec29dd4ecaa899dd33ac">operator&lt;</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:ab652593b60d4ec29dd4ecaa899dd33ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a2f89c78e193037ab0865a144cf323"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a18a2f89c78e193037ab0865a144cf323">operator&lt;=</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:a18a2f89c78e193037ab0865a144cf323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9beac199736442012aa4131b7bd93b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aa9beac199736442012aa4131b7bd93b9">operator&gt;</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:aa9beac199736442012aa4131b7bd93b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e1d881e3134f220bd357da8ad4351e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a6e1d881e3134f220bd357da8ad4351e6">operator&gt;=</a> (const <a class="el" href="a01695.html">sc_uint_base</a> &amp;a, const <a class="el" href="a01695.html">sc_uint_base</a> &amp;<a class="el" href="a00550.html#adf3ee606b574990426012b8c6cc286f4">b</a>)</td></tr>
-<tr class="separator:a6e1d881e3134f220bd357da8ad4351e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d4b9d8627ee59f62be4002d3154edd"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a56d4b9d8627ee59f62be4002d3154edd">sc_signed</a></td></tr>
+<tr class="separator:a56d4b9d8627ee59f62be4002d3154edd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff3099a7eb72fb330a220a526344b538"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#aff3099a7eb72fb330a220a526344b538">sc_signed_signal</a></td></tr>
+<tr class="separator:aff3099a7eb72fb330a220a526344b538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a837324da08b9164ba6f506d2892bb614"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01695.html#a837324da08b9164ba6f506d2892bb614">sc_unsigned</a></td></tr>
+<tr class="separator:a837324da08b9164ba6f506d2892bb614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for <a class="el" href="a01675.html">sc_uint</a>. </p>
+<div class="textblock"><p>Proxy class for <a class="el" href="a01703.html" title="Arbitrary precision signed number. ">sc_signed</a> part selection (r-value only). </p>
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00527">527</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00905">905</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4526f1063ebb6c4f1e3f7000f7463717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4526f1063ebb6c4f1e3f7000f7463717">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[1/12]</span></h2>
+<a id="ad23a781217aa1f6925f38220021224a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad23a781217aa1f6925f38220021224a4">&#9670;&nbsp;</a></span>sc_signed_subref_r() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,26 +206,25 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
+          <td class="memname">sc_dt::sc_signed_subref_r::sc_signed_subref_r </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>w</em> = <code><a class="el" href="a01651.html">sc_length_param</a>().len()</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00564">564</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00915">915</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a1e41c9e5e5bc6a60ee0cfa735aef0890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e41c9e5e5bc6a60ee0cfa735aef0890">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[2/12]</span></h2>
+<a id="ab3dd2a3dc0eebc7880b7af39afd9dae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3dd2a3dc0eebc7880b7af39afd9dae9">&#9670;&nbsp;</a></span>~sc_signed_subref_r()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -359,313 +233,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>w</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00568">568</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="afea739280c0cd1cc981593ca6795a11f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afea739280c0cd1cc981593ca6795a11f">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[3/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00572">572</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a149ea915ec38a3e3b35b82b4b66e6637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a149ea915ec38a3e3b35b82b4b66e6637">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[4/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00576">576</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a2517451edbb1c8fab98f0f086a932e61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2517451edbb1c8fab98f0f086a932e61">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[5/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01731.html">sc_generic_base</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00581">581</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a5a7652d279fbb9351a8feee438e675bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a7652d279fbb9351a8feee438e675bc">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[6/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01399.html">sc_bv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a86a2c88dbfc18325f65e44c4092dd82c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86a2c88dbfc18325f65e44c4092dd82c">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[7/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01411.html">sc_lv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7dad7441c7ede97a4b9b9f3711820d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dad7441c7ede97a4b9b9f3711820d8c">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[8/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01639.html">sc_int_subref_r</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aef493b779069356bb10a9758fc451067"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef493b779069356bb10a9758fc451067">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[9/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01663.html">sc_signed_subref_r</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5d422c6b4c0af3ef6aaaa73b29e1d9b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d422c6b4c0af3ef6aaaa73b29e1d9b2">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[10/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01707.html">sc_unsigned_subref_r</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a75cbb02300a8c75a8051b6ee84764509"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75cbb02300a8c75a8051b6ee84764509">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[11/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01671.html">sc_signed</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa5239651f200c24944c84f8c093a5c9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5239651f200c24944c84f8c093a5c9a">&#9670;&nbsp;</a></span>sc_uint_base() <span class="overload">[12/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">sc_dt::sc_uint_base::sc_uint_base </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01715.html">sc_unsigned</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abaf003d73d1ae93fb7c52c2717582e3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaf003d73d1ae93fb7c52c2717582e3e">&#9670;&nbsp;</a></span>~sc_uint_base()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual sc_dt::sc_uint_base::~sc_uint_base </td>
+          <td class="memname">virtual sc_dt::sc_signed_subref_r::~sc_signed_subref_r </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -678,45 +246,55 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00597">597</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00930">930</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
+
+</div>
+</div>
+<a id="af497ddf1b8545a2687f05f2ee7b2ef83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af497ddf1b8545a2687f05f2ee7b2ef83">&#9670;&nbsp;</a></span>sc_signed_subref_r() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_dt::sc_signed_subref_r::sc_signed_subref_r </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01695.html">sc_signed_subref_r</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00935">935</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b0f953a5aa8505ff9e16faeceb6cad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0f953a5aa8505ff9e16faeceb6cad0">&#9670;&nbsp;</a></span>and_reduce()</h2>
+<a id="a37f1d448eaec1fde3eb1ba4f1fb5996c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f1d448eaec1fde3eb1ba4f1fb5996c">&#9670;&nbsp;</a></span>and_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::and_reduce </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::and_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab51c65b19fc1820bb3423c804df3d14f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab51c65b19fc1820bb3423c804df3d14f">&#9670;&nbsp;</a></span>bit() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01683.html">sc_uint_bitref</a> &amp; sc_dt::sc_uint_base::bit </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
@@ -724,12 +302,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01224">1224</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02266">2266</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a6934b80cf00a7164df0f9349a3520c18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6934b80cf00a7164df0f9349a3520c18">&#9670;&nbsp;</a></span>bit() <span class="overload">[2/2]</span></h2>
+<a id="acc6cadc32ece35cedd29f145f0e98d3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6cadc32ece35cedd29f145f0e98d3d">&#9670;&nbsp;</a></span>concat_get_ctrl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -738,37 +316,9 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a01679.html">sc_uint_bitref_r</a> &amp; sc_dt::sc_uint_base::bit </td>
+          <td class="memname">virtual bool sc_dt::sc_signed_subref_r::concat_get_ctrl </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01234">1234</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a8f106a5114e5531e3ed1d15425895699"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f106a5114e5531e3ed1d15425895699">&#9670;&nbsp;</a></span>concat_get_ctrl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool sc_dt::sc_uint_base::concat_get_ctrl </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
           <td class="paramname"><em>dst_p</em>, </td>
         </tr>
         <tr>
@@ -790,12 +340,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
 
 </div>
 </div>
-<a id="af7176d5b7b5b37ccb37daf558e238d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7176d5b7b5b37ccb37daf558e238d52">&#9670;&nbsp;</a></span>concat_get_data()</h2>
+<a id="a5fdb9e42d3df76a573139b269a0becb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdb9e42d3df76a573139b269a0becb6">&#9670;&nbsp;</a></span>concat_get_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -804,9 +354,9 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool sc_dt::sc_uint_base::concat_get_data </td>
+          <td class="memname">virtual bool sc_dt::sc_signed_subref_r::concat_get_data </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00562.html#ac387c29028ace5ebdafd46a173a8146a">sc_digit</a> *&#160;</td>
           <td class="paramname"><em>dst_p</em>, </td>
         </tr>
         <tr>
@@ -828,12 +378,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
 
 </div>
 </div>
-<a id="afc05d254c59d8ecbede51f98e9bed5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc05d254c59d8ecbede51f98e9bed5eb">&#9670;&nbsp;</a></span>concat_get_uint64()</h2>
+<a id="a5e4087784ff7efc2260cf2a9b94dc95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4087784ff7efc2260cf2a9b94dc95c">&#9670;&nbsp;</a></span>concat_get_uint64()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -842,7 +392,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> sc_dt::sc_uint_base::concat_get_uint64 </td>
+          <td class="memname">virtual <a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> sc_dt::sc_signed_subref_r::concat_get_uint64 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -850,19 +400,17 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00769">769</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
 
 </div>
 </div>
-<a id="a7ccb52d42101e9d7adf3f27f81bc21bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ccb52d42101e9d7adf3f27f81bc21bd">&#9670;&nbsp;</a></span>concat_length()</h2>
+<a id="a469acdf388368ca6e2e64020ff0db715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a469acdf388368ca6e2e64020ff0db715">&#9670;&nbsp;</a></span>concat_length()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -871,7 +419,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int sc_dt::sc_uint_base::concat_length </td>
+          <td class="memname">virtual int sc_dt::sc_signed_subref_r::concat_length </td>
           <td>(</td>
           <td class="paramtype">bool *&#160;</td>
           <td class="paramname"><em>xz_present_p</em></td><td>)</td>
@@ -885,14 +433,14 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
+<p>Reimplemented from <a class="el" href="a01759.html">sc_dt::sc_value_base</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00765">765</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00970">970</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a0b890b794648f727636b486cf07a5a52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b890b794648f727636b486cf07a5a52">&#9670;&nbsp;</a></span>concat_set() <span class="overload">[1/4]</span></h2>
+<a id="a7cc83a9288f69895c9551016ef6be718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc83a9288f69895c9551016ef6be718">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -901,16 +449,22 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void sc_dt::sc_uint_base::concat_set </td>
+          <td class="memname">void sc_dt::sc_signed_subref_r::initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a>&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
+          <td class="paramtype">const <a class="el" href="a01703.html">sc_signed</a> *&#160;</td>
+          <td class="paramname"><em>obj_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>low_i</em>&#160;</td>
+          <td class="paramname"><em>left_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right_</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -920,17 +474,17 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00918">918</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="abfd4898e73cce86a0900e254f596fed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfd4898e73cce86a0900e254f596fed8">&#9670;&nbsp;</a></span>concat_set() <span class="overload">[2/4]</span></h2>
+<a id="ae9a16a1d52fdff8649caa53e7978cb68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a16a1d52fdff8649caa53e7978cb68">&#9670;&nbsp;</a></span>length()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -939,121 +493,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void sc_dt::sc_uint_base::concat_set </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01671.html">sc_signed</a> &amp;&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>low_i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
-
-</div>
-</div>
-<a id="a5e2f88ad7cc96758a555e97e1f9e66c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e2f88ad7cc96758a555e97e1f9e66c0">&#9670;&nbsp;</a></span>concat_set() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_dt::sc_uint_base::concat_set </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01715.html">sc_unsigned</a> &amp;&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>low_i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
-
-</div>
-</div>
-<a id="aae294490f1f45fc769485ed59497941a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae294490f1f45fc769485ed59497941a">&#9670;&nbsp;</a></span>concat_set() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void sc_dt::sc_uint_base::concat_set </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>low_i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a01727.html">sc_dt::sc_value_base</a>.</p>
-
-</div>
-</div>
-<a id="a8fa64b8ee6ffda810b89f1ea30539106"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fa64b8ee6ffda810b89f1ea30539106">&#9670;&nbsp;</a></span>length()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int sc_dt::sc_uint_base::length </td>
+          <td class="memname">int sc_dt::sc_signed_subref_r::length </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1066,12 +506,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00755">755</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00943">943</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="ada3d47171191729e6d035ee01b382507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada3d47171191729e6d035ee01b382507">&#9670;&nbsp;</a></span>long_high()</h2>
+<a id="a9ba207c067a93d595bc8ca35414801d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ba207c067a93d595bc8ca35414801d2">&#9670;&nbsp;</a></span>nand_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1080,7 +520,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long sc_dt::sc_uint_base::long_high </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::nand_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1093,12 +533,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00833">833</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02274">2274</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a8f3f27ea9e03f68721c4c6559726d6d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3f27ea9e03f68721c4c6559726d6d4">&#9670;&nbsp;</a></span>long_low()</h2>
+<a id="adf23dd22645a7a4835b87ad64b0f23b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf23dd22645a7a4835b87ad64b0f23b8">&#9670;&nbsp;</a></span>nor_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1107,7 +547,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long sc_dt::sc_uint_base::long_low </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::nor_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1120,12 +560,29 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00830">830</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02287">2287</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a4fdec50c0bce67fed0b1d9e627be126e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fdec50c0bce67fed0b1d9e627be126e">&#9670;&nbsp;</a></span>nand_reduce()</h2>
+<a id="a548b74dab52adae0c1c6dae657b77fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a548b74dab52adae0c1c6dae657b77fa6">&#9670;&nbsp;</a></span>operator sc_unsigned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_dt::sc_signed_subref_r::operator <a class="el" href="a01747.html">sc_unsigned</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1323d9494c5e445078780f21b4638533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1323d9494c5e445078780f21b4638533">&#9670;&nbsp;</a></span>or_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1134,7 +591,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::nand_reduce </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::or_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1147,39 +604,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00781">781</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02279">2279</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a4783b49ce5a7bdcfb21d8186f61f6838"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4783b49ce5a7bdcfb21d8186f61f6838">&#9670;&nbsp;</a></span>nor_reduce()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::nor_reduce </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00786">786</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a5633f14f193fd9890b7ed1184c1162dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5633f14f193fd9890b7ed1184c1162dd">&#9670;&nbsp;</a></span>operator uint_type()</h2>
+<a id="ac7de633033975543cd621fb0fa842a49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7de633033975543cd621fb0fa842a49">&#9670;&nbsp;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1188,945 +618,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_dt::sc_uint_base::operator <a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00797">797</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a6d28d69165fa7684ac8834148fc6fc70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d28d69165fa7684ac8834148fc6fc70">&#9670;&nbsp;</a></span>operator%=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator%= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00664">664</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a146dc9832c9a57e6a4db958ea76eee06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a146dc9832c9a57e6a4db958ea76eee06">&#9670;&nbsp;</a></span>operator&=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator &amp;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00670">670</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a9e2a318d63f1dda23e82a5016ea14997"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e2a318d63f1dda23e82a5016ea14997">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01691.html">sc_uint_subref</a> &amp; sc_dt::sc_uint_base::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>right</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01247">1247</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="aff3dfa4f1aa038953984d081e4cac0f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff3dfa4f1aa038953984d081e4cac0f5">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp; sc_dt::sc_uint_base::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>right</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01257">1257</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a2ba5d25d43889492b5bc5eb62f2f8cd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ba5d25d43889492b5bc5eb62f2f8cd6">&#9670;&nbsp;</a></span>operator*=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator*= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00658">658</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="af773ee14685a3004f95d1104f43409fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af773ee14685a3004f95d1104f43409fd">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00689">689</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a876df5f7d3e8555ceffa40bfbd90b33e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a876df5f7d3e8555ceffa40bfbd90b33e">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01695.html">sc_uint_base</a> sc_dt::sc_uint_base::operator++ </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00692">692</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a910c325809e17cced8a48e88454d0fb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910c325809e17cced8a48e88454d0fb7">&#9670;&nbsp;</a></span>operator+=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator+= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00652">652</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a2b5696202c0518666279c06567f7ab38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b5696202c0518666279c06567f7ab38">&#9670;&nbsp;</a></span>operator--() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator-- </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00695">695</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="af08ad6eaeeaa5659ea9aed8f17b6b36c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af08ad6eaeeaa5659ea9aed8f17b6b36c">&#9670;&nbsp;</a></span>operator--() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01695.html">sc_uint_base</a> sc_dt::sc_uint_base::operator-- </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00698">698</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="aaf494092a949b404d45313ac1ecc80e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf494092a949b404d45313ac1ecc80e4">&#9670;&nbsp;</a></span>operator-=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator-= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00655">655</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a9a00330b9affe08a03b03349a2b9024a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a00330b9affe08a03b03349a2b9024a">&#9670;&nbsp;</a></span>operator/=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator/= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00661">661</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a763ab2f907ab6f6b713839d4db29b5b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a763ab2f907ab6f6b713839d4db29b5b4">&#9670;&nbsp;</a></span>operator<<=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator&lt;&lt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00680">680</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a5776fb028f50f8b835e20a0788def549"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5776fb028f50f8b835e20a0788def549">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00603">603</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a9c13f4e0febd7b7a9e5860d77660b82b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c13f4e0febd7b7a9e5860d77660b82b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00606">606</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="ae98434c49819b7c3cd8cd44e85bc7624"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae98434c49819b7c3cd8cd44e85bc7624">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00609">609</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a40594df08a70ecae13338c054921761d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40594df08a70ecae13338c054921761d">&#9670;&nbsp;</a></span>operator=() <span class="overload">[4/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01731.html">sc_generic_base</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00613">613</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a03be0ed64e64f62cf738264bf25e17a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03be0ed64e64f62cf738264bf25e17a1">&#9670;&nbsp;</a></span>operator=() <span class="overload">[5/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01671.html">sc_signed</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad7c257fb7295137f7985a1c983923514"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7c257fb7295137f7985a1c983923514">&#9670;&nbsp;</a></span>operator=() <span class="overload">[6/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01715.html">sc_unsigned</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a37babccf7d4e936062b1418848dc73c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37babccf7d4e936062b1418848dc73c3">&#9670;&nbsp;</a></span>operator=() <span class="overload">[7/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01399.html">sc_bv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a99aade3304e110f1bcc9a4e87aa52619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99aade3304e110f1bcc9a4e87aa52619">&#9670;&nbsp;</a></span>operator=() <span class="overload">[8/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01411.html">sc_lv_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a845ce68d774dee7b7cdf014f82ecf7df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a845ce68d774dee7b7cdf014f82ecf7df">&#9670;&nbsp;</a></span>operator=() <span class="overload">[9/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a780e4b7f2f78b7cfcd3d469b2a02d45b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a780e4b7f2f78b7cfcd3d469b2a02d45b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[10/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00631">631</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="ae2f11ad3a7248039d74441797265a361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2f11ad3a7248039d74441797265a361">&#9670;&nbsp;</a></span>operator=() <span class="overload">[11/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00634">634</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a109d70d9b5f110d02a2ae9a0c60e8149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a109d70d9b5f110d02a2ae9a0c60e8149">&#9670;&nbsp;</a></span>operator=() <span class="overload">[12/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00637">637</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a85178c4690dbce26f8fd05b734418521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85178c4690dbce26f8fd05b734418521">&#9670;&nbsp;</a></span>operator=() <span class="overload">[13/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00640">640</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a6a161e1dd340d31094bc358126b23ce8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a161e1dd340d31094bc358126b23ce8">&#9670;&nbsp;</a></span>operator=() <span class="overload">[14/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a>&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00643">643</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="aacae7f65458f47bf85190da622b24afa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacae7f65458f47bf85190da622b24afa">&#9670;&nbsp;</a></span>operator=() <span class="overload">[15/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator= </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00646">646</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a44d93358df5bd3c5ac0ed42498623ba2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d93358df5bd3c5ac0ed42498623ba2">&#9670;&nbsp;</a></span>operator>>=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator&gt;&gt;= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00683">683</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a32445edd50c003cfd19c300652df5641"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32445edd50c003cfd19c300652df5641">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01683.html">sc_uint_bitref</a> &amp; sc_dt::sc_uint_base::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01203">1203</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="abcdbc01626eda45cd63149862b2cbbe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcdbc01626eda45cd63149862b2cbbe4">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01679.html">sc_uint_bitref_r</a> &amp; sc_dt::sc_uint_base::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01213">1213</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a55b73586a3a179a894654cacff0550de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55b73586a3a179a894654cacff0550de">&#9670;&nbsp;</a></span>operator^=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator^= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00676">676</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a91be5ae5700342000beca0ab392ea2ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91be5ae5700342000beca0ab392ea2ec">&#9670;&nbsp;</a></span>operator|=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01695.html">sc_uint_base</a>&amp; sc_dt::sc_uint_base::operator|= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a>&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00673">673</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a875509778e4ec8b16921a1290ecbad2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a875509778e4ec8b16921a1290ecbad2f">&#9670;&nbsp;</a></span>or_reduce()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::or_reduce </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f3b241cddf60ea2bc195e72c7a5f8f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f3b241cddf60ea2bc195e72c7a5f8f3">&#9670;&nbsp;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_dt::sc_uint_base::print </td>
+          <td class="memname">void sc_dt::sc_signed_subref_r::print </td>
           <td>(</td>
           <td class="paramtype">::std::ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em> = <code>::std::cout</code></td><td>)</td>
@@ -2140,317 +632,89 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00845">845</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00991">991</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a4249bf60abea42877826554ea6f67384"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4249bf60abea42877826554ea6f67384">&#9670;&nbsp;</a></span>range() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01691.html">sc_uint_subref</a> &amp; sc_dt::sc_uint_base::range </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>right</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01268">1268</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a7246a866a4a55d040f5205b38f83b53d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7246a866a4a55d040f5205b38f83b53d">&#9670;&nbsp;</a></span>range() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01687.html">sc_uint_subref_r</a> &amp; sc_dt::sc_uint_base::range </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>right</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l01278">1278</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a53af00ddacf132effafbd5d8acdc3ad5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53af00ddacf132effafbd5d8acdc3ad5">&#9670;&nbsp;</a></span>scan()</h2>
+<a id="a16976c59012bb02dfa21294f4f2e27ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16976c59012bb02dfa21294f4f2e27ca">&#9670;&nbsp;</a></span>to_double()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void sc_dt::sc_uint_base::scan </td>
-          <td>(</td>
-          <td class="paramtype">::std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em> = <code>::std::cin</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aecabfc41e27f6e906860eb4a0aa141f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecabfc41e27f6e906860eb4a0aa141f1">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_dt::sc_uint_base::set </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00746">746</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a06734edd375869b5d2fea8c6e96686cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06734edd375869b5d2fea8c6e96686cc">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_dt::sc_uint_base::set </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00749">749</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="ac79db1d12f15d7a41386d56d3d4976cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac79db1d12f15d7a41386d56d3d4976cc">&#9670;&nbsp;</a></span>test()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::test </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00743">743</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="abc956fc9ab19bd766f3afae0f0210fed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc956fc9ab19bd766f3afae0f0210fed">&#9670;&nbsp;</a></span>to_double()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double sc_dt::sc_uint_base::to_double </td>
+          <td class="memname">double sc_dt::sc_signed_subref_r::to_double </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00825">825</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
 </div>
 </div>
-<a id="a3b202b173073ff84363fec427c7cb38d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b202b173073ff84363fec427c7cb38d">&#9670;&nbsp;</a></span>to_int()</h2>
+<a id="ae54b9d3a3374e78cf672e7f9e159028f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54b9d3a3374e78cf672e7f9e159028f">&#9670;&nbsp;</a></span>to_int()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int sc_dt::sc_uint_base::to_int </td>
+          <td class="memname">int sc_dt::sc_signed_subref_r::to_int </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00807">807</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
 </div>
 </div>
-<a id="abbc3d6548290f245a3f87ea3c7bfefa1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbc3d6548290f245a3f87ea3c7bfefa1">&#9670;&nbsp;</a></span>to_int64()</h2>
+<a id="ab0852991c50434a742f8bd34669fbb97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0852991c50434a742f8bd34669fbb97">&#9670;&nbsp;</a></span>to_int64()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00550.html#a7241d680b54f08c83418b8743a42b667">int64</a> sc_dt::sc_uint_base::to_int64 </td>
+          <td class="memname"><a class="el" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a> sc_dt::sc_signed_subref_r::to_int64 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00819">819</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
 </div>
 </div>
-<a id="a87bc7ce210cd522b8df04339bb1838da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87bc7ce210cd522b8df04339bb1838da">&#9670;&nbsp;</a></span>to_long()</h2>
+<a id="aa567042202588cfa00e634f393dec841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa567042202588cfa00e634f393dec841">&#9670;&nbsp;</a></span>to_long()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long sc_dt::sc_uint_base::to_long </td>
+          <td class="memname">long sc_dt::sc_signed_subref_r::to_long </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00813">813</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
 </div>
 </div>
-<a id="ae095fda8bac8e19a83fb3245a4afb295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae095fda8bac8e19a83fb3245a4afb295">&#9670;&nbsp;</a></span>to_string() <span class="overload">[1/2]</span></h2>
+<a id="a653a8ffe426ad8dd94b67954ecc6d177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a653a8ffe426ad8dd94b67954ecc6d177">&#9670;&nbsp;</a></span>to_string() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string sc_dt::sc_uint_base::to_string </td>
+          <td class="memname">const std::string sc_dt::sc_signed_subref_r::to_string </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a>&#160;</td>
-          <td class="paramname"><em>numrep</em> = <code><a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9ae9985e111b26103887bc8cb856062d70">SC_DEC</a></code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a>&#160;</td>
+          <td class="paramname"><em>numrep</em> = <code><a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9ae9985e111b26103887bc8cb856062d70">SC_DEC</a></code></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -2458,16 +722,16 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a7cf62e82f7672d13ce122ad26835d32b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cf62e82f7672d13ce122ad26835d32b">&#9670;&nbsp;</a></span>to_string() <span class="overload">[2/2]</span></h2>
+<a id="a7c0730bd84adf83d9656fdd0df4cd990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0730bd84adf83d9656fdd0df4cd990">&#9670;&nbsp;</a></span>to_string() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string sc_dt::sc_uint_base::to_string </td>
+          <td class="memname">const std::string sc_dt::sc_signed_subref_r::to_string </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00550.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00562.html#a4d7f17e93afae1c969127c6b80baa0f9">sc_numrep</a>&#160;</td>
           <td class="paramname"><em>numrep</em>, </td>
         </tr>
         <tr>
@@ -2486,8 +750,59 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="aae96764a31459ba2c1e8f25e8744fb80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae96764a31459ba2c1e8f25e8744fb80">&#9670;&nbsp;</a></span>to_uint()</h2>
+<a id="ae0eea8cc1e7d40fd95fda49f95ae9651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0eea8cc1e7d40fd95fda49f95ae9651">&#9670;&nbsp;</a></span>to_uint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int sc_dt::sc_signed_subref_r::to_uint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca5693b5f957fd3fcc02c86362cb7f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5693b5f957fd3fcc02c86362cb7f00">&#9670;&nbsp;</a></span>to_uint64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> sc_dt::sc_signed_subref_r::to_uint64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ebe656ed0e83596a7f08890543e0cda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebe656ed0e83596a7f08890543e0cda">&#9670;&nbsp;</a></span>to_ulong()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long sc_dt::sc_signed_subref_r::to_ulong </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe95f79796613ae6b862599ffcc1e5f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe95f79796613ae6b862599ffcc1e5f6">&#9670;&nbsp;</a></span>xnor_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2496,7 +811,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int sc_dt::sc_uint_base::to_uint </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::xnor_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2509,12 +824,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00810">810</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02302">2302</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="adaf6dadf4d12586aadb5aa794b77350a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adaf6dadf4d12586aadb5aa794b77350a">&#9670;&nbsp;</a></span>to_uint64()</h2>
+<a id="a086870e25d3a4f3c5b6d6f62c4c0c93c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086870e25d3a4f3c5b6d6f62c4c0c93c">&#9670;&nbsp;</a></span>xor_reduce()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2523,7 +838,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00550.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a> sc_dt::sc_uint_base::to_uint64 </td>
+          <td class="memname">bool sc_dt::sc_signed_subref_r::xor_reduce </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -2536,111 +851,13 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00822">822</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a425ea0975c019c28fa2d708e2e91501d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a425ea0975c019c28fa2d708e2e91501d">&#9670;&nbsp;</a></span>to_ulong()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned long sc_dt::sc_uint_base::to_ulong </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00816">816</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a12b39db2525bb4e67850ec1af957dcce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12b39db2525bb4e67850ec1af957dcce">&#9670;&nbsp;</a></span>value()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> sc_dt::sc_uint_base::value </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00803">803</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a4459ca217ca293596b13706753807d78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4459ca217ca293596b13706753807d78">&#9670;&nbsp;</a></span>xnor_reduce()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::xnor_reduce </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00791">791</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a9805a495b81c0b3a1154cade7afc25cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9805a495b81c0b3a1154cade7afc25cf">&#9670;&nbsp;</a></span>xor_reduce()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool sc_dt::sc_uint_base::xor_reduce </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l02292">2292</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="ac1c022d9f3df3abf65c4be3cb750bb42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1c022d9f3df3abf65c4be3cb750bb42">&#9670;&nbsp;</a></span>operator!=</h2>
+<a id="a56d4b9d8627ee59f62be4002d3154edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d4b9d8627ee59f62be4002d3154edd">&#9670;&nbsp;</a></span>sc_signed</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2649,21 +866,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">friend class <a class="el" href="a01703.html">sc_signed</a></td>
         </tr>
       </table>
   </td>
@@ -2673,12 +876,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00707">707</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00907">907</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="ab652593b60d4ec29dd4ecaa899dd33ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab652593b60d4ec29dd4ecaa899dd33ac">&#9670;&nbsp;</a></span>operator<</h2>
+<a id="aff3099a7eb72fb330a220a526344b538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff3099a7eb72fb330a220a526344b538">&#9670;&nbsp;</a></span>sc_signed_signal</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2687,21 +890,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">friend class sc_signed_signal</td>
         </tr>
       </table>
   </td>
@@ -2711,12 +900,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00710">710</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00908">908</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a18a2f89c78e193037ab0865a144cf323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18a2f89c78e193037ab0865a144cf323">&#9670;&nbsp;</a></span>operator<=</h2>
+<a id="a837324da08b9164ba6f506d2892bb614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837324da08b9164ba6f506d2892bb614">&#9670;&nbsp;</a></span>sc_unsigned</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2725,21 +914,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool operator&lt;= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">friend class <a class="el" href="a01747.html">sc_unsigned</a></td>
         </tr>
       </table>
   </td>
@@ -2749,223 +924,13 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00713">713</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a96f74b0d54ca5fe1ab8a0e96100cbe76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96f74b0d54ca5fe1ab8a0e96100cbe76">&#9670;&nbsp;</a></span>operator==</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00704">704</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="aa9beac199736442012aa4131b7bd93b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9beac199736442012aa4131b7bd93b9">&#9670;&nbsp;</a></span>operator></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool operator&gt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00716">716</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a6e1d881e3134f220bd357da8ad4351e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e1d881e3134f220bd357da8ad4351e6">&#9670;&nbsp;</a></span>operator>=</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool operator&gt;= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01695.html">sc_uint_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00719">719</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="abfb283e830e57559627617bcf277b86e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfb283e830e57559627617bcf277b86e">&#9670;&nbsp;</a></span>sc_uint_bitref</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="a01683.html">sc_uint_bitref</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00530">530</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="acf14483b27605502030674f346f5c44e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf14483b27605502030674f346f5c44e">&#9670;&nbsp;</a></span>sc_uint_bitref_r</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="a01679.html">sc_uint_bitref_r</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00529">529</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="afe4a60578b3eb9511d353f4c9eaceff6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe4a60578b3eb9511d353f4c9eaceff6">&#9670;&nbsp;</a></span>sc_uint_subref</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="a01691.html">sc_uint_subref</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00532">532</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
-
-</div>
-</div>
-<a id="a56ae3535236bdf202d3094bf43712d72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56ae3535236bdf202d3094bf43712d72">&#9670;&nbsp;</a></span>sc_uint_subref_r</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="a01687.html">sc_uint_subref_r</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00531">531</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00909">909</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af64821c9c9355ee88dba670f83c424df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af64821c9c9355ee88dba670f83c424df">&#9670;&nbsp;</a></span>m_len</h2>
+<a id="ade494f8e2693b396d6638daa3d3328df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade494f8e2693b396d6638daa3d3328df">&#9670;&nbsp;</a></span>m_left</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2974,7 +939,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int sc_dt::sc_uint_base::m_len</td>
+          <td class="memname">int sc_dt::sc_signed_subref_r::m_left</td>
         </tr>
       </table>
   </td>
@@ -2984,12 +949,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00853">853</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00996">996</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a513cfd3757ebd562f8bb244f50d7fd16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a513cfd3757ebd562f8bb244f50d7fd16">&#9670;&nbsp;</a></span>m_ulen</h2>
+<a id="a64c5d07b785cfdc127de2d0d837f1a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64c5d07b785cfdc127de2d0d837f1a45">&#9670;&nbsp;</a></span>m_obj_p</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2998,7 +963,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int sc_dt::sc_uint_base::m_ulen</td>
+          <td class="memname"><a class="el" href="a01703.html">sc_signed</a>* sc_dt::sc_signed_subref_r::m_obj_p</td>
         </tr>
       </table>
   </td>
@@ -3008,12 +973,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00854">854</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00997">997</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
-<a id="a8a998a822b49318dd7210288405ab6fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a998a822b49318dd7210288405ab6fd">&#9670;&nbsp;</a></span>m_val</h2>
+<a id="a4f5fb601aa6928dbbd6c44ef41a1d99f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f5fb601aa6928dbbd6c44ef41a1d99f">&#9670;&nbsp;</a></span>m_right</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3022,7 +987,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00550.html#aa4830f7c702212e2450d5cda8603a21e">uint_type</a> sc_dt::sc_uint_base::m_val</td>
+          <td class="memname">int sc_dt::sc_signed_subref_r::m_right</td>
         </tr>
       </table>
   </td>
@@ -3032,20 +997,20 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00206_source.html#l00852">852</a> of file <a class="el" href="a00206_source.html">sc_uint_base.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00998">998</a> of file <a class="el" href="a00203_source.html">sc_signed.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/datatypes/int/<a class="el" href="a00206_source.html">sc_uint_base.h</a></li>
+<li>sysc/datatypes/int/<a class="el" href="a00203_source.html">sc_signed.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00550.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01695.html">sc_uint_base</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:34 for SystemC by
+    <li class="navelem"><a class="el" href="a00562.html">sc_dt</a></li><li class="navelem"><a class="el" href="a01695.html">sc_signed_subref_r</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:15 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

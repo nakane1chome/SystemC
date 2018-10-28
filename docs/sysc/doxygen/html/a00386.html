@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/utils/sc_stop_here.h File Reference</title>
+<title>SystemC: sysc/utils/sc_string.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,57 +82,61 @@ $(document).ready(function(){initNavTree('a00386.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sc_stop_here.h File Reference</div>  </div>
+<div class="title">sc_string.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Function provided for debugging purposes.  
+<p>Implementation of a simple string class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00380_source.html">sysc/utils/sc_report.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00377_source.html">sysc/utils/sc_report.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_stop_here.h:</div>
+Include dependency graph for sc_string.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00387.png" border="0" usemap="#sysc_2utils_2sc__stop__here_8h" alt=""/></div>
-<map name="sysc_2utils_2sc__stop__here_8h" id="sysc_2utils_2sc__stop__here_8h">
-<area shape="rect" id="node2" href="a00380.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="145,95,286,121"/>
-<area shape="rect" id="node3" href="a00251.html" title="sysc/kernel/sc_except.h" alt="" coords="5,177,164,203"/>
-<area shape="rect" id="node5" href="a00383.html" title="sysc/utils/sc_report\l_handler.h" alt="" coords="266,169,397,211"/>
+<div class="center"><img src="a00387.png" border="0" usemap="#sysc_2utils_2sc__string_8h" alt=""/></div>
+<map name="sysc_2utils_2sc__string_8h" id="sysc_2utils_2sc__string_8h">
+<area shape="rect" id="node2" href="a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="128,80,269,107"/>
+<area shape="rect" id="node5" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="184,162,347,189"/>
+<area shape="rect" id="node6" href="a00380.html" title="sysc/utils/sc_report\l_handler.h" alt="" coords="371,155,501,196"/>
 </map>
 </div>
 </div>
 <p><a href="a00386_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02103.html">sc_dt::sc_string_old</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6b42bd460037adb6926f4f62782162fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a6b42bd460037adb6926f4f62782162fe">sc_core::sc_interrupt_here</a> (const char *id, sc_severity severity)</td></tr>
-<tr class="memdesc:a6b42bd460037adb6926f4f62782162fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging aid for interrupt warning, error, and fatal reports.  <a href="a00549.html#a6b42bd460037adb6926f4f62782162fe">More...</a><br /></td></tr>
-<tr class="separator:a6b42bd460037adb6926f4f62782162fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8014b9e89fec310722f26bb3cb098dcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a8014b9e89fec310722f26bb3cb098dcd">sc_core::sc_stop_here</a> (const char *id, sc_severity severity)</td></tr>
-<tr class="memdesc:a8014b9e89fec310722f26bb3cb098dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging aid for warning, error, and fatal reports.  <a href="a00549.html#a8014b9e89fec310722f26bb3cb098dcd">More...</a><br /></td></tr>
-<tr class="separator:a8014b9e89fec310722f26bb3cb098dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b57497197e7e6eb6f1e3558486887a"><td class="memItemLeft" align="right" valign="top">sc_string_old&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a68b57497197e7e6eb6f1e3558486887a">sc_dt::operator+</a> (const char *s, const sc_string_old &amp;t)</td></tr>
+<tr class="separator:a68b57497197e7e6eb6f1e3558486887a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6d7d67a610967db3cc739b50731b6a"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a2b6d7d67a610967db3cc739b50731b6a">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;os, const sc_string_old &amp;a)</td></tr>
+<tr class="separator:a2b6d7d67a610967db3cc739b50731b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Function provided for debugging purposes. </p>
-<p>This file is always compiled in debug mode, such that setting a breakpoint at this function can help locate the cause of a SystemC error or warning.</p>
-<p>Original Author: Martin Janssen, Synopsys, Inc., 2001-11-14</p>
+<div class="textblock"><p>Implementation of a simple string class. </p>
+<p>Original Author: Stan Y. Liao, Synopsys, Inc.</p>
 <p>CHANGE LOG AT END OF FILE </p>
 
-<p class="definition">Definition in file <a class="el" href="a00386_source.html">sc_stop_here.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00386_source.html">sc_string.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00386.html">sc_stop_here.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00386.html">sc_string.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:56 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

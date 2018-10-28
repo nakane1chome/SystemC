@@ -1,5 +1,5 @@
 var namespaces =
 [
-    [ "sc_core", "a00549.html", "a00549" ],
-    [ "sc_dt", "a00550.html", null ]
+    [ "sc_core", "a00561.html", "a00561" ],
+    [ "sc_dt", "a00562.html", null ]
 ];

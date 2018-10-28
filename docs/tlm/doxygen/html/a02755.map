@@ -1,0 +1,5 @@
+<map id="tlm_utils::passthrough_target_socket_tagged&lt; MODULE, BUSWIDTH, TYPES &gt;" name="tlm_utils::passthrough_target_socket_tagged&lt; MODULE, BUSWIDTH, TYPES &gt;">
+<area shape="rect" id="node2" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="252,53,491,109"/>
+<area shape="rect" id="node3" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1,\l sc_core::SC_ONE_OR_MORE\l_BOUND \&gt;" alt="" coords="5,5,204,76"/>
+<area shape="rect" id="node4" href="$a02648.html" title="tlm_utils::passthrough\l_socket_base" alt="" coords="32,100,177,141"/>
+</map>

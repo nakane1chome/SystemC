@@ -1,7 +1,5 @@
-<map id="sc_core::sc_port_b&lt; IF &gt;" name="sc_core::sc_port_b&lt; IF &gt;">
-<area shape="rect" id="node4" href="$a01211.html" title="Generic port class and base class for other port classes. " alt="" coords="73,244,222,271"/>
-<area shape="rect" id="node2" href="$a01199.html" title="Abstract base class for class sc_port_b. " alt="" coords="73,80,222,107"/>
-<area shape="rect" id="node3" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="83,5,211,32"/>
-<area shape="rect" id="node5" href="$a01267.html" title="sc_in\&lt; sc_dt::sc_lv\l\&lt; W \&gt; \&gt;" alt="" coords="5,319,135,360"/>
-<area shape="rect" id="node6" href="$a01279.html" title="sc_inout\&lt; sc_dt::sc\l_lv\&lt; W \&gt; \&gt;" alt="" coords="159,319,290,360"/>
+<map id="sc_core::sc_mutex_if" name="sc_core::sc_mutex_if">
+<area shape="rect" id="node3" href="$a01191.html" title="The sc_host_mutex class, wrapping an OS mutex on the simulation host. " alt="" coords="5,155,164,181"/>
+<area shape="rect" id="node4" href="$a01203.html" title="The sc_mutex primitive channel class. " alt="" coords="189,155,317,181"/>
+<area shape="rect" id="node2" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="97,5,240,32"/>
 </map>

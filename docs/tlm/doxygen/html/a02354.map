@@ -1,3 +1,11 @@
-<map id="tlm::tlm_bw_nonblocking_transport_if&lt; TRANS, PHASE &gt;" name="tlm::tlm_bw_nonblocking_transport_if&lt; TRANS, PHASE &gt;">
-<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="15,5,158,32"/>
+<map id="tlm::tlm_analysis_fifo&lt; T &gt;" name="tlm::tlm_analysis_fifo&lt; T &gt;">
+<area shape="rect" id="node2" href="$a02492.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="374,107,493,133"/>
+<area shape="rect" id="node3" href="$a02444.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="12,5,169,32"/>
+<area shape="rect" id="node4" href="$a02440.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="12,56,169,83"/>
+<area shape="rect" id="node5" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01231.html" title="sc_core::sc_prim_channel" alt="" coords="5,107,176,133"/>
+<area shape="rect" id="node6" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01815.html" title="sc_core::sc_event" alt="" coords="29,196,153,223"/>
+<area shape="rect" id="node7" href="$a02360.html" title="tlm::tlm_analysis_if\&lt; T \&gt;" alt="" coords="353,247,513,273"/>
+<area shape="rect" id="node8" href="$a02376.html" title="tlm::tlm_write_if\&lt; T \&gt;" alt="" coords="19,247,162,273"/>
+<area shape="rect" id="node9" href="$a02360.html" title="tlm::tlm_analysis_if\l\&lt; tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="364,297,503,353"/>
+<area shape="rect" id="node10" href="$a02376.html" title="tlm::tlm_write_if\&lt;\l tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="25,297,156,353"/>
 </map>

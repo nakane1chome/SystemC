@@ -1,7 +1,8 @@
 var a00329 =
 [
-    [ "sc_time", "a01943.html", "a01943" ],
-    [ "sc_time_params", "a01947.html", "a01947" ],
+    [ "sc_time", "a01983.html", "a01983" ],
+    [ "sc_time_tuple", "a01987.html", "a01987" ],
+    [ "sc_time_params", "a01991.html", "a01991" ],
     [ "sc_time_unit", "a00329.html#abecb00ba031fb67c85124f66eb70aed4", [
       [ "SC_FS", "a00329.html#abecb00ba031fb67c85124f66eb70aed4a82936f1ffacbf4a6d0619b2287692909", null ],
       [ "SC_PS", "a00329.html#abecb00ba031fb67c85124f66eb70aed4a28dbfded11d1736805d78b0d0601d636", null ],
@@ -18,9 +19,10 @@ var a00329 =
     [ "operator/", "a00329.html#ad126bd957eaa0d9acddea1f492a93c96", null ],
     [ "operator/", "a00329.html#a78cd7c9688e6e33d887ebc6eba99911e", null ],
     [ "operator<<", "a00329.html#ab566bfaf41e1dfb3c6e2b7808cc1e3ac", null ],
-    [ "sc_get_default_time_unit", "a00329.html#acdc2a9970e6f3adbbc4cf98dabf60ebf", null ],
-    [ "sc_get_time_resolution", "a00329.html#ad4f53ba4501a95d071003d17a82c8dfe", null ],
-    [ "sc_set_default_time_unit", "a00329.html#a8981054f1ab75524c02222f2440f89e7", null ],
-    [ "sc_set_time_resolution", "a00329.html#a062fc9289ececea69292879f0d7082dd", null ],
-    [ "SC_ZERO_TIME", "a00329.html#a17504cd45f4f8e89da1c29257d8ead47", null ]
+    [ "sc_get_default_time_unit", "a00329.html#a7ca9c77d3f6f70d241950b505de69374", null ],
+    [ "sc_get_time_resolution", "a00329.html#ae61562017fb35daf37e783939fe103ab", null ],
+    [ "sc_set_default_time_unit", "a00329.html#acab1ec25bc7d15e590b7fe6012b54dea", null ],
+    [ "sc_set_time_resolution", "a00329.html#a5f45fb0c8a6daabe5ee6d6207ad6f1f4", null ],
+    [ "sc_time_tuple", "a00329.html#ae6a5da85c109387ae9e7ccfb390a489f", null ],
+    [ "SC_ZERO_TIME", "a00329.html#aba4538758f734d8796fd0e92b430c50c", null ]
 ];

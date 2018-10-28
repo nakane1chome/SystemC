@@ -1,7 +1,9 @@
 var a00791 =
 [
-    [ "time_ordered_list", "a02662.html", "a02662" ],
-    [ "element", "a02666.html", "a02666" ],
-    [ "peq_with_cb_and_phase", "a02670.html", "a02670" ],
-    [ "SC_INCLUDE_DYNAMIC_PROCESSES", "a00791.html#a14c0ae1e60ff59c85eb89bc7ce5d9afc", null ]
+    [ "convenience_socket_base", "a02640.html", "a02640" ],
+    [ "simple_socket_base", "a02644.html", "a02644" ],
+    [ "passthrough_socket_base", "a02648.html", "a02648" ],
+    [ "multi_socket_base", "a02652.html", "a02652" ],
+    [ "convenience_socket_cb_holder", "a02656.html", "a02656" ],
+    [ "sc_object", "a00791.html#a8eb02df3abf893e699a4802f7c7e029b", null ]
 ];

@@ -1,8 +1,9 @@
-<map id="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;" name="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;">
-<area shape="rect" id="node5" href="$a02444.html" title="tlm_initiator_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="641,53,804,94"/>
-<area shape="rect" id="node2" href="$a02428.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, FW\l_IF, BW_IF \&gt;" alt="" coords="183,8,371,64"/>
-<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01208.html" title="sc_core::sc_port\&lt; FW\l_IF, N, POL \&gt;" alt="" coords="203,89,350,130"/>
-<area shape="rect" id="node4" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01204.html" title="sc_core::sc_port_b\l\&lt; IF \&gt;" alt="" coords="5,89,135,130"/>
-<area shape="rect" id="node6" href="$a02548.html" title="tlm_utils::simple_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="852,5,1064,61"/>
-<area shape="rect" id="node7" href="$a02556.html" title="tlm_utils::simple_initiator\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="867,85,1049,141"/>
+<map id="tlm::tlm_fifo_put_if&lt; T &gt;" name="tlm::tlm_fifo_put_if&lt; T &gt;">
+<area shape="rect" id="node7" href="$a02492.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="775,107,893,134"/>
+<area shape="rect" id="node2" href="$a02408.html" title="tlm::tlm_put_if\&lt; T \&gt;" alt="" coords="388,78,521,105"/>
+<area shape="rect" id="node3" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; T \&gt;" alt="" coords="196,5,340,47"/>
+<area shape="rect" id="node4" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="5,78,148,105"/>
+<area shape="rect" id="node5" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; T \&gt;" alt="" coords="198,71,338,112"/>
+<area shape="rect" id="node6" href="$a02436.html" title="tlm::tlm_fifo_debug\l_if\&lt; T \&gt;" alt="" coords="389,129,520,171"/>
+<area shape="rect" id="node8" href="$a02356.html" title="tlm::tlm_analysis_fifo\&lt; T \&gt;" alt="" coords="941,107,1112,134"/>
 </map>

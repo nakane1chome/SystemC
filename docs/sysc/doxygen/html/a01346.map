@@ -1,4 +1,5 @@
-<map id="sc_core::sc_writer_policy_nocheck_port" name="sc_core::sc_writer_policy_nocheck_port">
-<area shape="rect" id="node2" href="$a01359.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_MANY\l_WRITERS \&gt;" alt="" coords="220,5,399,61"/>
-<area shape="rect" id="node3" href="$a01363.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_UNCHECKED\l_WRITERS \&gt;" alt="" coords="200,85,419,141"/>
+<map id="sc_core::sc_inout_rv&lt; W &gt;" name="sc_core::sc_inout_rv&lt; W &gt;">
+<area shape="rect" id="node4" href="$a01351.html" title="sc_core::sc_out_rv\&lt; W \&gt;" alt="" coords="669,27,832,54"/>
+<area shape="rect" id="node2" href="$a01303.html" title="sc_core::sc_inout\&lt;\l sc_dt::sc_lv\&lt; W \&gt; \&gt;" alt="" coords="265,20,401,61"/>
+<area shape="rect" id="node3" href="$a01227.html" title="Generic port class and base class for other port classes. " alt="" coords="5,5,217,76"/>
 </map>

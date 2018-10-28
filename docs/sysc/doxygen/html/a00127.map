@@ -1,11 +1,7 @@
-<map id="sysc/datatypes/fx/sc_fxdefs.h" name="sysc/datatypes/fx/sc_fxdefs.h">
-<area shape="rect" id="node2" href="$a00149.html" title="sysc/datatypes/fx/scfx\l_ieee.h" alt="" coords="153,95,299,136"/>
-<area shape="rect" id="node8" href="$a00170.html" title="sysc/datatypes/fx/scfx\l_utils.h" alt="" coords="323,95,470,136"/>
-<area shape="rect" id="node9" href="$a00140.html" title="sysc/datatypes/fx/sc\l_fxval_observer.h" alt="" coords="495,95,632,136"/>
-<area shape="rect" id="node10" href="$a00131.html" title="sysc/datatypes/fx/sc\l_fxnum_observer.h" alt="" coords="601,273,739,315"/>
-<area shape="rect" id="node3" href="$a00329.html" title="The time class. " alt="" coords="5,191,151,218"/>
-<area shape="rect" id="node4" href="$a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="175,184,299,225"/>
-<area shape="rect" id="node7" href="$a00152.html" title="sysc/datatypes/fx/scfx\l_mant.h" alt="" coords="323,184,470,225"/>
-<area shape="rect" id="node5" href="$a00137.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="440,273,577,315"/>
-<area shape="rect" id="node6" href="$a00128.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="520,363,657,404"/>
+<map id="sysc/datatypes/fx/sc_fxcast_switch.h" name="sysc/datatypes/fx/sc_fxcast_switch.h">
+<area shape="rect" id="node2" href="$a00161.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="176,95,323,136"/>
+<area shape="rect" id="node6" href="$a00110.html" title="sysc/datatypes/fx/fx.h" alt="" coords="347,102,491,129"/>
+<area shape="rect" id="node3" href="$a00173.html" title="sysc/datatypes/fx/scfx\l_utils.h" alt="" coords="5,184,152,225"/>
+<area shape="rect" id="node4" href="$a00167.html" title="sysc/datatypes/fx/scfx\l_rep.h" alt="" coords="176,184,323,225"/>
+<area shape="rect" id="node5" href="$a00131.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="347,184,485,225"/>
 </map>

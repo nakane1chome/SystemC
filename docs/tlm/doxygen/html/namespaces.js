@@ -1,5 +1,6 @@
 var namespaces =
 [
-    [ "tlm", "a00807.html", null ],
-    [ "tlm_utils", "a00808.html", null ]
+    [ "sc_core", "a00829.html", null ],
+    [ "tlm", "a00828.html", null ],
+    [ "tlm_utils", "a00830.html", null ]
 ];

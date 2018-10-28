@@ -1,3 +1,4 @@
-<map id="sc_core::sc_semaphore_if" name="sc_core::sc_semaphore_if">
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="19,5,162,32"/>
+<map id="sc_core::sc_port&lt; IF, N, P &gt;" name="sc_core::sc_port&lt; IF, N, P &gt;">
+<area shape="rect" id="node2" href="$a01223.html" title="Abstract base class for class sc_port. " alt="" coords="15,80,145,121"/>
+<area shape="rect" id="node3" href="$a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="5,5,155,32"/>
 </map>

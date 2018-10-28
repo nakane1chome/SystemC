@@ -1,139 +1,175 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$a02642.html" title="tlm_utils::multi_to\l_multi_bind_base\&lt; TYPES \&gt;" alt="" coords="1704,452,1891,493"/>
-<area shape="rect" id="node2" href="$a02618.html" title="tlm_utils::multi_passthrough\l_target_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, POL \&gt;" alt="" coords="1957,482,2209,538"/>
-<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01183.html" title="sc_core::sc_interface" alt="" coords="5,1367,148,1394"/>
-<area shape="rect" id="node4" href="$a02338.html" title="tlm::tlm_blocking_get\l_if\&lt; T \&gt;" alt="" coords="227,265,371,307"/>
-<area shape="rect" id="node11" href="$a02362.html" title="tlm::tlm_blocking_peek\l_if\&lt; T \&gt;" alt="" coords="222,135,377,176"/>
-<area shape="rect" id="node13" href="$a02342.html" title="tlm::tlm_blocking_put\l_if\&lt; T \&gt;" alt="" coords="227,396,371,437"/>
-<area shape="rect" id="node16" href="$a02494.html" title="tlm::tlm_blocking_transport\l_if\&lt; TRANS \&gt;" alt="" coords="211,593,387,635"/>
-<area shape="rect" id="node17" href="$a02502.html" title="tlm::tlm_bw_direct\l_mem_if" alt="" coords="236,724,363,765"/>
-<area shape="rect" id="node20" href="$a02490.html" title="tlm::tlm_bw_nonblocking\l_transport_if\&lt; TRANS,\l PHASE \&gt;" alt="" coords="218,790,381,846"/>
-<area shape="rect" id="node21" href="$a02330.html" title="tlm::tlm_delayed_write\l_if\&lt; T \&gt;" alt="" coords="225,659,374,700"/>
-<area shape="rect" id="node23" href="$a02398.html" title="tlm::tlm_fifo_config\l_size_if" alt="" coords="235,965,364,1007"/>
-<area shape="rect" id="node24" href="$a02386.html" title="tlm::tlm_fifo_debug\l_if\&lt; T \&gt;" alt="" coords="479,24,609,65"/>
-<area shape="rect" id="node25" href="$a02498.html" title="tlm::tlm_fw_direct\l_mem_if\&lt; TRANS \&gt;" alt="" coords="230,1031,369,1072"/>
-<area shape="rect" id="node26" href="$a02486.html" title="tlm::tlm_fw_nonblocking\l_transport_if\&lt; TRANS,\l PHASE \&gt;" alt="" coords="219,1097,379,1153"/>
-<area shape="rect" id="node27" href="$a02346.html" title="tlm::tlm_nonblocking\l_get_if\&lt; T \&gt;" alt="" coords="229,200,369,241"/>
-<area shape="rect" id="node29" href="$a02366.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; T \&gt;" alt="" coords="229,69,369,111"/>
-<area shape="rect" id="node30" href="$a02350.html" title="tlm::tlm_nonblocking\l_put_if\&lt; T \&gt;" alt="" coords="229,331,369,372"/>
-<area shape="rect" id="node31" href="$a02506.html" title="tlm::tlm_transport\l_dbg_if\&lt; TRANS \&gt;" alt="" coords="234,1177,365,1219"/>
-<area shape="rect" id="node32" href="$a02334.html" title="tlm::tlm_transport\l_if\&lt; REQ, RSP \&gt;" alt="" coords="712,1212,833,1253"/>
-<area shape="rect" id="node34" href="$a02326.html" title="tlm::tlm_write_if\&lt; T \&gt;" alt="" coords="228,462,371,489"/>
-<area shape="rect" id="node37" href="$a02338.html" title="tlm::tlm_blocking_get\l_if\&lt; GET_DATA \&gt;" alt="" coords="227,1360,371,1401"/>
-<area shape="rect" id="node42" href="$a02338.html" title="tlm::tlm_blocking_get\l_if\&lt; REQ \&gt;" alt="" coords="227,1817,371,1859"/>
-<area shape="rect" id="node50" href="$a02338.html" title="tlm::tlm_blocking_get\l_if\&lt; RSP \&gt;" alt="" coords="227,2181,371,2223"/>
-<area shape="rect" id="node58" href="$a02362.html" title="tlm::tlm_blocking_peek\l_if\&lt; GET_DATA \&gt;" alt="" coords="222,1491,377,1532"/>
-<area shape="rect" id="node60" href="$a02362.html" title="tlm::tlm_blocking_peek\l_if\&lt; REQ \&gt;" alt="" coords="222,1687,377,1728"/>
-<area shape="rect" id="node62" href="$a02362.html" title="tlm::tlm_blocking_peek\l_if\&lt; RSP \&gt;" alt="" coords="222,2051,377,2092"/>
-<area shape="rect" id="node64" href="$a02342.html" title="tlm::tlm_blocking_put\l_if\&lt; PUT_DATA \&gt;" alt="" coords="227,1621,371,1663"/>
-<area shape="rect" id="node66" href="$a02342.html" title="tlm::tlm_blocking_put\l_if\&lt; REQ \&gt;" alt="" coords="472,2307,616,2348"/>
-<area shape="rect" id="node68" href="$a02342.html" title="tlm::tlm_blocking_put\l_if\&lt; RSP \&gt;" alt="" coords="472,1941,616,1983"/>
-<area shape="rect" id="node70" href="$a02494.html" title="tlm::tlm_blocking_transport\l_if\&lt; TYPES::tlm_payload_type \&gt;" alt="" coords="196,2495,403,2536"/>
-<area shape="rect" id="node73" href="$a02490.html" title="tlm::tlm_bw_nonblocking\l_transport_if\&lt; TYPES::\ltlm_payload_type, TYPES\l::tlm_phase_type \&gt;" alt="" coords="213,871,385,941"/>
-<area shape="rect" id="node74" href="$a02498.html" title="tlm::tlm_fw_direct\l_mem_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="224,2561,375,2617"/>
-<area shape="rect" id="node75" href="$a02486.html" title="tlm::tlm_fw_nonblocking\l_transport_if\&lt; TYPES::\ltlm_payload_type, TYPES\l::tlm_phase_type \&gt;" alt="" coords="213,2641,385,2712"/>
-<area shape="rect" id="node76" href="$a02346.html" title="tlm::tlm_nonblocking\l_get_if\&lt; GET_DATA \&gt;" alt="" coords="224,1295,375,1336"/>
-<area shape="rect" id="node78" href="$a02346.html" title="tlm::tlm_nonblocking\l_get_if\&lt; REQ \&gt;" alt="" coords="229,1883,369,1924"/>
-<area shape="rect" id="node81" href="$a02346.html" title="tlm::tlm_nonblocking\l_get_if\&lt; RSP \&gt;" alt="" coords="229,2247,369,2288"/>
-<area shape="rect" id="node84" href="$a02366.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; GET_DATA \&gt;" alt="" coords="219,1425,380,1467"/>
-<area shape="rect" id="node85" href="$a02366.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; REQ \&gt;" alt="" coords="229,1752,369,1793"/>
-<area shape="rect" id="node86" href="$a02366.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; RSP \&gt;" alt="" coords="229,2116,369,2157"/>
-<area shape="rect" id="node87" href="$a02350.html" title="tlm::tlm_nonblocking\l_put_if\&lt; PUT_DATA \&gt;" alt="" coords="224,1556,375,1597"/>
-<area shape="rect" id="node88" href="$a02350.html" title="tlm::tlm_nonblocking\l_put_if\&lt; REQ \&gt;" alt="" coords="474,2372,614,2413"/>
-<area shape="rect" id="node89" href="$a02350.html" title="tlm::tlm_nonblocking\l_put_if\&lt; RSP \&gt;" alt="" coords="474,2007,614,2048"/>
-<area shape="rect" id="node90" href="$a02506.html" title="tlm::tlm_transport\l_dbg_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="228,2414,371,2470"/>
-<area shape="rect" id="node91" href="$a02326.html" title="tlm::tlm_write_if\&lt;\l tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="234,513,365,569"/>
-<area shape="rect" id="node5" href="$a02374.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; T \&gt;" alt="" coords="472,207,616,248"/>
-<area shape="rect" id="node10" href="$a02354.html" title="tlm::tlm_get_if\&lt; T \&gt;" alt="" coords="477,273,611,299"/>
-<area shape="rect" id="node6" href="$a02382.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="689,201,857,227"/>
-<area shape="rect" id="node7" href="$a02394.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="945,201,1102,227"/>
-<area shape="rect" id="node8" href="$a02442.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="1223,277,1341,303"/>
-<area shape="rect" id="node9" href="$a02306.html" title="tlm::tlm_analysis_fifo\&lt; T \&gt;" alt="" coords="1446,353,1617,379"/>
-<area shape="rect" id="node12" href="$a02370.html" title="tlm::tlm_peek_if\&lt; T \&gt;" alt="" coords="473,90,615,117"/>
-<area shape="rect" id="node14" href="$a02358.html" title="tlm::tlm_put_if\&lt; T \&gt;" alt="" coords="477,338,611,365"/>
-<area shape="rect" id="node15" href="$a02390.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="694,251,851,278"/>
-<area shape="rect" id="node18" href="$a02518.html" title="tlm::tlm_bw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="472,885,616,927"/>
-<area shape="rect" id="node19" href="$a02630.html" title="tlm_utils::callback\l_binder_bw\&lt; TYPES \&gt;" alt="" coords="697,1027,849,1068"/>
-<area shape="rect" id="node22" href="$a02314.html" title="tlm::tlm_delayed_analysis\l_if\&lt; T \&gt;" alt="" coords="461,773,627,815"/>
-<area shape="rect" id="node28" href="$a02378.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; T \&gt;" alt="" coords="474,141,614,183"/>
-<area shape="rect" id="node33" href="$a02430.html" title="tlm::tlm_transport\l_to_master\&lt; REQ, RSP \&gt;" alt="" coords="939,1200,1108,1241"/>
-<area shape="rect" id="node35" href="$a02310.html" title="tlm::tlm_analysis_if\&lt; T \&gt;" alt="" coords="464,403,624,430"/>
-<area shape="rect" id="node36" href="$a02318.html" title="tlm::tlm_analysis_port\&lt; T \&gt;" alt="" coords="685,403,860,430"/>
-<area shape="rect" id="node38" href="$a02374.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; GET_DATA \&gt;" alt="" coords="463,1425,625,1467"/>
-<area shape="rect" id="node41" href="$a02354.html" title="tlm::tlm_get_if\&lt; GET\l_DATA \&gt;" alt="" coords="474,1295,614,1336"/>
-<area shape="rect" id="node39" href="$a02382.html" title="tlm::tlm_get_peek_if\l\&lt; GET_DATA \&gt;" alt="" coords="703,1425,842,1467"/>
-<area shape="rect" id="node40" href="$a02446.html" title="tlm::tlm_put_get_imp\l\&lt; PUT_DATA, GET_DATA \&gt;" alt="" coords="930,1459,1117,1500"/>
-<area shape="rect" id="node43" href="$a02374.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; REQ \&gt;" alt="" coords="472,1759,616,1800"/>
-<area shape="rect" id="node49" href="$a02354.html" title="tlm::tlm_get_if\&lt; REQ \&gt;" alt="" coords="468,1825,620,1851"/>
-<area shape="rect" id="node44" href="$a02406.html" title="tlm::tlm_blocking_slave\l_if\&lt; REQ, RSP \&gt;" alt="" coords="695,1853,850,1895"/>
-<area shape="rect" id="node47" href="$a02382.html" title="tlm::tlm_get_peek_if\l\&lt; REQ \&gt;" alt="" coords="703,1788,842,1829"/>
-<area shape="rect" id="node45" href="$a02422.html" title="tlm::tlm_slave_if\&lt;\l REQ, RSP \&gt;" alt="" coords="962,1887,1085,1928"/>
-<area shape="rect" id="node46" href="$a02454.html" title="tlm::tlm_slave_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="1218,1855,1346,1896"/>
-<area shape="rect" id="node48" href="$a02446.html" title="tlm::tlm_put_get_imp\l\&lt; RSP, REQ \&gt;" alt="" coords="952,1821,1095,1863"/>
-<area shape="rect" id="node51" href="$a02374.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; RSP \&gt;" alt="" coords="472,2124,616,2165"/>
-<area shape="rect" id="node57" href="$a02354.html" title="tlm::tlm_get_if\&lt; RSP \&gt;" alt="" coords="468,2190,620,2217"/>
-<area shape="rect" id="node52" href="$a02402.html" title="tlm::tlm_blocking_master\l_if\&lt; REQ, RSP \&gt;" alt="" coords="690,2219,855,2260"/>
-<area shape="rect" id="node55" href="$a02382.html" title="tlm::tlm_get_peek_if\l\&lt; RSP \&gt;" alt="" coords="703,2153,842,2195"/>
-<area shape="rect" id="node53" href="$a02418.html" title="tlm::tlm_master_if\l\&lt; REQ, RSP \&gt;" alt="" coords="961,2251,1085,2292"/>
-<area shape="rect" id="node54" href="$a02450.html" title="tlm::tlm_master_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="1213,2217,1351,2259"/>
-<area shape="rect" id="node56" href="$a02446.html" title="tlm::tlm_put_get_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="952,2185,1095,2227"/>
-<area shape="rect" id="node59" href="$a02370.html" title="tlm::tlm_peek_if\&lt; GET\l_DATA \&gt;" alt="" coords="469,1491,619,1532"/>
-<area shape="rect" id="node61" href="$a02370.html" title="tlm::tlm_peek_if\&lt; REQ \&gt;" alt="" coords="463,1707,625,1734"/>
-<area shape="rect" id="node63" href="$a02370.html" title="tlm::tlm_peek_if\&lt; RSP \&gt;" alt="" coords="463,2073,625,2099"/>
-<area shape="rect" id="node65" href="$a02358.html" title="tlm::tlm_put_if\&lt; PUT\l_DATA \&gt;" alt="" coords="474,1556,614,1597"/>
-<area shape="rect" id="node67" href="$a02358.html" title="tlm::tlm_put_if\&lt; REQ \&gt;" alt="" coords="697,2350,849,2377"/>
-<area shape="rect" id="node69" href="$a02358.html" title="tlm::tlm_put_if\&lt; RSP \&gt;" alt="" coords="697,1985,849,2011"/>
-<area shape="rect" id="node71" href="$a02514.html" title="tlm::tlm_fw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="473,2531,615,2572"/>
-<area shape="rect" id="node72" href="$a02626.html" title="tlm_utils::callback\l_binder_fw\&lt; TYPES \&gt;" alt="" coords="698,2531,847,2572"/>
-<area shape="rect" id="node77" href="$a02378.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; GET_DATA \&gt;" alt="" coords="451,1360,637,1401"/>
-<area shape="rect" id="node79" href="$a02378.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; REQ \&gt;" alt="" coords="471,1876,617,1917"/>
-<area shape="rect" id="node80" href="$a02414.html" title="tlm::tlm_nonblocking\l_slave_if\&lt; REQ, RSP \&gt;" alt="" coords="695,1919,850,1960"/>
-<area shape="rect" id="node82" href="$a02378.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; RSP \&gt;" alt="" coords="471,2241,617,2283"/>
-<area shape="rect" id="node83" href="$a02410.html" title="tlm::tlm_nonblocking\l_master_if\&lt; REQ, RSP \&gt;" alt="" coords="690,2284,855,2325"/>
-<area shape="rect" id="node92" href="$a02310.html" title="tlm::tlm_analysis_if\l\&lt; tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="1213,410,1351,466"/>
-<area shape="rect" id="node93" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01835.html" title="sc_core::sc_object" alt="" coords="480,671,608,698"/>
-<area shape="rect" id="node94" href="$a02678.html" title="tlm_utils::peq_with\l_get\&lt; transaction_type \&gt;" alt="" coords="691,557,854,599"/>
-<area shape="rect" id="node95" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01131.html" title="sc_core::sc_export_base" alt="" coords="691,703,854,730"/>
-<area shape="rect" id="node108" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01819.html" title="sc_core::sc_module" alt="" coords="705,975,840,1002"/>
-<area shape="rect" id="node112" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_port_base" alt="" coords="698,846,847,873"/>
-<area shape="rect" id="node131" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01215.html" title="sc_core::sc_prim_channel" alt="" coords="938,302,1109,329"/>
-<area shape="rect" id="node132" href="$a02670.html" title="tlm_utils::peq_with\l_cb_and_phase\&lt; OWNER,\l TYPES \&gt;" alt="" coords="685,623,860,679"/>
-<area shape="rect" id="node133" href="$a02678.html" title="tlm_utils::peq_with\l_get\&lt; PAYLOAD \&gt;" alt="" coords="707,755,838,796"/>
-<area shape="rect" id="node96" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01135.html" title="sc_core::sc_export\l\&lt; FW_IF \&gt;" alt="" coords="959,819,1087,860"/>
-<area shape="rect" id="node103" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01135.html" title="sc_core::sc_export\l\&lt; tlm_fw_transport_if\l\&lt; TYPES \&gt; \&gt;" alt="" coords="952,658,1095,714"/>
-<area shape="rect" id="node97" href="$a02570.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="1195,738,1369,794"/>
-<area shape="rect" id="node98" href="$a02582.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="1450,745,1613,787"/>
-<area shape="rect" id="node99" href="$a02646.html" title="tlm_utils::passthrough\l_target_socket\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1709,627,1885,683"/>
-<area shape="rect" id="node100" href="$a02654.html" title="tlm_utils::passthrough\l_target_socket_tagged\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="1685,707,1909,763"/>
-<area shape="rect" id="node101" href="$a02698.html" title="tlm_utils::simple_target\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="1691,787,1903,843"/>
-<area shape="rect" id="node102" href="$a02722.html" title="tlm_utils::simple_target\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1706,867,1889,923"/>
-<area shape="rect" id="node104" href="$a02570.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, 1, sc_core::SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="1187,613,1377,713"/>
-<area shape="rect" id="node105" href="$a02570.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="1196,503,1368,589"/>
-<area shape="rect" id="node106" href="$a02582.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, N, POL \&gt;" alt="" coords="1425,525,1637,567"/>
-<area shape="rect" id="node107" href="$a02638.html" title="tlm_utils::multi_target\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1702,518,1893,574"/>
-<area shape="rect" id="node109" href="$a02458.html" title="tlm::tlm_req_rsp_channel\l\&lt; REQ, RSP, REQ_CHANNEL,\l RSP_CHANNEL \&gt;" alt="" coords="924,961,1123,1017"/>
-<area shape="rect" id="node110" href="$a02434.html" title="tlm::tlm_slave_to_transport\l\&lt; REQ, RSP \&gt;" alt="" coords="936,1041,1111,1083"/>
-<area shape="rect" id="node111" href="$a02462.html" title="tlm::tlm_transport\l_channel\&lt; REQ, RSP,\l REQ_CHANNEL, RSP_CHANNEL \&gt;" alt="" coords="908,1107,1139,1163"/>
-<area shape="rect" id="node113" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01207.html" title="sc_core::sc_port_b\l\&lt; IF \&gt;" alt="" coords="959,895,1088,936"/>
-<area shape="rect" id="node114" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01211.html" title="sc_core::sc_port\&lt; IF,\l N, P \&gt;" alt="" coords="1211,1219,1353,1260"/>
-<area shape="rect" id="node120" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01211.html" title="sc_core::sc_port\&lt; FW\l_IF, N, POL \&gt;" alt="" coords="1209,1059,1355,1100"/>
-<area shape="rect" id="node125" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01211.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_get_if\&lt;\l T \&gt;, 1 \&gt;" alt="" coords="1209,818,1355,874"/>
-<area shape="rect" id="node127" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01211.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_peek_if\l\&lt; T \&gt;, 1 \&gt;" alt="" coords="1209,898,1355,954"/>
-<area shape="rect" id="node129" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01211.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_put_if\&lt;\l T \&gt;, 1 \&gt;" alt="" coords="1209,978,1355,1034"/>
-<area shape="rect" id="node115" href="$a02574.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, 1, sc_core::SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="1436,1131,1627,1231"/>
-<area shape="rect" id="node116" href="$a02574.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="1445,1255,1617,1341"/>
-<area shape="rect" id="node117" href="$a02578.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1697,1270,1898,1326"/>
-<area shape="rect" id="node118" href="$a02634.html" title="tlm_utils::multi_init\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1988,1270,2179,1326"/>
-<area shape="rect" id="node119" href="$a02614.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; MODULE,\l BUSWIDTH, TYPES, N, POL \&gt;" alt="" coords="2257,1270,2461,1326"/>
-<area shape="rect" id="node121" href="$a02574.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="1444,1051,1619,1107"/>
-<area shape="rect" id="node122" href="$a02578.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="1693,1059,1901,1100"/>
-<area shape="rect" id="node123" href="$a02682.html" title="tlm_utils::simple_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="1977,1011,2189,1067"/>
-<area shape="rect" id="node124" href="$a02690.html" title="tlm_utils::simple_initiator\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1992,1091,2175,1147"/>
-<area shape="rect" id="node126" href="$a02470.html" title="tlm::tlm_nonblocking\l_get_port\&lt; T \&gt;" alt="" coords="1461,825,1601,867"/>
-<area shape="rect" id="node128" href="$a02474.html" title="tlm::tlm_nonblocking\l_peek_port\&lt; T \&gt;" alt="" coords="1461,905,1601,947"/>
-<area shape="rect" id="node130" href="$a02478.html" title="tlm::tlm_nonblocking\l_put_port\&lt; T \&gt;" alt="" coords="1461,985,1601,1027"/>
-<area shape="rect" id="node134" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01859.html" title="sc_core::sc_process_host" alt="" coords="460,722,628,749"/>
-<area shape="rect" id="node135" href="$a02562.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, FW\l_IF, BW_IF \&gt;" alt="" coords="1188,1138,1376,1194"/>
-<area shape="rect" id="node136" href="$a02566.html" title="tlm::tlm_base_target\l_socket_b\&lt; BUSWIDTH,\l FW_IF, BW_IF \&gt;" alt="" coords="941,738,1106,794"/>
-<area shape="rect" id="node137" href="$a02566.html" title="tlm::tlm_base_target\l_socket_b\&lt; BUSWIDTH,\l tlm_fw_transport_if\&lt;\l TYPES \&gt;, tlm_bw_transport\l_if\&lt; TYPES \&gt; \&gt;" alt="" coords="931,549,1115,634"/>
+<area shape="rect" id="node1" href="$a02640.html" title="tlm_utils::convenience\l_socket_base" alt="" coords="1436,1161,1584,1202"/>
+<area shape="rect" id="node2" href="$a02652.html" title="tlm_utils::multi_socket_base" alt="" coords="1660,1219,1843,1245"/>
+<area shape="rect" id="node11" href="$a02648.html" title="tlm_utils::passthrough\l_socket_base" alt="" coords="1679,275,1824,317"/>
+<area shape="rect" id="node22" href="$a02644.html" title="tlm_utils::simple_socket_base" alt="" coords="1655,1168,1847,1195"/>
+<area shape="rect" id="node3" href="$a02716.html" title="tlm_utils::multi_init\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1945,1687,2136,1743"/>
+<area shape="rect" id="node7" href="$a02724.html" title="tlm_utils::multi_target\l_base\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1945,1095,2136,1151"/>
+<area shape="rect" id="node4" href="$a02684.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; MODULE,\l BUSWIDTH, TYPES, N, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="2239,1683,2461,1754"/>
+<area shape="rect" id="node6" href="$a02684.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; MODULE,\l BUSWIDTH, TYPES, N, POL \&gt;" alt="" coords="2248,1779,2452,1835"/>
+<area shape="rect" id="node5" href="$a02688.html" title="tlm_utils::multi_passthrough\l_initiator_socket_optional\l\&lt; MODULE, BUSWIDTH, TYPES, N \&gt;" alt="" coords="2524,1691,2764,1747"/>
+<area shape="rect" id="node8" href="$a02692.html" title="tlm_utils::multi_passthrough\l_target_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="2224,1018,2476,1089"/>
+<area shape="rect" id="node10" href="$a02692.html" title="tlm_utils::multi_passthrough\l_target_socket\&lt; MODULE, BUSWIDTH,\l TYPES, N, POL \&gt;" alt="" coords="2224,1113,2476,1169"/>
+<area shape="rect" id="node9" href="$a02696.html" title="tlm_utils::multi_passthrough\l_target_socket_optional\&lt;\l MODULE, BUSWIDTH, TYPES, N \&gt;" alt="" coords="2528,1025,2760,1081"/>
+<area shape="rect" id="node12" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1945,436,2136,492"/>
+<area shape="rect" id="node14" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="1929,261,2152,331"/>
+<area shape="rect" id="node16" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="1921,356,2160,412"/>
+<area shape="rect" id="node18" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES,\l sc_core::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="1905,166,2176,237"/>
+<area shape="rect" id="node20" href="$a02732.html" title="tlm_utils::passthrough\l_target_socket_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="1945,85,2136,141"/>
+<area shape="rect" id="node21" href="$a02748.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_b\&lt; MODULE, BUSWIDTH, TYPES, POL \&gt;" alt="" coords="1905,5,2176,61"/>
+<area shape="rect" id="node13" href="$a02740.html" title="tlm_utils::passthrough\l_target_socket\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="2262,436,2438,492"/>
+<area shape="rect" id="node15" href="$a02744.html" title="tlm_utils::passthrough\l_target_socket_optional\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="2238,268,2462,324"/>
+<area shape="rect" id="node17" href="$a02756.html" title="tlm_utils::passthrough\l_target_socket_tagged\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="2238,356,2462,412"/>
+<area shape="rect" id="node19" href="$a02760.html" title="tlm_utils::passthrough\l_target_socket_tagged\l_optional\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="2241,166,2459,237"/>
+<area shape="rect" id="node23" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="1927,1605,2154,1661"/>
+<area shape="rect" id="node25" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="1927,1175,2154,1246"/>
+<area shape="rect" id="node27" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1943,1525,2139,1581"/>
+<area shape="rect" id="node29" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="1929,1270,2152,1341"/>
+<area shape="rect" id="node31" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="1927,868,2154,924"/>
+<area shape="rect" id="node33" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, sc_core::SC_ZERO_OR\l_MORE_BOUND \&gt;" alt="" coords="1927,773,2154,843"/>
+<area shape="rect" id="node35" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="1943,948,2139,1004"/>
+<area shape="rect" id="node37" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, sc_core\l::SC_ZERO_OR_MORE_BOUND \&gt;" alt="" coords="1929,597,2152,667"/>
+<area shape="rect" id="node39" href="$a02784.html" title="tlm_utils::simple_initiator\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="1927,1365,2154,1421"/>
+<area shape="rect" id="node40" href="$a02800.html" title="tlm_utils::simple_initiator\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="1943,1445,2139,1501"/>
+<area shape="rect" id="node41" href="$a02816.html" title="tlm_utils::simple_target\l_socket_b\&lt; MODULE, BUSWIDTH,\l TYPES, POL \&gt;" alt="" coords="1927,692,2154,748"/>
+<area shape="rect" id="node42" href="$a02848.html" title="tlm_utils::simple_target\l_socket_tagged_b\&lt; MODULE,\l BUSWIDTH, TYPES, POL \&gt;" alt="" coords="1943,516,2139,572"/>
+<area shape="rect" id="node24" href="$a02792.html" title="tlm_utils::simple_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="2244,1603,2456,1659"/>
+<area shape="rect" id="node26" href="$a02796.html" title="tlm_utils::simple_initiator\l_socket_optional\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="2256,1193,2444,1249"/>
+<area shape="rect" id="node28" href="$a02808.html" title="tlm_utils::simple_initiator\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="2259,1523,2441,1579"/>
+<area shape="rect" id="node30" href="$a02812.html" title="tlm_utils::simple_initiator\l_socket_tagged_optional\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="2238,1277,2462,1333"/>
+<area shape="rect" id="node32" href="$a02840.html" title="tlm_utils::simple_target\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="2244,857,2456,913"/>
+<area shape="rect" id="node34" href="$a02844.html" title="tlm_utils::simple_target\l_socket_optional\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="2256,777,2444,833"/>
+<area shape="rect" id="node36" href="$a02872.html" title="tlm_utils::simple_target\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="2259,937,2441,993"/>
+<area shape="rect" id="node38" href="$a02876.html" title="tlm_utils::simple_target\l_socket_tagged_optional\l\&lt; MODULE, BUSWIDTH, TYPES \&gt;" alt="" coords="2238,604,2462,660"/>
+<area shape="rect" id="node43" href="$a02656.html" title="tlm_utils::convenience\l_socket_cb_holder" alt="" coords="470,2733,618,2774"/>
+<area shape="rect" id="node44" href="$a02708.html" title="tlm_utils::callback\l_binder_bw\&lt; TYPES \&gt;" alt="" coords="697,2653,849,2694"/>
+<area shape="rect" id="node45" href="$a02704.html" title="tlm_utils::callback\l_binder_fw\&lt; TYPES \&gt;" alt="" coords="698,2773,847,2814"/>
+<area shape="rect" id="node46" href="$a02712.html" title="tlm_utils::multi_init\l_base_if\&lt; TYPES \&gt;" alt="" coords="1684,1621,1819,1662"/>
+<area shape="rect" id="node47" href="$a02720.html" title="tlm_utils::multi_target\l_base_if\&lt; TYPES \&gt;" alt="" coords="1679,1102,1823,1143"/>
+<area shape="rect" id="node48" href="$a02728.html" title="tlm_utils::multi_to\l_multi_bind_base\&lt; TYPES \&gt;" alt="" coords="1947,1029,2134,1070"/>
+<area shape="rect" id="node49" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="5,3200,148,3227"/>
+<area shape="rect" id="node50" href="$a02388.html" title="tlm::tlm_blocking_get\l_if\&lt; T \&gt;" alt="" coords="227,1982,371,2023"/>
+<area shape="rect" id="node57" href="$a02412.html" title="tlm::tlm_blocking_peek\l_if\&lt; T \&gt;" alt="" coords="222,2047,377,2089"/>
+<area shape="rect" id="node59" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; T \&gt;" alt="" coords="227,2295,371,2337"/>
+<area shape="rect" id="node62" href="$a02544.html" title="tlm::tlm_blocking_transport\l_if\&lt; TRANS \&gt;" alt="" coords="211,2361,387,2402"/>
+<area shape="rect" id="node63" href="$a02552.html" title="tlm::tlm_bw_direct\l_mem_if" alt="" coords="236,2491,363,2533"/>
+<area shape="rect" id="node65" href="$a02540.html" title="tlm::tlm_bw_nonblocking\l_transport_if\&lt; TRANS,\l PHASE \&gt;" alt="" coords="218,2893,381,2949"/>
+<area shape="rect" id="node66" href="$a02380.html" title="tlm::tlm_delayed_write\l_if\&lt; T \&gt;" alt="" coords="225,2651,374,2693"/>
+<area shape="rect" id="node68" href="$a02448.html" title="tlm::tlm_fifo_config\l_size_if" alt="" coords="235,3054,364,3095"/>
+<area shape="rect" id="node69" href="$a02436.html" title="tlm::tlm_fifo_debug\l_if\&lt; T \&gt;" alt="" coords="479,2237,609,2278"/>
+<area shape="rect" id="node70" href="$a02548.html" title="tlm::tlm_fw_direct\l_mem_if\&lt; TRANS \&gt;" alt="" coords="230,3119,369,3161"/>
+<area shape="rect" id="node71" href="$a02536.html" title="tlm::tlm_fw_nonblocking\l_transport_if\&lt; TRANS,\l PHASE \&gt;" alt="" coords="219,3185,379,3241"/>
+<area shape="rect" id="node72" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; T \&gt;" alt="" coords="229,2113,369,2154"/>
+<area shape="rect" id="node74" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; T \&gt;" alt="" coords="229,2178,369,2219"/>
+<area shape="rect" id="node75" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; T \&gt;" alt="" coords="229,2426,369,2467"/>
+<area shape="rect" id="node76" href="$a02556.html" title="tlm::tlm_transport\l_dbg_if\&lt; TRANS \&gt;" alt="" coords="234,3266,365,3307"/>
+<area shape="rect" id="node77" href="$a02384.html" title="tlm::tlm_transport\l_if\&lt; REQ, RSP \&gt;" alt="" coords="712,2002,833,2043"/>
+<area shape="rect" id="node79" href="$a02376.html" title="tlm::tlm_write_if\&lt; T \&gt;" alt="" coords="228,1855,371,1881"/>
+<area shape="rect" id="node82" href="$a02388.html" title="tlm::tlm_blocking_get\l_if\&lt; GET_DATA \&gt;" alt="" coords="227,3397,371,3438"/>
+<area shape="rect" id="node87" href="$a02388.html" title="tlm::tlm_blocking_get\l_if\&lt; REQ \&gt;" alt="" coords="227,3854,371,3895"/>
+<area shape="rect" id="node95" href="$a02388.html" title="tlm::tlm_blocking_get\l_if\&lt; RSP \&gt;" alt="" coords="227,4218,371,4259"/>
+<area shape="rect" id="node103" href="$a02412.html" title="tlm::tlm_blocking_peek\l_if\&lt; GET_DATA \&gt;" alt="" coords="222,3462,377,3503"/>
+<area shape="rect" id="node105" href="$a02412.html" title="tlm::tlm_blocking_peek\l_if\&lt; REQ \&gt;" alt="" coords="222,3789,377,3830"/>
+<area shape="rect" id="node107" href="$a02412.html" title="tlm::tlm_blocking_peek\l_if\&lt; RSP \&gt;" alt="" coords="222,4153,377,4194"/>
+<area shape="rect" id="node109" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; PUT_DATA \&gt;" alt="" coords="227,3723,371,3765"/>
+<area shape="rect" id="node111" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; REQ \&gt;" alt="" coords="472,4399,616,4441"/>
+<area shape="rect" id="node113" href="$a02392.html" title="tlm::tlm_blocking_put\l_if\&lt; RSP \&gt;" alt="" coords="472,4031,616,4073"/>
+<area shape="rect" id="node115" href="$a02544.html" title="tlm::tlm_blocking_transport\l_if\&lt; TYPES::tlm_payload_type \&gt;" alt="" coords="196,3331,403,3373"/>
+<area shape="rect" id="node117" href="$a02540.html" title="tlm::tlm_bw_nonblocking\l_transport_if\&lt; TYPES::\ltlm_payload_type, TYPES\l::tlm_phase_type \&gt;" alt="" coords="213,2557,385,2627"/>
+<area shape="rect" id="node118" href="$a02548.html" title="tlm::tlm_fw_direct\l_mem_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="224,2717,375,2773"/>
+<area shape="rect" id="node119" href="$a02536.html" title="tlm::tlm_fw_nonblocking\l_transport_if\&lt; TYPES::\ltlm_payload_type, TYPES\l::tlm_phase_type \&gt;" alt="" coords="213,2798,385,2869"/>
+<area shape="rect" id="node120" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; GET_DATA \&gt;" alt="" coords="224,3527,375,3569"/>
+<area shape="rect" id="node122" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; REQ \&gt;" alt="" coords="229,3985,369,4026"/>
+<area shape="rect" id="node125" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; RSP \&gt;" alt="" coords="229,4349,369,4390"/>
+<area shape="rect" id="node128" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; GET_DATA \&gt;" alt="" coords="219,3593,380,3634"/>
+<area shape="rect" id="node129" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; REQ \&gt;" alt="" coords="229,3919,369,3961"/>
+<area shape="rect" id="node130" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; RSP \&gt;" alt="" coords="229,4283,369,4325"/>
+<area shape="rect" id="node131" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; PUT_DATA \&gt;" alt="" coords="224,3658,375,3699"/>
+<area shape="rect" id="node132" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; REQ \&gt;" alt="" coords="474,4465,614,4506"/>
+<area shape="rect" id="node133" href="$a02400.html" title="tlm::tlm_nonblocking\l_put_if\&lt; RSP \&gt;" alt="" coords="474,4097,614,4138"/>
+<area shape="rect" id="node134" href="$a02556.html" title="tlm::tlm_transport\l_dbg_if\&lt; TYPES::tlm\l_payload_type \&gt;" alt="" coords="228,2973,371,3029"/>
+<area shape="rect" id="node135" href="$a02376.html" title="tlm::tlm_write_if\&lt;\l tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="234,1561,365,1617"/>
+<area shape="rect" id="node51" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; T \&gt;" alt="" coords="472,2003,616,2045"/>
+<area shape="rect" id="node56" href="$a02404.html" title="tlm::tlm_get_if\&lt; T \&gt;" alt="" coords="477,2069,611,2096"/>
+<area shape="rect" id="node52" href="$a02432.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="689,2120,857,2147"/>
+<area shape="rect" id="node53" href="$a02444.html" title="tlm::tlm_fifo_get_if\&lt; T \&gt;" alt="" coords="945,2188,1102,2215"/>
+<area shape="rect" id="node54" href="$a02492.html" title="tlm::tlm_fifo\&lt; T \&gt;" alt="" coords="1221,2016,1340,2043"/>
+<area shape="rect" id="node55" href="$a02356.html" title="tlm::tlm_analysis_fifo\&lt; T \&gt;" alt="" coords="1425,1793,1595,1820"/>
+<area shape="rect" id="node58" href="$a02420.html" title="tlm::tlm_peek_if\&lt; T \&gt;" alt="" coords="473,2120,615,2147"/>
+<area shape="rect" id="node60" href="$a02408.html" title="tlm::tlm_put_if\&lt; T \&gt;" alt="" coords="477,2303,611,2329"/>
+<area shape="rect" id="node61" href="$a02440.html" title="tlm::tlm_fifo_put_if\&lt; T \&gt;" alt="" coords="694,2244,851,2271"/>
+<area shape="rect" id="node64" href="$a02568.html" title="tlm::tlm_bw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="472,2571,616,2613"/>
+<area shape="rect" id="node67" href="$a02364.html" title="tlm::tlm_delayed_analysis\l_if\&lt; T \&gt;" alt="" coords="461,2651,627,2693"/>
+<area shape="rect" id="node73" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; T \&gt;" alt="" coords="474,2171,614,2213"/>
+<area shape="rect" id="node78" href="$a02480.html" title="tlm::tlm_transport\l_to_master\&lt; REQ, RSP \&gt;" alt="" coords="939,2122,1108,2163"/>
+<area shape="rect" id="node80" href="$a02360.html" title="tlm::tlm_analysis_if\&lt; T \&gt;" alt="" coords="464,1829,624,1856"/>
+<area shape="rect" id="node81" href="$a02368.html" title="tlm::tlm_analysis_port\&lt; T \&gt;" alt="" coords="685,1780,860,1807"/>
+<area shape="rect" id="node83" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; GET_DATA \&gt;" alt="" coords="463,3397,625,3438"/>
+<area shape="rect" id="node86" href="$a02404.html" title="tlm::tlm_get_if\&lt; GET\l_DATA \&gt;" alt="" coords="474,3462,614,3503"/>
+<area shape="rect" id="node84" href="$a02432.html" title="tlm::tlm_get_peek_if\l\&lt; GET_DATA \&gt;" alt="" coords="703,3527,842,3569"/>
+<area shape="rect" id="node85" href="$a02496.html" title="tlm::tlm_put_get_imp\l\&lt; PUT_DATA, GET_DATA \&gt;" alt="" coords="930,3593,1117,3634"/>
+<area shape="rect" id="node88" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; REQ \&gt;" alt="" coords="472,3849,616,3890"/>
+<area shape="rect" id="node94" href="$a02404.html" title="tlm::tlm_get_if\&lt; REQ \&gt;" alt="" coords="468,3915,620,3941"/>
+<area shape="rect" id="node89" href="$a02456.html" title="tlm::tlm_blocking_slave\l_if\&lt; REQ, RSP \&gt;" alt="" coords="695,3943,850,3985"/>
+<area shape="rect" id="node92" href="$a02432.html" title="tlm::tlm_get_peek_if\l\&lt; REQ \&gt;" alt="" coords="703,3878,842,3919"/>
+<area shape="rect" id="node90" href="$a02472.html" title="tlm::tlm_slave_if\&lt;\l REQ, RSP \&gt;" alt="" coords="962,3973,1085,4014"/>
+<area shape="rect" id="node91" href="$a02504.html" title="tlm::tlm_slave_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="1217,4006,1345,4047"/>
+<area shape="rect" id="node93" href="$a02496.html" title="tlm::tlm_put_get_imp\l\&lt; RSP, REQ \&gt;" alt="" coords="952,4038,1095,4079"/>
+<area shape="rect" id="node96" href="$a02424.html" title="tlm::tlm_blocking_get\l_peek_if\&lt; RSP \&gt;" alt="" coords="472,4217,616,4258"/>
+<area shape="rect" id="node102" href="$a02404.html" title="tlm::tlm_get_if\&lt; RSP \&gt;" alt="" coords="468,4283,620,4309"/>
+<area shape="rect" id="node97" href="$a02452.html" title="tlm::tlm_blocking_master\l_if\&lt; REQ, RSP \&gt;" alt="" coords="690,4311,855,4353"/>
+<area shape="rect" id="node100" href="$a02432.html" title="tlm::tlm_get_peek_if\l\&lt; RSP \&gt;" alt="" coords="703,4246,842,4287"/>
+<area shape="rect" id="node98" href="$a02468.html" title="tlm::tlm_master_if\l\&lt; REQ, RSP \&gt;" alt="" coords="961,4341,1085,4382"/>
+<area shape="rect" id="node99" href="$a02500.html" title="tlm::tlm_master_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="1211,4373,1350,4414"/>
+<area shape="rect" id="node101" href="$a02496.html" title="tlm::tlm_put_get_imp\l\&lt; REQ, RSP \&gt;" alt="" coords="952,4406,1095,4447"/>
+<area shape="rect" id="node104" href="$a02420.html" title="tlm::tlm_peek_if\&lt; GET\l_DATA \&gt;" alt="" coords="469,3527,619,3569"/>
+<area shape="rect" id="node106" href="$a02420.html" title="tlm::tlm_peek_if\&lt; REQ \&gt;" alt="" coords="463,3797,625,3824"/>
+<area shape="rect" id="node108" href="$a02420.html" title="tlm::tlm_peek_if\&lt; RSP \&gt;" alt="" coords="463,4165,625,4192"/>
+<area shape="rect" id="node110" href="$a02408.html" title="tlm::tlm_put_if\&lt; PUT\l_DATA \&gt;" alt="" coords="474,3658,614,3699"/>
+<area shape="rect" id="node112" href="$a02408.html" title="tlm::tlm_put_if\&lt; REQ \&gt;" alt="" coords="697,4443,849,4469"/>
+<area shape="rect" id="node114" href="$a02408.html" title="tlm::tlm_put_if\&lt; RSP \&gt;" alt="" coords="697,4075,849,4101"/>
+<area shape="rect" id="node116" href="$a02564.html" title="tlm::tlm_fw_transport\l_if\&lt; TYPES \&gt;" alt="" coords="473,2813,615,2854"/>
+<area shape="rect" id="node121" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; GET_DATA \&gt;" alt="" coords="451,3593,637,3634"/>
+<area shape="rect" id="node123" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; REQ \&gt;" alt="" coords="471,3966,617,4007"/>
+<area shape="rect" id="node124" href="$a02464.html" title="tlm::tlm_nonblocking\l_slave_if\&lt; REQ, RSP \&gt;" alt="" coords="695,4009,850,4050"/>
+<area shape="rect" id="node126" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; RSP \&gt;" alt="" coords="471,4334,617,4375"/>
+<area shape="rect" id="node127" href="$a02460.html" title="tlm::tlm_nonblocking\l_master_if\&lt; REQ, RSP \&gt;" alt="" coords="690,4377,855,4418"/>
+<area shape="rect" id="node136" href="$a02360.html" title="tlm::tlm_analysis_if\l\&lt; tlm_analysis_triple\l\&lt; T \&gt; \&gt;" alt="" coords="954,1621,1093,1677"/>
+<area shape="rect" id="node137" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01871.html" title="sc_core::sc_object" alt="" coords="480,1635,608,1661"/>
+<area shape="rect" id="node138" href="$a02780.html" title="tlm_utils::peq_with\l_get\&lt; transaction_type \&gt;" alt="" coords="691,1517,854,1558"/>
+<area shape="rect" id="node139" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01143.html" title="sc_core::sc_export_base" alt="" coords="942,1129,1105,1156"/>
+<area shape="rect" id="node147" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01855.html" title="sc_core::sc_module" alt="" coords="705,1940,840,1967"/>
+<area shape="rect" id="node151" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01215.html" title="sc_core::sc_port_base" alt="" coords="698,1465,847,1492"/>
+<area shape="rect" id="node166" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01231.html" title="sc_core::sc_prim_channel" alt="" coords="938,1844,1109,1871"/>
+<area shape="rect" id="node167" href="$a02772.html" title="tlm_utils::peq_with\l_cb_and_phase\&lt; OWNER,\l TYPES \&gt;" alt="" coords="685,1583,860,1639"/>
+<area shape="rect" id="node168" href="$a02780.html" title="tlm_utils::peq_with\l_get\&lt; PAYLOAD \&gt;" alt="" coords="707,1663,838,1705"/>
+<area shape="rect" id="node140" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01147.html" title="sc_core::sc_export\l\&lt; FW_IF \&gt;" alt="" coords="1217,939,1345,981"/>
+<area shape="rect" id="node142" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01147.html" title="sc_core::sc_export\l\&lt; tlm_fw_transport_if\l\&lt; TYPES \&gt; \&gt;" alt="" coords="1209,1115,1352,1171"/>
+<area shape="rect" id="node141" href="$a02624.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="1423,932,1597,988"/>
+<area shape="rect" id="node143" href="$a02624.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="1424,1013,1596,1099"/>
+<area shape="rect" id="node144" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, N, POL \&gt;" alt="" coords="1645,1035,1857,1077"/>
+<area shape="rect" id="node145" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1, POL \&gt;" alt="" coords="1646,523,1857,565"/>
+<area shape="rect" id="node146" href="$a02636.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES, 1,\l sc_core::SC_ONE_OR_MORE\l_BOUND \&gt;" alt="" coords="1652,861,1851,931"/>
+<area shape="rect" id="node148" href="$a02508.html" title="tlm::tlm_req_rsp_channel\l\&lt; REQ, RSP, REQ_CHANNEL,\l RSP_CHANNEL \&gt;" alt="" coords="924,2041,1123,2097"/>
+<area shape="rect" id="node149" href="$a02484.html" title="tlm::tlm_slave_to_transport\l\&lt; REQ, RSP \&gt;" alt="" coords="936,1895,1111,1937"/>
+<area shape="rect" id="node150" href="$a02512.html" title="tlm::tlm_transport\l_channel\&lt; REQ, RSP,\l REQ_CHANNEL, RSP_CHANNEL \&gt;" alt="" coords="908,1961,1139,2017"/>
+<area shape="rect" id="node152" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01223.html" title="sc_core::sc_port_b\l\&lt; IF \&gt;" alt="" coords="959,1465,1088,1506"/>
+<area shape="rect" id="node153" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; IF,\l N, P \&gt;" alt="" coords="1209,1393,1352,1434"/>
+<area shape="rect" id="node158" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; FW\l_IF, N, POL \&gt;" alt="" coords="1207,1246,1354,1287"/>
+<area shape="rect" id="node160" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_get_if\&lt;\l T \&gt;, 1 \&gt;" alt="" coords="1208,1619,1353,1675"/>
+<area shape="rect" id="node162" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_peek_if\l\&lt; T \&gt;, 1 \&gt;" alt="" coords="1207,1459,1354,1515"/>
+<area shape="rect" id="node164" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; tlm\l_nonblocking_put_if\&lt;\l T \&gt;, 1 \&gt;" alt="" coords="1208,1539,1353,1595"/>
+<area shape="rect" id="node154" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="1424,1352,1596,1437"/>
+<area shape="rect" id="node155" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="1651,1687,1852,1743"/>
+<area shape="rect" id="node156" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l 1, POL \&gt;" alt="" coords="1651,1365,1852,1421"/>
+<area shape="rect" id="node157" href="$a02632.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l 1, sc_core::SC_ONE_OR\l_MORE_BOUND \&gt;" alt="" coords="1651,1518,1852,1589"/>
+<area shape="rect" id="node159" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, FW\l_IF, BW_IF, N, POL \&gt;" alt="" coords="1423,1239,1597,1295"/>
+<area shape="rect" id="node161" href="$a02520.html" title="tlm::tlm_nonblocking\l_get_port\&lt; T \&gt;" alt="" coords="1440,1626,1580,1667"/>
+<area shape="rect" id="node163" href="$a02524.html" title="tlm::tlm_nonblocking\l_peek_port\&lt; T \&gt;" alt="" coords="1440,1466,1580,1507"/>
+<area shape="rect" id="node165" href="$a02528.html" title="tlm::tlm_nonblocking\l_put_port\&lt; T \&gt;" alt="" coords="1440,1546,1580,1587"/>
+<area shape="rect" id="node169" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01895.html" title="sc_core::sc_process_host" alt="" coords="460,1880,628,1907"/>
+<area shape="rect" id="node170" href="$a02616.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, FW\l_IF, BW_IF \&gt;" alt="" coords="1187,1312,1375,1368"/>
+<area shape="rect" id="node171" href="$a02612.html" title="tlm::tlm_base_socket_if" alt="" coords="1202,1195,1359,1221"/>
+<area shape="rect" id="node172" href="$a02620.html" title="tlm::tlm_base_target\l_socket_b\&lt; BUSWIDTH,\l FW_IF, BW_IF \&gt;" alt="" coords="1198,859,1363,915"/>
+<area shape="rect" id="node173" href="$a02620.html" title="tlm::tlm_base_target\l_socket_b\&lt; BUSWIDTH,\l tlm_fw_transport_if\&lt;\l TYPES \&gt;, tlm_bw_transport\l_if\&lt; TYPES \&gt; \&gt;" alt="" coords="1189,1005,1373,1091"/>
 </map>

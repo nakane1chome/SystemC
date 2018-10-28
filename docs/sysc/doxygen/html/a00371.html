@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/utils/sc_mempool.h File Reference</title>
+<title>SystemC: sysc/utils/sc_pq.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -85,31 +85,37 @@ $(document).ready(function(){initNavTree('a00371.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">sc_mempool.h File Reference</div>  </div>
+<div class="title">sc_pq.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00362_source.html">sysc/utils/sc_iostream.h</a>&quot;</code><br />
+
+<p>A simple priority queue (which can be used to model multiple.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_mempool.h:</div>
+Include dependency graph for sc_pq.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00372.png" border="0" usemap="#sysc_2utils_2sc__mempool_8h" alt=""/></div>
-<map name="sysc_2utils_2sc__mempool_8h" id="sysc_2utils_2sc__mempool_8h">
-<area shape="rect" id="node2" href="a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="163,80,321,107"/>
+<div class="center"><img src="a00372.png" border="0" usemap="#sysc_2utils_2sc__pq_8h" alt=""/></div>
+<map name="sysc_2utils_2sc__pq_8h" id="sysc_2utils_2sc__pq_8h">
+<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,80,283,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00373.png" border="0" usemap="#sysc_2utils_2sc__mempool_8hdep" alt=""/></div>
-<map name="sysc_2utils_2sc__mempool_8hdep" id="sysc_2utils_2sc__mempool_8hdep">
-<area shape="rect" id="node2" href="a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="271,80,395,121"/>
-<area shape="rect" id="node3" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="5,169,139,211"/>
-<area shape="rect" id="node4" href="a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="51,266,189,307"/>
-<area shape="rect" id="node5" href="a00401.html" title="systemc" alt="" coords="217,363,287,389"/>
-<area shape="rect" id="node6" href="a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="264,169,403,211"/>
-<area shape="rect" id="node7" href="a00068.html" title="The sc_signal_resolved port classes. " alt="" coords="315,259,453,315"/>
-<area shape="rect" id="node8" href="a00104.html" title="Proxy base class for vector data types. " alt="" coords="478,169,602,211"/>
-<area shape="rect" id="node9" href="a00101.html" title="Arbitrary size logic vector class. " alt="" coords="626,169,750,211"/>
+<div class="center"><img src="a00373.png" border="0" usemap="#sysc_2utils_2sc__pq_8hdep" alt=""/></div>
+<map name="sysc_2utils_2sc__pq_8hdep" id="sysc_2utils_2sc__pq_8hdep">
+<area shape="rect" id="node2" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="461,80,644,107"/>
+<area shape="rect" id="node3" href="a00335.html" title="Wait() and related functions. " alt="" coords="5,162,148,189"/>
+<area shape="rect" id="node4" href="a00359.html" title="sysc/utils/sc_hash.h" alt="" coords="172,162,307,189"/>
+<area shape="rect" id="node5" href="a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="224,244,361,285"/>
+<area shape="rect" id="node6" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="382,155,515,196"/>
+<area shape="rect" id="node7" href="a00404.html" title="systemc" alt="" coords="625,333,694,360"/>
+<area shape="rect" id="node8" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="641,162,792,189"/>
+<area shape="rect" id="node9" href="a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="590,244,729,285"/>
+<area shape="rect" id="node10" href="a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="753,244,891,285"/>
+<area shape="rect" id="node11" href="a00314.html" title="For inline definitions of some utility functions. " alt="" coords="868,155,1040,196"/>
+<area shape="rect" id="node12" href="a00290.html" title="Definition of the simulation phase callbacks. " alt="" coords="1065,155,1209,196"/>
 </map>
 </div>
 </div>
@@ -117,23 +123,31 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02023.html">sc_core::sc_mempool</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02075.html">sc_core::sc_ppq_base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority queue base class.  <a href="a02075.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02027.html">sc_core::sc_mpobject</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02079.html">sc_core::sc_ppq&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple priority queue (which can be used to model multiple. </p>
+<p>clocks). From Cormen-Leiserson-Rivest, Ch.7.</p>
+<p>Original Author: Stan Y. Liao, Synopsys, Inc.</p>
+<p>CHANGE LOG AT END OF FILE </p>
+
+<p class="definition">Definition in file <a class="el" href="a00371_source.html">sc_pq.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00371.html">sc_mempool.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_abe2d21ecb619c40140cdc0b9ea59ef5.html">utils</a></li><li class="navelem"><a class="el" href="a00371.html">sc_pq.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:55 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

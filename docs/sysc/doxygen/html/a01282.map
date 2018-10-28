@@ -1,4 +1,8 @@
-<map id="sc_core::sc_inout&lt; bool &gt;" name="sc_core::sc_inout&lt; bool &gt;">
-<area shape="rect" id="node2" href="$a01211.html" title="sc_core::sc_port\&lt; sc\l_signal_inout_if\&lt; bool\l \&gt;, 1, SC_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,109,247,165"/>
-<area shape="rect" id="node3" href="$a01207.html" title="sc_core::sc_port_b\l\&lt; sc_signal_inout_if\l\&lt; bool \&gt; \&gt;" alt="" coords="59,5,193,61"/>
+<map id="sc_core::sc_signal_inout_if&lt; T &gt;" name="sc_core::sc_signal_inout_if&lt; T &gt;">
+<area shape="rect" id="node5" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; T \&gt;" alt="" coords="104,259,231,300"/>
+<area shape="rect" id="node2" href="$a01267.html" title="sc_core::sc_signal\l_in_if\&lt; T \&gt;" alt="" coords="29,80,156,121"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="96,5,239,32"/>
+<area shape="rect" id="node4" href="$a01279.html" title="sc_core::sc_signal\l_write_if\&lt; T \&gt;" alt="" coords="180,80,307,121"/>
+<area shape="rect" id="node6" href="$a01255.html" title="sc_core::sc_signal\l\&lt; T, POL \&gt;" alt="" coords="5,348,132,389"/>
+<area shape="rect" id="node7" href="$a01255.html" title="sc_signal\&lt; sc_dt::sc\l_lv\&lt; W \&gt;, SC_MANY_WRITERS \&gt;" alt="" coords="157,348,375,389"/>
 </map>

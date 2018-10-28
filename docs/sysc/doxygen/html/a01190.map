@@ -1,5 +1,4 @@
-<map id="sc_core::sc_mutex_if" name="sc_core::sc_mutex_if">
-<area shape="rect" id="node3" href="$a01179.html" title="The sc_host_mutex class, wrapping an OS mutex on the simulation host. " alt="" coords="5,155,164,181"/>
-<area shape="rect" id="node4" href="$a01187.html" title="The sc_mutex primitive channel class. " alt="" coords="189,155,317,181"/>
-<area shape="rect" id="node2" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="97,5,240,32"/>
+<map id="sc_core::sc_host_mutex" name="sc_core::sc_host_mutex">
+<area shape="rect" id="node2" href="$a01207.html" title="The sc_mutex_if interface class. " alt="" coords="13,80,156,107"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="13,5,156,32"/>
 </map>

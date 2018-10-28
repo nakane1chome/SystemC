@@ -1,5 +1,5 @@
-<map id="sysc/datatypes/bit/sc_bv.h" name="sysc/datatypes/bit/sc_bv.h">
-<area shape="rect" id="node2" href="$a00401.html" title="systemc" alt="" coords="33,184,102,211"/>
-<area shape="rect" id="node4" href="$a00212.html" title="Concatenation support. " alt="" coords="52,95,189,136"/>
-<area shape="rect" id="node3" href="$a00404.html" title="systemc.h" alt="" coords="28,259,107,285"/>
+<map id="sysc/datatypes/bit/sc_bit_proxies.h" name="sysc/datatypes/bit/sc_bit_proxies.h">
+<area shape="rect" id="node2" href="$a00095.html" title="Arbitrary size bit vector class. " alt="" coords="79,95,203,136"/>
+<area shape="rect" id="node3" href="$a00104.html" title="Arbitrary size logic vector class. " alt="" coords="5,184,129,225"/>
+<area shape="rect" id="node4" href="$a00092.html" title="Arbitrary size bit vector class. " alt="" coords="153,184,277,225"/>
 </map>

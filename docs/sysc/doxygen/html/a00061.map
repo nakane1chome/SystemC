@@ -1,12 +1,8 @@
-<map id="sysc/communication/sc_signal_ifs.h" name="sysc/communication/sc_signal_ifs.h">
-<area shape="rect" id="node2" href="$a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="195,95,328,136"/>
-<area shape="rect" id="node6" href="$a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="175,281,313,322"/>
-<area shape="rect" id="node7" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="477,184,616,225"/>
-<area shape="rect" id="node3" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="5,191,168,218"/>
-<area shape="rect" id="node5" href="$a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="192,184,331,225"/>
-<area shape="rect" id="node4" href="$a00401.html" title="systemc" alt="" coords="369,377,439,404"/>
-<area shape="rect" id="node8" href="$a00008.html" title="The clock ports. " alt="" coords="388,281,527,322"/>
-<area shape="rect" id="node9" href="$a00068.html" title="The sc_signal_resolved port classes. " alt="" coords="551,273,689,329"/>
-<area shape="rect" id="node10" href="$a00074.html" title="The resolved vector signal ports. " alt="" coords="713,281,855,322"/>
-<area shape="rect" id="node11" href="$a00320.html" title="Process spawning options specification. " alt="" coords="879,281,1025,322"/>
+<map id="sysc/communication/sc_signal.h" name="sysc/communication/sc_signal.h">
+<area shape="rect" id="node2" href="$a00002.html" title="The sc_buffer&lt;T&gt; primitive channel class. " alt="" coords="5,184,144,225"/>
+<area shape="rect" id="node3" href="$a00404.html" title="systemc" alt="" coords="307,273,376,300"/>
+<area shape="rect" id="node4" href="$a00005.html" title="The clock channel. " alt="" coords="219,184,357,225"/>
+<area shape="rect" id="node5" href="$a00068.html" title="The resolved signal class. " alt="" coords="293,95,435,136"/>
+<area shape="rect" id="node6" href="$a00074.html" title="The resolved vector signal class. " alt="" coords="460,95,599,136"/>
+<area shape="rect" id="node7" href="$a00077.html" title="The resolved vector signal ports. " alt="" coords="483,184,624,225"/>
 </map>

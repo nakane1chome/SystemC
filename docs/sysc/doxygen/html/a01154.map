@@ -1,6 +1,10 @@
-<map id="sc_core::sc_fifo_in_if&lt; T &gt;" name="sc_core::sc_fifo_in_if&lt; T &gt;">
-<area shape="rect" id="node5" href="$a01143.html" title="sc_core::sc_fifo\&lt; T \&gt;" alt="" coords="129,259,269,285"/>
-<area shape="rect" id="node2" href="$a01147.html" title="sc_core::sc_fifo_nonblocking\l_in_if\&lt; T \&gt;" alt="" coords="5,80,192,121"/>
-<area shape="rect" id="node3" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="127,5,270,32"/>
-<area shape="rect" id="node4" href="$a01151.html" title="sc_core::sc_fifo_blocking\l_in_if\&lt; T \&gt;" alt="" coords="216,80,381,121"/>
+<map id="sc_core::sc_fifo&lt; T &gt;" name="sc_core::sc_fifo&lt; T &gt;">
+<area shape="rect" id="node2" href="$a01167.html" title="sc_core::sc_fifo_in\l_if\&lt; T \&gt;" alt="" coords="262,71,389,112"/>
+<area shape="rect" id="node3" href="$a01159.html" title="sc_core::sc_fifo_nonblocking\l_in_if\&lt; T \&gt;" alt="" coords="5,5,192,47"/>
+<area shape="rect" id="node4" href="$a01163.html" title="sc_core::sc_fifo_blocking\l_in_if\&lt; T \&gt;" alt="" coords="16,71,181,112"/>
+<area shape="rect" id="node5" href="$a01179.html" title="sc_core::sc_fifo_out\l_if\&lt; T \&gt;" alt="" coords="258,152,393,193"/>
+<area shape="rect" id="node6" href="$a01171.html" title="sc_core::sc_fifo_nonblocking\l_out_if\&lt; T \&gt;" alt="" coords="5,136,192,177"/>
+<area shape="rect" id="node7" href="$a01175.html" title="sc_core::sc_fifo_blocking\l_out_if\&lt; T \&gt;" alt="" coords="16,201,181,243"/>
+<area shape="rect" id="node8" href="$a01231.html" title="Abstract base class of all primitive channel classes. " alt="" coords="240,250,411,277"/>
+<area shape="rect" id="node9" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="35,267,163,294"/>
 </map>

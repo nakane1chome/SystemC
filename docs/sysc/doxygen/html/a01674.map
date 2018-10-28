@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_uint&lt; W &gt;" name="sc_dt::sc_uint&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01695.html" title="Base class for sc_uint. " alt="" coords="9,80,144,107"/>
-<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<map id="sc_dt::sc_int_subref" name="sc_dt::sc_int_subref">
+<area shape="rect" id="node2" href="$a01671.html" title="Proxy class for sc_int part selection (r&#45;value only). " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="7,5,150,32"/>
 </map>

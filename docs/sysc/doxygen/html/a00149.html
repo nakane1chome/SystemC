@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/datatypes/fx/scfx_ieee.h File Reference</title>
+<title>SystemC: sysc/datatypes/fx/sc_ufixed.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -84,36 +84,27 @@ $(document).ready(function(){initNavTree('a00149.html','');});
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">scfx_ieee.h File Reference</div>  </div>
+<div class="title">sc_ufixed.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00125_source.html">sysc/datatypes/fx/sc_fxdefs.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00146_source.html">sysc/datatypes/fx/sc_ufix.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for scfx_ieee.h:</div>
+Include dependency graph for sc_ufixed.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00150.png" border="0" usemap="#sysc_2datatypes_2fx_2scfx__ieee_8h" alt=""/></div>
-<map name="sysc_2datatypes_2fx_2scfx__ieee_8h" id="sysc_2datatypes_2fx_2scfx__ieee_8h">
-<area shape="rect" id="node2" href="a00125.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="187,95,325,136"/>
-<area shape="rect" id="node3" href="a00368.html" title="Machine&#45;dependent Environment Settings. " alt="" coords="5,191,163,218"/>
-<area shape="rect" id="node4" href="a00119.html" title="Report ids for the datatypes/fx code. " alt="" coords="187,184,325,225"/>
-<area shape="rect" id="node5" href="a00197.html" title="External and friend functions for both sc_signed and. " alt="" coords="349,184,473,225"/>
+<div class="center"><img src="a00150.png" border="0" usemap="#sysc_2datatypes_2fx_2sc__ufixed_8h" alt=""/></div>
+<map name="sysc_2datatypes_2fx_2sc__ufixed_8h" id="sysc_2datatypes_2fx_2sc__ufixed_8h">
+<area shape="rect" id="node2" href="a00146.html" title="sysc/datatypes/fx/sc\l_ufix.h" alt="" coords="5,95,143,136"/>
+<area shape="rect" id="node3" href="a00131.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="5,184,143,225"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00151.png" border="0" usemap="#sysc_2datatypes_2fx_2scfx__ieee_8hdep" alt=""/></div>
-<map name="sysc_2datatypes_2fx_2scfx__ieee_8hdep" id="sysc_2datatypes_2fx_2scfx__ieee_8hdep">
-<area shape="rect" id="node2" href="a00329.html" title="The time class. " alt="" coords="211,102,357,129"/>
-<area shape="rect" id="node6" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="381,95,505,136"/>
-<area shape="rect" id="node7" href="a00152.html" title="sysc/datatypes/fx/scfx\l_mant.h" alt="" coords="529,95,676,136"/>
-<area shape="rect" id="node3" href="a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="5,184,168,211"/>
-<area shape="rect" id="node4" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="193,184,375,211"/>
-<area shape="rect" id="node5" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="399,184,553,211"/>
+<div class="center"><img src="a00151.png" border="0" usemap="#sysc_2datatypes_2fx_2sc__ufixed_8hdep" alt=""/></div>
+<map name="sysc_2datatypes_2fx_2sc__ufixed_8hdep" id="sysc_2datatypes_2fx_2sc__ufixed_8hdep">
+<area shape="rect" id="node2" href="a00110.html" title="sysc/datatypes/fx/fx.h" alt="" coords="5,95,149,121"/>
 </map>
 </div>
 </div>
@@ -121,147 +112,477 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01567.html">sc_dt::ieee_double</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">IEEE 754 double-precision format.  <a href="a01567.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01591.html">sc_dt::sc_ufixed&lt; W, I, Q, O, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Constrained" unsigned fixed-point class; arbitrary precision.  <a href="a01591.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01575.html">sc_dt::scfx_ieee_double</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient interface to union <a class="el" href="a01567.html" title="IEEE 754 double-precision format. ">ieee_double</a>.  <a href="a01575.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01595.html">sc_dt::sc_ufixed_fast&lt; W, I, Q, O, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Constrained" unsigned fixed-point class; limited precision.  <a href="a01595.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01579.html">sc_dt::ieee_float</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">IEEE 754 single-precision format.  <a href="a01579.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01591.html">sc_dt::sc_ufixed&lt; W, I, Q, O, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Constrained" unsigned fixed-point class; arbitrary precision.  <a href="a01591.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01587.html">sc_dt::scfx_ieee_float</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient wrapper to union <a class="el" href="a01579.html" title="IEEE 754 single-precision format. ">ieee_float</a>.  <a href="a01587.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01595.html">sc_dt::sc_ufixed_fast&lt; W, I, Q, O, N &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Constrained" unsigned fixed-point class; limited precision.  <a href="a01595.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00550"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html">sc_dt</a></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a4ea1170e3c13a3678ae194554f53a1ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a4ea1170e3c13a3678ae194554f53a1ac">SCFX_MASK_</a>(Size)&#160;&#160;&#160;((1u &lt;&lt; (Size))-1u)</td></tr>
-<tr class="separator:a4ea1170e3c13a3678ae194554f53a1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad714ed744f53d9618bb8522411f97c6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ad714ed744f53d9618bb8522411f97c6d">MSB_STATEMENT</a>(x,  n)&#160;&#160;&#160;if( x &gt;&gt; n ) { x &gt;&gt;= n; i += n; }</td></tr>
-<tr class="separator:ad714ed744f53d9618bb8522411f97c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd9722c6a656a6692e4e44229197ce81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#abd9722c6a656a6692e4e44229197ce81">LSB_STATEMENT</a>(x,  n)&#160;&#160;&#160;if( x &lt;&lt; n ) { x &lt;&lt;= n; i -= n; }</td></tr>
-<tr class="separator:abd9722c6a656a6692e4e44229197ce81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aa63fb8186f45368abbacb5ea2184594b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aa63fb8186f45368abbacb5ea2184594b">sc_dt::scfx_pow2</a> (int exp)</td></tr>
-<tr class="memdesc:aa63fb8186f45368abbacb5ea2184594b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes 2.  <a href="a00550.html#aa63fb8186f45368abbacb5ea2184594b">More...</a><br /></td></tr>
-<tr class="separator:aa63fb8186f45368abbacb5ea2184594b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24fe139e3129d25b9177241dca681fd8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a24fe139e3129d25b9177241dca681fd8">sc_dt::uint64_to_double</a> (uint64 a)</td></tr>
-<tr class="memdesc:a24fe139e3129d25b9177241dca681fd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform independent conversion from double uint64 to double.  <a href="a00550.html#a24fe139e3129d25b9177241dca681fd8">More...</a><br /></td></tr>
-<tr class="separator:a24fe139e3129d25b9177241dca681fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aa15d1db6dde3e56e3b7f56cc8c4c3338"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aa15d1db6dde3e56e3b7f56cc8c4c3338">sc_dt::SCFX_IEEE_DOUBLE_BIAS</a> = 1023U</td></tr>
-<tr class="separator:aa15d1db6dde3e56e3b7f56cc8c4c3338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67b6c725c1bd21c1224e06acd8622235"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a67b6c725c1bd21c1224e06acd8622235">sc_dt::SCFX_IEEE_DOUBLE_E_MAX</a> = 1023</td></tr>
-<tr class="separator:a67b6c725c1bd21c1224e06acd8622235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2403f43817bd898d7b5e1e50a7dc9351"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a2403f43817bd898d7b5e1e50a7dc9351">sc_dt::SCFX_IEEE_DOUBLE_E_MIN</a> = -1022</td></tr>
-<tr class="separator:a2403f43817bd898d7b5e1e50a7dc9351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eec5b400f57cad95902df53b28f53c5"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a9eec5b400f57cad95902df53b28f53c5">sc_dt::SCFX_IEEE_DOUBLE_M_SIZE</a> = 52</td></tr>
-<tr class="separator:a9eec5b400f57cad95902df53b28f53c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73a9d2d31ee139d8c43bdf0576cc0a3b"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a73a9d2d31ee139d8c43bdf0576cc0a3b">sc_dt::SCFX_IEEE_DOUBLE_M0_SIZE</a> = 20</td></tr>
-<tr class="separator:a73a9d2d31ee139d8c43bdf0576cc0a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1aa9bcc69f8f57d6dd5dfec6e72958bd"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a1aa9bcc69f8f57d6dd5dfec6e72958bd">sc_dt::SCFX_IEEE_DOUBLE_M1_SIZE</a> = 32</td></tr>
-<tr class="separator:a1aa9bcc69f8f57d6dd5dfec6e72958bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d4a1ec8357398ed60abef614c0751af"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a4d4a1ec8357398ed60abef614c0751af">sc_dt::SCFX_IEEE_DOUBLE_E_SIZE</a> = 11</td></tr>
-<tr class="separator:a4d4a1ec8357398ed60abef614c0751af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa54b10bf631227df8da768c4e6b99d27"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#aa54b10bf631227df8da768c4e6b99d27">sc_dt::SCFX_IEEE_FLOAT_BIAS</a> = 127U</td></tr>
-<tr class="separator:aa54b10bf631227df8da768c4e6b99d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76e745625b89b8e91d2ed90c6c8294e6"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a76e745625b89b8e91d2ed90c6c8294e6">sc_dt::SCFX_IEEE_FLOAT_E_MAX</a> = 127</td></tr>
-<tr class="separator:a76e745625b89b8e91d2ed90c6c8294e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a180cbdc86768018a143b9fa0cc67fd28"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a180cbdc86768018a143b9fa0cc67fd28">sc_dt::SCFX_IEEE_FLOAT_E_MIN</a> = -126</td></tr>
-<tr class="separator:a180cbdc86768018a143b9fa0cc67fd28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeca4b01739deaa4c4e5b159e8a3dda9"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#afeca4b01739deaa4c4e5b159e8a3dda9">sc_dt::SCFX_IEEE_FLOAT_M_SIZE</a> = 23</td></tr>
-<tr class="separator:afeca4b01739deaa4c4e5b159e8a3dda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92e243f3ce790b0a4e163d2e181e072e"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html#a92e243f3ce790b0a4e163d2e181e072e">sc_dt::SCFX_IEEE_FLOAT_E_SIZE</a> = 8</td></tr>
-<tr class="separator:a92e243f3ce790b0a4e163d2e181e072e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0806659dff0c9f2f91cbf08de13c0ecf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a0806659dff0c9f2f91cbf08de13c0ecf">DECL_CTORS_T_A</a>(tp)</td></tr>
+<tr class="separator:a0806659dff0c9f2f91cbf08de13c0ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3a0139b5778e36ae38658e3ce1c058"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a4e3a0139b5778e36ae38658e3ce1c058">DECL_CTORS_T_B</a>(tp)</td></tr>
+<tr class="separator:a4e3a0139b5778e36ae38658e3ce1c058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac919eecc0ae9d82c36ee542530f37cfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,  tp)&#160;&#160;&#160;sc_ufixed&amp; operator op ( tp );</td></tr>
+<tr class="separator:ac919eecc0ae9d82c36ee542530f37cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc985c1b4d7c052c5407214cae5d831"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a2fc985c1b4d7c052c5407214cae5d831">DECL_ASN_OP_OTHER</a>(op)</td></tr>
+<tr class="separator:a2fc985c1b4d7c052c5407214cae5d831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcdb41d438a4d3542f00f4f12ddd2409"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#afcdb41d438a4d3542f00f4f12ddd2409">DECL_ASN_OP</a>(op)</td></tr>
+<tr class="separator:afcdb41d438a4d3542f00f4f12ddd2409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0806659dff0c9f2f91cbf08de13c0ecf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a0806659dff0c9f2f91cbf08de13c0ecf">DECL_CTORS_T_A</a>(tp)</td></tr>
+<tr class="separator:a0806659dff0c9f2f91cbf08de13c0ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e3a0139b5778e36ae38658e3ce1c058"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a4e3a0139b5778e36ae38658e3ce1c058">DECL_CTORS_T_B</a>(tp)</td></tr>
+<tr class="separator:a4e3a0139b5778e36ae38658e3ce1c058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac919eecc0ae9d82c36ee542530f37cfd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,  tp)&#160;&#160;&#160;sc_ufixed_fast&amp; operator op ( tp );</td></tr>
+<tr class="separator:ac919eecc0ae9d82c36ee542530f37cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc985c1b4d7c052c5407214cae5d831"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a2fc985c1b4d7c052c5407214cae5d831">DECL_ASN_OP_OTHER</a>(op)</td></tr>
+<tr class="separator:a2fc985c1b4d7c052c5407214cae5d831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcdb41d438a4d3542f00f4f12ddd2409"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#afcdb41d438a4d3542f00f4f12ddd2409">DECL_ASN_OP</a>(op)</td></tr>
+<tr class="separator:afcdb41d438a4d3542f00f4f12ddd2409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e9f01b5c610018f766d9fad60886a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#aa5e9f01b5c610018f766d9fad60886a0">DEFN_CTORS_T</a>(tp)</td></tr>
+<tr class="separator:aa5e9f01b5c610018f766d9fad60886a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,  tp)</td></tr>
+<tr class="separator:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4997c33c5ef0a70b7972f8f3cf43f2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ad4997c33c5ef0a70b7972f8f3cf43f2d">DEFN_ASN_OP_OTHER</a>(op)</td></tr>
+<tr class="separator:ad4997c33c5ef0a70b7972f8f3cf43f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a813e7689c7ceca0d2f103e0373b5e6ad">DEFN_ASN_OP</a>(op)</td></tr>
+<tr class="separator:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e9f01b5c610018f766d9fad60886a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#aa5e9f01b5c610018f766d9fad60886a0">DEFN_CTORS_T</a>(tp)</td></tr>
+<tr class="separator:aa5e9f01b5c610018f766d9fad60886a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,  tp)</td></tr>
+<tr class="separator:a8d20a45ac165ec7ca334e44a0bdd33fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4997c33c5ef0a70b7972f8f3cf43f2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ad4997c33c5ef0a70b7972f8f3cf43f2d">DEFN_ASN_OP_OTHER</a>(op)</td></tr>
+<tr class="separator:ad4997c33c5ef0a70b7972f8f3cf43f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a813e7689c7ceca0d2f103e0373b5e6ad">DEFN_ASN_OP</a>(op)</td></tr>
+<tr class="separator:a813e7689c7ceca0d2f103e0373b5e6ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="abd9722c6a656a6692e4e44229197ce81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd9722c6a656a6692e4e44229197ce81">&#9670;&nbsp;</a></span>LSB_STATEMENT</h2>
+<a id="afcdb41d438a4d3542f00f4f12ddd2409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcdb41d438a4d3542f00f4f12ddd2409">&#9670;&nbsp;</a></span>DECL_ASN_OP <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LSB_STATEMENT</td>
+          <td class="memname">#define DECL_ASN_OP</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">x, </td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,<span class="keywordtype">int</span>)                                                     \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)                                            \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">long</span>)                                                    \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)                                           \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">float</span>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">double</span>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> <span class="keywordtype">char</span>*)                                             \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval&amp;)                                         \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval_fast&amp;)                                    \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum&amp;)                                         \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum_fast&amp;)                                    \</div><div class="line">    DECL_ASN_OP_OTHER(op)</div><div class="ttc" id="a00149_html_ac919eecc0ae9d82c36ee542530f37cfd"><div class="ttname"><a href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a></div><div class="ttdeci">#define DECL_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00248">sc_ufixed.h:248</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00263">263</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="afcdb41d438a4d3542f00f4f12ddd2409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcdb41d438a4d3542f00f4f12ddd2409">&#9670;&nbsp;</a></span>DECL_ASN_OP <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_ASN_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,<span class="keywordtype">int</span>)                                                     \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)                                            \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">long</span>)                                                    \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)                                           \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">float</span>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keywordtype">double</span>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> <span class="keywordtype">char</span>*)                                             \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval&amp;)                                         \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval_fast&amp;)                                    \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum&amp;)                                         \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum_fast&amp;)                                    \</div><div class="line">    DECL_ASN_OP_OTHER(op)</div><div class="ttc" id="a00149_html_ac919eecc0ae9d82c36ee542530f37cfd"><div class="ttname"><a href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a></div><div class="ttdeci">#define DECL_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00248">sc_ufixed.h:248</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00263">263</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a2fc985c1b4d7c052c5407214cae5d831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fc985c1b4d7c052c5407214cae5d831">&#9670;&nbsp;</a></span>DECL_ASN_OP_OTHER <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_ASN_OP_OTHER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>)                                                   \</div><div class="line">    DECL_ASN_OP_T(op,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_int_base&amp;)                                      \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_uint_base&amp;)                                     \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_signed&amp;)                                        \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_unsigned&amp;)</div><div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00149_html_ac919eecc0ae9d82c36ee542530f37cfd"><div class="ttname"><a href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a></div><div class="ttdeci">#define DECL_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00248">sc_ufixed.h:248</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00252">252</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a2fc985c1b4d7c052c5407214cae5d831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fc985c1b4d7c052c5407214cae5d831">&#9670;&nbsp;</a></span>DECL_ASN_OP_OTHER <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_ASN_OP_OTHER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a>(op,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>)                                                   \</div><div class="line">    DECL_ASN_OP_T(op,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>)                                                  \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_int_base&amp;)                                      \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_uint_base&amp;)                                     \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_signed&amp;)                                        \</div><div class="line">    DECL_ASN_OP_T(op,<span class="keyword">const</span> sc_unsigned&amp;)</div><div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00149_html_ac919eecc0ae9d82c36ee542530f37cfd"><div class="ttname"><a href="a00149.html#ac919eecc0ae9d82c36ee542530f37cfd">DECL_ASN_OP_T</a></div><div class="ttdeci">#define DECL_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00248">sc_ufixed.h:248</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00252">252</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="ac919eecc0ae9d82c36ee542530f37cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac919eecc0ae9d82c36ee542530f37cfd">&#9670;&nbsp;</a></span>DECL_ASN_OP_T <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_ASN_OP_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">n&#160;</td>
+          <td class="paramname">tp&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;if( x &lt;&lt; n ) { x &lt;&lt;= n; i -= n; }</td>
+          <td></td><td>&#160;&#160;&#160;sc_ufixed&amp; operator op ( tp );</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00360">360</a> of file <a class="el" href="a00149_source.html">scfx_ieee.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00248">248</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
 
 </div>
 </div>
-<a id="ad714ed744f53d9618bb8522411f97c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad714ed744f53d9618bb8522411f97c6d">&#9670;&nbsp;</a></span>MSB_STATEMENT</h2>
+<a id="ac919eecc0ae9d82c36ee542530f37cfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac919eecc0ae9d82c36ee542530f37cfd">&#9670;&nbsp;</a></span>DECL_ASN_OP_T <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MSB_STATEMENT</td>
+          <td class="memname">#define DECL_ASN_OP_T</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">x, </td>
+          <td class="paramname">op, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">n&#160;</td>
+          <td class="paramname">tp&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;if( x &gt;&gt; n ) { x &gt;&gt;= n; i += n; }</td>
+          <td></td><td>&#160;&#160;&#160;sc_ufixed_fast&amp; operator op ( tp );</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00324">324</a> of file <a class="el" href="a00149_source.html">scfx_ieee.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00248">248</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
 
 </div>
 </div>
-<a id="a4ea1170e3c13a3678ae194554f53a1ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ea1170e3c13a3678ae194554f53a1ac">&#9670;&nbsp;</a></span>SCFX_MASK_</h2>
+<a id="a0806659dff0c9f2f91cbf08de13c0ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0806659dff0c9f2f91cbf08de13c0ecf">&#9670;&nbsp;</a></span>DECL_CTORS_T_A <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCFX_MASK_</td>
+          <td class="memname">#define DECL_CTORS_T_A</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Size</td><td>)</td>
-          <td>&#160;&#160;&#160;((1u &lt;&lt; (Size))-1u)</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">sc_ufixed( tp, sc_fxnum_observer* = 0 );                         \</div><div class="line">             sc_ufixed( tp, <span class="keyword">const</span> sc_fxcast_switch&amp;, sc_fxnum_observer* = 0 );</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00206">206</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00068">68</a> of file <a class="el" href="a00149_source.html">scfx_ieee.h</a>.</p>
+</div>
+</div>
+<a id="a0806659dff0c9f2f91cbf08de13c0ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0806659dff0c9f2f91cbf08de13c0ecf">&#9670;&nbsp;</a></span>DECL_CTORS_T_A <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_CTORS_T_A</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">sc_ufixed_fast( tp, sc_fxnum_fast_observer* = 0 );               \</div><div class="line">             sc_ufixed_fast( tp, <span class="keyword">const</span> sc_fxcast_switch&amp;,                     \</div><div class="line">                             sc_fxnum_fast_observer* = 0 );</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00206">206</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a4e3a0139b5778e36ae38658e3ce1c058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e3a0139b5778e36ae38658e3ce1c058">&#9670;&nbsp;</a></span>DECL_CTORS_T_B <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_CTORS_T_B</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">explicit</span> sc_ufixed( tp, sc_fxnum_observer* = 0 );                         \</div><div class="line">             sc_ufixed( tp, <span class="keyword">const</span> sc_fxcast_switch&amp;, sc_fxnum_observer* = 0 );</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00211">211</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a4e3a0139b5778e36ae38658e3ce1c058"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e3a0139b5778e36ae38658e3ce1c058">&#9670;&nbsp;</a></span>DECL_CTORS_T_B <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DECL_CTORS_T_B</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">explicit</span> sc_ufixed_fast( tp, sc_fxnum_fast_observer* = 0 );               \</div><div class="line">             sc_ufixed_fast( tp, <span class="keyword">const</span> sc_fxcast_switch&amp;,                     \</div><div class="line">                             sc_fxnum_fast_observer* = 0 );</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00211">211</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a813e7689c7ceca0d2f103e0373b5e6ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813e7689c7ceca0d2f103e0373b5e6ad">&#9670;&nbsp;</a></span>DEFN_ASN_OP <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,<span class="keywordtype">int</span>)                                                         \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)                                                \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">long</span>)                                                        \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)                                               \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">float</span>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">double</span>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> <span class="keywordtype">char</span>*)                                                 \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval&amp;)                                             \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval_fast&amp;)                                        \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum&amp;)                                             \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum_fast&amp;)                                        \</div><div class="line">DEFN_ASN_OP_OTHER(op)</div><div class="ttc" id="a00149_html_a8d20a45ac165ec7ca334e44a0bdd33fa"><div class="ttname"><a href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a></div><div class="ttdeci">#define DEFN_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00561">sc_ufixed.h:561</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00583">583</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a813e7689c7ceca0d2f103e0373b5e6ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813e7689c7ceca0d2f103e0373b5e6ad">&#9670;&nbsp;</a></span>DEFN_ASN_OP <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,<span class="keywordtype">int</span>)                                                         \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)                                                \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">long</span>)                                                        \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>)                                               \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">float</span>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keywordtype">double</span>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> <span class="keywordtype">char</span>*)                                                 \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval&amp;)                                             \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxval_fast&amp;)                                        \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum&amp;)                                             \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_fxnum_fast&amp;)                                        \</div><div class="line">DEFN_ASN_OP_OTHER(op)</div><div class="ttc" id="a00149_html_a8d20a45ac165ec7ca334e44a0bdd33fa"><div class="ttname"><a href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a></div><div class="ttdeci">#define DEFN_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00561">sc_ufixed.h:561</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00583">583</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="ad4997c33c5ef0a70b7972f8f3cf43f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4997c33c5ef0a70b7972f8f3cf43f2d">&#9670;&nbsp;</a></span>DEFN_ASN_OP_OTHER <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP_OTHER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>)                                                       \</div><div class="line">DEFN_ASN_OP_T(op,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_int_base&amp;)                                          \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_uint_base&amp;)                                         \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_signed&amp;)                                            \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_unsigned&amp;)</div><div class="ttc" id="a00149_html_a8d20a45ac165ec7ca334e44a0bdd33fa"><div class="ttname"><a href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a></div><div class="ttdeci">#define DEFN_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00561">sc_ufixed.h:561</a></div></div>
+<div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00572">572</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="ad4997c33c5ef0a70b7972f8f3cf43f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4997c33c5ef0a70b7972f8f3cf43f2d">&#9670;&nbsp;</a></span>DEFN_ASN_OP_OTHER <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP_OTHER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a>(op,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>)                                                       \</div><div class="line">DEFN_ASN_OP_T(op,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>)                                                      \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_int_base&amp;)                                          \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_uint_base&amp;)                                         \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_signed&amp;)                                            \</div><div class="line">DEFN_ASN_OP_T(op,<span class="keyword">const</span> sc_unsigned&amp;)</div><div class="ttc" id="a00149_html_a8d20a45ac165ec7ca334e44a0bdd33fa"><div class="ttname"><a href="a00149.html#a8d20a45ac165ec7ca334e44a0bdd33fa">DEFN_ASN_OP_T</a></div><div class="ttdeci">#define DEFN_ASN_OP_T(op, tp)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00561">sc_ufixed.h:561</a></div></div>
+<div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00572">572</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a8d20a45ac165ec7ca334e44a0bdd33fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d20a45ac165ec7ca334e44a0bdd33fa">&#9670;&nbsp;</a></span>DEFN_ASN_OP_T <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> W, <span class="keywordtype">int</span> I, sc_q_mode Q, sc_o_mode O, <span class="keywordtype">int</span> N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed&lt;W,I,Q,O,N&gt;&amp;                                                         \</div><div class="line">sc_ufixed&lt;W,I,Q,O,N&gt;::operator op ( tp a )                                    \</div><div class="line">{                                                                             \</div><div class="line">    sc_ufix::operator op ( a );                                               \</div><div class="line">    return *<span class="keyword">this</span>;                                                             \</div><div class="line">}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00561">561</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="a8d20a45ac165ec7ca334e44a0bdd33fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d20a45ac165ec7ca334e44a0bdd33fa">&#9670;&nbsp;</a></span>DEFN_ASN_OP_T <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_ASN_OP_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> W, <span class="keywordtype">int</span> I, sc_q_mode Q, sc_o_mode O, <span class="keywordtype">int</span> N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed_fast&lt;W,I,Q,O,N&gt;&amp;                                                    \</div><div class="line">sc_ufixed_fast&lt;W,I,Q,O,N&gt;::operator op ( tp a )                               \</div><div class="line">{                                                                             \</div><div class="line">    sc_ufix_fast::operator op ( a );                                          \</div><div class="line">    return *<span class="keyword">this</span>;                                                             \</div><div class="line">}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00561">561</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="aa5e9f01b5c610018f766d9fad60886a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e9f01b5c610018f766d9fad60886a0">&#9670;&nbsp;</a></span>DEFN_CTORS_T <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_CTORS_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">template&lt;int W, int I, sc_q_mode Q, sc_o_mode O, int N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed&lt;W,I,Q,O,N&gt;::sc_ufixed( tp a,                                        \</div><div class="line">                                 sc_fxnum_observer* observer_ )               \</div><div class="line">: sc_ufix( a, W, I, Q, O, N, observer_ )                                      \</div><div class="line">{}                                                                            \</div><div class="line">                                                                              \</div><div class="line">template&lt;int W, int I, sc_q_mode Q, sc_o_mode O, int N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed&lt;W,I,Q,O,N&gt;::sc_ufixed( tp a,                                        \</div><div class="line">                                 <span class="keyword">const</span> sc_fxcast_switch&amp; cast_sw,             \</div><div class="line">                                 sc_fxnum_observer* observer_ )               \</div><div class="line">: sc_ufix( a, W, I, Q, O, N, cast_sw, observer_ )                             \</div><div class="line">{}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00503">503</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
+
+</div>
+</div>
+<a id="aa5e9f01b5c610018f766d9fad60886a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e9f01b5c610018f766d9fad60886a0">&#9670;&nbsp;</a></span>DEFN_CTORS_T <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFN_CTORS_T</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tp</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">template&lt;int W, int I, sc_q_mode Q, sc_o_mode O, int N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed_fast&lt;W,I,Q,O,N&gt;::sc_ufixed_fast( tp a,                              \</div><div class="line">                                           sc_fxnum_fast_observer* observer_ )\</div><div class="line">: sc_ufix_fast( a, W, I, Q, O, N, observer_ )                                 \</div><div class="line">{}                                                                            \</div><div class="line">                                                                              \</div><div class="line">template&lt;int W, int I, sc_q_mode Q, sc_o_mode O, int N&gt;                       \</div><div class="line">inline                                                                        \</div><div class="line">sc_ufixed_fast&lt;W,I,Q,O,N&gt;::sc_ufixed_fast( tp a,                              \</div><div class="line">                                           <span class="keyword">const</span> sc_fxcast_switch&amp; cast_sw,   \</div><div class="line">                                           sc_fxnum_fast_observer* observer_ )\</div><div class="line">: sc_ufix_fast( a, W, I, Q, O, N, cast_sw, observer_ )                        \</div><div class="line">{}</div></div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00503">503</a> of file <a class="el" href="a00149_source.html">sc_ufixed.h</a>.</p>
 
 </div>
 </div>
@@ -270,8 +591,8 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_6bba2293868849cba8e159ce68b53c59.html">fx</a></li><li class="navelem"><a class="el" href="a00149.html">scfx_ieee.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_6bba2293868849cba8e159ce68b53c59.html">fx</a></li><li class="navelem"><a class="el" href="a00149.html">sc_ufixed.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:52 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

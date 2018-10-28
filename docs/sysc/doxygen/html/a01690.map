@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_uint_subref" name="sc_dt::sc_uint_subref">
-<area shape="rect" id="node2" href="$a01687.html" title="Proxy class for sc_uint part selection (r&#45;value only). " alt="" coords="5,80,159,107"/>
-<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="11,5,153,32"/>
+<map id="sc_dt::sc_signed_bitref" name="sc_dt::sc_signed_bitref">
+<area shape="rect" id="node2" href="$a01687.html" title="Proxy class for sc_signed bit selection (r&#45;value only). " alt="" coords="5,80,168,107"/>
+<area shape="rect" id="node3" href="$a01759.html" title="Abstract base class of all SystemC native variables. " alt="" coords="15,5,158,32"/>
 </map>

@@ -1,5 +1,8 @@
-<map id="sc_core::sc_trace_params" name="sc_core::sc_trace_params">
-<area shape="rect" id="node2" href="$a01955.html" title="sc_core::sc_trace_file" alt="" coords="5,96,151,123"/>
-<area shape="rect" id="node3" title="STL class. " alt="" coords="175,96,251,123"/>
-<area shape="rect" id="node4" title="STL class. " alt="" coords="152,5,273,47"/>
+<map id="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;" name="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;">
+<area shape="rect" id="node2" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; sc_dt::sc_logic,\l POL \&gt;" alt="" coords="616,121,748,177"/>
+<area shape="rect" id="node3" href="$a01283.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="303,56,435,112"/>
+<area shape="rect" id="node4" href="$a01247.html" title="sc_core::sc_signal\l_channel" alt="" coords="306,187,433,229"/>
+<area shape="rect" id="node5" href="$a01815.html" title="The event class. " alt="" coords="5,100,129,127"/>
+<area shape="rect" id="node6" href="$a01355.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="293,253,445,294"/>
+<area shape="rect" id="node7" href="$a01435.html" title="Four&#45;valued logic type. " alt="" coords="316,136,423,163"/>
 </map>

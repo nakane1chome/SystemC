@@ -1,4 +1,4 @@
-<map id="tlm_utils::passthrough_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;" name="tlm_utils::passthrough_target_socket&lt; MODULE, BUSWIDTH, TYPES &gt;">
-<area shape="rect" id="node2" href="$a02600.html" title="tlm::tlm_target_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="244,35,407,76"/>
-<area shape="rect" id="node3" href="$a02588.html" title="tlm::tlm_base_target\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, 1,sc_core::SC\l_ONE_OR_MORE_BOUND \&gt;" alt="" coords="5,5,196,105"/>
+<map id="tlm_utils::instance_specific_extension_carrier" name="tlm_utils::instance_specific_extension_carrier">
+<area shape="rect" id="node2" href="$a02596.html" title="tlm::tlm_extension\l\&lt; instance_specific\l_extension_carrier \&gt;" alt="" coords="16,80,153,136"/>
+<area shape="rect" id="node3" href="$a02592.html" title="tlm::tlm_extension_base" alt="" coords="5,5,164,32"/>
 </map>

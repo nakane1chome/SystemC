@@ -1,7 +1,5 @@
-<map id="tlm::tlm_transport_to_master&lt; REQ, RSP &gt;" name="tlm::tlm_transport_to_master&lt; REQ, RSP &gt;">
-<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01816.html" title="sc_core::sc_module" alt="" coords="174,87,309,114"/>
-<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01832.html" title="sc_core::sc_object" alt="" coords="5,5,133,32"/>
-<area shape="rect" id="node4" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01856.html" title="sc_core::sc_process_host" alt="" coords="157,5,325,32"/>
-<area shape="rect" id="node5" href="$a02331.html" title="tlm::tlm_transport\l_if\&lt; REQ, RSP \&gt;" alt="" coords="346,80,467,121"/>
-<area shape="rect" id="node6" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="350,5,493,32"/>
+<map id="tlm::tlm_nonblocking_get_peek_if&lt; T &gt;" name="tlm::tlm_nonblocking_get_peek_if&lt; T &gt;">
+<area shape="rect" id="node2" href="$a02396.html" title="tlm::tlm_nonblocking\l_get_if\&lt; T \&gt;" alt="" coords="5,80,145,121"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="85,5,228,32"/>
+<area shape="rect" id="node4" href="$a02416.html" title="tlm::tlm_nonblocking\l_peek_if\&lt; T \&gt;" alt="" coords="169,80,309,121"/>
 </map>

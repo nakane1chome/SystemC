@@ -1,3 +1,4 @@
-<map id="sc_dt::sc_bitref&lt; X &gt;" name="sc_dt::sc_bitref&lt; X &gt;">
-<area shape="rect" id="node2" href="$a01371.html" title="sc_dt::sc_bitref_r\&lt; X \&gt;" alt="" coords="5,5,156,32"/>
+<map id="sc_core::sc_writer_policy_check_port" name="sc_core::sc_writer_policy_check_port">
+<area shape="rect" id="node2" href="$a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="5,81,155,108"/>
+<area shape="rect" id="node3" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="16,5,144,32"/>
 </map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['half_5fdigit_5fmask',['HALF_DIGIT_MASK',['../a00191.html#a3053d55bf90330c5d0d0c46d16c2cba7',1,'sc_nbdefs.h']]],
-  ['half_5fdigit_5fradix',['HALF_DIGIT_RADIX',['../a00191.html#a02c4f0a5ee7b5ffe06ec568e115e71d2',1,'sc_nbdefs.h']]]
+  ['ieee_5f1666_5fcplusplus',['IEEE_1666_CPLUSPLUS',['../a00224.html#a20a83b4467f29c44a07a7ea00f7d7872',1,'sc_cmnhdr.h']]],
+  ['ieee_5f1666_5fsystemc',['IEEE_1666_SYSTEMC',['../a00332.html#ac96bc610253f718cae5e7383b00aa1e9',1,'sc_ver.h']]]
 ];

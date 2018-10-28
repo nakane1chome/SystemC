@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -85,13 +85,26 @@ $(document).ready(function(){initNavTree('functions_type_v.html','');});
 
 <h3><a id="index_v"></a>- v -</h3><ul>
 <li>value_type
-: <a class="el" href="a01943.html#a83e697fa67cbd57bd182f273a966f4d8">sc_core::sc_time</a>
-, <a class="el" href="a01423.html#abe14bc464c7ca3f1e54ff8f471d993d3">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</a>
-, <a class="el" href="a01427.html#af5841dc11601db55930a77f00a2a5d1b">sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;</a>
+: <a class="el" href="a01111.html#a247df5dd0853eb8d76ae35dc955b4fc5">sc_core::sc_buffer&lt; T, POL &gt;</a>
+, <a class="el" href="a01255.html#a802dc053f3b6762eb756bebc872857aa">sc_core::sc_signal&lt; T, POL &gt;</a>
+, <a class="el" href="a01259.html#ad558fb43cad3ddc24cb48f37f79acb41">sc_core::sc_signal&lt; bool, POL &gt;</a>
+, <a class="el" href="a01263.html#a70ffb6b41f157c8db1a38e321e7c834f">sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;</a>
+, <a class="el" href="a01319.html#a4d9ca0b1c019fedb8de4831b84a8f9ea">sc_core::sc_signal_resolved</a>
+, <a class="el" href="a01339.html#a9ff932af745b7a503859dff9fb3d5ed7">sc_core::sc_signal_rv&lt; W &gt;</a>
+, <a class="el" href="a01983.html#a83e697fa67cbd57bd182f273a966f4d8">sc_core::sc_time</a>
+, <a class="el" href="a01403.html#a14cc136e841f1a6fa4ae153e53dee6fb">sc_dt::sc_bitref&lt; X &gt;</a>
+, <a class="el" href="a01399.html#afd848871cebb0bad0a0819daf1923938">sc_dt::sc_bitref_r&lt; T &gt;</a>
+, <a class="el" href="a01431.html#ad1091c7fc2a2a38ee2c392b434015ee5">sc_dt::sc_bv_base</a>
+, <a class="el" href="a01415.html#aa6ce61d9d65ed8fa8d1bbb3dcc57a5d2">sc_dt::sc_concref_r&lt; X, Y &gt;</a>
+, <a class="el" href="a01443.html#a41a8360496006df01f0be8f79dc8426d">sc_dt::sc_lv_base</a>
+, <a class="el" href="a01447.html#a2296fe0f39693df8da3fa78c651d707d">sc_dt::sc_proxy&lt; X &gt;</a>
+, <a class="el" href="a01455.html#abe14bc464c7ca3f1e54ff8f471d993d3">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</a>
+, <a class="el" href="a01459.html#af5841dc11601db55930a77f00a2a5d1b">sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;</a>
+, <a class="el" href="a01407.html#a632084be5ff0f60df9348463861af123">sc_dt::sc_subref_r&lt; X &gt;</a>
 </li>
 <li>vector_type
-: <a class="el" href="a01423.html#a3d05c67d2c135ecd1a80bc2f01b8f149">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</a>
-, <a class="el" href="a01427.html#a5443cef98101c73aed54aae383082d81">sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;</a>
+: <a class="el" href="a01455.html#a3d05c67d2c135ecd1a80bc2f01b8f149">sc_dt::sc_proxy_traits&lt; sc_bv_base &gt;</a>
+, <a class="el" href="a01459.html#a5443cef98101c73aed54aae383082d81">sc_dt::sc_proxy_traits&lt; sc_lv_base &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -99,7 +112,7 @@ $(document).ready(function(){initNavTree('functions_type_v.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:34 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:26 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

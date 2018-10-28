@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_fxnum_fast" name="sc_dt::sc_fxnum_fast">
-<area shape="rect" id="node2" href="$a01695.html" title="Base class for sc_uint. " alt="" coords="9,81,144,108"/>
-<area shape="rect" id="node3" href="$a01727.html" title="Abstract base class of all SystemC native variables. " alt="" coords="5,5,148,32"/>
+<map id="sc_dt::sc_fixed&lt; W, I, Q, O, N &gt;" name="sc_dt::sc_fixed&lt; W, I, Q, O, N &gt;">
+<area shape="rect" id="node2" href="$a01511.html" title="&quot;Unconstrained&quot; signed fixed&#45;point class; arbitrary precision. " alt="" coords="26,80,117,107"/>
+<area shape="rect" id="node3" href="$a01547.html" title="Base class for the fixed&#45;point types; arbitrary precision. " alt="" coords="14,5,129,32"/>
 </map>

@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -93,15 +93,15 @@ $(document).ready(function(){initNavTree('a00281.html','');});
 
 <p>Abstract base class of all SystemC `simulation' objects.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00362_source.html">sysc/utils/sc_iostream.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00218_source.html">sysc/kernel/sc_attribute.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00221_source.html">sysc/kernel/sc_attribute.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sc_object.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00282.png" border="0" usemap="#sysc_2kernel_2sc__object_8h" alt=""/></div>
 <map name="sysc_2kernel_2sc__object_8h" id="sysc_2kernel_2sc__object_8h">
-<area shape="rect" id="node2" href="a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="209,80,366,107"/>
-<area shape="rect" id="node9" href="a00218.html" title="Attribute classes. " alt="" coords="461,80,628,107"/>
+<area shape="rect" id="node2" href="a00221.html" title="Attribute classes. " alt="" coords="13,80,179,107"/>
+<area shape="rect" id="node5" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="133,155,296,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -111,26 +111,26 @@ This graph shows which files directly or indirectly include this file:</div>
 <map name="sysc_2kernel_2sc__object_8hdep" id="sysc_2kernel_2sc__object_8hdep">
 <area shape="rect" id="node2" href="a00293.html" title="Process base class support. " alt="" coords="912,177,1076,203"/>
 <area shape="rect" id="node5" href="a00284.html" title="For inline definitions of some utility functions. " alt="" coords="564,437,709,479"/>
-<area shape="rect" id="node9" href="a00044.html" title="Base classes of all port classes. " alt="" coords="1412,259,1551,300"/>
+<area shape="rect" id="node9" href="a00047.html" title="Base classes of all port classes. " alt="" coords="1412,259,1551,300"/>
 <area shape="rect" id="node14" href="a00020.html" title="Base classes of all export classes. " alt="" coords="738,80,876,121"/>
-<area shape="rect" id="node16" href="a00047.html" title="Abstract base class of all primitive channel classes. " alt="" coords="1406,169,1544,211"/>
-<area shape="rect" id="node17" href="a00038.html" title="The sc_mutex primitive channel class. " alt="" coords="46,348,184,389"/>
-<area shape="rect" id="node18" href="a00050.html" title="The sc_semaphore primitive channel class. " alt="" coords="1531,348,1670,389"/>
-<area shape="rect" id="node19" href="a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="1670,169,1794,211"/>
-<area shape="rect" id="node20" href="a00212.html" title="Concatenation support. " alt="" coords="1714,259,1852,300"/>
-<area shape="rect" id="node21" href="a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="1570,80,1694,121"/>
-<area shape="rect" id="node22" href="a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="1870,169,1994,211"/>
-<area shape="rect" id="node23" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="1770,80,1894,121"/>
-<area shape="rect" id="node24" href="a00398.html" title="Simple implementation of a vector class. " alt="" coords="2070,87,2213,114"/>
+<area shape="rect" id="node16" href="a00050.html" title="Abstract base class of all primitive channel classes. " alt="" coords="1406,169,1544,211"/>
+<area shape="rect" id="node17" href="a00041.html" title="The sc_mutex primitive channel class. " alt="" coords="46,348,184,389"/>
+<area shape="rect" id="node18" href="a00053.html" title="The sc_semaphore primitive channel class. " alt="" coords="1531,348,1670,389"/>
+<area shape="rect" id="node19" href="a00203.html" title="Arbitrary precision signed arithmetic. " alt="" coords="1670,169,1794,211"/>
+<area shape="rect" id="node20" href="a00215.html" title="Concatenation support. " alt="" coords="1714,259,1852,300"/>
+<area shape="rect" id="node21" href="a00212.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="1570,80,1694,121"/>
+<area shape="rect" id="node22" href="a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="1870,169,1994,211"/>
+<area shape="rect" id="node23" href="a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="1770,80,1894,121"/>
+<area shape="rect" id="node24" href="a00401.html" title="Simple implementation of a vector class. " alt="" coords="2070,87,2213,114"/>
 <area shape="rect" id="node3" href="a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="974,355,1136,382"/>
 <area shape="rect" id="node6" href="a00308.html" title="Sensitivity classes. Requires &quot;sc_process.h&quot;. " alt="" coords="909,266,1078,293"/>
 <area shape="rect" id="node7" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="1154,266,1337,293"/>
-<area shape="rect" id="node8" href="a00056.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="1306,348,1444,389"/>
+<area shape="rect" id="node8" href="a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="1306,348,1444,389"/>
 <area shape="rect" id="node10" href="a00326.html" title="Thread process declarations. " alt="" coords="203,259,350,300"/>
 <area shape="rect" id="node11" href="a00257.html" title="Join Process Synchronization Definition. " alt="" coords="552,266,692,293"/>
 <area shape="rect" id="node12" href="a00266.html" title="Method process declarations. " alt="" coords="374,259,528,300"/>
 <area shape="rect" id="node13" href="a00302.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="716,266,885,293"/>
-<area shape="rect" id="node4" href="a00401.html" title="systemc" alt="" coords="1286,445,1355,471"/>
+<area shape="rect" id="node4" href="a00404.html" title="systemc" alt="" coords="1286,445,1355,471"/>
 <area shape="rect" id="node15" href="a00320.html" title="Process spawning options specification. " alt="" coords="378,169,524,211"/>
 </map>
 </div>
@@ -139,25 +139,33 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01835.html">sc_core::sc_object</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class of all SystemC `simulation' objects.  <a href="a01835.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html">sc_core::sc_object</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class of all SystemC `simulation' objects.  <a href="a01871.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acf69826489ad31814605c99418ffef08"><td class="memItemLeft" align="right" valign="top">sc_object *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#acf69826489ad31814605c99418ffef08">sc_core::sc_get_parent</a> (const sc_object *obj_p)</td></tr>
+<tr class="memitem:acf69826489ad31814605c99418ffef08"><td class="memItemLeft" align="right" valign="top">sc_object *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#acf69826489ad31814605c99418ffef08">sc_core::sc_get_parent</a> (const sc_object *obj_p)</td></tr>
 <tr class="separator:acf69826489ad31814605c99418ffef08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab7f69e2a7adbc571158670cf88bcd11e"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#ab7f69e2a7adbc571158670cf88bcd11e">sc_core::SC_HIERARCHY_CHAR</a></td></tr>
+<tr class="memitem:ae34ed8cc9edeb8d60a01fd18ea29f88c"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#ae34ed8cc9edeb8d60a01fd18ea29f88c">sc_core::sc_module</a></td></tr>
+<tr class="separator:ae34ed8cc9edeb8d60a01fd18ea29f88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fe6dc8a8b7107201b40dbe0c50e7961"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a1fe6dc8a8b7107201b40dbe0c50e7961">sc_core::sc_simcontext</a></td></tr>
+<tr class="separator:a1fe6dc8a8b7107201b40dbe0c50e7961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b0bf91dddf7d55ecd1aed4fc182ecfc"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a7b0bf91dddf7d55ecd1aed4fc182ecfc">sc_core::sc_trace_file</a></td></tr>
+<tr class="separator:a7b0bf91dddf7d55ecd1aed4fc182ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd23defbbd4b773721cb5fa768db1197"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#acd23defbbd4b773721cb5fa768db1197">sc_core::sc_trace_file_base</a></td></tr>
+<tr class="separator:acd23defbbd4b773721cb5fa768db1197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f69e2a7adbc571158670cf88bcd11e"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#ab7f69e2a7adbc571158670cf88bcd11e">sc_core::SC_HIERARCHY_CHAR</a></td></tr>
 <tr class="separator:ab7f69e2a7adbc571158670cf88bcd11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada1ba7c0f47b3fc2958d9b104600f861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#ada1ba7c0f47b3fc2958d9b104600f861">sc_core::sc_enable_name_checking</a></td></tr>
+<tr class="memitem:ada1ba7c0f47b3fc2958d9b104600f861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#ada1ba7c0f47b3fc2958d9b104600f861">sc_core::sc_enable_name_checking</a></td></tr>
 <tr class="separator:ada1ba7c0f47b3fc2958d9b104600f861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -172,7 +180,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_b4b56023568c35e5a49172d00a6c7a39.html">kernel</a></li><li class="navelem"><a class="el" href="a00281.html">sc_object.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:54 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

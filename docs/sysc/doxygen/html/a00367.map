@@ -1,8 +1,7 @@
-<map id="sysc/utils/sc_list.h" name="sysc/utils/sc_list.h">
-<area shape="rect" id="node2" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="107,80,269,107"/>
-<area shape="rect" id="node3" href="$a00401.html" title="systemc" alt="" coords="153,244,223,271"/>
-<area shape="rect" id="node4" href="$a00296.html" title="Process access support. " alt="" coords="25,155,180,196"/>
-<area shape="rect" id="node5" href="$a00005.html" title="The clock channel. " alt="" coords="204,155,343,196"/>
-<area shape="rect" id="node6" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="367,155,505,196"/>
-<area shape="rect" id="node7" href="$a00284.html" title="For inline definitions of some utility functions. " alt="" coords="530,155,675,196"/>
+<map id="sysc/utils/sc_machine.h" name="sysc/utils/sc_machine.h">
+<area shape="rect" id="node2" href="$a00128.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="263,80,401,121"/>
+<area shape="rect" id="node3" href="$a00152.html" title="sysc/datatypes/fx/scfx\l_ieee.h" alt="" coords="5,169,152,211"/>
+<area shape="rect" id="node4" href="$a00173.html" title="sysc/datatypes/fx/scfx\l_utils.h" alt="" coords="176,169,323,211"/>
+<area shape="rect" id="node5" href="$a00143.html" title="sysc/datatypes/fx/sc\l_fxval_observer.h" alt="" coords="347,169,485,211"/>
+<area shape="rect" id="node6" href="$a00134.html" title="sysc/datatypes/fx/sc\l_fxnum_observer.h" alt="" coords="509,169,646,211"/>
 </map>

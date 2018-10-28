@@ -1,4 +1,7 @@
-<map id="sysc/utils/sc_utils_ids.h" name="sysc/utils/sc_utils_ids.h">
-<area shape="rect" id="node2" href="$a00401.html" title="systemc" alt="" coords="31,95,101,121"/>
-<area shape="rect" id="node3" href="$a00404.html" title="systemc.h" alt="" coords="27,169,105,196"/>
+<map id="sysc/utils/sc_typeindex.h" name="sysc/utils/sc_typeindex.h">
+<area shape="rect" id="node2" href="$a00020.html" title="Base classes of all export classes. " alt="" coords="226,80,365,121"/>
+<area shape="rect" id="node4" href="$a00047.html" title="Base classes of all port classes. " alt="" coords="210,259,349,300"/>
+<area shape="rect" id="node3" href="$a00293.html" title="Process base class support. " alt="" coords="5,177,169,203"/>
+<area shape="rect" id="node5" href="$a00404.html" title="systemc" alt="" coords="194,177,263,203"/>
+<area shape="rect" id="node6" href="$a00320.html" title="Process spawning options specification. " alt="" coords="287,169,434,211"/>
 </map>

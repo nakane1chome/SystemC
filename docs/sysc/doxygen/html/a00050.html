@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/communication/sc_semaphore.h File Reference</title>
+<title>SystemC: sysc/communication/sc_prim_channel.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -85,37 +85,40 @@ $(document).ready(function(){initNavTree('a00050.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">sc_semaphore.h File Reference</div>  </div>
+<div class="title">sc_prim_channel.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The sc_semaphore primitive channel class.  
+<p>Abstract base class of all primitive channel classes.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00248_source.html">sysc/kernel/sc_event.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00281_source.html">sysc/kernel/sc_object.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00053_source.html">sysc/communication/sc_semaphore_if.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00281_source.html">sysc/kernel/sc_object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00335_source.html">sysc/kernel/sc_wait.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00338_source.html">sysc/kernel/sc_wait_cthread.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_semaphore.h:</div>
+Include dependency graph for sc_prim_channel.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00051.png" border="0" usemap="#sysc_2communication_2sc__semaphore_8h" alt=""/></div>
-<map name="sysc_2communication_2sc__semaphore_8h" id="sysc_2communication_2sc__semaphore_8h">
-<area shape="rect" id="node2" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="211,102,362,129"/>
-<area shape="rect" id="node7" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="387,102,541,129"/>
-<area shape="rect" id="node8" href="a00053.html" title="The sc_semaphore_if interface class. " alt="" coords="565,95,704,136"/>
-<area shape="rect" id="node3" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="56,273,219,300"/>
-<area shape="rect" id="node4" href="a00260.html" title="Report ids for the kernel code. " alt="" coords="26,184,171,225"/>
-<area shape="rect" id="node5" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="195,191,378,218"/>
-<area shape="rect" id="node6" href="a00077.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="403,184,541,225"/>
-<area shape="rect" id="node9" href="a00035.html" title="Abstract base class of all interface classes. " alt="" coords="565,184,704,225"/>
+<div class="center"><img src="a00051.png" border="0" usemap="#sysc_2communication_2sc__prim__channel_8h" alt=""/></div>
+<map name="sysc_2communication_2sc__prim__channel_8h" id="sysc_2communication_2sc__prim__channel_8h">
+<area shape="rect" id="node2" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="142,102,297,129"/>
+<area shape="rect" id="node5" href="a00335.html" title="Wait() and related functions. " alt="" coords="321,102,464,129"/>
+<area shape="rect" id="node7" href="a00338.html" title="Wait() and related functions for SC_CTHREADs. " alt="" coords="489,95,622,136"/>
+<area shape="rect" id="node3" href="a00221.html" title="Attribute classes. " alt="" coords="5,191,172,218"/>
+<area shape="rect" id="node6" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="301,191,484,218"/>
+<area shape="rect" id="node8" href="a00098.html" title="C++ implementation of logic type. Behaves. " alt="" coords="508,184,632,225"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00052.png" border="0" usemap="#sysc_2communication_2sc__semaphore_8hdep" alt=""/></div>
-<map name="sysc_2communication_2sc__semaphore_8hdep" id="sysc_2communication_2sc__semaphore_8hdep">
-<area shape="rect" id="node2" href="a00401.html" title="systemc" alt="" coords="40,95,109,121"/>
-<area shape="rect" id="node3" href="a00404.html" title="systemc.h" alt="" coords="35,169,114,196"/>
+<div class="center"><img src="a00052.png" border="0" usemap="#sysc_2communication_2sc__prim__channel_8hdep" alt=""/></div>
+<map name="sysc_2communication_2sc__prim__channel_8hdep" id="sysc_2communication_2sc__prim__channel_8hdep">
+<area shape="rect" id="node2" href="a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="301,95,440,136"/>
+<area shape="rect" id="node8" href="a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="560,95,699,136"/>
+<area shape="rect" id="node3" href="a00002.html" title="The sc_buffer&lt;T&gt; primitive channel class. " alt="" coords="5,184,144,225"/>
+<area shape="rect" id="node4" href="a00404.html" title="systemc" alt="" coords="336,273,405,300"/>
+<area shape="rect" id="node5" href="a00005.html" title="The clock channel. " alt="" coords="219,184,357,225"/>
+<area shape="rect" id="node6" href="a00068.html" title="The resolved signal class. " alt="" coords="382,184,525,225"/>
+<area shape="rect" id="node7" href="a00074.html" title="The resolved vector signal class. " alt="" coords="549,184,688,225"/>
 </map>
 </div>
 </div>
@@ -123,28 +126,31 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html">sc_core::sc_semaphore</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01223.html" title="The sc_semaphore primitive channel class. ">sc_semaphore</a> primitive channel class.  <a href="a01223.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01231.html">sc_core::sc_prim_channel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class of all primitive channel classes.  <a href="a01231.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01235.html">sc_core::sc_prim_channel_registry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry for all primitive channels.  <a href="a01235.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The sc_semaphore primitive channel class. </p>
+<div class="textblock"><p>Abstract base class of all primitive channel classes. </p>
 <p>Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21</p>
-<p>CHANGE LOG IS AT THE END OF THE FILE </p>
+<p>CHANGE LOG AT THE END OF THE FILE </p>
 
-<p class="definition">Definition in file <a class="el" href="a00050_source.html">sc_semaphore.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00050_source.html">sc_prim_channel.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00050.html">sc_semaphore.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00050.html">sc_prim_channel.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:50 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

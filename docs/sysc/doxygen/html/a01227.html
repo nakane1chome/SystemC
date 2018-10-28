@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_semaphore_if Class Reference</title>
+<title>SystemC: sc_core::sc_port&lt; IF, N, P &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,63 +82,194 @@ $(document).ready(function(){initNavTree('a01227.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a01224.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_semaphore_if Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">sc_core::sc_port&lt; IF, N, P &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="a01227.html" title="The sc_semaphore_if interface class. ">sc_semaphore_if</a> interface class.  
+<p>Generic port class and base class for other port classes.  
  <a href="a01227.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00053_source.html">sysc/communication/sc_semaphore_if.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00047_source.html">sysc/communication/sc_port.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sc_core::sc_semaphore_if:</div>
+Inheritance diagram for sc_core::sc_port&lt; IF, N, P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01226.png" border="0" usemap="#sc__core_1_1sc__semaphore__if_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__semaphore__if_inherit__map" id="sc__core_1_1sc__semaphore__if_inherit__map">
-<area shape="rect" id="node3" href="a01223.html" title="The sc_semaphore primitive channel class. " alt="" coords="13,155,169,181"/>
-<area shape="rect" id="node2" href="a01183.html" title="Abstract base class of all interface classes. " alt="" coords="19,5,162,32"/>
+<div class="center"><img src="a01226.png" border="0" usemap="#sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_inherit__map" id="sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_inherit__map">
+<area shape="rect" id="node4" href="a01291.html" title="sc_in\&lt; sc_dt::sc_lv\l\&lt; W \&gt; \&gt;" alt="" coords="34,259,163,300"/>
+<area shape="rect" id="node6" href="a01303.html" title="sc_inout\&lt; sc_dt::sc\l_lv\&lt; W \&gt; \&gt;" alt="" coords="196,259,327,300"/>
+<area shape="rect" id="node2" href="a01223.html" title="Abstract base class for class sc_port. " alt="" coords="111,80,241,121"/>
+<area shape="rect" id="node3" href="a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="101,5,251,32"/>
+<area shape="rect" id="node5" href="a01343.html" title="sc_core::sc_in_rv\&lt; W \&gt;" alt="" coords="5,348,160,375"/>
+<area shape="rect" id="node7" href="a01347.html" title="sc_core::sc_inout_rv\&lt; W \&gt;" alt="" coords="185,348,357,375"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sc_core::sc_semaphore_if:</div>
+Collaboration diagram for sc_core::sc_port&lt; IF, N, P &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01225.png" border="0" usemap="#sc__core_1_1sc__semaphore__if_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__semaphore__if_coll__map" id="sc__core_1_1sc__semaphore__if_coll__map">
-<area shape="rect" id="node2" href="a01183.html" title="Abstract base class of all interface classes. " alt="" coords="19,5,162,32"/>
+<div class="center"><img src="a01225.png" border="0" usemap="#sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_coll__map" id="sc__core_1_1sc__port_3_01_i_f_00_01_n_00_01_p_01_4_coll__map">
+<area shape="rect" id="node2" href="a01223.html" title="Abstract base class for class sc_port. " alt="" coords="15,80,145,121"/>
+<area shape="rect" id="node3" href="a01215.html" title="Abstract base class for class sc_port_b. " alt="" coords="5,5,155,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a15b71cc19c23d5791ab075368422c873"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a></td></tr>
+<tr class="separator:a15b71cc19c23d5791ab075368422c873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a53f30a8719f77e35df8965845819e"><td class="memItemLeft" align="right" valign="top">typedef unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a></td></tr>
+<tr class="separator:a38a53f30a8719f77e35df8965845819e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a502abd3615bf0acc76fdcbfbdd37ce86"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a502abd3615bf0acc76fdcbfbdd37ce86">wait</a> ()=0</td></tr>
-<tr class="separator:a502abd3615bf0acc76fdcbfbdd37ce86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f5726bc11969f8dd2fce2c1e6940334"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a2f5726bc11969f8dd2fce2c1e6940334">trywait</a> ()=0</td></tr>
-<tr class="separator:a2f5726bc11969f8dd2fce2c1e6940334"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b9903de2407397edb7f8115613a22d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a40b9903de2407397edb7f8115613a22d">post</a> ()=0</td></tr>
-<tr class="separator:a40b9903de2407397edb7f8115613a22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0c609b176a938d4fbdf454874ddb66"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a8e0c609b176a938d4fbdf454874ddb66">get_value</a> () const =0</td></tr>
-<tr class="separator:a8e0c609b176a938d4fbdf454874ddb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c93074c41900149ab2ac84bd6787ae6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01183.html#a7c93074c41900149ab2ac84bd6787ae6">register_port</a> (<a class="el" href="a01199.html">sc_port_base</a> &amp;port_, const char *if_typename_)</td></tr>
-<tr class="separator:a7c93074c41900149ab2ac84bd6787ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f0bf642e91be47772a3cd74a76a98cf"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="a01783.html">sc_event</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01183.html#a3f0bf642e91be47772a3cd74a76a98cf">default_event</a> () const</td></tr>
-<tr class="separator:a3f0bf642e91be47772a3cd74a76a98cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5899d71f4b216585ef575d3ba248e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a5d5899d71f4b216585ef575d3ba248e0">sc_port</a> ()</td></tr>
+<tr class="separator:a5d5899d71f4b216585ef575d3ba248e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae2c9e3615c8deb2dd920a6bc40b08f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#aae2c9e3615c8deb2dd920a6bc40b08f6">sc_port</a> (const char *name_)</td></tr>
+<tr class="separator:aae2c9e3615c8deb2dd920a6bc40b08f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c73c08ae2a2b0202068ab4b057bfff4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a9c73c08ae2a2b0202068ab4b057bfff4">sc_port</a> (IF &amp;interface_)</td></tr>
+<tr class="separator:a9c73c08ae2a2b0202068ab4b057bfff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e00d99862a802c41d03ee21bbf584f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a40e00d99862a802c41d03ee21bbf584f">sc_port</a> (const char *name_, IF &amp;interface_)</td></tr>
+<tr class="separator:a40e00d99862a802c41d03ee21bbf584f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319319fb574eebe704360721eac2c068"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a319319fb574eebe704360721eac2c068">sc_port</a> (<a class="el" href="a01223.html#a99a096d4c0afaca0ecd111503e7c53b5">base_type</a> &amp;parent_)</td></tr>
+<tr class="separator:a319319fb574eebe704360721eac2c068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc783861f40f24b01ca82b47cbfb14b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#afc783861f40f24b01ca82b47cbfb14b2">sc_port</a> (const char *name_, <a class="el" href="a01223.html#a99a096d4c0afaca0ecd111503e7c53b5">base_type</a> &amp;parent_)</td></tr>
+<tr class="separator:afc783861f40f24b01ca82b47cbfb14b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed164b1004e278a406559a51effa3ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a1ed164b1004e278a406559a51effa3ca">sc_port</a> (<a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a> &amp;parent_)</td></tr>
+<tr class="separator:a1ed164b1004e278a406559a51effa3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4aea5992c1e325612f225d77743335"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a0a4aea5992c1e325612f225d77743335">sc_port</a> (const char *name_, <a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a> &amp;parent_)</td></tr>
+<tr class="separator:a0a4aea5992c1e325612f225d77743335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ed24ccefa54ef482f24285caa6f1ef"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a05ed24ccefa54ef482f24285caa6f1ef">~sc_port</a> ()</td></tr>
+<tr class="separator:a05ed24ccefa54ef482f24285caa6f1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0715b180a86bd6520f2753672c4585f6"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#a0715b180a86bd6520f2753672c4585f6">kind</a> () const</td></tr>
+<tr class="separator:a0715b180a86bd6520f2753672c4585f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e3906f259f38ad18792956d80b73f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00065.html#a466f5704d1009220cf98a922ea022613">SC_VIRTUAL_</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a57e3906f259f38ad18792956d80b73f0">bind</a> (IF &amp;interface_)</td></tr>
+<tr class="separator:a57e3906f259f38ad18792956d80b73f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa368f463c7a9460b05720b4b4b85ca46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00065.html#a466f5704d1009220cf98a922ea022613">SC_VIRTUAL_</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#aa368f463c7a9460b05720b4b4b85ca46">bind</a> (<a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a> &amp;parent_)</td></tr>
+<tr class="separator:aa368f463c7a9460b05720b4b4b85ca46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaadb0a30f3d3760dbe02ffe7ff7bb2f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#aaadb0a30f3d3760dbe02ffe7ff7bb2f9">operator()</a> (IF &amp;interface_)</td></tr>
+<tr class="separator:aaadb0a30f3d3760dbe02ffe7ff7bb2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb01c2a2ce925e91069fbe9f733091c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a4bb01c2a2ce925e91069fbe9f733091c">operator()</a> (<a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a> &amp;parent_)</td></tr>
+<tr class="separator:a4bb01c2a2ce925e91069fbe9f733091c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b19c6a12abb609b80dff024b991526"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a90b19c6a12abb609b80dff024b991526">size</a> () const</td></tr>
+<tr class="separator:a90b19c6a12abb609b80dff024b991526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19f1c46c4ab383654369c8b9654b7745"><td class="memItemLeft" align="right" valign="top">IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a19f1c46c4ab383654369c8b9654b7745">operator-&gt;</a> ()</td></tr>
+<tr class="separator:a19f1c46c4ab383654369c8b9654b7745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67faacb13ed075b79fbc51633f1f1437"><td class="memItemLeft" align="right" valign="top">const IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a67faacb13ed075b79fbc51633f1f1437">operator-&gt;</a> () const</td></tr>
+<tr class="separator:a67faacb13ed075b79fbc51633f1f1437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a14346a0fc16a6cdc18513c46c14d2d"><td class="memItemLeft" align="right" valign="top">const IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a9a14346a0fc16a6cdc18513c46c14d2d">get_interface</a> (int iface_i) const</td></tr>
+<tr class="separator:a9a14346a0fc16a6cdc18513c46c14d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0fd6b672c20d321f5848acb7601f5a3"><td class="memItemLeft" align="right" valign="top">IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#ab0fd6b672c20d321f5848acb7601f5a3">get_interface</a> (int iface_i)</td></tr>
+<tr class="separator:ab0fd6b672c20d321f5848acb7601f5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1855025b663a19cae7646497cfea75ff"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a01199.html">sc_interface</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a1855025b663a19cae7646497cfea75ff">get_interface</a> ()</td></tr>
+<tr class="separator:a1855025b663a19cae7646497cfea75ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12f4c522060f98d987efc1a0669aa82"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="a01199.html">sc_interface</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#aa12f4c522060f98d987efc1a0669aa82">get_interface</a> () const</td></tr>
+<tr class="separator:aa12f4c522060f98d987efc1a0669aa82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40e7d0e11029081f7c227ef16a808d5f"><td class="memItemLeft" align="right" valign="top">IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a40e7d0e11029081f7c227ef16a808d5f">operator[]</a> (int index_)</td></tr>
+<tr class="separator:a40e7d0e11029081f7c227ef16a808d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69f658e16e4e32a5a75a8a070d3a951"><td class="memItemLeft" align="right" valign="top">const IF *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#ac69f658e16e4e32a5a75a8a070d3a951">operator[]</a> (int index_) const</td></tr>
+<tr class="separator:ac69f658e16e4e32a5a75a8a070d3a951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd324e6e316703fc1c28f36557c456e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a02119.html">sc_type_index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a0dd324e6e316703fc1c28f36557c456e">get_interface_type</a> () const</td></tr>
+<tr class="separator:a0dd324e6e316703fc1c28f36557c456e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6448d53a209be65590b26e0547516aec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a6448d53a209be65590b26e0547516aec">bind_count</a> ()</td></tr>
+<tr class="separator:a6448d53a209be65590b26e0547516aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adef43ac9e24a45710e00765dff1b44cc"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#adef43ac9e24a45710e00765dff1b44cc">name</a> () const</td></tr>
+<tr class="separator:adef43ac9e24a45710e00765dff1b44cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687936908b37e1c2e56cd12a941f99f9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a687936908b37e1c2e56cd12a941f99f9">basename</a> () const</td></tr>
+<tr class="separator:a687936908b37e1c2e56cd12a941f99f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75778dff40cf1bf16fc4eb74346d923c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a75778dff40cf1bf16fc4eb74346d923c">print</a> (::std::ostream &amp;os=::std::cout) const</td></tr>
+<tr class="separator:a75778dff40cf1bf16fc4eb74346d923c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea8d11dcba6236902df7f099ac558b80"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#aea8d11dcba6236902df7f099ac558b80">dump</a> (::std::ostream &amp;os=::std::cout) const</td></tr>
+<tr class="separator:aea8d11dcba6236902df7f099ac558b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8420debe6ce97f5b07e7dde92efe7cf1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a8420debe6ce97f5b07e7dde92efe7cf1">trace</a> (<a class="el" href="a01999.html">sc_trace_file</a> *tf) const</td></tr>
+<tr class="separator:a8420debe6ce97f5b07e7dde92efe7cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ea268cadfad621fab19cd4238d3427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01963.html">sc_simcontext</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#aa2ea268cadfad621fab19cd4238d3427">simcontext</a> () const</td></tr>
+<tr class="separator:aa2ea268cadfad621fab19cd4238d3427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d95751bce0508ac71364fb6e6fe973"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a65d95751bce0508ac71364fb6e6fe973">add_attribute</a> (<a class="el" href="a01767.html">sc_attr_base</a> &amp;)</td></tr>
+<tr class="separator:a65d95751bce0508ac71364fb6e6fe973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ab019ec6f4a4fabc9336d63a0f82867"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01767.html">sc_attr_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a3ab019ec6f4a4fabc9336d63a0f82867">get_attribute</a> (const std::string &amp;name_)</td></tr>
+<tr class="separator:a3ab019ec6f4a4fabc9336d63a0f82867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419422ae300553667ce112c1d3177a87"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01767.html">sc_attr_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a419422ae300553667ce112c1d3177a87">get_attribute</a> (const std::string &amp;name_) const</td></tr>
+<tr class="separator:a419422ae300553667ce112c1d3177a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92e37b69b294df8dc86fdd57d7328eb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01767.html">sc_attr_base</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a92e37b69b294df8dc86fdd57d7328eb7">remove_attribute</a> (const std::string &amp;name_)</td></tr>
+<tr class="separator:a92e37b69b294df8dc86fdd57d7328eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812edfdd89e6536ff7e479bbe7296cc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a812edfdd89e6536ff7e479bbe7296cc6">remove_all_attributes</a> ()</td></tr>
+<tr class="separator:a812edfdd89e6536ff7e479bbe7296cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1213ba04041e8caa6140cac50f12e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a5a1213ba04041e8caa6140cac50f12e9">num_attributes</a> () const</td></tr>
+<tr class="separator:a5a1213ba04041e8caa6140cac50f12e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeb880a9edea3adf08920999cf95da66"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01771.html">sc_attr_cltn</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#adeb880a9edea3adf08920999cf95da66">attr_cltn</a> ()</td></tr>
+<tr class="separator:adeb880a9edea3adf08920999cf95da66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966adcf170c9cc049062fb753565065e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01771.html">sc_attr_cltn</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a966adcf170c9cc049062fb753565065e">attr_cltn</a> () const</td></tr>
+<tr class="separator:a966adcf170c9cc049062fb753565065e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368ceb9aff89ae4193033422dbd1358e"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="a01815.html">sc_event</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a368ceb9aff89ae4193033422dbd1358e">get_child_events</a> () const</td></tr>
+<tr class="separator:a368ceb9aff89ae4193033422dbd1358e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85f58320c12f2cb77fd7bf05ed25cc3"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="a01871.html">sc_object</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#af85f58320c12f2cb77fd7bf05ed25cc3">get_child_objects</a> () const</td></tr>
+<tr class="separator:af85f58320c12f2cb77fd7bf05ed25cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9596b98165db3ca73212b46a71b3dc89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01871.html">sc_object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a9596b98165db3ca73212b46a71b3dc89">get_parent</a> () const</td></tr>
+<tr class="separator:a9596b98165db3ca73212b46a71b3dc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091a09c7860ffaeb2ed3e453e1c2d062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01871.html">sc_object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a091a09c7860ffaeb2ed3e453e1c2d062">get_parent_object</a> () const</td></tr>
+<tr class="separator:a091a09c7860ffaeb2ed3e453e1c2d062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae8e4f1f89aa8e6e34882b7461abe19e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01227.html#ae8e4f1f89aa8e6e34882b7461abe19e7">sc_semaphore_if</a> ()</td></tr>
-<tr class="separator:ae8e4f1f89aa8e6e34882b7461abe19e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0684ec254aaf508e1a265521e2adf489"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a0684ec254aaf508e1a265521e2adf489">bind</a> (<a class="el" href="a01199.html">sc_interface</a> &amp;interface_)</td></tr>
+<tr class="separator:a0684ec254aaf508e1a265521e2adf489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b530248b9c4ca08da914b0f9b70c072"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a6b530248b9c4ca08da914b0f9b70c072">vbind</a> (<a class="el" href="a01199.html">sc_interface</a> &amp;)</td></tr>
+<tr class="separator:a6b530248b9c4ca08da914b0f9b70c072"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf4a3b72b61e007e45e196320a2c9069"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#aaf4a3b72b61e007e45e196320a2c9069">vbind</a> (<a class="el" href="a01215.html">sc_port_base</a> &amp;)</td></tr>
+<tr class="separator:aaf4a3b72b61e007e45e196320a2c9069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b52ca906e645869c91f57b328989f8f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a7b52ca906e645869c91f57b328989f8f">make_sensitive</a> (<a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a>, <a class="el" href="a01127.html">sc_event_finder</a> *=0) const</td></tr>
+<tr class="separator:a7b52ca906e645869c91f57b328989f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36298239f77fd864ec73c744161ef3f2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01223.html#a36298239f77fd864ec73c744161ef3f2">make_sensitive</a> (<a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a>, <a class="el" href="a01127.html">sc_event_finder</a> *=0) const</td></tr>
+<tr class="separator:a36298239f77fd864ec73c744161ef3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3794439fb67b489a57b95925c78a20"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#abd3794439fb67b489a57b95925c78a20">before_end_of_elaboration</a> ()</td></tr>
+<tr class="separator:abd3794439fb67b489a57b95925c78a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6de92b3f34b64c853599c40d5a42a15a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a6de92b3f34b64c853599c40d5a42a15a">end_of_elaboration</a> ()</td></tr>
+<tr class="separator:a6de92b3f34b64c853599c40d5a42a15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262b9ec042009301a6a170b8258245e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a262b9ec042009301a6a170b8258245e1">start_of_simulation</a> ()</td></tr>
+<tr class="separator:a262b9ec042009301a6a170b8258245e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec39c7c931426fc6a5c4bb602e6a540c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#aec39c7c931426fc6a5c4bb602e6a540c">end_of_simulation</a> ()</td></tr>
+<tr class="separator:aec39c7c931426fc6a5c4bb602e6a540c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73bc9bb3eb8b6c58ac783394ff788b4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a73bc9bb3eb8b6c58ac783394ff788b4a">report_error</a> (const char *id, const char *add_msg=0) const</td></tr>
+<tr class="separator:a73bc9bb3eb8b6c58ac783394ff788b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59308809e967032b25e99964d39dfcb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#a59308809e967032b25e99964d39dfcb9">add_static_event</a> (<a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a> process_p, const <a class="el" href="a01815.html">sc_event</a> &amp;event) const</td></tr>
+<tr class="separator:a59308809e967032b25e99964d39dfcb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f97fa6790c6ee01c6fedc56f52d404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#ae7f97fa6790c6ee01c6fedc56f52d404">add_static_event</a> (<a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a> process_p, const <a class="el" href="a01815.html">sc_event</a> &amp;event) const</td></tr>
+<tr class="separator:ae7f97fa6790c6ee01c6fedc56f52d404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ba1a14f5ce703758c2f982051981db"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a39ba1a14f5ce703758c2f982051981db">add_child_event</a> (<a class="el" href="a01815.html">sc_event</a> *event_p)</td></tr>
+<tr class="separator:a39ba1a14f5ce703758c2f982051981db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e4e798ea9220a9cb9401542c43ab4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#ac3e4e798ea9220a9cb9401542c43ab4c">add_child_object</a> (<a class="el" href="a01871.html">sc_object</a> *object_p)</td></tr>
+<tr class="separator:ac3e4e798ea9220a9cb9401542c43ab4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e1c8fe2344ba4a074caf02038cc1745"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a3e1c8fe2344ba4a074caf02038cc1745">remove_child_event</a> (<a class="el" href="a01815.html">sc_event</a> *event_p)</td></tr>
+<tr class="separator:a3e1c8fe2344ba4a074caf02038cc1745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b493824069d6fccab14fc8d12f7648"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a79b493824069d6fccab14fc8d12f7648">remove_child_object</a> (<a class="el" href="a01871.html">sc_object</a> *object_p)</td></tr>
+<tr class="separator:a79b493824069d6fccab14fc8d12f7648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98573c57438867b3373d5c09c5aefbc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#a98573c57438867b3373d5c09c5aefbc2">register_simulation_phase_callback</a> (<a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>)</td></tr>
+<tr class="separator:a98573c57438867b3373d5c09c5aefbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e23f225ea242450a151b390d28c872"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01871.html#ab7e23f225ea242450a151b390d28c872">unregister_simulation_phase_callback</a> (<a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>)</td></tr>
+<tr class="separator:ab7e23f225ea242450a151b390d28c872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:aa8b1c991b599ac1fed5bdf1898ff51e5"><td class="memItemLeft" align="right" valign="top">sc_bind_info *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01215.html#aa8b1c991b599ac1fed5bdf1898ff51e5">m_bind_info</a></td></tr>
+<tr class="separator:aa8b1c991b599ac1fed5bdf1898ff51e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="a01227.html" title="The sc_semaphore_if interface class. ">sc_semaphore_if</a> interface class. </p>
+<div class="textblock"><h3>template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt;<br />
+class sc_core::sc_port&lt; IF, N, P &gt;</h3>
 
-<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00044">44</a> of file <a class="el" href="a00053_source.html">sc_semaphore_if.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae8e4f1f89aa8e6e34882b7461abe19e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8e4f1f89aa8e6e34882b7461abe19e7">&#9670;&nbsp;</a></span>sc_semaphore_if()</h2>
+<p>Generic port class and base class for other port classes. </p>
+<p>N is the maximum number of channels (with interface IF) that can be bound to this port. N &lt;= 0 means no maximum. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00391">391</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a38a53f30a8719f77e35df8965845819e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a53f30a8719f77e35df8965845819e">&#9670;&nbsp;</a></span>phase_cb_mask</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +278,60 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">sc_core::sc_semaphore_if::sc_semaphore_if </td>
+          <td class="memname">typedef unsigned <a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">sc_core::sc_object::phase_cb_mask</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00075">75</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="a15b71cc19c23d5791ab075368422c873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15b71cc19c23d5791ab075368422c873">&#9670;&nbsp;</a></span>port_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a> <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::<a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00280">280</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5d5899d71f4b216585ef575d3ba248e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d5899d71f4b216585ef575d3ba248e0">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,117 +339,97 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00067">67</a> of file <a class="el" href="a00053_source.html">sc_semaphore_if.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00403">403</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3f0bf642e91be47772a3cd74a76a98cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f0bf642e91be47772a3cd74a76a98cf">&#9670;&nbsp;</a></span>default_event()</h2>
+<a id="aae2c9e3615c8deb2dd920a6bc40b08f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae2c9e3615c8deb2dd920a6bc40b08f6">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[2/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="a01783.html">sc_event</a>&amp; sc_core::sc_interface::default_event </td>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a01239.html#aa01e77cd24b886b653428820ecf31968">sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;</a>, <a class="el" href="a01235.html#a1b2857c007dc162b79f2cf0f901b6e9f">sc_core::sc_signal&lt; bool, POL &gt;</a>, <a class="el" href="a01231.html#a29e5277ef30d6d4623d3a4d52235907c">sc_core::sc_signal&lt; T, POL &gt;</a>, <a class="el" href="a01231.html#a29e5277ef30d6d4623d3a4d52235907c">sc_core::sc_signal&lt; sc_dt::sc_lv&lt; W &gt;, SC_MANY_WRITERS &gt;</a>, <a class="el" href="a01231.html#a29e5277ef30d6d4623d3a4d52235907c">sc_core::sc_signal&lt; bool, SC_ONE_WRITER &gt;</a>, <a class="el" href="a01231.html#a29e5277ef30d6d4623d3a4d52235907c">sc_core::sc_signal&lt; sc_dt::sc_logic, SC_MANY_WRITERS &gt;</a>, and <a class="el" href="a01127.html#a86321d0a2be19b6e3cc073ac7ad2d491">sc_core::sc_event_queue</a>.</p>
-
-</div>
-</div>
-<a id="a8e0c609b176a938d4fbdf454874ddb66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e0c609b176a938d4fbdf454874ddb66">&#9670;&nbsp;</a></span>get_value()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual int sc_core::sc_semaphore_if::get_value </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a01223.html#a8185e27765f9e6f961c7ff7e76ce3274">sc_core::sc_semaphore</a>.</p>
-
-</div>
-</div>
-<a id="a40b9903de2407397edb7f8115613a22d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40b9903de2407397edb7f8115613a22d">&#9670;&nbsp;</a></span>post()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual int sc_core::sc_semaphore_if::post </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name_</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="a01223.html#a10b7e710d29b7f5e5186c6e83e048517">sc_core::sc_semaphore</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00407">407</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
 
 </div>
 </div>
-<a id="a7c93074c41900149ab2ac84bd6787ae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c93074c41900149ab2ac84bd6787ae6">&#9670;&nbsp;</a></span>register_port()</h2>
+<a id="a9c73c08ae2a2b0202068ab4b057bfff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c73c08ae2a2b0202068ab4b057bfff4">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[3/8]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void sc_core::sc_interface::register_port </td>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a01199.html">sc_port_base</a> &amp;&#160;</td>
-          <td class="paramname"><em>port_</em>, </td>
+          <td class="paramtype">IF &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00411">411</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a40e00d99862a802c41d03ee21bbf584f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e00d99862a802c41d03ee21bbf584f">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>if_typename_</em>&#160;</td>
+          <td class="paramtype">IF &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -275,17 +439,578 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00415">415</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a319319fb574eebe704360721eac2c068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319319fb574eebe704360721eac2c068">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01223.html#a99a096d4c0afaca0ecd111503e7c53b5">base_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00419">419</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="afc783861f40f24b01ca82b47cbfb14b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc783861f40f24b01ca82b47cbfb14b2">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01223.html#a99a096d4c0afaca0ecd111503e7c53b5">base_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00423">423</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a1ed164b1004e278a406559a51effa3ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed164b1004e278a406559a51effa3ca">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00427">427</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a0a4aea5992c1e325612f225d77743335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4aea5992c1e325612f225d77743335">&#9670;&nbsp;</a></span>sc_port() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01215.html#a41e3b234bcace2db0619b2c90f18ca87">this_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00431">431</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a05ed24ccefa54ef482f24285caa6f1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05ed24ccefa54ef482f24285caa6f1ef">&#9670;&nbsp;</a></span>~sc_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::~<a class="el" href="a01227.html">sc_port</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00438">438</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a65d95751bce0508ac71364fb6e6fe973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d95751bce0508ac71364fb6e6fe973">&#9670;&nbsp;</a></span>add_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sc_core::sc_object::add_attribute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01767.html">sc_attr_base</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39ba1a14f5ce703758c2f982051981db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ba1a14f5ce703758c2f982051981db">&#9670;&nbsp;</a></span>add_child_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_object::add_child_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01815.html">sc_event</a> *&#160;</td>
+          <td class="paramname"><em>event_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac3e4e798ea9220a9cb9401542c43ab4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e4e798ea9220a9cb9401542c43ab4c">&#9670;&nbsp;</a></span>add_child_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_object::add_child_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01871.html">sc_object</a> *&#160;</td>
+          <td class="paramname"><em>object_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01911.html#aada14415b9be5b1b9beb4ed97a32742d">sc_core::sc_process_b</a>.</p>
+
+</div>
+</div>
+<a id="a59308809e967032b25e99964d39dfcb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59308809e967032b25e99964d39dfcb9">&#9670;&nbsp;</a></span>add_static_event() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_port_base::add_static_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a>&#160;</td>
+          <td class="paramname"><em>process_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01815.html">sc_event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7f97fa6790c6ee01c6fedc56f52d404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7f97fa6790c6ee01c6fedc56f52d404">&#9670;&nbsp;</a></span>add_static_event() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_port_base::add_static_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a>&#160;</td>
+          <td class="paramname"><em>process_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01815.html">sc_event</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adeb880a9edea3adf08920999cf95da66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeb880a9edea3adf08920999cf95da66">&#9670;&nbsp;</a></span>attr_cltn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01771.html">sc_attr_cltn</a>&amp; sc_core::sc_object::attr_cltn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a966adcf170c9cc049062fb753565065e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966adcf170c9cc049062fb753565065e">&#9670;&nbsp;</a></span>attr_cltn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01771.html">sc_attr_cltn</a>&amp; sc_core::sc_object::attr_cltn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a687936908b37e1c2e56cd12a941f99f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a687936908b37e1c2e56cd12a941f99f9">&#9670;&nbsp;</a></span>basename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* sc_core::sc_object::basename </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abd3794439fb67b489a57b95925c78a20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3794439fb67b489a57b95925c78a20">&#9670;&nbsp;</a></span>before_end_of_elaboration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_port_base::before_end_of_elaboration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0684ec254aaf508e1a265521e2adf489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0684ec254aaf508e1a265521e2adf489">&#9670;&nbsp;</a></span>bind() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_port_base::bind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01199.html">sc_interface</a> &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57e3906f259f38ad18792956d80b73f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57e3906f259f38ad18792956d80b73f0">&#9670;&nbsp;</a></span>bind() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00065.html#a466f5704d1009220cf98a922ea022613">SC_VIRTUAL_</a> void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::bind </td>
+          <td>(</td>
+          <td class="paramtype">IF &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00286">286</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="aa368f463c7a9460b05720b4b4b85ca46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa368f463c7a9460b05720b4b4b85ca46">&#9670;&nbsp;</a></span>bind() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00065.html#a466f5704d1009220cf98a922ea022613">SC_VIRTUAL_</a> void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::bind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00295">295</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a6448d53a209be65590b26e0547516aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6448d53a209be65590b26e0547516aec">&#9670;&nbsp;</a></span>bind_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sc_core::sc_port_base::bind_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea8d11dcba6236902df7f099ac558b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8d11dcba6236902df7f099ac558b80">&#9670;&nbsp;</a></span>dump()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_object::dump </td>
+          <td>(</td>
+          <td class="paramtype">::std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em> = <code>::std::cout</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="a01239.html#a6531344cf3b8a4638a61f37a8adbad75">sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;</a>, <a class="el" href="a01235.html#a665f63d81c7db90334caaf11c8a0d54f">sc_core::sc_signal&lt; bool, POL &gt;</a>, <a class="el" href="a01315.html#a30a70b7873c0602045f5e493f4cc393f">sc_core::sc_signal_rv&lt; W &gt;</a>, <a class="el" href="a01231.html#a05e63fdc6f1fd428c973b2c8eb5aaf7d">sc_core::sc_signal&lt; T, POL &gt;</a>, <a class="el" href="a01231.html#a05e63fdc6f1fd428c973b2c8eb5aaf7d">sc_core::sc_signal&lt; sc_dt::sc_lv&lt; W &gt;, SC_MANY_WRITERS &gt;</a>, <a class="el" href="a01231.html#a05e63fdc6f1fd428c973b2c8eb5aaf7d">sc_core::sc_signal&lt; bool, SC_ONE_WRITER &gt;</a>, <a class="el" href="a01231.html#a05e63fdc6f1fd428c973b2c8eb5aaf7d">sc_core::sc_signal&lt; sc_dt::sc_logic, SC_MANY_WRITERS &gt;</a>, <a class="el" href="a01103.html#a414e9883124060d3909d45246a324302">sc_core::sc_clock</a>, <a class="el" href="a01143.html#aed079a7e354aa665d5428df0c307188d">sc_core::sc_fifo&lt; T &gt;</a>, and <a class="el" href="a01295.html#ac861d4a662e835f2ea8aaf80341fc044">sc_core::sc_signal_resolved</a>.</p>
+<p>Reimplemented in <a class="el" href="a01251.html#af808e7c642065e2dea5532273748f5fb">sc_core::sc_signal_t&lt; T, POL &gt;</a>, <a class="el" href="a01251.html#af808e7c642065e2dea5532273748f5fb">sc_core::sc_signal_t&lt; bool, POL &gt;</a>, <a class="el" href="a01251.html#af808e7c642065e2dea5532273748f5fb">sc_core::sc_signal_t&lt; sc_dt::sc_logic, POL &gt;</a>, and <a class="el" href="a01155.html#a6e92064ded9656e6f1cd7616d9e6b2ee">sc_core::sc_fifo&lt; T &gt;</a>.</p>
 
 </div>
 </div>
-<a id="a2f5726bc11969f8dd2fce2c1e6940334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f5726bc11969f8dd2fce2c1e6940334">&#9670;&nbsp;</a></span>trywait()</h2>
+<a id="a6de92b3f34b64c853599c40d5a42a15a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de92b3f34b64c853599c40d5a42a15a">&#9670;&nbsp;</a></span>end_of_elaboration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,7 +1019,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int sc_core::sc_semaphore_if::trywait </td>
+          <td class="memname">virtual void sc_core::sc_port_base::end_of_elaboration </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -302,17 +1027,17 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="a01223.html#a2dc83e13c644fe76e7dff55acb2a54b5">sc_core::sc_semaphore</a>.</p>
+<p>Reimplemented in <a class="el" href="a01311.html#a5df67f764af3effda458a95a91c6f128">sc_core::sc_inout&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01307.html#ad49b203b94359ac71e7aa8cab5fce0c6">sc_core::sc_inout&lt; bool &gt;</a>, <a class="el" href="a01303.html#aa33df1f4d84b077722d0ffa90d595b58">sc_core::sc_inout&lt; T &gt;</a>, <a class="el" href="a01303.html#aa33df1f4d84b077722d0ffa90d595b58">sc_core::sc_inout&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>, <a class="el" href="a01299.html#ac89c08346e59beb6d38092a4a1170e09">sc_core::sc_in&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01295.html#a42a375e15846ad8b83007761e2200738">sc_core::sc_in&lt; bool &gt;</a>, <a class="el" href="a01291.html#af0a68f8f0a534dc7d6bdc411e8f86688">sc_core::sc_in&lt; T &gt;</a>, <a class="el" href="a01291.html#af0a68f8f0a534dc7d6bdc411e8f86688">sc_core::sc_in&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>, <a class="el" href="a01347.html#a5db5ed88a7767c334fda09eb65095a80">sc_core::sc_inout_rv&lt; W &gt;</a>, <a class="el" href="a01327.html#a9287b5b8703e6ec108044eea8e708063">sc_core::sc_inout_resolved</a>, <a class="el" href="a01343.html#aeb11ecd847a36a6440f7c167ef87dd21">sc_core::sc_in_rv&lt; W &gt;</a>, and <a class="el" href="a01323.html#a35c6b559acf18a6075bfd549cc57e2ae">sc_core::sc_in_resolved</a>.</p>
 
 </div>
 </div>
-<a id="a502abd3615bf0acc76fdcbfbdd37ce86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a502abd3615bf0acc76fdcbfbdd37ce86">&#9670;&nbsp;</a></span>wait()</h2>
+<a id="aec39c7c931426fc6a5c4bb602e6a540c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec39c7c931426fc6a5c4bb602e6a540c">&#9670;&nbsp;</a></span>end_of_simulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +1046,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int sc_core::sc_semaphore_if::wait </td>
+          <td class="memname">virtual void sc_core::sc_port_base::end_of_simulation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -329,25 +1054,1106 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="a01223.html#a3dfe662a01bf1969d4653760a16a4dc9">sc_core::sc_semaphore</a>.</p>
+</div>
+</div>
+<a id="a3ab019ec6f4a4fabc9336d63a0f82867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab019ec6f4a4fabc9336d63a0f82867">&#9670;&nbsp;</a></span>get_attribute() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01767.html">sc_attr_base</a>* sc_core::sc_object::get_attribute </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a419422ae300553667ce112c1d3177a87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a419422ae300553667ce112c1d3177a87">&#9670;&nbsp;</a></span>get_attribute() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01767.html">sc_attr_base</a>* sc_core::sc_object::get_attribute </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name_</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a368ceb9aff89ae4193033422dbd1358e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a368ceb9aff89ae4193033422dbd1358e">&#9670;&nbsp;</a></span>get_child_events()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::vector&lt;<a class="el" href="a01815.html">sc_event</a>*&gt;&amp; sc_core::sc_object::get_child_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00114">114</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="af85f58320c12f2cb77fd7bf05ed25cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85f58320c12f2cb77fd7bf05ed25cc3">&#9670;&nbsp;</a></span>get_child_objects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::vector&lt;<a class="el" href="a01871.html">sc_object</a>*&gt;&amp; sc_core::sc_object::get_child_objects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01911.html#a82ffc179bfdaf5149e71930cc39dba3c">sc_core::sc_process_b</a>, and <a class="el" href="a01855.html#a0bc14e879a3bbd69b6c15de3cc150063">sc_core::sc_module</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00117">117</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="a9a14346a0fc16a6cdc18513c46c14d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a14346a0fc16a6cdc18513c46c14d2d">&#9670;&nbsp;</a></span>get_interface() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const IF * <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::get_interface </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iface_i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00508">508</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0fd6b672c20d321f5848acb7601f5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0fd6b672c20d321f5848acb7601f5a3">&#9670;&nbsp;</a></span>get_interface() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IF * <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::get_interface </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iface_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00493">493</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a1855025b663a19cae7646497cfea75ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1855025b663a19cae7646497cfea75ff">&#9670;&nbsp;</a></span>get_interface() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a01199.html">sc_interface</a>* <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::get_interface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01215.html#ad22035a56ab17e27b01677b1b4cf58e8">sc_core::sc_port_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00324">324</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="aa12f4c522060f98d987efc1a0669aa82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa12f4c522060f98d987efc1a0669aa82">&#9670;&nbsp;</a></span>get_interface() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="a01199.html">sc_interface</a>* <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::get_interface </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01215.html#a61179430b4fe856c82f6c585bb0bacff">sc_core::sc_port_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00327">327</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a0dd324e6e316703fc1c28f36557c456e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd324e6e316703fc1c28f36557c456e">&#9670;&nbsp;</a></span>get_interface_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02119.html">sc_type_index</a> <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::get_interface_type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01215.html#a24e2007e8b41f1c58d34d585b081c8ee">sc_core::sc_port_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00578">578</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a9596b98165db3ca73212b46a71b3dc89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9596b98165db3ca73212b46a71b3dc89">&#9670;&nbsp;</a></span>get_parent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01871.html">sc_object</a>* sc_core::sc_object::get_parent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a091a09c7860ffaeb2ed3e453e1c2d062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a091a09c7860ffaeb2ed3e453e1c2d062">&#9670;&nbsp;</a></span>get_parent_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01871.html">sc_object</a>* sc_core::sc_object::get_parent_object </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00121">121</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="a0715b180a86bd6520f2753672c4585f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0715b180a86bd6520f2753672c4585f6">&#9670;&nbsp;</a></span>kind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF, int N = 1, sc_port_policy P = SC_ONE_OR_MORE_BOUND&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* <a class="el" href="a01227.html">sc_core::sc_port</a>&lt; IF, N, P &gt;::kind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01215.html#a83346d9636ef34ede3030cdf5389493d">sc_core::sc_port_base</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a01315.html#a795ad46b303e4ac8e5ee3b64126331a9">sc_core::sc_out&lt; T &gt;</a>, <a class="el" href="a01315.html#a795ad46b303e4ac8e5ee3b64126331a9">sc_core::sc_out&lt; bool &gt;</a>, <a class="el" href="a01311.html#ab9841247f11f0b81048f916641e48789">sc_core::sc_inout&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01307.html#abcf536e52c92bf3521fa2d1f797bd8c4">sc_core::sc_inout&lt; bool &gt;</a>, <a class="el" href="a01303.html#afea5df9eed11f7ac50ae76f4de6cc83d">sc_core::sc_inout&lt; T &gt;</a>, <a class="el" href="a01303.html#afea5df9eed11f7ac50ae76f4de6cc83d">sc_core::sc_inout&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>, <a class="el" href="a01299.html#a89b3aaf4c23ea08b90c60f3bcf44d078">sc_core::sc_in&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01295.html#af4bb55d3f249053f86016f655908f7e4">sc_core::sc_in&lt; bool &gt;</a>, <a class="el" href="a01351.html#a9dc07d0fbaf5d975ae9d48c1beb8457a">sc_core::sc_out_rv&lt; W &gt;</a>, <a class="el" href="a01331.html#ad765c7c1298fca17b539e19a19e326fa">sc_core::sc_out_resolved</a>, <a class="el" href="a01187.html#a5ef7132aaaf9ff22c6c4f9c6a13fd8a8">sc_core::sc_fifo_out&lt; T &gt;</a>, <a class="el" href="a01291.html#a5f2bb71c7a7332c03f050cff1d87524d">sc_core::sc_in&lt; T &gt;</a>, <a class="el" href="a01291.html#a5f2bb71c7a7332c03f050cff1d87524d">sc_core::sc_in&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>, <a class="el" href="a01347.html#a270b02042ff8ce298f6f249253cb08da">sc_core::sc_inout_rv&lt; W &gt;</a>, <a class="el" href="a01327.html#ab24322d6e60d1ad4644710cec842df6c">sc_core::sc_inout_resolved</a>, <a class="el" href="a01183.html#a01a438c13a0f52060262698446c41240">sc_core::sc_fifo_in&lt; T &gt;</a>, <a class="el" href="a01343.html#ac0d83403e7573557086ff99d8614b6f6">sc_core::sc_in_rv&lt; W &gt;</a>, and <a class="el" href="a01323.html#a56f61d0c484eac9e57bb143c9aa31099">sc_core::sc_in_resolved</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00441">441</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a7b52ca906e645869c91f57b328989f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b52ca906e645869c91f57b328989f8f">&#9670;&nbsp;</a></span>make_sensitive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::make_sensitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a624b4003393c71616779c6342b40c076">sc_thread_handle</a>&#160;</td>
+          <td class="paramname"><em>handle_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01127.html">sc_event_finder</a> *&#160;</td>
+          <td class="paramname"><em>event_finder_</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01215.html#a9c60712c746ae37b2894b34c82d6e35f">sc_core::sc_port_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00593">593</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a36298239f77fd864ec73c744161ef3f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36298239f77fd864ec73c744161ef3f2">&#9670;&nbsp;</a></span>make_sensitive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::make_sensitive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.html#a241f0ad0f913c222aa11123bdc0ec330">sc_method_handle</a>&#160;</td>
+          <td class="paramname"><em>handle_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a01127.html">sc_event_finder</a> *&#160;</td>
+          <td class="paramname"><em>event_finder_</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a01215.html#a0077d5f3de15998cb0877bf117061b04">sc_core::sc_port_base</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00614">614</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="adef43ac9e24a45710e00765dff1b44cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef43ac9e24a45710e00765dff1b44cc">&#9670;&nbsp;</a></span>name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* sc_core::sc_object::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00077">77</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="a5a1213ba04041e8caa6140cac50f12e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1213ba04041e8caa6140cac50f12e9">&#9670;&nbsp;</a></span>num_attributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sc_core::sc_object::num_attributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaadb0a30f3d3760dbe02ffe7ff7bb2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaadb0a30f3d3760dbe02ffe7ff7bb2f9">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">IF &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00289">289</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a4bb01c2a2ce925e91069fbe9f733091c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb01c2a2ce925e91069fbe9f733091c">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01223.html#a15b71cc19c23d5791ab075368422c873">port_type</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00298">298</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a19f1c46c4ab383654369c8b9654b7745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f1c46c4ab383654369c8b9654b7745">&#9670;&nbsp;</a></span>operator->() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IF * <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00465">465</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a67faacb13ed075b79fbc51633f1f1437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67faacb13ed075b79fbc51633f1f1437">&#9670;&nbsp;</a></span>operator->() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const IF * <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00477">477</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a40e7d0e11029081f7c227ef16a808d5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e7d0e11029081f7c227ef16a808d5f">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IF* <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00316">316</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="ac69f658e16e4e32a5a75a8a070d3a951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac69f658e16e4e32a5a75a8a070d3a951">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const IF* <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index_</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00318">318</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a75778dff40cf1bf16fc4eb74346d923c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75778dff40cf1bf16fc4eb74346d923c">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_object::print </td>
+          <td>(</td>
+          <td class="paramtype">::std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em> = <code>::std::cout</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01251.html#a113240bfd69e6a3ac3b3df73f0668b00">sc_core::sc_signal_t&lt; T, POL &gt;</a>, <a class="el" href="a01251.html#a113240bfd69e6a3ac3b3df73f0668b00">sc_core::sc_signal_t&lt; bool, POL &gt;</a>, <a class="el" href="a01251.html#a113240bfd69e6a3ac3b3df73f0668b00">sc_core::sc_signal_t&lt; sc_dt::sc_logic, POL &gt;</a>, and <a class="el" href="a01155.html#aad5ecf731692fe6083438a96e0a87727">sc_core::sc_fifo&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a98573c57438867b3373d5c09c5aefbc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98573c57438867b3373d5c09c5aefbc2">&#9670;&nbsp;</a></span>register_simulation_phase_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a> sc_core::sc_object::register_simulation_phase_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a812edfdd89e6536ff7e479bbe7296cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a812edfdd89e6536ff7e479bbe7296cc6">&#9670;&nbsp;</a></span>remove_all_attributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_object::remove_all_attributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92e37b69b294df8dc86fdd57d7328eb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92e37b69b294df8dc86fdd57d7328eb7">&#9670;&nbsp;</a></span>remove_attribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01767.html">sc_attr_base</a>* sc_core::sc_object::remove_attribute </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3e1c8fe2344ba4a074caf02038cc1745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1c8fe2344ba4a074caf02038cc1745">&#9670;&nbsp;</a></span>remove_child_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool sc_core::sc_object::remove_child_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01815.html">sc_event</a> *&#160;</td>
+          <td class="paramname"><em>event_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79b493824069d6fccab14fc8d12f7648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79b493824069d6fccab14fc8d12f7648">&#9670;&nbsp;</a></span>remove_child_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool sc_core::sc_object::remove_child_object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01871.html">sc_object</a> *&#160;</td>
+          <td class="paramname"><em>object_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01911.html#ab9490244d3a43726e0240cfe12884830">sc_core::sc_process_b</a>.</p>
+
+</div>
+</div>
+<a id="a73bc9bb3eb8b6c58ac783394ff788b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73bc9bb3eb8b6c58ac783394ff788b4a">&#9670;&nbsp;</a></span>report_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_port_base::report_error </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>add_msg</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa2ea268cadfad621fab19cd4238d3427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ea268cadfad621fab19cd4238d3427">&#9670;&nbsp;</a></span>simcontext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01963.html">sc_simcontext</a>* sc_core::sc_object::simcontext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00091">91</a> of file <a class="el" href="a00281_source.html">sc_object.h</a>.</p>
+
+</div>
+</div>
+<a id="a90b19c6a12abb609b80dff024b991526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b19c6a12abb609b80dff024b991526">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00304">304</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="a262b9ec042009301a6a170b8258245e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262b9ec042009301a6a170b8258245e1">&#9670;&nbsp;</a></span>start_of_simulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_port_base::start_of_simulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8420debe6ce97f5b07e7dde92efe7cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8420debe6ce97f5b07e7dde92efe7cf1">&#9670;&nbsp;</a></span>trace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void sc_core::sc_object::trace </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01999.html">sc_trace_file</a> *&#160;</td>
+          <td class="paramname"><em>tf</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a01251.html#a9f3476b58602377a0016fb2ac9af9a50">sc_core::sc_signal_t&lt; T, POL &gt;</a>, <a class="el" href="a01251.html#a9f3476b58602377a0016fb2ac9af9a50">sc_core::sc_signal_t&lt; bool, POL &gt;</a>, <a class="el" href="a01251.html#a9f3476b58602377a0016fb2ac9af9a50">sc_core::sc_signal_t&lt; sc_dt::sc_logic, POL &gt;</a>, and <a class="el" href="a01155.html#a8d9042f97307b6d5529079778b4637db">sc_core::sc_fifo&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ab7e23f225ea242450a151b390d28c872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e23f225ea242450a151b390d28c872">&#9670;&nbsp;</a></span>unregister_simulation_phase_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a> sc_core::sc_object::unregister_simulation_phase_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01871.html#a38a53f30a8719f77e35df8965845819e">phase_cb_mask</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b530248b9c4ca08da914b0f9b70c072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b530248b9c4ca08da914b0f9b70c072">&#9670;&nbsp;</a></span>vbind() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::vbind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01199.html">sc_interface</a> &amp;&#160;</td>
+          <td class="paramname"><em>interface_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01215.html#ad48a2a91e5064dc5d5b733e7641db561">sc_core::sc_port_base</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a01299.html#a513dd64c5058493bf7440565dca06326">sc_core::sc_in&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01295.html#a7a106184a4919e1d94c5b24a3efbcd28">sc_core::sc_in&lt; bool &gt;</a>, <a class="el" href="a01291.html#a499f7e36a19f32d7a693224e075861fa">sc_core::sc_in&lt; T &gt;</a>, and <a class="el" href="a01291.html#a499f7e36a19f32d7a693224e075861fa">sc_core::sc_in&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00520">520</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<a id="aaf4a3b72b61e007e45e196320a2c9069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf4a3b72b61e007e45e196320a2c9069">&#9670;&nbsp;</a></span>vbind() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class IF &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a01223.html">sc_core::sc_port_b</a>&lt; IF &gt;::vbind </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01215.html">sc_port_base</a> &amp;&#160;</td>
+          <td class="paramname"><em>parent_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="a01215.html#a5c3b274e098183ded49dddee80a60faa">sc_core::sc_port_base</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a01299.html#a59b5cf9c6555c2429131ce4a4d035761">sc_core::sc_in&lt; sc_dt::sc_logic &gt;</a>, <a class="el" href="a01295.html#ade5e5a017c4023f6b56e7ba0348e6b8a">sc_core::sc_in&lt; bool &gt;</a>, <a class="el" href="a01291.html#a0ab18a8f1e133af4bf697d02ecb3ad36">sc_core::sc_in&lt; T &gt;</a>, and <a class="el" href="a01291.html#a0ab18a8f1e133af4bf697d02ecb3ad36">sc_core::sc_in&lt; sc_dt::sc_lv&lt; W &gt; &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00534">534</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa8b1c991b599ac1fed5bdf1898ff51e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b1c991b599ac1fed5bdf1898ff51e5">&#9670;&nbsp;</a></span>m_bind_info</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sc_bind_info* sc_core::sc_port_base::m_bind_info</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00190">190</a> of file <a class="el" href="a00047_source.html">sc_port.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>sysc/communication/<a class="el" href="a00053_source.html">sc_semaphore_if.h</a></li>
+<li>sysc/communication/<a class="el" href="a00047_source.html">sc_port.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01227.html">sc_semaphore_if</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01227.html">sc_port</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:04 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

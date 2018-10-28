@@ -1,10 +1,10 @@
 var a01243 =
 [
-    [ "sc_signal_in_if", "a01243.html#a63f14a632546ca826dd9e96ef06cbab5", null ],
+    [ "sc_semaphore_if", "a01243.html#ae8e4f1f89aa8e6e34882b7461abe19e7", null ],
     [ "default_event", "a01243.html#a3f0bf642e91be47772a3cd74a76a98cf", null ],
-    [ "event", "a01243.html#aa1a12f3c5f702e1dba271774e8aaf197", null ],
-    [ "get_data_ref", "a01243.html#a40f78bb2b8d91c24e55df3f834c3e297", null ],
-    [ "read", "a01243.html#ac8fb4f501966a460b3624d6aaa75d668", null ],
+    [ "get_value", "a01243.html#a8e0c609b176a938d4fbdf454874ddb66", null ],
+    [ "post", "a01243.html#a40b9903de2407397edb7f8115613a22d", null ],
     [ "register_port", "a01243.html#a7c93074c41900149ab2ac84bd6787ae6", null ],
-    [ "value_changed_event", "a01243.html#a699c8c309c0d5158f36bc8b9df0fee72", null ]
+    [ "trywait", "a01243.html#a2f5726bc11969f8dd2fce2c1e6940334", null ],
+    [ "wait", "a01243.html#a502abd3615bf0acc76fdcbfbdd37ce86", null ]
 ];

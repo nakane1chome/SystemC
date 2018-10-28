@@ -1,8 +1,12 @@
-<map id="sysc/communication/sc_signal_resolved_ports.h" name="sysc/communication/sc_signal_resolved_ports.h">
-<area shape="rect" id="node2" href="$a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="304,109,443,151"/>
-<area shape="rect" id="node6" href="$a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="559,199,683,240"/>
-<area shape="rect" id="node3" href="$a00014.html" title="Original Author: Martin Janssen, Synopsys, Inc. Stan Y. Liao, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="5,199,144,240"/>
-<area shape="rect" id="node4" href="$a00044.html" title="Base classes of all port classes. " alt="" coords="59,288,197,329"/>
-<area shape="rect" id="node5" href="$a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="219,199,357,240"/>
-<area shape="rect" id="node7" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="382,206,535,233"/>
+<map id="sysc/communication/sc_signal_resolved.h" name="sysc/communication/sc_signal_resolved.h">
+<area shape="rect" id="node2" href="$a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="378,95,517,136"/>
+<area shape="rect" id="node3" href="$a00047.html" title="Base classes of all port classes. " alt="" coords="46,184,185,225"/>
+<area shape="rect" id="node4" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="233,281,384,307"/>
+<area shape="rect" id="node5" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="125,370,308,397"/>
+<area shape="rect" id="node6" href="$a00293.html" title="Process base class support. " alt="" coords="5,452,169,479"/>
+<area shape="rect" id="node7" href="$a00080.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="353,363,491,404"/>
+<area shape="rect" id="node8" href="$a00050.html" title="Abstract base class of all primitive channel classes. " alt="" coords="510,184,649,225"/>
+<area shape="rect" id="node9" href="$a00062.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="459,273,598,315"/>
+<area shape="rect" id="node10" href="$a00098.html" title="C++ implementation of logic type. Behaves. " alt="" coords="673,184,797,225"/>
+<area shape="rect" id="node11" href="$a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="821,191,975,218"/>
 </map>

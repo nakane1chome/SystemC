@@ -1,9 +1,9 @@
 <map id="sysc/kernel/sc_wait.h" name="sysc/kernel/sc_wait.h">
-<area shape="rect" id="node2" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="454,80,637,107"/>
-<area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,155,168,181"/>
-<area shape="rect" id="node4" href="$a00293.html" title="Process base class support. " alt="" coords="193,155,357,181"/>
-<area shape="rect" id="node5" href="$a00323.html" title="Definition of the simulation phases. " alt="" coords="381,155,536,181"/>
-<area shape="rect" id="node6" href="$a00329.html" title="The time class. " alt="" coords="561,155,706,181"/>
-<area shape="rect" id="node7" href="$a00359.html" title="sysc/utils/sc_hash.h" alt="" coords="730,155,865,181"/>
-<area shape="rect" id="node8" href="$a00374.html" title="A simple priority queue (which can be used to model multiple. " alt="" coords="889,155,1012,181"/>
+<area shape="rect" id="node2" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="373,80,556,107"/>
+<area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="208,229,371,256"/>
+<area shape="rect" id="node4" href="$a00293.html" title="Process base class support. " alt="" coords="24,155,188,181"/>
+<area shape="rect" id="node5" href="$a00323.html" title="Definition of the simulation phases. " alt="" coords="212,155,367,181"/>
+<area shape="rect" id="node6" href="$a00329.html" title="The time class. " alt="" coords="392,155,537,181"/>
+<area shape="rect" id="node7" href="$a00359.html" title="sysc/utils/sc_hash.h" alt="" coords="561,155,696,181"/>
+<area shape="rect" id="node8" href="$a00371.html" title="A simple priority queue (which can be used to model multiple. " alt="" coords="720,155,843,181"/>
 </map>

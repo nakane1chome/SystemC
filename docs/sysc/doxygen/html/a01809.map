@@ -1,12 +1,3 @@
-<map id="sc_core::sc_method_process" name="sc_core::sc_method_process">
-<area shape="rect" id="node2" href="$a01875.html" title="sc_core::sc_process_b" alt="" coords="583,313,733,339"/>
-<area shape="rect" id="node3" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="5,38,133,65"/>
-<area shape="rect" id="node9" href="$a02043.html" title="Exception reporting. " alt="" coords="258,71,385,98"/>
-<area shape="rect" id="node4" href="$a01831.html" title="Unique name generator class. " alt="" coords="245,122,398,149"/>
-<area shape="rect" id="node5" href="$a01771.html" title="Base class for lists of events. " alt="" coords="248,173,395,199"/>
-<area shape="rect" id="node6" href="$a01867.html" title="sc_core::sc_throw_it\l_helper" alt="" coords="252,224,391,265"/>
-<area shape="rect" id="node7" href="$a01783.html" title="The event class. " alt="" coords="7,411,131,438"/>
-<area shape="rect" id="node8" href="$a01859.html" title="sc_core::sc_process_host" alt="" coords="237,522,405,549"/>
-<area shape="rect" id="node13" href="$a01863.html" title="sc_core::sc_process\l_monitor" alt="" coords="253,639,390,680"/>
-<area shape="rect" id="node15" href="$a01747.html" title="Coroutine abstract base class. " alt="" coords="603,577,713,603"/>
+<map id="sc_core::sc_event_or_list" name="sc_core::sc_event_or_list">
+<area shape="rect" id="node2" href="$a01803.html" title="Base class for lists of events. " alt="" coords="15,5,161,32"/>
 </map>

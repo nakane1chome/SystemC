@@ -1,3 +1,4 @@
-<map id="sc_core::sc_plist_base_iter" name="sc_core::sc_plist_base_iter">
-<area shape="rect" id="node2" href="$a02011.html" title="sc_core::sc_plist_iter\&lt; T \&gt;" alt="" coords="7,80,178,107"/>
+<map id="sc_core::wif_trace_file" name="sc_core::wif_trace_file">
+<area shape="rect" id="node2" href="$a02003.html" title="sc_core::sc_trace_file_base" alt="" coords="5,80,184,107"/>
+<area shape="rect" id="node3" href="$a01999.html" title="sc_core::sc_trace_file" alt="" coords="22,5,167,32"/>
 </map>

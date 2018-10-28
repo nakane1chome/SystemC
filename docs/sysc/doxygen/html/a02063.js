@@ -1,12 +1,16 @@
 var a02063 =
 [
-    [ "sc_byte_heap", "a02063.html#a05c784aa054dfca5cded5b533262dddc", null ],
-    [ "sc_byte_heap", "a02063.html#ab804a187058af80cf0deebde1b4e1b69", null ],
-    [ "~sc_byte_heap", "a02063.html#ac744e67b73a4efd878594f14bcf98712", null ],
-    [ "allocate", "a02063.html#a788d2eb4ab139406ae8cecf9ddc54a67", null ],
-    [ "initialize", "a02063.html#a53979fc97a38e2a17f047a8cefaba0b0", null ],
-    [ "length", "a02063.html#a7fac0b24516bd925e4eac0a2bcb13f00", null ],
-    [ "m_bgn_p", "a02063.html#a6757df0d85349d0cca958c6e4c5f41c6", null ],
-    [ "m_end_p", "a02063.html#a284a566947570fb7b361eb729d76a24f", null ],
-    [ "m_next_p", "a02063.html#a98195d5afe037a3aea9a9b3305019b60", null ]
+    [ "handle_t", "a02063.html#a889f516a6f037d12e5599933dcb644a8", null ],
+    [ "sc_plist_base_iter", "a02063.html#a16ea04a8a44a8f757f2347dd8ca8dc35", null ],
+    [ "~sc_plist_base_iter", "a02063.html#ada240dce0ff66ea1e8a82022ee79a1c7", null ],
+    [ "empty", "a02063.html#a84f5d3e1126ae29a608ff7714af31535", null ],
+    [ "get", "a02063.html#a7bc12bbc85727b40a386f8d5c5887b9e", null ],
+    [ "get_handle", "a02063.html#ac62642550c9ca1ef2b7c3b09daf1d9ca", null ],
+    [ "operator++", "a02063.html#a2482647530779ce31fd962346d52ee38", null ],
+    [ "operator--", "a02063.html#a77eb26c6fdaa46fac35c03deb87ae904", null ],
+    [ "remove", "a02063.html#a896674804d288b06e71cbc3d978e6c2e", null ],
+    [ "remove", "a02063.html#ab24dde879b11e45a8c0844ef16f172b2", null ],
+    [ "reset", "a02063.html#a7739c0e2f32670497e09af2849c06073", null ],
+    [ "set", "a02063.html#a67b239a365fd480fd48bddac451ae86a", null ],
+    [ "set_handle", "a02063.html#a5920701fa6b8b38eab20618b5db45553", null ]
 ];

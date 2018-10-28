@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -94,10 +94,14 @@ $(document).ready(function(){initNavTree('a00230.html','');});
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for sc_cor.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00231.png" border="0" usemap="#sysc_2kernel_2sc__cor_8h" alt=""/></div>
+<map name="sysc_2kernel_2sc__cor_8h" id="sysc_2kernel_2sc__cor_8h">
+<area shape="rect" id="node4" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="125,80,287,107"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -116,22 +120,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01747.html">sc_core::sc_cor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine abstract base class.  <a href="a01747.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01779.html">sc_core::sc_cor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine abstract base class.  <a href="a01779.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01751.html">sc_core::sc_cor_pkg</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine package abstract base class.  <a href="a01751.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01783.html">sc_core::sc_cor_pkg</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine package abstract base class.  <a href="a01783.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a255c51eaf00af94c8537149973b6f884"><td class="memItemLeft" align="right" valign="top">typedef void()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a255c51eaf00af94c8537149973b6f884">sc_core::sc_cor_fn</a>(void *)</td></tr>
-<tr class="memdesc:a255c51eaf00af94c8537149973b6f884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function type for creating coroutines.  <a href="a00549.html#a255c51eaf00af94c8537149973b6f884">More...</a><br /></td></tr>
+<tr class="memitem:a255c51eaf00af94c8537149973b6f884"><td class="memItemLeft" align="right" valign="top">typedef void()&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a255c51eaf00af94c8537149973b6f884">sc_core::sc_cor_fn</a>(void *)</td></tr>
+<tr class="memdesc:a255c51eaf00af94c8537149973b6f884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function type for creating coroutines.  <a href="a00561.html#a255c51eaf00af94c8537149973b6f884">More...</a><br /></td></tr>
 <tr class="separator:a255c51eaf00af94c8537149973b6f884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -146,7 +150,7 @@ Typedefs</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_b4b56023568c35e5a49172d00a6c7a39.html">kernel</a></li><li class="navelem"><a class="el" href="a00230.html">sc_cor.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:53 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

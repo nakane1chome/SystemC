@@ -1,10 +1,6 @@
-<map id="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;" name="sc_core::sc_signal&lt; sc_dt::sc_logic, POL &gt;">
-<area shape="rect" id="node2" href="$a01259.html" title="sc_core::sc_signal\l_inout_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="233,71,365,127"/>
-<area shape="rect" id="node3" href="$a01251.html" title="Specialization of sc_signal_in_if&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="5,5,164,47"/>
-<area shape="rect" id="node4" href="$a01255.html" title="sc_core::sc_signal\l_write_if\&lt; sc_dt::sc\l_logic \&gt;" alt="" coords="19,71,150,127"/>
-<area shape="rect" id="node5" href="$a01215.html" title="Abstract base class of all primitive channel classes. " alt="" coords="213,151,384,178"/>
-<area shape="rect" id="node6" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="21,151,149,178"/>
-<area shape="rect" id="node7" href="$a01331.html" title="sc_core::sc_writer\l_policy_check\&lt; POL \&gt;" alt="" coords="223,203,375,244"/>
-<area shape="rect" id="node8" href="$a01403.html" title="Four&#45;valued logic type. " alt="" coords="245,269,352,295"/>
-<area shape="rect" id="node9" href="$a01783.html" title="The event class. " alt="" coords="237,338,361,365"/>
+<map id="sc_core::sc_semaphore" name="sc_core::sc_semaphore">
+<area shape="rect" id="node2" href="$a01243.html" title="The sc_semaphore_if interface class. " alt="" coords="5,81,176,108"/>
+<area shape="rect" id="node3" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="19,5,162,32"/>
+<area shape="rect" id="node4" href="$a01871.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="200,81,328,108"/>
+<area shape="rect" id="node5" href="$a01815.html" title="The event class. " alt="" coords="353,81,477,108"/>
 </map>

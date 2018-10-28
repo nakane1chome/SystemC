@@ -1,4 +1,3 @@
-<map id="sc_dt::sc_fix" name="sc_dt::sc_fix">
-<area shape="rect" id="node3" href="$a01487.html" title="&quot;Constrained&quot; signed fixed&#45;point class; arbitrary precision. " alt="" coords="5,155,137,196"/>
-<area shape="rect" id="node2" href="$a01515.html" title="Base class for the fixed&#45;point types; arbitrary precision. " alt="" coords="14,5,129,32"/>
+<map id="sc_dt::sc_proxy_traits&lt; sc_proxy&lt; X &gt; &gt;" name="sc_dt::sc_proxy_traits&lt; sc_proxy&lt; X &gt; &gt;">
+<area shape="rect" id="node2" href="$a01451.html" title="Template traits helper to select the correct bit/value/vector_types for. " alt="" coords="5,5,180,32"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/datatypes/misc/sc_value_base.h File Reference</title>
+<title>SystemC: sysc/datatypes/misc/sc_concatref.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,43 +83,54 @@ $(document).ready(function(){initNavTree('a00215.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">sc_value_base.h File Reference</div>  </div>
+<div class="title">sc_concatref.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for SystemC bit values.  
+<p>Concatenation support.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00191_source.html">sysc/datatypes/int/sc_nbdefs.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00281_source.html">sysc/kernel/sc_object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00218_source.html">sysc/datatypes/misc/sc_value_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00392_source.html">sysc/utils/sc_temporary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00092_source.html">sysc/datatypes/bit/sc_bv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00101_source.html">sysc/datatypes/bit/sc_lv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00185_source.html">sysc/datatypes/int/sc_int_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00209_source.html">sysc/datatypes/int/sc_uint_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00203_source.html">sysc/datatypes/int/sc_signed.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00212_source.html">sysc/datatypes/int/sc_unsigned.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_value_base.h:</div>
+Include dependency graph for sc_concatref.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00216.png" border="0" usemap="#sysc_2datatypes_2misc_2sc__value__base_8h" alt=""/></div>
-<map name="sysc_2datatypes_2misc_2sc__value__base_8h" id="sysc_2datatypes_2misc_2sc__value__base_8h">
-<area shape="rect" id="node2" href="a00191.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="245,95,369,136"/>
-<area shape="rect" id="node3" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="5,184,168,211"/>
-<area shape="rect" id="node6" href="a00362.html" title="sysc/utils/sc_iostream.h" alt="" coords="363,184,520,211"/>
-<area shape="rect" id="node7" href="a00227.html" title="Default constants whose values may need to be. " alt="" coords="545,184,719,211"/>
+<div class="center"><img src="a00216.png" border="0" usemap="#sysc_2datatypes_2misc_2sc__concatref_8h" alt=""/></div>
+<map name="sysc_2datatypes_2misc_2sc__concatref_8h" id="sysc_2datatypes_2misc_2sc__concatref_8h">
+<area shape="rect" id="node2" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="46,281,201,307"/>
+<area shape="rect" id="node6" href="a00218.html" title="Base class for SystemC bit values. " alt="" coords="578,273,715,315"/>
+<area shape="rect" id="node8" href="a00392.html" title="Temporary value pool classes. " alt="" coords="225,281,390,307"/>
+<area shape="rect" id="node10" href="a00092.html" title="Arbitrary size bit vector class. " alt="" coords="846,184,970,225"/>
+<area shape="rect" id="node12" href="a00101.html" title="Arbitrary size logic vector class. " alt="" coords="956,95,1080,136"/>
+<area shape="rect" id="node14" href="a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="218,95,342,136"/>
+<area shape="rect" id="node15" href="a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="243,184,367,225"/>
+<area shape="rect" id="node16" href="a00203.html" title="Arbitrary precision signed arithmetic. " alt="" coords="418,95,542,136"/>
+<area shape="rect" id="node17" href="a00212.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="494,184,618,225"/>
+<area shape="rect" id="node3" href="a00221.html" title="Attribute classes. " alt="" coords="40,370,207,397"/>
+<area shape="rect" id="node4" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="194,452,357,479"/>
+<area shape="rect" id="node7" href="a00194.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="468,363,592,404"/>
+<area shape="rect" id="node11" href="a00095.html" title="Arbitrary size bit vector class. " alt="" coords="919,273,1043,315"/>
+<area shape="rect" id="node13" href="a00104.html" title="Arbitrary size logic vector class. " alt="" coords="994,184,1118,225"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00217.png" border="0" usemap="#sysc_2datatypes_2misc_2sc__value__base_8hdep" alt=""/></div>
-<map name="sysc_2datatypes_2misc_2sc__value__base_8hdep" id="sysc_2datatypes_2misc_2sc__value__base_8hdep">
-<area shape="rect" id="node2" href="a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="344,184,468,225"/>
-<area shape="rect" id="node6" href="a00212.html" title="Concatenation support. " alt="" coords="301,273,439,315"/>
-<area shape="rect" id="node9" href="a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="244,95,368,136"/>
-<area shape="rect" id="node10" href="a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="645,184,769,225"/>
-<area shape="rect" id="node12" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="645,95,769,136"/>
-<area shape="rect" id="node3" href="a00104.html" title="Proxy base class for vector data types. " alt="" coords="635,273,759,315"/>
-<area shape="rect" id="node4" href="a00173.html" title="Template version of sc_signed. This class enables. " alt="" coords="5,273,129,315"/>
-<area shape="rect" id="node5" href="a00176.html" title="Template version of sc_unsigned. This class. " alt="" coords="153,273,277,315"/>
-<area shape="rect" id="node7" href="a00137.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="931,273,1068,315"/>
-<area shape="rect" id="node8" href="a00155.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="463,273,610,315"/>
-<area shape="rect" id="node11" href="a00179.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="783,273,907,315"/>
-<area shape="rect" id="node13" href="a00203.html" title="A sc_uint is an unsigned integer whose length is less than the. " alt="" coords="896,184,1020,225"/>
+<div class="center"><img src="a00217.png" border="0" usemap="#sysc_2datatypes_2misc_2sc__concatref_8hdep" alt=""/></div>
+<map name="sysc_2datatypes_2misc_2sc__concatref_8hdep" id="sysc_2datatypes_2misc_2sc__concatref_8hdep">
+<area shape="rect" id="node2" href="a00404.html" title="systemc" alt="" coords="39,95,109,121"/>
+<area shape="rect" id="node3" href="a00407.html" title="systemc.h" alt="" coords="35,169,113,196"/>
 </map>
 </div>
 </div>
@@ -127,30 +138,202 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01727.html">sc_dt::sc_value_base</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class of all SystemC native variables.  <a href="a01727.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01751.html">sc_dt::sc_concatref</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for sized bit concatenation.  <a href="a01751.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01731.html">sc_dt::sc_generic_base&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for user-defined value classes and other classes that.  <a href="a01731.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01755.html">sc_dt::sc_concat_bool</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for read-only boolean values in concatenations.  <a href="a01755.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00550"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00550.html">sc_dt</a></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a159127fe83ced79748eb34e49ae217ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a159127fe83ced79748eb34e49ae217ac">SC_CONCAT_OP_TYPE</a>(RESULT,  OP,  OTHER_TYPE)</td></tr>
+<tr class="separator:a159127fe83ced79748eb34e49ae217ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23967b280995669eaa2ce47dd513453b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a23967b280995669eaa2ce47dd513453b">SC_CONCAT_OP</a>(RESULT,  OP)</td></tr>
+<tr class="separator:a23967b280995669eaa2ce47dd513453b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae25ab91d8b3368afd1ea67a0db09f2cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#ae25ab91d8b3368afd1ea67a0db09f2cd">SC_CONCAT_BOOL_OP</a>(OP)</td></tr>
+<tr class="separator:ae25ab91d8b3368afd1ea67a0db09f2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a3b63945310f83b83ece57a904d03047a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a3b63945310f83b83ece57a904d03047a">sc_dt::and_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a3b63945310f83b83ece57a904d03047a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a225a0db712d929a6a9a3bf49e093d1dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a225a0db712d929a6a9a3bf49e093d1dd">sc_dt::nand_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a225a0db712d929a6a9a3bf49e093d1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071c953a8ec70dc9bc9bc7a7f19b265b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a071c953a8ec70dc9bc9bc7a7f19b265b">sc_dt::or_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a071c953a8ec70dc9bc9bc7a7f19b265b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1865de7fb2f58a9dde27fb7db34a53b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a1865de7fb2f58a9dde27fb7db34a53b6">sc_dt::nor_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a1865de7fb2f58a9dde27fb7db34a53b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3f982f3a65758dc783dbfa01f6aac6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a5b3f982f3a65758dc783dbfa01f6aac6">sc_dt::xor_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a5b3f982f3a65758dc783dbfa01f6aac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0257198d05c106d31606deea7f2d8e15"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a0257198d05c106d31606deea7f2d8e15">sc_dt::xnor_reduce</a> (const sc_concatref &amp;a)</td></tr>
+<tr class="separator:a0257198d05c106d31606deea7f2d8e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae686e5795fbefe6b3b97f64e522597f2"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ae686e5795fbefe6b3b97f64e522597f2">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, uint64 shift)</td></tr>
+<tr class="separator:ae686e5795fbefe6b3b97f64e522597f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200a6958a66b4b7e48be78e4c3f6544c"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a200a6958a66b4b7e48be78e4c3f6544c">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, int64 shift)</td></tr>
+<tr class="separator:a200a6958a66b4b7e48be78e4c3f6544c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4afedaecc0acf2113e7f71ef3b28667c"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a4afedaecc0acf2113e7f71ef3b28667c">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, unsigned long shift)</td></tr>
+<tr class="separator:a4afedaecc0acf2113e7f71ef3b28667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c19b61fa11e64f24121b539394a29c"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a07c19b61fa11e64f24121b539394a29c">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, int shift)</td></tr>
+<tr class="separator:a07c19b61fa11e64f24121b539394a29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4482738a647f09dc16cbd508c48a8d78"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a4482738a647f09dc16cbd508c48a8d78">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, unsigned int shift)</td></tr>
+<tr class="separator:a4482738a647f09dc16cbd508c48a8d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20e0ad62bf0181b49914fd3fdc42547"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ac20e0ad62bf0181b49914fd3fdc42547">sc_dt::operator&lt;&lt;</a> (const sc_concatref &amp;target, long shift)</td></tr>
+<tr class="separator:ac20e0ad62bf0181b49914fd3fdc42547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ff016d78e454c3f683de2bf44e18fb2"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a3ff016d78e454c3f683de2bf44e18fb2">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, uint64 shift)</td></tr>
+<tr class="separator:a3ff016d78e454c3f683de2bf44e18fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2fab2d7efae7aea5b8f59380743cde0"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ae2fab2d7efae7aea5b8f59380743cde0">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, int64 shift)</td></tr>
+<tr class="separator:ae2fab2d7efae7aea5b8f59380743cde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c81fb47e42cea717fb955411d786d8"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a56c81fb47e42cea717fb955411d786d8">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, unsigned long shift)</td></tr>
+<tr class="separator:a56c81fb47e42cea717fb955411d786d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f6798d896b8b8f514628fb0e926c4b"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad0f6798d896b8b8f514628fb0e926c4b">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, int shift)</td></tr>
+<tr class="separator:ad0f6798d896b8b8f514628fb0e926c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea9af377b19f2962d083edcb1aa01fc7"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#aea9af377b19f2962d083edcb1aa01fc7">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, unsigned int shift)</td></tr>
+<tr class="separator:aea9af377b19f2962d083edcb1aa01fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac1a12595cb38c1e2e1e2aab081dd9f"><td class="memItemLeft" align="right" valign="top">const sc_unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a1ac1a12595cb38c1e2e1e2aab081dd9f">sc_dt::operator&gt;&gt;</a> (const sc_concatref &amp;target, long shift)</td></tr>
+<tr class="separator:a1ac1a12595cb38c1e2e1e2aab081dd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6779b3ec9596f1ff50edc22210acfb4"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ae6779b3ec9596f1ff50edc22210acfb4">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;os, const sc_concatref &amp;v)</td></tr>
+<tr class="separator:ae6779b3ec9596f1ff50edc22210acfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf61da9a0e2a359532769df02cf9fe96"><td class="memItemLeft" align="right" valign="top">inline ::std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#aaf61da9a0e2a359532769df02cf9fe96">sc_dt::operator&gt;&gt;</a> (::std::istream &amp;is, sc_concatref &amp;a)</td></tr>
+<tr class="separator:aaf61da9a0e2a359532769df02cf9fe96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f911808b0f5a56ba3c1eb3d864fd53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a17f911808b0f5a56ba3c1eb3d864fd53">sc_dt::concat</a> (<a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:a17f911808b0f5a56ba3c1eb3d864fd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad916638f672b4360db099a261064c771"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad916638f672b4360db099a261064c771">sc_dt::concat</a> (const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:ad916638f672b4360db099a261064c771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf6e9dc159e1ac20975542a352971d45"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#acf6e9dc159e1ac20975542a352971d45">sc_dt::concat</a> (const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, bool b)</td></tr>
+<tr class="separator:acf6e9dc159e1ac20975542a352971d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8482b96f8374e960aa1fbaf5c5fcc5c5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a8482b96f8374e960aa1fbaf5c5fcc5c5">sc_dt::concat</a> (bool a, const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:a8482b96f8374e960aa1fbaf5c5fcc5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a046ec3a0652d8b99161098d3405eb82f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a046ec3a0652d8b99161098d3405eb82f">sc_dt::operator,</a> (<a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:a046ec3a0652d8b99161098d3405eb82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5d863a43654052f59d4445be08d13f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a3f5d863a43654052f59d4445be08d13f">sc_dt::operator,</a> (const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:a3f5d863a43654052f59d4445be08d13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb68ebb335e51d3c98cb4fb130597f8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#affb68ebb335e51d3c98cb4fb130597f8">sc_dt::operator,</a> (const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;a, bool b)</td></tr>
+<tr class="separator:affb68ebb335e51d3c98cb4fb130597f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b4c18e113cac3b399b59ffddfe0dfab"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01751.html">sc_dt::sc_concatref</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a9b4c18e113cac3b399b59ffddfe0dfab">sc_dt::operator,</a> (bool a, const <a class="el" href="a01759.html">sc_dt::sc_value_base</a> &amp;b)</td></tr>
+<tr class="separator:a9b4c18e113cac3b399b59ffddfe0dfab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aa9c8cfaad98b1592ef0f9d8e7421e82c"><td class="memItemLeft" align="right" valign="top">sc_byte_heap <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#aa9c8cfaad98b1592ef0f9d8e7421e82c">sc_core::sc_temp_heap</a></td></tr>
+<tr class="separator:aa9c8cfaad98b1592ef0f9d8e7421e82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for SystemC bit values. </p>
-<p>Original Author: Andy Goodrich, Forte Design Systems </p>
+<div class="textblock"><p>Concatenation support. </p>
+<p>Original Author: Andy Goodrich, Forte Design, Inc. </p>
 
-<p class="definition">Definition in file <a class="el" href="a00215_source.html">sc_value_base.h</a>.</p>
-</div></div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ae25ab91d8b3368afd1ea67a0db09f2cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae25ab91d8b3368afd1ea67a0db09f2cd">&#9670;&nbsp;</a></span>SC_CONCAT_BOOL_OP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_CONCAT_BOOL_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">OP</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">inline</span> <span class="keywordtype">bool</span> <span class="keyword">operator</span> OP ( <span class="keyword">const</span> sc_concatref&amp; a, <span class="keyword">const</span> sc_concatref&amp; <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a.value() OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>.<a class="code" href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">value</a>(); \</div><div class="line">    }  \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keywordtype">int</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keywordtype">long</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keyword">const</span> sc_int_base&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keyword">const</span> sc_uint_base&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keyword">const</span> sc_signed&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keywordtype">bool</span>,OP,<span class="keyword">const</span> sc_unsigned&amp;) \</div><div class="line">    inline <span class="keywordtype">bool</span> <span class="keyword">operator</span> OP ( <span class="keyword">const</span> sc_concatref&amp; a, <span class="keywordtype">bool</span> <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a.value() OP (<span class="keywordtype">int</span>)<a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>; \</div><div class="line">    } \</div><div class="line">    inline <span class="keywordtype">bool</span> <span class="keyword">operator</span> OP ( <span class="keywordtype">bool</span> a, <span class="keyword">const</span> sc_concatref&amp; <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return (<span class="keywordtype">int</span>)a OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>.<a class="code" href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">value</a>(); \</div><div class="line">    }</div><div class="ttc" id="a01727_html_a12b39db2525bb4e67850ec1af957dcce"><div class="ttname"><a href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">sc_dt::sc_uint_base::value</a></div><div class="ttdeci">uint_type value() const</div><div class="ttdef"><b>Definition:</b> <a href="a00209_source.html#l00810">sc_uint_base.h:810</a></div></div>
+<div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+<div class="ttc" id="a00562_html_adf3ee606b574990426012b8c6cc286f4"><div class="ttname"><a href="a00562.html#adf3ee606b574990426012b8c6cc286f4">sc_dt::b</a></div><div class="ttdeci">uint64 const sc_uint_base int b</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.html#l01005">sc_fxval.h:1005</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00727">727</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="a23967b280995669eaa2ce47dd513453b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23967b280995669eaa2ce47dd513453b">&#9670;&nbsp;</a></span>SC_CONCAT_OP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_CONCAT_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">RESULT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">OP&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">inline</span> RESULT <span class="keyword">operator</span> OP ( <span class="keyword">const</span> sc_concatref&amp; a, <span class="keyword">const</span> sc_concatref&amp; <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a.value() OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>.<a class="code" href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">value</a>(); \</div><div class="line">    }  \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keyword">const</span> sc_signed,OP,<span class="keywordtype">int</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keyword">const</span> sc_signed,OP,<span class="keywordtype">long</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keyword">const</span> sc_signed,OP,<a class="code" href="a00562.html#a7241d680b54f08c83418b8743a42b667">int64</a>) \</div><div class="line">    SC_CONCAT_OP_TYPE(RESULT,OP,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(RESULT,OP,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) \</div><div class="line">    SC_CONCAT_OP_TYPE(RESULT,OP,<a class="code" href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">uint64</a>) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keyword">const</span> sc_signed,OP,<span class="keyword">const</span> sc_int_base&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(RESULT,OP,<span class="keyword">const</span> sc_uint_base&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(<span class="keyword">const</span> sc_signed,OP,<span class="keyword">const</span> sc_signed&amp;) \</div><div class="line">    SC_CONCAT_OP_TYPE(RESULT,OP,<span class="keyword">const</span> sc_unsigned&amp;) \</div><div class="line">    inline RESULT <span class="keyword">operator</span> OP ( <span class="keyword">const</span> sc_concatref&amp; a, <span class="keywordtype">bool</span> <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a.value() OP (<span class="keywordtype">int</span>)<a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>; \</div><div class="line">    } \</div><div class="line">    inline RESULT <span class="keyword">operator</span> OP ( <span class="keywordtype">bool</span> a, <span class="keyword">const</span> sc_concatref&amp; <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return (<span class="keywordtype">int</span>)a OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>.<a class="code" href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">value</a>(); \</div><div class="line">    }</div><div class="ttc" id="a01727_html_a12b39db2525bb4e67850ec1af957dcce"><div class="ttname"><a href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">sc_dt::sc_uint_base::value</a></div><div class="ttdeci">uint_type value() const</div><div class="ttdef"><b>Definition:</b> <a href="a00209_source.html#l00810">sc_uint_base.h:810</a></div></div>
+<div class="ttc" id="a00562_html_a7241d680b54f08c83418b8743a42b667"><div class="ttname"><a href="a00562.html#a7241d680b54f08c83418b8743a42b667">sc_dt::int64</a></div><div class="ttdeci">int64_t int64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00188">sc_nbdefs.h:188</a></div></div>
+<div class="ttc" id="a00562_html_a0e509e6e05abf63a5c3f08a342e4cd91"><div class="ttname"><a href="a00562.html#a0e509e6e05abf63a5c3f08a342e4cd91">sc_dt::uint64</a></div><div class="ttdeci">uint64_t uint64</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00189">sc_nbdefs.h:189</a></div></div>
+<div class="ttc" id="a00562_html_adf3ee606b574990426012b8c6cc286f4"><div class="ttname"><a href="a00562.html#adf3ee606b574990426012b8c6cc286f4">sc_dt::b</a></div><div class="ttdeci">uint64 const sc_uint_base int b</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.html#l01005">sc_fxval.h:1005</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00702">702</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+<a id="a159127fe83ced79748eb34e49ae217ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159127fe83ced79748eb34e49ae217ac">&#9670;&nbsp;</a></span>SC_CONCAT_OP_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SC_CONCAT_OP_TYPE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">RESULT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">OP, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">OTHER_TYPE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">inline</span> RESULT <span class="keyword">operator</span> OP ( <span class="keyword">const</span> sc_concatref&amp; a, OTHER_TYPE <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a.value() OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>; \</div><div class="line">    } \</div><div class="line">    inline RESULT <span class="keyword">operator</span> OP ( OTHER_TYPE a, <span class="keyword">const</span> sc_concatref&amp; <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a> ) \</div><div class="line">    { \</div><div class="line">        return a OP <a class="code" href="a00562.html#adf3ee606b574990426012b8c6cc286f4">b</a>.<a class="code" href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">value</a>(); \</div><div class="line">    }</div><div class="ttc" id="a01727_html_a12b39db2525bb4e67850ec1af957dcce"><div class="ttname"><a href="a01727.html#a12b39db2525bb4e67850ec1af957dcce">sc_dt::sc_uint_base::value</a></div><div class="ttdeci">uint_type value() const</div><div class="ttdef"><b>Definition:</b> <a href="a00209_source.html#l00810">sc_uint_base.h:810</a></div></div>
+<div class="ttc" id="a00562_html_adf3ee606b574990426012b8c6cc286f4"><div class="ttname"><a href="a00562.html#adf3ee606b574990426012b8c6cc286f4">sc_dt::b</a></div><div class="ttdeci">uint64 const sc_uint_base int b</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.html#l01005">sc_fxval.h:1005</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00690">690</a> of file <a class="el" href="a00215_source.html">sc_concatref.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_2f58fca50dfde4753ec3f45c717d6cef.html">misc</a></li><li class="navelem"><a class="el" href="a00215.html">sc_value_base.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_2f58fca50dfde4753ec3f45c717d6cef.html">misc</a></li><li class="navelem"><a class="el" href="a00215.html">sc_concatref.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:53 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

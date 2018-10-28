@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -91,7 +91,16 @@ $(document).ready(function(){initNavTree('a00350.html','');});
 
 <p>Report ids for the tracing code.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for sc_tracing_ids.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00351.png" border="0" usemap="#sysc_2tracing_2sc__tracing__ids_8h" alt=""/></div>
+<map name="sysc_2tracing_2sc__tracing__ids_8h" id="sysc_2tracing_2sc__tracing__ids_8h">
+<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="121,95,283,121"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00352.png" border="0" usemap="#sysc_2tracing_2sc__tracing__ids_8hdep" alt=""/></div>
@@ -106,7 +115,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3a0fa0aac7295df1391acf37d9d281f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html#a3a0fa0aac7295df1391acf37d9d281f8">SC_DEFINE_MESSAGE</a>(id,  unused1,  unused2)&#160;&#160;&#160;namespace sc_core { extern const char id[]; }</td></tr>
+<tr class="memitem:a3a0fa0aac7295df1391acf37d9d281f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html#a3a0fa0aac7295df1391acf37d9d281f8">SC_DEFINE_MESSAGE</a>(id,  unused1,  unused2)&#160;&#160;&#160;namespace sc_core { extern <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char id[]; }</td></tr>
 <tr class="separator:a3a0fa0aac7295df1391acf37d9d281f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -119,8 +128,8 @@ Functions</h2></td></tr>
 <tr class="separator:a819bee64234556dfa0d2753c8a915e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a395727e204aba2f21300f91b07fc8f39"><td class="memItemLeft" align="right" valign="top">default timescale unit used for tracing VCD delta cycle tracing with pseudo object cannot not be traced&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html#a395727e204aba2f21300f91b07fc8f39">SC_DEFINE_MESSAGE</a> (SC_ID_TRACING_OBJECT_NAME_FILTERED_, 711, &quot;traced object name filtered&quot;) SC_DEFINE_MESSAGE(SC_ID_TRACING_INVALID_ENUM_VALUE_</td></tr>
 <tr class="separator:a395727e204aba2f21300f91b07fc8f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a772a2aca74518dfb2f9db67cec953f31"><td class="memItemLeft" align="right" valign="top">default timescale unit used for tracing VCD delta cycle tracing with pseudo object cannot not be traced traced <a class="el" href="a00011.html#a8ee29bf4d5892db299bc4ed81d3ace7f">value</a> of enumerated type undefined&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html#a772a2aca74518dfb2f9db67cec953f31">SC_DEFINE_MESSAGE</a> (SC_ID_TRACING_VCD_DUPLICATE_TIME_, 713, &quot;multiple VCD tracing cycles with the same time detected&quot;) SC_DEFINE_MESSAGE(SC_ID_TRACING_VCD_REVERSED_TIME_</td></tr>
-<tr class="separator:a772a2aca74518dfb2f9db67cec953f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30571c084e92049e7e88360d74e4b9bb"><td class="memItemLeft" align="right" valign="top">default timescale unit used for tracing VCD delta cycle tracing with pseudo object cannot not be traced traced <a class="el" href="a00011.html#a8ee29bf4d5892db299bc4ed81d3ace7f">value</a> of enumerated type undefined&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html#a30571c084e92049e7e88360d74e4b9bb">SC_DEFINE_MESSAGE</a> (SC_ID_TRACING_VCD_TIME_RESOLUTION_, 713, &quot;current kernel time is not representable in VCD time units&quot;) SC_DEFINE_MESSAGE(SC_ID_TRACING_REVERSED_TIME_</td></tr>
+<tr class="separator:a30571c084e92049e7e88360d74e4b9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Report ids for the tracing code. </p>
@@ -156,14 +165,12 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;namespace sc_core { extern const char id[]; }</td>
+          <td></td><td>&#160;&#160;&#160;namespace sc_core { extern <a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const char id[]; }</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Report ids (tracing)</p>
-<p>Report ids in the range of 700-799. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00041">41</a> of file <a class="el" href="a00350_source.html">sc_tracing_ids.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00046">46</a> of file <a class="el" href="a00350_source.html">sc_tracing_ids.h</a>.</p>
 
 </div>
 </div>
@@ -270,8 +277,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a772a2aca74518dfb2f9db67cec953f31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a772a2aca74518dfb2f9db67cec953f31">&#9670;&nbsp;</a></span>SC_DEFINE_MESSAGE() <span class="overload">[4/4]</span></h2>
+<a id="a30571c084e92049e7e88360d74e4b9bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30571c084e92049e7e88360d74e4b9bb">&#9670;&nbsp;</a></span>SC_DEFINE_MESSAGE() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +286,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">default timescale unit used for tracing VCD delta cycle tracing with pseudo object cannot not be traced traced <a class="el" href="a00011.html#a8ee29bf4d5892db299bc4ed81d3ace7f">value</a> of enumerated type undefined SC_DEFINE_MESSAGE </td>
           <td>(</td>
-          <td class="paramtype">SC_ID_TRACING_VCD_DUPLICATE_TIME_&#160;</td>
+          <td class="paramtype">SC_ID_TRACING_VCD_TIME_RESOLUTION_&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -291,7 +298,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&quot;multiple VCD tracing cycles with the same time detected&quot;&#160;</td>
+          <td class="paramtype">&quot;current kernel time is not representable in VCD time units&quot;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -328,7 +335,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_4eddbcb30e9a369379b31e2b2e8cd530.html">tracing</a></li><li class="navelem"><a class="el" href="a00350.html">sc_tracing_ids.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:55 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

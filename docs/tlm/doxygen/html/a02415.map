@@ -1,3 +1,6 @@
-<map id="tlm::tlm_fifo_config_size_if" name="tlm::tlm_fifo_config_size_if">
-<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="5,5,148,32"/>
+<map id="tlm::tlm_nonblocking_peek_if&lt; T &gt;" name="tlm::tlm_nonblocking_peek_if&lt; T &gt;">
+<area shape="rect" id="node3" href="$a02428.html" title="tlm::tlm_nonblocking\l_get_peek_if\&lt; T \&gt;" alt="" coords="5,169,145,211"/>
+<area shape="rect" id="node5" href="$a02420.html" title="tlm::tlm_peek_if\&lt; T \&gt;" alt="" coords="169,177,312,203"/>
+<area shape="rect" id="node2" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="87,5,229,32"/>
+<area shape="rect" id="node4" href="$a02432.html" title="tlm::tlm_get_peek_if\&lt; T \&gt;" alt="" coords="74,259,242,285"/>
 </map>

@@ -1,5 +1,7 @@
-<map id="tlm_utils::multi_init_base&lt; BUSWIDTH, TYPES, N, POL &gt;" name="tlm_utils::multi_init_base&lt; BUSWIDTH, TYPES, N, POL &gt;">
-<area shape="rect" id="node4" href="$a02611.html" title="tlm_utils::multi_passthrough\l_initiator_socket\&lt; BUSWIDTH,\l TYPES, N, POL \&gt;" alt="" coords="713,20,913,76"/>
-<area shape="rect" id="node2" href="$a02575.html" title="tlm::tlm_initiator\l_socket\&lt; BUSWIDTH, TYPES,\l N, POL \&gt;" alt="" coords="225,20,427,76"/>
-<area shape="rect" id="node3" href="$a02571.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="5,5,177,91"/>
+<map id="tlm::tlm_initiator_socket&lt; BUSWIDTH, TYPES, N, POL &gt;" name="tlm::tlm_initiator_socket&lt; BUSWIDTH, TYPES, N, POL &gt;">
+<area shape="rect" id="node2" href="$a02628.html" title="tlm::tlm_base_initiator\l_socket\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\l\&lt; TYPES \&gt;, N, POL \&gt;" alt="" coords="297,104,469,189"/>
+<area shape="rect" id="node3" href="$a02612.html" title="tlm::tlm_base_socket_if" alt="" coords="20,5,177,32"/>
+<area shape="rect" id="node4" href="$a02616.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, tlm_bw_transport_if\&lt;\l TYPES \&gt; \&gt;" alt="" coords="5,56,192,141"/>
+<area shape="rect" id="node5" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01227.html" title="sc_core::sc_port\&lt; tlm\l_fw_transport_if\&lt; TYPES\l \&gt;, N, POL \&gt;" alt="" coords="15,165,182,221"/>
+<area shape="rect" id="node6" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01147.html" title="sc_core::sc_export\l\&lt; bw_interface_type \&gt;" alt="" coords="25,246,173,287"/>
 </map>

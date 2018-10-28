@@ -1,4 +1,4 @@
-<map id="sc_dt::sc_lv&lt; W &gt;" name="sc_dt::sc_lv&lt; W &gt;">
-<area shape="rect" id="node2" href="$a01411.html" title="Arbitrary size logic vector base class. " alt="" coords="11,95,133,121"/>
-<area shape="rect" id="node3" href="$a01415.html" title="sc_dt::sc_proxy\&lt; sc\l_lv_base \&gt;" alt="" coords="5,5,139,47"/>
+<map id="sc_dt::sc_subref_r&lt; X &gt;" name="sc_dt::sc_subref_r&lt; X &gt;">
+<area shape="rect" id="node3" href="$a01411.html" title="sc_dt::sc_subref\&lt; X \&gt;" alt="" coords="11,169,156,196"/>
+<area shape="rect" id="node2" href="$a01447.html" title="sc_dt::sc_proxy\&lt; sc\l_subref_r\&lt; X \&gt; \&gt;" alt="" coords="17,5,150,47"/>
 </map>

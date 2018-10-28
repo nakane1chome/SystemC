@@ -1,10 +1,10 @@
 <map id="sysc/kernel/sc_module.h" name="sysc/kernel/sc_module.h">
-<area shape="rect" id="node2" href="$a00401.html" title="systemc" alt="" coords="143,177,212,203"/>
-<area shape="rect" id="node4" href="$a00296.html" title="Process access support. " alt="" coords="352,80,507,121"/>
-<area shape="rect" id="node6" href="$a00005.html" title="The clock channel. " alt="" coords="27,80,166,121"/>
-<area shape="rect" id="node7" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="190,80,328,121"/>
-<area shape="rect" id="node8" href="$a00284.html" title="For inline definitions of some utility functions. " alt="" coords="532,80,677,121"/>
-<area shape="rect" id="node3" href="$a00404.html" title="systemc.h" alt="" coords="138,259,217,285"/>
-<area shape="rect" id="node5" href="$a00317.html" title="Process spawning support. " alt="" coords="352,177,508,203"/>
-<area shape="rect" id="node9" href="$a00290.html" title="Definition of the simulation phase callbacks. " alt="" coords="532,169,676,211"/>
+<area shape="rect" id="node2" href="$a00404.html" title="systemc" alt="" coords="151,177,221,203"/>
+<area shape="rect" id="node4" href="$a00296.html" title="Process access support. " alt="" coords="353,80,507,121"/>
+<area shape="rect" id="node7" href="$a00005.html" title="The clock channel. " alt="" coords="27,80,166,121"/>
+<area shape="rect" id="node8" href="$a00017.html" title="Event Queue Facility Definitions. " alt="" coords="190,80,329,121"/>
+<area shape="rect" id="node9" href="$a00284.html" title="For inline definitions of some utility functions. " alt="" coords="532,80,677,121"/>
+<area shape="rect" id="node3" href="$a00407.html" title="systemc.h" alt="" coords="147,259,225,285"/>
+<area shape="rect" id="node5" href="$a00080.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="261,169,399,211"/>
+<area shape="rect" id="node6" href="$a00317.html" title="Process spawning support. " alt="" coords="424,177,580,203"/>
 </map>

@@ -1,3 +1,10 @@
-<map id="sysc/communication/sc_semaphore_if.h" name="sysc/communication/sc_semaphore_if.h">
-<area shape="rect" id="node2" href="$a00035.html" title="Abstract base class of all interface classes. " alt="" coords="5,95,144,136"/>
+<map id="sysc/communication/sc_semaphore.h" name="sysc/communication/sc_semaphore.h">
+<area shape="rect" id="node2" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="216,102,366,129"/>
+<area shape="rect" id="node7" href="$a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="391,102,546,129"/>
+<area shape="rect" id="node8" href="$a00056.html" title="The sc_semaphore_if interface class. " alt="" coords="570,95,708,136"/>
+<area shape="rect" id="node3" href="$a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="210,273,372,300"/>
+<area shape="rect" id="node4" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="30,184,176,225"/>
+<area shape="rect" id="node5" href="$a00311.html" title="Definition of the simulation context class. " alt="" coords="200,191,382,218"/>
+<area shape="rect" id="node6" href="$a00080.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="407,184,546,225"/>
+<area shape="rect" id="node9" href="$a00038.html" title="Abstract base class of all interface classes. " alt="" coords="570,184,708,225"/>
 </map>

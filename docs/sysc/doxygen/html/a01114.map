@@ -1,3 +1,4 @@
-<map id="sc_core::sc_event_finder" name="sc_core::sc_event_finder">
-<area shape="rect" id="node2" href="$a01119.html" title="sc_core::sc_event_finder\l_t\&lt; IF \&gt;" alt="" coords="5,80,168,121"/>
+<map id="sc_core::sc_clock" name="sc_core::sc_clock">
+<area shape="rect" id="node2" href="$a01255.html" title="sc_core::sc_signal\l\&lt; bool, SC_ONE_WRITER \&gt;" alt="" coords="5,95,189,136"/>
+<area shape="rect" id="node3" href="$a01251.html" title="sc_core::sc_signal\l_t\&lt; T, POL \&gt;" alt="" coords="34,5,161,47"/>
 </map>

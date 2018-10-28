@@ -1,4 +1,6 @@
-<map id="tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_req_rsp_channels/tlm_put_get_imp.h" name="tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_req_rsp_channels/tlm_put_get_imp.h">
-<area shape="rect" id="node2" href="$a00719.html" title="tlm_core/tlm_1/tlm\l_req_rsp/tlm_channels\l/tlm_req_rsp_channels\l/tlm_req_rsp_channels.h" alt="" coords="5,124,167,195"/>
-<area shape="rect" id="node3" href="$a00728.html" title="tlm_core/tlm_1/tlm\l_req_rsp/tlm_req_rsp.h" alt="" coords="10,243,162,284"/>
+<map id="tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo.h" name="tlm_core/tlm_1/tlm_req_rsp/tlm_channels/tlm_fifo/tlm_fifo.h">
+<area shape="rect" id="node2" href="$a00683.html" title="tlm_core/tlm_1/tlm\l_analysis/tlm_analysis\l_fifo.h" alt="" coords="11,117,159,173"/>
+<area shape="rect" id="node4" href="$a00731.html" title="tlm_core/tlm_1/tlm\l_req_rsp/tlm_channels\l/tlm_req_rsp_channels\l/tlm_req_rsp_channels.h" alt="" coords="183,109,344,180"/>
+<area shape="rect" id="node3" href="$a00680.html" title="tlm_core/tlm_1/tlm\l_analysis/tlm_analysis.h" alt="" coords="5,228,164,269"/>
+<area shape="rect" id="node5" href="$a00740.html" title="tlm_core/tlm_1/tlm\l_req_rsp/tlm_req_rsp.h" alt="" coords="189,228,341,269"/>
 </map>

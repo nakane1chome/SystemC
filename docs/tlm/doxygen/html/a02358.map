@@ -1,3 +1,4 @@
-<map id="tlm::tlm_blocking_transport_if&lt; TRANS &gt;" name="tlm::tlm_blocking_transport_if&lt; TRANS &gt;">
-<area shape="rect" id="node2" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01180.html" title="sc_core::sc_interface" alt="" coords="22,5,165,32"/>
+<map id="tlm::tlm_analysis_if&lt; T &gt;" name="tlm::tlm_analysis_if&lt; T &gt;">
+<area shape="rect" id="node2" href="$a02376.html" title="tlm::tlm_write_if\&lt; T \&gt;" alt="" coords="14,80,157,107"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a01199.html" title="sc_core::sc_interface" alt="" coords="14,5,157,32"/>
 </map>

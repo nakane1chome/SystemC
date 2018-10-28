@@ -1,3 +1,3 @@
-<map id="sc_core::sc_export_base" name="sc_core::sc_export_base">
-<area shape="rect" id="node2" href="$a01835.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="23,5,151,32"/>
+<map id="sc_core::sc_event_finder_t&lt; IF &gt;" name="sc_core::sc_event_finder_t&lt; IF &gt;">
+<area shape="rect" id="node2" href="$a01127.html" title="Event finder base class. " alt="" coords="5,5,168,32"/>
 </map>

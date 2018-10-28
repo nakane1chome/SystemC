@@ -1,4 +1,5 @@
-<map id="sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;" name="sc_core::sc_writer_policy_check&lt; SC_UNCHECKED_WRITERS &gt;">
-<area shape="rect" id="node2" href="$a01347.html" title="sc_core::sc_writer\l_policy_nocheck_port" alt="" coords="5,5,152,47"/>
-<area shape="rect" id="node3" href="$a01335.html" title="sc_core::sc_writer\l_policy_nocheck_write" alt="" coords="176,5,328,47"/>
+<map id="sc_core::sc_writer_policy_check_write" name="sc_core::sc_writer_policy_check_write">
+<area shape="rect" id="node2" href="$a01919.html" title="sc_core::sc_process\l_handle" alt="" coords="599,83,736,124"/>
+<area shape="rect" id="node4" href="$a01815.html" title="The event class. " alt="" coords="5,135,129,162"/>
+<area shape="rect" id="node6" href="$a01911.html" title="sc_core::sc_process_b" alt="" coords="277,283,428,310"/>
 </map>

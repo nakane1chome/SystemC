@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/datatypes/int/sc_int_ids.h File Reference</title>
+<title>SystemC: sysc/datatypes/int/sc_int_base.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,119 +82,158 @@ $(document).ready(function(){initNavTree('a00185.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">sc_int_ids.h File Reference</div>  </div>
+<div class="title">sc_int_base.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Report ids for the datatypes/int code.  
+<p>A signed integer whose length is less than 64 bit.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00380_source.html">sysc/utils/sc_report.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00224_source.html">sysc/kernel/sc_cmnhdr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00281_source.html">sysc/kernel/sc_object.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00218_source.html">sysc/datatypes/misc/sc_value_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00188_source.html">sysc/datatypes/int/sc_int_ids.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00191_source.html">sysc/datatypes/int/sc_length_param.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00194_source.html">sysc/datatypes/int/sc_nbdefs.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00209_source.html">sysc/datatypes/int/sc_uint_base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00392_source.html">sysc/utils/sc_temporary.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_int_ids.h:</div>
+Include dependency graph for sc_int_base.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00186.png" border="0" usemap="#sysc_2datatypes_2int_2sc__int__ids_8h" alt=""/></div>
-<map name="sysc_2datatypes_2int_2sc__int__ids_8h" id="sysc_2datatypes_2int_2sc__int__ids_8h">
-<area shape="rect" id="node2" href="a00380.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="145,95,286,121"/>
-<area shape="rect" id="node3" href="a00251.html" title="sysc/kernel/sc_except.h" alt="" coords="5,177,164,203"/>
-<area shape="rect" id="node5" href="a00383.html" title="sysc/utils/sc_report\l_handler.h" alt="" coords="266,169,397,211"/>
+<div class="center"><img src="a00186.png" border="0" usemap="#sysc_2datatypes_2int_2sc__int__base_8h" alt=""/></div>
+<map name="sysc_2datatypes_2int_2sc__int__base_8h" id="sysc_2datatypes_2int_2sc__int__base_8h">
+<area shape="rect" id="node2" href="a00224.html" title="sysc/kernel/sc_cmnhdr.h" alt="" coords="517,363,680,389"/>
+<area shape="rect" id="node8" href="a00281.html" title="Abstract base class of all SystemC `simulation&#39; objects. " alt="" coords="5,191,160,218"/>
+<area shape="rect" id="node11" href="a00218.html" title="Base class for SystemC bit values. " alt="" coords="903,184,1041,225"/>
+<area shape="rect" id="node12" href="a00194.html" title="Top level header file for arbitrary precision signed/unsigned. " alt="" coords="842,273,966,315"/>
+<area shape="rect" id="node13" href="a00188.html" title="Report ids for the datatypes/int code. " alt="" coords="185,184,309,225"/>
+<area shape="rect" id="node15" href="a00191.html" title="sysc/datatypes/int\l/sc_length_param.h" alt="" coords="333,184,467,225"/>
+<area shape="rect" id="node17" href="a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="533,95,657,136"/>
+<area shape="rect" id="node19" href="a00392.html" title="Temporary value pool classes. " alt="" coords="713,191,879,218"/>
+<area shape="rect" id="node9" href="a00221.html" title="Attribute classes. " alt="" coords="173,281,339,307"/>
+<area shape="rect" id="node14" href="a00377.html" title="Run&#45;time logging and reporting facilities. " alt="" coords="364,281,505,307"/>
+<area shape="rect" id="node16" href="a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="530,273,667,315"/>
+<area shape="rect" id="node18" href="a00152.html" title="sysc/datatypes/fx/scfx\l_ieee.h" alt="" coords="492,184,639,225"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00187.png" border="0" usemap="#sysc_2datatypes_2int_2sc__int__ids_8hdep" alt=""/></div>
-<map name="sysc_2datatypes_2int_2sc__int__ids_8hdep" id="sysc_2datatypes_2int_2sc__int__ids_8hdep">
-<area shape="rect" id="node2" href="a00197.html" title="External and friend functions for both sc_signed and. " alt="" coords="219,95,343,136"/>
-<area shape="rect" id="node7" href="a00182.html" title="A sc_int is a signed integer whose length is less than the. " alt="" coords="419,184,543,225"/>
-<area shape="rect" id="node8" href="a00206.html" title="A sc_uint is an unsigned integer whose length is less than. " alt="" coords="419,95,543,136"/>
-<area shape="rect" id="node3" href="a00125.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="5,184,143,225"/>
-<area shape="rect" id="node4" href="a00200.html" title="Arbitrary precision signed arithmetic. " alt="" coords="193,363,317,404"/>
-<area shape="rect" id="node5" href="a00194.html" title="External functions for both sc_signed and sc_unsigned. " alt="" coords="219,184,343,225"/>
-<area shape="rect" id="node6" href="a00209.html" title="Arbitrary precision unsigned arithmetic. " alt="" coords="293,273,417,315"/>
+<div class="center"><img src="a00187.png" border="0" usemap="#sysc_2datatypes_2int_2sc__int__base_8hdep" alt=""/></div>
+<map name="sysc_2datatypes_2int_2sc__int__base_8hdep" id="sysc_2datatypes_2int_2sc__int__base_8hdep">
+<area shape="rect" id="node2" href="a00107.html" title="Proxy base class for vector data types. " alt="" coords="55,95,179,136"/>
+<area shape="rect" id="node5" href="a00182.html" title="A signed integer whose length is less than 64 bits. " alt="" coords="203,95,327,136"/>
+<area shape="rect" id="node7" href="a00215.html" title="Concatenation support. " alt="" coords="351,95,488,136"/>
+<area shape="rect" id="node8" href="a00140.html" title="sysc/datatypes/fx/sc\l_fxval.h" alt="" coords="512,95,649,136"/>
+<area shape="rect" id="node10" href="a00158.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="674,95,821,136"/>
+<area shape="rect" id="node3" href="a00089.html" title="Proxy classes for vector data types. " alt="" coords="5,184,129,225"/>
+<area shape="rect" id="node4" href="a00095.html" title="Arbitrary size bit vector class. " alt="" coords="55,273,179,315"/>
+<area shape="rect" id="node6" href="a00404.html" title="systemc" alt="" coords="307,191,377,218"/>
+<area shape="rect" id="node9" href="a00131.html" title="sysc/datatypes/fx/sc\l_fxnum.h" alt="" coords="512,184,649,225"/>
+<area shape="rect" id="node11" href="a00110.html" title="sysc/datatypes/fx/fx.h" alt="" coords="675,191,819,218"/>
 </map>
 </div>
 </div>
 <p><a href="a00185_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a3a0fa0aac7295df1391acf37d9d281f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html#a3a0fa0aac7295df1391acf37d9d281f8">SC_DEFINE_MESSAGE</a>(id,  unused1,  unused2)&#160;&#160;&#160;namespace sc_core { extern const char id[]; }</td></tr>
-<tr class="separator:a3a0fa0aac7295df1391acf37d9d281f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01663.html">sc_dt::sc_int_bitref_r</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for <a class="el" href="a01659.html">sc_int</a> bit selection (r-value only).  <a href="a01663.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01667.html">sc_dt::sc_int_bitref</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for <a class="el" href="a01659.html">sc_int</a> bit selection (r-value and l-value).  <a href="a01667.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01671.html">sc_dt::sc_int_subref_r</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for <a class="el" href="a01659.html">sc_int</a> part selection (r-value only).  <a href="a01671.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01675.html">sc_dt::sc_int_subref</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy class for <a class="el" href="a01659.html">sc_int</a> part selection (r-value and l-value).  <a href="a01675.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01679.html">sc_dt::sc_int_base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for <a class="el" href="a01659.html">sc_int</a>.  <a href="a01679.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00562"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html">sc_dt</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a52b8e52f2a13bfb2b5cca397e5afc26b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a52b8e52f2a13bfb2b5cca397e5afc26b">sc_dt::operator==</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:a52b8e52f2a13bfb2b5cca397e5afc26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe2864ca0d95e72a56d849fbfae788a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#aebe2864ca0d95e72a56d849fbfae788a">sc_dt::operator!=</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:aebe2864ca0d95e72a56d849fbfae788a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79b4a602c7bb291b498f301e39bc1530"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a79b4a602c7bb291b498f301e39bc1530">sc_dt::operator&lt;</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:a79b4a602c7bb291b498f301e39bc1530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d64c7d8fd8762c112ae46f211503f77"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a8d64c7d8fd8762c112ae46f211503f77">sc_dt::operator&lt;=</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:a8d64c7d8fd8762c112ae46f211503f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86414a8d27d2afdcd786263470ec367"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad86414a8d27d2afdcd786263470ec367">sc_dt::operator&gt;</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:ad86414a8d27d2afdcd786263470ec367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7fab02514c9a007eb3b7c034b799bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a0f7fab02514c9a007eb3b7c034b799bc">sc_dt::operator&gt;=</a> (const sc_int_base &amp;a, const sc_int_base &amp;b)</td></tr>
+<tr class="separator:a0f7fab02514c9a007eb3b7c034b799bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a7d98fd7830f24dce9ffc5e6e8572c9"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a3a7d98fd7830f24dce9ffc5e6e8572c9">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;, const sc_int_bitref_r &amp;)</td></tr>
+<tr class="separator:a3a7d98fd7830f24dce9ffc5e6e8572c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523ab4c72ffead0d06514f30b7de3bf2"><td class="memItemLeft" align="right" valign="top">inline ::std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a523ab4c72ffead0d06514f30b7de3bf2">sc_dt::operator&gt;&gt;</a> (::std::istream &amp;, sc_int_bitref &amp;)</td></tr>
+<tr class="separator:a523ab4c72ffead0d06514f30b7de3bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea5e6016aea4c1e762212c1ede0ed50"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a1ea5e6016aea4c1e762212c1ede0ed50">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;, const sc_int_subref_r &amp;)</td></tr>
+<tr class="separator:a1ea5e6016aea4c1e762212c1ede0ed50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86ce81bcc9d96c64ae567b8898cd5d1"><td class="memItemLeft" align="right" valign="top">inline ::std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ab86ce81bcc9d96c64ae567b8898cd5d1">sc_dt::operator&gt;&gt;</a> (::std::istream &amp;, sc_int_subref &amp;)</td></tr>
+<tr class="separator:ab86ce81bcc9d96c64ae567b8898cd5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c0f2ff2691d402b6554422f40d32ada"><td class="memItemLeft" align="right" valign="top">inline ::std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a2c0f2ff2691d402b6554422f40d32ada">sc_dt::operator&lt;&lt;</a> (::std::ostream &amp;, const sc_int_base &amp;)</td></tr>
+<tr class="separator:a2c0f2ff2691d402b6554422f40d32ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d57f281d313f0e45a478d6df5d936b"><td class="memItemLeft" align="right" valign="top">inline ::std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad4d57f281d313f0e45a478d6df5d936b">sc_dt::operator&gt;&gt;</a> (::std::istream &amp;, sc_int_base &amp;)</td></tr>
+<tr class="separator:ad4d57f281d313f0e45a478d6df5d936b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67f370080f954dd2800d815e8d60e2bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a67f370080f954dd2800d815e8d60e2bb">sc_dt::and_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:a67f370080f954dd2800d815e8d60e2bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bdbd2a8fd306ecd9489060b5e864158"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a7bdbd2a8fd306ecd9489060b5e864158">sc_dt::nand_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:a7bdbd2a8fd306ecd9489060b5e864158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa252e6366ff6f6fcf4c0e7dc602691c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#aa252e6366ff6f6fcf4c0e7dc602691c2">sc_dt::or_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:aa252e6366ff6f6fcf4c0e7dc602691c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68efb66b2fa515e736a330ce1e3ad1a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a68efb66b2fa515e736a330ce1e3ad1a8">sc_dt::nor_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:a68efb66b2fa515e736a330ce1e3ad1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf2bb45fa6058e0efd14d9e8910ad528"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#abf2bb45fa6058e0efd14d9e8910ad528">sc_dt::xor_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:abf2bb45fa6058e0efd14d9e8910ad528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdae976a89c3486d7ed31a602365061a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#afdae976a89c3486d7ed31a602365061a">sc_dt::xnor_reduce</a> (const sc_int_subref_r &amp;a)</td></tr>
+<tr class="separator:afdae976a89c3486d7ed31a602365061a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2101f276e1032f6fdc800bd264ac30a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a2101f276e1032f6fdc800bd264ac30a5">sc_dt::and_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:a2101f276e1032f6fdc800bd264ac30a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b36262df9731c8c89dec5c4c2e4f7cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a5b36262df9731c8c89dec5c4c2e4f7cf">sc_dt::nand_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:a5b36262df9731c8c89dec5c4c2e4f7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a7968ee39893c9d1b23d202ade4cc6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a89a7968ee39893c9d1b23d202ade4cc6">sc_dt::or_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:a89a7968ee39893c9d1b23d202ade4cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0da1abf56530e17137eda7c30bdd3ddd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a0da1abf56530e17137eda7c30bdd3ddd">sc_dt::nor_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:a0da1abf56530e17137eda7c30bdd3ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea04231f49b7604846c402ec5b67d084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#aea04231f49b7604846c402ec5b67d084">sc_dt::xor_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:aea04231f49b7604846c402ec5b67d084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f41c1b52975945aa86d1e982e684137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#a8f41c1b52975945aa86d1e982e684137">sc_dt::xnor_reduce</a> (const sc_int_base &amp;a)</td></tr>
+<tr class="separator:a8f41c1b52975945aa86d1e982e684137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ae657c9bf8ae7574a16641c70f9416f64"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html#ae657c9bf8ae7574a16641c70f9416f64">SC_ID_REGISTER_ID_FAILED_</a> []</td></tr>
-<tr class="separator:ae657c9bf8ae7574a16641c70f9416f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c0dba74a3a9c344328ec28f1d947e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const uint_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00562.html#ad0c0dba74a3a9c344328ec28f1d947e1">sc_dt::mask_int</a> [<a class="el" href="a00194.html#a6edb67bade708e206888b4c84fa3638b">SC_INTWIDTH</a>][<a class="el" href="a00194.html#a6edb67bade708e206888b4c84fa3638b">SC_INTWIDTH</a>]</td></tr>
+<tr class="separator:ad0c0dba74a3a9c344328ec28f1d947e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Report ids for the datatypes/int code. </p>
-<p>Original Author: Martin Janssen, Synopsys, Inc., 2002-01-17 </p>
+<div class="textblock"><p>A signed integer whose length is less than 64 bit. </p>
+<p>Unlike arbitrary precision, arithmetic and bitwise operations are performed using the native types (hence capped at 64 bits). The sc_int integer is useful when the user does not need arbitrary precision and the performance is superior to sc_bigint/sc_biguint.</p>
+<p>Original Author: Amit Rao, Synopsys, Inc. </p>
 
-<p class="definition">Definition in file <a class="el" href="a00185_source.html">sc_int_ids.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3a0fa0aac7295df1391acf37d9d281f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a0fa0aac7295df1391acf37d9d281f8">&#9670;&nbsp;</a></span>SC_DEFINE_MESSAGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SC_DEFINE_MESSAGE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">id, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">unused1, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">unused2&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;namespace sc_core { extern const char id[]; }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Report ids (datatypes/int)</p>
-<p>Report ids in the range of 400-499. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00185_source.html#l00066">66</a> of file <a class="el" href="a00185_source.html">sc_int_ids.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ae657c9bf8ae7574a16641c70f9416f64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae657c9bf8ae7574a16641c70f9416f64">&#9670;&nbsp;</a></span>SC_ID_REGISTER_ID_FAILED_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char SC_ID_REGISTER_ID_FAILED_[]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00185_source.html">sc_int_base.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_4913bade71ac789252954d06e5b30a22.html">int</a></li><li class="navelem"><a class="el" href="a00185.html">sc_int_ids.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_5e69c086e82be690ab2b0365646e74e7.html">datatypes</a></li><li class="navelem"><a class="el" href="dir_4913bade71ac789252954d06e5b30a22.html">int</a></li><li class="navelem"><a class="el" href="a00185.html">sc_int_base.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:52 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

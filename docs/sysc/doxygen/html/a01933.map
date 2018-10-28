@@ -1,6 +1,5 @@
-<map id="sc_core::sc_spawn_options" name="sc_core::sc_spawn_options">
-<area shape="rect" id="node3" href="$a01183.html" title="Abstract base class of all interface classes. " alt="" coords="15,13,158,39"/>
-<area shape="rect" id="node5" href="$a01199.html" title="Abstract base class for class sc_port_b. " alt="" coords="12,78,161,105"/>
-<area shape="rect" id="node8" href="$a01115.html" title="Event finder base class. " alt="" coords="5,209,168,235"/>
-<area shape="rect" id="node10" href="$a01783.html" title="The event class. " alt="" coords="25,274,149,301"/>
+<map id="sc_core::sc_reset" name="sc_core::sc_reset">
+<area shape="rect" id="node3" href="$a01927.html" title="sc_core::sc_reset_target" alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node4" href="$a01271.html" title="Specialization of sc_signal_in_if&lt;T&gt; for type bool. " alt="" coords="193,95,320,136"/>
+<area shape="rect" id="node5" href="$a01199.html" title="Abstract base class of all interface classes. " alt="" coords="191,5,333,32"/>
 </map>

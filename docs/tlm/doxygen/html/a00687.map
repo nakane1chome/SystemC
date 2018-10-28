@@ -1,3 +1,4 @@
-<map id="tlm_core/tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_core_ifs.h" name="tlm_core/tlm_1/tlm_req_rsp/tlm_1_interfaces/tlm_core_ifs.h">
-<area shape="rect" id="node2" href="$a00695.html" title="tlm_core/tlm_1/tlm\l_req_rsp/tlm_1_interfaces\l/tlm_tag.h" alt="" coords="5,109,176,165"/>
+<map id="tlm_core/tlm_1/tlm_analysis/tlm_analysis_if.h" name="tlm_core/tlm_1/tlm_analysis/tlm_analysis_if.h">
+<area shape="rect" id="node2" href="$a00695.html" title="tlm_core/tlm_1/tlm\l_analysis/tlm_write_if.h" alt="" coords="14,95,169,136"/>
+<area shape="rect" id="node3" href="/media/sf_D_DRIVE/phil/github/open/systemc-clean/docs/sysc/doxygen/systemc.tag$a00404.html" title="systemc" alt="" coords="57,184,126,211"/>
 </map>

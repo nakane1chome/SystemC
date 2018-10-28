@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sysc/communication/sc_signal_resolved_ports.h File Reference</title>
+<title>SystemC: sysc/communication/sc_signal_resolved.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -83,36 +83,40 @@ $(document).ready(function(){initNavTree('a00068.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">sc_signal_resolved_ports.h File Reference</div>  </div>
+<div class="title">sc_signal_resolved.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The sc_signal_resolved port classes.  
+<p>The resolved signal class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00062_source.html">sysc/communication/sc_signal_ports.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00095_source.html">sysc/datatypes/bit/sc_logic.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00059_source.html">sysc/communication/sc_signal.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for sc_signal_resolved_ports.h:</div>
+Include dependency graph for sc_signal_resolved.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00069.png" border="0" usemap="#sysc_2communication_2sc__signal__resolved__ports_8h" alt=""/></div>
-<map name="sysc_2communication_2sc__signal__resolved__ports_8h" id="sysc_2communication_2sc__signal__resolved__ports_8h">
-<area shape="rect" id="node2" href="a00062.html" title="The sc_signal&lt;T&gt; port classes. " alt="" coords="304,109,443,151"/>
-<area shape="rect" id="node6" href="a00095.html" title="C++ implementation of logic type. Behaves. " alt="" coords="559,199,683,240"/>
-<area shape="rect" id="node3" href="a00014.html" title="Original Author: Martin Janssen, Synopsys, Inc. Stan Y. Liao, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="5,199,144,240"/>
-<area shape="rect" id="node4" href="a00044.html" title="Base classes of all port classes. " alt="" coords="59,288,197,329"/>
-<area shape="rect" id="node5" href="a00059.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="219,199,357,240"/>
-<area shape="rect" id="node7" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="382,206,535,233"/>
+<div class="center"><img src="a00069.png" border="0" usemap="#sysc_2communication_2sc__signal__resolved_8h" alt=""/></div>
+<map name="sysc_2communication_2sc__signal__resolved_8h" id="sysc_2communication_2sc__signal__resolved_8h">
+<area shape="rect" id="node2" href="a00059.html" title="The sc_signal&lt;T&gt; primitive channel class. " alt="" coords="378,95,517,136"/>
+<area shape="rect" id="node3" href="a00047.html" title="Base classes of all port classes. " alt="" coords="46,184,185,225"/>
+<area shape="rect" id="node4" href="a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="233,281,384,307"/>
+<area shape="rect" id="node5" href="a00311.html" title="Definition of the simulation context class. " alt="" coords="125,370,308,397"/>
+<area shape="rect" id="node6" href="a00293.html" title="Process base class support. " alt="" coords="5,452,169,479"/>
+<area shape="rect" id="node7" href="a00080.html" title="The sc_signal&lt;T&gt; writer policy definition. " alt="" coords="353,363,491,404"/>
+<area shape="rect" id="node8" href="a00050.html" title="Abstract base class of all primitive channel classes. " alt="" coords="510,184,649,225"/>
+<area shape="rect" id="node9" href="a00062.html" title="The sc_signal&lt;T&gt; interface classes. " alt="" coords="459,273,598,315"/>
+<area shape="rect" id="node10" href="a00098.html" title="C++ implementation of logic type. Behaves. " alt="" coords="673,184,797,225"/>
+<area shape="rect" id="node11" href="a00344.html" title="sysc/tracing/sc_trace.h" alt="" coords="821,191,975,218"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00070.png" border="0" usemap="#sysc_2communication_2sc__signal__resolved__ports_8hdep" alt=""/></div>
-<map name="sysc_2communication_2sc__signal__resolved__ports_8hdep" id="sysc_2communication_2sc__signal__resolved__ports_8hdep">
-<area shape="rect" id="node2" href="a00401.html" title="systemc" alt="" coords="40,109,109,136"/>
-<area shape="rect" id="node3" href="a00404.html" title="systemc.h" alt="" coords="35,184,114,211"/>
+<div class="center"><img src="a00070.png" border="0" usemap="#sysc_2communication_2sc__signal__resolved_8hdep" alt=""/></div>
+<map name="sysc_2communication_2sc__signal__resolved_8hdep" id="sysc_2communication_2sc__signal__resolved_8hdep">
+<area shape="rect" id="node2" href="a00404.html" title="systemc" alt="" coords="42,95,111,121"/>
+<area shape="rect" id="node3" href="a00407.html" title="systemc.h" alt="" coords="37,169,116,196"/>
 </map>
 </div>
 </div>
@@ -120,34 +124,33 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01299.html">sc_core::sc_in_resolved</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01295.html" title="The resolved signal class. ">sc_signal_resolved</a> input port class.  <a href="a01299.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01303.html">sc_core::sc_inout_resolved</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01295.html" title="The resolved signal class. ">sc_signal_resolved</a> input/output port class.  <a href="a01303.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01307.html">sc_core::sc_out_resolved</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="a01295.html" title="The resolved signal class. ">sc_signal_resolved</a> output port class.  <a href="a01307.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01319.html">sc_core::sc_signal_resolved</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The resolved signal class.  <a href="a01319.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00549"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html">sc_core</a></td></tr>
+<tr class="memitem:a00561"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html">sc_core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a739aaeec3538db2d544aaf62d19e7c6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.html#aff4a86b3f5de3ac2097081e7166fe89f">SC_API</a> const <a class="el" href="a00562.html#a223af6739d8c2583afe1493167e80f1f">sc_dt::sc_logic_value_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.html#a739aaeec3538db2d544aaf62d19e7c6a">sc_core::sc_logic_resolution_tbl</a> [4][4]</td></tr>
+<tr class="separator:a739aaeec3538db2d544aaf62d19e7c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The sc_signal_resolved port classes. </p>
-<p>Original Author: Martin Janssen, Synopsys, Inc., 2001-08-20</p>
+<div class="textblock"><p>The resolved signal class. </p>
+<p>Original Author: Martin Janssen, Synopsys, Inc., 2001-05-21</p>
 <p>CHANGE LOG IS AT THE END OF THE FILE </p>
 
-<p class="definition">Definition in file <a class="el" href="a00068_source.html">sc_signal_resolved_ports.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00068_source.html">sc_signal_resolved.h</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00068.html">sc_signal_resolved_ports.h</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="dir_b3fe251d03f02f270a00ddc1eaee8ac2.html">sysc</a></li><li class="navelem"><a class="el" href="dir_1f5acf9294170349f6e9bfe447c29bee.html">communication</a></li><li class="navelem"><a class="el" href="a00068.html">sc_signal_resolved.h</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:08:50 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

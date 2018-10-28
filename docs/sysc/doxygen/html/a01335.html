@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_writer_policy_nocheck_write Struct Reference</title>
+<title>SystemC: sc_core::sc_lv_resolve&lt; W &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,54 +82,49 @@ $(document).ready(function(){initNavTree('a01335.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a01332.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_writer_policy_nocheck_write Struct Reference</div>  </div>
+<div class="title">sc_core::sc_lv_resolve&lt; W &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00077_source.html">sysc/communication/sc_writer_policy.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for sc_core::sc_writer_policy_nocheck_write:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01334.png" border="0" usemap="#sc__core_1_1sc__writer__policy__nocheck__write_inherit__map" alt="Inheritance graph"/></div>
-<map name="sc__core_1_1sc__writer__policy__nocheck__write_inherit__map" id="sc__core_1_1sc__writer__policy__nocheck__write_inherit__map">
-<area shape="rect" id="node2" href="a01363.html" title="sc_core::sc_writer\l_policy_check\&lt; SC_UNCHECKED\l_WRITERS \&gt;" alt="" coords="5,95,224,151"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="a00074_source.html">sysc/communication/sc_signal_rv.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ad24d654acb3a926b761ad2ddd8f4e9d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01335.html#ad24d654acb3a926b761ad2ddd8f4e9d1">check_write</a> (<a class="el" href="a01835.html">sc_object</a> *, bool)</td></tr>
-<tr class="separator:ad24d654acb3a926b761ad2ddd8f4e9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e11d84a41e9b54d41e71d198e916f98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01335.html#a7e11d84a41e9b54d41e71d198e916f98">update</a> ()</td></tr>
-<tr class="separator:a7e11d84a41e9b54d41e71d198e916f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aaaeab3aeb3115d223f2e2f92d25ec2a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01335.html#aaaeab3aeb3115d223f2e2f92d25ec2a7">resolve</a> (<a class="el" href="a01439.html">sc_dt::sc_lv</a>&lt; W &gt; &amp;, const std::vector&lt; <a class="el" href="a01439.html">sc_dt::sc_lv</a>&lt; W &gt; *&gt; &amp;)</td></tr>
+<tr class="separator:aaaeab3aeb3115d223f2e2f92d25ec2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00073">73</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
+<div class="textblock"><h3>template&lt;int W&gt;<br />
+class sc_core::sc_lv_resolve&lt; W &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00053">53</a> of file <a class="el" href="a00074_source.html">sc_signal_rv.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad24d654acb3a926b761ad2ddd8f4e9d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad24d654acb3a926b761ad2ddd8f4e9d1">&#9670;&nbsp;</a></span>check_write()</h2>
+<a id="aaaeab3aeb3115d223f2e2f92d25ec2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaeab3aeb3115d223f2e2f92d25ec2a7">&#9670;&nbsp;</a></span>resolve()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;int W&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_writer_policy_nocheck_write::check_write </td>
+          <td class="memname">void <a class="el" href="a01335.html">sc_core::sc_lv_resolve</a>&lt; W &gt;::resolve </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a01835.html">sc_object</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype"><a class="el" href="a01439.html">sc_dt::sc_lv</a>&lt; W &gt; &amp;&#160;</td>
+          <td class="paramname"><em>result_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a01439.html">sc_dt::sc_lv</a>&lt; W &gt; *&gt; &amp;&#160;</td>
+          <td class="paramname"><em>values_</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -139,52 +134,25 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00075">75</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00069">69</a> of file <a class="el" href="a00074_source.html">sc_signal_rv.h</a>.</p>
 
 </div>
 </div>
-<a id="a7e11d84a41e9b54d41e71d198e916f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e11d84a41e9b54d41e71d198e916f98">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sc_core::sc_writer_policy_nocheck_write::update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00077">77</a> of file <a class="el" href="a00077_source.html">sc_writer_policy.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/communication/<a class="el" href="a00077_source.html">sc_writer_policy.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>sysc/communication/<a class="el" href="a00074_source.html">sc_signal_rv.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a01335.html">sc_writer_policy_nocheck_write</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a01335.html">sc_lv_resolve</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:01 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,8 +1,8 @@
-<map id="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;" name="tlm::tlm_base_initiator_socket&lt; BUSWIDTH, FW_IF, BW_IF, N, POL &gt;">
-<area shape="rect" id="node5" href="$a02596.html" title="tlm_initiator_socket\l\&lt; BUSWIDTH, TYPES \&gt;" alt="" coords="641,53,804,94"/>
-<area shape="rect" id="node2" href="$a02580.html" title="tlm::tlm_base_initiator\l_socket_b\&lt; BUSWIDTH, FW\l_IF, BW_IF \&gt;" alt="" coords="183,8,371,64"/>
-<area shape="rect" id="node3" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01208.html" title="sc_core::sc_port\&lt; FW\l_IF, N, POL \&gt;" alt="" coords="203,89,350,130"/>
-<area shape="rect" id="node4" href="/data/phil/github/systemc/systemc/docs/sysc/doxygen/systemc.tag$a01204.html" title="sc_core::sc_port_b\l\&lt; IF \&gt;" alt="" coords="5,89,135,130"/>
-<area shape="rect" id="node6" href="$a02700.html" title="tlm_utils::simple_initiator\l_socket\&lt; MODULE, BUSWIDTH,\l TYPES \&gt;" alt="" coords="852,5,1064,61"/>
-<area shape="rect" id="node7" href="$a02708.html" title="tlm_utils::simple_initiator\l_socket_tagged\&lt; MODULE,\l BUSWIDTH, TYPES \&gt;" alt="" coords="867,85,1049,141"/>
+<map id="tlm::tlm_extension_base" name="tlm::tlm_extension_base">
+<area shape="rect" id="node2" href="$a02596.html" title="tlm::tlm_extension\&lt; T \&gt;" alt="" coords="213,5,367,32"/>
+<area shape="rect" id="node3" href="$a02596.html" title="tlm::tlm_extension\l\&lt; instance_specific\l_extension_carrier \&gt;" alt="" coords="221,56,359,112"/>
+<area shape="rect" id="node5" href="$a02596.html" title="tlm::tlm_extension\l\&lt; mm_end_event_ext \&gt;" alt="" coords="212,137,368,178"/>
+<area shape="rect" id="node6" href="$a02596.html" title="tlm::tlm_extension\l\&lt; tlm_endian_context \&gt;" alt="" coords="212,202,368,243"/>
+<area shape="rect" id="node4" href="$a02664.html" title="tlm_utils::instance\l_specific_extension\l_carrier" alt="" coords="429,56,562,112"/>
+<area shape="rect" id="node7" href="$a02580.html" title="tlm::tlm_endian_context" alt="" coords="416,209,575,236"/>
 </map>

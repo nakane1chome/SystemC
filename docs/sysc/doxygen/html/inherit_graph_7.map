@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$a02283.html" title="Proxy class for sc_proxy bit selection (r&#45;value only). " alt="" coords="5,5,119,32"/>
+<area shape="rect" id="node1" href="$a01395.html" title="sc_dt::sc_bitref_conv\l_r\&lt; T, Traits \&gt;" alt="" coords="5,5,148,47"/>
+<area shape="rect" id="node2" href="$a02331.html" title="Proxy class for sc_proxy bit selection (r&#45;value only). " alt="" coords="196,13,309,39"/>
+<area shape="rect" id="node3" href="$a01403.html" title="sc_dt::sc_bitref\&lt; X \&gt;" alt="" coords="357,13,496,39"/>
 </map>

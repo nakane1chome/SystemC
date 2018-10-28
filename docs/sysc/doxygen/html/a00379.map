@@ -1,4 +1,27 @@
-<map id="sysc/utils/sc_pvector.h" name="sysc/utils/sc_pvector.h">
-<area shape="rect" id="node2" href="$a00401.html" title="systemc" alt="" coords="46,80,115,107"/>
-<area shape="rect" id="node3" href="$a00404.html" title="systemc.h" alt="" coords="41,155,120,181"/>
+<map id="sysc/utils/sc_report.h" name="sysc/utils/sc_report.h">
+<area shape="rect" id="node2" href="$a00260.html" title="Report ids for the kernel code. " alt="" coords="662,169,807,211"/>
+<area shape="rect" id="node8" href="$a00011.html" title="Report ids for the communication code. " alt="" coords="319,80,486,121"/>
+<area shape="rect" id="node11" href="$a00122.html" title="Report ids for the datatypes/fx code. " alt="" coords="706,259,843,300"/>
+<area shape="rect" id="node16" href="$a00086.html" title="Report ids for the datatypes/bit code. " alt="" coords="1002,169,1126,211"/>
+<area shape="rect" id="node17" href="$a00200.html" title="External and friend functions for both sc_signed and. " alt="" coords="867,259,991,300"/>
+<area shape="rect" id="node22" href="$a00188.html" title="Report ids for the datatypes/int code. " alt="" coords="997,80,1121,121"/>
+<area shape="rect" id="node25" href="$a00383.html" title="Function provided for debugging purposes. " alt="" coords="1145,80,1268,121"/>
+<area shape="rect" id="node26" href="$a00386.html" title="Implementation of a simple string class. " alt="" coords="1292,87,1431,114"/>
+<area shape="rect" id="node3" href="$a00269.html" title="Base class of all hierarchical modules and channels. " alt="" coords="335,355,497,382"/>
+<area shape="rect" id="node4" href="$a00293.html" title="Process base class support. " alt="" coords="334,266,498,293"/>
+<area shape="rect" id="node6" href="$a00248.html" title="Original Author: Martin Janssen, Synopsys, Inc., 2001&#45;05&#45;21. " alt="" coords="107,266,258,293"/>
+<area shape="rect" id="node5" href="$a00047.html" title="Base classes of all port classes. " alt="" coords="172,348,311,389"/>
+<area shape="rect" id="node7" href="$a00023.html" title="The sc_fifo&lt;T&gt; primitive channel class. " alt="" coords="5,348,144,389"/>
+<area shape="rect" id="node9" href="$a00020.html" title="Base classes of all export classes. " alt="" coords="333,169,472,211"/>
+<area shape="rect" id="node10" href="$a00077.html" title="The resolved vector signal ports. " alt="" coords="496,169,637,211"/>
+<area shape="rect" id="node12" href="$a00128.html" title="sysc/datatypes/fx/sc\l_fxdefs.h" alt="" coords="854,348,991,389"/>
+<area shape="rect" id="node13" href="$a00113.html" title="sysc/datatypes/fx/sc\l_context.h" alt="" coords="693,348,830,389"/>
+<area shape="rect" id="node14" href="$a00161.html" title="sysc/datatypes/fx/scfx\l_params.h" alt="" coords="521,348,668,389"/>
+<area shape="rect" id="node15" href="$a00158.html" title="sysc/datatypes/fx/scfx\l_other_defs.h" alt="" coords="1168,348,1315,389"/>
+<area shape="rect" id="node18" href="$a00104.html" title="Arbitrary size logic vector class. " alt="" coords="1017,616,1141,657"/>
+<area shape="rect" id="node19" href="$a00095.html" title="Arbitrary size bit vector class. " alt="" coords="1093,527,1217,568"/>
+<area shape="rect" id="node20" href="$a00089.html" title="Proxy classes for vector data types. " alt="" coords="1118,437,1242,479"/>
+<area shape="rect" id="node21" href="$a00107.html" title="Proxy base class for vector data types. " alt="" coords="1339,348,1463,389"/>
+<area shape="rect" id="node23" href="$a00185.html" title="A signed integer whose length is less than 64 bit. " alt="" coords="1270,259,1394,300"/>
+<area shape="rect" id="node24" href="$a00209.html" title="An unsigned integer whose length is less than 64 bits. " alt="" coords="1170,169,1294,211"/>
 </map>

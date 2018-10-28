@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SystemC: sc_core::sc_report_handler::msg_def_items Struct Reference</title>
+<title>SystemC: sc_core::sc_plist_iter&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SystemC
-   &#160;<span id="projectnumber">2.3.1</span>
+   &#160;<span id="projectnumber">2.3.2</span>
    </div>
    <div id="projectbrief">Accellera SystemC proof-of-concept library</div>
   </td>
@@ -82,112 +82,637 @@ $(document).ready(function(){initNavTree('a02055.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a02052.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">sc_core::sc_report_handler::msg_def_items Struct Reference</div>  </div>
+<div class="title">sc_core::sc_plist_iter&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00383_source.html">sysc/utils/sc_report_handler.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00362_source.html">sysc/utils/sc_list.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for sc_core::sc_report_handler::msg_def_items:</div>
+Inheritance diagram for sc_core::sc_plist_iter&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a02053.png" border="0" usemap="#sc__core_1_1sc__report__handler_1_1msg__def__items_coll__map" alt="Collaboration graph"/></div>
-<map name="sc__core_1_1sc__report__handler_1_1msg__def__items_coll__map" id="sc__core_1_1sc__report__handler_1_1msg__def__items_coll__map">
-<area shape="rect" id="node2" href="a02047.html" title="Exception message definition structure. " alt="" coords="16,5,159,32"/>
+<div class="center"><img src="a02054.png" border="0" usemap="#sc__core_1_1sc__plist__iter_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sc__core_1_1sc__plist__iter_3_01_t_01_4_inherit__map" id="sc__core_1_1sc__plist__iter_3_01_t_01_4_inherit__map">
+<area shape="rect" id="node2" href="a02063.html" title="sc_core::sc_plist_base_iter" alt="" coords="5,5,180,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sc_core::sc_plist_iter&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a02053.png" border="0" usemap="#sc__core_1_1sc__plist__iter_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sc__core_1_1sc__plist__iter_3_01_t_01_4_coll__map" id="sc__core_1_1sc__plist__iter_3_01_t_01_4_coll__map">
+<area shape="rect" id="node2" href="a02063.html" title="sc_core::sc_plist_base_iter" alt="" coords="5,5,180,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a25f7fcfd203938cfd56d7e88ccd06c40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02047.html">sc_msg_def</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a25f7fcfd203938cfd56d7e88ccd06c40">md</a></td></tr>
-<tr class="separator:a25f7fcfd203938cfd56d7e88ccd06c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8253f5d219b3ce22d23a188d0d54aaa2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a8253f5d219b3ce22d23a188d0d54aaa2">count</a></td></tr>
-<tr class="separator:a8253f5d219b3ce22d23a188d0d54aaa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8682742558710f31eca63bb7d3dfc7d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a8682742558710f31eca63bb7d3dfc7d8">allocated</a></td></tr>
-<tr class="separator:a8682742558710f31eca63bb7d3dfc7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec30d923e1cff4e0070210eff0442b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02055.html">msg_def_items</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#aaec30d923e1cff4e0070210eff0442b8">next</a></td></tr>
-<tr class="separator:aaec30d923e1cff4e0070210eff0442b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a889f516a6f037d12e5599933dcb644a8"><td class="memItemLeft" align="right" valign="top">typedef sc_plist_elem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">handle_t</a></td></tr>
+<tr class="separator:a889f516a6f037d12e5599933dcb644a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9e7bd44e5f0d2b500a6bc6917df9e697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a9e7bd44e5f0d2b500a6bc6917df9e697">sc_plist_iter</a> (<a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; *l, bool from_tail=false)</td></tr>
+<tr class="separator:a9e7bd44e5f0d2b500a6bc6917df9e697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd435b0c913165e93302a9314441dd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a0dd435b0c913165e93302a9314441dd8">sc_plist_iter</a> (<a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; &amp;l, bool from_tail=false)</td></tr>
+<tr class="separator:a0dd435b0c913165e93302a9314441dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ff33733a48d03cb5db0414a36f10625"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a1ff33733a48d03cb5db0414a36f10625">~sc_plist_iter</a> ()</td></tr>
+<tr class="separator:a1ff33733a48d03cb5db0414a36f10625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce5631c8e155002f8286d099d0111f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a6ce5631c8e155002f8286d099d0111f2">reset</a> (<a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; *l, bool from_tail=false)</td></tr>
+<tr class="separator:a6ce5631c8e155002f8286d099d0111f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1106e475e5d6a865ee5ae45db89d2d18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a1106e475e5d6a865ee5ae45db89d2d18">reset</a> (<a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; &amp;l, bool from_tail=false)</td></tr>
+<tr class="separator:a1106e475e5d6a865ee5ae45db89d2d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03ce911e8392844b7d18c1513fce135a"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a03ce911e8392844b7d18c1513fce135a">operator*</a> () const</td></tr>
+<tr class="separator:a03ce911e8392844b7d18c1513fce135a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a655c058dd5a6218d9fa1861635e80d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a9a655c058dd5a6218d9fa1861635e80d">get</a> () const</td></tr>
+<tr class="separator:a9a655c058dd5a6218d9fa1861635e80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08622141232a796204065a033bfcaef6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02055.html#a08622141232a796204065a033bfcaef6">set</a> (T d)</td></tr>
+<tr class="separator:a08622141232a796204065a033bfcaef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7739c0e2f32670497e09af2849c06073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a7739c0e2f32670497e09af2849c06073">reset</a> (<a class="el" href="a02059.html">sc_plist_base</a> *l, bool from_tail=false)</td></tr>
+<tr class="separator:a7739c0e2f32670497e09af2849c06073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f5d3e1126ae29a608ff7714af31535"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a84f5d3e1126ae29a608ff7714af31535">empty</a> () const</td></tr>
+<tr class="separator:a84f5d3e1126ae29a608ff7714af31535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2482647530779ce31fd962346d52ee38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a2482647530779ce31fd962346d52ee38">operator++</a> (int)</td></tr>
+<tr class="separator:a2482647530779ce31fd962346d52ee38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77eb26c6fdaa46fac35c03deb87ae904"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a77eb26c6fdaa46fac35c03deb87ae904">operator--</a> (int)</td></tr>
+<tr class="separator:a77eb26c6fdaa46fac35c03deb87ae904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b239a365fd480fd48bddac451ae86a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a67b239a365fd480fd48bddac451ae86a">set</a> (void *d)</td></tr>
+<tr class="separator:a67b239a365fd480fd48bddac451ae86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a896674804d288b06e71cbc3d978e6c2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a896674804d288b06e71cbc3d978e6c2e">remove</a> ()</td></tr>
+<tr class="separator:a896674804d288b06e71cbc3d978e6c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab24dde879b11e45a8c0844ef16f172b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#ab24dde879b11e45a8c0844ef16f172b2">remove</a> (int direction)</td></tr>
+<tr class="separator:ab24dde879b11e45a8c0844ef16f172b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5920701fa6b8b38eab20618b5db45553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#a5920701fa6b8b38eab20618b5db45553">set_handle</a> (<a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">handle_t</a> h)</td></tr>
+<tr class="separator:a5920701fa6b8b38eab20618b5db45553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62642550c9ca1ef2b7c3b09daf1d9ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">handle_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02063.html#ac62642550c9ca1ef2b7c3b09daf1d9ca">get_handle</a> () const</td></tr>
+<tr class="separator:ac62642550c9ca1ef2b7c3b09daf1d9ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00383_source.html#l00121">121</a> of file <a class="el" href="a00383_source.html">sc_report_handler.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8682742558710f31eca63bb7d3dfc7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8682742558710f31eca63bb7d3dfc7d8">&#9670;&nbsp;</a></span>allocated</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+class sc_core::sc_plist_iter&lt; T &gt;</h3>
+
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00043">43</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a889f516a6f037d12e5599933dcb644a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889f516a6f037d12e5599933dcb644a8">&#9670;&nbsp;</a></span>handle_t</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool sc_core::sc_report_handler::msg_def_items::allocated</td>
+          <td class="memname">typedef sc_plist_elem* <a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">sc_core::sc_plist_base_iter::handle_t</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00383_source.html#l00125">125</a> of file <a class="el" href="a00383_source.html">sc_report_handler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00082">82</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
 
 </div>
 </div>
-<a id="a8253f5d219b3ce22d23a188d0d54aaa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8253f5d219b3ce22d23a188d0d54aaa2">&#9670;&nbsp;</a></span>count</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9e7bd44e5f0d2b500a6bc6917df9e697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7bd44e5f0d2b500a6bc6917df9e697">&#9670;&nbsp;</a></span>sc_plist_iter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int sc_core::sc_report_handler::msg_def_items::count</td>
+          <td class="memname"><a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::<a class="el" href="a02055.html">sc_plist_iter</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>from_tail</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00383_source.html#l00124">124</a> of file <a class="el" href="a00383_source.html">sc_report_handler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00142">142</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
 
 </div>
 </div>
-<a id="a25f7fcfd203938cfd56d7e88ccd06c40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f7fcfd203938cfd56d7e88ccd06c40">&#9670;&nbsp;</a></span>md</h2>
+<a id="a0dd435b0c913165e93302a9314441dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd435b0c913165e93302a9314441dd8">&#9670;&nbsp;</a></span>sc_plist_iter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02047.html">sc_msg_def</a>* sc_core::sc_report_handler::msg_def_items::md</td>
+          <td class="memname"><a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::<a class="el" href="a02055.html">sc_plist_iter</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>from_tail</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00383_source.html#l00123">123</a> of file <a class="el" href="a00383_source.html">sc_report_handler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00147">147</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
 
 </div>
 </div>
-<a id="aaec30d923e1cff4e0070210eff0442b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaec30d923e1cff4e0070210eff0442b8">&#9670;&nbsp;</a></span>next</h2>
+<a id="a1ff33733a48d03cb5db0414a36f10625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ff33733a48d03cb5db0414a36f10625">&#9670;&nbsp;</a></span>~sc_plist_iter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02055.html">msg_def_items</a>* sc_core::sc_report_handler::msg_def_items::next</td>
+          <td class="memname"><a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::~<a class="el" href="a02055.html">sc_plist_iter</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00383_source.html#l00126">126</a> of file <a class="el" href="a00383_source.html">sc_report_handler.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00152">152</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>sysc/utils/<a class="el" href="a00383_source.html">sc_report_handler.h</a></li>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a84f5d3e1126ae29a608ff7714af31535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f5d3e1126ae29a608ff7714af31535">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sc_core::sc_plist_base_iter::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a655c058dd5a6218d9fa1861635e80d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a655c058dd5a6218d9fa1861635e80d">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00167">167</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="ac62642550c9ca1ef2b7c3b09daf1d9ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62642550c9ca1ef2b7c3b09daf1d9ca">&#9670;&nbsp;</a></span>get_handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">handle_t</a> sc_core::sc_plist_base_iter::get_handle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00097">97</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="a03ce911e8392844b7d18c1513fce135a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03ce911e8392844b7d18c1513fce135a">&#9670;&nbsp;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00166">166</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="a2482647530779ce31fd962346d52ee38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2482647530779ce31fd962346d52ee38">&#9670;&nbsp;</a></span>operator++()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a77eb26c6fdaa46fac35c03deb87ae904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77eb26c6fdaa46fac35c03deb87ae904">&#9670;&nbsp;</a></span>operator--()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::operator-- </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a896674804d288b06e71cbc3d978e6c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a896674804d288b06e71cbc3d978e6c2e">&#9670;&nbsp;</a></span>remove() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::remove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab24dde879b11e45a8c0844ef16f172b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab24dde879b11e45a8c0844ef16f172b2">&#9670;&nbsp;</a></span>remove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::remove </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7739c0e2f32670497e09af2849c06073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7739c0e2f32670497e09af2849c06073">&#9670;&nbsp;</a></span>reset() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02059.html">sc_plist_base</a> *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>from_tail</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ce5631c8e155002f8286d099d0111f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ce5631c8e155002f8286d099d0111f2">&#9670;&nbsp;</a></span>reset() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>from_tail</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00157">157</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="a1106e475e5d6a865ee5ae45db89d2d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1106e475e5d6a865ee5ae45db89d2d18">&#9670;&nbsp;</a></span>reset() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a01955.html">sc_plist</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>from_tail</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00161">161</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="a67b239a365fd480fd48bddac451ae86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b239a365fd480fd48bddac451ae86a">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::set </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08622141232a796204065a033bfcaef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08622141232a796204065a033bfcaef6">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02055.html">sc_core::sc_plist_iter</a>&lt; T &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00168">168</a> of file <a class="el" href="a00362_source.html">sc_list.h</a>.</p>
+
+</div>
+</div>
+<a id="a5920701fa6b8b38eab20618b5db45553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5920701fa6b8b38eab20618b5db45553">&#9670;&nbsp;</a></span>set_handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sc_core::sc_plist_base_iter::set_handle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02063.html#a889f516a6f037d12e5599933dcb644a8">handle_t</a>&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>sysc/utils/<a class="el" href="a00362_source.html">sc_list.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00549.html">sc_core</a></li><li class="navelem"><a class="el" href="a02051.html">sc_report_handler</a></li><li class="navelem"><a class="el" href="a02055.html">msg_def_items</a></li>
-    <li class="footer">Generated on Thu Sep 6 2018 22:43:33 for SystemC by
+    <li class="navelem"><a class="el" href="a00561.html">sc_core</a></li><li class="navelem"><a class="el" href="a02055.html">sc_plist_iter</a></li>
+    <li class="footer">Generated on Sun Oct 28 2018 23:09:04 for SystemC by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

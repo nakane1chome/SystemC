@@ -1,5 +1,4 @@
-<map id="sc_core::sc_inout_rv&lt; W &gt;" name="sc_core::sc_inout_rv&lt; W &gt;">
-<area shape="rect" id="node4" href="$a01327.html" title="sc_core::sc_out_rv\&lt; W \&gt;" alt="" coords="669,27,832,54"/>
-<area shape="rect" id="node2" href="$a01279.html" title="sc_core::sc_inout\&lt;\l sc_dt::sc_lv\&lt; W \&gt; \&gt;" alt="" coords="265,20,401,61"/>
-<area shape="rect" id="node3" href="$a01211.html" title="Generic port class and base class for other port classes. " alt="" coords="5,5,217,76"/>
+<map id="sc_core::sc_in_resolved" name="sc_core::sc_in_resolved">
+<area shape="rect" id="node2" href="$a01299.html" title="Specialization of sc_in&lt;T&gt; for type sc_dt::sc_logic. " alt="" coords="21,124,148,165"/>
+<area shape="rect" id="node3" href="$a01227.html" title="sc_core::sc_port\&lt; sc\l_signal_in_if\&lt; sc_dt\l::sc_logic \&gt;, 1, SC_ONE\l_OR_MORE_BOUND \&gt;" alt="" coords="5,5,164,76"/>
 </map>
