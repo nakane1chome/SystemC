@@ -1,18 +1,19 @@
-
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -30,6 +31,8 @@
 #include "sysc/kernel/sc_simcontext.h"
 #include "sysc/kernel/sc_module.h"
 #include "sysc/kernel/sc_object_int.h"
+
+#include <sstream>
 
 namespace sc_core {
 
@@ -65,11 +68,6 @@ sc_export_base::before_end_of_elaboration()
 void
 sc_export_base::construction_done()
 {
-    if ( get_interface() == 0 )
-    {
-      report_error( SC_ID_SC_EXPORT_NOT_BOUND_AFTER_CONSTRUCTION_, 0);
-    }
-
     sc_module* parent = static_cast<sc_module*>( get_parent_object() );
     sc_object::hierarchy_scope scope( parent );
     before_end_of_elaboration();
@@ -86,6 +84,12 @@ sc_export_base::end_of_elaboration()
 void
 sc_export_base::elaboration_done()
 {
+    if ( get_interface() == 0 )
+    {
+        report_error( SC_ID_COMPLETE_BINDING_, "export not bound" );
+        // may continue, if suppressed
+    }
+
     sc_module* parent = static_cast<sc_module*>( get_parent_object() );
     sc_object::hierarchy_scope scope( parent );
     end_of_elaboration();
@@ -126,13 +130,11 @@ sc_export_base::simulation_done()
 void
 sc_export_base::report_error( const char* id, const char* add_msg ) const
 {
-    char msg[BUFSIZ];
-    if( add_msg != 0 ) {
-        std::sprintf( msg, "%s: export '%s' (%s)", add_msg, name(), kind() );
-    } else {
-        std::sprintf( msg, "export '%s' (%s)", name(), kind() );
-    }
-    SC_REPORT_ERROR( id, msg );
+    std::stringstream msg;
+    if (add_msg != 0)
+        msg << add_msg << ": ";
+    msg << "export '" << name() << "' (" << kind() << ")";
+    SC_REPORT_ERROR( id, msg.str().c_str() );
 }
 
 
@@ -147,34 +149,31 @@ void
 sc_export_registry::insert( sc_export_base* export_ )
 {
     if( sc_is_running() ) {
-	export_->report_error(SC_ID_INSERT_EXPORT_, "simulation running");
+        export_->report_error(SC_ID_INSERT_EXPORT_, "simulation running");
+        return;
     }
 
     if( m_simc->elaboration_done()  ) {
-       export_->report_error(SC_ID_INSERT_EXPORT_, "elaboration done");
+        export_->report_error(SC_ID_INSERT_EXPORT_, "elaboration done");
+        return;
     }
-
 
 #ifdef DEBUG_SYSTEMC
     // check if port_ is already inserted
     for( int i = size() - 1; i >= 0; -- i ) {
-	if( export_ == m_export_vec[i] ) {
-	    export_->report_error( SC_ID_INSERT_EXPORT_, 
-	                           "export already inserted ");
-	}
+        if( export_ == m_export_vec[i] ) {
+            export_->report_error( SC_ID_INSERT_EXPORT_,
+                                   "export already inserted ");
+            return;
+        }
     }
 #endif
 
-/* 
-    //TBD:  maybe we want to do this stuf for later
-
-    // append the port to the current module's vector of ports
     sc_module* curr_module = m_simc->hierarchy_curr();
     if( curr_module == 0 ) {
-	port_->report_error( SC_ID_PORT_OUTSIDE_MODULE_ );
+        export_->report_error( SC_ID_EXPORT_OUTSIDE_MODULE_ );
+        return;
     }
-    curr_module->append_port( port_ );
-*/
 
     // insert
     m_export_vec.push_back( export_ );
@@ -191,12 +190,13 @@ sc_export_registry::remove( sc_export_base* export_ )
 	}
     }
     if( i == -1 ) {
-	export_->report_error( SC_ID_SC_EXPORT_NOT_REGISTERED_ );
+        export_->report_error( SC_ID_SC_EXPORT_NOT_REGISTERED_ );
+        return;
     }
 
     // remove
-    m_export_vec[i] = m_export_vec[size() - 1];
-    m_export_vec.resize(size()-1);
+    m_export_vec[i] = m_export_vec.back();
+    m_export_vec.pop_back();
 }
 
 // constructor

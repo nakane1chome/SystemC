@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -33,6 +35,11 @@
 
 #include "sysc/communication/sc_writer_policy.h"
 
+#if defined(_MSC_VER) && !defined(SC_WIN_DLL_WARN)
+#pragma warning(push)
+#pragma warning(disable: 4251) // DLL import for std::vector
+#endif
+
 namespace sc_core {
 
 // FORWARD CLASS REFERENCES:
@@ -52,7 +59,7 @@ class sc_process_b;
 // This class describes a reset condition associated with an sc_process_b
 // instance. 
 //==============================================================================
-class sc_reset_target {
+class SC_API sc_reset_target {
   public:
     bool          m_async;     // true asynchronous reset, false synchronous.
     bool          m_level;     // level for reset.
@@ -69,13 +76,45 @@ inline std::ostream& operator << ( std::ostream& os,
     return os;
 }
 
+
+//==============================================================================
+// sc_reset_finder - place holder class for a port reset signal until it is
+//                   bound and an interface class is available. When the port
+//                   has been bound the information in this class will be used
+//                   to initialize its sc_reset object instance.
+//==============================================================================
+class SC_API sc_reset_finder {
+    friend class sc_reset;
+    friend class sc_simcontext;
+public:
+    sc_reset_finder( bool async, const sc_in<bool>* port_p, bool level,
+                     sc_process_b* target_p);
+    sc_reset_finder( bool async, const sc_inout<bool>* port_p, bool level,
+                     sc_process_b* target_p);
+    sc_reset_finder( bool async, const sc_out<bool>* port_p, bool level,
+                     sc_process_b* target_p);
+
+protected:
+    bool                   m_async;     // True if asynchronous reset.
+    bool                   m_level;     // Level for reset.
+    sc_reset_finder*       m_next_p;    // Next reset finder in list.
+    const sc_in<bool>*     m_in_p;      // Port for which reset is needed.
+    const sc_inout<bool>*  m_inout_p;   // Port for which reset is needed.
+    const sc_out<bool>*    m_out_p;     // Port for which reset is needed.
+    sc_process_b*          m_target_p;  // Process to reset.
+
+private: // disabled
+    sc_reset_finder( const sc_reset_finder& );
+    const sc_reset_finder& operator = ( const sc_reset_finder& );
+};
+
 //==============================================================================
 // CLASS sc_reset - RESET INFORMATION FOR A RESET SIGNAL
 //
 // See the top of sc_reset.cpp for an explaination of how the reset mechanism
 // is implemented.
 //==============================================================================
-class sc_reset {
+class SC_API sc_reset {
     friend class sc_cthread_process;
     friend class sc_method_process; 
     friend class sc_module; 
@@ -85,10 +124,10 @@ class sc_reset {
     friend class sc_signal<bool, SC_UNCHECKED_WRITERS>;
     friend class sc_simcontext;
     template<typename SOURCE> friend class sc_spawn_reset;
-    friend class sc_thread_process; 
+    friend class sc_thread_process;
 
   protected:
-    static void reconcile_resets();
+    static void reconcile_resets(sc_reset_finder* reset_finder_q);
     static void 
 	reset_signal_is(bool async, const sc_signal_in_if<bool>& iface, 
 	                bool level);
@@ -162,5 +201,9 @@ class sc_reset {
 // Added $Log to record CVS changes into the source.
 
 } // namespace sc_core
+
+#if defined(_MSC_VER) && !defined(SC_WIN_DLL_WARN)
+#pragma warning(pop)
+#endif
 
 #endif // !defined(sc_reset_h_INCLUDED)

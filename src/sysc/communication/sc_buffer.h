@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -53,6 +55,7 @@ public:
 
     typedef sc_buffer<T,POL> this_type;
     typedef sc_signal<T,POL> base_type;
+    typedef T                value_type;
 
 public:
 
@@ -66,7 +69,7 @@ public:
 	: base_type( name_ )
 	{}
 
-    sc_buffer( const char* name_, const T& initial_value_ )
+    sc_buffer( const char* name_, const value_type& initial_value_ )
       : base_type( name_, initial_value_ )
     {}
 
@@ -78,17 +81,19 @@ public:
 
     // other methods
 
-    this_type& operator = ( const T& a )
-	{ write( a ); return *this; }
-
-    this_type& operator = ( const sc_signal_in_if<T>& a )
-	{ write( a.read() ); return *this; }
-
-    this_type& operator = ( const this_type& a )
-	{ write( a.read() ); return *this; }
-
     virtual const char* kind() const
         { return "sc_buffer"; }
+
+
+    // assignment
+    this_type& operator = ( const value_type& a )
+      { base_type::operator=(a); return *this; }
+
+    this_type& operator = ( const sc_signal_in_if<value_type>& a )
+      { base_type::operator=(a); return *this; }
+
+    this_type& operator = ( const this_type& a )
+      { base_type::operator=(a); return *this; }
 
 protected:
 

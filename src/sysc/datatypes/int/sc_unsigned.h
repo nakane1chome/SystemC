@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -104,7 +106,6 @@
 
 #include "sysc/kernel/sc_object.h"
 #include "sysc/datatypes/misc/sc_value_base.h"
-#include "sysc/utils/sc_iostream.h"
 #include "sysc/utils/sc_temporary.h"
 #include "sysc/datatypes/int/sc_length_param.h"
 #include "sysc/datatypes/int/sc_nbdefs.h"
@@ -137,6 +138,17 @@ class sc_fxval;
 class sc_fxval_fast;
 class sc_fxnum;
 class sc_fxnum_fast;
+
+} // namespace sc_dt
+
+// extern template instantiations
+namespace sc_core {
+SC_API_TEMPLATE_DECL_ sc_vpool<sc_dt::sc_unsigned_bitref>;
+SC_API_TEMPLATE_DECL_ sc_vpool<sc_dt::sc_unsigned_subref>;
+SC_API_TEMPLATE_DECL_ sc_vpool<sc_dt::sc_unsigned>;
+} // namespace sc_core
+
+namespace sc_dt {
 
 // Helper function declarions
 int compare_unsigned(small_type us,
@@ -225,398 +237,398 @@ sc_unsigned xor_unsigned_friend(small_type us,
 
   // ADDition operators:
 
-    sc_signed operator + (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator + (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator + (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator + (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator + (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator + (const sc_unsigned&  u, uint64              v);
-    sc_signed operator + (const sc_unsigned&  u, long                v);
-  sc_unsigned operator + (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator + (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator + (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator + (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator + (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator + (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator + (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator + (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator + (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator + (uint64              u, const sc_unsigned&  v);
-    sc_signed operator + (long                u, const sc_unsigned&  v);
-  sc_unsigned operator + (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator + (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator + (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator + (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator + (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator + (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator + (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator + (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator + (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator + (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator + (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator + (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator + (const sc_int_base&  u, const sc_unsigned&  v);
 
   // SUBtraction operators:
 
-    sc_signed operator - (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator - (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator - (const sc_signed&    u, const sc_unsigned&  v);
 
-    sc_signed operator - (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator - (const sc_unsigned&  u, int64               v);
-    sc_signed operator - (const sc_unsigned&  u, uint64              v);
-    sc_signed operator - (const sc_unsigned&  u, long                v);
-    sc_signed operator - (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator - (const sc_unsigned&  u, int                 v);
-    sc_signed operator - (const sc_unsigned&  u, unsigned int        v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, int64               v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, long                v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, int                 v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator - (int64               u, const sc_unsigned&  v);
-    sc_signed operator - (uint64              u, const sc_unsigned&  v);
-    sc_signed operator - (long                u, const sc_unsigned&  v);
-    sc_signed operator - (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator - (int                 u, const sc_unsigned&  v);
-    sc_signed operator - (unsigned int        u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (int64               u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (long                u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (unsigned int        u, const sc_unsigned&  v);
 
-    sc_signed operator - (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator - (const sc_unsigned&  u, const sc_int_base&  v);
-    sc_signed operator - (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator - (const sc_int_base&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator - (const sc_unsigned&  u, const sc_int_base&  v);
+    SC_API sc_signed operator - (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator - (const sc_int_base&  u, const sc_unsigned&  v);
 
   // MULtiplication operators:
 
-    sc_signed operator * (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator * (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator * (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator * (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator * (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator * (const sc_unsigned&  u, uint64              v);
-    sc_signed operator * (const sc_unsigned&  u, long                v);
-  sc_unsigned operator * (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator * (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator * (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator * (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator * (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator * (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator * (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator * (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator * (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator * (uint64              u, const sc_unsigned&  v);
-    sc_signed operator * (long                u, const sc_unsigned&  v);
-  sc_unsigned operator * (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator * (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator * (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator * (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator * (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator * (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator * (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator * (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator * (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator * (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator * (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator * (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator * (const sc_int_base&  u, const sc_unsigned&  v);
 
   // DIVision operators:
 
-    sc_signed operator / (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator / (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator / (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator / (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator / (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator / (const sc_unsigned&  u, uint64              v);
-    sc_signed operator / (const sc_unsigned&  u, long                v);
-  sc_unsigned operator / (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator / (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator / (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator / (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator / (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator / (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator / (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator / (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator / (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator / (uint64              u, const sc_unsigned&  v);
-    sc_signed operator / (long                u, const sc_unsigned&  v);
-  sc_unsigned operator / (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator / (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator / (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator / (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator / (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator / (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator / (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator / (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator / (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator / (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator / (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator / (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator / (const sc_int_base&  u, const sc_unsigned&  v);
 
   // MODulo operators:
 
-    sc_signed operator % (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator % (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator % (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator % (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator % (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator % (const sc_unsigned&  u, uint64              v);
-    sc_signed operator % (const sc_unsigned&  u, long                v);
-  sc_unsigned operator % (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator % (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator % (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator % (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator % (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator % (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator % (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator % (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator % (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator % (uint64              u, const sc_unsigned&  v);
-    sc_signed operator % (long                u, const sc_unsigned&  v);
-  sc_unsigned operator % (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator % (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator % (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator % (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator % (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator % (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator % (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator % (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator % (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator % (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator % (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator % (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator % (const sc_int_base&  u, const sc_unsigned&  v);
 
   // BITWISE OPERATORS:
 
   // Bitwise AND operators:
 
-    sc_signed operator & (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator & (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator & (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator & (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator & (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator & (const sc_unsigned&  u, uint64              v);
-    sc_signed operator & (const sc_unsigned&  u, long                v);
-  sc_unsigned operator & (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator & (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator & (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator & (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator & (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator & (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator & (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator & (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator & (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator & (uint64              u, const sc_unsigned&  v);
-    sc_signed operator & (long                u, const sc_unsigned&  v);
-  sc_unsigned operator & (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator & (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator & (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator & (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator & (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator & (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator & (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator & (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator & (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator & (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator & (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator & (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator & (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Bitwise OR operators:
 
-    sc_signed operator | (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator | (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator | (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator | (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator | (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator | (const sc_unsigned&  u, uint64              v);
-    sc_signed operator | (const sc_unsigned&  u, long                v);
-  sc_unsigned operator | (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator | (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator | (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator | (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator | (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator | (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator | (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator | (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator | (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator | (uint64              u, const sc_unsigned&  v);
-    sc_signed operator | (long                u, const sc_unsigned&  v);
-  sc_unsigned operator | (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator | (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator | (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator | (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator | (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator | (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator | (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator | (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator | (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator | (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator | (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator | (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator | (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Bitwise XOR operators:
 
-    sc_signed operator ^ (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator ^ (const sc_signed&    u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator ^ (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator ^ (const sc_unsigned&  u, const sc_unsigned&  v);
-    sc_signed operator ^ (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator ^ (const sc_unsigned&  u, uint64              v);
-    sc_signed operator ^ (const sc_unsigned&  u, long                v);
-  sc_unsigned operator ^ (const sc_unsigned&  u, unsigned long       v);
-    sc_signed operator ^ (const sc_unsigned&  u, int                 v);
+  SC_API sc_unsigned operator ^ (const sc_unsigned&  u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator ^ (const sc_unsigned&  u, uint64              v);
+    SC_API sc_signed operator ^ (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator ^ (const sc_unsigned&  u, unsigned long       v);
+    SC_API sc_signed operator ^ (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator ^ (const sc_unsigned&  u, unsigned int        v);
 
-    sc_signed operator ^ (int64               u, const sc_unsigned&  v);
-  sc_unsigned operator ^ (uint64              u, const sc_unsigned&  v);
-    sc_signed operator ^ (long                u, const sc_unsigned&  v);
-  sc_unsigned operator ^ (unsigned long       u, const sc_unsigned&  v);
-    sc_signed operator ^ (int                 u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (int64               u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator ^ (uint64              u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (long                u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator ^ (unsigned long       u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (int                 u, const sc_unsigned&  v);
   inline sc_unsigned operator ^ (unsigned int        u, const sc_unsigned&  v);
 
-  sc_unsigned operator ^ (const sc_unsigned&  u, const sc_uint_base& v);
-    sc_signed operator ^ (const sc_unsigned&  u, const sc_int_base&  v);
-  sc_unsigned operator ^ (const sc_uint_base& u, const sc_unsigned&  v);
-    sc_signed operator ^ (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator ^ (const sc_unsigned&  u, const sc_uint_base& v);
+    SC_API sc_signed operator ^ (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator ^ (const sc_uint_base& u, const sc_unsigned&  v);
+    SC_API sc_signed operator ^ (const sc_int_base&  u, const sc_unsigned&  v);
 
   // SHIFT OPERATORS:
 
   // LEFT SHIFT operators:
 
-  sc_unsigned operator << (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator << (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator << (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator << (const sc_unsigned&  u, const sc_unsigned&  v);
-  sc_unsigned operator << (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator << (const sc_unsigned&  u, uint64              v);
-  sc_unsigned operator << (const sc_unsigned&  u, long                v);
-  sc_unsigned operator << (const sc_unsigned&  u, unsigned long       v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, uint64              v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, unsigned long       v);
   inline sc_unsigned operator << (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator << (const sc_unsigned&  u, unsigned int        v);
 
-  sc_unsigned operator << (const sc_unsigned&  u, const sc_uint_base& v);
-  sc_unsigned operator << (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_int_base&  v);
 
   // RIGHT SHIFT operators:
 
-  sc_unsigned operator >> (const sc_unsigned&  u, const sc_signed&    v);
-    sc_signed operator >> (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, const sc_signed&    v);
+    SC_API sc_signed operator >> (const sc_signed&    u, const sc_unsigned&  v);
 
-  sc_unsigned operator >> (const sc_unsigned&  u, const sc_unsigned&  v);
-  sc_unsigned operator >> (const sc_unsigned&  u, int64               v);
-  sc_unsigned operator >> (const sc_unsigned&  u, uint64              v);
-  sc_unsigned operator >> (const sc_unsigned&  u, long                v);
-  sc_unsigned operator >> (const sc_unsigned&  u, unsigned long       v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, int64               v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, uint64              v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, long                v);
+  SC_API sc_unsigned operator >> (const sc_unsigned&  u, unsigned long       v);
   inline sc_unsigned operator >> (const sc_unsigned&  u, int                 v);
   inline sc_unsigned operator >> (const sc_unsigned&  u, unsigned int        v);
 
-  sc_unsigned operator >> ( const sc_unsigned& , const sc_uint_base& );
-  sc_unsigned operator >> ( const sc_unsigned&, const sc_int_base& );
+  SC_API sc_unsigned operator >> ( const sc_unsigned& , const sc_uint_base& );
+  SC_API sc_unsigned operator >> ( const sc_unsigned&, const sc_int_base& );
 
   // Unary arithmetic operators
-  sc_unsigned operator + (const sc_unsigned& u);
-    sc_signed operator - (const sc_unsigned& u);
+  SC_API sc_unsigned operator + (const sc_unsigned& u);
+    SC_API sc_signed operator - (const sc_unsigned& u);
 
   // LOGICAL OPERATORS:
 
   // Logical EQUAL operators:
 
-  bool operator == (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator == (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator == (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator == (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator == (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator == (const sc_unsigned&  u, int64               v);
-  bool operator == (const sc_unsigned&  u, uint64              v);
-  bool operator == (const sc_unsigned&  u, long                v);
-  bool operator == (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator == (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator == (const sc_unsigned&  u, int64               v);
+  SC_API bool operator == (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator == (const sc_unsigned&  u, long                v);
+  SC_API bool operator == (const sc_unsigned&  u, unsigned long       v);
   inline bool operator == (const sc_unsigned&  u, int                 v);
   inline bool operator == (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator == (int64               u, const sc_unsigned&  v);
-  bool operator == (uint64              u, const sc_unsigned&  v);
-  bool operator == (long                u, const sc_unsigned&  v);
-  bool operator == (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator == (int64               u, const sc_unsigned&  v);
+  SC_API bool operator == (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator == (long                u, const sc_unsigned&  v);
+  SC_API bool operator == (unsigned long       u, const sc_unsigned&  v);
   inline bool operator == (int                 u, const sc_unsigned&  v);
   inline bool operator == (unsigned int        u, const sc_unsigned&  v) ;
 
-  bool operator == (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator == (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator == (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator == (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator == (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator == (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator == (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator == (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical NOT_EQUAL operators:
 
-  bool operator != (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator != (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator != (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator != (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator != (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator != (const sc_unsigned&  u, int64               v);
-  bool operator != (const sc_unsigned&  u, uint64              v);
-  bool operator != (const sc_unsigned&  u, long                v);
-  bool operator != (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator != (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator != (const sc_unsigned&  u, int64               v);
+  SC_API bool operator != (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator != (const sc_unsigned&  u, long                v);
+  SC_API bool operator != (const sc_unsigned&  u, unsigned long       v);
   inline bool operator != (const sc_unsigned&  u, int                 v);
   inline bool operator != (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator != (int64               u, const sc_unsigned&  v);
-  bool operator != (uint64              u, const sc_unsigned&  v);
-  bool operator != (long                u, const sc_unsigned&  v);
-  bool operator != (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator != (int64               u, const sc_unsigned&  v);
+  SC_API bool operator != (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator != (long                u, const sc_unsigned&  v);
+  SC_API bool operator != (unsigned long       u, const sc_unsigned&  v);
   inline bool operator != (int                 u, const sc_unsigned&  v);
   inline bool operator != (unsigned int        u, const sc_unsigned&  v);
 
-  bool operator != (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator != (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator != (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator != (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator != (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator != (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator != (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator != (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical LESS_THAN operators:
 
-  bool operator < (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator < (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator < (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator < (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator < (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator < (const sc_unsigned&  u, int64               v);
-  bool operator < (const sc_unsigned&  u, uint64              v);
-  bool operator < (const sc_unsigned&  u, long                v);
-  bool operator < (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator < (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator < (const sc_unsigned&  u, int64               v);
+  SC_API bool operator < (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator < (const sc_unsigned&  u, long                v);
+  SC_API bool operator < (const sc_unsigned&  u, unsigned long       v);
   inline bool operator < (const sc_unsigned&  u, int                 v);
   inline bool operator < (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator < (int64               u, const sc_unsigned&  v);
-  bool operator < (uint64              u, const sc_unsigned&  v);
-  bool operator < (long                u, const sc_unsigned&  v);
-  bool operator < (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator < (int64               u, const sc_unsigned&  v);
+  SC_API bool operator < (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator < (long                u, const sc_unsigned&  v);
+  SC_API bool operator < (unsigned long       u, const sc_unsigned&  v);
   inline bool operator < (int                 u, const sc_unsigned&  v);
   inline bool operator < (unsigned int        u, const sc_unsigned&  v);
 
-  bool operator < (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator < (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator < (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator < (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator < (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator < (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator < (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator < (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical LESS_THAN_AND_EQUAL operators:
 
-  bool operator <= (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator <= (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator <= (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator <= (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator <= (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator <= (const sc_unsigned&  u, int64               v);
-  bool operator <= (const sc_unsigned&  u, uint64              v);
-  bool operator <= (const sc_unsigned&  u, long                v);
-  bool operator <= (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator <= (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator <= (const sc_unsigned&  u, int64               v);
+  SC_API bool operator <= (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator <= (const sc_unsigned&  u, long                v);
+  SC_API bool operator <= (const sc_unsigned&  u, unsigned long       v);
   inline bool operator <= (const sc_unsigned&  u, int                 v);
   inline bool operator <= (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator <= (int64               u, const sc_unsigned&  v);
-  bool operator <= (uint64              u, const sc_unsigned&  v);
-  bool operator <= (long                u, const sc_unsigned&  v);
-  bool operator <= (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator <= (int64               u, const sc_unsigned&  v);
+  SC_API bool operator <= (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator <= (long                u, const sc_unsigned&  v);
+  SC_API bool operator <= (unsigned long       u, const sc_unsigned&  v);
   inline bool operator <= (int                 u, const sc_unsigned&  v);
   inline bool operator <= (unsigned int        u, const sc_unsigned&  v);
 
-  bool operator <= (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator <= (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator <= (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator <= (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator <= (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator <= (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator <= (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator <= (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical GREATER_THAN operators:
 
-  bool operator > (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator > (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator > (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator > (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator > (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator > (const sc_unsigned&  u, int64               v);
-  bool operator > (const sc_unsigned&  u, uint64              v);
-  bool operator > (const sc_unsigned&  u, long                v);
-  bool operator > (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator > (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator > (const sc_unsigned&  u, int64               v);
+  SC_API bool operator > (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator > (const sc_unsigned&  u, long                v);
+  SC_API bool operator > (const sc_unsigned&  u, unsigned long       v);
   inline bool operator > (const sc_unsigned&  u, int                 v);
   inline bool operator > (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator > (int64               u, const sc_unsigned&  v);
-  bool operator > (uint64              u, const sc_unsigned&  v);
-  bool operator > (long                u, const sc_unsigned&  v);
-  bool operator > (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator > (int64               u, const sc_unsigned&  v);
+  SC_API bool operator > (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator > (long                u, const sc_unsigned&  v);
+  SC_API bool operator > (unsigned long       u, const sc_unsigned&  v);
   inline bool operator > (int                 u, const sc_unsigned&  v);
   inline bool operator > (unsigned int        u, const sc_unsigned&  v);
 
-  bool operator > (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator > (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator > (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator > (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator > (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator > (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator > (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator > (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical GREATER_THAN_AND_EQUAL operators:
 
-  bool operator >= (const sc_unsigned&  u, const sc_signed&    v);
-  bool operator >= (const sc_signed&    u, const sc_unsigned&  v);
+  SC_API bool operator >= (const sc_unsigned&  u, const sc_signed&    v);
+  SC_API bool operator >= (const sc_signed&    u, const sc_unsigned&  v);
 
-  bool operator >= (const sc_unsigned&  u, const sc_unsigned&  v);
-  bool operator >= (const sc_unsigned&  u, int64               v);
-  bool operator >= (const sc_unsigned&  u, uint64              v);
-  bool operator >= (const sc_unsigned&  u, long                v);
-  bool operator >= (const sc_unsigned&  u, unsigned long       v);
+  SC_API bool operator >= (const sc_unsigned&  u, const sc_unsigned&  v);
+  SC_API bool operator >= (const sc_unsigned&  u, int64               v);
+  SC_API bool operator >= (const sc_unsigned&  u, uint64              v);
+  SC_API bool operator >= (const sc_unsigned&  u, long                v);
+  SC_API bool operator >= (const sc_unsigned&  u, unsigned long       v);
   inline bool operator >= (const sc_unsigned&  u, int                 v);
   inline bool operator >= (const sc_unsigned&  u, unsigned int        v);
 
-  bool operator >= (int64               u, const sc_unsigned&  v);
-  bool operator >= (uint64              u, const sc_unsigned&  v);
-  bool operator >= (long                u, const sc_unsigned&  v);
-  bool operator >= (unsigned long       u, const sc_unsigned&  v);
+  SC_API bool operator >= (int64               u, const sc_unsigned&  v);
+  SC_API bool operator >= (uint64              u, const sc_unsigned&  v);
+  SC_API bool operator >= (long                u, const sc_unsigned&  v);
+  SC_API bool operator >= (unsigned long       u, const sc_unsigned&  v);
   inline bool operator >= (int                 u, const sc_unsigned&  v);
   inline bool operator >= (unsigned int        u, const sc_unsigned&  v);
 
-  bool operator >= (const sc_unsigned&  u, const sc_uint_base& v);
-  bool operator >= (const sc_unsigned&  u, const sc_int_base&  v);
-  bool operator >= (const sc_uint_base& u, const sc_unsigned&  v);
-  bool operator >= (const sc_int_base&  u, const sc_unsigned&  v);
+  SC_API bool operator >= (const sc_unsigned&  u, const sc_uint_base& v);
+  SC_API bool operator >= (const sc_unsigned&  u, const sc_int_base&  v);
+  SC_API bool operator >= (const sc_uint_base& u, const sc_unsigned&  v);
+  SC_API bool operator >= (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Bitwise NOT operator (unary).
-  sc_unsigned operator ~ (const sc_unsigned& u);
+  SC_API sc_unsigned operator ~ (const sc_unsigned& u);
 
 /**
    @class sc_unsigned_bitref_r
@@ -624,7 +636,7 @@ sc_unsigned xor_unsigned_friend(small_type us,
 
 */
 
-class sc_unsigned_bitref_r : public sc_value_base
+class SC_API sc_unsigned_bitref_r : public sc_value_base
 {
     friend class sc_unsigned;
 
@@ -637,7 +649,7 @@ protected:
 
     void initialize( const sc_unsigned* obj_p, int index_ )
         {
-	    m_obj_p = CCAST<sc_unsigned*>( obj_p );
+	    m_obj_p = const_cast<sc_unsigned*>( obj_p );
 	    m_index = index_;
 	}
 
@@ -736,7 +748,7 @@ operator << ( ::std::ostream&, const sc_unsigned_bitref_r& );
 
 */
 
-class sc_unsigned_bitref
+class SC_API sc_unsigned_bitref
     : public sc_unsigned_bitref_r
 {
     friend class sc_unsigned;
@@ -796,7 +808,7 @@ operator >> ( ::std::istream&, sc_unsigned_bitref& );
 
 */
 
-class sc_unsigned_subref_r : public sc_value_base
+class SC_API sc_unsigned_subref_r : public sc_value_base
 {
     friend class sc_signed;
     friend class sc_unsigned;
@@ -811,7 +823,7 @@ protected:
 
     void initialize( const sc_unsigned* obj_p, int left_, int right_ )
 	{
-	    m_obj_p = CCAST<sc_unsigned*>( obj_p );
+	    m_obj_p = const_cast<sc_unsigned*>( obj_p );
 	    m_left = left_;
 	    m_right = right_;
 	}
@@ -827,7 +839,7 @@ public:
     // copy constructor
 
     sc_unsigned_subref_r( const sc_unsigned_subref_r& a )
-	: sc_value_base(a), m_left( a.m_left ), m_obj_p( a.m_obj_p ), 
+	: sc_value_base(a), m_left( a.m_left ), m_obj_p( a.m_obj_p ),
 	  m_right( a.m_right )
 	{}
 
@@ -910,7 +922,7 @@ operator << ( ::std::ostream&, const sc_unsigned_subref_r& );
 
 */
 
-class sc_unsigned_subref
+class SC_API sc_unsigned_subref
     : public sc_unsigned_subref_r
 {
     friend class sc_unsigned;
@@ -986,7 +998,7 @@ operator >> ( ::std::istream&, sc_unsigned_subref& );
 
 */
 
-class sc_unsigned : public sc_value_base
+class SC_API sc_unsigned : public sc_value_base
 {
     friend class sc_concatref;
     friend class sc_unsigned_bitref_r;
@@ -997,8 +1009,10 @@ class sc_unsigned : public sc_value_base
     friend class sc_signed_subref;
     friend class sc_signed_subref_r;
 
-  // Needed for types using sc_unsigned.
-  typedef bool elemtype;
+    // Needed for types using sc_unsigned.
+    typedef bool elemtype;
+
+    void invalid_init( const char* type_name, int nb ) const;
 
 public:
 
@@ -1007,7 +1021,7 @@ public:
     explicit sc_unsigned( int nb = sc_length_param().len() );
     sc_unsigned( const sc_unsigned& v );
     sc_unsigned( const sc_signed&   v );
-	template<class T>
+    template<class T>
     explicit sc_unsigned( const sc_generic_base<T>& v );
     explicit sc_unsigned( const sc_bv_base& v );
     explicit sc_unsigned( const sc_lv_base& v );
@@ -1298,23 +1312,23 @@ public:
 
   // ADDition operators:
 
-  friend   sc_signed operator + (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator + (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator + (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator + (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator + (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator + (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator + (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator + (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator + (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator + (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator + (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator + (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator + (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator + (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator + (const sc_unsigned&  u, unsigned int        v)
     { return operator+(u, (unsigned long) v); }
 
-  friend   sc_signed operator + (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator + (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator + (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator + (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator + (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator + (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator + (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator + (unsigned int        u, const sc_unsigned&  v)
     { return operator+((unsigned long) u,  v); }
 
@@ -1329,32 +1343,32 @@ public:
   const sc_unsigned& operator += (unsigned int        v)
     { return operator+=((unsigned long) v); }
 
-  friend sc_unsigned operator + (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator + (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator + (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator + (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator + (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator + (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator + (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator + (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator += (const sc_int_base&  v);
   const sc_unsigned& operator += (const sc_uint_base& v);
 
   // SUBtraction operators:
 
-  friend   sc_signed operator - (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator - (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator - (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend   sc_signed operator - (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator - (const sc_unsigned&  u, int64               v);
-  friend   sc_signed operator - (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator - (const sc_unsigned&  u, long                v);
-  friend   sc_signed operator - (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator - (const sc_unsigned&  u, int                 v);
-  friend   sc_signed operator - (const sc_unsigned&  u, unsigned int        v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, int64               v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, long                v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, int                 v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, unsigned int        v);
 
-  friend   sc_signed operator - (int64               u, const sc_unsigned&  v);
-  friend   sc_signed operator - (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator - (long                u, const sc_unsigned&  v);
-  friend   sc_signed operator - (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator - (int                 u, const sc_unsigned&  v);
-  friend   sc_signed operator - (unsigned int        u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (int64               u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (long                u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (unsigned int        u, const sc_unsigned&  v);
 
   const sc_unsigned& operator -= (const sc_signed&    v);
   const sc_unsigned& operator -= (const sc_unsigned&  v);
@@ -1367,32 +1381,32 @@ public:
   const sc_unsigned& operator -= (unsigned int        v)
     { return operator-=((unsigned long) v); }
 
-  friend   sc_signed operator - (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator - (const sc_unsigned&  u, const sc_int_base&  v);
-  friend   sc_signed operator - (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator - (const sc_int_base&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator - (const sc_unsigned&  u, const sc_int_base&  v);
+  friend   SC_API sc_signed operator - (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator - (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator -= (const sc_int_base&  v);
   const sc_unsigned& operator -= (const sc_uint_base& v);
 
   // MULtiplication operators:
 
-  friend   sc_signed operator * (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator * (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator * (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator * (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator * (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator * (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator * (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator * (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator * (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator * (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator * (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator * (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator * (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator * (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator * (const sc_unsigned&  u, unsigned int        v)
     { return operator*(u, (unsigned long) v); }
 
-  friend   sc_signed operator * (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator * (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator * (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator * (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator * (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator * (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator * (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator * (unsigned int        u, const sc_unsigned&  v)
     { return operator*((unsigned long) u,  v); }
 
@@ -1407,32 +1421,32 @@ public:
   const sc_unsigned& operator *= (unsigned int        v)
     { return operator*=((unsigned long) v); }
 
-  friend sc_unsigned operator * (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator * (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator * (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator * (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator * (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator * (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator * (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator * (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator *= (const sc_int_base&  v);
   const sc_unsigned& operator *= (const sc_uint_base& v);
 
   // DIVision operators:
 
-  friend   sc_signed operator / (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator / (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator / (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator / (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator / (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator / (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator / (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator / (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator / (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator / (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator / (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator / (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator / (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator / (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator / (const sc_unsigned&  u, unsigned int        v)
     { return operator/(u, (unsigned long) v); }
 
-  friend   sc_signed operator / (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator / (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator / (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator / (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator / (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator / (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator / (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator / (unsigned int        u, const sc_unsigned&  v)
     { return operator/((unsigned long) u,  v); }
 
@@ -1447,32 +1461,32 @@ public:
   const sc_unsigned& operator /= (unsigned int        v)
     { return operator/=((unsigned long) v); }
 
-  friend sc_unsigned operator / (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator / (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator / (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator / (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator / (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator / (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator / (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator / (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator /= (const sc_int_base&  v);
   const sc_unsigned& operator /= (const sc_uint_base& v);
 
   // MODulo operators:
 
-  friend   sc_signed operator % (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator % (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator % (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator % (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator % (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator % (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator % (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator % (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator % (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator % (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator % (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator % (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator % (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator % (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator % (const sc_unsigned&  u, unsigned int        v)
     { return operator%(u, (unsigned long) v); }
 
-  friend   sc_signed operator % (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator % (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator % (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator % (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator % (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator % (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator % (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator % (unsigned int        u, const sc_unsigned&  v)
     { return operator%((unsigned long) u,  v); }
 
@@ -1487,10 +1501,10 @@ public:
   const sc_unsigned& operator %= (unsigned int        v)
     { return operator%=((unsigned long) v); }
 
-  friend sc_unsigned operator % (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator % (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator % (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator % (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator % (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator % (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator % (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator % (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator %= (const sc_int_base&  v);
   const sc_unsigned& operator %= (const sc_uint_base& v);
 
@@ -1498,23 +1512,23 @@ public:
 
   // Bitwise AND operators:
 
-  friend   sc_signed operator & (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator & (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator & (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator & (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator & (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator & (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator & (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator & (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator & (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator & (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator & (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator & (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator & (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator & (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator & (const sc_unsigned&  u, unsigned int        v)
     { return operator&(u, (unsigned long) v); }
 
-  friend   sc_signed operator & (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator & (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator & (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator & (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator & (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator & (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator & (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator & (unsigned int        u, const sc_unsigned&  v)
     { return operator&((unsigned long) u,  v); }
 
@@ -1529,32 +1543,32 @@ public:
   const sc_unsigned& operator &= (unsigned int        v)
     { return operator&=((unsigned long) v); }
 
-  friend sc_unsigned operator & (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator & (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator & (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator & (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator & (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator & (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator & (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator & (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator &= (const sc_int_base&  v);
   const sc_unsigned& operator &= (const sc_uint_base& v);
 
   // Bitwise OR operators:
 
-  friend   sc_signed operator | (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator | (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator | (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator | (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator | (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator | (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator | (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator | (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator | (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator | (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator | (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator | (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator | (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator | (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator | (const sc_unsigned&  u, unsigned int        v)
     { return operator|(u, (unsigned long) v); }
 
-  friend   sc_signed operator | (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator | (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator | (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator | (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator | (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator | (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator | (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator | (unsigned int        u, const sc_unsigned&  v)
     { return operator|((unsigned long) u,  v); }
 
@@ -1569,32 +1583,32 @@ public:
   const sc_unsigned& operator |= (unsigned int        v)
     { return operator|=((unsigned long) v); }
 
-  friend sc_unsigned operator | (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator | (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator | (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator | (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator | (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator | (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator | (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator | (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator |= (const sc_int_base&  v);
   const sc_unsigned& operator |= (const sc_uint_base& v);
 
   // Bitwise XOR operators:
 
-  friend   sc_signed operator ^ (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator ^ (const sc_signed&    u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator ^ (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator ^ (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend   sc_signed operator ^ (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator ^ (const sc_unsigned&  u, uint64              v);
-  friend   sc_signed operator ^ (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator ^ (const sc_unsigned&  u, unsigned long       v);
-  friend   sc_signed operator ^ (const sc_unsigned&  u, int                 v);
+  friend SC_API sc_unsigned operator ^ (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator ^ (const sc_unsigned&  u, uint64              v);
+  friend   SC_API sc_signed operator ^ (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator ^ (const sc_unsigned&  u, unsigned long       v);
+  friend   SC_API sc_signed operator ^ (const sc_unsigned&  u, int                 v);
   friend sc_unsigned operator ^ (const sc_unsigned&  u, unsigned int        v)
     { return operator^(u, (unsigned long) v); }
 
-  friend   sc_signed operator ^ (int64               u, const sc_unsigned&  v);
-  friend sc_unsigned operator ^ (uint64              u, const sc_unsigned&  v);
-  friend   sc_signed operator ^ (long                u, const sc_unsigned&  v);
-  friend sc_unsigned operator ^ (unsigned long       u, const sc_unsigned&  v);
-  friend   sc_signed operator ^ (int                 u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (int64               u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator ^ (uint64              u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (long                u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator ^ (unsigned long       u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (int                 u, const sc_unsigned&  v);
   friend sc_unsigned operator ^ (unsigned int        u, const sc_unsigned&  v)
     { return operator^((unsigned long) u,  v); }
 
@@ -1609,10 +1623,10 @@ public:
   const sc_unsigned& operator ^= (unsigned int        v)
     { return operator^=((unsigned long) v); }
 
-  friend sc_unsigned operator ^ (const sc_unsigned&  u, const sc_uint_base& v);
-  friend   sc_signed operator ^ (const sc_unsigned&  u, const sc_int_base&  v);
-  friend sc_unsigned operator ^ (const sc_uint_base& u, const sc_unsigned&  v);
-  friend   sc_signed operator ^ (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator ^ (const sc_unsigned&  u, const sc_uint_base& v);
+  friend   SC_API sc_signed operator ^ (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator ^ (const sc_uint_base& u, const sc_unsigned&  v);
+  friend   SC_API sc_signed operator ^ (const sc_int_base&  u, const sc_unsigned&  v);
   const sc_unsigned& operator ^= (const sc_int_base&  v);
   const sc_unsigned& operator ^= (const sc_uint_base& v);
 
@@ -1620,14 +1634,14 @@ public:
 
   // LEFT SHIFT operators:
 
-  friend sc_unsigned operator << (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator << (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator << (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator << (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend sc_unsigned operator << (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator << (const sc_unsigned&  u, uint64              v);
-  friend sc_unsigned operator << (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator << (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, uint64              v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, unsigned long       v);
   friend sc_unsigned operator << (const sc_unsigned&  u, int                 v)
     { return operator<<(u, (long) v); }
   friend sc_unsigned operator << (const sc_unsigned&  u, unsigned int        v)
@@ -1644,21 +1658,21 @@ public:
   const sc_unsigned& operator <<= (unsigned int        v)
     { return operator<<=((unsigned long) v); }
 
-  friend sc_unsigned operator << (const sc_unsigned&  u, const sc_uint_base& v);
-  friend sc_unsigned operator << (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API sc_unsigned operator << (const sc_unsigned&  u, const sc_int_base&  v);
   const sc_unsigned& operator <<= (const sc_int_base&  v);
   const sc_unsigned& operator <<= (const sc_uint_base& v);
 
   // RIGHT SHIFT operators:
 
-  friend sc_unsigned operator >> (const sc_unsigned&  u, const sc_signed&    v);
-  friend   sc_signed operator >> (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, const sc_signed&    v);
+  friend   SC_API sc_signed operator >> (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend sc_unsigned operator >> (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend sc_unsigned operator >> (const sc_unsigned&  u, int64               v);
-  friend sc_unsigned operator >> (const sc_unsigned&  u, uint64              v);
-  friend sc_unsigned operator >> (const sc_unsigned&  u, long                v);
-  friend sc_unsigned operator >> (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, int64               v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, uint64              v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, long                v);
+  friend SC_API sc_unsigned operator >> (const sc_unsigned&  u, unsigned long       v);
   friend sc_unsigned operator >> (const sc_unsigned&  u, int                 v)
     { return operator>>(u, (long) v); }
   friend sc_unsigned operator >> (const sc_unsigned&  u, unsigned int        v)
@@ -1675,193 +1689,193 @@ public:
   const sc_unsigned& operator >>= (unsigned int        v)
     { return operator>>=((unsigned long) v); }
 
-  friend sc_unsigned operator >> ( const sc_unsigned& , const sc_uint_base& );
-  friend sc_unsigned operator >> ( const sc_unsigned&, const sc_int_base& );
+  friend SC_API sc_unsigned operator >> ( const sc_unsigned& , const sc_uint_base& );
+  friend SC_API sc_unsigned operator >> ( const sc_unsigned&, const sc_int_base& );
   const sc_unsigned& operator >>= (const sc_int_base&  v);
   const sc_unsigned& operator >>= (const sc_uint_base& v);
 
   // Unary arithmetic operators
-  friend sc_unsigned operator + (const sc_unsigned& u);
-  friend   sc_signed operator - (const sc_unsigned& u);
+  friend SC_API sc_unsigned operator + (const sc_unsigned& u);
+  friend   SC_API sc_signed operator - (const sc_unsigned& u);
 
   // LOGICAL OPERATORS:
 
   // Logical EQUAL operators:
 
-  friend bool operator == (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator == (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator == (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator == (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator == (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator == (const sc_unsigned&  u, int64               v);
-  friend bool operator == (const sc_unsigned&  u, uint64              v);
-  friend bool operator == (const sc_unsigned&  u, long                v);
-  friend bool operator == (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator == (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator == (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator == (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator == (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator == (const sc_unsigned&  u, unsigned long       v);
   friend bool operator == (const sc_unsigned&  u, int                 v)
     { return operator==(u, (long) v); }
   friend bool operator == (const sc_unsigned&  u, unsigned int        v)
     { return operator==(u, (unsigned long) v); }
 
-  friend bool operator == (int64               u, const sc_unsigned&  v);
-  friend bool operator == (uint64              u, const sc_unsigned&  v);
-  friend bool operator == (long                u, const sc_unsigned&  v);
-  friend bool operator == (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator == (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator == (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator == (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator == (unsigned long       u, const sc_unsigned&  v);
   friend bool operator == (int                 u, const sc_unsigned&  v)
     { return operator==((long) u,  v); }
   friend bool operator == (unsigned int        u, const sc_unsigned&  v)
     { return operator==((unsigned long) u,  v); }
 
-  friend bool operator == (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator == (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator == (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator == (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator == (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator == (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator == (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator == (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical NOT_EQUAL operators:
 
-  friend bool operator != (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator != (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator != (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator != (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator != (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator != (const sc_unsigned&  u, int64               v);
-  friend bool operator != (const sc_unsigned&  u, uint64              v);
-  friend bool operator != (const sc_unsigned&  u, long                v);
-  friend bool operator != (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator != (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator != (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator != (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator != (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator != (const sc_unsigned&  u, unsigned long       v);
   friend bool operator != (const sc_unsigned&  u, int                 v)
     { return operator!=(u, (long) v); }
   friend bool operator != (const sc_unsigned&  u, unsigned int        v)
     { return operator!=(u, (unsigned long) v); }
 
-  friend bool operator != (int64               u, const sc_unsigned&  v);
-  friend bool operator != (uint64              u, const sc_unsigned&  v);
-  friend bool operator != (long                u, const sc_unsigned&  v);
-  friend bool operator != (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator != (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator != (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator != (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator != (unsigned long       u, const sc_unsigned&  v);
   friend bool operator != (int                 u, const sc_unsigned&  v)
     { return operator!=((long) u,  v); }
   friend bool operator != (unsigned int        u, const sc_unsigned&  v)
     { return operator!=((unsigned long) u,  v); }
 
-  friend bool operator != (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator != (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator != (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator != (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator != (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator != (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator != (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator != (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical LESS_THAN operators:
 
-  friend bool operator < (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator < (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator < (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator < (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator < (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator < (const sc_unsigned&  u, int64               v);
-  friend bool operator < (const sc_unsigned&  u, uint64              v);
-  friend bool operator < (const sc_unsigned&  u, long                v);
-  friend bool operator < (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator < (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator < (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator < (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator < (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator < (const sc_unsigned&  u, unsigned long       v);
   friend bool operator < (const sc_unsigned&  u, int                 v)
     { return operator<(u, (long) v); }
   friend bool operator < (const sc_unsigned&  u, unsigned int        v)
     { return operator<(u, (unsigned long) v); }
 
-  friend bool operator < (int64               u, const sc_unsigned&  v);
-  friend bool operator < (uint64              u, const sc_unsigned&  v);
-  friend bool operator < (long                u, const sc_unsigned&  v);
-  friend bool operator < (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator < (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator < (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator < (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator < (unsigned long       u, const sc_unsigned&  v);
   friend bool operator < (int                 u, const sc_unsigned&  v)
     { return operator<((long) u,  v); }
   friend bool operator < (unsigned int        u, const sc_unsigned&  v)
     { return operator<((unsigned long) u,  v); }
 
-  friend bool operator < (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator < (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator < (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator < (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator < (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator < (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator < (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator < (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical LESS_THAN_AND_EQUAL operators:
 
-  friend bool operator <= (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator <= (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator <= (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator <= (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator <= (const sc_unsigned&  u, int64               v);
-  friend bool operator <= (const sc_unsigned&  u, uint64              v);
-  friend bool operator <= (const sc_unsigned&  u, long                v);
-  friend bool operator <= (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, unsigned long       v);
   friend bool operator <= (const sc_unsigned&  u, int                 v)
     { return operator<=(u, (long) v); }
   friend bool operator <= (const sc_unsigned&  u, unsigned int        v)
     { return operator<=(u, (unsigned long) v); }
 
-  friend bool operator <= (int64               u, const sc_unsigned&  v);
-  friend bool operator <= (uint64              u, const sc_unsigned&  v);
-  friend bool operator <= (long                u, const sc_unsigned&  v);
-  friend bool operator <= (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (unsigned long       u, const sc_unsigned&  v);
   friend bool operator <= (int                 u, const sc_unsigned&  v)
     { return operator<=((long) u,  v); }
   friend bool operator <= (unsigned int        u, const sc_unsigned&  v)
     { return operator<=((unsigned long) u,  v); }
 
-  friend bool operator <= (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator <= (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator <= (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator <= (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator <= (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator <= (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator <= (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical GREATER_THAN operators:
 
-  friend bool operator > (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator > (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator > (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator > (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator > (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator > (const sc_unsigned&  u, int64               v);
-  friend bool operator > (const sc_unsigned&  u, uint64              v);
-  friend bool operator > (const sc_unsigned&  u, long                v);
-  friend bool operator > (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator > (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator > (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator > (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator > (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator > (const sc_unsigned&  u, unsigned long       v);
   friend bool operator > (const sc_unsigned&  u, int                 v)
     { return operator>(u, (long) v); }
   friend bool operator > (const sc_unsigned&  u, unsigned int        v)
     { return operator>(u, (unsigned long) v); }
 
-  friend bool operator > (int64               u, const sc_unsigned&  v);
-  friend bool operator > (uint64              u, const sc_unsigned&  v);
-  friend bool operator > (long                u, const sc_unsigned&  v);
-  friend bool operator > (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator > (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator > (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator > (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator > (unsigned long       u, const sc_unsigned&  v);
   friend bool operator > (int                 u, const sc_unsigned&  v)
     { return operator>((long) u,  v); }
   friend bool operator > (unsigned int        u, const sc_unsigned&  v)
     { return operator>((unsigned long) u,  v); }
 
-  friend bool operator > (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator > (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator > (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator > (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator > (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator > (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator > (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator > (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Logical GREATER_THAN_AND_EQUAL operators:
 
-  friend bool operator >= (const sc_unsigned&  u, const sc_signed&    v);
-  friend bool operator >= (const sc_signed&    u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, const sc_signed&    v);
+  friend SC_API bool operator >= (const sc_signed&    u, const sc_unsigned&  v);
 
-  friend bool operator >= (const sc_unsigned&  u, const sc_unsigned&  v);
-  friend bool operator >= (const sc_unsigned&  u, int64               v);
-  friend bool operator >= (const sc_unsigned&  u, uint64              v);
-  friend bool operator >= (const sc_unsigned&  u, long                v);
-  friend bool operator >= (const sc_unsigned&  u, unsigned long       v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, int64               v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, uint64              v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, long                v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, unsigned long       v);
   friend bool operator >= (const sc_unsigned&  u, int                 v)
     { return operator>=(u, (long) v); }
   friend bool operator >= (const sc_unsigned&  u, unsigned int        v)
     { return operator>=(u, (unsigned long) v); }
 
-  friend bool operator >= (int64               u, const sc_unsigned&  v);
-  friend bool operator >= (uint64              u, const sc_unsigned&  v);
-  friend bool operator >= (long                u, const sc_unsigned&  v);
-  friend bool operator >= (unsigned long       u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (int64               u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (uint64              u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (long                u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (unsigned long       u, const sc_unsigned&  v);
   friend bool operator >= (int                 u, const sc_unsigned&  v)
     { return operator>=((long) u,  v); }
   friend bool operator >= (unsigned int        u, const sc_unsigned&  v)
     { return operator>=((unsigned long) u,  v); }
 
-  friend bool operator >= (const sc_unsigned&  u, const sc_uint_base& v);
-  friend bool operator >= (const sc_unsigned&  u, const sc_int_base&  v);
-  friend bool operator >= (const sc_uint_base& u, const sc_unsigned&  v);
-  friend bool operator >= (const sc_int_base&  u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, const sc_uint_base& v);
+  friend SC_API bool operator >= (const sc_unsigned&  u, const sc_int_base&  v);
+  friend SC_API bool operator >= (const sc_uint_base& u, const sc_unsigned&  v);
+  friend SC_API bool operator >= (const sc_int_base&  u, const sc_unsigned&  v);
 
   // Bitwise NOT operator (unary).
-  friend sc_unsigned operator ~ (const sc_unsigned& u);
+  friend SC_API sc_unsigned operator ~ (const sc_unsigned& u);
 
   // Helper functions.
   friend int compare_unsigned(small_type us,
@@ -2154,10 +2168,8 @@ sc_unsigned::sc_unsigned( const sc_generic_base<T>& v )
     if( nb > 0 ) {
         nbits = num_bits( nb );
     } else {
-        char msg[BUFSIZ];
-        std::sprintf( msg,
-		    "sc_unsigned( sc_generic_base<T> ) : nb = %d is not valid", nb);
-        SC_REPORT_ERROR( sc_core::SC_ID_INIT_FAILED_, msg );
+        invalid_init( "sc_generic_base<T>", nb );
+        sc_core::sc_abort(); // can't recover from here
     }
     ndigits = DIV_CEIL(nbits);
 #   ifdef SC_MAX_NBITS
@@ -2186,8 +2198,6 @@ operator >> ( ::std::istream& is, sc_unsigned& a )
     return is;
 }
 
-
 } // namespace sc_dt
-
 
 #endif

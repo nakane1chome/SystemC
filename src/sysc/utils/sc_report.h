@@ -1,20 +1,19 @@
-#ifndef SC_REPORT_H
-#define SC_REPORT_H 1
-
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -36,8 +35,17 @@
   CHANGE LOG AT END OF FILE
  *****************************************************************************/
 
-#include "sysc/kernel/sc_except.h"
+#ifndef SC_REPORT_H
+#define SC_REPORT_H 1
+
+#include <exception>
 #include <string>
+#include "sysc/kernel/sc_cmnhdr.h"
+
+#if defined(_MSC_VER) && !defined(SC_WIN_DLL_WARN)
+# pragma warning(push)
+# pragma warning(disable:4275) // ignore missing std::exception DLL export
+#endif
 
 namespace sc_core {
 
@@ -55,39 +63,46 @@ enum sc_severity {
     SC_MAX_SEVERITY
 };
 
-typedef unsigned sc_actions;
+// ----------------------------------------------------------------------------
+//  ENUM : sc_verbosity
+//
+//  Enumeration of message verbosity.
+// ----------------------------------------------------------------------------
 
-/**
-   @enum sc_verbosity
-   @brief Enumeration of message verbosity.
-
-*/
-
- enum sc_verbosity { 
-     SC_NONE = 0, 
-     SC_LOW = 100, 
-     SC_MEDIUM = 200, 
+ enum sc_verbosity {
+     SC_NONE = 0,
+     SC_LOW = 100,
+     SC_MEDIUM = 200,
      SC_HIGH = 300,
-     SC_FULL = 400, 
+     SC_FULL = 400,
      SC_DEBUG = 500
  };
 
-/**
-  ENUM : 
+// ----------------------------------------------------------------------------
+//  ENUM :
+//
+//  Enumeration of actions on an exception (implementation specific)
+// ----------------------------------------------------------------------------
 
-  Enumeration of actions on an exception (implementation specific)
-*/
+typedef unsigned sc_actions;
 
 enum {
-    SC_UNSPECIFIED  = 0x0000, //!< look for lower-priority rule
-    SC_DO_NOTHING   = 0x0001, //!< take no action (ignore if other bits set)
-    SC_THROW        = 0x0002, //!< throw an exception
-    SC_LOG          = 0x0004, //!< add report to report log
-    SC_DISPLAY      = 0x0008, //!< display report to screen
-    SC_CACHE_REPORT = 0x0010, //!< save report to cache
-    SC_INTERRUPT    = 0x0020, //!< call sc_interrupt_here(...)
-    SC_STOP         = 0x0040, //!< call sc_stop()
-    SC_ABORT        = 0x0080  // call abort()
+    SC_UNSPECIFIED  = 0x0000, // look for lower-priority rule
+    SC_DO_NOTHING   = 0x0001, // take no action (ignore if other bits set)
+    SC_THROW        = 0x0002, // throw an exception
+    SC_LOG          = 0x0004, // add report to report log
+    SC_DISPLAY      = 0x0008, // display report to screen
+    SC_CACHE_REPORT = 0x0010, // save report to cache
+    SC_INTERRUPT    = 0x0020, // call sc_interrupt_here(...)
+    SC_STOP         = 0x0040, // call sc_stop()
+    SC_ABORT        = 0x0080, // call abort()
+
+    // default action constants
+    SC_DEFAULT_INFO_ACTIONS    = SC_LOG | SC_DISPLAY,
+    SC_DEFAULT_WARNING_ACTIONS = SC_LOG | SC_DISPLAY,
+    SC_DEFAULT_ERROR_ACTIONS   = SC_LOG | SC_CACHE_REPORT | SC_THROW,
+    SC_DEFAULT_FATAL_ACTIONS   = SC_LOG | SC_DISPLAY | SC_CACHE_REPORT | SC_ABORT,
+    SC_DEFAULT_CATCH_ACTIONS   = SC_DISPLAY
 };
 
 class sc_object;
@@ -95,7 +110,7 @@ class sc_time;
 struct sc_msg_def;
 class sc_report;
 class sc_report_handler;
-const std::string sc_report_compose_message( const sc_report& );
+SC_API const std::string sc_report_compose_message( const sc_report& );
 
 /**
    @class sc_report
@@ -103,10 +118,10 @@ const std::string sc_report_compose_message( const sc_report& );
 
 */
 
-class sc_report : public std::exception
+class SC_API sc_report : public std::exception
 {
     friend class sc_report_handler;
-    friend sc_report* sc_handle_exception();
+    friend SC_API sc_report* sc_handle_exception();
 
     sc_report(); // used internally by sc_handle_exception
 
@@ -139,13 +154,10 @@ public:
 
     int get_verbosity() const { return m_verbosity_level; }
 
-    bool valid () const
-        {
-	    return process != 0;
-	}
+    bool valid () const;
 
     virtual const char* what() const throw()
-        { 
+        {
 	    return m_what;
 	}
 
@@ -166,7 +178,7 @@ protected:
     char*              file;
     int                line;
     sc_time*           timestamp;
-    sc_object*         process;
+    char*              process_name;
     int                m_verbosity_level;
     char*              m_what;
 
@@ -182,18 +194,8 @@ public:  // backward compatibility with 2.0+
 
     int get_id() const;
 };
+
 typedef std::exception sc_exception;
-
-#define SC_DEFAULT_INFO_ACTIONS \
-   (::sc_core::SC_LOG | ::sc_core::SC_DISPLAY)
-#define SC_DEFAULT_WARNING_ACTIONS \
-   (::sc_core::SC_LOG | ::sc_core::SC_DISPLAY)
-#define SC_DEFAULT_ERROR_ACTIONS \
-   (::sc_core::SC_LOG | ::sc_core::SC_CACHE_REPORT | ::sc_core::SC_THROW)
-#define SC_DEFAULT_FATAL_ACTIONS \
-   (::sc_core::SC_LOG | ::sc_core::SC_DISPLAY | \
-    ::sc_core::SC_CACHE_REPORT | ::sc_core::SC_ABORT)
-
 
 /**
   Report macros.
@@ -222,37 +224,71 @@ typedef std::exception sc_exception;
     ::sc_core::sc_report_handler::report( \
             ::sc_core::SC_FATAL, msg_type, msg, __FILE__, __LINE__ )
 
-/**
-   @macro sc_assert(expr)
-   @brief Like assert(), but additionally prints the current process name
 
-  and simulation time, if the simulation is running.
-*/
+// SC_NORETURN_ macro, indicating that a function does not return
+#if SC_CPLUSPLUS >= 201103L && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+// C++11: use standard C++ attribute
+# define SC_NORETURN_ [[noreturn]]
+#else
+# if defined(_MSC_VER)
+#    define SC_NORETURN_ __declspec(noreturn)
+# elif defined(__GNUC__) || defined(__MINGW32__) || defined(__clang__)
+#    define SC_NORETURN_ __attribute__((noreturn))
+# else
+#    define SC_NORETURN_ /* nothing */
+# endif
+#endif // SC_NORETURN_
 
-#ifdef NDEBUG
+// ----------------------------------------------------------------------------
+//  FUNCTION : sc_abort()
+//
+//  Like abort(), never returns and aborts the current program immediately,
+//  but may print additional information.
+// ----------------------------------------------------------------------------
+
+SC_NORETURN_ SC_API void sc_abort();
+
+// ----------------------------------------------------------------------------
+//  MACRO : sc_assert(expr)
+//
+//  Like assert(), but additionally prints the current process name
+//  and simulation time, if the simulation is running.
+// ----------------------------------------------------------------------------
+
+#if defined(NDEBUG) && !defined(SC_ENABLE_ASSERTIONS) // disable assertions
 
 #define sc_assert(expr) \
  ((void) 0)
 
-#else
+#else // enable assertions
 
 #define sc_assert(expr) \
- ((void)((expr) ? 0 :   \
-     (SC_REPORT_FATAL( ::sc_core::SC_ID_ASSERTION_FAILED_, #expr ), 0)))
+ ((void)((expr) ? 0 : \
+   (::sc_core::sc_assertion_failed(#expr,__FILE__,__LINE__),0)))
 
-#endif // NDEBUG
+#endif // defined(NDEBUG) && !defined(SC_ENABLE_ASSERTIONS)
 
-extern const char SC_ID_UNKNOWN_ERROR_[];
-extern const char SC_ID_WITHOUT_MESSAGE_[];
-extern const char SC_ID_NOT_IMPLEMENTED_[];
-extern const char SC_ID_INTERNAL_ERROR_[];
-extern const char SC_ID_ASSERTION_FAILED_[];
-extern const char SC_ID_OUT_OF_BOUNDS_[];
+SC_NORETURN_ SC_API  void
+sc_assertion_failed(const char* msg, const char* file, int line);
+
+extern SC_API const char SC_ID_UNKNOWN_ERROR_[];
+extern SC_API const char SC_ID_WITHOUT_MESSAGE_[];
+extern SC_API const char SC_ID_NOT_IMPLEMENTED_[];
+extern SC_API const char SC_ID_INTERNAL_ERROR_[];
+extern SC_API const char SC_ID_ASSERTION_FAILED_[];
+extern SC_API const char SC_ID_OUT_OF_BOUNDS_[];
+extern SC_API const char SC_ID_ABORT_[];
 
 // backward compatibility with 2.0+
-extern const char SC_ID_REGISTER_ID_FAILED_[];
+extern SC_API const char SC_ID_REGISTER_ID_FAILED_[];
 
 } // namespace sc_core
+
+#undef SC_NORETURN_
+
+#if defined(_MSC_VER) && !defined(SC_WIN_DLL_WARN)
+# pragma warning(pop)
+#endif
 
 #include "sysc/utils/sc_report_handler.h"
 

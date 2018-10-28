@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -26,9 +28,10 @@
 
 
 #include <cassert>
-#include <math.h>
-#include <stddef.h>
-#include <stdio.h>
+#include <cmath>
+#include <cstddef>
+#include <cstdio>
+#include <sstream>
 
 #include "sysc/kernel/sc_event.h"
 #include "sysc/kernel/sc_kernel_ids.h"
@@ -48,7 +51,6 @@
 #include "sysc/communication/sc_signal.h"
 #include "sysc/communication/sc_signal_ports.h"
 #include "sysc/utils/sc_utils_ids.h"
-#include "sysc/utils/sc_iostream.h"
 
 namespace sc_core {
 
@@ -97,7 +99,7 @@ sc_module_dynalloc_list::~sc_module_dynalloc_list()
 
 // ----------------------------------------------------------------------------
 
-sc_module*
+SC_API sc_module*
 sc_module_dynalloc( sc_module* module_ )
 {
     static sc_module_dynalloc_list dynalloc_list;
@@ -129,7 +131,7 @@ sc_bind_proxy::sc_bind_proxy( sc_port_base& port_ )
 {}
 
 
-const sc_bind_proxy SC_BIND_PROXY_NIL;
+SC_API const sc_bind_proxy SC_BIND_PROXY_NIL;
 
 
 // ----------------------------------------------------------------------------
@@ -147,7 +149,6 @@ sc_module::sc_module_init()
     m_module_name_p = 0;
     m_port_vec = new std::vector<sc_port_base*>;
     m_port_index = 0;
-    m_name_gen = new sc_name_gen;
 }
 
 /*
@@ -188,8 +189,10 @@ sc_module::sc_module()
        on the top of the stack */
     sc_module_name* mod_name = 
         simcontext()->get_object_manager()->top_of_module_name_stack();
-    if (0 == mod_name || 0 != mod_name->m_module_p)
+    if (0 == mod_name || 0 != mod_name->m_module_p) {
         SC_REPORT_ERROR( SC_ID_SC_MODULE_NAME_REQUIRED_, 0 );
+        sc_abort(); // can't recover from here
+    }
     sc_module_init();
     mod_name->set_module( this );
     m_module_name_p = mod_name; // must come after sc_module_init call.
@@ -216,8 +219,10 @@ sc_module::sc_module( const sc_module_name& )
        on the top of the stack */
     sc_module_name* mod_name = 
         simcontext()->get_object_manager()->top_of_module_name_stack();
-    if (0 == mod_name || 0 != mod_name->m_module_p)
-      SC_REPORT_ERROR( SC_ID_SC_MODULE_NAME_REQUIRED_, 0 );
+    if (0 == mod_name || 0 != mod_name->m_module_p) {
+        SC_REPORT_ERROR( SC_ID_SC_MODULE_NAME_REQUIRED_, 0 );
+        sc_abort(); // can't recover from here
+    }
     sc_module_init();
     mod_name->set_module( this );
     m_module_name_p = mod_name; // must come after sc_module_init call.
@@ -364,6 +369,7 @@ sc_module::reset_signal_is( const sc_signal_in_if<bool>& iface, bool level )
 const char*
 sc_module::gen_unique_name( const char* basename_, bool preserve_first )
 {
+    if( !m_name_gen ) m_name_gen = new sc_name_gen;
     return m_name_gen->gen_unique_name( basename_, preserve_first );
 }
 
@@ -398,13 +404,13 @@ void
 sc_module::elaboration_done( bool& error_ )
 {
     if( ! m_end_module_called ) {
-	char msg[BUFSIZ];
-	std::sprintf( msg, "module '%s'", name() );
-	SC_REPORT_WARNING( SC_ID_END_MODULE_NOT_CALLED_, msg );
-	if( error_ ) {
-	    SC_REPORT_WARNING( SC_ID_HIER_NAME_INCORRECT_, 0 );
-	}
-	error_ = true;
+        std::stringstream msg;
+        msg << "module '" << name() << "'";
+        SC_REPORT_WARNING( SC_ID_END_MODULE_NOT_CALLED_, msg.str().c_str() );
+        if( error_ ) {
+            SC_REPORT_WARNING( SC_ID_HIER_NAME_INCORRECT_, 0 );
+        }
+        error_ = true;
     }
     hierarchy_scope scope(this);
     end_of_elaboration();
@@ -502,31 +508,32 @@ void
 sc_module::positional_bind( sc_interface& interface_ )
 {
     if( m_port_index == (int)m_port_vec->size() ) {
-	char msg[BUFSIZ];
-	if( m_port_index == 0 ) {
-	    std::sprintf( msg, "module `%s' has no ports", name() );
-	} else {
-	    std::sprintf( msg, "all ports of module `%s' are bound", name() );
-	}
-	SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg );
+        std::stringstream msg;
+        if( m_port_index == 0 ) {
+            msg << "module `" << name() << "' has no ports";
+        } else {
+            msg << "all ports of module `" << name() << "' are bound";
+        }
+        SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg.str().c_str() );
+        return;
     }
     int status = (*m_port_vec)[m_port_index]->pbind( interface_ );
     if( status != 0 ) {
-	char msg[BUFSIZ];
-	switch( status ) {
-	case 1:
-	    std::sprintf( msg, "port %d of module `%s' is already bound",
-		     m_port_index, name() );
-	    break;
-	case 2:
-	    std::sprintf( msg, "type mismatch on port %d of module `%s'",
-		     m_port_index, name() );
-	    break;
-	default:
-	    std::sprintf( msg, "unknown error" );
-	    break;
-	}
-	SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg );
+        std::stringstream msg;
+        switch( status ) {
+        case 1:
+            msg << "port " << m_port_index
+                << " of module `" << name() << "' is already bound";
+            break;
+        case 2:
+            msg << "type mismatch on port " << m_port_index
+                << " of module `" << name() << "'";
+            break;
+        default:
+            msg << "unknown error";
+            break;
+        }
+        SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg.str().c_str() );
     }
     ++ m_port_index;
 }
@@ -535,31 +542,32 @@ void
 sc_module::positional_bind( sc_port_base& port_ )
 {
     if( m_port_index == (int)m_port_vec->size() ) {
-	char msg[BUFSIZ];
-	if( m_port_index == 0 ) {
-	    std::sprintf( msg, "module `%s' has no ports", name() );
-	} else {
-	    std::sprintf( msg, "all ports of module `%s' are bound", name() );
-	}
-	SC_REPORT_ERROR( SC_ID_BIND_PORT_TO_PORT_, msg );
+        std::stringstream msg;
+        if( m_port_index == 0 ) {
+            msg << "module `" << name() << "' has no ports";
+        } else {
+            msg << "all ports of module `" << name() << "' are bound";
+        }
+        SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg.str().c_str() );
+        return;
     }
     int status = (*m_port_vec)[m_port_index]->pbind( port_ );
     if( status != 0 ) {
-	char msg[BUFSIZ];
-	switch( status ) {
-	case 1:
-	    std::sprintf( msg, "port %d of module `%s' is already bound",
-		     m_port_index, name() );
-	    break;
-	case 2:
-	    std::sprintf( msg, "type mismatch on port %d of module `%s'",
-		     m_port_index, name() );
-	    break;
-	default:
-	    std::sprintf( msg, "unknown error" );
-	    break;
-	}
-	SC_REPORT_ERROR( SC_ID_BIND_PORT_TO_PORT_, msg );
+        std::stringstream msg;
+        switch( status ) {
+        case 1:
+            msg << "port " << m_port_index
+                << " of module `" << name() << "' is already bound";
+            break;
+        case 2:
+            msg << "type mismatch on port " << m_port_index
+                << " of module `" << name() << "'";
+            break;
+        default:
+            msg << "unknown error";
+            break;
+        }
+        SC_REPORT_ERROR( SC_ID_BIND_IF_TO_PORT_, msg.str().c_str() );
     }
     ++ m_port_index;
 }

@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -47,34 +49,34 @@ extern sc_simcontext* sc_get_curr_simcontext();
 // static sensitivity for SC_THREADs and SC_CTHREADs
 
 extern
-void
+SC_API void
 wait( sc_simcontext* = sc_get_curr_simcontext() );
 
 
 // dynamic sensitivity for SC_THREADs and SC_CTHREADs
 
 extern
-void
+SC_API void
 wait( const sc_event&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 wait( const sc_event_or_list&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 wait( const sc_event_and_list&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 wait( const sc_time&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 wait( double v, sc_time_unit tu,
       sc_simcontext* simc = sc_get_curr_simcontext() )
 {
@@ -82,13 +84,13 @@ wait( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 wait( const sc_time&,
       const sc_event&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 wait( double v, sc_time_unit tu,
       const sc_event& e,
       sc_simcontext* simc = sc_get_curr_simcontext() )
@@ -97,13 +99,13 @@ wait( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 wait( const sc_time&,
       const sc_event_or_list&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 wait( double v, sc_time_unit tu,
       const sc_event_or_list& el,
       sc_simcontext* simc = sc_get_curr_simcontext() )
@@ -112,13 +114,13 @@ wait( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 wait( const sc_time&,
       const sc_event_and_list&,
       sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 wait( double v, sc_time_unit tu,
       const sc_event_and_list& el,
       sc_simcontext* simc = sc_get_curr_simcontext() )
@@ -130,34 +132,34 @@ wait( double v, sc_time_unit tu,
 // static sensitivity for SC_METHODs
 
 extern
-void
+SC_API void
 next_trigger( sc_simcontext* = sc_get_curr_simcontext() );
 
 
 // dynamic sensitivity for SC_METHODs
 
 extern
-void
+SC_API void
 next_trigger( const sc_event&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 next_trigger( const sc_event_or_list&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 next_trigger( const sc_event_and_list&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 extern
-void
+SC_API void
 next_trigger( const sc_time&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 next_trigger( double v, sc_time_unit tu,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
 {
@@ -165,13 +167,13 @@ next_trigger( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 next_trigger( const sc_time&,
 	      const sc_event&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 next_trigger( double v, sc_time_unit tu,
 	      const sc_event& e,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
@@ -180,13 +182,13 @@ next_trigger( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 next_trigger( const sc_time&,
 	      const sc_event_or_list&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
 
 inline
-void
+SC_API void
 next_trigger( double v, sc_time_unit tu,
 	      const sc_event_or_list& el,
 	      sc_simcontext* simc = sc_get_curr_simcontext() )
@@ -195,7 +197,7 @@ next_trigger( double v, sc_time_unit tu,
 }
 
 extern
-void
+SC_API void
 next_trigger( const sc_time&,
 	      const sc_event_and_list&,
 	      sc_simcontext* = sc_get_curr_simcontext() );
@@ -213,13 +215,13 @@ next_trigger( double v, sc_time_unit tu,
 // for SC_METHODs and SC_THREADs and SC_CTHREADs
 
 extern
-bool
+SC_API bool
 timed_out( sc_simcontext* = sc_get_curr_simcontext() );
 
 // misc.
 
 extern
-void
+SC_API void
 sc_set_location( const char*,
 		 int,
 		 sc_simcontext* = sc_get_curr_simcontext() );

@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -75,7 +77,7 @@ class sc_bv_base;
 
 */
 
-class sc_bv_base
+class SC_API sc_bv_base
     : public sc_proxy<sc_bv_base>
 {
     friend class sc_lv_base;
@@ -89,7 +91,8 @@ public:
 
     // typedefs
 
-    typedef sc_proxy<sc_bv_base> base_type;
+    typedef sc_proxy<sc_bv_base>  base_type;
+    typedef base_type::value_type value_type;
 
 
     // constructors
@@ -189,44 +192,6 @@ public:
 	{ base_type::assign_( a ); return *this; }
 
 
-#if 0
-
-    // bitwise complement
-
-    sc_bv_base& b_not();
-
-    const sc_bv_base operator ~ () const
-	{ sc_bv_base a( *this ); return a.b_not(); }
-
-
-    // bitwise left shift
-
-    sc_bv_base& operator <<= ( int n );
-
-    const sc_bv_base operator << ( int n ) const
-	{ sc_bv_base a( *this ); return ( a <<= n ); }
-
-
-    // bitwise right shift
-
-    sc_bv_base& operator >>= ( int n );
-
-    const sc_bv_base operator >> ( int n ) const
-	{ sc_bv_base a( *this ); return ( a >>= n ); }
-
-
-    // bitwise left rotate
-
-    sc_bv_base& lrotate( int n );
-
-
-    // bitwise right rotate
-
-    sc_bv_base& rrotate( int n );
-
-#endif
-
-
     // common methods
 
     int length() const
@@ -235,8 +200,8 @@ public:
     int size() const
 	{ return m_size; }
 
-    sc_logic_value_t get_bit( int i ) const;
-    void set_bit( int i, sc_logic_value_t value );
+    value_type get_bit( int i ) const;
+    void set_bit( int i, value_type value );
 
     sc_digit get_word( int i ) const
 	{ return m_data[i]; }
@@ -296,17 +261,17 @@ rrotate( const sc_bv_base& x, int n )
 // common methods
 
 inline
-sc_logic_value_t
+sc_bv_base::value_type
 sc_bv_base::get_bit( int i ) const
 {
     int wi = i / SC_DIGIT_SIZE;
     int bi = i % SC_DIGIT_SIZE;
-    return sc_logic_value_t( (m_data[wi] >> bi) & SC_DIGIT_ONE );
+    return value_type( (m_data[wi] >> bi) & SC_DIGIT_ONE );
 }
 
 inline
 void
-sc_bv_base::set_bit( int i, sc_logic_value_t value )
+sc_bv_base::set_bit( int i, value_type value )
 {
     int wi = i / SC_DIGIT_SIZE;
     int bi = i % SC_DIGIT_SIZE;

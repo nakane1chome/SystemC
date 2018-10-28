@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -27,10 +29,10 @@
 
 #include <cstdlib>
 #include <cassert>
-#include <stddef.h>
+#include <cstddef>
 #include <cstdio>
-#include <string.h>
-#include <ctype.h>
+#include <cstring>
+#include <cctype>
 
 #include "sysc/kernel/sc_externs.h"
 #include "sysc/kernel/sc_kernel_ids.h"
@@ -42,7 +44,6 @@
 #include "sysc/kernel/sc_simcontext.h"
 #include "sysc/kernel/sc_event.h"
 #include "sysc/utils/sc_hash.h"
-#include "sysc/utils/sc_iostream.h"
 #include "sysc/utils/sc_list.h"
 #include "sysc/utils/sc_utils_ids.h"
 #include "sysc/utils/sc_mempool.h"
@@ -82,7 +83,7 @@ sc_object::add_child_object( sc_object* object_ )
 const char*
 sc_object::basename() const
 {
-    size_t pos; // position of last SC_HIERARCHY_CHAR.
+    std::size_t pos; // position of last SC_HIERARCHY_CHAR.
     pos = m_name.rfind( (char)SC_HIERARCHY_CHAR );
     return ( pos == m_name.npos ) ? m_name.c_str() : &(m_name.c_str()[pos+1]);
 } 
@@ -98,21 +99,6 @@ sc_object::dump(::std::ostream& os) const
 {
     os << "name = " << name() << "\n";
     os << "kind = " << kind() << "\n";
-}
-
-static int sc_object_num = 0;
-
-static std::string
-sc_object_newname()
-{
-    char        buffer[64];
-    std::string result;
-
-    std::sprintf(buffer, "{%d}", sc_object_num);
-    sc_object_num++;
-    result = buffer;
-
-    return result;
 }
 
 // +----------------------------------------------------------------------------
@@ -168,7 +154,7 @@ sc_object::remove_child_object( sc_object* object_p )
 // |"sc_object::sc_object_init"
 // | 
 // | This method initializes this object instance and places it in to the
-// | object hierarchy if the supplied name is not NULL.
+// | object hierarchy.
 // |
 // | Arguments:
 // |     nm = leaf name for the object.
@@ -186,10 +172,9 @@ sc_object::sc_object_init(const char* nm)
     m_parent = m_simc->active_object();
 
     // CONSTRUCT PATHNAME TO OBJECT BEING CREATED: 
-    // 
-    // If there is not a leaf name generate one. 
 
-    m_name = object_manager->create_name(nm ? nm : sc_object_newname().c_str());
+    sc_assert( nm );
+    m_name = object_manager->create_name(nm);
 
 
     // PLACE THE OBJECT INTO THE HIERARCHY
@@ -219,7 +204,7 @@ sc_object::sc_object( const sc_object& that ) :
 static bool
 object_name_illegal_char(char ch)
 {
-    return (ch == SC_HIERARCHY_CHAR) || isspace(ch);
+    return (ch == SC_HIERARCHY_CHAR) || std::isspace(ch);
 }
 
 sc_object::sc_object(const char* nm) : 
@@ -233,11 +218,11 @@ sc_object::sc_object(const char* nm) :
     // null name or "" uses machine generated name.
     
     if ( !nm || !*nm )
-	nm = sc_gen_unique_name("object");
+        nm = sc_gen_unique_name("object");
     p = nm;
 
     if (nm && sc_enable_name_checking) {
-        namebuf_alloc = 1 + strlen(nm);
+        namebuf_alloc = 1 + std::strlen(nm);
         namebuf = (char*) sc_mempool::allocate(namebuf_alloc);
         char* q = namebuf;
         const char* r = nm;

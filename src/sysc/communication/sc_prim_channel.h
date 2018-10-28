@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -43,7 +45,7 @@ namespace sc_core {
 
 */
 
-class sc_prim_channel
+class SC_API sc_prim_channel
 : public sc_object
 {
     friend class sc_prim_channel_registry;
@@ -87,6 +89,12 @@ protected:
 
     // called by simulation_done (does nothing by default)
     virtual void end_of_simulation();
+
+    // indicate that this channel is async and could call async_request_update
+    // therefore, the kernel should arrange to suspend rather than exit while
+    // this channel is attached.
+    bool async_attach_suspending();
+    bool async_detach_suspending();
 
 protected:
 
@@ -240,7 +248,7 @@ public:
 
 
     int size() const
-        { return m_prim_channel_vec.size(); }
+        { return static_cast<int>(m_prim_channel_vec.size()); }
 
     inline void request_update( sc_prim_channel& );
     void async_request_update( sc_prim_channel& );
@@ -252,6 +260,20 @@ public:
     }   
 
     bool pending_async_updates() const;
+
+    // synchronization with attached async suspending channels
+    //  - potentially blocks the current thread, if no explicitly
+    //    attached async channels have posted updates, yet
+    //  - returns true, if and only if there are NO pending synchronous
+    //    updates after resuming from the external synchronization
+    bool async_suspend();
+
+    // (un)register a channel as being asynchronous
+    //  - presence of asynchronous channels leads async_suspend() to
+    //    block until any external async updates have been received
+    //    (instead of exiting the simulation upon starvation)
+    bool async_attach_suspending(sc_prim_channel&);
+    bool async_detach_suspending(sc_prim_channel&);
 
 private:
 
@@ -334,6 +356,20 @@ void
 sc_prim_channel::async_request_update()
 {
     m_registry->async_request_update(*this);
+}
+
+inline
+bool
+sc_prim_channel::async_attach_suspending()
+{
+    return m_registry->async_attach_suspending(*this);
+}
+
+inline
+bool
+sc_prim_channel::async_detach_suspending()
+{
+    return m_registry->async_detach_suspending(*this);
 }
 
 

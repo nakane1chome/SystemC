@@ -1,30 +1,31 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
 
-*****************************************************************************/
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
+
+ *****************************************************************************/
 
 
 #ifndef __TLM_ENDIAN_CONV_H__
 #define __TLM_ENDIAN_CONV_H__
 
-#include <systemc>
 #include "tlm_core/tlm_2/tlm_generic_payload/tlm_gp.h"
 
+#include <cstring> // std::memset
 
 namespace tlm {
-
 
 /*
 Tranaction-Level Modelling
@@ -288,20 +289,20 @@ inline void copy_db0(uchar *src1, uchar *src2, uchar *dest1, uchar *dest2) {
   *dest2 = *src2;
 }
 
-inline void copy_dbtrue0(uchar *src1, uchar *src2, uchar *dest1, uchar *dest2) {
+inline void copy_dbtrue0(uchar *src1, uchar * /* src2 */, uchar *dest1, uchar *dest2) {
   *dest1 = *src1;
   *dest2 = TLM_BYTE_ENABLED;
 }
 
-inline void copy_btrue0(uchar *src1, uchar *src2, uchar *dest1, uchar *dest2) {
+inline void copy_btrue0(uchar * /* src1 */, uchar * /* src2 */, uchar * /* dest1 */, uchar *dest2) {
   *dest2 = TLM_BYTE_ENABLED;
 }
 
-inline void copy_b0(uchar *src1, uchar *src2, uchar *dest1, uchar *dest2) {
+inline void copy_b0(uchar * /* src1 */, uchar *src2, uchar * /* dest1 */, uchar *dest2) {
   *dest2 = *src2;
 }
 
-inline void copy_dbyb0(uchar *src1, uchar *src2, uchar *dest1, uchar *dest2) {
+inline void copy_dbyb0(uchar *src1, uchar * /* src2 */, uchar *dest1, uchar *dest2) {
   if(*dest2 == TLM_BYTE_ENABLED) *src1 = *dest1;
 }
 
@@ -384,7 +385,7 @@ tlm_to_hostendian_generic(tlm_generic_payload *txn, unsigned int sizeof_databus)
   txn->set_data_ptr(tc->new_dbuf);
   tc->establish_bebuf(new_length);
   txn->set_byte_enable_ptr(tc->new_bebuf);
-  memset(txn->get_byte_enable_ptr(), TLM_BYTE_DISABLED, new_length);
+  std::memset(txn->get_byte_enable_ptr(), TLM_BYTE_DISABLED, new_length);
   txn->set_streaming_width(new_stream_width);
   txn->set_data_length(new_length);
   txn->set_byte_enable_length(new_length);

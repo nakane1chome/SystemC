@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -37,7 +39,7 @@
 
  *****************************************************************************/
 
-/* 
+/*
 $Log: scx_signal_uint.h,v $
 Revision 1.4  2011/08/15 17:18:21  acg
  Andy Goodrich: fix blown inclusion of Torsten's edit.
@@ -108,6 +110,13 @@ Andy Goodrich - Forte Design Systems, Inc.
 #    define SC_TEMPLATE template<> template<int W>
 #endif
 
+#if defined(__clang__) || \
+   (defined(__GNUC__) && ((__GNUC__ * 1000 + __GNUC_MINOR__) >= 4006))
+// ignore warning about deliberately hidden "bind()" overloads
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 // FORWARD REFERENCES AND USINGS:
 
 namespace sc_core {
@@ -121,7 +130,7 @@ class sc_uint_sigref;
 // data type is sc_dt::sc_uint<W>. This class serves as the base class for the
 // sc_dt::sc_uint<W> specialization of the sc_signal_in_if<T> class. The methods
 // in this class may be over-ridden individually, those that are not overridden
-// will produce an error message when called. The methods are used by the 
+// will produce an error message when called. The methods are used by the
 // sc_uint_sigref class.
 //
 // Notes:
@@ -153,7 +162,7 @@ class sc_uint_part_if : virtual public sc_interface {
 //
 // This is the class specializations for the sc_signal_in_if<T> class to
 // provide additional features for sc_signal instances whose template is
-// sc_dt::sc_uint<W>, including part access. 
+// sc_dt::sc_uint<W>, including part access.
 //
 // Notes:
 //   (1) Descriptions of the methods and operators in this class appear with
@@ -179,12 +188,12 @@ class sc_signal_in_if<sc_dt::sc_uint<W> > : public sc_uint_part_if {
     // was there a value changed event?
     virtual bool event() const = 0;
 
-  protected: 
+  protected:
     // constructor
     sc_signal_in_if()
     {}
 
-  private: // disabled 
+  private: // disabled
     sc_signal_in_if( const this_type& );
     this_type& operator = ( const this_type& );
 };
@@ -239,10 +248,10 @@ class sc_uint_sigref : public sc_dt::sc_uint_subref_r
 
 
 //==============================================================================
-// CLASS sc_signal<sc_dt::sc_uint<W> > 
+// CLASS sc_signal<sc_dt::sc_uint<W> >
 //
 // This class implements a signal whose value acts like an sc_dt::sc_uint<W> data
-// value. This class is a specialization of the generic sc_signal class to 
+// value. This class is a specialization of the generic sc_signal class to
 // implement tailored support for the sc_dt::sc_uint<W> class.
 //
 // Notes:
@@ -250,7 +259,7 @@ class sc_uint_sigref : public sc_dt::sc_uint_subref_r
 //       their implementations.
 //==============================================================================
 SC_TEMPLATE
-class sc_signal<sc_dt::sc_uint<W> > : 
+class sc_signal<sc_dt::sc_uint<W> > :
     public sc_signal_inout_if<sc_dt::sc_uint<W> >,
 	public sc_prim_channel,
     public sc_dt::sc_uint<W>
@@ -275,7 +284,7 @@ class sc_signal<sc_dt::sc_uint<W> > :
 
   public: // sc_interface virtual methods:
     virtual inline const sc_event& default_event() const;
-    virtual inline void register_port( 
+    virtual inline void register_port(
 		sc_port_base& port_, const char* if_typename_ );
 
   public: // sc_uint_channel virtual methods:
@@ -385,19 +394,19 @@ inline void sc_signal<sc_dt::sc_uint<W> >::base_write( sc_dt::uint64 value )
 //------------------------------------------------------------------------------
 //"sc_signal<sc_dt::sc_uint<W> >::check_writer"
 //
-// This method checks to see if there is more than one writer for this 
+// This method checks to see if there is more than one writer for this
 // object instance by keeping track of the process performing the write.
 //------------------------------------------------------------------------------
 SC_TEMPLATE
 inline void sc_signal<sc_dt::sc_uint<W> >::check_writer()
 {
     sc_process_b* writer_p = sc_get_current_process_b();
-    if( m_writer_p == 0 ) 
-    {   
+    if( m_writer_p == 0 )
+    {
         m_writer_p = writer_p;
-    } 
-    else if( m_writer_p != writer_p ) 
-    {   
+    }
+    else if( m_writer_p != writer_p )
+    {
         sc_signal_invalid_writer( name(), kind(),
                                   m_writer_p->name(), writer_p->name() );
     }
@@ -408,10 +417,10 @@ inline void sc_signal<sc_dt::sc_uint<W> >::check_writer()
 //"sc_signal<sc_dt::sc_uint<W> >::concat_set"
 //
 // These virtual methods allow value assignments to this object instance
-// from various sources. The position within the supplied source of the 
+// from various sources. The position within the supplied source of the
 // low order bit for this object instance's value is low_i.
 //     src   = source value.
-//     low_i = bit within src to serve as low order bit of this object 
+//     low_i = bit within src to serve as low order bit of this object
 //             instance's value.
 //------------------------------------------------------------------------------
 SC_TEMPLATE
@@ -425,7 +434,7 @@ inline void sc_signal<sc_dt::sc_uint<W> >::concat_set(
     else
     {
         base_write( (src < 0 ) ? src >> 63 : 0 );
-    } 
+    }
 }
 
 SC_TEMPLATE
@@ -461,7 +470,7 @@ inline void sc_signal<sc_dt::sc_uint<W> >::concat_set(
 
 
 SC_TEMPLATE // Return the default event for this object instance.
-inline const sc_event& sc_signal<sc_dt::sc_uint<W> >::default_event() const 
+inline const sc_event& sc_signal<sc_dt::sc_uint<W> >::default_event() const
 	{ return base_value_changed_event(); }
 
 
@@ -471,14 +480,14 @@ inline bool sc_signal<sc_dt::sc_uint<W> >::event() const
 
 
 SC_TEMPLATE // Return a reference to the value of this object instance.
-inline const sc_dt::sc_uint<W>& 
+inline const sc_dt::sc_uint<W>&
 sc_signal<sc_dt::sc_uint<W> >::get_data_ref() const
 	{ return *this; }
 
 
 #if 0
 SC_TEMPLATE // Return a pointer to this object instance.
-inline sc_signal<sc_dt::sc_uint<W> >& sc_signal<sc_dt::sc_uint<W> >::get_signal() 
+inline sc_signal<sc_dt::sc_uint<W> >& sc_signal<sc_dt::sc_uint<W> >::get_signal()
 	{ return *this; }
 #endif // 0
 
@@ -498,7 +507,7 @@ inline const char* sc_signal<sc_dt::sc_uint<W> >::kind() const
 //     right = right-hand bit of the selection.
 //------------------------------------------------------------------------------
 SC_TEMPLATE
-inline sc_uint_sigref& sc_signal<sc_dt::sc_uint<W> >::operator () 
+inline sc_uint_sigref& sc_signal<sc_dt::sc_uint<W> >::operator ()
     (int left, int right)
 {
     sc_uint_sigref* result_p;   // Value to return.
@@ -522,7 +531,7 @@ inline sc_uint_sigref& sc_signal<sc_dt::sc_uint<W> >::operator [] ( int bit )
 }
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
     const this_type& new_val )
 	{ base_write( (sc_dt::uint64)new_val ); }
 
@@ -531,7 +540,7 @@ inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( sc_dt::uint64 new_val )
 	{ base_write(new_val); }
 
 
-SC_TEMPLATE 
+SC_TEMPLATE
 inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( const char* new_val )
 	{ m_new_val = sc_dt::sc_uint<64>(new_val); request_update(); }
 
@@ -547,17 +556,17 @@ inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( int new_val )
 
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( long new_val ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( long new_val )
 	{ base_write((sc_dt::uint64)new_val); }
 
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( short new_val ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( short new_val )
 	{ base_write((sc_dt::uint64)new_val); }
 
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( unsigned int new_val ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( unsigned int new_val )
 	{ base_write((sc_dt::uint64)new_val); }
 
 
@@ -573,29 +582,29 @@ inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( unsigned short new_val )
 
 SC_TEMPLATE
 template<typename T>
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
 	const sc_dt::sc_generic_base<T>& new_val )
 	{ base_write(new_val->to_uint64()); }
 
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
     const sc_dt::sc_signed& new_val )
 	{ base_write(new_val.to_uint64()); }
 
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
     const sc_dt::sc_unsigned& new_val )
 	{ base_write(new_val.to_uint64()); }
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
     const sc_dt::sc_bv_base& new_val )
 	{ base_write( (sc_dt::sc_uint<W>)new_val ); }
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::operator = ( 
+inline void sc_signal<sc_dt::sc_uint<W> >::operator = (
     const sc_dt::sc_lv_base& new_val )
 	{ base_write( (sc_dt::sc_uint<W>)new_val ); }
 
@@ -618,14 +627,14 @@ inline sc_dt::uint64 sc_signal<sc_dt::sc_uint<W> >::read_part( int left, int rig
 }
 
 SC_TEMPLATE
-inline void sc_signal<sc_dt::sc_uint<W> >::register_port( 
+inline void sc_signal<sc_dt::sc_uint<W> >::register_port(
 	sc_port_base& port_, const char* if_typename_ )
 {
 #       ifdef DEBUG_SYSTEMC
 		std::string nm( if_typename_ );
-		if( nm == typeid( sc_signal_inout_if<sc_dt::sc_uint<W> > ).name() ) 
+		if( nm == typeid( sc_signal_inout_if<sc_dt::sc_uint<W> > ).name() )
 		{
-			if( m_output_p != 0 ) 
+			if( m_output_p != 0 )
 			{
 				sc_signal_invalid_writer( name(), kind(),
 					 m_output_p->name(), port_.name() );
@@ -633,13 +642,13 @@ inline void sc_signal<sc_dt::sc_uint<W> >::register_port(
 			m_output_p = &port_;
 		}
 #       else
-            if ( &port_ && if_typename_ ) {} // Silence unused args warning.
+		if ( port_.name() && if_typename_ ) {} // Silence unused args warning.
 #       endif
 }
 
 
 SC_TEMPLATE // Autogenerated name object instance constructor.
-inline sc_signal<sc_dt::sc_uint<W> >::sc_signal() : 
+inline sc_signal<sc_dt::sc_uint<W> >::sc_signal() :
 	sc_prim_channel(sc_gen_unique_name( "signal" )),
 	m_changed_event_p(0),
 	m_output_p(0),
@@ -648,7 +657,7 @@ inline sc_signal<sc_dt::sc_uint<W> >::sc_signal() :
 
 
 SC_TEMPLATE // Explicitly named object instance constructor.
-inline sc_signal<sc_dt::sc_uint<W> >::sc_signal(const char* name_) : 
+inline sc_signal<sc_dt::sc_uint<W> >::sc_signal(const char* name_) :
 	sc_prim_channel(name_),
 	m_changed_event_p(0),
 	m_output_p(0),
@@ -657,7 +666,7 @@ inline sc_signal<sc_dt::sc_uint<W> >::sc_signal(const char* name_) :
 
 
 SC_TEMPLATE // Object instance destructor.
-inline sc_signal<sc_dt::sc_uint<W> >::~sc_signal() 
+inline sc_signal<sc_dt::sc_uint<W> >::~sc_signal()
 {
 	if ( m_changed_event_p ) delete m_changed_event_p;
 }
@@ -690,22 +699,22 @@ inline const sc_event& sc_signal<sc_dt::sc_uint<W> >::value_changed_event() cons
 
 
 SC_TEMPLATE // Write a sc_in<sc_dt::sc_uint<W> > value to this object instance.
-inline void sc_signal<sc_dt::sc_uint<W> >::write( const sc_in<sc_dt::sc_uint<W> >& value ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::write( const sc_in<sc_dt::sc_uint<W> >& value )
 	{ base_write( value.operator sc_dt::uint64 () ); }
 
 
 SC_TEMPLATE // Write a sc_inout<sc_dt::sc_uint<W> > value to this object instance.
-inline void sc_signal<sc_dt::sc_uint<W> >::write( const sc_inout<sc_dt::sc_uint<W> >& value ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::write( const sc_inout<sc_dt::sc_uint<W> >& value )
 	{ base_write( value.operator sc_dt::uint64 () ); }
 
 
 SC_TEMPLATE // Write a sc_dt::sc_uint<W> value to this object instance.
-inline void sc_signal<sc_dt::sc_uint<W> >::write( 
-    const sc_dt::sc_uint<W>& value ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::write(
+    const sc_dt::sc_uint<W>& value )
 	{ base_write( value); }
 
 
-SC_TEMPLATE // Select a portion of a value. 
+SC_TEMPLATE // Select a portion of a value.
 inline sc_uint_sigref& sc_signal<sc_dt::sc_uint<W> >::select_part(int left, int right)
 {
 	sc_uint_sigref* result_p = sc_uint_sigref::m_pool.allocate();
@@ -714,9 +723,9 @@ inline sc_uint_sigref& sc_signal<sc_dt::sc_uint<W> >::select_part(int left, int 
 }
 
 
-SC_TEMPLATE // Write a portion of a value. If this is the first write in 
+SC_TEMPLATE // Write a portion of a value. If this is the first write in
             // a delta cycle we copy the existing value before setting the bits.
-inline void sc_signal<sc_dt::sc_uint<W> >::write_part( sc_dt::uint64 v, int left, int right ) 
+inline void sc_signal<sc_dt::sc_uint<W> >::write_part( sc_dt::uint64 v, int left, int right )
 {
     sc_dt::uint64 new_v;   // New value.
     sc_dt::uint64 keep;    // Keep mask value.
@@ -732,11 +741,11 @@ inline void sc_signal<sc_dt::sc_uint<W> >::write_part( sc_dt::uint64 v, int left
 // CLASS sc_in<sc_dt::sc_uint<W> >
 //
 // This class implements an input port whose target acts like an sc_dt::sc_uint<W> data
-// value. This class is a specialization of the generic sc_in class to 
+// value. This class is a specialization of the generic sc_in class to
 // implement tailored support for the sc_dt::sc_uint<W> class.
 //==============================================================================
 SC_TEMPLATE
-class sc_in<sc_dt::sc_uint<W> > : 
+class sc_in<sc_dt::sc_uint<W> > :
     public sc_port<sc_signal_in_if<sc_dt::sc_uint<W> >, 1,
                    SC_ONE_OR_MORE_BOUND>,
     public sc_dt::sc_value_base
@@ -759,10 +768,10 @@ class sc_in<sc_dt::sc_uint<W> > :
 
     // bind methods and operators:
 
-    void bind( const in_if_type& interface_ ) 
-        { sc_port_base::bind( CCAST<in_if_type&>( interface_) );}
+    void bind( const in_if_type& interface_ )
+        { sc_port_base::bind( const_cast<in_if_type&>( interface_) );}
     void operator () ( const in_if_type& interface_ )
-        { sc_port_base::bind( CCAST<in_if_type&>( interface_) );}
+        { sc_port_base::bind( const_cast<in_if_type&>( interface_) );}
     void bind( in_port_type& parent_ )
         { sc_port_base::bind(parent_);}
     void operator () ( in_port_type& parent_ )
@@ -777,21 +786,21 @@ class sc_in<sc_dt::sc_uint<W> > :
     virtual inline int vbind( sc_interface& interface_ )
         {
             return sc_port_b<if_type>::vbind( interface_ );
-        }       
+        }
     virtual inline int vbind( sc_port_base& parent_ )
         {
-            in_port_type* in_parent = DCAST<in_port_type*>( &parent_ );  
+            in_port_type* in_parent = dynamic_cast<in_port_type*>( &parent_ );
             if( in_parent != 0 ) {
                 sc_port_base::bind( *in_parent );
                 return 0;
             }
-            inout_port_type* inout_parent = DCAST<inout_port_type*>( &parent_ );
+            inout_port_type* inout_parent = dynamic_cast<inout_port_type*>( &parent_ );
             if( inout_parent != 0 ) {
                 sc_port_base::bind( *inout_parent );
                 return 0;
             }
             // type mismatch
-            return 2;     
+            return 2;
         }
 
 
@@ -807,11 +816,11 @@ class sc_in<sc_dt::sc_uint<W> > :
         {}
 
     explicit sc_in( const in_if_type& interface_ )
-        : base_type( CCAST<in_if_type&>( interface_ ) ), m_traces( 0 )
+        : base_type( const_cast<in_if_type&>( interface_ ) ), m_traces( 0 )
         {}
 
-    sc_in( const char* name_, const in_if_type& interface_ )     
-        : base_type( name_, CCAST<in_if_type&>( interface_ ) ), m_traces( 0 )
+    sc_in( const char* name_, const in_if_type& interface_ )
+        : base_type( name_, const_cast<in_if_type&>( interface_ ) ), m_traces( 0 )
         {}
 
     explicit sc_in( in_port_type& parent_ )
@@ -819,7 +828,7 @@ class sc_in<sc_dt::sc_uint<W> > :
         {}
 
     sc_in( const char* name_, in_port_type& parent_ )
-        : base_type( name_, parent_ ), m_traces( 0 )  
+        : base_type( name_, parent_ ), m_traces( 0 )
         {}
 
     explicit sc_in( inout_port_type& parent_ )
@@ -927,13 +936,13 @@ class sc_in<sc_dt::sc_uint<W> > :
             }
         }
 
-    virtual inline const char* kind() const 
+    virtual inline const char* kind() const
         { return "sc_in"; }
 
 
     // called by sc_trace
     void add_trace( sc_trace_file* tf_, const std::string& name_ ) const
-        { 
+        {
             if( tf_ != 0 ) {
                 if( m_traces == 0 ) {
                     m_traces = new sc_trace_params_vec;
@@ -949,10 +958,10 @@ class sc_in<sc_dt::sc_uint<W> > :
         { return (*this)->read().concat_length( xz_present_p ); }
     virtual inline sc_dt::uint64 concat_get_uint64() const
         { return (*this)->read().concat_get_uint64(); }
-    virtual inline bool concat_get_ctrl( 
+    virtual inline bool concat_get_ctrl(
 	    sc_dt::sc_digit* dst_p, int low_i ) const
         { return (*this)->read().concat_get_ctrl(dst_p, low_i); }
-    virtual inline bool concat_get_data( 
+    virtual inline bool concat_get_data(
 	    sc_dt::sc_digit* dst_p, int low_i ) const
         { return (*this)->read().concat_get_data(dst_p, low_i); }
 
@@ -990,7 +999,7 @@ class sc_in<sc_dt::sc_uint<W> > :
 
 
 SC_TEMPLATE
-inline std::ostream& operator << ( 
+inline std::ostream& operator << (
 	std::ostream& os, const sc_in<sc_dt::sc_uint<W> >& a )
 {
     a.read().print( os );
@@ -1001,13 +1010,13 @@ inline std::ostream& operator << (
 //==============================================================================
 // CLASS sc_inout<sc_dt::sc_uint<W> >
 //
-// This class implements an input/output port whose target acts like an 
-// sc_dt::sc_uint<W> data value. It is derived from the sc_uint_in. This class is a 
-// specialization of the generic sc_inout class to implement tailored support 
+// This class implements an input/output port whose target acts like an
+// sc_dt::sc_uint<W> data value. It is derived from the sc_uint_in. This class is a
+// specialization of the generic sc_inout class to implement tailored support
 // for the sc_dt::sc_uint<W> class.
 //==============================================================================
 SC_TEMPLATE
-class sc_inout<sc_dt::sc_uint<W> > : 
+class sc_inout<sc_dt::sc_uint<W> > :
     public sc_port<sc_signal_inout_if<sc_dt::sc_uint<W> >, 1,
 	    SC_ONE_OR_MORE_BOUND>,
     public sc_dt::sc_value_base
@@ -1028,10 +1037,10 @@ class sc_inout<sc_dt::sc_uint<W> > :
 
     // bind methods and operators:
 
-    void bind( const inout_if_type& interface_ ) 
-        { sc_port_base::bind( CCAST<inout_if_type&>( interface_) ); }
+    void bind( const inout_if_type& interface_ )
+        { sc_port_base::bind( const_cast<inout_if_type&>( interface_) ); }
     void operator () ( const inout_if_type& interface_ )
-        { sc_port_base::bind( CCAST<inout_if_type&>( interface_) ); }
+        { sc_port_base::bind( const_cast<inout_if_type&>( interface_) ); }
     void bind( inout_port_type& parent_ )
         { sc_port_base::bind(parent_); }
     void operator () ( inout_port_type& parent_ )
@@ -1042,16 +1051,16 @@ class sc_inout<sc_dt::sc_uint<W> > :
     virtual inline int vbind( sc_interface& interface_ )
         {
             return sc_port_b<if_type>::vbind( interface_ );
-        }       
+        }
     virtual inline int vbind( sc_port_base& parent_ )
         {
-            inout_port_type* inout_parent = DCAST<inout_port_type*>( &parent_ );
+            inout_port_type* inout_parent = dynamic_cast<inout_port_type*>( &parent_ );
             if( inout_parent != 0 ) {
                 sc_port_base::bind( *inout_parent );
                 return 0;
             }
             // type mismatch
-            return 2;     
+            return 2;
         }
 
 
@@ -1070,7 +1079,7 @@ class sc_inout<sc_dt::sc_uint<W> > :
         : base_type( interface_ ), m_init_val_p(0), m_traces( 0 )
         {}
 
-    sc_inout( const char* name_, inout_if_type& interface_ )     
+    sc_inout( const char* name_, inout_if_type& interface_ )
         : base_type( name_, interface_ ), m_init_val_p(0), m_traces( 0 )
         {}
 
@@ -1079,7 +1088,7 @@ class sc_inout<sc_dt::sc_uint<W> > :
         {}
 
     sc_inout( const char* name_, inout_port_type& parent_ )
-        : base_type( name_, parent_ ), m_init_val_p(0), m_traces( 0 )  
+        : base_type( name_, parent_ ), m_init_val_p(0), m_traces( 0 )
         {}
 
     sc_inout( this_type& parent_ )
@@ -1104,9 +1113,9 @@ class sc_inout<sc_dt::sc_uint<W> > :
         { return (*this)->read()[i]; }
     sc_dt::sc_uint_bitref_r bit( int i ) const
         { return (*this)->read()[i]; }
-    sc_uint_sigref& operator [] ( int i ) 
+    sc_uint_sigref& operator [] ( int i )
         { return (*this)->select_part(i,i); }
-    sc_uint_sigref& bit( int i ) 
+    sc_uint_sigref& bit( int i )
         { return (*this)->select_part(i,i); }
     sc_dt::sc_uint_subref_r operator () ( int left, int right ) const
         { return (*this)->read()(left,right); }
@@ -1192,14 +1201,14 @@ class sc_inout<sc_dt::sc_uint<W> > :
             }
         }
 
-    virtual inline const char* kind() const 
+    virtual inline const char* kind() const
         { return "sc_inout"; }
 
     // value initialization
 
     inline void initialize( const sc_dt::sc_uint<W>& value_ )
     {
-        inout_if_type* iface = this->get_interface(0);     
+        inout_if_type* iface = this->get_interface(0);
         if( iface != 0 ) {
             iface->write( value_ );
         } else {
@@ -1213,7 +1222,7 @@ class sc_inout<sc_dt::sc_uint<W> > :
 
     // called by sc_trace
     void add_trace( sc_trace_file* tf_, const std::string& name_ ) const
-        { 
+        {
             if( tf_ != 0 ) {
                 if( m_traces == 0 ) {
                     m_traces = new sc_trace_params_vec;
@@ -1229,10 +1238,10 @@ class sc_inout<sc_dt::sc_uint<W> > :
         { return (*this)->read().concat_length( xz_present_p ); }
     virtual inline sc_dt::uint64 concat_get_uint64() const
         { return (*this)->read().concat_get_uint64(); }
-    virtual inline bool concat_get_ctrl( 
+    virtual inline bool concat_get_ctrl(
 	    sc_dt::sc_digit* dst_p, int low_i ) const
         { return (*this)->read().concat_get_ctrl(dst_p, low_i); }
-    virtual inline bool concat_get_data( 
+    virtual inline bool concat_get_data(
 	    sc_dt::sc_digit* dst_p, int low_i ) const
         { return (*this)->read().concat_get_data(dst_p, low_i); }
     virtual inline void concat_set(sc_dt::int64 src, int low_i)
@@ -1324,7 +1333,7 @@ class sc_inout<sc_dt::sc_uint<W> > :
 
 
 SC_TEMPLATE
-inline std::ostream& operator << ( 
+inline std::ostream& operator << (
     std::ostream& os, const sc_inout<sc_dt::sc_uint<W> >& a )
 {
     a.read().print( os );
@@ -1335,7 +1344,7 @@ inline std::ostream& operator << (
 //==============================================================================
 // CLASS sc_out<sc_dt::sc_uint<W> >
 //
-// This class implements an output port whose target acts like an 
+// This class implements an output port whose target acts like an
 // sc_dt::sc_uint<W> data value. This class is a derivation of sc_inout, since
 // output ports are really no different from input/output ports.
 //==============================================================================
@@ -1446,7 +1455,7 @@ class sc_out<sc_dt::sc_uint<W> > : public sc_inout<sc_dt::sc_uint<W> >
 //     left  =  left-most bit in selection.
 //     right =  right-most bit in selection.
 //------------------------------------------------------------------------------
-inline 
+inline
 void sc_uint_sigref::initialize(sc_uint_part_if* if_p, int left, int right)
 {
     m_left = left;
@@ -1472,28 +1481,28 @@ inline void sc_uint_sigref::operator = ( const char* /*v*/ )
 }
 
 inline void sc_uint_sigref:: operator = ( sc_dt::int64 v )
-{ 
-    *this = (sc_dt::uint64)v; 
+{
+    *this = (sc_dt::uint64)v;
 }
 
 inline void sc_uint_sigref:: operator = ( int v )
-{ 
-    *this = (sc_dt::uint64)v; 
+{
+    *this = (sc_dt::uint64)v;
 }
 
 inline void sc_uint_sigref:: operator = ( long v )
-{ 
-    *this = (sc_dt::uint64)v; 
+{
+    *this = (sc_dt::uint64)v;
 }
 
 inline void sc_uint_sigref:: operator = ( unsigned int v )
-{ 
-    *this = (sc_dt::uint64)v; 
+{
+    *this = (sc_dt::uint64)v;
 }
 
 inline void sc_uint_sigref:: operator = ( unsigned long v )
-{ 
-    *this = (sc_dt::uint64)v; 
+{
+    *this = (sc_dt::uint64)v;
 }
 
 void sc_uint_sigref::operator = ( const sc_uint_sigref& v )
@@ -1503,20 +1512,24 @@ void sc_uint_sigref::operator = ( const sc_uint_sigref& v )
 
 template<typename T>
 inline void sc_uint_sigref:: operator = ( const sc_dt::sc_generic_base<T>& v )
-{ 
-    *this = v->to_uint64(); 
+{
+    *this = v->to_uint64();
 }
 
 inline void sc_uint_sigref:: operator = ( const sc_dt::sc_signed& v )
-{ 
-    *this = v.to_uint64(); 
+{
+    *this = v.to_uint64();
 }
 
 inline void sc_uint_sigref:: operator = ( const sc_dt::sc_unsigned& v )
-{ 
-    *this = v.to_uint64(); 
+{
+    *this = v.to_uint64();
 }
 
 #undef SC_TEMPLATE
 } // namespace sc_core
+#if defined(__clang__) || \
+   (defined(__GNUC__) && ((__GNUC__ * 1000 + __GNUC_MINOR__) >= 4006))
+#pragma GCC diagnostic pop
+#endif
 #endif // !defined(SC_SIGNAL_UINT_H)

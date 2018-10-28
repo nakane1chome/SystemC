@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -54,7 +56,7 @@ class sc_process_b;
 // execution object will be kept to provide the semantics when the process is 
 // scheduled for execution. The () operator does not return a value. An example 
 // of an object that might be used for this helper function would be void 
-// SC_BOOST bound function or method. 
+// sc_bind bound function or method.
 //
 // This class is derived from sc_process_host and overloads 
 // sc_process_host::semantics to provide the actual semantic content. 
@@ -95,7 +97,7 @@ class sc_spawn_object : public sc_process_host {
 //
 // This inline function spawns a process for execution. The execution semantics 
 // for the process being spawned will be provided by the supplied object 
-// instance via its () operator. (E.g., a SC_BOOST bound function) 
+// instance via its () operator. (E.g., an sc_bind bound function)
 // After creating the process it is registered with the simulator.
 //     object   =   object instance providing the execution semantics via its 
 //                  () operator.
@@ -145,7 +147,7 @@ inline sc_process_handle sc_spawn(
 // object will be kept to provide the semantics when the process is scheduled 
 // for execution. The () operator returns a value, which will be stored at the 
 // location specified by the supplied pointer. An example of an object that 
-// might be used for this helper function would be valued SC_BOOST bound 
+// might be used for this helper function would be valued sc_bind bound
 // function or method. 
 //
 //   sc_spawn_object_v( typename F::result_type* r_p, T f, const char* name_p,
@@ -172,7 +174,7 @@ inline sc_process_handle sc_spawn(
 //
 // This inline function spawns a process for execution. The execution semantics 
 // for the process being spawned will be provided by the supplied object 
-// instance via its () operator. (E.g., a SC_BOOST bound function) That 
+// instance via its () operator. (E.g., an sc_bind bound function) That
 // operator returns a value, which will be placed in the supplied return 
 // location. 
 // After creating the process it is registered with the simulator.

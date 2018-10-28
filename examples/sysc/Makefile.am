@@ -1,17 +1,19 @@
 ## ****************************************************************************
 ##
-##  The following code is derived, directly or indirectly, from the SystemC
-##  source code Copyright (c) 1996-2014 by all Contributors.
-##  All Rights reserved.
+##  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+##  more contributor license agreements.  See the NOTICE file distributed
+##  with this work for additional information regarding copyright ownership.
+##  Accellera licenses this file to you under the Apache License, Version 2.0
+##  (the "License"); you may not use this file except in compliance with the
+##  License.  You may obtain a copy of the License at
 ##
-##  The contents of this file are subject to the restrictions and limitations
-##  set forth in the SystemC Open Source License (the "License");
-##  You may not use this file except in compliance with such restrictions and
-##  limitations. You may obtain instructions on how to receive a copy of the
-##  License at http://www.accellera.org/. Software distributed by Contributors
-##  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-##  ANY KIND, either express or implied. See the License for the specific
-##  language governing rights and limitations under the License.
+##   http://www.apache.org/licenses/LICENSE-2.0
+##
+##  Unless required by applicable law or agreed to in writing, software
+##  distributed under the License is distributed on an "AS IS" BASIS,
+##  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+##  implied.  See the License for the specific language governing
+##  permissions and limitations under the License.
 ##
 ## ****************************************************************************
 ##
@@ -47,9 +49,6 @@ check_PROGRAMS = $(examples_TESTS)
 syscexamplesdir = $(examplesdir)/sysc
 
 examples_FILES = \
-	Makefile.all \
-	Makefile.config \
-	Makefile.rules \
 	README.txt \
 	\
 	fft/README
@@ -96,6 +95,7 @@ include 2.1/specialized_signals/test.am
 
 include 2.3/sc_rvd/test.am
 include 2.3/sc_ttd/test.am
+include 2.3/simple_async/test.am
 
 ## ************************************************************************
 
@@ -106,7 +106,28 @@ nobase_syscexamples_DATA = \
 endif
 
 EXTRA_DIST += \
-	$(examples_FILES)
+	$(examples_FILES) \
+	CMakeLists.txt \
+	2.1/dpipe/CMakeLists.txt \
+	2.1/forkjoin/CMakeLists.txt \
+	2.1/reset_signal_is/CMakeLists.txt \
+	2.1/sc_export/CMakeLists.txt \
+	2.1/sc_report/CMakeLists.txt \
+	2.1/scx_barrier/CMakeLists.txt \
+	2.1/scx_mutex_w_policy/CMakeLists.txt \
+	2.1/specialized_signals/CMakeLists.txt \
+	2.3/sc_rvd/CMakeLists.txt \
+	2.3/sc_ttd/CMakeLists.txt \
+	fft/fft_flpt/CMakeLists.txt \
+	fft/fft_fxpt/CMakeLists.txt \
+	fir/CMakeLists.txt \
+	pipe/CMakeLists.txt \
+	pkt_switch/CMakeLists.txt \
+	risc_cpu/CMakeLists.txt \
+	rsa/CMakeLists.txt \
+	simple_bus/CMakeLists.txt \
+	simple_fifo/CMakeLists.txt \
+	simple_perf/CMakeLists.txt
 
 CLEANFILES += \
 	$(examples_CLEAN) \

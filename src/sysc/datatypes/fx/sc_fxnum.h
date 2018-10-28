@@ -1,17 +1,19 @@
 /*****************************************************************************
 
-  The following code is derived, directly or indirectly, from the SystemC
-  source code Copyright (c) 1996-2014 by all Contributors.
-  All Rights reserved.
+  Licensed to Accellera Systems Initiative Inc. (Accellera) under one or
+  more contributor license agreements.  See the NOTICE file distributed
+  with this work for additional information regarding copyright ownership.
+  Accellera licenses this file to you under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with the
+  License.  You may obtain a copy of the License at
 
-  The contents of this file are subject to the restrictions and limitations
-  set forth in the SystemC Open Source License (the "License");
-  You may not use this file except in compliance with such restrictions and
-  limitations. You may obtain instructions on how to receive a copy of the
-  License at http://www.accellera.org/. Software distributed by Contributors
-  under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
-  ANY KIND, either express or implied. See the License for the specific
-  language governing rights and limitations under the License.
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied.  See the License for the specific language governing
+  permissions and limitations under the License.
 
  *****************************************************************************/
 
@@ -58,6 +60,7 @@
 #define SC_FXNUM_H
 
 
+#include "sysc/kernel/sc_cmnhdr.h"
 #include "sysc/datatypes/bit/sc_lv_base.h"
 #include "sysc/datatypes/fx/sc_fxval.h"
 #include "sysc/datatypes/fx/scfx_params.h"
@@ -90,7 +93,7 @@ class sc_fxnum_fast;
 
 */
 
-class sc_fxnum_bitref
+class SC_API sc_fxnum_bitref
 {
     friend class sc_fxnum;
     friend class sc_fxnum_fast_bitref;
@@ -161,7 +164,7 @@ private:
 
 */
 
-class sc_fxnum_fast_bitref
+class SC_API sc_fxnum_fast_bitref
 {
     friend class sc_fxnum_fast;
     friend class sc_fxnum_bitref;
@@ -233,7 +236,7 @@ private:
   behaves like sc_bv_base.
 */
 
-class sc_fxnum_subref
+class SC_API sc_fxnum_subref
 {
     friend class sc_fxnum;
     friend class sc_fxnum_fast_subref;
@@ -396,7 +399,7 @@ private:
   behaves like sc_bv_base.
 */
 
-class sc_fxnum_fast_subref
+class SC_API sc_fxnum_fast_subref
 {
     friend class sc_fxnum_fast;
     friend class sc_fxnum_subref;
@@ -558,7 +561,7 @@ private:
 
 */
 
-class sc_fxnum
+class SC_API sc_fxnum
 {
     friend class sc_fxval;
 
@@ -985,7 +988,7 @@ private:
 
 */
 
-class sc_fxnum_fast
+class SC_API sc_fxnum_fast
 {
     friend class sc_fxval_fast;
 
@@ -3430,7 +3433,7 @@ short
 sc_fxnum::to_short() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<short>( m_rep->to_double() );
+    return static_cast<short>( m_rep->to_uint64() );
 }
 
 inline
@@ -3438,7 +3441,7 @@ unsigned short
 sc_fxnum::to_ushort() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<unsigned short>( m_rep->to_double() );
+    return static_cast<unsigned short>( m_rep->to_uint64() );
 }
 
 inline
@@ -3446,7 +3449,7 @@ int
 sc_fxnum::to_int() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<int>( m_rep->to_double() );
+    return static_cast<int>( m_rep->to_uint64() );
 }
 
 inline
@@ -3454,7 +3457,7 @@ int64
 sc_fxnum::to_int64() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<int64>( m_rep->to_double() );
+    return static_cast<int64>( m_rep->to_uint64() );
 }
 
 inline
@@ -3462,7 +3465,7 @@ unsigned int
 sc_fxnum::to_uint() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<unsigned int>( m_rep->to_double() );
+    return static_cast<unsigned int>( m_rep->to_uint64() );
 }
 
 inline
@@ -3470,7 +3473,7 @@ uint64
 sc_fxnum::to_uint64() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<uint64>( m_rep->to_double() );
+    return m_rep->to_uint64();
 }
 
 inline
@@ -3478,7 +3481,7 @@ long
 sc_fxnum::to_long() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<long>( m_rep->to_double() );
+    return static_cast<long>( m_rep->to_uint64() );
 }
 
 inline
@@ -3486,7 +3489,7 @@ unsigned long
 sc_fxnum::to_ulong() const
 {
     SC_FXNUM_OBSERVER_READ_( *this )
-    return static_cast<unsigned long>( m_rep->to_double() );
+    return static_cast<unsigned long>( m_rep->to_uint64() );
 }
 
 inline
@@ -4548,64 +4551,81 @@ inline
 short
 sc_fxnum_fast::to_short() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<short>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<short>( to_uint64() );
 }
 
 inline
 unsigned short
 sc_fxnum_fast::to_ushort() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<unsigned short>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<unsigned short>( to_uint64() );
 }
 
 inline
 int
 sc_fxnum_fast::to_int() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<int>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<int>( to_uint64() );
 }
 
 inline
 int64
 sc_fxnum_fast::to_int64() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<int64>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<int64>( to_uint64() );
 }
 
 inline
 unsigned int
 sc_fxnum_fast::to_uint() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<unsigned int>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<unsigned int>( to_uint64() );
 }
 
 inline
 uint64
 sc_fxnum_fast::to_uint64() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<uint64>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in is_normal
+    if (!is_normal())
+    {
+        return 0;
+    }
+
+    int exponent;
+    double mantissa_dbl = frexp(m_val, &exponent);
+
+    uint64 mantissa = static_cast<uint64>(fabs(mantissa_dbl) * (UINT64_ONE << 53));
+    exponent -= 53;
+
+    if (!(-64 < exponent && exponent < 64))
+    {
+        return 0;
+    }
+
+    mantissa = exponent >= 0 ? mantissa << exponent : mantissa >> -exponent;
+    return mantissa_dbl >= 0 ? mantissa : -mantissa;
 }
 
 inline
 long
 sc_fxnum_fast::to_long() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<long>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<long>( to_uint64() );
 }
 
 inline
 unsigned long
 sc_fxnum_fast::to_ulong() const
 {
-    SC_FXNUM_FAST_OBSERVER_READ_( *this )
-    return static_cast<unsigned long>( m_val );
+    // SC_FXNUM_FAST_OBSERVER_READ_ in to_uint64
+    return static_cast<unsigned long>( to_uint64() );
 }
 
 inline
@@ -4739,7 +4759,7 @@ inline
 void
 sc_fxnum_fast::observer_read() const
 {
-    SC_FXNUM_OBSERVER_READ_( *this );
+    SC_FXNUM_FAST_OBSERVER_READ_( *this );
 }
 
 
