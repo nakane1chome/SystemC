@@ -1,0 +1,3 @@
+[submodule "src/sysc/packages/SystemC-QuickThreads"]
+	path = src/sysc/packages/qt
+	url = https://github.com/philmulholland/SystemC-QuickThreads.git
